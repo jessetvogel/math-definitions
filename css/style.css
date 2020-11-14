@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'Computer-Modern';
+    src: url('../fonts/cmunrm.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Computer-Modern';
+    src: url('../fonts/cmunbx.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Computer-Modern';
+    src: url('../fonts/cmunti.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Computer-Modern';
+    src: url('../fonts/cmunbi.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #fbfaf5;
+    font-family: 'Computer-Modern';
+}
+
+header {
+    height: 128px;
+    margin-top: 32px;
+}
+
+#search-bar {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 512px;
+    max-width: 100%;
+    height: 40px;
+}
+
+#search-bar > div {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+}
+
+#search-bar input {
+    width: 100%;
+    height: 40px;
+    border: 0;
+    outline: none;
+    padding-left: 8px;
+    font-family: 'Computer-Modern';
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#auto-complete-list {
+    width: 100%;
+    background-color: white;
+}
+
+#auto-complete-list > div {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#auto-complete-list span.topic {
+    color: #555555;
+}
+
+#auto-complete-list span.topic b {
+    color: #222222;
+}
+
+#auto-complete-list span.identifier {
+    display: none;
+}
+
+#auto-complete-list span.category {
+    color: #48b532;
+}
+
+#auto-complete-list span.category::before {
+    content: '(';
+}
+
+#auto-complete-list span.category::after {
+    content: ')';
+}
+
+
+
+
+
+
+
+#auto-complete-list > div.focus {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+#content {
+    width: 800px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ol, ul {
+    padding-left: 20px;
+}
+
+li {
+    margin: 12px 0px;
+}
+
+span.math.inline {
+    display: contents;
+}
+
+a {
+    color: #3280b5;
+    text-decoration: none;
+}

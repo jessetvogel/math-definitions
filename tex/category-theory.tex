@@ -1,0 +1,102 @@
+\begin{topic}{category}{category}
+    A \textbf{category} $\mathcal{C}$ is given by a collection of \textit{objects} and \textit{morphisms}.
+    \begin{itemize}
+        \item Each morphism has a \textit{domain} and \textit{codomain}, which are objects. We write $f : X \to Y$ or $X \overset{f}{\to} Y$ if $X$ is the domain of $f$ and $Y$ the codomain. We also write $X = \text{dom}(X)$ and $Y = \text{cod}(Y)$.
+        
+        \item Given two morphisms $f$ and $g$ such that $\text{cod}(f) = \text{dom}(g)$, the \textbf{composition} of $f$ and $g$, written $gf$, is defined and has domain $\text{dom}(f)$ and codomain $\text{cod}(g)$.
+        
+        \item Composition is associative, i.e. $(fg)h = f(gh)$.
+        
+        \item For every object $X$ there is an \textit{identity} morphism $\id_X : X \to X$ satisfying $f \id_X = f$ and $\id_X g = g$ for all $f, g$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{functor}{functor}
+    Given two categories $\mathcal{C}$ and $\mathcal{D}$, a \textbf{functor} $F : \mathcal{C} \to \mathcal{D}$ assigns an object (resp. a morphism) in $\mathcal{D}$ to each object (resp. morphism) in $\mathcal{C}$, such that
+    \begin{itemize}
+        \item $F(f) : F(X) \to F(Y)$ for each $f : X \to Y$,
+        \item $F(gf) = F(g) F(f)$,
+        \item $F(\id_X) = \id_{F(X)}$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{monomorphism}{monomorphism}
+    A morphism $f : X \to Y$ in a category $\mathcal{C}$ is a \textbf{monomorphism} if $f \circ g = f \circ h$ implies $g = h$.
+    \[ \begin{tikzcd} W \arrow[shift left=0.25em]{r}{g} \arrow[shift right=0.25em, swap]{r}{h} & X \arrow{r}{f} & Y \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{epimorphism}{epimorphism}
+    A morphism $f : X \to Y$ in a category $\mathcal{C}$ is a \textbf{epimorphism} if $g \circ f = h \circ f$ implies $g = h$.
+    \[ \begin{tikzcd} X \arrow{r}{f} & Y \arrow[shift left=0.25em]{r}{g} \arrow[shift right=0.25em, swap]{r}{h} & Z \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{split-monomorphism}{split monomorphism}
+    A morphism $f : X \to Y$ is a \textbf{split monomorphism} if there exists a $g : Y \to X$ such that $gf = \id_X$. That is, it has a left-inverse. In particular, it is an \tref{monomorphism}.
+    \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} & Y \arrow[shift left=0.25em]{l}{g} \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{split-epimorphism}{split epimorphism}
+    A morphism $f : X \to Y$ is a \textbf{split epimorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$. That is, it has a right-inverse. In particular, it is an \tref{epimorphism}.
+    \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} & Y \arrow[shift left=0.25em]{l}{g} \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{isomorphism}{isomorphism}
+    A morphism $f : X \to Y$ is an \textbf{isomorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$ and $gf = \id_X$. We call $g$ the \textbf{inverse} of $f$ and write $g = f^{-1}$. If it exists, it is unique.
+\end{topic}
+
+\begin{topic}{terminal}{terminal}
+    An object $X$ in a \tref{category} $\mathcal{C}$ is called \textbf{terminal} if for any object $Y$ there is exactly one morphism $Y \to X$. Any two terminal objects are isomorphic.
+\end{topic}
+
+\begin{topic}{initial}{initial}
+    An object $X$ in a \tref{category} $\mathcal{C}$ is called \textbf{initial} if for any object $Y$ there is exactly one morphism $X \to Y$. Any two initial objects are isomorphic.
+\end{topic}
+
+\begin{topic}{full}{full}
+    A \tref{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
+    \[ F : \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\mathcal{D}}(F(X), F(Y)) \]
+    is surjective.
+\end{topic}
+
+\begin{topic}{faithful}{faithful}
+    A \tref{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
+    \[ F : \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\mathcal{D}}(F(X), F(Y)) \]
+    is injective.
+\end{topic}
+
+\begin{topic}{natural-transformation}{natural transformation}
+    A \textbf{natural transformation} between two functors $F, G : \mathcal{C} \to \mathcal{D}$ consists of a collection of morphisms $\mu_X : F(X) \to G(X)$ for each object $C$ in $\mathcal{C}$, such that for each $f : X \to Y$ the diagram
+    \[ \begin{tikzcd} F(X) \arrow{r}{\mu_X} \arrow[swap]{d}{F(f)} & G(X) \arrow{d}{G(f)} \\ F(Y) \arrow[swap]{r}{\mu_Y} & G(Y) \end{tikzcd} \]
+    commutes. We denote this by $\mu : F \Rightarrow G$.
+\end{topic}
+
+\begin{topic}{yoneda-embedding}{Yoneda embedding}
+    Let $\mathcal{C}$ be a \tref{category}. The \textbf{Yoneda embedding} is the functor
+    \[ y_{(-)} : \mathcal{C} \to \text{Set}^{\mathcal{C}^\text{op}} \]
+    given by $y_X(Y) = \Hom_{\mathcal{C}}(Y, X)$.
+\end{topic}
+
+\begin{topic}{yoneda-lemma}{Yoneda lemma}
+    Let $\mathcal{C}$ be a \tref{category}, and write $y_X = \Hom_{\mathcal{C}}(-, X)$. The \textbf{Yoneda lemma} states that for every $F : \mathcal{C}^\text{op} \to \text{Set}$ and $X$ in $\mathcal{C}$ there is a bijection
+    \[ \Hom(y_X, F) \xrightarrow{\sim} F(X)  \]
+    natural in $X$ and $F$. As a consequence, the \tref{yoneda-embedding}
+    \[ y_{(-)} : \mathcal{C} \to \text{Set}^{\mathcal{C}^\text{op}} \]
+    is \tref{full} and \tref{faithful}.
+\end{topic}
+
+\begin{topic}{groupoid}{groupoid}
+    A \textbf{groupoid} is a category where every morphism is an isomorphism.
+\end{topic}
+
+\begin{topic}{equivalence-of-categories}{equivalence of categories}
+    A \tref{functor} $F : \mathcal{C} \Rightarrow \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \Rightarrow \mathcal{C}$ and natural isomorphisms $\mu : F \Rightarrow G$ and $\nu : G \Rightarrow F$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
+\end{topic}
+
+\begin{topic}{essentially-surjective}{essentially surjective}
+    A \tref{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{essentially surjective} if each object in $\mathcal{D}$ is isomorphic to $F(X)$ for some $X$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{equalizer}{equalizer}
+    [...]
+\end{topic}
+
