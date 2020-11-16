@@ -1,5 +1,5 @@
 var categories = {
     "CT": "Category Theory",
-    "AC": "Commutative Algebra",
+    "CA": "Commutative Algebra",
     "LA": "Linear Algebra"
 };

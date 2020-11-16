@@ -1,0 +1,6 @@
+\documentclass{standalone}
+\usepackage{tikz-cd}
+\newcommand{\Hom}{\textup{Hom}}
+\begin{document}
+$\displaystyle  \begin{tikzcd}[row sep=3em] \Hom_{\mathcal{D}}(F(C), D) \arrow{r} & \Hom_{\mathcal{C}}(C, G(D)) \\ \Hom_{\mathcal{D}}(F(C'), D') \arrow{r} \arrow{u}{g \circ (-) \circ F(f)} & \Hom_{\mathcal{C}}(C', G(D')) \arrow[swap]{u}{G(g) \circ (-) \circ f} \end{tikzcd} $
+\end{document}

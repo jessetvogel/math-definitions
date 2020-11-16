@@ -1,0 +1,6 @@
+
+    Let <span class="math inline">\(F : \mathcal{C} \to \mathcal{D}\)</span> and <span class="math inline">\(G : \mathcal{D} \to \mathcal{C}\)</span> be a pair of functors. We say that <span class="math inline">\(F\)</span> is <b>left adjoint</b> to <span class="math inline">\(G\)</span>, or <span class="math inline">\(G\)</span> is <b>right adjoint</b> to <span class="math inline">\(F\)</span>, denoted <span class="math inline">\(F \dashv G\)</span>, if there is a natural bijection
+    <span class="math display">\[ \Hom_{\mathcal{D}}(F(C), D) \xrightarrow{\sim} \Hom_{\mathcal{D}}(C, G(D)) \]</span>
+    for each object <span class="math inline">\(C\)</span> in <span class="math inline">\(\mathcal{C}\)</span> and <span class="math inline">\(D\)</span> in <span class="math inline">\(\mathcal{D}\)</span>. Naturality means that for all <span class="math inline">\(f : C \to C'\)</span> in <span class="math inline">\(\mathcal{C}\)</span> and <span class="math inline">\(g : D' \to D\)</span> in <span class="math inline">\(\mathcal{D}\)</span>, the following square commutes.
+    <img class="display-math-svg" src="data/svg/2fb0c078039e7366219f5291278f8e75a5757ae6.svg" alt />
+    Two maps <span class="math inline">\(f : F(C) \to D\)</span> and <span class="math inline">\(g : C \to G(D)\)</span> which correspond to each other are called <i>transposes</i>.

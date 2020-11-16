@@ -151,3 +151,12 @@ a {
     color: #3280b5;
     text-decoration: none;
 }
+
+img.display-math-svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    scale: 1.25;
+}

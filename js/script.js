@@ -75,6 +75,13 @@ function initAutoComplete() {
             autoCompleteList.appendChild(item);
             autoCompleteNumItems ++;
         }
+
+        if(autoCompleteNumItems == 0) {
+            let item = document.createElement('div');
+            item.innerHTML = '<span style="color: rgba(0, 0, 0, 0.5);">no results</span>';
+            autoCompleteList.appendChild(item);
+        }
+
     });
 
     autoCompleteInput.addEventListener('keydown', function(e) {

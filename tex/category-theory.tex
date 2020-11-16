@@ -30,13 +30,13 @@
     \[ \begin{tikzcd} X \arrow{r}{f} & Y \arrow[shift left=0.25em]{r}{g} \arrow[shift right=0.25em, swap]{r}{h} & Z \end{tikzcd} \]
 \end{topic}
 
-\begin{topic}{split-monomorphism}{split monomorphism}
-    A morphism $f : X \to Y$ is a \textbf{split monomorphism} if there exists a $g : Y \to X$ such that $gf = \id_X$. That is, it has a left-inverse. In particular, it is an \tref{monomorphism}.
+\begin{topic}{split-mono}{split monomorphism}
+    A morphism $f : X \to Y$ is a \textbf{split monomorphism} if there exists a $g : Y \to X$ such that $gf = \id_X$. That is, it has a left-inverse. In particular, it is an \tref{monomorphism}{monomorphism}.
     \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} & Y \arrow[shift left=0.25em]{l}{g} \end{tikzcd} \]
 \end{topic}
 
-\begin{topic}{split-epimorphism}{split epimorphism}
-    A morphism $f : X \to Y$ is a \textbf{split epimorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$. That is, it has a right-inverse. In particular, it is an \tref{epimorphism}.
+\begin{topic}{split-epi}{split epimorphism}
+    A morphism $f : X \to Y$ is a \textbf{split epimorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$. That is, it has a right-inverse. In particular, it is an \tref{epimorphism}{epimorphism}.
     \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} & Y \arrow[shift left=0.25em]{l}{g} \end{tikzcd} \]
 \end{topic}
 
@@ -45,21 +45,21 @@
 \end{topic}
 
 \begin{topic}{terminal}{terminal}
-    An object $X$ in a \tref{category} $\mathcal{C}$ is called \textbf{terminal} if for any object $Y$ there is exactly one morphism $Y \to X$. Any two terminal objects are isomorphic.
+    An object $X$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{terminal} if for any object $Y$ there is exactly one morphism $Y \to X$. Any two terminal objects are isomorphic.
 \end{topic}
 
 \begin{topic}{initial}{initial}
-    An object $X$ in a \tref{category} $\mathcal{C}$ is called \textbf{initial} if for any object $Y$ there is exactly one morphism $X \to Y$. Any two initial objects are isomorphic.
+    An object $X$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{initial} if for any object $Y$ there is exactly one morphism $X \to Y$. Any two initial objects are isomorphic.
 \end{topic}
 
 \begin{topic}{full}{full}
-    A \tref{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
     \[ F : \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\mathcal{D}}(F(X), F(Y)) \]
     is surjective.
 \end{topic}
 
 \begin{topic}{faithful}{faithful}
-    A \tref{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
     \[ F : \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\mathcal{D}}(F(X), F(Y)) \]
     is injective.
 \end{topic}
@@ -71,17 +71,17 @@
 \end{topic}
 
 \begin{topic}{yoneda-embedding}{Yoneda embedding}
-    Let $\mathcal{C}$ be a \tref{category}. The \textbf{Yoneda embedding} is the functor
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Yoneda embedding} is the functor
     \[ y_{(-)} : \mathcal{C} \to \text{Set}^{\mathcal{C}^\text{op}} \]
     given by $y_X(Y) = \Hom_{\mathcal{C}}(Y, X)$.
 \end{topic}
 
 \begin{topic}{yoneda-lemma}{Yoneda lemma}
-    Let $\mathcal{C}$ be a \tref{category}, and write $y_X = \Hom_{\mathcal{C}}(-, X)$. The \textbf{Yoneda lemma} states that for every $F : \mathcal{C}^\text{op} \to \text{Set}$ and $X$ in $\mathcal{C}$ there is a bijection
+    Let $\mathcal{C}$ be a \tref{category}{category}, and write $y_X = \Hom_{\mathcal{C}}(-, X)$. The \textbf{Yoneda lemma} states that for every $F : \mathcal{C}^\text{op} \to \text{Set}$ and $X$ in $\mathcal{C}$ there is a bijection
     \[ \Hom(y_X, F) \xrightarrow{\sim} F(X)  \]
-    natural in $X$ and $F$. As a consequence, the \tref{yoneda-embedding}
+    natural in $X$ and $F$. As a consequence, the \tref{yoneda-embedding}{Yoneda embedding}
     \[ y_{(-)} : \mathcal{C} \to \text{Set}^{\mathcal{C}^\text{op}} \]
-    is \tref{full} and \tref{faithful}.
+    is \tref{full}{full} and \tref{faithful}{faithful}.
 \end{topic}
 
 \begin{topic}{groupoid}{groupoid}
@@ -89,14 +89,37 @@
 \end{topic}
 
 \begin{topic}{equivalence-of-categories}{equivalence of categories}
-    A \tref{functor} $F : \mathcal{C} \Rightarrow \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \Rightarrow \mathcal{C}$ and natural isomorphisms $\mu : F \Rightarrow G$ and $\nu : G \Rightarrow F$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
+    A \tref{functor}{functor} $F : \mathcal{C} \Rightarrow \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \Rightarrow \mathcal{C}$ and natural isomorphisms $\mu : F \Rightarrow G$ and $\nu : G \Rightarrow F$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
 \end{topic}
 
 \begin{topic}{essentially-surjective}{essentially surjective}
-    A \tref{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{essentially surjective} if each object in $\mathcal{D}$ is isomorphic to $F(X)$ for some $X$ in $\mathcal{C}$.
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{essentially surjective} if each object in $\mathcal{D}$ is isomorphic to $F(X)$ for some $X$ in $\mathcal{C}$.
 \end{topic}
 
 \begin{topic}{equalizer}{equalizer}
-    [...]
+    Let $f, g : X \to Y$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $E$ of $\mathcal{C}$ together with morphism $e : E \to X$ is said to be an \textbf{equalizer} of the pair $f, g$ if $fe = ge$ and for any other such $e' : E' \to X$ there exists a unique morphism $h : E' \to E$ such that $e' = eh$.
+    \[ \begin{tikzcd} E \arrow{r}{e} & X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \\ E' \arrow[dashed]{u}{\exists!} \arrow[swap]{ur}{e'} && \end{tikzcd} \]
 \end{topic}
 
+\begin{topic}{coequalizer}{coequalizer}
+    Let $f, g : X \to Y$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $Q$ of $\mathcal{C}$ together with morphism $q : Y \to Q$ is said to be a \textbf{coequalizer} of the pair $f, g$ if $qf = qg$ and for any other such $q' : Y \to Q'$ there exists a unique morphism $h : Q \to Q'$ such that $q' = hq$.
+    \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow{r}{q} \arrow[swap]{dr}{q'} & Q \arrow[dashed]{d}{\exists!} \\ && Q' \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{fiber-product}{fiber product}
+    Let $f : X \to Z$ and $g : Y \to Z$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $W$ of $\mathcal{C}$ together with morphisms $\pi_X: W \to X$ and $\pi_Y : W \to Y$ is said to be a \textbf{fiber product} of the pair $f, g$ if $f \pi_X = g \pi_Y$ and for any other such $W'$ with maps $\pi_X'$ and $\pi_Y'$ there exists a unique morphism $h : W' \to W$ such that $\pi_X' = \pi_X h$ and $\pi_Y' = \pi_Y h$.
+    \[ \begin{tikzcd} W' \arrow[bend left=30]{rrd}{\pi_X'} \arrow[swap, bend right=30]{ddr}{\pi_Y'} \arrow[dashed]{rd}{\exists!} & & \\ & W \arrow{r}{\pi_X} \arrow[swap]{d}{\pi_Y} & X \arrow{d}{f} \\ & Y \arrow[swap]{r}{g} & Z \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{regular-mono}{regular monomorphism}
+    A \tref{monomorphism}{monomorphism} $f : X \to Y$ is called a \textbf{regular monomorphism} if fits into an equalizer diagram:
+    \[ \begin{tikzcd} X \arrow{r}{f} & Y \arrow[shift left=0.25em]{r} \arrow[shift right=0.25em]{r} & Z \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{adjoint}{adjoint}
+    Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be a pair of functors. We say that $F$ is \textbf{left adjoint} to $G$, or $G$ is \textbf{right adjoint} to $F$, denoted $F \dashv G$, if there is a natural bijection
+    \[ \Hom_{\mathcal{D}}(F(C), D) \xrightarrow{\sim} \Hom_{\mathcal{D}}(C, G(D)) \]
+    for each object $C$ in $\mathcal{C}$ and $D$ in $\mathcal{D}$. Naturality means that for all $f : C \to C'$ in $\mathcal{C}$ and $g : D' \to D$ in $\mathcal{D}$, the following square commutes.
+    \[ \begin{tikzcd}[row sep=3em] \Hom_{\mathcal{D}}(F(C), D) \arrow{r} & \Hom_{\mathcal{C}}(C, G(D)) \\ \Hom_{\mathcal{D}}(F(C'), D') \arrow{r} \arrow{u}{g \circ (-) \circ F(f)} & \Hom_{\mathcal{C}}(C', G(D')) \arrow[swap]{u}{G(g) \circ (-) \circ f} \end{tikzcd} \]
+    Two maps $f : F(C) \to D$ and $g : C \to G(D)$ which correspond to each other are called \textit{transposes}.
+\end{topic}

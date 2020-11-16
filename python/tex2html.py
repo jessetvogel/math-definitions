@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[59]:
 
 
 import re
+import os
+import hashlib
+from tex2svg import tex2svg
 
 
-# In[2]:
+# In[60]:
 
 
 class Scanner():
@@ -28,7 +31,7 @@ class Scanner():
         return c
 
 
-# In[3]:
+# In[61]:
 
 
 class Token:
@@ -47,7 +50,7 @@ class Token:
         self.data = data
 
 
-# In[4]:
+# In[62]:
 
 
 class Lexer():
@@ -139,7 +142,7 @@ class Lexer():
             return token
 
 
-# In[5]:
+# In[72]:
 
 
 class Parser:
@@ -178,9 +181,10 @@ class Parser:
     
     def parse(self, tex_file):        
         # Create Scanner & Lexer
-        self.scanner = Scanner(tex_file)
+        self.scanner = Scanner(open(tex_file, 'r'))
         self.lexer = Lexer(self.scanner)
-
+        self.current_token = None
+        
         # Keep parsing topics until end of file (ignoring newlines)
         self.omit_whitespace()
         while not self.found(Token.T_EOF):
@@ -311,7 +315,14 @@ class Parser:
         while not self.found(Token.T_SEPARATOR, '\\]'):
             s += self.consume().data
         self.consume()
-        self.output.write('<span class="math display">\\[' + s + '\\]</span>')
+        
+        if 'tikzcd' not in s:
+            self.output.write('<span class="math display">\\[' + s + '\\]</span>')
+        else:
+            svg = self.math_to_svg(s)
+            if svg == False:
+                raise Exception('failed to compile display math')
+            self.output.write('<img class="display-math-svg" src="data/{}" alt />'.format(svg))
         
     def parse_textbf(self):
         self.consume(Token.T_COMMAND, '\\textbf')
@@ -334,16 +345,52 @@ class Parser:
         self.consume(Token.T_SEPARATOR, '{')
         identifier = self.consume(Token.T_TEXT).data
         self.consume(Token.T_SEPARATOR, '}')
+        self.consume(Token.T_SEPARATOR, '{')
+        text = self.consume(Token.T_TEXT).data
+        self.consume(Token.T_SEPARATOR, '}')
 
         if ':' not in identifier:
             identifier = self.prefix + ':' + identifier
         
-        topic = self.topics[identifier]
-        self.output.write('<a href="javascript:gotoTopic(\'{}\');">{}</a>'.format(identifier, topic))
+        self.output.write('<a href="javascript:gotoTopic(\'{}\');">{}</a>'.format(identifier, text))
+        
+    def math_to_svg(self, tex):
+        # See if the svg has been created before
+        tex_hash = hashlib.sha1(tex.encode()).hexdigest()
+        svg_file_relative = 'svg/' + tex_hash + '.svg'
+        svg_file = self.output_dir + '/' + svg_file_relative
+        if os.path.isfile(svg_file):
+            return svg_file_relative
+
+        # Create tmp directory if not exists
+        tmp_dir = self.output_dir + '/svg/_tmp_'
+        if not os.path.isdir(tmp_dir):
+            os.mkdir(tmp_dir)
+
+        # Create tex file
+        f = open(tmp_dir + '/math.tex', 'w')
+        f.writelines([
+            '\\documentclass{standalone}\n',
+            '\\usepackage{tikz-cd}\n',
+            '\\newcommand{\\Hom}{\\textup{Hom}}\n',
+            '\\begin{document}\n',
+            '$\\displaystyle ' + tex + '$\n',
+            '\\end{document}\n'
+        ])
+        f.close()
+
+        # Create svg
+        try:
+            tex2svg(tmp_dir + '/math.tex', svg_file)
+            return svg_file_relative
+        except:
+            return False
 
 
-# In[ ]:
+# In[64]:
 
 
-
+# parser = Parser('/Users/jessevogel/Projects/math-definitions/data/')
+# parser.set_prefix('CT')
+# parser.parse('/Users/jessevogel/Projects/math-definitions/tex/category-theory.tex')
 
