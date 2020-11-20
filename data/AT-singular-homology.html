@@ -1,0 +1,17 @@
+
+    Let <span class="math inline">\(X\)</span> be a topological space and <span class="math inline">\(A\)</span> an abelian group. A <b>singular <span class="math inline">\(n\)</span>-simplex</b> in <span class="math inline">\(X\)</span> is a continous map
+    <span class="math display">\[ \sigma : \Delta^n \to X , \]</span>
+    where 
+    <span class="math display">\[ \Delta^n = \left\{ (x_0, \ldots, x_n) \in \RR^{n + 1} : \text{all } x_i \ge 0 \text{ and } \sum_{i = 0}^n x_i = 1 \right\} \]</span>
+    denotes the <i>standard <span class="math inline">\(n\)</span>-simplex</i>. The set of all singular <span class="math inline">\(n\)</span>-simplices in <span class="math inline">\(X\)</span> is denoted <span class="math inline">\(\mathcal{S}(X)_n\)</span>.
+    
+    The <b>singular chain complex</b> of <span class="math inline">\(X\)</span> with coefficients in <span class="math inline">\(A\)</span> is given by
+    <span class="math display">\[ C_n(X; A) = A[\mathcal{S}(X)_n] , \]</span>
+    (<span class="math inline">\(C_n(X; A) = 0\)</span> for <span class="math inline">\(n < 0\)</span>) and the differentials <span class="math inline">\(d_n : C_n(X; A) \to C_{n - 1}(X; A)\)</span> are induced from
+    <span class="math display">\[ \mathcal{S}(X)_n \to \mathcal{S}(X)_{n - 1} : \sigma \mapsto \sum_{i = 1}^{n} (-1)^i \; \sigma \circ \delta_i , \]</span>
+    where <span class="math inline">\(\delta_i : \Delta^{n - 1} \to \Delta^n\)</span> maps to the <span class="math inline">\(i\)</span>-th face.
+    
+    The <a href="javascript:gotoTopic('AT:homology-group');">homology groups</a> of <span class="math inline">\(C_\bullet(X; A)\)</span> are called the <b>singular homology groups</b>, and denoted
+    <span class="math display">\[ H_n(X; A) . \]</span>
+    
+    The dual complex is the <b>singular cocomplex</b>.

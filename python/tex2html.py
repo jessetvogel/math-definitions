@@ -63,7 +63,7 @@ class Lexer():
         self.tmp_position = 0
         
     def tokenize(self, expr):
-        if expr in ['{', '}', '\\[', '\\]', '$', '\\&', '\\\\']:
+        if expr in ['{', '}', '\\[', '\\]', '$', '\\&', '\\\\', '\\{', '\\}', '\;']:
             return Token(Token.T_SEPARATOR, self.tmp_line, self.tmp_position, expr)
         
         if re.match(r'\A\\\w+\Z', expr):

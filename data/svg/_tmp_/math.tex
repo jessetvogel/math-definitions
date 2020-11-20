@@ -2,5 +2,5 @@
 \usepackage{tikz-cd}
 \newcommand{\Hom}{\textup{Hom}}
 \begin{document}
-$\displaystyle  \begin{tikzcd}[row sep=3em] \Hom_{\mathcal{D}}(F(C), D) \arrow{r} & \Hom_{\mathcal{C}}(C, G(D)) \\ \Hom_{\mathcal{D}}(F(C'), D') \arrow{r} \arrow{u}{g \circ (-) \circ F(f)} & \Hom_{\mathcal{C}}(C', G(D')) \arrow[swap]{u}{G(g) \circ (-) \circ f} \end{tikzcd} $
+$\displaystyle  \begin{tikzcd} C_n \arrow{r}{f_n} \arrow[swap]{d}{d_n} & D_n \arrow{d}{d_n} \\ C_{n - 1} \arrow[swap]{r}{f_{n - 1}} & D_{n - 1} \end{tikzcd} $
 \end{document}

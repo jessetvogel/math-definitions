@@ -1,0 +1,82 @@
+\begin{topic}{chain-complex}{chain complex}
+    A \textbf{chain complex} $C_\bullet$ is a sequence of abelian groups $C_n$, for $n \in \ZZ$, together with group morphisms $d_n : C_n \to C_{n - 1}$ such that $d_{n - 1} \circ d_n = 0$ for all $n$.
+    \[ \cdots \xrightarrow{d_{n + 2}} C_{n + 1} \xrightarrow{d_{n + 1}} C_n \xrightarrow{d_n} C_{n - 1} \xrightarrow{d_{n - 1}} \cdots \]
+    Elements of $C_n$ are called \textit{$n$-chains}. Elements of $\ker d_n$ are called $n$-cycles. Elements of $\im d_{n + 1}$ are called $n$-boundaries. Note that any $n$-boundary is an $n$-cycle.
+\end{topic}
+
+\begin{topic}{cochain-complex}{cochain complex}
+    A \textbf{cochain complex} $C^\bullet$ is a sequence of abelian groups $C^n$, for $n \in \ZZ$, together with group morphisms $d^n : C^n \to C^{n + 1}$ such that $d^{n + 1} \circ d^n = 0$ for all $n$.
+    \[ \cdots \xrightarrow{d^{n - 2}} C_{n - 1} \xrightarrow{d_{n - 1}} C_n \xrightarrow{d_n} C_{n + 1} \xrightarrow{d_{n + 1}} \cdots \]
+    Elements of $C_n$ are called \textit{$n$-cochains}. Elements of $\ker d_n$ are called $n$-cocycles. Elements of $\im d_{n - 1}$ are called $n$-coboundaries. Note that any $n$-coboundary is an $n$-cocycle.
+\end{topic}
+
+\begin{topic}{chain-map}{chain map}
+    Let $C_\bullet$ and $D_\bullet$ be \tref{chain-complex}{chain complexes}. A morphism between chain complexes $f : C_\bullet \to D_\bullet$, that is a \textbf{chain map}, is given by a sequence of group morphisms $f_n : C_n \to D_n$ such that the following squares commute for all $n \in \ZZ$:
+    \[ \begin{tikzcd} C_n \arrow{r}{f_n} \arrow[swap]{d}{d_n} & D_n \arrow{d}{d_n} \\ C_{n - 1} \arrow[swap]{r}{f_{n - 1}} & D_{n - 1} \end{tikzcd} \]
+    
+    Note that chain maps induce group morphisms on the \tref{homology-group}{homology groups}, $H_n(C_\bullet) \to H_n(D_\bullet)$.
+\end{topic}
+
+\begin{topic}{homology-group}{homology group}
+    Let $C_\bullet$ be a \tref{chain-complex}{chain complex}. The quotient
+    \[ H_n(C_\bullet) = \ker d_n / \im d_{n + 1} \]
+    is called the \textbf{$n$-th homology group} of $C_\bullet$.
+\end{topic}
+
+\begin{topic}{singular-homology}{singular homology}
+    Let $X$ be a topological space and $A$ an abelian group. A \textbf{singular $n$-simplex} in $X$ is a continous map
+    \[ \sigma : \Delta^n \to X , \]
+    where 
+    \[ \Delta^n = \left\{ (x_0, \ldots, x_n) \in \RR^{n + 1} : \text{all } x_i \ge 0 \text{ and } \sum_{i = 0}^n x_i = 1 \right\} \]
+    denotes the \textit{standard $n$-simplex}. The set of all singular $n$-simplices in $X$ is denoted $\mathcal{S}(X)_n$.
+    
+    The \textbf{singular chain complex} of $X$ with coefficients in $A$ is given by
+    \[ C_n(X; A) = A[\mathcal{S}(X)_n] , \]
+    ($C_n(X; A) = 0$ for $n < 0$) and the differentials $d_n : C_n(X; A) \to C_{n - 1}(X; A)$ are induced from
+    \[ \mathcal{S}(X)_n \to \mathcal{S}(X)_{n - 1} : \sigma \mapsto \sum_{i = 1}^{n} (-1)^i \; \sigma \circ \delta_i , \]
+    where $\delta_i : \Delta^{n - 1} \to \Delta^n$ maps to the $i$-th face.
+    
+    The \tref{homology-group}{homology groups} of $C_\bullet(X; A)$ are called the \textbf{singular homology groups}, and denoted
+    \[ H_n(X; A) . \]
+    
+    The dual complex is the \textbf{singular cocomplex}.
+\end{topic}
+
+\begin{topic}{fundamental-group}{fundamental group}
+    Let $X$ be a topological space, and take a point $x_0 \in X$. The \textbf{fundamental group} of $X$ w.r.t. the basepoint $x_0$ is given by
+    \[ \pi_1(X, x_0) = \{ \text{continuous } f : [0, 1] \to X : f(0) = x_0 = f(1) \} / \sim{} , \]
+    where $f \sim{} g$ if the paths are homotopic.
+    
+    The group multiplication is given by concatenating paths, and inversion is given by inverting paths. In general, the fundamental group is not abelian.
+\end{topic}
+
+\begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}
+    Let
+    \[ 0 \rightarrow C' \xrightarrow{i} C \xrightarrow{p} \overline{C} \rightarrow 0 \]
+    be a short exact sequence of \tref{chain-complex}{chain complexes}. Then there is an induced long exact sequence
+    \[ \cdots \rightarrow H_n(C') \xrightarrow{i_*} H_n(C) \xrightarrow{p_*} H_n(\overline{C}) \xrightarrow{\partial} H_{n - 1}(C') \rightarrow \cdots , \]
+    where $\partial$ is called the \textit{connecting homomorphism}, which can be obtained by diagram chasing.
+\end{topic}
+
+\begin{topic}{relative-homology}{relative homology}
+    Let $X$ be a topological space, $X' \subset X$ a subspace, and $A$ an abelian group. The \textbf{relative chain complex} of $(X, X')$ is defined as the quotient complex
+    \[ C_n(X, X'; A) = C_n(X; A) / C_n(X'; A) .  \]
+    Its \tref{homology-group}{homology groups}
+    \[ H_n(X, X'; A) = H_n(C_\bullet(X, X; A)) \]
+    are called \textbf{relative homology groups} of $(X, X')$.
+\end{topic}
+
+\begin{topic}{excision-theorem}{excision theorem}
+    Let $X$ be a topological space, $X' \subset X$ a subpace, and $Y \subset X'$ a subspace such that $\text{closure}(Y) \subset \text{interior}(X')$. The \textbf{excision theorem} states that the inclusion $X \backslash Y \hookrightarrow X$ induces isomorphisms of relative homology groups
+    \[ H_n(X \backslash Y, X' \backslash Y; A) \xrightarrow{\sim} H_n(X, X'; A) \]
+    for all $n \in \ZZ$ and coefficient groups $A$.
+\end{topic}
+
+\begin{topic}{mayer-vietoris-sequence}{Mayer–Vietoris sequence}
+    Let $X$ be a topological space, and $U, V \subset X$ two subsets with $X = \textup{interior}(U) \cup \textup{interior}(V)$. Then there is a long exact sequence of homology groups (with coefficients in $A$)
+    \[ \cdots \longrightarrow H_n(U \cap V; A) \overset{i}{\longrightarrow} H_n(U; A) \oplus H_n(V; A) \overset{p}{\longrightarrow} H_n(X; A) \overset{\partial}{\longrightarrow} H_{n - 1}(U \cap V; A) \longrightarrow \cdots \]
+    where $i$ is induced by the inclusions $U \cap V \hookrightarrow U$ and $U \cap V \hookrightarrow V$, and $p = i_*^U - i_*^V$. The map $\delta$ is a connecting morphism. This sequence is called the \textbf{Mayer–Vietoris sequence}.
+    
+    Dually, there is one for cohomology
+    \[ \cdots \longrightarrow H^n(X; A) \overset{r}{\longrightarrow} H^n(U; A) \oplus H^n(V; A) \overset{\Delta}{\longrightarrow} H^n(U \cap V; A) \overset{\partial}{\longrightarrow} H^{n + 1}(X; A) \longrightarrow \cdots \]
+\end{topic}
