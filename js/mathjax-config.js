@@ -14,6 +14,8 @@ window.MathJax = {
             RR: "\\mathbb{R}",
             NN: "\\mathbb{N}",
             textup: ["\\text{#1}", 1],
+            im: "\\operatorname{im}",
+            coker: "\\operatorname{coker}",
         }
       }
 };

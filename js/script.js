@@ -8,7 +8,7 @@ function loadTopic(id) {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById('content').innerHTML = this.responseText;
-            MathJax.typeset()
+            MathJax.typeset();
         }
 
         if (this.readyState == 4 && this.status == 404) {
@@ -27,6 +27,7 @@ function gotoTopic(id) {
     topic = topic[0].toUpperCase() + topic.substr(1);
     autoCompleteInput.value = topic;
     autoCompleteList.innerHTML = '';
+    setSearchCategory(categories[id.substr(0, id.indexOf(':'))])
     window.history.pushState(id, 'Math: ' + id, '#' + id);
 }
 
@@ -40,6 +41,7 @@ function checkUrlFragment() {
     let topic = topics[id];
     topic = topic[0].toUpperCase() + topic.substr(1);
     autoCompleteInput.value = topic;
+    setSearchCategory(categories[id.substr(0, id.indexOf(':'))])
 }
 
 window.addEventListener('popstate', checkUrlFragment);
@@ -55,8 +57,11 @@ function initAutoComplete() {
     autoCompleteList = document.getElementById('auto-complete-list');
     autoCompleteInput.addEventListener('input', function (e) {
         const val = autoCompleteInput.value;
-        console.log(val);
+        // console.log(val);
         
+        // Hide #result-category
+        setSearchCategory();
+
         // Create suggestions
         autoCompleteList.innerHTML = '';
         autoCompleteItem = -1;
@@ -65,23 +70,30 @@ function initAutoComplete() {
         if(val == '')
             return;
 
+        let items = [];
         for(const id in topics) {
-            if(!searchMatches(topics[id], val))
+            const index = searchMatchIndex(topics[id], val);
+            if(index < 0)
                 continue;
 
             let item = document.createElement('div');
             item.innerHTML = suggestionHTML(id, val);
             item.addEventListener('click', function (e) { gotoTopic(id); });
-            autoCompleteList.appendChild(item);
-            autoCompleteNumItems ++;
+            items.push([ index, item ]);
         }
 
-        if(autoCompleteNumItems == 0) {
+        if(items.length == 0) {
             let item = document.createElement('div');
             item.innerHTML = '<span style="color: rgba(0, 0, 0, 0.5);">no results</span>';
             autoCompleteList.appendChild(item);
+            return;
         }
 
+        items.sort(function (a, b) { return a[0] - b[0]; });
+        autoCompleteNumItems = Math.min(items.length, 10);
+        for(let i = 0; i < autoCompleteNumItems; ++i) {
+            autoCompleteList.appendChild(items[i][1]);
+        }
     });
 
     autoCompleteInput.addEventListener('keydown', function(e) {
@@ -117,10 +129,10 @@ function autoCompleteSetFocus(i) {
         items[autoCompleteItem].classList.add('focus');
 }
 
-function searchMatches(topic, input) {
+function searchMatchIndex(topic, input) {
     topic = topic.toUpperCase();
     input = input.toUpperCase();
-    return topic.indexOf(input) >= 0;
+    return topic.indexOf(input);
 }
 
 function suggestionHTML(id, input) {
@@ -135,3 +147,13 @@ function suggestionHTML(id, input) {
     return html;
 }
 
+function setSearchCategory(str) {
+    const div = document.getElementById('result-category');
+    if(str == undefined || str == '') {
+        div.style.display = 'none';
+    }
+    else {
+        div.innerHTML = str;
+        div.style.display = 'block';
+    }
+}

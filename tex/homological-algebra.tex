@@ -1,12 +1,39 @@
+\begin{topic}{abelian-category}{abelian category}
+    An \textbf{abelian category} is a category such that
+    \begin{itemize}
+        \item every $\Hom(A, B)$ is an abelian group, and composition is bilinear,
+        \item it has a zero object,
+        \item it has all binary biproducts,
+        \item it has all kernels and cokernels,
+        \item every monomoprhism is the kernel of some morphism, and every epimoprhism is the cokernel of some morphism.
+    \end{itemize}
+\end{topic}
+
 \begin{topic}{five-lemma}{five lemma}
     Let $\mathcal{A}$ be an abelian category, and consider the following commutative diagram.
-    \[ \begin{tikzcd} A \arrow{r}{f} \arrow{d}{\ell} & B \arrow{r}{g} \arrow{d}{m} & C \arrow{r}{h} \arrow{d}{n} & D \arrow{r}{i} \arrow{d}{p} & E \arrow{d}{q} \\ A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \arrow{r}{h'} & D \arrow{r}{i'} & E' \end{tikzcd} \]
+    \[ \begin{tikzcd} A \arrow{r}{f} \arrow{d}{a} & B \arrow{r}{g} \arrow{d}{b} & C \arrow{r}{h} \arrow{d}{c} & D \arrow{r}{i} \arrow{d}{d} & E \arrow{d}{e} \\ A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \arrow{r}{h'} & D \arrow{r}{i'} & E' \end{tikzcd} \]
     Suppose that both rows are exact. The \textbf{five lemma} states that
     \begin{itemize}
-        \item if $m$ and $p$ are injective and $\ell$ is surjective, then $n$ is injective.
+        \item if $b$ and $d$ are injective and $a$ is surjective, then $c$ is injective.
         
-        \item if $m$ and $p$ are surjective and $q$ is injective, then $n$ is surjective.
+        \item if $b$ and $d$ are surjective and $e$ is injective, then $c$ is surjective.
         
-        \item if $m$ and $p$ are isomorphisms, $\ell$ is surjective and $q$ is injective, then $n$ is an isomorphism.
+        \item if $b$ and $d$ are isomorphisms, $a$ is surjective and $e$ is injective, then $c$ is an isomorphism.
     \end{itemize}
+\end{topic}
+
+\begin{topic}{snake-lemma}{snake lemma}
+    Let $\mathcal{A}$ be an abelian category, and consider the following commutative diagram.
+    \[ \begin{tikzcd} & A \arrow{d}{a} \arrow{r}{f} & B \arrow{d}{b} \arrow{r}{g} & C \arrow{d}{c} \arrow{r} & 0 \\ 0 \arrow{r} & A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \end{tikzcd} \]
+    Suppose that the rows are exact. The \textbf{snake lemma} states that there is an exact sequence of kernels and cokernels
+    \[ \ker a \rightarrow \ker b \rightarrow \ker c \xrightarrow{d} \coker a \rightarrow \coker b \rightarrow \coker c \]
+    where $d$ is known as the \textit{connecting homomorphism}. Furthermore, if $f$ is \tref{CT:monomorphism}{mono} then so is $\ker a \to \ker b$, and if $g'$ is \tref{CT:epimorphism}{epi} then so is $\coker b \to \coker c$.
+\end{topic}
+
+\begin{topic}{dg-category}{dg-category}
+    A \textbf{differential graded category} is a category whose morphism sets are \tref{AT:cochain-complex}{cochain complexes}, that is
+    \[ \Hom(A, B) = \bigoplus_{n \in \ZZ} \Hom_n(A, B) \]
+    with differential $d : \Hom_n(A, B) \to \Hom_{n + 1}(A, B)$ such that $d^2 = 0$. Furthermore, composition of morphisms
+    \[ \Hom(A, B) \otimes \Hom(B, C) \to \Hom(A, C) \]
+    must be a \tref{AT:chain-map}{chain map} and $d(\id_A) = 0$.
 \end{topic}
