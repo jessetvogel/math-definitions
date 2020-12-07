@@ -1,14 +1,110 @@
+% Abelian categories
 \begin{topic}{abelian-category}{abelian category}
-    An \textbf{abelian category} is a category such that
+    An \textbf{abelian category} is a category $\mathcal{A}$ such that
     \begin{itemize}
-        \item every $\Hom(A, B)$ is an abelian group, and composition is bilinear,
-        \item it has a zero object,
-        \item it has all binary biproducts,
-        \item it has all kernels and cokernels,
+        \item every $\Hom(M, N)$ is an abelian group, and composition is bilinear,
+        \item there is an object $0$ which is both \tref{CT:terminal}{terminal} and \tref{CT:initial}{initial},
+        \item for all $M, N$ in $\mathcal{A}$, the direct product $M \times N$ and direct sum $M \oplus N$ exist and are isomorphic,
+        \item all kernels and cokernels exist,
         \item every monomoprhism is the kernel of some morphism, and every epimoprhism is the cokernel of some morphism.
+    \end{itemize}
+    
+    Examples include
+    \begin{itemize}
+        \item the category of abelian groups
+        \item the category of left modules over a ring $R$
+        \item the category of sheaves on a topological space
     \end{itemize}
 \end{topic}
 
+\begin{topic}{additive-functor}{additive functor}
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}. A functor $F : \mathcal{A} \to \mathcal{B}$ is called \textbf{additive} if for all $M, N$ in $\mathcal{A}$ the map
+    \[ \Hom_\mathcal{A}(M, N) \to \Hom_\mathcal{B}(FM, FN) \]
+    is a group morphism.
+    
+    It follows that an additive functor preserves finite direct sums and sends $0$ to $0$.
+\end{topic}
+
+\begin{topic}{exact-functor}{exact functor}
+    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. Then $F$ is called \textbf{left exact} if for all short exact sequences
+    \[ 0 \to M \to N \to L \to 0 \]
+     in $\mathcal{A}$, the sequence
+    \[ 0 \to FM \to FN \to FL \]
+    is exact. Similarly, $F$ is called \textbf{right exact} if for all such short exact sequences
+    \[ FM \to FN \to FL \to 0 \]
+    is exact. Finally, $F$ is called \textbf{exact} if it is both left and right exact.
+\end{topic}
+
+\begin{topic}{injective-object}{injective object}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An object $I$ of $\mathcal{A}$ is called \textbf{injective} if the functor
+    \[ \Hom_\mathcal{A}(-, I) : \mathcal{A}^\text{op} \to \textbf{Ab} \]
+    is \tref{exact-functor}{exact}. Since it is already left exact for any object $I$, this is equivalent to the condition that for all monomorphisms $f : M \to N$ and morphisms $g : M \to I$ there exists a morphism $h : N \to I$ such that $hf = g$.
+    \[ \begin{tikzcd} M \arrow[hookrightarrow]{r}{f} \arrow[swap]{d}{g} & N \arrow[dashed]{ld}{\exists h} \\ I & \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{projective-object}{projective object}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An object $P$ of $\mathcal{A}$ is called \textbf{projective} if the functor
+    \[ \Hom_\mathcal{A}(P, -) : \mathcal{A} \to \textbf{Ab} \]
+    is \tref{exact-functor}{exact}. Since it is already right exact for any object $P$, this is equivalent to the condition that for all epimorphisms $f : N \to M$ and morphisms $g : P \to M$ there exists a morphism $h : P \to N$ such that $fh = g$.
+    \[ \begin{tikzcd} & N \arrow[twoheadrightarrow]{d}{f} \\ P \arrow[swap]{r}{g} \arrow[dashed]{ur}{\exists h} & M \end{tikzcd} \]
+\end{topic}
+
+% Complexes
+\begin{topic}{complex}{complex}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{complex} $M^\bdot$ in $\mathcal{A}$ is a sequence of objects $M^i$ in $\mathcal{A}$, indexed by $i \in \ZZ$, together with group morphisms $d^i : M^i \to M^{i + 1}$ such that $d^{i + 1} \circ d^i = 0$ for all $i$.
+    \[ \cdots \xrightarrow{d^{i - 2}} M^{i - 1} \xrightarrow{d^{i - 1}} M^i \xrightarrow{d^i} M^{i + 1} \xrightarrow{d^{i + 1}} \cdots \]
+    
+    A \textbf{morphism of complexes} $f : M^\bdot \to N^\bdot$ is given by a morphism $f^i : M^i \to N^i$ for each $i \in \ZZ$ such that $d_N^i \circ f^i = f^{i + 1} \circ d_M^i$.
+\end{topic}
+
+\begin{topic}{homology-object}{homology object}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $M^\bdot$ a complex in $\mathcal{A}$. For each $i \in \ZZ$, the quotient
+    \[ H^i(M^\bdot) = \ker d_n / \im d_{n + 1} \]
+    is called the \textbf{$i$-th homology object} of $M^\bdot$.
+\end{topic}
+
+\begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let
+    \[ 0 \rightarrow A^\bdot \rightarrow B^\bdot \rightarrow C^\bdot \rightarrow 0 \]
+    be a short exact sequence of \tref{complex}{complexes} in $\mathcal{A}$. Then there is an induced long exact sequence
+    \[ \cdots \rightarrow H^i(A) \rightarrow H^i(B) \rightarrow H^i(C) \rightarrow H^{i + 1}(A) \rightarrow \cdots . \]
+\end{topic}
+
+\begin{topic}{homotopy}{homotopy}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : M^\bdot \to N^\bdot$ be morphisms of \tref{complex}{complexes} in $\mathcal{A}$. A \textbf{homotopy} from $f$ to $g$ is a collection of morphisms $k^i : M^i \to N^{i - 1}$ such that $f - g = dk + kd$.
+    
+    If a homotopy exists from $f$ to $g$, we say that $f$ and $g$ are \textbf{homotopic}. This gives an equivalence relation on the set of morphisms from $M^\bdot$ to $N^\bdot$.
+\end{topic}
+
+\begin{topic}{homotopy-equivalence}{homotopy equivalence}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A morphism of complexes $f : M^\bdot \to N^\bdot$ is called a \textbf{homotopy equivalence} if there exists a morphism $g : N^\bdot \to M^\bdot$ such that $fg$ and $gf$ are \tref{homotopy}{homotopic} to the identity morphism.
+\end{topic}
+
+\begin{topic}{quasi-isomorphism}{quasi-isomorphism}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian-category}. A morphism $f : M^\bdot \to N^\bdot$ of \tref{complex}{complexes} in $\mathcal{A}$ is called a \textbf{quasi-isomorphism} if the induced maps on homology
+    \[ H^i(f) : H^i(M^\bdot) \to H^i(N^\bdot) \]
+    are all isomorphisms.
+\end{topic}
+
+\begin{topic}{resolution}{resolution}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $M$ an object in $\mathcal{A}$. A \textbf{resolution} of $M$ is a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to A^\bdot$ in $\text{Comp}(\mathcal{A})$. Equivalently, this is given by an exact complex
+    \[ 0 \to M \to A^0 \to A^1 \to \cdots \]
+    in $\mathcal{A}$.
+    
+    When all objects $A^i$ are \tref{injective-object}{injective}, we speak of an \textbf{injective resolution}, and similarly when they are all \tref{projective-object}{projective}, we speak of an \textbf{projective resolution}.
+\end{topic}
+
+% Derived functors
+\begin{topic}{right-derived-functors}{right derived functors}
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
+    \[ R^i F M = H^i(F(I^\bdot)) . \]
+    This is well-defined (independent of the chosen resolution) and yields additive functors $R^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \simeq F$.
+    
+    For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
+    \[ \cdots \to FA \to FB \to FC \to R^1FA \to R^1FB \to R^1FC \to R^2FA \to \cdots \]
+\end{topic}
+
+% Homological lemmas
 \begin{topic}{five-lemma}{five lemma}
     Let $\mathcal{A}$ be an abelian category, and consider the following commutative diagram.
     \[ \begin{tikzcd} A \arrow{r}{f} \arrow{d}{a} & B \arrow{r}{g} \arrow{d}{b} & C \arrow{r}{h} \arrow{d}{c} & D \arrow{r}{i} \arrow{d}{d} & E \arrow{d}{e} \\ A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \arrow{r}{h'} & D \arrow{r}{i'} & E' \end{tikzcd} \]
@@ -30,6 +126,7 @@
     where $d$ is known as the \textit{connecting homomorphism}. Furthermore, if $f$ is \tref{CT:monomorphism}{mono} then so is $\ker a \to \ker b$, and if $g'$ is \tref{CT:epimorphism}{epi} then so is $\coker b \to \coker c$.
 \end{topic}
 
+% Other
 \begin{topic}{dg-category}{dg-category}
     A \textbf{differential graded category} is a category whose morphism sets are \tref{AT:cochain-complex}{cochain complexes}, that is
     \[ \Hom(A, B) = \bigoplus_{n \in \ZZ} \Hom_n(A, B) \]
