@@ -16,6 +16,7 @@ window.MathJax = {
             textup: ["\\text{#1}", 1],
             im: "\\operatorname{im}",
             coker: "\\operatorname{coker}",
+            bdot: "\\bullet"
         }
       }
 };

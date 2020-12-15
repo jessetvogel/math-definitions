@@ -373,6 +373,7 @@ class Parser:
             '\\documentclass{standalone}\n',
             '\\usepackage{tikz-cd}\n',
             '\\newcommand{\\Hom}{\\textup{Hom}}\n',
+            '\\newcommand{\\bdot}{\\bullet}\n',
             '\\begin{document}\n',
             '$\\displaystyle ' + tex + '$\n',
             '\\end{document}\n'

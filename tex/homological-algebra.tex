@@ -2,7 +2,7 @@
 \begin{topic}{abelian-category}{abelian category}
     An \textbf{abelian category} is a category $\mathcal{A}$ such that
     \begin{itemize}
-        \item every $\Hom(M, N)$ is an abelian group, and composition is bilinear,
+        \item every $\Hom_\mathcal{A}(M, N)$ is an abelian group, and composition is bilinear,
         \item there is an object $0$ which is both \tref{CT:terminal}{terminal} and \tref{CT:initial}{initial},
         \item for all $M, N$ in $\mathcal{A}$, the direct product $M \times N$ and direct sum $M \oplus N$ exist and are isomorphic,
         \item all kernels and cokernels exist,
@@ -50,28 +50,32 @@
 \end{topic}
 
 % Complexes
-\begin{topic}{complex}{complex}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{complex} $M^\bdot$ in $\mathcal{A}$ is a sequence of objects $M^i$ in $\mathcal{A}$, indexed by $i \in \ZZ$, together with group morphisms $d^i : M^i \to M^{i + 1}$ such that $d^{i + 1} \circ d^i = 0$ for all $i$.
-    \[ \cdots \xrightarrow{d^{i - 2}} M^{i - 1} \xrightarrow{d^{i - 1}} M^i \xrightarrow{d^i} M^{i + 1} \xrightarrow{d^{i + 1}} \cdots \]
-    
-    A \textbf{morphism of complexes} $f : M^\bdot \to N^\bdot$ is given by a morphism $f^i : M^i \to N^i$ for each $i \in \ZZ$ such that $d_N^i \circ f^i = f^{i + 1} \circ d_M^i$.
+\begin{topic}{chain-complex}{chain-complex}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{chain complex} $A_\bdot$ in $\mathcal{A}$ is a sequence of objects $A_i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d_i : A_i \to A_{i - 1}$ such that $d_{i - 1} \circ d_i = 0$ for all $i$.
+    \[ \cdots \xleftarrow{d_{i - 1}} A_{i - 1} \xleftarrow{d_i} A_i \xleftarrow{d_{i + 1}} A_{i + 1} \xleftarrow{d_{i + 2}} \cdots \]
+    Dually, a \textbf{cochain complex} $A^\bdot$ in $\mathcal{A}$ is a sequence of objects $A^i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d^i : A^i \to A^{i + 1}$ such that $d^{i + 1} \circ d^i = 0$ for all $i$.
+    \[ \cdots \xrightarrow{d^{i - 2}} A^{i - 1} \xrightarrow{d^{i - 1}} A^i \xrightarrow{d^i} A^{i + 1} \xrightarrow{d^{i + 1}} \cdots \]
+
+    A \textbf{morphism of chain complexes} or \textbf{chain map} $f : A_\bdot \to B_\bdot$ is given by a collection of morphisms $f_i : A_i \to B_i$ for each $i \in \ZZ$ such that $d^B_i \circ f_i = f_{i - 1} \circ d^A_i$. Dually, there are \textbf{cochain maps}.
+
+    If the objects of $\mathcal{A}$ are sets, then elements of $A_n$ are called \textit{$n$-chains}, elements of $\ker d_n$ are called \textit{$n$-cycles}, and elements of $\im d_{n - 1}$ are called \textit{$n$-boundaries}. Similarly, elements of $A^n$ are called \textit{$n$-cochains}, elements of $\ker d^n$ are called \textit{$n$-cocycles}, and elements of $\im d^{n - 1}$ are called \textit{$n$-coboundaries}. Note that any $n$-(co)boundary is an $n$-(co)cycle.
 \end{topic}
 
 \begin{topic}{homology-object}{homology object}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $M^\bdot$ a complex in $\mathcal{A}$. For each $i \in \ZZ$, the quotient
-    \[ H^i(M^\bdot) = \ker d_n / \im d_{n + 1} \]
-    is called the \textbf{$i$-th homology object} of $M^\bdot$.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $A^\bdot$ a \tref{chain-complex}{complex} in $\mathcal{A}$. For each $i \in \ZZ$, the quotient
+    \[ H^i(A^\bdot) = \ker d_n / \im d_{n + 1} \]
+    is called the \textbf{$i$-th homology object} of $A^\bdot$.
 \end{topic}
 
 \begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let
     \[ 0 \rightarrow A^\bdot \rightarrow B^\bdot \rightarrow C^\bdot \rightarrow 0 \]
-    be a short exact sequence of \tref{complex}{complexes} in $\mathcal{A}$. Then there is an induced long exact sequence
+    be a short exact sequence of \tref{chain-complex}{complexes} in $\mathcal{A}$. Then there is an induced long exact sequence
     \[ \cdots \rightarrow H^i(A) \rightarrow H^i(B) \rightarrow H^i(C) \rightarrow H^{i + 1}(A) \rightarrow \cdots . \]
 \end{topic}
 
 \begin{topic}{homotopy}{homotopy}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : M^\bdot \to N^\bdot$ be morphisms of \tref{complex}{complexes} in $\mathcal{A}$. A \textbf{homotopy} from $f$ to $g$ is a collection of morphisms $k^i : M^i \to N^{i - 1}$ such that $f - g = dk + kd$.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : M^\bdot \to N^\bdot$ be morphisms of \tref{chain-complex}{complexes} in $\mathcal{A}$. A \textbf{homotopy} from $f$ to $g$ is a collection of morphisms $k^i : M^i \to N^{i - 1}$ such that $f - g = dk + kd$.
     
     If a homotopy exists from $f$ to $g$, we say that $f$ and $g$ are \textbf{homotopic}. This gives an equivalence relation on the set of morphisms from $M^\bdot$ to $N^\bdot$.
 \end{topic}
@@ -81,7 +85,7 @@
 \end{topic}
 
 \begin{topic}{quasi-isomorphism}{quasi-isomorphism}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian-category}. A morphism $f : M^\bdot \to N^\bdot$ of \tref{complex}{complexes} in $\mathcal{A}$ is called a \textbf{quasi-isomorphism} if the induced maps on homology
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian-category}. A morphism $f : M^\bdot \to N^\bdot$ of \tref{chain-complex}{complexes} in $\mathcal{A}$ is called a \textbf{quasi-isomorphism} if the induced maps on homology
     \[ H^i(f) : H^i(M^\bdot) \to H^i(N^\bdot) \]
     are all isomorphisms.
 \end{topic}
@@ -101,7 +105,7 @@
     This is well-defined (independent of the chosen resolution) and yields additive functors $R^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \simeq F$.
     
     For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
-    \[ \cdots \to FA \to FB \to FC \to R^1FA \to R^1FB \to R^1FC \to R^2FA \to \cdots \]
+    \[ 0 \to FA \to FB \to FC \to R^1FA \to R^1FB \to R^1FC \to R^2FA \to \cdots \]
 \end{topic}
 
 % Homological lemmas
@@ -128,9 +132,9 @@
 
 % Other
 \begin{topic}{dg-category}{dg-category}
-    A \textbf{differential graded category} is a category whose morphism sets are \tref{AT:cochain-complex}{cochain complexes}, that is
+    A \textbf{differential graded category} is a category whose morphism sets are \tref{chain-complex}{cochain complexes}, that is
     \[ \Hom(A, B) = \bigoplus_{n \in \ZZ} \Hom_n(A, B) \]
     with differential $d : \Hom_n(A, B) \to \Hom_{n + 1}(A, B)$ such that $d^2 = 0$. Furthermore, composition of morphisms
     \[ \Hom(A, B) \otimes \Hom(B, C) \to \Hom(A, C) \]
-    must be a \tref{AT:chain-map}{chain map} and $d(\id_A) = 0$.
+    must be a chain map and $d(\id_A) = 0$.
 \end{topic}

@@ -1,26 +1,34 @@
-\begin{topic}{chain-complex}{chain complex}
-    A \textbf{chain complex} $C_\bullet$ is a sequence of abelian groups $C_n$, for $n \in \ZZ$, together with group morphisms $d_n : C_n \to C_{n - 1}$ such that $d_{n - 1} \circ d_n = 0$ for all $n$.
-    \[ \cdots \xrightarrow{d_{n + 2}} C_{n + 1} \xrightarrow{d_{n + 1}} C_n \xrightarrow{d_n} C_{n - 1} \xrightarrow{d_{n - 1}} \cdots \]
-    Elements of $C_n$ are called \textit{$n$-chains}. Elements of $\ker d_n$ are called $n$-cycles. Elements of $\im d_{n + 1}$ are called $n$-boundaries. Note that any $n$-boundary is an $n$-cycle.
-\end{topic}
+% \begin{topic}{chain-complex}{chain complex}
+%     A \textbf{chain complex} $C_\bullet$ is a sequence of abelian groups $C_n$, for $n \in \ZZ$, together with group morphisms $d_n : C_n \to C_{n - 1}$ such that $d_{n - 1} \circ d_n = 0$ for all $n$.
+%     \[ \cdots \xrightarrow{d_{n + 2}} C_{n + 1} \xrightarrow{d_{n + 1}} C_n \xrightarrow{d_n} C_{n - 1} \xrightarrow{d_{n - 1}} \cdots \]
+%     Elements of $C_n$ are called \textit{$n$-chains}. Elements of $\ker d_n$ are called $n$-cycles. Elements of $\im d_{n + 1}$ are called $n$-boundaries. Note that any $n$-boundary is an $n$-cycle.
+% \end{topic}
 
-\begin{topic}{cochain-complex}{cochain complex}
-    A \textbf{cochain complex} $C^\bullet$ is a sequence of abelian groups $C^n$, for $n \in \ZZ$, together with group morphisms $d^n : C^n \to C^{n + 1}$ such that $d^{n + 1} \circ d^n = 0$ for all $n$.
-    \[ \cdots \xrightarrow{d^{n - 2}} C_{n - 1} \xrightarrow{d_{n - 1}} C_n \xrightarrow{d_n} C_{n + 1} \xrightarrow{d_{n + 1}} \cdots \]
-    Elements of $C_n$ are called \textit{$n$-cochains}. Elements of $\ker d_n$ are called $n$-cocycles. Elements of $\im d_{n - 1}$ are called $n$-coboundaries. Note that any $n$-coboundary is an $n$-cocycle.
-\end{topic}
+% \begin{topic}{cochain-complex}{cochain complex}
+%     A \textbf{cochain complex} $C^\bullet$ is a sequence of abelian groups $C^n$, for $n \in \ZZ$, together with group morphisms $d^n : C^n \to C^{n + 1}$ such that $d^{n + 1} \circ d^n = 0$ for all $n$.
+%     \[ \cdots \xrightarrow{d^{n - 2}} C_{n - 1} \xrightarrow{d_{n - 1}} C_n \xrightarrow{d_n} C_{n + 1} \xrightarrow{d_{n + 1}} \cdots \]
+%     Elements of $C_n$ are called \textit{$n$-cochains}. Elements of $\ker d_n$ are called $n$-cocycles. Elements of $\im d_{n - 1}$ are called $n$-coboundaries. Note that any $n$-coboundary is an $n$-cocycle.
+% \end{topic}
 
-\begin{topic}{chain-map}{chain map}
-    Let $C_\bullet$ and $D_\bullet$ be \tref{chain-complex}{chain complexes}. A morphism between chain complexes $f : C_\bullet \to D_\bullet$, that is a \textbf{chain map}, is given by a sequence of group morphisms $f_n : C_n \to D_n$ such that the following squares commute for all $n \in \ZZ$:
-    \[ \begin{tikzcd} C_n \arrow{r}{f_n} \arrow[swap]{d}{d_n} & D_n \arrow{d}{d_n} \\ C_{n - 1} \arrow[swap]{r}{f_{n - 1}} & D_{n - 1} \end{tikzcd} \]
+% \begin{topic}{chain-map}{chain map}
+%     Let $C_\bullet$ and $D_\bullet$ be \tref{chain-complex}{chain complexes}. A morphism between chain complexes $f : C_\bullet \to D_\bullet$, that is a \textbf{chain map}, is given by a sequence of group morphisms $f_n : C_n \to D_n$ such that the following squares commute for all $n \in \ZZ$:
+%     \[ \begin{tikzcd} C_n \arrow{r}{f_n} \arrow[swap]{d}{d_n} & D_n \arrow{d}{d_n} \\ C_{n - 1} \arrow[swap]{r}{f_{n - 1}} & D_{n - 1} \end{tikzcd} \]
     
-    Note that chain maps induce group morphisms on the \tref{homology-group}{homology groups}, $H_n(C_\bullet) \to H_n(D_\bullet)$.
-\end{topic}
+%     Note that chain maps induce group morphisms on the \tref{homology-group}{homology groups}, $H_n(C_\bullet) \to H_n(D_\bullet)$.
+% \end{topic}
 
 \begin{topic}{homology-group}{homology group}
-    Let $C_\bullet$ be a \tref{chain-complex}{chain complex}. The quotient
+    Let $C_\bullet$ be a \tref{HA:chain-complex}{chain complex}. The quotient
     \[ H_n(C_\bullet) = \ker d_n / \im d_{n + 1} \]
     is called the \textbf{$n$-th homology group} of $C_\bullet$.
+\end{topic}
+
+\begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}
+    Let
+    \[ 0 \rightarrow C' \xrightarrow{i} C \xrightarrow{p} \overline{C} \rightarrow 0 \]
+    be a short exact sequence of \tref{HA:chain-complex}{chain complexes}. Then there is an induced long exact sequence
+    \[ \cdots \rightarrow H_n(C') \xrightarrow{i_*} H_n(C) \xrightarrow{p_*} H_n(\overline{C}) \xrightarrow{\delta} H_{n - 1}(C') \rightarrow \cdots , \]
+    where $\delta$ is called the \textit{connecting homomorphism}: for any $\alpha = [ p(c) ] \in H_n(\overline{C})$ with $c \in C_n$, we have $\delta(\alpha) = [ d_n(c) ] \in H_{n - 1}(C')$.
 \end{topic}
 
 \begin{topic}{singular-homology}{singular homology}
@@ -30,7 +38,7 @@
     \[ \Delta^n = \left\{ (x_0, \ldots, x_n) \in \RR^{n + 1} : \text{all } x_i \ge 0 \text{ and } \sum_{i = 0}^n x_i = 1 \right\} \]
     denotes the \textit{standard $n$-simplex}. The set of all singular $n$-simplices in $X$ is denoted $\mathcal{S}(X)_n$.
     
-    The \textbf{singular chain complex} of $X$ with coefficients in $A$ is given by
+    The \textbf{singular chain complex} of $X$ with coefficients in $A$ is the \tref{HA:chain-complex}{chain complex} given by
     \[ C_n(X; A) = A[\mathcal{S}(X)_n] , \]
     ($C_n(X; A) = 0$ for $n < 0$) and the differentials $d_n : C_n(X; A) \to C_{n - 1}(X; A)$ are induced from
     \[ \mathcal{S}(X)_n \to \mathcal{S}(X)_{n - 1} : \sigma \mapsto \sum_{i = 1}^{n} (-1)^i \; \sigma \circ \delta_i , \]
@@ -48,14 +56,6 @@
     where $f \sim{} g$ if the paths are homotopic.
     
     The group multiplication is given by concatenating paths, and inversion is given by inverting paths. In general, the fundamental group is not abelian.
-\end{topic}
-
-\begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}
-    Let
-    \[ 0 \rightarrow C' \xrightarrow{i} C \xrightarrow{p} \overline{C} \rightarrow 0 \]
-    be a short exact sequence of \tref{chain-complex}{chain complexes}. Then there is an induced long exact sequence
-    \[ \cdots \rightarrow H_n(C') \xrightarrow{i_*} H_n(C) \xrightarrow{p_*} H_n(\overline{C}) \xrightarrow{\delta} H_{n - 1}(C') \rightarrow \cdots , \]
-    where $\delta$ is called the \textit{connecting homomorphism}: for any $\alpha = [ p(c) ] \in H_n(\overline{C})$ with $c \in C_n$, we have $\delta(\alpha) = [ d_n(c) ] \in H_{n - 1}(C')$.
 \end{topic}
 
 \begin{topic}{relative-homology}{relative homology}
