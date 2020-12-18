@@ -1,0 +1,77 @@
+% Defining schemes
+\begin{topic}{ringed-space}{ringed space}
+    A \textbf{ringed space} is a pair $(X, \mathcal{O}_X)$ consisting of a \tref{TO:topological-space}{topological space} $X$ and a \tref{sheaf}{sheaf} of rings $\mathcal{O}_X$ on $X$.
+    
+    A morphism of ringed spaces from $(X, \mathcal{O}_X)$ to $(Y, \mathcal{O}_Y)$ is a pair $(f, f^\#)$ of a continuous map $f : X \to Y$ and a map $f^\# : \mathcal{O}_Y \to f_* \mathcal{O}_X$ of sheaves of rings on $Y$.
+    
+    A ringed space $(X, \mathcal{O}_X)$ is a \textbf{locally ringed space} if for each point $x \in X$, the \tref{stalk}{stalk} $\mathcal{O}_{X,x}$ is a \tref{CA:local-ring}{local ring}.
+    
+    A morphism of locally ringed spaces is a morphism $(f, f^\#)$ of ringed spaces such that for each point $x \in X$ the induced map of local rings $f^\#_x : \mathcal{O}_{Y, f(x)} \to \mathcal{O}_{X, x}$ is a \textit{local morphism}, i.e. the pre-image of the maximal ideal of $\mathcal{O}_{X, x}$ is the maximal ideal of $\mathcal{O}_{Y, f(x)}$.
+\end{topic}
+
+\begin{topic}{spectrum}{spectrum}
+    Let $R$ be a commutative ring. The \textbf{spectrum} of $R$ is the \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ defined as follows.
+    \begin{itemize}
+        \item The topological space $X$ is the set of \tref{CA:prime-ideal}{prime ideals} of $R$, whose closed sets are given precisely by the sets $V(I) = \{ \textup{prime ideals } \mathfrak{p} \text{ with } \mathfrak{p} \supset I \}$ for all ideals $I$ of $R$.
+        
+        \item The \tref{sheaf}{sheaf} of rings $\mathcal{O}_X$ is given as follows. For each open set $U \subset X$, $\mathcal{O}_X(U)$ is the set of functions $s : U \to \sqcup_{\mathfrak{p} \in U} R_\mathfrak{p}$ with $s(\mathfrak{p}) \in R_\mathfrak{p}$ for each $\mathfrak{p} \in U$, such that $s$ is locally a quotient of elements of $R$. This means that for each $\mathfrak{p} \in U$, there is a neighborhood $V \subset U$ of $\mathfrak{p}$, and elements $a, f \in R$ such that for each $\mathfrak{q} \in V$, $f \not\in \mathfrak{q}$ and $s(\mathfrak{q}) = a/f$ in $A_\mathfrak{q}$. The sets $\mathcal{O}_X(U)$ are indeed rings.
+    \end{itemize}
+    We write $\Spec R$ for the spectrum of $R$.
+\end{topic}
+
+\begin{topic}{affine-scheme}{affine scheme}
+    An \textbf{affine scheme} is a \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ which is isomorphic to the \tref{spectrum}{spectrum} of some ring.
+\end{topic}
+
+\begin{topic}{scheme}{scheme}
+    A \textbf{scheme} is a \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ in which every point has an open neighborhood $U$ such that $(U, \mathcal{O}_X|_U)$ is an affine scheme. A morphism of schemes is a morphism of locally ringed spaces.
+    
+    One calls $X$ the \textit{underlying topological space}, and $\mathcal{O}_X$ its \textit{structure sheaf}.
+\end{topic}
+
+% Scheme properties
+\begin{topic}{reduced}{reduced}
+    A \tref{scheme}{scheme} $X$ is \textbf{reduced} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ has no \tref{CA:nilpotent}{nilpotent} elements.
+    
+    Equivalently, this is the case if all stalks $\mathcal{O}_{X, x}$ have no nilpotent elements.
+\end{topic}
+
+\begin{topic}{integral}{integral}
+    A \tref{scheme}{scheme} $X$ is \textbf{integral} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ is a \tref{CA:domain}{domain}.
+    
+    Equivalently, this is the case if $X$ is \tref{reduced}{reduced} and \tref{TO:irreducible}{irreducible}.
+\end{topic}
+
+\begin{topic}{noetherian}{noetherian}
+    A \tref{scheme}{scheme} $X$ is \textbf{locally noetherian} if it can be covered by open affine subsets $\Spec A_i$, where each $A_i$ is a noetherian ring. It is \textbf{noetherian} if it is locally noetherian and \tref{TO:quasi-compact}{quasi-compact}.
+\end{topic}
+
+\begin{topic}{finite-type}{finite type}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite type at $x \in X$} if there exist affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{CA:finitely-generated-algebra}{finitely generated} $B$-algebra (via the induced map $B \to A$).
+    
+    The morphism $f$ is \textbf{locally of finite type} if it is of finite type at each $x \in X$, and it is \textbf{of finite type} if it is locally of finite type and \tref{TO:quasi-compact-morphism}{quasi-compact}.
+\end{topic}
+
+\begin{topic}{finite}{finite}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{finite} if there exists a covering of $Y$ by open affine subsets $V_i = \Spec B_i$, such that for each $i$, $f^{-1}(V_i)$ is affine, equal to $\Spec A_i$, where $A_i$ is a $B_i$-algebra which is a finitely generated $B_i$-module.
+\end{topic}
+
+\begin{topic}{closed-immersion}{closed-immersion}
+    A \textbf{closed immersion} is a morphism $f : Y \to X$ of \tref{scheme}{schemes} such that $f$ induces a \tref{TO:homeomorphism}{homeomorphism} of the underlying space of $Y$ onto a closed subset of that of $X$, and furthermore the induced map $f^\# : \mathcal{O}_X \to f_*\mathcal{O}_Y$ of sheaves on $X$ is surjective.
+\end{topic}
+
+\begin{topic}{normal}{normal}
+    A \tref{scheme}{scheme} $X$ is \textbf{normal} if all of its local rings are integrally closed domains.
+    
+    Every scheme can be `normalized'.
+\end{topic}
+
+\begin{topic}{separated}{separated}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is quasi-compact, and it is \textbf{separated} if the diagonal $\Delta_{X/Y}$ is a closed immersion.
+    
+    A scheme $X$ is \textbf{(quasi-)separated} if the morphism $X \to \Spec \ZZ$ is (quasi-)separated.
+\end{topic}
+
+\begin{topic}{proper}{proper}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
+\end{topic}

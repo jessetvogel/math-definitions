@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[59]:
+# In[1]:
 
 
 import re
@@ -10,7 +10,7 @@ import hashlib
 from tex2svg import tex2svg
 
 
-# In[60]:
+# In[2]:
 
 
 class Scanner():
@@ -31,7 +31,7 @@ class Scanner():
         return c
 
 
-# In[61]:
+# In[3]:
 
 
 class Token:
@@ -50,7 +50,7 @@ class Token:
         self.data = data
 
 
-# In[62]:
+# In[4]:
 
 
 class Lexer():
@@ -63,19 +63,19 @@ class Lexer():
         self.tmp_position = 0
         
     def tokenize(self, expr):
-        if expr in ['{', '}', '\\[', '\\]', '$', '\\&', '\\\\', '\\{', '\\}', '\;']:
+        if expr in ['{', '}', '\\[', '\\]', '$', '\\&', '\\#', '\\\\', '\\{', '\\}', '\;']:
             return Token(Token.T_SEPARATOR, self.tmp_line, self.tmp_position, expr)
         
         if re.match(r'\A\\\w+\Z', expr):
             return Token(Token.T_COMMAND, self.tmp_line, self.tmp_position, expr)
 
-        if re.match(r'\A[^\S\n]*\n\Z', expr):
+        if re.match(r'\n\Z', expr):
             return Token(Token.T_NEWLINE, self.tmp_line, self.tmp_position, expr)
         
-        if re.match(r'\A\s+\Z', expr):
+        if re.match(r'\A[^\S\n]+\Z', expr):
             return Token(Token.T_WHITESPACE, self.tmp_line, self.tmp_position, expr)
         
-        if re.match(r'\A[^{}\\$\t\n]+\Z', expr):
+        if re.match(r'\A[^{}\\$\s][^{}\\$\n]*\Z', expr):
             return Token(Token.T_TEXT, self.tmp_line, self.tmp_position, expr)
 
         return None
@@ -142,7 +142,7 @@ class Lexer():
             return token
 
 
-# In[72]:
+# In[7]:
 
 
 class Parser:
@@ -175,8 +175,8 @@ class Parser:
         else:
             raise Exception('Expected \'{}\' but found \'{}\' [{}]'.format(data, self.current_token.data, self.current_token.type))
     
-    def omit_whitespace(self):
-        while self.found(Token.T_WHITESPACE) or self.found(Token.T_NEWLINE):
+    def omit_whitespace(self, omit_newlines = True):
+        while self.found(Token.T_WHITESPACE) or (omit_newlines and self.found(Token.T_NEWLINE)):
             self.consume()
     
     def parse(self, tex_file):        
@@ -229,6 +229,8 @@ class Parser:
         self.parse_environment(env, args)
     
     def parse_environment(self, env, args = []):
+        self.omit_whitespace()
+        
         if env == 'enumerate':
             self.parse_environment_list(True, args[0])
         elif env == 'itemize':
@@ -246,8 +248,6 @@ class Parser:
     def parse_environment_list(self, ordered, item_type = '1'):
         self.output.write('<ol type="{}">'.format(item_type) if ordered else '<ul>')
         
-        self.omit_whitespace()
-        
         first_item = True
         while self.found(Token.T_COMMAND, '\\item'):
             self.consume()
@@ -259,20 +259,20 @@ class Parser:
             self.output.write('</li>')
         self.output.write('</ol>' if ordered else '</ul>')    
             
-    def parse_content(self):        
+    def parse_content(self):
         while True:
-
             if self.found(Token.T_TEXT) or self.found(Token.T_WHITESPACE):
                 token = self.consume()
-                self.output.write(token.data)
+                self.output.write(self.special_chars(token.data))
                 continue
             
             if self.found(Token.T_NEWLINE):
                 self.consume()
+                self.omit_whitespace(omit_newlines = False)
                 if self.found(Token.T_NEWLINE):
-                    while self.found(Token.T_NEWLINE):
-                        self.consume()
+                    self.omit_whitespace()
                     self.output.write('<br/>')
+                self.output.write('\n')
                 continue
             
             if self.found(Token.T_SEPARATOR, '$'):
@@ -353,7 +353,14 @@ class Parser:
             identifier = self.prefix + ':' + identifier
         
         self.output.write('<a href="javascript:gotoTopic(\'{}\');">{}</a>'.format(identifier, text))
-        
+    
+    def special_chars(self, s):
+        if '`' in s:
+            s = s.replace('`', '&lsquo;')
+        if '\'' in s:
+            s = s.replace('\'', '&rsquo;')
+        return s
+    
     def math_to_svg(self, tex):
         # See if the svg has been created before
         tex_hash = hashlib.sha1(tex.encode()).hexdigest()
@@ -388,10 +395,10 @@ class Parser:
             return False
 
 
-# In[64]:
+# In[8]:
 
 
 # parser = Parser('/Users/jessevogel/Projects/math-definitions/data/')
-# parser.set_prefix('CT')
-# parser.parse('/Users/jessevogel/Projects/math-definitions/tex/category-theory.tex')
+# parser.set_prefix('AG')
+# parser.parse('/Users/jessevogel/Projects/math-definitions/tex/sheaves.tex')
 

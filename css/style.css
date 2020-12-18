@@ -164,6 +164,10 @@ a {
     text-decoration: none;
 }
 
+br {
+    margin-bottom: 6px;
+}
+
 img.display-math-svg {
     display: block;
     margin-left: auto;

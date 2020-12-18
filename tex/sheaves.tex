@@ -1,0 +1,74 @@
+\begin{topic}{sheaf}{sheaf}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. A \textbf{presheaf} $\mathcal{F}$ of abelian groups on $X$ consists of
+    \begin{itemize}
+        \item an abelian group $\mathcal{F}(U)$ for every open subset $U \subset X$,
+        \item a morphism $r_{UV} : \mathcal{F}(U) \to \mathcal{F}(V)$ for every inclusion $V \subset U$ of open subsets of $X$,
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item $r_{UU}$ is the identity map for any open $U \subset X$,
+        \item if $W \subset V \subset U$ are open subsets of $X$, then $r_{UW} = r_{VW} \circ r_{UV}$.
+    \end{itemize}
+    Elements of $\mathcal{F}(U)$ are called \textit{sections}. The maps $r_{UV}$ are thought of as restriction maps, and for this reason $r_{UV}(s)$ is often simply written as $s|_V$, for $s \in \mathcal{F}(V)$. One can similarly define a preseheaf of rings, sets, etc.
+    
+    A presheaf $\mathcal{F}$ is a \textbf{sheaf} if it moreover satisfies:
+    \begin{itemize}
+        \item for any open $U \subset X$ and open covering $\{ U_i \}$ of $U$, if $s \in \mathcal{F}(U)$ is such that $s|_{U_i} = 0$ for all $i$, then $s = 0$.
+        \item for any open $U \subset X$ and open covering $\{ U_i \}$ of $U$, suppose we have elements $s_i \in \mathcal{F}(U_i)$ such that $s_i|{U_i \cap U_j} = s_j|_{U_i \cap U_j}$ for all $i, j$. Then there is an element $s \in \mathcal{F}(U)$ such that $s_i = s|_{U_i}$ for all $i$. (Note that uniqueness follows from the above condition.)
+    \end{itemize}
+    
+    A morphism of presheaves $f : \mathcal{F} \to \mathcal{G}$ consists of a morphism of abelian groups $f(U) : \mathcal{F}(U) \to \mathcal{G}(U)$ for each open set $U$, such that for every inclusion $V \subset U$ the diagram
+    \[ \begin{tikzcd} \mathcal{F}(U) \arrow{r}{f(U)} \arrow[swap]{d}{r_{UV}} & \mathcal{G}(U) \arrow{d}{r'_{UV}} \\ \mathcal{F}(V) \arrow{r}{f(V)} & \mathcal{G}(V) \end{tikzcd} \]
+    commutes. A morphism of sheaves is a morphism of presheaves.
+\end{topic}
+
+\begin{topic}{constant-sheaf}{constant sheaf}
+    Let $X$ be a topological space, and $A$ an abelian group. The \textbf{constant sheaf} $\underline{A}$ on $X$ determined by $A$ is the sheaf given by
+    \[ \underline{A}(U) = \{ \textup{locally constant functions } U \to A \} , \]
+    and the usual restriction maps. Note that for every connected open set $U$ we have $\underline{A}(U) \simeq A$, hence the name `constant sheaf'.
+\end{topic}
+
+\begin{topic}{stalk}{stalk}
+    Let $\mathcal{F}$ be a \tref{sheaf}{presheaf} on a topological space $X$, and take a point $x \in X$. The \textbf{stalk} $\mathcal{F}_x$ of $\mathcal{F}$ at $x$ is defined as the direct limit of the groups $\mathcal{F}(U)$ for all open sets $U$ containing $x$, via the restriction maps.
+\end{topic}
+
+\begin{topic}{associated-sheaf}{associated sheaf}
+    Given a \tref{sheaf}{presheaf} $\mathcal{F}$, there is a sheaf $\mathcal{F}^+$ and a morphism $\theta : \mathcal{F} \to \mathcal{F}^+$, with the property that for any sheaf $\mathcal{G}$ and morphism $f : \mathcal{F} \to \mathcal{G}$ there is a unique morphism $g : \mathcal{F}^+ \to \mathcal{G}$ such that $f = g \circ \theta$. The sheaf $\mathcal{F}^+$ is called the \textbf{sheaf associated} to the presheaf $\mathcal{F}$.
+    \[ \begin{tikzcd} \mathcal{F} \arrow{rr}{f} \arrow[swap]{dr}{\theta} && \mathcal{G} \\ & \mathcal{F}^+ \arrow[swap,dashed]{ur}{g} & \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{direct-image-sheaf}{direct image sheaf}
+    Let $f : X \to Y$ be a map of topological spaces, and let $\mathcal{F}$ be a \tref{sheaf}{sheaf} on $X$. The \textbf{direct image sheaf} $f_* \mathcal{F}$ on $Y$ is defined by
+    \[ (f_* \mathcal{F})(V) = \mathcal{F}(f^{-1}(V)) \]
+    for any open set $V \subset Y$ (indeed this presheaf is a sheaf).
+    
+    This construction yields the \textbf{direct image functor}
+    \[ f_* : \textup{Sh}(X) \to \textup{Sh}(Y) . \]
+    It is the \tref{CT:adjoint}{right adjoint} of the \tref{inverse-image-sheaf}{inverse image functor} $f^{-1}$.
+\end{topic}
+
+\begin{topic}{inverse-image-sheaf}{inverse image sheaf}
+    Let $f : X \to Y$ be a map of topological spaces, and let $\mathcal{G}$ be a \tref{sheaf}{sheaf} on $Y$. The \textbf{inverse image sheaf} $f^
+    {-1}\mathcal{G}$ on $X$ is defined as the \tref{associated-sheaf}{sheaf associated} to the presheaf given by $U \mapsto \lim_{V \supset f(U)} \mathcal{G}(V)$ for any open set $U \subset X$.
+    
+    This construction yields the \textbf{inverse image functor}
+    \[ f^{-1} : \textup{Sh}(Y) \to \textup{Sh}(X) . \]
+    It is the \tref{CT:adjoint}{left adjoint} of the \tref{direct-image-sheaf}{direct image functor} $f_*$.
+\end{topic}
+
+\begin{topic}{flasque-sheaf}{flasque sheaf}
+    A \tref{sheaf}{sheaf} $\mathcal{F}$ on a topological space $X$ is called \textbf{flasque} if for every inclusion $V \subset U$ of open sets, the restriction map $\mathcal{F}(U) \to \mathcal{F}(V)$ is surjective.
+\end{topic}
+
+\begin{topic}{skyscraper-sheaf}{skyscraper sheaf}
+    Let $X$ be a topological space, $A$ an abelian group, and take a point $x \in X$. The \textbf{skyscraper sheaf} $i_x(A)$ at $x$ with value $A$ is defined as
+    \[ i_x(A) (U) = \left\{ \begin{array}{cl} A & \text{if } x \in U, \\ 0 & \text{otherwise.} \end{array} \right. \]
+    The stalks of this sheaf are $A$ at any point in the closure of $x$, and zero elsewhere.
+    
+    Equivalently, it is the \tref{direct-image-sheaf}{direct image sheaf} $i_*(\underline{A})$ for $\underline{A}$ the \tref{constant-sheaf}{constant sheaf} determined by $A$ on the closure $\overline{\{ x \}}$ and $i : \overline{\{ x \}} \to X$ the inclusion.
+\end{topic}
+
+\begin{topic}{sheaf-hom}{sheaf hom}
+    Let $\mathcal{F}$ and $\mathcal{G}$ be \tref{sheaf}{sheaves} of abelian groups on a topological space $X$. The \textbf{sheaf hom} of $\mathcal{F}$ and $\mathcal{G}$ is the sheaf $\underline{\Hom}(\mathcal{F}, \mathcal{G})$ given by
+    \[ \underline{\Hom}(\mathcal{F}, \mathcal{G})(U) = \Hom(\mathcal{F}|_U, \mathcal{G}|_U) . \]
+\end{topic}
