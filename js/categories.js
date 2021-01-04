@@ -6,6 +6,6 @@ var categories = {
     "DG": "Differential Geometry",
     "NT": "Number Theory",
     "HA": "Homological Algebra",
-    "TP": "Topology",
+    "TO": "Topology",
     "LA": "Linear Algebra",
 };
