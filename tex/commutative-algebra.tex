@@ -25,6 +25,10 @@
     Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{zero-divisor} if $a \ne 0$ and $ab = 0$ for some $b \ne 0$.
 \end{topic}
 
+\begin{topic}{nilpotent}{nilpotent}
+    Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is \textbf{nilpotent} if $a^n = 0$ for some positive integer $n$.
+\end{topic}
+
 \begin{topic}{domain}{domain}
     A \tref{ring}{ring} $R$ is called a \textbf{domain} if it has no zero-divisors, that is, $ab = 0$ implies $a = 0$ or $b = 0$ for all $a, b \in R$.
 \end{topic}
@@ -47,7 +51,27 @@
     Every maximal ideal is \tref{prime-ideal}{prime}.
 \end{topic}
 
+\begin{topic}{local-ring}{local ring}
+    A \textbf{local ring} is a \tref{ring}{ring} $R$ with exactly one \tref{maximal-ideal}{maximal ideal}. The maximal is often denoted by $\mathfrak{m}$.
+    
+    The quotient $k = R/\mathfrak{m}$ is called the \textbf{residue field}.
+\end{topic}
 
+\begin{topic}{local-morphism}{local morphism}
+    A \textbf{local morphism} of \tref{local-ring}{local rings} $f : R \to S$ is a ring morphism such that $f(\mathfrak{m}_R) \subset \mathfrak{m}_S$.
+\end{topic}
+
+\begin{topic}{finite-type}{finite type}
+    A ring morphism $R \to S$ is said to be of \textbf{finite presentation} if $S$ is isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some integer $n$.
+    
+    In this case, $S$ is also said to be a \textbf{finitely generated $R$-algebra}.
+\end{topic}
+
+\begin{topic}{finite-presentation}{finite presentation}
+    A ring morphism $R \to S$ is said to be of \textbf{finite presentation} if $S$ is isomorphic to $R[x_1, \ldots, x_n] / (f_1, \ldots, f_m)$ for some integer $n$ and some $f_i \in R[x_1, \ldots, x_n]$.
+    
+    In this case, $S$ is also said to be a \textbf{finitely presented $R$-algebra}.
+\end{topic}
 
 \begin{topic}{module}{module}
     Let $R$ be a ring. An $R$-module is ...

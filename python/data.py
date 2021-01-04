@@ -7,5 +7,6 @@ data = {
     "AG": [ "algebraic-geometry.tex",
             "sheaves.tex" ],
     "HA": [ "homological-algebra.tex",
-            "derived-categories.tex" ]
+            "derived-categories.tex" ],
+    "TO": [ "topology.tex" ]
 }

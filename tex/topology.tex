@@ -1,0 +1,41 @@
+\begin{topic}{topological-space}{topological space}
+    
+\end{topic}
+
+\begin{topic}{continuous}{continuous}
+    A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is \textbf{continuous} if for every open subset $V \subset Y$, the inverse image $f^{-1}(V)$ is open in $X$.
+\end{topic}
+
+\begin{topic}{closure}{closure}
+    
+\end{topic}
+
+\begin{topic}{homeomorphism}{homeomorphism}
+    A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is a \textbf{homeomorphism} if it is \tref{continuous}{continuous}, bijective and its inverse is continuous as well.
+\end{topic}
+
+\begin{topic}{quasi-compact}{quasi-compact}
+    A \tref{topological-space}{topological space} $X$ is \textbf{quasi-compact} if every open covering of $X$ has a finite subcover.
+    
+    A continuous map $f : X \to Y$ is \textbf{quasi-compact} if the inverse image $f^{-1}(V)$ of every quasi-compact open $V \subset Y$ is quasi-compact.
+\end{topic}
+
+\begin{topic}{specialization}{specialization}
+    Let $X$ be a \tref{topological-space}{topological space}. If $x, y \in X$ then we say $y$ is a \textbf{specialization} of $x$, (sometimes that $x$ is a \textbf{generalization} of $y$) if $y \in \overline{\{ x \}}$, i.e. $y$ lies in the \tref{closure}{closure} of $x$. This is denoted as $x \leadsto y$.
+    
+    A subset $T \subset X$ is said to be \textbf{stable under specialization} if for all $x \in T$ and every specialization $x \leadsto y$ we have $y \in T$.
+    
+    Similarly, a subset $T \subset X$ is said to be \textbf{stable under generalization} if for all $y \in T$ and every generalization $x \leadsto y$ we have $x \in T$.
+\end{topic}
+
+\begin{topic}{closed-map}{closed map}
+    A continuous map $f : X \to Y$ is a \textbf{closed map} if for all closed subsets $Z \subset X$, the image $f(Z)$ is closed in $Y$.
+\end{topic}
+
+\begin{topic}{universally-closed}{universally closed}
+    A continuous map $f : X \to Y$ is \textbf{universally closed} if for all $g : Z \to Y$ the pullback $X \times_Y Z \to Z$ is \tref{closed-map}{closed}.
+\end{topic}
+
+\begin{topic}{irreducible}{irreducible}
+    A \tref{topological-space}{topological space} $X$ is \textbf{reducible} if it can be written as a union $X = Z_1 \cup Z_2$ of two closed proper subsets $Z_1, Z_2 \subsetneq X$. Otherwise, $X$ is \textbf{irreducible}.
+\end{topic}
