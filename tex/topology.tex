@@ -1,17 +1,65 @@
 \begin{topic}{topological-space}{topological space}
+    A \textbf{topological space} is a set $X$ together with family $\mathcal{T}$ of subsets of $X$ satisfying
+    \begin{itemize}
+        \item $X, \varnothing \in \mathcal{T}$,
+        \item the intersection of any two sets in $\mathcal{T}$ is in $\mathcal{T}$,
+        \item the union of any collection of sets in $\mathcal{T}$ is in $\mathcal{T}$.
+    \end{itemize}
     
+    The family $\mathcal{T}$ is called a \textbf{topology} for $X$, and the members of $\mathcal{T}$ are referred to as \textbf{open sets}. A subset $V \subset X$ is called \textbf{closed} if its complement $X \backslash V$ is open.
+\end{topic}
+
+\begin{topic}{discrete-topology}{discrete topology}
+    Let $X$ be a set. The \textbf{discrete topology} on $X$ is the topology where all subsets of $X$ are open.
+\end{topic}
+
+\begin{topic}{indiscrete-topology}{indiscrete topology}
+    Let $X$ be a set. The \textbf{indiscrete topology} on $X$ is the topology where only $\varnothing$ and $X$ are open.
+\end{topic}
+
+\begin{topic}{coarser}{coarser/finer}
+    Given two \tref{topological-space}{topologies} $\mathcal{T}_1$ and $\mathcal{T}_2$ on the same set. Then $\mathcal{T}_1$ is called \textbf{coarser} than $\mathcal{T}_2$ if $\mathcal{T}_1 \subset \mathcal{T}_2$. Equivalently, $\mathcal{T}_2$ is called \textbf{finer} than $\mathcal{T}_1$.
 \end{topic}
 
 \begin{topic}{continuous}{continuous}
     A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is \textbf{continuous} if for every open subset $V \subset Y$, the inverse image $f^{-1}(V)$ is open in $X$.
 \end{topic}
 
-\begin{topic}{closure}{closure}
-    
-\end{topic}
-
 \begin{topic}{homeomorphism}{homeomorphism}
     A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is a \textbf{homeomorphism} if it is \tref{continuous}{continuous}, bijective and its inverse is continuous as well.
+\end{topic}
+
+\begin{topic}{closure}{closure}
+    Let $X$ be a \tref{topological-space}{topological space}, and $A \subset X$ a subset. A point $x \in X$ is a \textbf{point of closure} of $A$ if $U \cap A \ne \varnothing$ for any open subset $U \subset X$ with $x \in U$. The \textbf{closure} $\overline{A}$ of $A$ is the set of points of closure of $A$.
+    
+    Equivalently, $\overline{A}$ is the smallest closed subset of $X$ containing $A$.
+    % In particular, $\overline{A}$ is closed, $A \subset \overline{A}$ and $\overline{\overline{A}} = \overline{A}$.
+\end{topic}
+
+\begin{topic}{interior}{interior}
+    Let $X$ be a \tref{topological-space}{topological space}, and $A \subset X$ a subset. A point $x \in X$ is an \textbf{interior point} of $A$ if there exists an open set $U \subset A$ with $x \in U$. The \textbf{interior} $\overset{\circ}{A}$ of $A$ is the set of interior points of $A$.
+    
+    Equivalently, $\overset{\circ}{A}$ is the largest open subset of $X$ contained in $A$.
+\end{topic}
+
+\begin{topic}{boundary}{boundary}
+    The \textbf{boundary} $\partial A$ of a subset $A$ of a \tref{topological-space}{topological space} $X$ is the set $\overline{A} \backslash \overset{\circ}{A}$.
+\end{topic}
+
+\begin{topic}{neighborhood}{neighborhood}
+    A \textbf{neighborhood} of a point $x$ in a \tref{topological-space}{topological space} $X$ is an open subset $U \subset X$ that contains $x$.
+\end{topic}
+
+\begin{topic}{basis}{basis}
+    Given a \tref{topological-space}{topological space} $X$ with topology $\mathcal{T}$, a \textbf{basis} for $\mathcal{T}$ is a subfamily $\mathcal{B} \subset \mathcal{T}$ such that every set in $\mathcal{T}$ is a union of sets from $\mathcal{B}$.
+\end{topic}
+
+\begin{topic}{second-countable}{second countable}
+    A \tref{topological-space}{topological space} which admits a countable \tref{basis}{basis} is called \textbf{second countable}.
+\end{topic}
+
+\begin{topic}{dense}{dense}
+    A subset $A$ of a \tref{topological-space}{topological space} $X$ is \textbf{dense} if its \tref{closure}{closure} $\overline{A}$ equals $X$.
 \end{topic}
 
 \begin{topic}{quasi-compact}{quasi-compact}
@@ -38,4 +86,54 @@
 
 \begin{topic}{irreducible}{irreducible}
     A \tref{topological-space}{topological space} $X$ is \textbf{reducible} if it can be written as a union $X = Z_1 \cup Z_2$ of two closed proper subsets $Z_1, Z_2 \subsetneq X$. Otherwise, $X$ is \textbf{irreducible}.
+\end{topic}
+
+\begin{topic}{subspace-topology}{subspace topology}
+    Let $X$ be a \tref{topological-space}{topological space} with topology $\mathcal{T}$, and let $A$ be a subset of $X$. The \textbf{subspace topology} on $A$ is
+    \[ \mathcal{T}_A = \{ A \cap U : U \in \mathcal{T} \} . \]
+    
+    In particular, this makes the inclusion map $i : A \to X$ continuous.
+\end{topic}
+
+\begin{topic}{product-topology}{product topology}
+    Given two \tref{topological-space}{topological spaces} $X$ and $Y$ with topologies $\mathcal{T}_X$ and $\mathcal{T}_Y$, respectively, the \textbf{product topology} on the Cartesian product $X \times Y$ is the topology with basis
+    \[ \mathcal{B} = \{ U \times V : U \in \mathcal{T}_X, \; V \in \mathcal{T}_Y \} . \]
+    Note that this does not imply that all open sets of $X \times Y$ are of the form $U \times V$!
+    
+    In particular, this makes the projection maps $p_X : X \times Y \to X$ and $p_Y : X \times Y \to Y$ continuous.
+\end{topic}
+
+\begin{topic}{quotient-topology}{quotient topology}
+    Let $X$ be a \tref{topological-space}{topological space} with an equivalence relation $\sim{}$, denote the set of equivalence classes by $X / \sim{}$, and let $\pi : X \to X / \sim{}$ be the natural map. The \textbf{quotient topology} on $X / \sim{}$ is given by
+    \[ \tilde{\mathcal{T}} = \{ U \subset X / \sim{} : \pi^{-1}(U) \text{ open in } X \} . \]
+    
+    This is the \tref{coarser}{finest} topology that makes $\pi$ continuous.
+\end{topic}
+
+\begin{topic}{graph}{graph}
+    Let $f : X \to Y$ be a continuous map of \tref{topological-space}{topological spaces}. The \textbf{graph} of $f$ is the space
+    \[ G_f = \{ (x, y) \in X \times Y : f(x) = y \} \]
+    whose topology is induced by the \tref{product-topology}{product topology} on $X \times Y$.
+    
+    The map $x \mapsto (x, f(x))$ defines a \tref{homeomorphism}{homeomorphism} from $X$ to $G_f$.
+\end{topic}
+
+\begin{topic}{hausdorff}{Hausdorff}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Hausdorff} if for any two distinct points $x, y \in X$ there exist disjoint open sets $U, V \subset X$ such that $x \in U$ and $y \in V$.
+    
+    Equivalently, this is the case if the diagonal $\Delta = \{ (x, x) \in X \times X : x \in X \}$ is closed in $X \times X$.
+\end{topic}
+
+\begin{topic}{compact}{compact}
+    A \tref{topological-space}{topological space} $X$ is \textbf{compact} if it is \tref{quasi-compact}{quasi-compact} and \tref{hausdorff}{Hausdorff}.
+\end{topic}
+
+\begin{topic}{connected}{connected}
+    A \tref{topological-space}{topological space} $X$ is \textbf{connected} if the only subsets of $X$ that are both open and closed are $\varnothing$ and $X$ itself.
+\end{topic}
+
+\begin{topic}{path-connected}{path-connected}
+    A \tref{topological-space}{topological space} $X$ is \textbf{path-connected} if for every two points $x, y \in X$, there exists a continuous map $f : [0, 1] \to X$ (a \textit{path}) with $f(0) = x$ and $f(1) = y$.
+    
+    A path-connected space is in particular \tref{connected}{connected}.
 \end{topic}
