@@ -137,7 +137,6 @@ function searchMatchIndex(topic, input) {
 
 function suggestionHTML(id, input) {
     let topic = topics[id];
-    topic = topic[0].toUpperCase() + topic.substr(1);
     const category = categories[id.substr(0, id.indexOf(':'))];
 
     const i = topic.toUpperCase().indexOf(input.toUpperCase());

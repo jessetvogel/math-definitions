@@ -344,15 +344,13 @@ class Parser:
         self.consume(Token.T_COMMAND, '\\tref')
         self.consume(Token.T_SEPARATOR, '{')
         identifier = self.consume(Token.T_TEXT).data
+        identifier = identifier if ':' in identifier else self.prefix + ':' + identifier
         self.consume(Token.T_SEPARATOR, '}')
         self.consume(Token.T_SEPARATOR, '{')
-        text = self.consume(Token.T_TEXT).data
+        self.output.write('<a href="javascript:gotoTopic(\'{}\');">'.format(identifier))
+        self.parse_content()
+        self.output.write('</a>')
         self.consume(Token.T_SEPARATOR, '}')
-
-        if ':' not in identifier:
-            identifier = self.prefix + ':' + identifier
-        
-        self.output.write('<a href="javascript:gotoTopic(\'{}\');">{}</a>'.format(identifier, text))
     
     def special_chars(self, s):
         if '`' in s:

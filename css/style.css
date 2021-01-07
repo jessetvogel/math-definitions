@@ -76,6 +76,7 @@ header {
     font-family: 'Computer-Modern';
     font-size: 16px;
     box-sizing: border-box;
+    text-transform: capitalize;
 }
 
 #auto-complete-list {
@@ -165,7 +166,7 @@ a {
 }
 
 br {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 img.display-math-svg {
