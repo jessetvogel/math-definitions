@@ -63,7 +63,7 @@ class Lexer():
         self.tmp_position = 0
         
     def tokenize(self, expr):
-        if expr in ['{', '}', '\\[', '\\]', '$', '\\&', '\\#', '\\\\', '\\{', '\\}', '\;']:
+        if expr in ['{', '}', '\\[', '\\]', '$', '\\&', '\\#', '\\\\', '\\{', '\\}', '\\;', '[', ']']:
             return Token(Token.T_SEPARATOR, self.tmp_line, self.tmp_position, expr)
         
         if re.match(r'\A\\\w+\Z', expr):
@@ -75,7 +75,7 @@ class Lexer():
         if re.match(r'\A[^\S\n]+\Z', expr):
             return Token(Token.T_WHITESPACE, self.tmp_line, self.tmp_position, expr)
         
-        if re.match(r'\A[^{}\\$\s][^{}\\$\n]*\Z', expr):
+        if re.match(r'\A[^{}\\\[\]$\s][^{}\\\[\]$\n]*\Z', expr):
             return Token(Token.T_TEXT, self.tmp_line, self.tmp_position, expr)
 
         return None
@@ -173,7 +173,7 @@ class Parser:
             self.current_token = None
             return token
         else:
-            raise Exception('Expected \'{}\' but found \'{}\' [{}]'.format(data, self.current_token.data, self.current_token.type))
+            raise Exception('Expected \'{}\' but found \'{}\' [{}] (at line {} position {})'.format(data, self.current_token.data, self.current_token.type, self.current_token.line, self.current_token.position))
     
     def omit_whitespace(self, omit_newlines = True):
         while self.found(Token.T_WHITESPACE) or (omit_newlines and self.found(Token.T_NEWLINE)):
@@ -228,18 +228,24 @@ class Parser:
         
         self.parse_environment(env, args)
     
-    def parse_environment(self, env, args = []):
-        self.omit_whitespace()
-        
+    def parse_environment(self, env, args = []):        
         if env == 'enumerate':
-            self.parse_environment_list(True, args[0])
+            item_type = '1'
+            if self.found(Token.T_SEPARATOR, '['): # Read item type if specified
+                self.consume()
+                item_type = self.consume(Token.T_TEXT).data
+                self.consume(Token.T_SEPARATOR, ']')
+
+            self.omit_whitespace()    
+            self.parse_environment_list(True, item_type)
         elif env == 'itemize':
+            self.omit_whitespace()
             self.parse_environment_list(False)
         else:
             self.parse_content()
             
-        self.omit_whitespace()
-        
+        self.omit_whitespace() # This one is probably unnecessary..
+
         self.consume(Token.T_COMMAND, '\\end')
         self.consume(Token.T_SEPARATOR, '{')
         self.consume(Token.T_TEXT, env)

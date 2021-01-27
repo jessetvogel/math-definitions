@@ -23,8 +23,7 @@ function loadTopic(id) {
 
 function gotoTopic(id) {
     loadTopic(id);
-    let topic = topics[id];
-    topic = topic[0].toUpperCase() + topic.substr(1);
+    const topic = capitalize(topics[id]);
     autoCompleteInput.value = topic;
     autoCompleteList.innerHTML = '';
     setSearchCategory(categories[id.substr(0, id.indexOf(':'))])
@@ -38,8 +37,7 @@ function checkUrlFragment() {
         return;
     }
     loadTopic(id);
-    let topic = topics[id];
-    topic = topic[0].toUpperCase() + topic.substr(1);
+    const topic = capitalize(topics[id]);
     autoCompleteInput.value = topic;
     setSearchCategory(categories[id.substr(0, id.indexOf(':'))])
 }
@@ -136,7 +134,7 @@ function searchMatchIndex(topic, input) {
 }
 
 function suggestionHTML(id, input) {
-    let topic = topics[id];
+    let topic = capitalize(topics[id]);
     const category = categories[id.substr(0, id.indexOf(':'))];
 
     const i = topic.toUpperCase().indexOf(input.toUpperCase());
@@ -155,4 +153,12 @@ function setSearchCategory(str) {
         div.innerHTML = str;
         div.style.display = 'block';
     }
+}
+
+function capitalize(str) {
+    const i = str.search(/[a-z]/i); // Index of first letter in string
+    if(i < 0)
+        return str;
+
+    return str.substr(0, i) + str[i].toUpperCase() + str.substr(i + 1);
 }

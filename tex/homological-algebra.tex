@@ -1,10 +1,16 @@
 % Abelian categories
-\begin{topic}{abelian-category}{abelian category}
-    An \textbf{abelian category} is a category $\mathcal{A}$ such that
+\begin{topic}{additive-category}{additive category}
+    An \textbf{additive category} is a category $\mathcal{A}$ such that
     \begin{itemize}
-        \item every $\Hom_\mathcal{A}(M, N)$ is an abelian group, and composition is bilinear,
-        \item there is an object $0$ which is both \tref{CT:terminal}{terminal} and \tref{CT:initial}{initial},
-        \item for all $M, N$ in $\mathcal{A}$, the direct product $M \times N$ and direct sum $M \oplus N$ exist and are isomorphic,
+        \item every $\Hom_\mathcal{A}(A, B)$ is an abelian group, and composition is bilinear,
+        \item there is a zero object $0$ which is both \tref{CT:terminal}{terminal} and \tref{CT:initial}{initial},
+        \item direct sums and direct products exist, and coincide.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{abelian-category}{abelian category}
+    An \textbf{abelian category} is an \tref{additive-category}{additive category} category $\mathcal{A}$ in which
+    \begin{itemize}
         \item all kernels and cokernels exist,
         \item every monomoprhism is the kernel of some morphism, and every epimoprhism is the cokernel of some morphism.
     \end{itemize}
@@ -18,8 +24,8 @@
 \end{topic}
 
 \begin{topic}{additive-functor}{additive functor}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}. A functor $F : \mathcal{A} \to \mathcal{B}$ is called \textbf{additive} if for all $M, N$ in $\mathcal{A}$ the map
-    \[ \Hom_\mathcal{A}(M, N) \to \Hom_\mathcal{B}(FM, FN) \]
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{additive-category}{additive categories}. A functor $F : \mathcal{A} \to \mathcal{B}$ is called \textbf{additive} if for all $A, B$ in $\mathcal{A}$ the map
+    \[ \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{B}(FA, FB) \]
     is a group morphism.
     
     It follows that an additive functor preserves finite direct sums and sends $0$ to $0$.
@@ -55,9 +61,9 @@
     \[ \cdots \xleftarrow{d_{i - 1}} A_{i - 1} \xleftarrow{d_i} A_i \xleftarrow{d_{i + 1}} A_{i + 1} \xleftarrow{d_{i + 2}} \cdots \]
     Dually, a \textbf{cochain complex} $A^\bdot$ in $\mathcal{A}$ is a sequence of objects $A^i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d^i : A^i \to A^{i + 1}$ such that $d^{i + 1} \circ d^i = 0$ for all $i$.
     \[ \cdots \xrightarrow{d^{i - 2}} A^{i - 1} \xrightarrow{d^{i - 1}} A^i \xrightarrow{d^i} A^{i + 1} \xrightarrow{d^{i + 1}} \cdots \]
-
+    
     A \textbf{morphism of chain complexes} or \textbf{chain map} $f : A_\bdot \to B_\bdot$ is given by a collection of morphisms $f_i : A_i \to B_i$ for each $i \in \ZZ$ such that $d^B_i \circ f_i = f_{i - 1} \circ d^A_i$. Dually, there are \textbf{cochain maps}.
-
+    
     If the objects of $\mathcal{A}$ are sets, then elements of $A_n$ are called \textit{$n$-chains}, elements of $\ker d_n$ are called \textit{$n$-cycles}, and elements of $\im d_{n - 1}$ are called \textit{$n$-boundaries}. Similarly, elements of $A^n$ are called \textit{$n$-cochains}, elements of $\ker d^n$ are called \textit{$n$-cocycles}, and elements of $\im d^{n - 1}$ are called \textit{$n$-coboundaries}. Note that any $n$-(co)boundary is an $n$-(co)cycle.
 \end{topic}
 
@@ -71,7 +77,7 @@
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let
     \[ 0 \rightarrow A^\bdot \rightarrow B^\bdot \rightarrow C^\bdot \rightarrow 0 \]
     be a short exact sequence of \tref{chain-complex}{complexes} in $\mathcal{A}$. Then there is an induced long exact sequence
-    \[ \cdots \rightarrow H^i(A) \rightarrow H^i(B) \rightarrow H^i(C) \rightarrow H^{i + 1}(A) \rightarrow \cdots . \]
+    \[ \cdots \rightarrow H^i(A^\bdot) \rightarrow H^i(B^\bdot) \rightarrow H^i(C^\bdot) \rightarrow H^{i + 1}(A^\bdot) \rightarrow \cdots . \]
 \end{topic}
 
 \begin{topic}{homotopy}{homotopy}

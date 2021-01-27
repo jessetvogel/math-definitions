@@ -4,16 +4,9 @@
     The \textbf{derived category} $\textbf{D}(\mathcal{A})$ is obtained from $\textbf{K}(\mathcal{A})$ by `pretending' any quasi-isomorphism is an isomorphism. Concretely, a morphism from $A^\bdot$ to $B^\bdot$ is given by a roof
     \[ \begin{tikzcd}[column sep = 0.5em] & \arrow[swap]{ld}{f} C^\bdot \arrow{rd}{g} & \\ A^\bdot \arrow[dashed]{rr} & & B^\bdot , \end{tikzcd} \]
     where $f$ is a quasi-isomorphism, and we think of this roof as $g \circ f^{-1}$ (even though $f^{-1}$ might not exist). Technically, one \textit{localizes} the category $\textbf{K}(\mathcal{A})$ w.r.t. quasi-isomorphisms.
+    
+    Both $\textbf{K}(\mathcal{A})$ and $\textbf{D}(\mathcal{A})$ naturally admit the structure of a \tref{triangulated-category}{triangulated category}. In both cases, a triangle is distinguished if it is isomorphic to one of the form
+    \[ A^\bdot \xrightarrow{f} B^\bdot \to C(f) \xrightarrow{\pi} A^\bdot[1] , \]
+    where $C(f)$ is the \textit{mapping cone} of $f$. That is,
+    \[ C(f)^i = A^{i + 1} \oplus B^i \quad \text{and} \quad d_{C(f)}^i = \begin{pmatrix} -d_A^{i + 1} & 0 \\ f^{i + 1} & d_B^i \end{pmatrix} . \]
 \end{topic}
-
-% \begin{topic}{exact-triangle}{exact triangle}
-%     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An \textbf{exact triangle} in $\textbf{K}(\mathcal{A})$ is a diagram of complexes
-%     \[ A^\bdot \overset{f}{\to} B^\bdot \to C^\bdot \to A^\bdot[1] , \]
-%     which is isomorphic to one where $C^\bdot = \text{Cone}(f)$, that is $C^i = A^{i + 1} \oplus B^i$ and
-%     \[ d_C^i = \begin{pmatrix} -d_A^{i + 1} & 0 \\ f^{i + 1} & d_B^i \end{pmatrix} . \]
-% \end{topic}
-
-% \begin{topic}{integral-transform}{integral transform}
-%     Let $X$ and $Y$ be 
-% \end{topic}
-
