@@ -73,16 +73,8 @@
     In this case, $S$ is also said to be a \textbf{finitely presented $R$-algebra}.
 \end{topic}
 
-\begin{topic}{module}{module}
-    Let $R$ be a ring. An $R$-module is ...
-\end{topic}
-
-\begin{topic}{projective-module}{projective module}
-    Let $R$ be a ring. An $R$-module $P$ is called \textbf{projective} if for every morphism $g : P \to M$ and surjective morphism $f : N \to M$ of $R$-modules, there exists a morphism $h : P \to N$ of $R$-modules such that $fh = g$. We do not require this map to be unique.
-    \[ \begin{tikzcd} & N \arrow[twoheadrightarrow]{d}{f} \\ P \arrow[swap]{r}{g} \arrow[dashed]{ur}{\exists h} & M \end{tikzcd} \]
-\end{topic}
-
-\begin{topic}{injective-module}{injective module}
-    Let $R$ be a ring. An $R$-module $I$ is called \textbf{injective} if for every morphism $g : M \to I$ and injective morphism $f : M \to N$ of $R$-modules, there exists a morphism $h : N \to Q$ of $R$-modules such that $hf = g$. We do not require this map to be unique.
-    \[ \begin{tikzcd} M \arrow[hookrightarrow]{r}{f} \arrow[swap]{d}{g} & N \arrow[dashed]{ld}{\exists h} \\ I & \end{tikzcd} \]
+\begin{topic}{krull-dimension}{Krull dimension}
+    The \textbf{Krull dimension} of a commutative ring $R$ is the supremum of the lengths of all chains of \tref{prime-ideal}{prime ideals}, where a chain of the form
+    \[ \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n \]
+    has length $n$.
 \end{topic}

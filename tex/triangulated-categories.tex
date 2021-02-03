@@ -49,6 +49,14 @@
     Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. The (right) \textbf{orthogonal complement} of a subcategory $\mathcal{D}' \subset \mathcal{D}$ is the full subcategory ${\mathcal{D}'}^\perp$ of all objects $A \in \mathcal{D}$ such that $\Hom(B, A) = 0$ for all $B \in \mathcal{D}'$.
 \end{topic}
 
+\begin{topic}{spanning-class}{spanning class}
+    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A collection $\Omega$ of objects in $\mathcal{D}$ is a \textbf{spanning class} (or spans $\mathcal{D}$) if for all $B \in \mathcal{D}$ we have
+    \begin{itemize}
+        \item $\Hom(A, B[i]) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \simeq 0$,
+        \item $\Hom(B[i], A) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \simeq 0$.
+    \end{itemize}
+\end{topic}
+
 \begin{topic}{exceptional-sequence}{exceptional sequence}
     Let $\mathcal{D}$ be a $k$-linear \tref{triangulated-category}{triangulated category}. An object $E \in \mathcal{D}$ is called \textbf{exceptional} if
     \[ \Hom(E, E[\ell]) = \left\{\begin{array}{cl} k & \text{ if } \ell = 0, \\ 0 & \text{ otherwise.} \end{array}\right. \]

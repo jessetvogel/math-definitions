@@ -1,0 +1,17 @@
+
+Let <span class="math inline">\(\mathcal{A}\)</span> be an <a href="javascript:gotoTopic('HA:abelian-category');">abelian category</a>. A <b>spectral sequence</b> in <span class="math inline">\(\mathcal{A}\)</span> is a collection of objects
+<span class="math display">\[ (E_r^{p, q}, E^n) \qquad n, p, q, r \in \ZZ, r \ge 1 \]</span>
+and morphisms
+<span class="math display">\[ d_r^{p, q} : E_r^{p, q} \to E_r^{p + r, q - r + 1} \]</span>
+satisfying
+<ul><li> <span class="math inline">\(d_r^2 = 0\)</span> (i.e. the <span class="math inline">\(E_r^{p + \bdot r, q - \bdot r + \bdot}\)</span> are complexes),
+</li><li> there are isomorphisms (which are part of the data)
+<span class="math display">\[ E_{r + 1}^{p, q} \simeq H^0(E_r^{p + \bdot r, q - \bdot r + \bdot}), \]</span>
+</li><li> for any <span class="math inline">\((p, q)\)</span> there exists an <span class="math inline">\(r_0\)</span> such that <span class="math inline">\(d_r^{p, q} = d_r^{p - r, q + r - 1} = 0\)</span> for all <span class="math inline">\(r \ge r_0\)</span>. In particular, <span class="math inline">\(E_r^{p, q} \simeq E_{r_0}^{p, q}\)</span> for all <span class="math inline">\(r \ge r_0\)</span>, and this object is denoted by <span class="math inline">\(E_\infty^{p, q}\)</span>.
+</li><li> There is a decreasing filtration
+<span class="math display">\[ 0 \subset \cdots \subset F^{p + 1} E^n \subset F^p E^n \subset \cdots E^n , \]</span>
+with <span class="math inline">\(\cap_p F^p E^n = 0\)</span> and <span class="math inline">\(\cup_p F^p E^n = E^n\)</span>, and isomorphisms
+<span class="math display">\[ E_\infty^{p, q} \simeq F^p E^{p + q} / F^{p + 1} E^{p + q} . \]</span>
+</li></ul><br/>
+In some sense, the objects <span class="math inline">\(E_r^{p, q}\)</span> converge towards subquotients of a certain filtration of <span class="math inline">\(E^n\)</span>. Usually, the objects of one layer of some fixed <span class="math inline">\(r\)</span> are given. Then one writes
+<span class="math display">\[ E_r^{p, q} \Rightarrow E^{p + q} . \]</span>
