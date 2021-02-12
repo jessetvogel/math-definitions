@@ -142,7 +142,7 @@ class Lexer():
             return token
 
 
-# In[7]:
+# In[1]:
 
 
 class Parser:
@@ -152,6 +152,7 @@ class Parser:
         self.current_token = None
         self.prefix = ''
         self.topics = {}
+        self.examples = {}
     
     def set_prefix(self, prefix):
         self.prefix = prefix
@@ -188,14 +189,29 @@ class Parser:
         # Keep parsing topics until end of file (ignoring newlines)
         self.omit_whitespace()
         while not self.found(Token.T_EOF):
-            self.parse_topic()
+            self.parse_topic_or_example()
             self.omit_whitespace()
-            
-    def parse_topic(self):
-        # \begin{topic}{identifier}{name} ... \end{topic}
+    
+    def parse_topic_or_example(self):
+        # \begin{topic|example} ...
         self.consume(Token.T_COMMAND, '\\begin')
         self.consume(Token.T_SEPARATOR, '{')
-        self.consume(Token.T_TEXT, 'topic')
+        environment = self.consume(Token.T_TEXT).data
+        
+        if environment == 'topic':
+            self.parse_topic()
+            
+        elif environment == 'example':
+            self.parse_example()
+            
+        else:
+            raise Exception('Expected topic or example, but found ' + environment)
+
+    def parse_topic(self):
+        # \begin{topic}{identifier}{name} ... \end{topic}
+#         self.consume(Token.T_COMMAND, '\\begin')
+#         self.consume(Token.T_SEPARATOR, '{')
+#         self.consume(Token.T_TEXT, 'topic')
         self.consume(Token.T_SEPARATOR, '}')
         self.consume(Token.T_SEPARATOR, '{')
         suffix = self.consume(Token.T_TEXT).data
@@ -211,8 +227,34 @@ class Parser:
         print('{} [{}]'.format(name, identifier))
         self.topics[identifier] = name
         
-        self.output = open(self.output_dir + '/' + self.prefix + '-' + suffix + '.html', 'w')
+        self.output = open(self.output_dir + '/definitions/' + self.prefix + '-' + suffix + '.html', 'w')
+        self.omit_whitespace()
         self.parse_environment('topic')
+        self.output.close()
+        
+    def parse_example(self):
+        # \begin{example}{topic} ... \end{example}
+#         self.consume(Token.T_COMMAND, '\\begin')
+#         self.consume(Token.T_SEPARATOR, '{')
+#         self.consume(Token.T_TEXT, 'topic')
+        self.consume(Token.T_SEPARATOR, '}')
+        self.consume(Token.T_SEPARATOR, '{')
+        topic = self.prefix + ':' + self.consume(Token.T_TEXT).data
+        self.consume(Token.T_SEPARATOR, '}')
+        
+        if topic not in self.topics:
+            raise Exception('Topic ' + topic + ' does not exist')
+        
+        print('Example {}'.format(topic))
+        
+        if topic in self.examples:
+            self.examples[topic] += 1
+        else:
+            self.examples[topic] = 1
+        
+        self.output = open(self.output_dir + '/examples/' + topic + '-' + str(self.examples[topic]) + '.html', 'w')
+        self.omit_whitespace()
+        self.parse_environment('example')
         self.output.close()
     
     def parse_begin_environment(self):
@@ -399,10 +441,16 @@ class Parser:
             return False
 
 
-# In[8]:
+# In[6]:
 
 
 # parser = Parser('/Users/jessevogel/Projects/math-definitions/data/')
 # parser.set_prefix('AG')
 # parser.parse('/Users/jessevogel/Projects/math-definitions/tex/sheaves.tex')
+
+
+# In[ ]:
+
+
+
 
