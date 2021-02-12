@@ -1,4 +1,4 @@
-var topics = {
+const topics = {
   "CT:category": "category",
   "CT:functor": "functor",
   "CT:monomorphism": "monomorphism",
