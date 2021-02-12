@@ -4,20 +4,27 @@ function init() {
 }
 
 function loadTopic(id) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById('content').innerHTML = this.responseText;
-            MathJax.typeset();
-        }
+    window.topicId = id;
 
-        if (this.readyState == 4 && this.status == 404) {
-            document.getElementById('content').innerHTML = '404 Not Found';
-        }
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        const content = document.getElementById('content');
 
-        // Catch some error codes here! E.g. 404
-    };
-    xhttp.open('GET', 'data/' + id.replace(':', '-') + '.html', true);
+        if(xhttp.status == 200) {
+            content.innerHTML = this.responseText;
+            MathJax.typeset([ content ]);
+        }
+        
+        else if(xhttp.status == 404)
+            content.innerHTML = 'Definition not found 🥺';
+    }
+
+    xhttp.onerror = function () {
+        const content = document.getElementById('content');
+        content.innerHTML = 'Could not load definition 🥺';
+    }
+
+    xhttp.open('GET', 'data/definitions/' + id.replace(':', '-') + '.html', true);
     xhttp.send();
 }
 
