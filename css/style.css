@@ -176,3 +176,37 @@ img.display-math-svg {
     margin-bottom: 32px;
     scale: 1.33;
 }
+
+.error {
+    text-align: center;
+}
+
+.example {
+    margin-bottom: 16px;
+}
+
+.examples.hidden .example {
+    display: none;
+}
+
+.example::before {
+    content: 'Example. ';
+    font-weight: bold;
+}
+
+.toggle-examples-button {
+    margin-top: 32px;
+    text-align: center;
+    line-height: 40px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.examples .toggle-examples-button::before {
+    content: '(hide examples)';
+    cursor: pointer;
+}
+
+.examples.hidden .toggle-examples-button::before {
+    content: '(show examples)';
+    cursor: pointer;
+}

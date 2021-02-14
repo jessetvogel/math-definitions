@@ -1,4 +1,4 @@
-var categories = {
+const categories = {
     "CT": "Category Theory",
     "CA": "Commutative Algebra",
     "AT": "Algebraic Topology",

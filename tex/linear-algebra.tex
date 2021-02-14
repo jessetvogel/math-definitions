@@ -1,0 +1,125 @@
+\begin{topic}{vector-space}{vector space}
+    A \textbf{vector space} over a \tref{CA:field}{field} $k$ is a $k$-module. Its elements are called \textit{vectors}.
+    % Concretely, ...
+\end{topic}
+
+\begin{topic}{vector-subspace}{vector-subspace}
+    Let $V$ be a \tref{vector-space}{vector space}. A \textbf{subspace} of $V$ is a subset $V' \subset V$ which is a vector space itself.
+\end{topic}
+
+\begin{topic}{linearly-independent}{linearly independent}
+    Let $V$ be a \tref{vector-space}{vector space}. A set of vectors $S \subset V$ is said to be \textbf{linearly independent} if for any relation
+    \[ \sum_{i = 1}^{n} a_i v_i = 0, \qquad \text{with $v_i \in S$ and $a_i \in k$,} \]
+    one has $a_i = 0$.
+\end{topic}
+
+\begin{topic}{span}{span}
+    Let $V$ be a \tref{vector-space}{vector space}, and $S \subset V$ a subset. The \textbf{span} of $S$ is the subspace of all linear combinations of vectors in $S$.
+    \[ \text{span}(S) = \left\{ \sum_{i = 1}^{n} a_i v_i \text{ for any } v_i \in S \text{ and } a_i \in k \right\} \]
+\end{topic}
+
+\begin{topic}{basis}{basis}
+    Let $V$ be a \tref{vector-space}{vector space}. A set of vectors in $V$ is a \textbf{basis} for $V$ if it \tref{span}{spans} $V$ and is \tref{linearly-independent}{linearly independent}.
+    
+    Equivalently, a set is a basis if each vector in $V$ can be expressed uniquely as a linear combination of vectors in the set.
+\end{topic}
+
+\begin{topic}{dimension}{dimension}
+    Let $V$ be a \tref{vector-space}{vector space}. The \textbf{dimension} of $V$ is the cardinality of any basis of $V$. It is often denoted by $\dim(V)$.
+\end{topic}
+
+\begin{topic}{linear-transformation}{linear transformation}
+    A function $T : V \to V$ is a \textbf{linear transformation} if
+    \begin{itemize}
+        \item $T(v + w) = T(v) + T(w)$,
+        \item $T(av) = aT(v)$,
+    \end{itemize}
+    for all vectors $v, w \in V$ and scalars $a \in k$.
+\end{topic}
+
+\begin{topic}{matrix-representation}{matrix representation}
+    Let $V$ and $W$ be finite-dimensional \tref{vector-space}{vector spaces}, and $T : V \to W$ a \tref{linear-transformation}{linear transformation}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are (ordered) \tref{basis}{bases} of $V$ and $W$, respectively, then the \textbf{matrix representation} of $T$ is the $m \times n$ matrix
+    \[ A = \begin{pmatrix} a_{11} & a_{21} & \cdots & a_{n1} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix} \]
+    such that $i$-th component of $T(v_j)$ (w.r.t. the basis for $W$) is $a_{ij}$.
+\end{topic}
+
+\begin{topic}{matrix-multiplication}{matrix multiplication}
+    Let $A = (a_{ij})$ be an $m \times n$ matrix, and $B = (b_{ij})$ be an $n \times \ell$ matrix. The \textbf{matrix product} $AB$ is the $m \times \ell$ matrix $C = (c_{ij})$ given by
+    \[  c_{ij} = \sum_{k = 1}^{n} a_{ik} b_{kj} . \]
+\end{topic}
+
+\begin{topic}{matrix-transpose}{matrix transpose}
+    The \textbf{transpose} of a matrix $A = (a_{ij})$ is the matrix $A^T = (b_{ij})$ given by $b_{ij} = a_{ji}$.
+\end{topic}
+
+% \begin{topic}{row-echelon-form}{(reduced) row-echelon form}
+    
+% \end{topic}
+
+\begin{topic}{invertible-matrix}{invertible matrix}
+    An $n \times n$ matrix $A$ is \textbf{invertible} if there exists an $n \times n$ matrix $B$ such that $AB = BA = I$. In this case, $B$ is called the \textbf{inverse} of $A$, and is the unique matrix with this property.
+    
+    If $A$ is not invertible, it is called \textbf{singular}.
+\end{topic}
+
+\begin{topic}{matrix-rank}{matrix rank}
+    The \textbf{rank} of an $m \times n$ matrix $A$ the \tref{dimension}{dimension} of its \textit{row space} $\im A$.
+\end{topic}
+
+\begin{topic}{nullspace}{nullspace}
+    The \textbf{nullspace}, or \textbf{kernel}, of a \tref{linear-transformation}{linear transformation} $T : V \to W$ is the subspace
+    \[ \left\{ v \in V \text{ such that } T(v) = 0 \right\} \subset V . \]
+\end{topic}
+
+\begin{topic}{projection}{projection}
+    A \textbf{projection} is a \tref{linear-transformation}{linear transformation} $P : V \to V$ with $P^2 = P$.
+\end{topic}
+
+\begin{topic}{determinant}{determinant}
+    The \textbf{determinant} of an $n \times n$ matrix $A$ is the scalar given by
+    \[ \det(A) = \sum_{\sigma \in S_n} \left( \text{sign}(\sigma) \prod_{i = 1}^{n} a_{i, \sigma(i)} \right) . \]
+    It has the property that $A$ is \tref{invertible-matrix}{invertible} if and only if $\det(A) \ne 0$.
+    
+    Also, the determinant of $A$ is the scalar corresponding to the map induced on the top exterior power of $V$,
+    \[ \wedge^n A : \wedge^n V \to \wedge^n V . \]
+\end{topic}
+
+\begin{topic}{cofactor-matrix}{cofactor matrix}
+    Let $A = (a_{ij})$ be an $n \times n$ matrix. The \textbf{cofactor} of an entry $a_{ij}$ of $A$ is
+    \[ a'_{ij} = (-1)^{i + j} \det(A_{ij}), \]
+    where $A_{ij}$ is the matrix obtained from $A$ by removing the $i$-th row and $j$-th column. The \textbf{cofactor matrix} of $A$ is then the $n \times n$ matrix $A' = (a'_{ij})$.
+\end{topic}
+
+\begin{topic}{adjoint-matrix}{adjoint matrix}
+    Let $A$ be an $n \times n$ matrix. The \textbf{adjoint} of $A$ is the \tref{matrix-transpose}{transpose} of its \tref{cofactor-matrix}{cofactor matrix}:
+    \[ \text{adj}(A) = (A')^T . \]
+    It has the property that
+    \[ \text{adj}(A) A = \det(A) I , \]
+    so in particular, when $\det(A) \ne 0$, one has
+    \[ A^{-1} = \frac{1}{\det(A)} \text{adj}(A) . \]
+\end{topic}
+
+\begin{topic}{eigenvalue}{eigenvalue / eigenvector}
+    Let $A$ be an $n \times n$ matrix. A scalar $\lambda$ is an \textbf{eigenvalue} of $A$ if there exists a nonzero vector $v$ such that $A v = \lambda v$. The vector $v$ is then an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
+\end{topic}
+
+\begin{topic}{characteristic-polynomial}{characteristic polynomial}
+    Let $A$ be an $n \times n$ matrix. The \textbf{characteristic polynomial} of $A$ is the polynomial of degree $n$ given by
+    \[ p_A(\lambda) = \det(A - \lambda I) . \]
+    Its roots are precisely the \tref{eigenvalue}{eigenvalues} of $A$.
+\end{topic}
+
+\begin{topic}{diagonalization}{diagonalization}
+    A \textbf{diagonalization} of an $n \times n$ matrix $A$ consists of an invertible matrix $C$ and a diagonal matrix $D$ such that
+    \[ D = C A C^{-1} . \]
+    If such a diagonalization exists, $A$ is said to be \textbf{diagonalizable}.
+\end{topic}
+
+\begin{topic}{algebraic-multiplicity}{algebraic multiplicity}
+    Let $A$ be an $n \times n$ matrix. The \textbf{algebraic multiplicity} of an eigenvalue $\lambda$ of $A$ is its multiplicity as a root of the \tref{characteristic-polynomial}{characteristic polynomial} of $A$.
+\end{topic}
+
+\begin{topic}{geometric-multiplicity}{geometric multiplicity}
+    Let $A$ be an $n \times n$ matrix. The \textbf{geometric multiplicity} of an eigenvalue $\lambda$ of $A$ is the \tref{dimension}{dimension} of the corresponding \textit{eigenspace}
+    \[ E_\lambda = \{ v \in V : A v = \lambda v \} . \]
+\end{topic}

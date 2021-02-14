@@ -1,3 +1,2 @@
-const examples = {
-  "CA:prime-ideal": 1,
-}
+const examples = [
+];

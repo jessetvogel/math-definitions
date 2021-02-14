@@ -10,5 +10,6 @@ data = {
     "HA": [ "homological-algebra.tex",
             "triangulated-categories.tex",
             "derived-categories.tex" ],
-    "TO": [ "topology.tex" ]
+    "TO": [ "topology.tex" ],
+    "LA": [ "linear-algebra.tex" ]
 }

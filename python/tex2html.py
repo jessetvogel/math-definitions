@@ -142,7 +142,7 @@ class Lexer():
             return token
 
 
-# In[1]:
+# In[3]:
 
 
 class Parser:
@@ -152,7 +152,7 @@ class Parser:
         self.current_token = None
         self.prefix = ''
         self.topics = {}
-        self.examples = {}
+        self.examples = []
     
     def set_prefix(self, prefix):
         self.prefix = prefix
@@ -239,22 +239,26 @@ class Parser:
 #         self.consume(Token.T_TEXT, 'topic')
         self.consume(Token.T_SEPARATOR, '}')
         self.consume(Token.T_SEPARATOR, '{')
-        topic = self.prefix + ':' + self.consume(Token.T_TEXT).data
+        topic = self.consume(Token.T_TEXT).data
         self.consume(Token.T_SEPARATOR, '}')
         
-        if topic not in self.topics:
-            raise Exception('Topic ' + topic + ' does not exist')
+        identifier = self.prefix + ':' + topic
+        if identifier not in self.topics:
+            raise Exception('Topic ' + identifier + ' does not exist')
         
-        print('Example {}'.format(topic))
+        print('Example {}'.format(identifier))
         
-        if topic in self.examples:
-            self.examples[topic] += 1
+        if identifier in self.examples:
+            file_option = 'a'
         else:
-            self.examples[topic] = 1
+            file_option = 'w'
+            self.examples.append(identifier)
         
-        self.output = open(self.output_dir + '/examples/' + topic + '-' + str(self.examples[topic]) + '.html', 'w')
+        self.output = open(self.output_dir + '/examples/' + (self.prefix + '-' + topic) + '.html', file_option)
+        self.output.write('<div class="example">')
         self.omit_whitespace()
         self.parse_environment('example')
+        self.output.write('</div>')
         self.output.close()
     
     def parse_begin_environment(self):

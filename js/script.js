@@ -6,25 +6,23 @@ function init() {
 function loadTopic(id) {
     window.topicId = id;
 
+    const content = document.getElementById('content');
+
     const xhttp = new XMLHttpRequest();
-    xhttp.onload = function () {
-        const content = document.getElementById('content');
-
-        if(xhttp.status == 200) {
-            content.innerHTML = this.responseText;
-            MathJax.typeset([ content ]);
-        }
-        
-        else if(xhttp.status == 404)
-            content.innerHTML = 'Definition not found 🥺';
-    }
-
-    xhttp.onerror = function () {
-        const content = document.getElementById('content');
-        content.innerHTML = 'Could not load definition 🥺';
-    }
-
     xhttp.open('GET', 'data/definitions/' + id.replace(':', '-') + '.html', true);
+    xhttp.onload = function () {
+        if(xhttp.status == 200) {
+            content.innerHTML = '<div class="definition">' + this.responseText + '</div>';
+            if(MathJax && MathJax.typeset)
+                MathJax.typeset([ content ]);
+            showExamples(id);
+        }
+        else if(xhttp.status == 404)
+            content.innerHTML = '<div class="error">Definition not found 🥺</div>';
+    }
+    xhttp.onerror = function () {
+        content.innerHTML = '<div class="error">Could not load definition 🥺</div>';
+    }
     xhttp.send();
 }
 
@@ -35,6 +33,36 @@ function gotoTopic(id) {
     autoCompleteList.innerHTML = '';
     setSearchCategory(categories[id.substr(0, id.indexOf(':'))])
     window.history.pushState(id, 'Math: ' + id, '#' + id);
+}
+
+function showExamples(id) {
+    if(!examples.includes(id))
+        return;
+
+    const content = document.getElementById('content');
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', 'data/examples/' + id.replace(':', '-') + '.html', true);
+    xhttp.onload = function () {
+        const ex = document.createElement('div');
+        ex.classList.add('examples');
+        ex.classList.add('hidden');
+
+        const toggleButton = document.createElement('div');
+        toggleButton.classList.add('toggle-examples-button');
+        toggleButton.addEventListener('click', function () {
+            ex.classList.toggle('hidden');
+        });
+
+        ex.append(toggleButton);
+        ex.insertAdjacentHTML('beforeend', this.responseText);
+
+        content.append(ex);
+    }
+    xhttp.onerror = function () {
+        console.log('error..');
+    }
+    xhttp.send();
 }
 
 function checkUrlFragment() {
