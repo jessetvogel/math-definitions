@@ -8,4 +8,5 @@ const categories = {
     "HA": "Homological Algebra",
     "TO": "Topology",
     "LA": "Linear Algebra",
+    "GT": "Group Theory",
 };
