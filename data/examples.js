@@ -3,7 +3,7 @@ const examples = [
   "CA:regular-ring",
   "CA:flat-module",
   "CA:perfect-field",
+  "GT:solvable-group",
   "AG:separated",
-  "AG:picard-group",
   "LA:algebraic-geometric-multiplicity",
 ];

@@ -185,6 +185,10 @@
 % \end{topic}
 
 
+\begin{topic}{dominant-morphism}{dominant morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{dominant} if the image of $f$ is a \tref{TO:dense}{dense} subset of $Y$.
+\end{topic}
+
 \begin{topic}{serre-duality}{Serre duality}
     Let $X$ be a smooth projective scheme of dimension $n$, and let $\omega_X$ be its canonical sheaf. Then \textbf{Serre duality} states that for every coherent sheaf $\mathcal{F}$ on $X$ there is a natural isomorphism
     \[ H^i(X, \mathcal{F}^\vee \otimes \omega_X) \simeq H^{n - i}(X, \mathcal{F})^\vee . \]
@@ -195,14 +199,23 @@
     \[ [\mathcal{L}_1] + [\mathcal{L}_2] = [\mathcal{L}_1 \otimes \mathcal{L}_2] . \]
 \end{topic}
 
-\begin{example}{picard-group}
-    \begin{itemize}
-        \item $\text{Pic}(\PP^n) \simeq \ZZ$
-        \item $\text{Pic}(\AA^n) \simeq 0$
-    \end{itemize}
-\end{example}
+% \begin{example}{picard-group}
+%     \begin{itemize}
+%         \item $\text{Pic}(\PP^n) \simeq \ZZ$
+%         \item $\text{Pic}(\AA^n) \simeq 0$
+%     \end{itemize}
+% \end{example}
 
-\begin{example}{picard-group}
-    \[ \text{Pic}(X) \simeq H^1(X, \mathcal{O}_X^*) \]
-\end{example}
+% \begin{example}{picard-group}
+%     \[ \text{Pic}(X) \simeq H^1(X, \mathcal{O}_X^*) \]
+% \end{example}
 
+
+
+\begin{topic}{euler-sequence}{Euler sequence}
+    Let $A$ be any ground ring. The \textbf{Euler sequence} is the following exact sequence of sheaves on $\PP_A^n$:
+    \[ 0 \rightarrow \Omega^1_{\PP^n_A/A} \rightarrow \mathcal{O}_{\PP_A^n}(-1)^{\oplus n + 1} \rightarrow \mathcal{O}_{\PP_A^n} \rightarrow 0 , \]
+    where the latter map is given by the map of graded $A$-modules
+    \[ S(-1)^{\oplus n + 1} \to S : e_i \mapsto x_i \qquad \text{ with } S = A[x_0, x_1, \ldots, x_n] . \]
+    One can check on the affine patches that the kernel is isomorphic to the relative differential module.
+\end{topic}

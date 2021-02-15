@@ -1,9 +1,9 @@
 data = {
     "CT": [ "category-theory.tex" ],
     "CA": [ "commutative-algebra.tex",
-            "ring-theory.tex",
             "modules.tex",
             "fields.tex" ],
+    "GT": [ "group-theory.tex" ],
     "AT": [ "algebraic-topology.tex" ],
     "DG": [ "differential-geometry.tex" ],
     "AG": [ "algebraic-geometry.tex",
