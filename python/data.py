@@ -1,6 +1,7 @@
 data = {
     "CT": [ "category-theory.tex" ],
     "CA": [ "commutative-algebra.tex",
+            "ring-theory.tex",
             "modules.tex",
             "fields.tex" ],
     "AT": [ "algebraic-topology.tex" ],

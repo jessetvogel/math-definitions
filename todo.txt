@@ -1,0 +1,17 @@
+Perfect fields
+
+Hilbert polynomials/series (See Chapter 11 of Commutative Algebra, M. Atiyah)
+
+CA: ring, tensor product, direct sum, quotient ring, irreducible elements,
+CA: GCD domain, Bezout's identity, 
+CA: discrete valuation ring, valuation ring
+    
+AG: etale, smooth, unramified, regular, normal scheme, etc.
+AG: dominant morphism
+AG: Euler sequence of sheaves
+    
+AG: example invertible sheaves: correspondence to divisors
+
+RT: Representation Theory!
+
+Group theory: normalizer, centrilizer, stabilizer, parabolic subgroup

@@ -1,5 +1,5 @@
 \begin{topic}{module}{module}
-    Let $R$ be a commutative ring. An $R$-module is an abelian group $M$ with an action of $R$, that is a map
+    Let $R$ be a commutative ring. An \textbf{$R$-module} is an abelian group $M$ with an action of $R$, that is a map
     \[ R \times M \to M, \qquad (a, m) \mapsto a \cdot m, \]
     satisfying
     \begin{itemize}
@@ -34,3 +34,20 @@
 \begin{topic}{flat-module}{flat module}
     Let $R$ be a commutative ring. An $R$-module $M$ is \textbf{flat} if $(-) \otimes_R M$ is exact. Since the tensor product is already right-exact, this is equivalent to saying $(-) \otimes_R M$ sends injective morphisms to injective morphisms.
 \end{topic}
+
+\begin{example}{flat-module}
+    Any \tref{free-module}{free module} $\bigoplus_{i \in I} R$ is flat over $R$, because if $M \to N$ is injective, then so is $\bigoplus_{i \in I} M \to \bigoplus_{i \in I} N$.
+    In particular, $k$-vector spaces are flat over $k$.
+\end{example}
+
+\begin{example}{flat-module}
+    Take $R = \ZZ$ and $M = \ZZ/2\ZZ$. Then $M$ is not flat, because tensoring
+    \[ 0 \rightarrow \ZZ \xrightarrow{\cdot 2} \ZZ \rightarrow \ZZ/2\ZZ \to 0 \]
+    with $\ZZ/2\ZZ$ gives
+    \[ 0 \rightarrow \ZZ/2\ZZ \xrightarrow{0} \ZZ/2\ZZ \xrightarrow{\id} \ZZ/2\ZZ \to 0 , \]
+    which is not exact on the left.
+\end{example}
+
+\begin{example}{flat-module}
+    Let $f : A \to B$ be a morphism of rings, and suppose that $x \in A$ is not a \tref{zero-divisor}{zero-divisor} while $f(x) \in B$ is. Then $B$ cannot be flat as an $A$-module, since multiplication by $x$ is an injective map $A \to A$, while multiplication by $f(x)$ is not an injective map $B \to B$.
+\end{example}

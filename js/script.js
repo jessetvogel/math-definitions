@@ -4,26 +4,49 @@ function init() {
 }
 
 function loadTopic(id) {
-    window.topicId = id;
-
     const content = document.getElementById('content');
 
-    const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'data/definitions/' + id.replace(':', '-') + '.html', true);
-    xhttp.onload = function () {
-        if(xhttp.status == 200) {
-            content.innerHTML = '<div class="definition">' + this.responseText + '</div>';
+    // Load definition
+    content.innerHTML = '<div id="definition"></div>';
+
+    const xhttpDef = new XMLHttpRequest();
+    xhttpDef.open('GET', 'data/definitions/' + id.replace(':', '-') + '.html', true);
+    xhttpDef.onload = function () {
+        const definition = document.getElementById('definition');
+        if(xhttpDef.status == 200) {
+            definition.innerHTML = this.responseText;
             if(MathJax && MathJax.typeset)
-                MathJax.typeset([ content ]);
-            showExamples(id);
+                MathJax.typeset([ definition ]);
         }
-        else if(xhttp.status == 404)
-            content.innerHTML = '<div class="error">Definition not found 🥺</div>';
+        else if(xhttpDef.status == 404)
+            definition.innerHTML = '<div class="error">Definition not found 🥺</div>';
     }
-    xhttp.onerror = function () {
+    xhttpDef.onerror = function () {
         content.innerHTML = '<div class="error">Could not load definition 🥺</div>';
     }
-    xhttp.send();
+    xhttpDef.send();
+
+    // Load examples
+    if(!examples.includes(id))
+        return;
+
+    content.innerHTML += '<div id="examples" class="hidden"></div>';
+    const xhttpEx = new XMLHttpRequest();
+    xhttpEx.open('GET', 'data/examples/' + id.replace(':', '-') + '.html', true);
+    xhttpEx.onload = function () {
+        const examples_ = document.getElementById('examples');
+        const toggle = document.createElement('div');
+        toggle.classList.add('toggle-examples-button');
+        toggle.addEventListener('click', function () { examples_.classList.toggle('hidden'); });
+        examples_.append(toggle);
+        examples_.insertAdjacentHTML('beforeend', this.responseText);
+        if(MathJax && MathJax.typeset)
+            MathJax.typeset([ examples_ ]);
+    }
+    xhttpEx.onerror = function () {
+        console.log('error..');
+    }
+    xhttpEx.send();
 }
 
 function gotoTopic(id) {
@@ -33,36 +56,6 @@ function gotoTopic(id) {
     autoCompleteList.innerHTML = '';
     setSearchCategory(categories[id.substr(0, id.indexOf(':'))])
     window.history.pushState(id, 'Math: ' + id, '#' + id);
-}
-
-function showExamples(id) {
-    if(!examples.includes(id))
-        return;
-
-    const content = document.getElementById('content');
-
-    const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'data/examples/' + id.replace(':', '-') + '.html', true);
-    xhttp.onload = function () {
-        const ex = document.createElement('div');
-        ex.classList.add('examples');
-        ex.classList.add('hidden');
-
-        const toggleButton = document.createElement('div');
-        toggleButton.classList.add('toggle-examples-button');
-        toggleButton.addEventListener('click', function () {
-            ex.classList.toggle('hidden');
-        });
-
-        ex.append(toggleButton);
-        ex.insertAdjacentHTML('beforeend', this.responseText);
-
-        content.append(ex);
-    }
-    xhttp.onerror = function () {
-        console.log('error..');
-    }
-    xhttp.send();
 }
 
 function checkUrlFragment() {

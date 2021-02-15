@@ -30,20 +30,20 @@
 \end{topic}
 
 % Scheme properties
-\begin{topic}{reduced}{reduced}
+\begin{topic}{reduced-scheme}{reduced scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{reduced} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ has no \tref{CA:nilpotent}{nilpotent} elements.
     
     Equivalently, this is the case if all stalks $\mathcal{O}_{X, x}$ have no nilpotent elements.
 \end{topic}
 
-\begin{topic}{integral}{integral}
+\begin{topic}{integral-scheme}{integral scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{integral} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ is a \tref{CA:domain}{domain}.
     
-    Equivalently, this is the case if $X$ is \tref{reduced}{reduced} and \tref{TO:irreducible}{irreducible}.
+    Equivalently, this is the case if $X$ is \tref{reduced-scheme}{reduced} and \tref{TO:irreducible}{irreducible}.
 \end{topic}
 
-\begin{topic}{noetherian}{noetherian}
-    A \tref{scheme}{scheme} $X$ is \textbf{locally noetherian} if it can be covered by open affine subsets $\Spec A_i$, where each $A_i$ is a noetherian ring. It is \textbf{noetherian} if it is locally noetherian and \tref{TO:quasi-compact}{quasi-compact}.
+\begin{topic}{noetherian-scheme}{noetherian scheme}
+    A \tref{scheme}{scheme} $X$ is \textbf{locally noetherian} if it can be covered by open affine subsets $\Spec A_i$, where each $A_i$ is a \tref{CA:noetherian-ring}{noetherian ring}. It is \textbf{noetherian} if it is locally noetherian and \tref{TO:quasi-compact}{quasi-compact}.
 \end{topic}
 
 \begin{topic}{finite-type}{finite type}
@@ -73,7 +73,7 @@
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{affine} if the inverse image of every affine open in $Y$ is an affine open of $X$. 
 \end{topic}
 
-\begin{topic}{normal}{normal}
+\begin{topic}{normal-scheme}{normal scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{normal} if all of its local rings are integrally closed domains.
     
     Every scheme can be `normalized'.
@@ -85,7 +85,15 @@
     A scheme $X$ is \textbf{(quasi-)separated} if the morphism $X \to \Spec \ZZ$ is (quasi-)separated.
 \end{topic}
 
-\begin{topic}{proper}{proper}
+\begin{example}{separated}
+    Any morphism of affine schemes is separated. Namely, for any $f : \Spec A \to \Spec B$, the diagonal $\Delta$ corresponds to the ring map $A \otimes_B A \to A : a \otimes a' \mapsto aa'$, which is clearly surjective. In this way $A$ is seen as a quotient of $A \otimes_B A$, so $\Delta$ is a closed immersion.
+\end{example}
+
+\begin{example}{separated}
+    Let $X$ be the affine line with two origins, that is, glue two copies of $\AA_k^1$ along $\AA_k^1 - \{ 0 \}$. We claim that $X$ is not separated over $k$. Namely, consider the map $\AA^1_k \to X \times_k X$ obtained from the two different maps $\AA_k^1 \to X$. Then the inverse image of the diagonal is $\AA_k^1 - \{ 0 \}$, which is not closed. Hence, the diagonal is not closed and $\Delta$ is not a closed immersion.
+\end{example}
+
+\begin{topic}{proper-morphism}{proper-morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
 \end{topic}
 
@@ -100,11 +108,11 @@
 \end{topic}
 
 \begin{topic}{variety}{variety}
-    An (abstract) \textbf{variety} is an \tref{integral}{integral} \tref{separated}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over an algebraically closed field $k$.
+    An (abstract) \textbf{variety} is an \tref{integral-scheme}{integral} \tref{separated}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over an algebraically closed field $k$.
 \end{topic}
 
 \begin{topic}{complete-variety}{complete variety}
-    A \tref{variety}{variety} over $k$ is \textbf{complete} if it is \tref{proper}{proper} over $k$.
+    A \tref{variety}{variety} over $k$ is \textbf{complete} if it is \tref{proper-morphism}{proper} over $k$.
 \end{topic}
 
 % -- O_X modules --
@@ -158,3 +166,43 @@
     
 %     If $X$ is scheme of finite type over a noetherian ring $A$, then any $\mathcal{L}$ is ample if and only if $\mathcal{L}^m$ is very ample over $\Spec A$ for some $m > 0$.
 % \end{topic}
+
+% \begin{topic}{smooth}{smooth}
+%     A morphism $f : X \to S$ of \tref{scheme}{schemes} is \textbf{smooth} if one of the following equivalent definitions hold:
+%     \begin{itemize}
+%         \item it is locally of finite presentation, flat, and for every geometric point $s \to S$, the fiber $X \times_S s$ is regular,
+%         \item it is flat and the sheaf of relative differentials $\Omega_{X/S}$ is locally free of rank equal to the relative dimension of $X/S$,
+%         \item for any $x \in X$, there exist neighborhoods $\Spec B \subset X$ and $\Spec A \subset S$ of $x$ and $f(x)$ such that $B$ is \tref{standard-smooth} over $A$.
+%     \end{itemize}
+% \end{topic}
+
+% \begin{topic}{unramified}{unramified}
+    
+% \end{topic}
+
+% \begin{topic}{etale}{étale}
+    
+% \end{topic}
+
+
+\begin{topic}{serre-duality}{Serre duality}
+    Let $X$ be a smooth projective scheme of dimension $n$, and let $\omega_X$ be its canonical sheaf. Then \textbf{Serre duality} states that for every coherent sheaf $\mathcal{F}$ on $X$ there is a natural isomorphism
+    \[ H^i(X, \mathcal{F}^\vee \otimes \omega_X) \simeq H^{n - i}(X, \mathcal{F})^\vee . \]
+\end{topic}
+
+\begin{topic}{picard-group}{Picard group}
+    The \textbf{Picard group} $\text{Pic}(X)$ of a scheme $X$ is the abelian group of isomorphism classes of \tref{invertible-sheaf}{invertible sheaves} on $X$, where addition is given by the tensor product
+    \[ [\mathcal{L}_1] + [\mathcal{L}_2] = [\mathcal{L}_1 \otimes \mathcal{L}_2] . \]
+\end{topic}
+
+\begin{example}{picard-group}
+    \begin{itemize}
+        \item $\text{Pic}(\PP^n) \simeq \ZZ$
+        \item $\text{Pic}(\AA^n) \simeq 0$
+    \end{itemize}
+\end{example}
+
+\begin{example}{picard-group}
+    \[ \text{Pic}(X) \simeq H^1(X, \mathcal{O}_X^*) \]
+\end{example}
+

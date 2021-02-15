@@ -99,7 +99,7 @@
     \[ A^{-1} = \frac{1}{\det(A)} \text{adj}(A) . \]
 \end{topic}
 
-\begin{topic}{eigenvalue}{eigenvalue / eigenvector}
+\begin{topic}{eigenvalue}{eigenvalue/eigenvector}
     Let $A$ be an $n \times n$ matrix. A scalar $\lambda$ is an \textbf{eigenvalue} of $A$ if there exists a nonzero vector $v$ such that $A v = \lambda v$. The vector $v$ is then an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
 \end{topic}
 
@@ -115,11 +115,16 @@
     If such a diagonalization exists, $A$ is said to be \textbf{diagonalizable}.
 \end{topic}
 
-\begin{topic}{algebraic-multiplicity}{algebraic multiplicity}
+\begin{topic}{algebraic-geometric-multiplicity}{algebraic/geometric multiplicity}
     Let $A$ be an $n \times n$ matrix. The \textbf{algebraic multiplicity} of an eigenvalue $\lambda$ of $A$ is its multiplicity as a root of the \tref{characteristic-polynomial}{characteristic polynomial} of $A$.
-\end{topic}
-
-\begin{topic}{geometric-multiplicity}{geometric multiplicity}
-    Let $A$ be an $n \times n$ matrix. The \textbf{geometric multiplicity} of an eigenvalue $\lambda$ of $A$ is the \tref{dimension}{dimension} of the corresponding \textit{eigenspace}
+    
+    The \textbf{geometric multiplicity} is the \tref{dimension}{dimension} of the corresponding \textit{eigenspace}
     \[ E_\lambda = \{ v \in V : A v = \lambda v \} . \]
 \end{topic}
+
+\begin{example}{algebraic-geometric-multiplicity}
+    Consider the matrix
+    \[ A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix} . \]
+    Its characteristic polynomial is $p_A(\lambda) = (2 - \lambda)^2 (3 - \lambda)$. Hence the eigenvalues are $\lambda = 2$ (with alg. multiplicity $2$) and $\lambda = 3$ (with alg. multiplicity $1$). However, both have a geometric multiplicity of $1$ as
+    \[ E_2 = \ker(A - 2I) = \text{span}(1, 0, 0) \quad \text{ and } \quad E_3 = \ker(A - 3I) = \text{span}(0, 0, 1) . \]
+\end{example}

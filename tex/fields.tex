@@ -36,3 +36,19 @@
     
     In particular, it suffices to verify this for a \tref{splitting-field}{splitting field} of $f$ over $k$.
 \end{topic}
+
+\begin{topic}{perfect-field}{perfect field}
+    A field $k$ is called \textbf{perfect} if every irreducible polynomial over $k$ is \tref{separable-polynomial}{separable}.
+\end{topic}
+
+\begin{example}{perfect-field}
+    \begin{itemize}
+        \item Every field of characteristic zero is perfect. Namely, if an irreducible polynomial $f$ were to have a multiple root (in some field extension), then $f'$ and $f$ will have a common factor. But this cannot happen as $f$ is irreducible and $\deg(f') = \deg(f) - 1$.
+        \item Every finite field is perfect.
+        \item Every algebraically closed field is perfect.
+    \end{itemize}
+\end{example}
+
+\begin{example}{perfect-field}
+    The field $\FF_p(t)$ is not perfect: the polynomial $f = x^p - t$ is irreducible, but if $\alpha$ is a root in some field extension, we have $x^p - t = x^p - \alpha^p = (x - \alpha)^p$, which shows $f$ is not separable.
+\end{example}

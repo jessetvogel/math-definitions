@@ -1,0 +1,18 @@
+\begin{topic}{principal-ideal-domain}{principal ideal domain (PID)}
+    A \textbf{principal ideal domain} (PID) is a \tref{domain}{domain} $R$ in which every \tref{ideal}{ideal} is \tref{principal-ideal}{principal}. That is, every ideal $I \subset R$ is of the form $I = (x)$ for some element $x \in R$.
+\end{topic}
+
+\begin{topic}{unique-factorization-domain}{unique factorization domain (UFD)}
+    A \textbf{unique factorization domain} (UFD) is a \tref{domain}{domain} $R$ for which every non-zero $x \in R$ can be written as the product of a \tref{unit}{unit} and a finite number of \tref{irreducible}{irreducible} elements:
+    \[ a = u \cdot p_1 \cdot p_2 \cdot \cdots \cdot p_k \qquad u \in R^\times, \; k \ge 0, \; p_i \in R \text{ irreducible}. \]
+\end{topic}
+
+\begin{topic}{euclidean-ring}{Euclidean ring}
+    A \textbf{Euclidean ring} is a \tref{domain}{domain} $R$ for which there exists a function
+    \[ g : R^\times \to \ZZ_{\ge 0} \]
+    such that for all $a, b \in R$ with $b \ne 0$, there exists $q, r \in R$ with $a = qb + r$ and either $r = 0$ or $g(r) < g(b)$.
+    
+    That is, a ring in which one can perform division with remainder. The function $g$ is used to say that the 'remainder' $r$ is 'smaller' than the element $b$ one divides by.
+    
+    In particular, one can find the \textit{gcd} of elements by means of the \textit{Euclidean algorithm}.
+\end{topic}
