@@ -5,5 +5,8 @@ const examples = [
   "CA:perfect-field",
   "GT:solvable-group",
   "AG:separated",
+  "AG:formally-smooth",
+  "AG:formally-unramified",
+  "AG:flat-morphism",
   "LA:algebraic-geometric-multiplicity",
 ];

@@ -7,6 +7,7 @@
 import re
 import os
 import hashlib
+import shutil
 from tex2svg import tex2svg
 
 
@@ -424,13 +425,11 @@ class Parser:
         if not os.path.isdir(tmp_dir):
             os.mkdir(tmp_dir)
 
-        # Create tex file
-        f = open(tmp_dir + '/math.tex', 'w')
+        # Create tex file (starting with the template)
+        tmp_math_tex = tmp_dir + '/math.tex'
+        shutil.copyfile('math_to_svg_header.tex', tmp_math_tex)
+        f = open(tmp_math_tex, 'a')
         f.writelines([
-            '\\documentclass{standalone}\n',
-            '\\usepackage{tikz-cd}\n',
-            '\\newcommand{\\Hom}{\\textup{Hom}}\n',
-            '\\newcommand{\\bdot}{\\bullet}\n',
             '\\begin{document}\n',
             '$\\displaystyle ' + tex + '$\n',
             '\\end{document}\n'
@@ -439,7 +438,7 @@ class Parser:
 
         # Create svg
         try:
-            tex2svg(tmp_dir + '/math.tex', svg_file)
+            tex2svg(tmp_math_tex, svg_file)
             return svg_file_relative
         except:
             return False

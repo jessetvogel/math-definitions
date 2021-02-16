@@ -6,6 +6,7 @@ CA: discrete valuation ring, valuation ring
 CA: Dedekind domain
     
 AG: etale, smooth, unramified, etc.
+AG: flat map
     
 AG: example invertible sheaves: correspondence to divisors
 

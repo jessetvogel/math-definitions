@@ -61,7 +61,7 @@
 \end{topic}
 
 \begin{topic}{closed-immersion}{closed immersion}
-    A \textbf{closed immersion} is a morphism $i : Z \to X$ of \tref{scheme}{schemes} such that $f$ induces a \tref{TO:homeomorphism}{homeomorphism} of the underlying space of $Z$ onto a closed subset of that of $X$, and furthermore the induced map $f^\# : \mathcal{O}_X \to f_*\mathcal{O}_Z$ of sheaves on $X$ is surjective.
+    A \textbf{closed immersion} is a morphism $i : Z \to X$ of \tref{scheme}{schemes} such that $i$ induces a \tref{TO:homeomorphism}{homeomorphism} of the underlying space of $Z$ onto a closed subset of that of $X$, and furthermore the induced map $i^\# : \mathcal{O}_X \to i_*\mathcal{O}_Z$ of sheaves on $X$ is surjective.
 \end{topic}
 
 \begin{topic}{immersion}{immersion}
@@ -177,13 +177,50 @@
 % \end{topic}
 
 % \begin{topic}{unramified}{unramified}
-    
 % \end{topic}
 
 % \begin{topic}{etale}{étale}
-    
 % \end{topic}
 
+\begin{topic}{formally-smooth}{formally smooth}
+    A morphism $f : X \to S$ of \tref{scheme}{schemes} is \textbf{formally smooth} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
+    there exists a morphism $\Spec A \to X$ making the diagram commute.
+\end{topic}
+
+\begin{example}{formally-smooth}
+    The variety $\Spec(k[x, y]/(xy))$ is not formally smooth over $\Spec(k)$. Namely, take $A = k[x, y] / (xy)^2$ and $I = (xy)$. Then there exists no morphism $k[x, y]/(xy) \to k[x, y]/(xy)^2$ completing the diagram.
+\end{example}
+
+\begin{topic}{formally-unramified}{formally unramified}
+    A morphism $f : X \to S$ of \tref{scheme}{schemes} is \textbf{formally unramified} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
+    there is at most one morphism $\Spec A \to X$ making the diagram commute.
+\end{topic}
+
+\begin{example}{formally-unramified}
+    The affine line $\AA^1_k = \Spec(k[x])$ is not formally unramified over $k$. Namely, take $A = k[\varepsilon] / (\varepsilon^2)$ and $I = (\varepsilon)$. Then for any $k[x] \to k[\varepsilon]/(\varepsilon) = k : x \mapsto x_0$ there exists a whole family of morphisms $k[x] \to k[t]/(t^2)$ completing the diagram: one can send $x \mapsto x_0 + \alpha t + (t^2)$ for any $\alpha \in k$.
+\end{example}
+
+\begin{topic}{formally-etale}{formally étale}
+    A morphism $f : X \to S$ of \tref{scheme}{schemes} is \textbf{formally étale} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
+    there exists a unique morphism $\Spec A \to X$ making the diagram commute.
+    
+    That is, $f$ is formally smooth if it is \tref{formally-smooth}{formally smooth} and \tref{formally-unramified}{formally unramified}.
+\end{topic}
+
+\begin{topic}{flat-morphism}{flat morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{flat} if for every $x \in X$, the local ring $\mathcal{O}_{X, x}$ is \tref{CA:flat-module}{flat} as an $\mathcal{O}_{Y, f(x)}$-module.
+\end{topic}
+
+\begin{example}{flat-morphism}
+    The morphism $\Spec k[x, y, t] / (xy - t) \to \Spec k[t]$ is flat.
+
+    The morphism
+    \[ \Spec k[x, y, t] / (txy - t) \to \Spec k[t] \]
+    is not flat. Namely, at the maximal ideal $(x, y, t)$, we have that $(k[x, y, t] / (txy - t))_{(x, y, t)}$ is not flat over $k[t]_{(t)}$, as tensoring the injective map $k[t]_{(t)} \xrightarrow{\cdot t} k[t]_{(t)}$ does not give an injective map: $t$ is a zero-divisor in $k[x, y, t] / (txy - t)$.
+\end{example}
 
 \begin{topic}{dominant-morphism}{dominant morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{dominant} if the image of $f$ is a \tref{TO:dense}{dense} subset of $Y$.
@@ -210,8 +247,6 @@
 %     \[ \text{Pic}(X) \simeq H^1(X, \mathcal{O}_X^*) \]
 % \end{example}
 
-
-
 \begin{topic}{euler-sequence}{Euler sequence}
     Let $A$ be any ground ring. The \textbf{Euler sequence} is the following exact sequence of sheaves on $\PP_A^n$:
     \[ 0 \rightarrow \Omega^1_{\PP^n_A/A} \rightarrow \mathcal{O}_{\PP_A^n}(-1)^{\oplus n + 1} \rightarrow \mathcal{O}_{\PP_A^n} \rightarrow 0 , \]
@@ -219,3 +254,4 @@
     \[ S(-1)^{\oplus n + 1} \to S : e_i \mapsto x_i \qquad \text{ with } S = A[x_0, x_1, \ldots, x_n] . \]
     One can check on the affine patches that the kernel is isomorphic to the relative differential module.
 \end{topic}
+
