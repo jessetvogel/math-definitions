@@ -4,6 +4,12 @@ window.MathJax = {
             addMenu: []
         }
     },
+    chtml: {
+        scale: 0.95
+    },
+    svg: {
+        scale: 0.95
+    },
     tex: {
         macros: {
             id: "\\text{id}",

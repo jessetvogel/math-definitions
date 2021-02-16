@@ -183,7 +183,7 @@
 % \end{topic}
 
 \begin{topic}{formally-smooth}{formally smooth}
-    A morphism $f : X \to S$ of \tref{scheme}{schemes} is \textbf{formally smooth} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally smooth} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there exists a morphism $\Spec A \to X$ making the diagram commute.
 \end{topic}
@@ -193,7 +193,7 @@
 \end{example}
 
 \begin{topic}{formally-unramified}{formally unramified}
-    A morphism $f : X \to S$ of \tref{scheme}{schemes} is \textbf{formally unramified} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally unramified} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there is at most one morphism $\Spec A \to X$ making the diagram commute.
 \end{topic}
@@ -203,7 +203,7 @@
 \end{example}
 
 \begin{topic}{formally-etale}{formally étale}
-    A morphism $f : X \to S$ of \tref{scheme}{schemes} is \textbf{formally étale} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally étale} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there exists a unique morphism $\Spec A \to X$ making the diagram commute.
     
@@ -215,9 +215,9 @@
 \end{topic}
 
 \begin{example}{flat-morphism}
-    The morphism $\Spec k[x, y, t] / (xy - t) \to \Spec k[t]$ is flat.
-
-    The morphism
+    The morphism $\Spec k[x, y, t] / (xy - t) \to \Spec k[t]$ is flat. This follows from $k[x, y, t] / (xy - t)$ being flat over $k[t]$, because it is a free $k[t]$-module:
+    \[ k[x, y, t] / (xy - t) \simeq k[t] \oplus \bigoplus_{i \ge 1} k[t] \cdot x^i \oplus \bigoplus_{i \ge 1} k[t] \cdot y^i \]
+    However, the morphism
     \[ \Spec k[x, y, t] / (txy - t) \to \Spec k[t] \]
     is not flat. Namely, at the maximal ideal $(x, y, t)$, we have that $(k[x, y, t] / (txy - t))_{(x, y, t)}$ is not flat over $k[t]_{(t)}$, as tensoring the injective map $k[t]_{(t)} \xrightarrow{\cdot t} k[t]_{(t)}$ does not give an injective map: $t$ is a zero-divisor in $k[x, y, t] / (txy - t)$.
 \end{example}
