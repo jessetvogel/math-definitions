@@ -7,7 +7,7 @@
     \end{itemize}
     for all $a, b, c \in R$.
     
-    A ring $R$ is called commutative if moreover $ab = ba$ for all $a, b \in R$.
+    A ring $R$ is called \textbf{commutative} if moreover $ab = ba$ for all $a, b \in R$.
 \end{topic}
 
 \begin{topic}{ring-morphism}{ring morphism}
@@ -21,7 +21,7 @@
 \end{topic}
 
 \begin{topic}{unit}{unit}
-    Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{unit} if there exists some $b \in R$ such that $ab = 1$. We write $b = a^{-1}$.
+    Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{unit} if there exists some $b \in R$ such that $ab = 1$. This is denoted $b = a^{-1}$.
 \end{topic}
 
 \begin{topic}{irreducible-element}{irreducible element}
@@ -60,13 +60,15 @@
 \end{topic}
 
 \begin{topic}{prime-ideal}{prime ideal}
-    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{prime} if $I \ne R$ and whenever $ab \in I$ we have $a \in I$ or $b \in I$.
+    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{prime} if $I \ne R$ and
+    \[ ab \in I \implies a \in I \text{ or } b \in I . \]
     
     Equivalently, $I \subset R$ is a prime ideal iff the quotient ring $R / I$ is a \tref{domain}{domain}.
 \end{topic}
 
 \begin{topic}{maximal-ideal}{maximal ideal}
-    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{maximal} if $I \ne R$ and whenever $I \subset J \subsetneq R$ for some ideal $J \subset R$ we have $I = J$.
+    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{maximal} if $I \ne R$ and
+    \[ I \subset J \subsetneq R \text{ for some ideal } J \subset R \implies I = J . \]
     
     Equivalently, $I \subset R$ is a maximal ideal iff the quotient ring $R / I$ is a \tref{field}{field}.
     
@@ -293,3 +295,23 @@
      It can also be characterized by
      \[ x \in \mathfrak{J}_R \iff 1 - xy \text{ is a unit for all } y \in R . \]
 \end{topic}
+
+\begin{topic}{regular-sequence}{regular sequence}
+    Let $R$ be a commutative \tref{ring}{ring}, and $M$ an $R$-module. An $M$-\textbf{regular sequence} is a sequence
+    \[ r_1, r_2, \ldots, r_d \in R \]
+    such that $r_i$ is not a \textit{zero-divisor} on $M/(r_1, \ldots, r_{i - 1})$. That is, if $r_i m = 0$ for some $m \in M / (r_1, \ldots, r_{i - 1})$, then $m = 0$.
+    
+    When $M = R$, such a sequence is simply called a \textbf{regular sequence}.
+\end{topic}
+
+\begin{example}{regular-sequence}
+    Consider $R = k[x, y]$ and the sequence $(xy, x^2)$. This sequence is not regular, since $x^2 \cdot y = 0$ in $\QQ[x, y] / (xy)$, although $y \ne 0$.
+\end{example}
+
+\begin{example}{regular-sequence}
+    Consider $R = k[x, y, z]$ and the sequence $(x, y(1 - x), z(1 - x))$. This sequence is regular since
+    \[ y(1 - x) = y \in k[x, y, z]/(x) = k[y, z] \quad \text{ and } \quad z(1 - x) = z \in k[x, y, z]/(x, y - xy) = k[z] \]
+    are both non-zero-divisors.
+    
+    However, note that the order matters as $(y(1 - x), z(1 - x), x)$ is not a regular sequence. Namely, $z(1 - x) \cdot y = 0 \in k[x, y, z] / (y(1 - x))$ even though $y \ne 0$.
+\end{example}

@@ -27,7 +27,8 @@ window.MathJax = {
             coker: "\\operatorname{coker}",
             bdot: "\\bullet",
             Spec: "\\operatorname{Spec}",
-            Proj: "\\operatorname{Proj}"
+            Proj: "\\operatorname{Proj}",
+            norm: ["{\\left\\|#1\\right\\|}", 1]
         }
       }
 };

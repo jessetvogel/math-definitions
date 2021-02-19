@@ -80,3 +80,18 @@
     Dually, there is one for cohomology
     \[ \cdots \longrightarrow H^n(X; A) \overset{r}{\longrightarrow} H^n(U; A) \oplus H^n(V; A) \overset{\Delta}{\longrightarrow} H^n(U \cap V; A) \overset{\partial}{\longrightarrow} H^{n + 1}(X; A) \longrightarrow \cdots \]
 \end{topic}
+
+\begin{topic}{deformation-retract}{(strong) deformation retract}
+    A \textbf{deformation retraction} of a \tref{TO:topological-space}{topological space} $X$ onto a subspace $A$ is a continuous map
+    \[ F : X \times [0, 1] \to X \]
+    such that 
+    \[ F(x, 0) = x, \quad F(x, 1) \in A \quad \text{ and } \quad F(a, 1) = a \]
+    for all $x \in X$ and $a \in A$.
+    It is a \textbf{strong deformation retraction} if moreover
+    \[ F(a, t) = a \qquad \text{ for all } t \in [0, 1] . \]
+\end{topic}
+
+\begin{example}{deformation-retract}
+    The $n$-sphere $S^n$ is a strong deformation retract of $\RR^{n + 1} - \{ 0 \}$, given by the map
+    \[  F(x, t) = (1 - t) x + \frac{t x}{\norm{x}} . \]
+\end{example}
