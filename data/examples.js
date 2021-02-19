@@ -1,6 +1,7 @@
 const examples = [
   "CA:noetherian-ring",
   "CA:regular-ring",
+  "CA:field-of-fractions",
   "CA:flat-module",
   "CA:perfect-field",
   "GT:solvable-group",

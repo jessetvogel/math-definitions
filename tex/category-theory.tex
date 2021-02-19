@@ -123,3 +123,30 @@
     \[ \begin{tikzcd}[row sep=3em] \Hom_{\mathcal{D}}(F(C), D) \arrow{r} & \Hom_{\mathcal{C}}(C, G(D)) \\ \Hom_{\mathcal{D}}(F(C'), D') \arrow{r} \arrow{u}{g \circ (-) \circ F(f)} & \Hom_{\mathcal{C}}(C', G(D')) \arrow[swap]{u}{G(g) \circ (-) \circ f} \end{tikzcd} \]
     Two maps $f : F(C) \to D$ and $g : C \to G(D)$ which correspond to each other are called \textit{transposes}.
 \end{topic}
+
+\begin{topic}{retraction}{retraction}
+    A \textbf{retraction} of a morphism $i : X \to Y$ is a morphism $r : Y \to X$ such that $r \circ i = \id_X$.
+\end{topic}
+
+\begin{topic}{section}{section}
+    A \textbf{section} of a morphism $p : X \to Y$ is a morphism $s : Y \to X$ such that $p \circ s = \id_Y$.
+\end{topic}
+
+\begin{topic}{sieve}{sieve}
+    Let $\mathcal{C}$ be a category, and $C$ an object of $\mathcal{C}$. A \textbf{sieve} on $C$ is a set of morphisms $S = \{ f : C' \to C \}$ such that if $f : C' \to C$ is in $S$ and $g : C'' \to C'$ is arbitrary, then $f \circ g$ is in $S$.
+    
+    Equivalently, it is a subpresheaf of $y_C$, the \tref{yoneda-embedding}{yoneda functor}.
+\end{topic}
+
+\begin{topic}{grothendieck-topology}{Grothendieck topology}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{Grothendieck topology} on $\mathcal{C}$ consists of a family $\text{Cov}(C)$ of \tref{sieve}{sieves} on $C$ for every object $C$ of $\mathcal{C}$, called \textit{covering sieves}, such that
+    \begin{itemize}
+        \item the maximal sieve $\text{mac}(C)$ is in $\text{Cov}(C)$,
+        \item if $R \in \text{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) \in \text{Cov}(C')$,
+        \item if $R$ is any sieve on $C$ and $S$ is a covering sieve on $C$, such that for every $f : C' \to C$ from $S$ we have $f^*(R) \in \text{Cov}(C')$, then $R \in \text{Cov}(C)$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{site}{site}
+    A small category $\mathcal{C}$ together with a \tref{grothendieck-topology}{Grothendieck topology} on it is called a \textbf{site}.
+\end{topic}

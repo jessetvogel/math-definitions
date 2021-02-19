@@ -1,9 +1,7 @@
 Hilbert polynomials/series (See Chapter 11 of Commutative Algebra, M. Atiyah)
 
-CA: ring, tensor product, direct sum, quotient ring, irreducible elements,
+CA: direct sum, quotient ring
 CA: GCD domain, Bezout's identity, 
-CA: discrete valuation ring, valuation ring
-CA: Dedekind domain
     
 AG: etale, smooth, unramified, etc.
 AG: flat map
@@ -12,4 +10,18 @@ AG: example invertible sheaves: correspondence to divisors
 
 RT: Representation Theory!
 
-Group theory: normalizer, centrilizer, stabilizer, parabolic subgroup
+Group theory: parabolic subgroup
+
+AG: faithfully flat = flat and map on '... ? ' is surjective
+
+CA: étale algebra
+
+
+# Basically, go through Atiyah & MacDonald
+
+# Category theory
+
+CT: pullback, pushout
+
+AG: big P-site = { jointly surjective P-morphisms }
+AG: small P-site = full subcategory of Sch/X such that U -> X also has P, written X_P (e.g. X_{etale})

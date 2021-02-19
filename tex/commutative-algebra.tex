@@ -24,7 +24,7 @@
     Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{unit} if there exists some $b \in R$ such that $ab = 1$. We write $b = a^{-1}$.
 \end{topic}
 
-\begin{topic}{irreducible}{irreducible}
+\begin{topic}{irreducible-element}{irreducible element}
     Let $R$ be a \tref{domain}{domain}. An element $a \in R$ is called a \textbf{irreducible} if $a$ is not a \tref{unit}{unit}, and for all $b, c \in R$ such that $bc = a$ either $b$ or $c$ is a unit.
 \end{topic}
 
@@ -32,7 +32,7 @@
     Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{zero-divisor} if $a \ne 0$ and $ab = 0$ for some $b \ne 0$.
 \end{topic}
 
-\begin{topic}{nilpotent}{nilpotent}
+\begin{topic}{nilpotent-element}{nilpotent element}
     Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is \textbf{nilpotent} if $a^n = 0$ for some positive integer $n$.
 \end{topic}
 
@@ -174,7 +174,7 @@
 \end{topic}
 
 \begin{topic}{unique-factorization-domain}{unique factorization domain (UFD)}
-    A \textbf{unique factorization domain} (UFD) is a \tref{domain}{domain} $R$ for which every non-zero $x \in R$ can be written as the product of a \tref{unit}{unit} and a finite number of \tref{irreducible}{irreducible} elements:
+    A \textbf{unique factorization domain} (UFD) is a \tref{domain}{domain} $R$ for which every non-zero $x \in R$ can be written as the product of a \tref{unit}{unit} and a finite number of \tref{irreducible-element}{irreducible} elements:
     \[ a = u \cdot p_1 \cdot p_2 \cdot \cdots \cdot p_k \qquad u \in R^\times, \; k \ge 0, \; p_i \in R \text{ irreducible}. \]
 \end{topic}
 
@@ -186,4 +186,110 @@
     That is, a ring in which one can perform division with remainder. The function $g$ is used to say that the 'remainder' $r$ is 'smaller' than the element $b$ one divides by.
     
     In particular, one can find the \textit{gcd} of elements by means of the \textit{Euclidean algorithm}.
+\end{topic}
+
+\begin{topic}{field-of-fractions}{field of fractions}
+    The \textbf{field of fractions} of a \tref{domain}{domain} $R$ is the \tref{field}{field} given by
+    \[ K = \left\{ (a, b) : a, b \in R, b \ne 0 \right\} / \sim{} \]
+    where $(a, b) \sim{} (c, d)$ iff $ad = bc$. Indeed $(a, b)$ represents the fraction $\frac{a}{b}$. Addition and multiplication are given by
+    \[ \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \quad \text{and} \quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} . \]
+\end{topic}
+
+\begin{example}{field-of-fractions}
+    The field of fractions of $\ZZ$ is $\QQ$.
+\end{example}
+
+\begin{topic}{valuation-ring}{valuation ring}
+    A \textbf{valuation ring} is a \tref{domain}{domain} $R$ such that for every element $x$ of its \tref{field-of-fractions}{field of fractions}, at least one of $x$ or $x^{-1}$ belongs to $R$.
+\end{topic}
+
+\begin{topic}{discrete-valuation-ring}{discrete-valuation-ring}
+    A domain \tref{domain}{domain} $R$ is a \textbf{discrete valuation ring} if there is a \textit{discrete valuation} $v$ of its \tref{field-of-fractions}{field of fractions} $K$, such that $R$ is the \textit{valuation ring} of $v$. This means there is a homomorphism
+    \[ v : K^\times \to \ZZ \]
+    such that
+    \[ R = \{ x \in K : v(x) \ge 0 \} . \]
+    
+    In particular, $R$ is \tref{local-ring}{local} with maximal ideal $\mathfrak{m} = \{ x \in K : v(x) > 0 \}$. Indeed, any element $x \in R$ with $v(x) = 0$ is a unit in $R$.
+\end{topic}
+
+% \begin{topic}{dedekind-domain}{Dedekind domain}
+%     A \textbf{Dedekind domain} is a \tref{domain}{domain} in which every non-zero proper ideal factors into a product of prime ideals.
+% \end{topic}
+
+\begin{topic}{monic-polynomial}{monic polynomial}
+    A polynomial $f$ is called \textbf{monic} if its leading coefficient is $1$.
+\end{topic}
+
+\begin{topic}{integral-element}{integral element}
+    Let $A$ be a commutative \tref{ring}{ring}, and $B$ an $A$-algebra. An element $x \in B$ is said to be \textbf{integral} over $A$ if $x$ is a root of a monic polynomial with coefficients in $A$. That is,
+    \[ x^n + a_1 x^{n - 1} + \cdots + a_n = 0 \]
+    for some $a_i \in A$.
+\end{topic}
+
+\begin{topic}{integral-closure}{integral closure}
+    Let $A$ be a commutative \tref{ring}{ring}, and $B$ an $A$-algebra. The \textbf{integral closure} of $A$ in $B$ is the subring of $B$ of elements which are \tref{integral-element}{integral} over $A$.
+    
+    If the integral closure is equal to $A$, then $A$ is said to be \textbf{integrally closed} in $B$. If the integral closure is equal to $B$, the ring $B$ is said to be \textbf{integral} over $A$.
+\end{topic}
+
+\begin{topic}{artin-ring}{artin ring}
+    A commutative \tref{ring}{ring} $R$ is called \textbf{artin} if it satisfies the \textit{descending chain condition}: for any decreasing sequence of ideals
+    \[ I_1 \supset I_2 \supset I_3 \supset \cdots \]
+    there exists some $N \in \NN$ such that $I_n = I_N$ for any $n \ge N$.
+\end{topic}
+
+\begin{topic}{fractional-ideal}{fractional ideal}
+    Let $R$ be a \tref{domain}{domain} and $K$ its \tref{field-of-fractions}{field of fractions}. An $R$-submodule $M$ of $K$ is a \textbf{fractional ideal} of $R$ if $xM \subset R$ for some $x \ne 0$ in $R$.
+\end{topic}
+
+\begin{topic}{invertible-ideal}{invertible ideal}
+    Let $R$ be a \tref{domain}{domain} and $K$ its \tref{field-of-fractions}{field of fractions}. An $R$-submodule $M$ of $K$ is an \textbf{invertible ideal} if there exists a submodule $N$ of $K$ such that $MN = R$. This module $N$ is then unique and equal to
+    \[ N = (R : M) := \{ x \in K : xM \subset R \} . \]
+    
+    The invertible ideals form a group with respect to multiplication, whose unit element is $R = (1)$.
+\end{topic}
+
+\begin{topic}{hilbert-basis-theorem}{Hilbert's basis theorem}
+    \textbf{Hilbert's basis theorem} states that if a commutative \tref{ring}{ring} $R$ is \tref{noetherian-ring}{noetherian}, then so is the polynomial ring $R[x]$.
+\end{topic}
+
+% \begin{topic}{hilbert-nullstellensatz}{Hilbert's Nullstellensatz}
+%     \textbf{Hilbert's Nullstellensatz} states that 
+% \end{topic}
+
+\begin{topic}{primary-ideal}{primary ideal}
+    Let $R$ be a commutative \tref{ring}{ring}. An \tref{ideal}{ideal} $\mathfrak{q}$ of $R$ is \textbf{primary} if $\mathfrak{q} \ne R$ and if
+    \[ xy \in \mathfrak{q} \implies \text{ either } x \in \mathfrak{q} \text{ or } y^n \in \mathfrak{q} \text{ for some } n > 0 . \]
+    In other words,
+    \[ \mathfrak{q} \text{ is primary } \iff A / \mathfrak{q} \ne 0 \text{ and every zero-divisor in } A / \mathfrak{q} \text{ is nilpotent} . \]
+\end{topic}
+
+\begin{topic}{primary-decomposition}{primary decomposition}
+    Let $R$ be a commutative \tref{ring}{ring}. A \textbf{primary decomposition} of an ideal $I \subset R$ is an expression of $I$ as a finite intersection of \tref{primary-ideal}{primary ideals},
+    \[ I = \bigcap_{i = 1}^{n} \mathfrak{q}_i . \]
+    
+    The primary decomposition is said to be \textbf{minimal} if (i) the $\mathfrak{p}_i = r(\mathfrak{q}_i)$ are all distinct, and (ii) no $\mathfrak{q}_i$ contains the intersection of the other primary ideals.
+\end{topic}
+
+\begin{topic}{annihilator}{annihilator}
+    Let $R$ be a commutative \tref{ring}{ring} and $M$ an $R$-module. The \textbf{annihilator} of $M$ is the subring
+    \[ \text{Ann}(M) = \{ x \in R : xM = 0 \} \]
+\end{topic}
+
+\begin{topic}{faithful-module}{faithful module}
+     Let $R$ be a commutative \tref{ring}{ring}. An $R$-module $M$ is \textbf{faithful} if the \tref{annihilator}{annihilator} $\text{Ann}(M) = 0$.
+\end{topic}
+
+\begin{topic}{nilradical}{nilradical}
+     The \textbf{nilradical} of a commutative \tref{ring}{ring} $R$ is the ideal of \tref{nilpotent-element}{nilpotent} elements
+     \[ \mathfrak{N}_R = \{ x \in R : x \text{ is nilpotent } \} . \]
+     It is equal to the intersection of all prime ideals of $R$,
+     \[ \mathfrak{N}_R = \bigcap_{\mathfrak{p} \subset R \text{ prime}} \mathfrak{p} . \]
+\end{topic}
+
+\begin{topic}{jacobson-radical}{Jacobson radical}
+     The \textbf{Jacobson radical} of a commutative \tref{ring}{ring} $R$ is the ideal given by the intersection of all \tref{maximal-ideal}{maximal} ideals,
+     \[ \mathfrak{J}_R = \bigcap_{\mathfrak{m} \subset R \text{ maximal}} \mathfrak{m} . \]
+     It can also be characterized by
+     \[ x \in \mathfrak{J}_R \iff 1 - xy \text{ is a unit for all } y \in R . \]
 \end{topic}
