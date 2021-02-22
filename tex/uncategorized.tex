@@ -1,0 +1,41 @@
+\begin{topic}{simplex-category}{simplex category}
+    The \textbf{simplex category}, often denoted by $\Delta$, is the \tref{CT:category}{category} whose objects are sets of the form
+    \[ [n] = \{ 0, 1, 2, \ldots, n \}, \qquad \text{ with } n \ge 0 , \]
+    and whose morphisms are order-preserving functions between these sets.
+\end{topic}
+
+\begin{topic}{simplicial-set}{simplicial set}
+    A \textbf{simplicial set} is a \tref{CT:functor}{functor}
+    \[ X : \Delta^\text{op} \to \textbf{Set} , \]
+    where $\Delta$ denotes the \tref{simplex-category}{simplex category}. Concretely, a simplicial set consists of a family of sets $X_n$ and a map $X_m \to X_n$ for each function $f : [n] \to [m]$, which compose nicely.
+    
+    The \textit{face maps} are the maps $d_{n, i} : X_n \to X_{n - 1}$ corresponding to the function $\delta^{n, i} : [n - 1] \to [n]$ that misses $i$.
+    
+    The \textit{degeneracy maps} are the maps $s_{n, i} : X_n \to X_{n + 1}$ corresponding to the function $\sigma^{n, i} : [n + 1] \to [n]$ that repeat $i$.
+\end{topic}
+
+\begin{example}{simplicial-set}
+    \[ \Delta^n = \Hom_\Delta(-, [n]) \]
+    \[ \Lambda^n_i =  \]
+\end{example}
+
+\begin{example}{simplicial-set}
+    Let $X$ be a topological space. The \textbf{singular set} of a topological space is the simplicial set $\mathcal{S}(X)$ given by
+    \[ \mathcal{S}(X)_n = \{ \text{cont. maps } \Delta^n \to X \} . \]
+    Every $[n] \to [m]$ induces a map $\Delta^n \to \Delta^m$ by labelling the vertices, which in turn induces a map $\mathcal{S}(X)_m \to \mathcal{S}(X)_m$. Also see \tref{AT:singular-homology}{singular homology}.
+\end{example}
+
+\begin{topic}{kan-complex}{Kan complex}
+    A \textbf{Kan complex} is a \tref{simplicial-set}{simplicial set} $X$ satisfying the \textit{Kan condition}: any map of simplicial sets $\Lambda^n_i \to X$ extends to a map of simplicial sets $\Delta^n \to X$. That is,
+    \[ \begin{tikzcd} \Lambda^n_i \arrow{r}{f} \arrow{d} & X \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]
+\end{topic}
+
+
+\begin{topic}{groebner-basis}{Gröbner basis}
+    Let $I \subset k[x_1, x_2, \ldots, x_n]$ be an ideal. A generating set $G = \{ g_1, g_2, \ldots, g_n \}$ for $I$ is called a \textbf{Gröbner basis} for $I$ if for all non-zero $f \in I$, the \textit{leading monomial} $\text{lm}(g_i)$ divides $\text{lm}(f)$ for some $i$.
+    
+    A Gröbner basis $G$ is called \textbf{minimal} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and the leading monomial $\text{lm}(g_i)$ does not divide $\text{lm}(g_j)$ for $i \ne j$.
+    
+    A Gröbner basis $G$ is called \textbf{reduced} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and $g_i$ is reduced with respect to $G - \{ g_i \}$. A reduced Gröbner basis for $I$ always exists and is unique.
+\end{topic}
+

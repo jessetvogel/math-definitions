@@ -251,13 +251,31 @@
     The invertible ideals form a group with respect to multiplication, whose unit element is $R = (1)$.
 \end{topic}
 
+\begin{topic}{syzygy-module}{syzygy module}
+    Let $g_1, g_2, \ldots, g_k$ be generators of \tref{module}{module} $M$ over a commutative \tref{ring}{ring} $R$. The \textbf{syzygy module} is the $R$-module consisting of all relations between the generators, i.e. the kernel of
+    \[ \bigoplus_{i = 1}^{k} R \to M, \qquad (r_1, \ldots, r_k) \mapsto r_1 g_1 + \cdots r_k g_k . \]
+    Inductively, one can define the $n$-th syzygy module for any $n \ge 1$ after choosing generators.
+\end{topic}
+
+% Hilbert's three theorems
 \begin{topic}{hilbert-basis-theorem}{Hilbert's basis theorem}
     \textbf{Hilbert's basis theorem} states that if a commutative \tref{ring}{ring} $R$ is \tref{noetherian-ring}{noetherian}, then so is the polynomial ring $R[x]$.
 \end{topic}
 
 % \begin{topic}{hilbert-nullstellensatz}{Hilbert's Nullstellensatz}
-%     \textbf{Hilbert's Nullstellensatz} states that 
+%     \textbf{Hilbert's Nullstellensatz} states that there is a bijection
+%     \[ \left\{ \begin{array}{c} \text{radical ideals of} \\ k[x_1, \ldots, x_n] \end{array} \right\} \leftrightarrow \left\{ \begin{array}{c} \text{closed subsets} \\ \text{of $\AA^n$} \end{array} \right\} \]
+%     \[ I \mapsto Z(I) \]
+%     \[ I \mapsfrom Z(I) \]
 % \end{topic}
+
+\begin{topic}{hilbert-syzygy-theorem}{Hilbert's syzygy theorem}
+    \textbf{Hilbert's syzygy theorem} states that if $M$ is a finitely generated module over a polynomial ring $k[x_1, \ldots, x_n]$, then the $n$-th \tref{syzygy-module}{syzygy module} $M$ is always \tref{free-module}{free}.
+    
+    In particular, this implies that there exists a free resolution
+    \[ 0 \to F_k \to F_{k - 1} \to \cdots \to F_0 \to M \to 0 \]
+    of length $k \le n$.
+\end{topic}
 
 \begin{topic}{primary-ideal}{primary ideal}
     Let $R$ be a commutative \tref{ring}{ring}. An \tref{ideal}{ideal} $\mathfrak{q}$ of $R$ is \textbf{primary} if $\mathfrak{q} \ne R$ and if
@@ -314,4 +332,16 @@
     are both non-zero-divisors.
     
     However, note that the order matters as $(y(1 - x), z(1 - x), x)$ is not a regular sequence. Namely, $z(1 - x) \cdot y = 0 \in k[x, y, z] / (y(1 - x))$ even though $y \ne 0$.
+\end{example}
+
+\begin{topic}{hilbert-series}{Hilbert series}
+    Let $S = \bigoplus_{i \ge 0} S_i$ be a finitely generated graded commutative algebra over a field $k$, with $S_0 = k$. The \textbf{Hilbert series} of $S$ is defined as
+    \[ \text{H}_S(t) = \sum_{i = 0}^{\infty} \dim_k S_i \cdot t^i . \]
+\end{topic}
+
+\begin{example}{hilbert-series}
+    Let $R = k[x_1, \ldots, x_n]$ and $I = (f)$ for some homogenous polynomial of degree $d$. Then we have an exact sequence (a free resolution)
+    \[ 0 \to R(-d) \xrightarrow{\cdot f} R \to R / I \to 0 , \]
+    which implies that
+    \[ \text{H}_{R/I}(t) = \text{H}_R(t) - \text{H}_{R(-d)}(t) = \text{H}_R(t) (1 - t^d) = \frac{1 - t^d}{(1 - t)^n}. \]
 \end{example}

@@ -13,5 +13,6 @@ data = {
             "triangulated-categories.tex",
             "derived-categories.tex" ],
     "TO": [ "topology.tex" ],
-    "LA": [ "linear-algebra.tex" ]
+    "LA": [ "linear-algebra.tex" ],
+    "UN": [ "uncategorized.tex" ]
 }

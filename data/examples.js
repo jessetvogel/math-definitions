@@ -3,6 +3,7 @@ const examples = [
   "CA:regular-ring",
   "CA:field-of-fractions",
   "CA:regular-sequence",
+  "CA:hilbert-series",
   "CA:flat-module",
   "CA:perfect-field",
   "GT:solvable-group",
@@ -11,5 +12,7 @@ const examples = [
   "AG:formally-smooth",
   "AG:formally-unramified",
   "AG:flat-morphism",
+  "AG:complete-intersection",
   "LA:algebraic-geometric-multiplicity",
+  "UN:simplicial-set",
 ];
