@@ -9,4 +9,5 @@ const categories = {
     "TO": "Topology",
     "LA": "Linear Algebra",
     "GT": "Group Theory",
+    "UN": "Uncategorized",
 };

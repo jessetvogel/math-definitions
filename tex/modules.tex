@@ -51,3 +51,20 @@
 \begin{example}{flat-module}
     Let $f : A \to B$ be a morphism of rings, and suppose that $x \in A$ is not a \tref{zero-divisor}{zero-divisor} while $f(x) \in B$ is. Then $B$ cannot be flat as an $A$-module, since multiplication by $x$ is an injective map $A \to A$, while multiplication by $f(x)$ is not an injective map $B \to B$.
 \end{example}
+
+\begin{topic}{faithful-module}{faithful module}
+     Let $R$ be a commutative \tref{ring}{ring}. An $R$-module $M$ is \textbf{faithful} if the \tref{annihilator}{annihilator} $\text{Ann}(M) = 0$.
+\end{topic}
+
+\begin{topic}{finitely-generated-module}{finitely generated module}
+    Let $R$ be a commutative \tref{ring}{ring}. An $R$-module $M$ is \textbf{finitely generated} if there exists a finite set $m_1, m_2, \ldots, m_n \in M$ (\textit{generators}) such that
+    \[ M = R m_1 + R m_2 + \cdots + R m_n . \]
+\end{topic}
+
+\begin{topic}{nakayamas-lemma}{Nakayama's lemma}
+    \textbf{Nakayama's lemma} states that if $M$ is a \tref{finitely-generated-module}{finitely generated module} over $R$, and $I \subset R$ an \tref{ideal}{ideal} such that $IM = M$, then there exists an $r \in R$ with $r \equiv 1 \; (\text{mod } I)$ such that $rM = 0$.
+    
+    The following corollary is also known as Nakayama's lemma: if $M$ is a finitely generated module over $R$, and $I \subset R$ an ideal contained in the \tref{jacobson-radical}{Jacobson radical} $\mathfrak{J}_R$ of $R$ such that $IM = M$, then $M = 0$.
+    
+    (This follows from the above by observing that $r \equiv 1 \; (\text{mod } \mathfrak{J}_R)$ must be a unit, so $M = r^{-1} r M = 0$.)
+\end{topic}

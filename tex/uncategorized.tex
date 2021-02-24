@@ -39,3 +39,12 @@
     A Gröbner basis $G$ is called \textbf{reduced} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and $g_i$ is reduced with respect to $G - \{ g_i \}$. A reduced Gröbner basis for $I$ always exists and is unique.
 \end{topic}
 
+
+
+\begin{topic}{koszul-complex}{Koszul complex}
+    Let $F$ be a \tref{free-module}{free module} of finite rank $r$ over a commutative \tref{ring}{ring} $R$. Then, given an $R$-linear map $s : F \to R$ the \textbf{Koszul complex} associated to $s$ is the chain complex of $R$-modules
+    \[ K_\bdot(s) : \qquad 0 \to \wedge^r F \xrightarrow{d_r} \wedge^{r - 1} F \xrightarrow{d_{r - 1}} \cdots \xrightarrow{d_2} F \xrightarrow{d_1} R \to 0 \]
+    with the differentials given by
+    \[ d_k(e_1 \wedge e_2 \ldots \wedge e_k) = \sum_{i = 1}^{k} (-1)^{i + 1} s(e_i) e_1 \wedge \cdots \wedge \hat{e_i} \wedge \cdots \wedge e_k , \]
+    where the hat indicates the term is missing. Note that $d_1 = s$.
+\end{topic}

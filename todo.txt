@@ -25,3 +25,7 @@ CT: pullback, pushout
 
 AG: big P-site = { jointly surjective P-morphisms }
 AG: small P-site = full subcategory of Sch/X such that U -> X also has P, written X_P (e.g. X_{etale})
+
+
+CA: Chapter 10 (completions) of Atiyah&MacDonald (associated graded ring)
+CA: Chapter 11 (dimension theory) of Atiyah&MacDonald (Hilbert function)

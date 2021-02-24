@@ -2,6 +2,7 @@ const examples = [
   "CA:noetherian-ring",
   "CA:regular-ring",
   "CA:field-of-fractions",
+  "CA:discrete-valuation-ring",
   "CA:regular-sequence",
   "CA:hilbert-series",
   "CA:flat-module",
