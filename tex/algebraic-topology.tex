@@ -31,7 +31,7 @@
     where $\delta$ is called the \textit{connecting homomorphism}: for any $\alpha = [ p(c) ] \in H_n(\overline{C})$ with $c \in C_n$, we have $\delta(\alpha) = [ d_n(c) ] \in H_{n - 1}(C')$.
 \end{topic}
 
-\begin{topic}{singular-homology}{singular homology}
+\begin{topic}{singular-homology}{singular (co)homology}
     Let $X$ be a topological space and $A$ an abelian group. A \textbf{singular $n$-simplex} in $X$ is a continous map
     \[ \sigma : \Delta^n \to X , \]
     where 
@@ -47,7 +47,10 @@
     The \tref{homology-group}{homology groups} of $C_\bullet(X; A)$ are called the \textbf{singular homology groups}, and denoted
     \[ H_n(X; A) . \]
     
-    The dual complex is the \textbf{singular cocomplex}.
+    Dually, there is the \textbf{singular cochain complex}
+    \[ C^n(X; A) = \Hom_\ZZ(C_n(X; \ZZ), A) \]
+    The cohomology groups of $C^\bullet(X; A)$ are called the \textbf{singular cohomology groups}, and denoted
+    \[ H^n(X; A) . \]
 \end{topic}
 
 \begin{topic}{fundamental-group}{fundamental group}
@@ -95,3 +98,24 @@
     The $n$-sphere $S^n$ is a strong deformation retract of $\RR^{n + 1} - \{ 0 \}$, given by the map
     \[  F(x, t) = (1 - t) x + \frac{t x}{\norm{x}} . \]
 \end{example}
+
+\begin{topic}{cup-product}{cup product}
+    The \textbf{cup product} is a product on the \tref{singular-homology}{singular cohomology} of a \tref{TO:topological-space}{topological space} $X$. Given a commutative \tref{CA:ring}{ring} $R$, it is the product
+    \[ (-) \smile (-) : C^p(X; R) \times C^q(X; R) \to C^{p + q}(X; R) \]
+    given by
+    \[ (f \smile g)(\sigma) = f(\sigma \circ i_p^\text{front}) \cdot g(\sigma \circ i_q^\text{back}) \]
+    where $i_p^\text{front} : \Delta^{p} \to \Delta^{p + q}$ sends vertex $i$ to vertex $i$, and $i_q^\text{back}$ sends vertex $i$ to vertex $n - q + i$.
+    
+    The cup product descents to a product on the cohomology groups
+    \[ (-) \smile (-) : H^p(X; R) \times H^q(X; R) \to H^{p + q}(X; R), \qquad ([f], [g]) \mapsto [f \smile g] , \]
+    making $H^*(X; R)$ into a graded commutative $R$-algebra (that is, $[f] \smile [g] = (-1)^{pq} [g] \smile [f]$).
+    
+    The cup product satisfies the following properties:
+    \begin{itemize}
+        \item (\textit{Leibniz rule}) $d(f \smile g) = df \smile g + (-1)^p f \smile dg$,
+        \item (\textit{functorial}) for every map $\varphi : X \to Y$, $\varphi^*(f \smile g) = \varphi^* f \smile \varphi^* g$,
+        \item (\textit{associative}) $f \smile (g \smile h) = (f \smile g) \smile h$,
+        \item (\textit{unital}) $f \smile 1 = f = 1 \smile f$.
+    \end{itemize}
+\end{topic}
+

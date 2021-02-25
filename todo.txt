@@ -29,3 +29,7 @@ AG: small P-site = full subcategory of Sch/X such that U -> X also has P, writte
 
 CA: Chapter 10 (completions) of Atiyah&MacDonald (associated graded ring)
 CA: Chapter 11 (dimension theory) of Atiyah&MacDonald (Hilbert function)
+
+CA/NT: Galois correspondence
+
+NT: quadratic reciprocity

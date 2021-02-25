@@ -97,6 +97,14 @@
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
 \end{topic}
 
+\begin{example}{proper-morphism}
+    The morphism $\AA_k^1 \to \Spec k$ is not proper as it is not universally closed. Namely, the projection $\AA^1_k \times \AA^1_k \to \AA^1_k$ sends the closed set $\{ xy - 1 \}$ to $\AA^1_k - \{ 0 \}$ and thus cannot be a closed mapping. However, the morphism is clearly of finite type, and also separated as the diagonal $\Delta : \AA^1_k \to \AA^1_k \times \AA^1_k$ is closed, it is given by $\{ x - y = 0 \}$.
+\end{example}
+
+\begin{example}{proper-morphism}
+    Let $X$ be the affine line with double origin, i.e. two copies of $\AA^1$ glued along $\AA^1 \backslash \{ 0 \}$. Then $X \to \AA^1$ is of finite type and universally closed (the latter as $X_R \to \AA^1_R$ is closed for all rings $R$). However, $X \to \AA^1$ is not separated and hence not proper. For this we need to show $\Delta_{X / \AA^1} : X \to X \times_{\AA^1} X$ is not a closed immersion. Consider $\AA^1 \to X \times_{\AA^1} X$ induced from the two maps different maps $\AA^1 \to X$, and note that the inverse image of the diagonal is $\AA^1 \backslash \{ 0 \}$ which is not closed. Hence the diagonal is not closed.
+\end{example}
+
 \begin{topic}{projective-morphism}{(quasi) projective morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{projective} if it factors as
     \[ X \xrightarrow{i} \PP^n_Y \xrightarrow{p} Y , \]
@@ -105,6 +113,10 @@
     It is \textbf{quasi-projective} if it factors as
     \[ X \xrightarrow{j} X' \xrightarrow{g} Y , \]
     with $j$ an \tref{open-immersion}{open immersion} and $g$ a projective morphism.
+\end{topic}
+
+\begin{topic}{regular-scheme}{regular scheme}
+    A \tref{scheme}{scheme} $X$ is \textbf{regular} if it is \tref{noetherian-scheme}{locally noetherian} and all of its stalks are \tref{CA:regular-ring}{regular local rings}.
 \end{topic}
 
 \begin{topic}{variety}{variety}
@@ -281,7 +293,7 @@
     where $\omega_X$ is the \tref{canonical-sheaf}{canonical sheaf} of $X$.
 \end{topic}
 
-\begin{topic}{(normal-sheaf}{(co)normal sheaf}
+\begin{topic}{normal-sheaf}{(co)normal sheaf}
     Let $X$ be a non-singular \tref{variety}{variety} over $k$, and $Y$ a non-singular closed irreducible subvariety defined by the sheaf of ideals $\mathcal{I}$. The \textbf{conormal sheaf} of $Y$ in $X$ is the sheaf
     \[ \mathcal{I}/\mathcal{I}^2 . \]
     Its dual

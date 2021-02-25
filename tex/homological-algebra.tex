@@ -14,13 +14,6 @@
         \item all kernels and cokernels exist,
         \item every monomoprhism is the kernel of some morphism, and every epimoprhism is the cokernel of some morphism.
     \end{itemize}
-    
-    Examples include
-    \begin{itemize}
-        \item the category of abelian groups
-        \item the category of left modules over a ring $R$
-        \item the category of sheaves on a topological space
-    \end{itemize}
 \end{topic}
 
 \begin{topic}{additive-functor}{additive functor}
@@ -56,7 +49,7 @@
 \end{topic}
 
 % Complexes
-\begin{topic}{chain-complex}{chain-complex}
+\begin{topic}{chain-complex}{chain complex}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{chain complex} $A_\bdot$ in $\mathcal{A}$ is a sequence of objects $A_i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d_i : A_i \to A_{i - 1}$ such that $d_{i - 1} \circ d_i = 0$ for all $i$.
     \[ \cdots \xleftarrow{d_{i - 1}} A_{i - 1} \xleftarrow{d_i} A_i \xleftarrow{d_{i + 1}} A_{i + 1} \xleftarrow{d_{i + 2}} \cdots \]
     Dually, a \textbf{cochain complex} $A^\bdot$ in $\mathcal{A}$ is a sequence of objects $A^i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d^i : A^i \to A^{i + 1}$ such that $d^{i + 1} \circ d^i = 0$ for all $i$.
@@ -134,15 +127,6 @@
     Suppose that the rows are exact. The \textbf{snake lemma} states that there is an exact sequence of kernels and cokernels
     \[ \ker a \rightarrow \ker b \rightarrow \ker c \xrightarrow{d} \coker a \rightarrow \coker b \rightarrow \coker c \]
     where $d$ is known as the \textit{connecting homomorphism}. Furthermore, if $f$ is \tref{CT:monomorphism}{mono} then so is $\ker a \to \ker b$, and if $g'$ is \tref{CT:epimorphism}{epi} then so is $\coker b \to \coker c$.
-\end{topic}
-
-% Other
-\begin{topic}{dg-category}{dg-category}
-    A \textbf{differential graded category} is a category whose morphism sets are \tref{chain-complex}{cochain complexes}, that is
-    \[ \Hom(A, B) = \bigoplus_{n \in \ZZ} \Hom_n(A, B) \]
-    with differential $d : \Hom_n(A, B) \to \Hom_{n + 1}(A, B)$ such that $d^2 = 0$. Furthermore, composition of morphisms
-    \[ \Hom(A, B) \otimes \Hom(B, C) \to \Hom(A, C) \]
-    must be a chain map and $d(\id_A) = 0$.
 \end{topic}
 
 \begin{topic}{spectral-sequence}{spectral sequence}
