@@ -44,21 +44,21 @@
     A morphism $f : X \to Y$ is an \textbf{isomorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$ and $gf = \id_X$. We call $g$ the \textbf{inverse} of $f$ and write $g = f^{-1}$. If it exists, it is unique.
 \end{topic}
 
-\begin{topic}{terminal}{terminal}
+\begin{topic}{terminal-object}{terminal object}
     An object $X$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{terminal} if for any object $Y$ there is exactly one morphism $Y \to X$. Any two terminal objects are isomorphic.
 \end{topic}
 
-\begin{topic}{initial}{initial}
+\begin{topic}{initial-object}{initial object}
     An object $X$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{initial} if for any object $Y$ there is exactly one morphism $X \to Y$. Any two initial objects are isomorphic.
 \end{topic}
 
-\begin{topic}{full}{full}
+\begin{topic}{full-functor}{full functor}
     A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
     \[ F : \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\mathcal{D}}(F(X), F(Y)) \]
     is surjective.
 \end{topic}
 
-\begin{topic}{faithful}{faithful}
+\begin{topic}{faithful-functor}{faithful functor}
     A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
     \[ F : \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\mathcal{D}}(F(X), F(Y)) \]
     is injective.
@@ -81,7 +81,7 @@
     \[ \Hom(y_X, F) \xrightarrow{\sim} F(X)  \]
     natural in $X$ and $F$. As a consequence, the \tref{yoneda-embedding}{Yoneda embedding}
     \[ y_{(-)} : \mathcal{C} \to \text{Set}^{\mathcal{C}^\text{op}} \]
-    is \tref{full}{full} and \tref{faithful}{faithful}.
+    is \tref{full-functor}{full} and \tref{faithful-functor}{faithful}.
 \end{topic}
 
 \begin{topic}{groupoid}{groupoid}
@@ -92,7 +92,7 @@
     A \tref{functor}{functor} $F : \mathcal{C} \Rightarrow \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \Rightarrow \mathcal{C}$ and natural isomorphisms $\mu : F \Rightarrow G$ and $\nu : G \Rightarrow F$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
 \end{topic}
 
-\begin{topic}{essentially-surjective}{essentially surjective}
+\begin{topic}{essentially-surjective-functor}{essentially surjective functor}
     A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{essentially surjective} if each object in $\mathcal{D}$ is isomorphic to $F(X)$ for some $X$ in $\mathcal{C}$.
 \end{topic}
 
@@ -111,12 +111,12 @@
     \[ \begin{tikzcd} W' \arrow[bend left=30]{rrd}{\pi_X'} \arrow[swap, bend right=30]{ddr}{\pi_Y'} \arrow[dashed]{rd}{\exists!} & & \\ & W \arrow{r}{\pi_X} \arrow[swap]{d}{\pi_Y} & X \arrow{d}{f} \\ & Y \arrow[swap]{r}{g} & Z \end{tikzcd} \]
 \end{topic}
 
-\begin{topic}{regular-mono}{regular monomorphism}
+\begin{topic}{regular-monomorphism}{regular monomorphism}
     A \tref{monomorphism}{monomorphism} $f : X \to Y$ is called a \textbf{regular monomorphism} if fits into an equalizer diagram:
     \[ \begin{tikzcd} X \arrow{r}{f} & Y \arrow[shift left=0.25em]{r} \arrow[shift right=0.25em]{r} & Z \end{tikzcd} \]
 \end{topic}
 
-\begin{topic}{adjoint}{adjoint}
+\begin{topic}{adjoint-functors}{adjoint functors}
     Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be a pair of functors. We say that $F$ is \textbf{left adjoint} to $G$, or $G$ is \textbf{right adjoint} to $F$, denoted $F \dashv G$, if there is a natural bijection
     \[ \Hom_{\mathcal{D}}(F(C), D) \xrightarrow{\sim} \Hom_{\mathcal{D}}(C, G(D)) \]
     for each object $C$ in $\mathcal{C}$ and $D$ in $\mathcal{D}$. Naturality means that for all $f : C \to C'$ in $\mathcal{C}$ and $g : D' \to D$ in $\mathcal{D}$, the following square commutes.

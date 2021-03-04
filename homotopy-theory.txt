@@ -1,0 +1,7 @@
+- Simplicial objects
+- Nerve and realization
+- Dold-Kan correspondence
+
+
+At least first read "Homotopy theories and model categories" of Dwyer & ... (~56 pages)
+

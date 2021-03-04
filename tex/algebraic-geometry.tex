@@ -93,7 +93,7 @@
     Let $X$ be the affine line with two origins, that is, glue two copies of $\AA_k^1$ along $\AA_k^1 - \{ 0 \}$. We claim that $X$ is not separated over $k$. Namely, consider the map $\AA^1_k \to X \times_k X$ obtained from the two different maps $\AA_k^1 \to X$. Then the inverse image of the diagonal is $\AA_k^1 - \{ 0 \}$, which is not closed. Hence, the diagonal is not closed and $\Delta$ is not a closed immersion.
 \end{example}
 
-\begin{topic}{proper-morphism}{proper-morphism}
+\begin{topic}{proper-morphism}{proper morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
 \end{topic}
 
@@ -174,7 +174,7 @@
 \end{topic}
 
 % \begin{topic}{ample-invertible-sheaf}{(very) ample invertible sheaf}
-%     Let $X$ be a \tref{scheme}{scheme} over $S$. An \tref{invertible-sheaf}{invertible} sheaf $\mathcal{L}$ on $X$ is called \textbf{very ample} relative to $S$, if there is an \tref{immersion}{immersion} $i : X \to \PP_S^r$ for some $r$, such that $\mathcal{L} \simeq i^*(\mathcal{O}(1))$.
+%     Let $X$ be a \tref{scheme}{scheme} over $S$. An \tref{invertible-sheaf}{invertible} sheaf $\mathcal{L}$ on $X$ is called \textbf{very ample} relative to $S$, if there is an \tref{immersion}{immersion} $i : X \to \PP_S^n$ for some $n$, such that $\mathcal{L} \simeq i^*(\mathcal{O}_{\PP^_S^n}(1))$.
     
 %     If $X$ is scheme of finite type over a noetherian ring $A$, then any $\mathcal{L}$ is ample if and only if $\mathcal{L}^m$ is very ample over $\Spec A$ for some $m > 0$.
 % \end{topic}
@@ -299,4 +299,22 @@
     Its dual
     \[ \mathcal{N}_{Y/X} = \mathcal{H}\text{om}(\mathcal{I}/\mathcal{I}^2, \mathcal{O}_X) \]
     is called the \textbf{normal sheaf} of $Y$ in $X$. It is locally free of rank $r = \text{codim}(Y)$.
+\end{topic}
+
+\begin{topic}{geometric-point}{geometric point}
+    A \textbf{geometric point} of a \tref{scheme}{scheme} $X$ defined over a field $k$ is a morphism
+    \[ \Spec \overline{k} \to X , \]
+    where $\overline{k}$ denotes an \tref{CA:algebraic-closure}{algebraic closure} of $k$.
+\end{topic}
+
+\begin{topic}{fppf-covering}{fppf covering}
+    An \textbf{fppf covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, locally of finite presentation, and jointly surjective, i.e. $X = \bigcup_{i \in I} f_i(X_i)$.
+    
+    'fppf' stands for \textit{fidèlement plat de présentation finie}.
+\end{topic}
+
+\begin{topic}{fpqc-covering}{fpqc covering}
+    An \textbf{fpqc covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, and such that for every affine open $U \subset X$ there exists a finite subset $J \subset I$ and affine opens $V_j \subset X_j$ for each $j \in J$ such that $U = \bigcup_{j \in J} f_j(V_j)$. That is, every affine open in $X$ can be covered by finitely many affine opens from the $X_i$.
+    
+    'fpqc' stands for \textit{fidèlement plat et quasi-compact}.
 \end{topic}
