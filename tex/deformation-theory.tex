@@ -1,0 +1,57 @@
+\begin{topic}{deformation-functor}{deformation functor}
+    A \textbf{deformation functor} is a \tref{CT:functor}{functor}
+    \[ D : \textbf{Art}_k \to \textbf{Set} \]
+    where $\textbf{Art}_k$ is the category of local artinian $k$-algebras with residue field $k$, such that $D(k)$ is a single point.
+    
+    A morphism of deformation functors is a natural transformation of functors.
+\end{topic}
+
+\begin{topic}{tangent-obstruction-theory}{tangent-obstruction-theory}
+    A \textbf{tangent-obstruction theory} for a \tref{deformation-functor}{deformation functor} $D$ consists of finite-dimensional $k$-vector spaces $T_1$ (called the \textit{tangent space}) and $T_2$ (called the \textit{obstruction space}) such that
+    \begin{itemize}
+        \item for all small extensions $0 \to M \to B \to A \to 0$, there exists an exact sequence of sets
+        \[ T_1 \otimes_k M \to D(B) \to D(A) \xrightarrow{\text{ob}} T_2 \otimes_k M , \]
+        \item when $A = k$ the sequence becomes
+        \[ 0 \to T_1 \otimes_k M \to D(B) \to D(k) \xrightarrow{\text{ob}} T_2 \otimes_k M , \]
+        \item and these sequences are functorial in small extensions.
+    \end{itemize}
+    
+    One obtains a \textbf{generalized tangent-obstruction theory} by removing the condition of finite-dimensionality.
+\end{topic}
+
+\begin{topic}{schlessingers-criteria}{Schlessinger's criteria}
+    Let $F : \textbf{Art}_k \to \textbf{Set}$ be a \tref{deformation-functor}{deformation functor}. The following conditions are known as \textbf{Schlessinger's criteria}:
+    \begin{itemize}
+        \item \textbf{H1}: The map $F(A' \times_A A'') \to F(A') \times_{F(A)} F(A'')$ is surjective for every small extension $A'' \to A$.
+        \item \textbf{H2}: The map of \textbf{H1} is bijective for $A'' = k[\varepsilon] / (\varepsilon^2)$ and $A = k$.
+        \item \textbf{H3}: The tangent space $t_F = F(k[\varepsilon]/(\varepsilon^2))$ is a finite-dimensional $k$-vector space.
+        \item \textbf{H4}: For every small extension $p : A'' \to A$ and every $\eta \in F(A)$ for which $p^{-1}(\eta)$ is non-empty, the group action of $t_F$ on $p^{-1}(\eta)$ is bijective.
+    \end{itemize}
+    \textit{Schlessinger's theorem} states that $F$ has a \tref{pro-representable-hull}{pro-representable hull} if and only if it satisfies \textbf{H1}-\textbf{H3}. Furthermore, $F$ is pro-representable (i.e. representable by a complete local $k$-algebra) if and only if it satisfies \textbf{H1}-\textbf{H4}.
+\end{topic}
+
+\begin{topic}{pro-representable-hull}{pro-representable hull}
+    Let $F : \textbf{Art}_k \to \textbf{Set}$ be a \tref{deformation-functor}{deformation functor}.
+    A \textbf{pro-representable hull} for $F$ is a pair $(R, \xi)$ with $R$ a complete local $k$-algebra and $\xi \in \hat{F}(R) = \varprojlim F(R / \mathfrak{m}_R^n)$ such that
+    \begin{itemize}
+        \item the associated map $h_R \to F$ is surjective, i.e. $\Hom(R, A) \to F(A)$ is surjective for all $A$,
+        \item every surjection $B \to A$ in $\textbf{Art}_k$ induces a surjection $\Hom(R, B) \to \Hom(R, A) \times_{F(A)} F(B)$,
+        \item the map $h_R(k[\varepsilon]/(\varepsilon^2)) \to F(k[\varepsilon]/(\varepsilon^2))$ of tangent spaces is bijective.
+    \end{itemize}
+    The pair $(R, \xi)$ is also called a \textit{miniversal family}. If the pair $(R, \xi)$ only satisfies the first two conditions, it is called a \textit{versal family}.
+\end{topic}
+
+\begin{topic}{hilbert-functor}{Hilbert functor}
+    Let $X$ be a \tref{AG:scheme}{scheme}. The \textbf{Hilbert functor} $H_X : \textbf{Sch}^\text{op} \to \text{Set}$ is given by
+    \[ H_X(S) = \{ \text{$S$-flat closed subschemes $W \subset X \times S$} \} . \]
+    The infinitesimal local version of this moduli functor for a given closed subscheme $Z \subset X$ is the \tref{deformation-functor}{deformation functor}
+    \[ H_{X, Z}(A) = \left\{ \begin{array}{cc} \text{$(\Spec A)$-flat closed subschemes $Z' \subset X \times \Spec A$} \\ \text{whose fiber over $(\Spec A)_\text{red}$ is $Z$} \end{array} \right\} . \]
+\end{topic}
+
+\begin{topic}{quot-functor}{Quot functor}
+    Let $X$ be a \tref{AG:scheme}{scheme}, and $\mathcal{F}$ a coherent sheaf on $X$. The \textbf{Quot functor} $Q_\mathcal{F}$ associated to $\mathcal{F}$ is given by
+    \[ Q_\mathcal{F}(S) = \{ \text{coherent subsheaves } \mathcal{S} \subset p^* \mathcal{F} : p^* \mathcal{F} / \mathcal{S} \text{ is flat over } S \} , \]
+    where $p : X \times S \to S$ denotes the projection.
+    
+    Note that the \tref{hilbert-functor}{Hilbert functor} is the special case where $\mathcal{F} = \mathcal{O}_X$.
+\end{topic}

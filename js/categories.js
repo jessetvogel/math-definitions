@@ -1,13 +1,14 @@
 const categories = {
-    "CT": "Category Theory",
-    "CA": "Commutative Algebra",
-    "AT": "Algebraic Topology",
     "AG": "Algebraic Geometry",
+    "AT": "Algebraic Topology",
+    "CA": "Commutative Algebra",
+    "CT": "Category Theory",
     "DG": "Differential Geometry",
-    "NT": "Number Theory",
-    "HA": "Homological Algebra",
-    "TO": "Topology",
-    "LA": "Linear Algebra",
+    "DT": "Deformation Theory",
     "GT": "Group Theory",
-    "UN": "Uncategorized",
+    "HA": "Homological Algebra",
+    "LA": "Linear Algebra",
+    "NT": "Number Theory",
+    "TO": "Topology",
+    "UN": "Uncategorized"
 };

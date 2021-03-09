@@ -1,0 +1,48 @@
+\begin{topic}{number-field}{number field/ring}
+    A \textbf{number field} is a finite \tref{CA:field-extension}{field extension} of the field of rational numbers $\QQ$, and a \textbf{number ring} is a subring of a number field.
+\end{topic}
+
+\begin{topic}{diophantine-equation}{Diophantine equation}
+    A \textbf{Diophantine equation} is a polynomial equation, usually in two or more unknowns, such that the only solutions of interest are the integer ones.
+\end{topic}
+
+\begin{topic}{pell-equation}{Pell equation}
+    The \textbf{Pell equation} is any \tref{diophantine-equation}{Diophantine equation} of the form $x^2 - dy^2 = 1$, where $d \in \ZZ$ is not a square.
+\end{topic}
+
+\begin{topic}{gaussian-integers}{Gaussian integers}
+    The ring of \textbf{Gaussian integers} is the ring
+    \[ \ZZ[i] = \{ a + bi : a, b \in \ZZ \}, \qquad \text{ where } i^2 = -1 . \]
+\end{topic}
+
+\begin{topic}{picard-group}{Picard group}
+    Let $R$ be a \tref{CA:domain}{domain} with \tref{CA:field-of-fractions}{field of fractions} $K$. Let $\mathcal{I}(R)$ be the set of invertible ideals of $R$, which forms a group under multiplication. The set of principal fractional ideals forms a subgroup $\mathcal{P}(R) \subset \mathcal{I}(R)$, isomorphic to $K^\times / R^\times$. The \textbf{Picard group} of $R$ is the quotient
+    \[ \text{Pic}(R) = \mathcal{I}(R) / \mathcal{P}(R) . \]
+    It fits in the exact sequence
+    \[ 0 \to R^* \to K^* \to \mathcal{I}(R) \to \text{Pic}(R) \to 0 . \]
+\end{topic}
+
+\begin{topic}{order}{order}
+    A \tref{number-field}{number ring} whose additive group is finitely generated is called an \textbf{order} in its \tref{CA:field-of-fractions}{field of fractions}.
+    
+    As number rings do not have additive torsion elements, every order is free of finite rank over $\ZZ$. The rank of an order $R$ in $K = Q(R)$ is bounded by $n = [ K : \QQ ]$, and as $R \otimes_\ZZ \QQ = K$ it has to equal $n$. Thus,
+    \[ R = \ZZ \cdot \omega_1 \oplus \ZZ \cdot \omega_2 \oplus \cdots \oplus \ZZ \cdot \omega_n \]
+    for some $\QQ$-basis $\{ \omega_1, \ldots, \omega_n \}$ of $K$.
+\end{topic}
+
+\begin{topic}{monogenic-order}{monogenic order}
+    An \tref{order}{order} is called \textbf{monogenic} if it is of the form $\ZZ[\alpha] = \ZZ[X] / (f)$ for a monic irreducible polynomial $f \in \ZZ[X]$.
+\end{topic}
+
+\begin{topic}{legendre-symbol}{Legendre symbol}
+    For $p$ an odd prime number and $d$ an integer, the \textbf{Legendre symbol} $\left(\tfrac{d}{p}\right)$ is defined as
+    \[ \left(\frac{d}{p}\right) = \left\{ \begin{array}{cl}
+        0 & \text{ if $a \equiv 0 \text{ mod } p$} , \\
+        1 & \text{ if $a \text{ mod } p$ is a square in $\ZZ/p\ZZ$} ,  \\
+        -1 & \text{ otherwise} .
+    \end{array} \right. \]
+\end{topic}
+
+\begin{topic}{ring-of-integers}{ring of integers}
+    The \textbf{ring of integers} of a \tref{number-field}{number field} $K$ is the \tref{CA:integral-closure}{integral closure} of $\ZZ$ in $K$, often denoted as $\mathcal{O}_K$. % It is the smallest Dedekind domain with field of fractions $K$.
+\end{topic}

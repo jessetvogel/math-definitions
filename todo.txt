@@ -12,7 +12,6 @@ CA: faithfully flat modules
 # Algebraic Geometry
 AG: etale, smooth, unramified, etc.
 AG: example invertible sheaves: correspondence to divisors
-AG: faithfully flat morphism = flat and map on '... ? ' is surjective
 AG: big P-site = { jointly surjective P-morphisms }
 AG: small P-site = full subcategory of Sch/X such that U -> X also has P, written X_P (e.g. X_{etale})
 
@@ -30,7 +29,6 @@ Group theory: parabolic subgroup
 
 # Category theory
 CT: pullback, pushout
-CT: sheaf on grothendieck topology
 CT: retract (not a retraction)
 CT: localization 6.1. Definition. Let C be a category, and W ⊆ C a class of morphisms. A functor F : C → D is said to be a localization of C with respect to W if
 (i) F(f) is an isomorphism for each f ∈ W, and

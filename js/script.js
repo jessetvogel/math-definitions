@@ -96,29 +96,34 @@ function initAutoComplete() {
         if(val == '')
             return;
 
-        let items = [];
+        const items = [];
         for(const id in topics) {
             const index = searchMatchIndex(topics[id], val);
             if(index < 0)
                 continue;
-
-            let item = document.createElement('div');
+            const topic = topics[id];
+            const item = document.createElement('div');
             item.innerHTML = suggestionHTML(id, val);
             item.addEventListener('click', function (e) { gotoTopic(id); });
-            items.push([ index, item ]);
+            items.push([ index, topic, item ]);
         }
 
         if(items.length == 0) {
-            let item = document.createElement('div');
+            const item = document.createElement('div');
             item.innerHTML = '<span style="color: rgba(0, 0, 0, 0.5);">no results</span>';
             autoCompleteList.appendChild(item);
             return;
         }
 
-        items.sort(function (a, b) { return a[0] - b[0]; });
+        items.sort(function (a, b) {
+            if(a[0] != b[0])
+                return a[0] - b[0];
+            return a[1].localeCompare(b[1], 'en', { sensitivity: 'base' });
+        });
+
         autoCompleteNumItems = Math.min(items.length, 10);
         for(let i = 0; i < autoCompleteNumItems; ++i) {
-            autoCompleteList.appendChild(items[i][1]);
+            autoCompleteList.appendChild(items[i][2]);
         }
     });
 

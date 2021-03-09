@@ -172,6 +172,25 @@
     \[ S^{-1} R = R \times S / \sim{} \quad \text{ where } (r_1, s_1) \sim{} (r_2, s_2) \text{ if } t(r_1 s_2 - r_2 s_1) = 0 \text{ for some } t \in S . \]
 \end{topic}
 
+\begin{example}{localization}
+    If $R$ is a \tref{domain}{domain}, then $S = R - \{ 0 \}$ is a multiplicative set, and $S^{-1} R$ is the \tref{field-of-fractions}{field of fractions} of $R$.
+\end{example}
+
+\begin{example}{localization}
+    For any commutative ring $R$ and $f \in R$, the set
+    \[ S = \{ 1, f, f^2, \ldots \} \]
+    is a multiplicative set, and the localization is
+    \[ R_f := S^{-1} R = \left\{ \frac{a}{f^n} : a \in R, \; n \ge 0 \right\} . \]
+\end{example}
+
+\begin{example}{localization}
+    For any commutative ring $R$ and \tref{prime-ideal}{prime ideal} $\mathfrak{p}$, the set
+    \[ S = \{ f \in R : f \not\in \mathfrak{p} \} \]
+    is a multiplicative set, and the localization
+    \[ R_\mathfrak{p} := S^{-1} R = \left\{ \frac{f}{g} : f, g \in R, \; g \not\in \mathfrak{p} \right\} \]
+    is a \tref{local-ring}{local ring} with maximal ideal $\mathfrak{p} R_\mathfrak{p}$.
+\end{example}
+
 \begin{topic}{regular-ring}{regular (local) ring}
     A \textbf{regular local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} ring such that the minimal number of generators of its maximal ideal is equal to its \tref{krull-dimension}{Krull dimension}.
     

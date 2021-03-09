@@ -150,3 +150,18 @@
 \begin{topic}{site}{site}
     A small category $\mathcal{C}$ together with a \tref{grothendieck-topology}{Grothendieck topology} on it is called a \textbf{site}.
 \end{topic}
+
+\begin{topic}{sheaf}{sheaf}
+    A presheaf $\mathcal{F} : \mathcal{C}^\text{op} \to \textbf{Set}$ on a \tref{site}{site} $\mathcal{C}$ is a \textbf{sheaf} if for every covering sieve $\{ U_i \to U \}_{i \in I}$, the diagram
+    \[ \mathcal{F}(U) \to \prod_{i \in I} \mathcal{F}(U_i) \rightrightarrows \prod_{i, j \in I} \mathcal{F}(U_i \times_U U_j) \]
+    is an \tref{equalizer}{equalizer}.
+\end{topic}
+
+\begin{topic}{localization}{localization}
+    Let $\mathcal{C}$ be a \tref{category}{category}, and $W$ a collection of morphisms of $\mathcal{C}$. A \textbf{localization} of $\mathcal{C}$ by $W$ is a category $\mathcal{C}\left[\frac{1}{W}\right]$ with a functor $Q : \mathcal{C} \to \mathcal{C}\left[\frac{1}{W}\right]$ such that
+    \begin{itemize}
+        \item $Q(f)$ is an isomorphism for all $f \in W$,
+        \item for any category $\mathcal{D}$ and functor $F : \mathcal{C} \to \mathcal{D}$ such that $F(f)$ is an isomorphism for all $f \in W$, there exists a unique functor $G : \mathcal{C}\left[\frac{1}{W}\right] \to \mathcal{D}$ such that $F \simeq G \circ Q$.
+        \[ \begin{tikzcd} \mathcal{C} \arrow{r}{Q} \arrow[swap]{rd}{F} & \mathcal{C}\left[\frac{1}{W}\right] \arrow[dashed]{d}{G} \\ & \mathcal{D} \end{tikzcd} \]
+    \end{itemize}
+\end{topic}

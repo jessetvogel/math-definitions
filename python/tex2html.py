@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[3]:
 
 
 import re
@@ -143,7 +143,7 @@ class Lexer():
             return token
 
 
-# In[3]:
+# In[1]:
 
 
 class Parser:
@@ -400,7 +400,7 @@ class Parser:
         identifier = identifier if ':' in identifier else self.prefix + ':' + identifier
         self.consume(Token.T_SEPARATOR, '}')
         self.consume(Token.T_SEPARATOR, '{')
-        self.output.write('<a href="javascript:gotoTopic(\'{}\');">'.format(identifier))
+        self.output.write('<a href="#{}">'.format(identifier))
         self.parse_content()
         self.output.write('</a>')
         self.consume(Token.T_SEPARATOR, '}')
