@@ -30,15 +30,6 @@
     \[ \begin{tikzcd} \Lambda^n_i \arrow{r}{f} \arrow{d} & X \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]
 \end{topic}
 
-
-\begin{topic}{groebner-basis}{Gröbner basis}
-    Let $I \subset k[x_1, x_2, \ldots, x_n]$ be an ideal. A generating set $G = \{ g_1, g_2, \ldots, g_n \}$ for $I$ is called a \textbf{Gröbner basis} for $I$ if for all non-zero $f \in I$, the \textit{leading monomial} $\text{lm}(g_i)$ divides $\text{lm}(f)$ for some $i$.
-    
-    A Gröbner basis $G$ is called \textbf{minimal} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and the leading monomial $\text{lm}(g_i)$ does not divide $\text{lm}(g_j)$ for $i \ne j$.
-    
-    A Gröbner basis $G$ is called \textbf{reduced} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and $g_i$ is reduced with respect to $G - \{ g_i \}$. A reduced Gröbner basis for $I$ always exists and is unique.
-\end{topic}
-
 \begin{topic}{koszul-complex}{Koszul complex}
     Let $F$ be a \tref{CA:free-module}{free module} of finite rank $r$ over a commutative \tref{CA:ring}{ring} $R$. Then, given an $R$-linear map $s : F \to R$ the \textbf{Koszul complex} associated to $s$ is the chain complex of $R$-modules
     \[ K_\bdot(s) : \qquad 0 \to \wedge^r F \xrightarrow{d_r} \wedge^{r - 1} F \xrightarrow{d_{r - 1}} \cdots \xrightarrow{d_2} F \xrightarrow{d_1} R \to 0 \]
@@ -46,3 +37,67 @@
     \[ d_k(e_1 \wedge e_2 \ldots \wedge e_k) = \sum_{i = 1}^{k} (-1)^{i + 1} s(e_i) e_1 \wedge \cdots \wedge \hat{e_i} \wedge \cdots \wedge e_k , \]
     where the hat indicates the term is missing. Note that $d_1 = s$.
 \end{topic}
+
+
+\begin{topic}{model-category}{model category}
+    A \textbf{model category} is a \tref{CT:category}{category} $\mathcal{C}$ with three distinguished classes of maps: \textit{weak equivalences}, \textit{fibrations} and \textit{cofibrations}, each of which is closed under composition and contains all identity maps. A map which is both a fibration (resp. cofibration) and a weak equivalence is called an \textit{acyclic fibration} (resp. \textit{acyclic cofibration}). We require the following axioms.
+    \begin{itemize}
+        \item Finite limits and colimits exist in $\mathcal{C}$.
+        \item For maps $f$ and $g$ in $\mathcal{C}$ such that $gf$ is defined, if two out of the three maps $f, g, gf$ are weak equivalences, then so is the third.
+        \item If $f$ is a retract of $g$, and $g$ is a fibration, cofibration or a weak equivalence, then so is $f$.
+        \item For any commutative diagram
+        \[ \begin{tikzcd} A \arrow[swap]{d}{i} \arrow{r}{f} & X \arrow{d}{p} \\ B \arrow[swap]{r}{g} \arrow[dashed]{ur} & Y \end{tikzcd} \]
+        such that either (i) $i$ is a cofibration and $p$ an acyclic fibration, or (ii) $i$ an acyclic cofibration and $p$ a fibration, there exists a lift $h : B \to X$ making the diagram commute.
+        \item Any map $f$ can be factored in two ways: (i) $f = pi$ with $i$ a cofibration and $p$ an acyclic fibration, and (ii) $f = pi$ with $i$ an acyclic cofibration and $p$ a fibration.
+    \end{itemize}
+    
+    By the first axiom, $\mathcal{C}$ has an \tref{CT:initial-object}{initial} object $\varnothing$ and a \tref{CT:terminal-object}{terminal} object $\star$. An object $A$ of $\mathcal{C}$ is called \textbf{cofibrant} if $\varnothing \to A$ is a cofibration, and \textbf{fibrant} if $A \to \star$ is a fibration.
+\end{topic}
+
+\begin{example}{model-category}
+    The category $\textbf{Top}$ of topological spaces can be given the structure of a model category by defining a map $f : X \to Y$ to be a
+    \begin{itemize}
+        \item \textit{weak equivalence} if $f$ is a \tref{AT:weak-homotopy-equivalence}{weak-homotopy-equivalence},
+        \item \textit{cofibrations} if $f$ is a retract of a map $X \to Y'$ in which $Y'$ is obtained from $X$ by attaching cells,
+        \item \textit{fibration} if $f$ is a Serre fibration.
+    \end{itemize}
+    In this model category, all objects are fibrant and CW-complexes are cofibrant.
+\end{example}
+
+\begin{example}{model-category}
+    The Kan--Quillen model structure on $\textbf{sSet}$, the category of \tref{UN:simplicial-set}{simplicial sets}. Take
+    \begin{itemize}
+        \item \textit{weak equivalences} = weak homotopy equivalences,
+        \item \textit{fibrations} = Kan fibrations,
+        \item \textit{cofibrations} = monomorphisms (degreewise injective maps).
+    \end{itemize}
+    All objects are cofibrant, and the fibrant objects are the Kan complexes.
+\end{example}
+
+\begin{example}{model-category}
+    Let $R$ be a commutative \tref{CA:ring}{ring}, and let $\textbf{Ch}_R = \textbf{Ch}_{\ge 0}(\textbf{Mod}_R)$ be the category of chain complexes of $R$-modules, in non-negative degree. Take
+    \begin{itemize}
+        \item \textit{weak equivalences} = quasi-isomorphisms,
+        \item \textit{fibrations} = degreewise surjective maps,
+        \item \textit{cofibrations} = degreewise injective maps with projective cokernel.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{quillen-adjunction}{Quillen adjunction}
+    Let $M, N$ be \tref{model-category}{model categories}. A \textbf{Quillen adjunction} is an \tref{CT:adjoint-functors}{adjunction}
+    \[ F : M \to N, \qquad G : N \to M, \qquad F \dashv G , \]
+    such that $F$ preserves cofibrations and $G$ preserves fibrations.
+\end{topic}
+
+\begin{topic}{quillen-equivalence}{Quillen equivalence}
+    A \tref{quillen-adjunction}{Quillen adjunction} is called a \textbf{Quillen equivalence} if the derived adjunction between homotopy categories is an \tref{CT:equivalence-of-categories}{equivalence of categories}.
+\end{topic}
+
+
+% \begin{topic}{homotopy-pullback-pushout}{homotopy pullback/pushout}
+    % Cofibrant replacements!
+% \end{topic}
+
+% \begin{topic}{dold-kan-correspondence}{Dold-Kan correspondence}
+  
+% \end{topic}

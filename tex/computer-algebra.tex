@@ -1,0 +1,7 @@
+\begin{topic}{groebner-basis}{Gröbner basis}
+    Let $I \subset k[x_1, x_2, \ldots, x_n]$ be an ideal. A generating set $G = \{ g_1, g_2, \ldots, g_n \}$ for $I$ is called a \textbf{Gröbner basis} for $I$ if for all non-zero $f \in I$, the \textit{leading monomial} $\text{lm}(g_i)$ divides $\text{lm}(f)$ for some $i$.
+    
+    A Gröbner basis $G$ is called \textbf{minimal} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and the leading monomial $\text{lm}(g_i)$ does not divide $\text{lm}(g_j)$ for $i \ne j$.
+    
+    A Gröbner basis $G$ is called \textbf{reduced} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and $g_i$ is reduced with respect to $G - \{ g_i \}$. A reduced Gröbner basis for $I$ always exists and is unique.
+\end{topic}

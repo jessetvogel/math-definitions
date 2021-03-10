@@ -6,6 +6,7 @@ data = {
             "modules.tex",
             "fields.tex",
             "tensor-algebra.tex" ],
+    "CP": [ "computer-algebra.tex" ],
     "CT": [ "category-theory.tex" ],
     "DG": [ "differential-geometry.tex" ],
     "DT": [ "deformation-theory.tex" ],

@@ -141,6 +141,7 @@ const topics = {
   "CA:tensor-algebra": "tensor algebra",
   "CA:symmetric-algebra": "symmetric algebra",
   "CA:exterior-algebra": "exterior algebra",
+  "CP:groebner-basis": "Gröbner basis",
   "CT:category": "category",
   "CT:functor": "functor",
   "CT:monomorphism": "monomorphism",
@@ -290,6 +291,8 @@ const topics = {
   "UN:simplex-category": "simplex category",
   "UN:simplicial-set": "simplicial set",
   "UN:kan-complex": "Kan complex",
-  "UN:groebner-basis": "Gröbner basis",
   "UN:koszul-complex": "Koszul complex",
+  "UN:model-category": "model category",
+  "UN:quillen-adjunction": "Quillen adjunction",
+  "UN:quillen-equivalence": "Quillen equivalence",
 }

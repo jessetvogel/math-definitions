@@ -22,4 +22,5 @@ const examples = [
   "GT:solvable-group",
   "LA:algebraic-geometric-multiplicity",
   "UN:simplicial-set",
+  "UN:model-category",
 ];

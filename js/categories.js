@@ -2,6 +2,7 @@ const categories = {
     "AG": "Algebraic Geometry",
     "AT": "Algebraic Topology",
     "CA": "Commutative Algebra",
+    "CP": "Computer Algebra",
     "CT": "Category Theory",
     "DG": "Differential Geometry",
     "DT": "Deformation Theory",
