@@ -1,16 +1,11 @@
-- Sort search results alphabeticallly (currently 'sheaf' is not the first result when typing 'sheaf')
-
 # Commutative algebra
 CA: direct sum, quotient ring
 CA: GCD domain, Bezout's identity, 
-CA: étale algebra
 CA: Chapter 10 (completions) of Atiyah & MacDonald (associated graded ring)
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 CA: Hilbert polynomials/series (See Chapter 11 of Commutative Algebra, M. Atiyah)
-CA: faithfully flat modules
 
 # Algebraic Geometry
-AG: etale, smooth, unramified, etc.
 AG: example invertible sheaves: correspondence to divisors
 AG: big P-site = { jointly surjective P-morphisms }
 AG: small P-site = full subcategory of Sch/X such that U -> X also has P, written X_P (e.g. X_{etale})
@@ -22,21 +17,16 @@ AG: examples fppf/fpqc
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
 
-# Representation theory
-RT: Representation Theory!
-
-Group theory: parabolic subgroup
+GT: parabolic subgroup
 
 # Category theory
 CT: pullback, pushout
 CT: retract (not a retraction)
-CT: localization 6.1. Definition. Let C be a category, and W ⊆ C a class of morphisms. A functor F : C → D is said to be a localization of C with respect to W if
-(i) F(f) is an isomorphism for each f ∈ W, and
-(ii) whenever G : C → D′ is a functor carrying elements of W into isomorphisms, there exists a unique functor G′ : D → D′ such that G′F = G.
 
 CA/NT: Galois correspondence
 
-AT: homotopy groups
 
 
+# Representation theory
+RT: Representation Theory!
 

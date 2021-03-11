@@ -101,7 +101,7 @@
 \end{topic}
 
 \begin{topic}{finite-type}{finite type}
-    A ring morphism $R \to S$ is said to be of \textbf{finite presentation} if $S$ is isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some integer $n$.
+    A ring morphism $R \to S$ is said to be of \textbf{finite type} if $S$ is isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some integer $n$.
     
     In this case, $S$ is also said to be a \textbf{finitely generated $R$-algebra}.
 \end{topic}
@@ -192,7 +192,7 @@
 \end{example}
 
 \begin{topic}{regular-ring}{regular (local) ring}
-    A \textbf{regular local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} ring such that the minimal number of generators of its maximal ideal is equal to its \tref{krull-dimension}{Krull dimension}.
+    A \textbf{regular local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} ring such that the minimal number of generators of its maximal ideal is equal to its \tref{krull-dimension}{Krull dimension}. Equivalently, a local ring $R$ with maximal ideal $\mathfrak{m}$ and residue field $k = R / \mathfrak{m}$ is regular iff $\dim_k(\mathfrak{m} / \mathfrak{m}^2) = \dim R$.
     
     A \textbf{regular ring} is a commutative noetherian ring, such that the \tref{localization}{localization} at every \tref{prime-ideal}{prime ideal} is a regular local ring.
 \end{topic}
@@ -382,4 +382,25 @@
 
 \begin{topic}{absolutely-flat-ring}{absolutely flat ring}
     A commutative \tref{ring}{ring} $R$ is called \textbf{absolutely flat} if every $R$-module is \tref{flat-module}{flat}.
+\end{topic}
+
+\begin{topic}{standard-smooth}{standard smooth}
+    Let $A$ be commutative \tref{ring}{ring}, and $B = A[x_1, \ldots, x_n] / (f_1, \ldots, f_c)$ a finitely presented $A$-algebra. Then $B$ is a \textbf{standard smooth} over $A$ if the determinant
+    \[ \det \begin{pmatrix}
+        \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_c} \\
+        \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_c} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        \frac{\partial f_c}{\partial x_1} & \frac{\partial f_c}{\partial x_2} & \cdots & \frac{\partial f_c}{\partial x_c}
+    \end{pmatrix} \]
+    maps to an invertible element in $B$. Note that this definition is dependent on the presentation of $B$!
+\end{topic}
+
+\begin{example}{standard-smooth}
+    Take $A = k$ a field and $B = k[x, y] / (xy)$. Then $\partial (xy) / \partial x = y$ which is not invertible in $B$, so $k[x, y] / (xy)$ is not standard smooth over $k$.
+    
+    Taking $C = k[x, y] / (xy - 1)$, we see that $\partial (xy - 1) / \partial x = y$, which is invertible in $C$. Hence $k[x, y] / (xy - 1)$ is standard smooth over $k$.
+\end{example}
+
+\begin{topic}{etale-algebra}{étale algebra}
+    Let $A$ be a commutative \tref{ring}{ring} and $B$ an $A$-algebra. Then $B$ is an \textbf{étale algebra} over $A$ if $B$ is a \tref{flat-module}{flat} $A$-module and $\Omega_{B/A} = 0$.
 \end{topic}

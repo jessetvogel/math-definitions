@@ -46,13 +46,19 @@
     A \tref{scheme}{scheme} $X$ is \textbf{locally noetherian} if it can be covered by open affine subsets $\Spec A_i$, where each $A_i$ is a \tref{CA:noetherian-ring}{noetherian ring}. It is \textbf{noetherian} if it is locally noetherian and \tref{TO:quasi-compact}{quasi-compact}.
 \end{topic}
 
-\begin{topic}{finite-type}{finite type}
+\begin{topic}{finite-type}{(locally) of finite type}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite type at $x \in X$} if there exist affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{CA:finite-type}{finitely generated} $B$-algebra (via the induced map $B \to A$).
     
     The morphism $f$ is \textbf{locally of finite type} if it is of finite type at each $x \in X$, and it is \textbf{of finite type} if it is locally of finite type and \tref{TO:quasi-compact}{quasi-compact}.
 \end{topic}
 
-\begin{topic}{finite}{finite}
+\begin{topic}{finite-presentation}{(locally) of finite presentation}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite presentation at $x \in X$} if there exists affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{CA:finite-presentation}{finitely presented} $B$-algebra (via the induced map $B \to A$).
+    
+    The morphism $f$ is \textbf{locally of finite presentation} if it is of finite presentation at each $x \in X$, and it is \textbf{of finite presentation} if it is locally of finite presentation, \tref{TO:quasi-compact}{quasi-compact}, and \tref{separated-morphism}{quasi-separated}.
+\end{topic}
+
+\begin{topic}{finite-morphism}{finite-morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{finite} if there exists a covering of $Y$ by open affine subsets $V_i = \Spec B_i$, such that for each $i$, $f^{-1}(V_i)$ is affine, equal to $\Spec A_i$, where $A_i$ is a $B_i$-algebra which is a finitely generated $B_i$-module.
 \end{topic}
 
@@ -79,22 +85,22 @@
     Every scheme can be `normalized'.
 \end{topic}
 
-\begin{topic}{separated}{(quasi) separated}
+\begin{topic}{separated-morphism}{(quasi) separated morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is quasi-compact, and it is \textbf{separated} if the diagonal $\Delta_{X/Y}$ is a closed immersion.
     
     A scheme $X$ is \textbf{(quasi-)separated} if the morphism $X \to \Spec \ZZ$ is (quasi-)separated.
 \end{topic}
 
-\begin{example}{separated}
+\begin{example}{separated-morphism}
     Any morphism of affine schemes is separated. Namely, for any $f : \Spec A \to \Spec B$, the diagonal $\Delta$ corresponds to the ring map $A \otimes_B A \to A : a \otimes a' \mapsto aa'$, which is clearly surjective. In this way $A$ is seen as a quotient of $A \otimes_B A$, so $\Delta$ is a closed immersion.
 \end{example}
 
-\begin{example}{separated}
+\begin{example}{separated-morphism}
     Let $X$ be the affine line with two origins, that is, glue two copies of $\AA_k^1$ along $\AA_k^1 - \{ 0 \}$. We claim that $X$ is not separated over $k$. Namely, consider the map $\AA^1_k \to X \times_k X$ obtained from the two different maps $\AA_k^1 \to X$. Then the inverse image of the diagonal is $\AA_k^1 - \{ 0 \}$, which is not closed. Hence, the diagonal is not closed and $\Delta$ is not a closed immersion.
 \end{example}
 
 \begin{topic}{proper-morphism}{proper morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated-morphism}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
 \end{topic}
 
 \begin{example}{proper-morphism}
@@ -120,7 +126,7 @@
 \end{topic}
 
 \begin{topic}{variety}{variety}
-    An (abstract) \textbf{variety} is an \tref{integral-scheme}{integral} \tref{separated}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over an algebraically closed field $k$.
+    An (abstract) \textbf{variety} is an \tref{integral-scheme}{integral} \tref{separated-morphism}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over an algebraically closed field $k$.
 \end{topic}
 
 \begin{topic}{complete-variety}{complete variety}
@@ -179,20 +185,37 @@
 %     If $X$ is scheme of finite type over a noetherian ring $A$, then any $\mathcal{L}$ is ample if and only if $\mathcal{L}^m$ is very ample over $\Spec A$ for some $m > 0$.
 % \end{topic}
 
-% \begin{topic}{smooth}{smooth}
-%     A morphism $f : X \to S$ of \tref{scheme}{schemes} is \textbf{smooth} if one of the following equivalent definitions hold:
-%     \begin{itemize}
-%         \item it is locally of finite presentation, flat, and for every geometric point $s \to S$, the fiber $X \times_S s$ is regular,
-%         \item it is flat and the sheaf of relative differentials $\Omega_{X/S}$ is locally free of rank equal to the relative dimension of $X/S$,
-%         \item for any $x \in X$, there exist neighborhoods $\Spec B \subset X$ and $\Spec A \subset S$ of $x$ and $f(x)$ such that $B$ is \tref{standard-smooth} over $A$.
-%     \end{itemize}
-% \end{topic}
+\begin{topic}{geometrically-regular}{geometrically regular}
+    Let $X$ be a \tref{noetherian-scheme}{locally noetherian} \tref{scheme}{scheme} over a field $k$. Then $X$ is \textbf{geometrically regular at $x \in X$} over $k$ if for every finitely generated field extension $k \subset k'$ and any $x' \in X_{k'}$ lying over $x$, the local ring $\mathcal{O}_{X_{k'}, x'}$ is \tref{CA:regular-ring}{regular}.
+    
+    The scheme $X$ is \textbf{geometrically regular} over $k$ if $X$ it is so at all points $x \in X$.
+\end{topic}
 
-% \begin{topic}{unramified}{unramified}
-% \end{topic}
+\begin{topic}{smooth-morphism}{smooth morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{smooth} if
+    \begin{itemize}
+        \item it is \tref{finite-presentation}{locally of finite presentation},
+        \item it is \tref{flat-morphism}{flat},
+        \item all the fibers $X_y$ are \tref{geometrically-regular}{geometrically-regular} over the residue field $k(y)$.
+    \end{itemize}
+\end{topic}
 
-% \begin{topic}{etale}{étale}
-% \end{topic}
+\begin{example}{smooth-morphism}
+    The natural map $\Spec k[x, y, t] / (xy - t) \to \Spec k[t]$ is not smooth since the fiber $X_0 = \{ xy = 0 \}$ over $t = 0$ is not geometrically regular.
+\end{example}
+
+\begin{topic}{unramified-morphism}{unramified morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{unramified} if
+    \begin{itemize}
+        \item it is \tref{finite-presentation}{locally of finite presentation},
+        \item the residue field $k(x)$ is a \tref{CA:separable-field-extension}{separable algebraic extension} of $k(f(x))$, for all $x \in X$,
+        \item $f^\#(\mathfrak{m}_{f(x)}) \mathcal{O}_{X, x} = \mathfrak{m}_x$ for all $x \in X$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{etale-morphism}{étale morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{étale} if it is \tref{flat-morphism}{flat}, \tref{unramified-morphism}{unramified} and \tref{finite-presentation}{locally of finite presentation}.
+\end{topic}
 
 \begin{topic}{formally-smooth}{formally smooth}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally smooth} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
@@ -308,7 +331,7 @@
 \end{topic}
 
 \begin{topic}{fppf-covering}{fppf covering}
-    An \textbf{fppf covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, locally of finite presentation, and jointly surjective, i.e. $X = \bigcup_{i \in I} f_i(X_i)$.
+    An \textbf{fppf covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, \tref{finite-presentation}{locally of finite presentation}, and jointly surjective, i.e. $X = \bigcup_{i \in I} f_i(X_i)$.
     
     'fppf' stands for \textit{fidèlement plat de présentation finie}.
 \end{topic}
@@ -318,3 +341,15 @@
     
     'fpqc' stands for \textit{fidèlement plat et quasi-compact}.
 \end{topic}
+
+\begin{example}{fpqc-covering}
+    A morphism $\Spec A \to \Spec B$ is an fpqc-covering if and only if $A \to B$ is faithfully flat.
+\end{example}
+
+\begin{topic}{faithfully-flat-morphism}{faithfully flat morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{faithfully flat} if it is both \tref{flat-morphism}{flat} and surjective.
+\end{topic}
+
+% \begin{topic}{big-small-sites}{big/small sites}
+%     Let $X$ be a \tref{scheme}{scheme}, and let $\tau$ be any of the properties in $\{$ Zariski, étale, smooth, fppf, fpqc $\}$. 
+% \end{topic}

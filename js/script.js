@@ -195,3 +195,12 @@ function capitalize(str) {
 
     return str.substr(0, i) + str[i].toUpperCase() + str.substr(i + 1);
 }
+
+// Override search function
+window.addEventListener('keydown',function (event) {
+    const ctrlKey = navigator.platform.indexOf('Mac') > -1 ? event.metaKey : event.ctrlKey;
+    if (ctrlKey && event.key == 'f') {
+        document.getElementById('input-search').focus();
+        event.preventDefault();
+    }
+});
