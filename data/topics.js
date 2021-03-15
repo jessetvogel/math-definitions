@@ -122,6 +122,7 @@ const topics = {
   "CA:absolutely-flat-ring": "absolutely flat ring",
   "CA:standard-smooth": "standard smooth",
   "CA:etale-algebra": "étale algebra",
+  "CA:fitting-ideal": "Fitting ideal",
   "CA:module": "module",
   "CA:free-module": "free module",
   "CA:cyclic-module": "cyclic module",

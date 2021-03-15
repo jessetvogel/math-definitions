@@ -161,8 +161,8 @@ function autoCompleteSetFocus(i) {
 }
 
 function searchMatchIndex(topic, input) {
-    topic = topic.toUpperCase();
-    input = input.toUpperCase();
+    topic = normalizeString(topic).toUpperCase();
+    input = normalizeString(input).toUpperCase();
     return topic.indexOf(input);
 }
 
@@ -170,7 +170,7 @@ function suggestionHTML(id, input) {
     let topic = capitalize(topics[id]);
     const category = categories[id.substr(0, id.indexOf(':'))];
 
-    const i = topic.toUpperCase().indexOf(input.toUpperCase());
+    const i = searchMatchIndex(topic, input);
     const topicHTML = topic.substr(0, i) + '<b>' + topic.substr(i, input.length) + '</b>' + topic.substr(i + input.length);
 
     const html = '<span class="topic">' + topicHTML + '</span><span class="category">' + category + '</span><span class="identifier">' + id + '</span>';
@@ -188,8 +188,12 @@ function setSearchCategory(str) {
     }
 }
 
+function normalizeString(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+} 
+
 function capitalize(str) {
-    const i = str.search(/[a-z]/i); // Index of first letter in string
+    const i = normalizeString(str).search(/[a-z]/i); // Index of first letter in string
     if(i < 0)
         return str;
 

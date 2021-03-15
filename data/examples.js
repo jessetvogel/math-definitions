@@ -16,6 +16,7 @@ const examples = [
   "CA:regular-sequence",
   "CA:hilbert-series",
   "CA:standard-smooth",
+  "CA:fitting-ideal",
   "CA:flat-module",
   "CA:frobenius-morphism",
   "CA:splitting-field",
