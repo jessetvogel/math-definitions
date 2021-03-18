@@ -1,17 +1,15 @@
+- Convert ` to backtick/reverse quote thingy
+
 # Commutative algebra
 CA: direct sum, quotient ring
-CA: GCD domain, Bezout's identity, 
 CA: Chapter 10 (completions) of Atiyah & MacDonald (associated graded ring)
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 CA: Hilbert polynomials/series (See Chapter 11 of Commutative Algebra, M. Atiyah)
 
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
-AG: big P-site = { jointly surjective P-morphisms }
-AG: small P-site = full subcategory of Sch/X such that U -> X also has P, written X_P (e.g. X_{etale})
-
-AG: examples fppf/fpqc
-    Example: sqcup every point ---> affine line (is flat and surjective, but does not satisfy the qcompactness)
+AG: blowup / blowdown
+AG: examples fppf
 
 # Number theory
 NT: quadratic reciprocity
@@ -23,10 +21,15 @@ GT: parabolic subgroup
 CT: pullback, pushout
 CT: retract (not a retraction)
 
+
 CA/NT: Galois correspondence
 
 
 
 # Representation theory
 RT: Representation Theory!
+
+
+UN: classifying space
+
 

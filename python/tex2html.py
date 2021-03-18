@@ -410,6 +410,12 @@ class Parser:
             s = s.replace('`', '&lsquo;')
         if '\'' in s:
             s = s.replace('\'', '&rsquo;')
+        if '``' in s:
+            s = s.replace('``', '&ldquo;')
+        if '"' in s:
+            s = s.replace('"', '&rdquo;')
+        if '\'\'' in s:
+            s = s.replace('\'\'', '&rdquo;')
         return s
     
     def math_to_svg(self, tex):

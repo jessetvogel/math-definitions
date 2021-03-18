@@ -165,3 +165,21 @@
         \[ \begin{tikzcd} \mathcal{C} \arrow{r}{Q} \arrow[swap]{rd}{F} & \mathcal{C}\left[\frac{1}{W}\right] \arrow[dashed]{d}{G} \\ & \mathcal{D} \end{tikzcd} \]
     \end{itemize}
 \end{topic}
+
+\begin{topic}{limit}{(co)limit}
+    Given a \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$, a \textit{cone} for $F$ is an object $D$ of $\mathcal{D}$ together with a family of morphisms $\mu_C : D \to F(C)$ for all objects $C$ in $\mathcal{C}$, such that for all $f : C \to C'$ in $\mathcal{C}$,
+    \[ \begin{tikzcd} & D \arrow[swap]{ld}{\mu_C} \arrow{rd}{\mu_{C'}} & \\ F(C) \arrow{rr}{F(f)} && F(C') \end{tikzcd} \]
+    commutes in $\mathcal{D}$. A map of cones $(D, \mu) \to (D', \mu')$ is a map $g : D \to D'$ such that $\mu'_C g = \mu_C$ for all $C$ in $\mathcal{C}$. A \textit{limiting cone} or a \textbf{limit} for $F$ is a \tref{terminal-object}{terminal} object in the category of cones for $F$.
+    
+    Dually, one can define a \textit{cocone} for $F$ and \textit{colimiting cocones} to define a \textbf{colimit} for $F$.
+\end{topic}
+
+\begin{example}{limit}
+    Let $\textbf{0}$ be the empty category. A limit for $! : \textbf{0} \to \mathcal{C}$ is a terminal object of $\mathcal{C}$, and a colimit is an initial object of $\mathcal{C}$.
+\end{example}
+
+\begin{example}{limit}
+    Let $\textbf{2}$ be the discrete category with two objects. A functor $\textbf{2} \to \mathcal{C}$ is a pair $(A, B)$ of objects of $\mathcal{C}$, and a cone for this functor is an object $C$ with maps $C \to A$ and $C \to B$. Such a cone is a limiting cone iff for any $D$ with morphisms $D \to A$ and $D \to B$ there is a unique morphism $D \to C$ such that
+    \[ \begin{tikzcd} & D \arrow[dashed]{d} \arrow{ld} \arrow{rd} & \\ A & \arrow{l} C \arrow{r} & B \end{tikzcd} \]
+    commutes. In this case, $C$ is also known as the \textit{product} of $A$ and $B$, and denoted $A \times B$.
+\end{example}

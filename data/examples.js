@@ -23,8 +23,9 @@ const examples = [
   "CA:perfect-field",
   "CA:normal-field-extension",
   "CA:algebraically-closed-field",
+  "CT:limit",
   "GT:solvable-group",
   "LA:algebraic-geometric-multiplicity",
-  "UN:simplicial-set",
+  "UN:simplicial-object",
   "UN:model-category",
 ];

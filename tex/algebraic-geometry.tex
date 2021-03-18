@@ -217,7 +217,7 @@
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{étale} if it is \tref{flat-morphism}{flat}, \tref{unramified-morphism}{unramified} and \tref{finite-presentation}{locally of finite presentation}.
 \end{topic}
 
-\begin{topic}{formally-smooth}{formally smooth}
+\begin{topic}{formally-smooth}{formally smooth morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally smooth} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there exists a morphism $\Spec A \to X$ making the diagram commute.
@@ -227,7 +227,7 @@
     The variety $\Spec(k[x, y]/(xy))$ is not formally smooth over $\Spec(k)$. Namely, take $A = k[x, y] / (xy)^2$ and $I = (xy)$. Then there exists no morphism $k[x, y]/(xy) \to k[x, y]/(xy)^2$ completing the diagram.
 \end{example}
 
-\begin{topic}{formally-unramified}{formally unramified}
+\begin{topic}{formally-unramified}{formally unramified morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally unramified} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there is at most one morphism $\Spec A \to X$ making the diagram commute.
@@ -237,7 +237,7 @@
     The affine line $\AA^1_k = \Spec(k[x])$ is not formally unramified over $k$. Namely, take $A = k[\varepsilon] / (\varepsilon^2)$ and $I = (\varepsilon)$. Then for any $k[x] \to k[\varepsilon]/(\varepsilon) = k : x \mapsto x_0$ there exists a whole family of morphisms $k[x] \to k[t]/(t^2)$ completing the diagram: one can send $x \mapsto x_0 + \alpha t + (t^2)$ for any $\alpha \in k$.
 \end{example}
 
-\begin{topic}{formally-etale}{formally étale}
+\begin{topic}{formally-etale}{formally étale morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally étale} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there exists a unique morphism $\Spec A \to X$ making the diagram commute.
@@ -333,23 +333,37 @@
 \begin{topic}{fppf-covering}{fppf covering}
     An \textbf{fppf covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, \tref{finite-presentation}{locally of finite presentation}, and jointly surjective, i.e. $X = \bigcup_{i \in I} f_i(X_i)$.
     
-    'fppf' stands for \textit{fidèlement plat de présentation finie}.
+    `fppf' stands for \textit{fidèlement plat de présentation finie}.
 \end{topic}
 
 \begin{topic}{fpqc-covering}{fpqc covering}
     An \textbf{fpqc covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, and such that for every affine open $U \subset X$ there exists a finite subset $J \subset I$ and affine opens $V_j \subset X_j$ for each $j \in J$ such that $U = \bigcup_{j \in J} f_j(V_j)$. That is, every affine open in $X$ can be covered by finitely many affine opens from the $X_i$.
     
-    'fpqc' stands for \textit{fidèlement plat et quasi-compact}.
+    `fpqc' stands for \textit{fidèlement plat et quasi-compact}.
 \end{topic}
 
 \begin{example}{fpqc-covering}
-    A morphism $\Spec A \to \Spec B$ is an fpqc-covering if and only if $A \to B$ is faithfully flat.
+    Any \tref{fppf-covering}{fppf covering} is an fpqc covering.
+\end{example}
+
+\begin{example}{fpqc-covering}
+    A morphism $\Spec A \to \Spec B$ is an fpqc covering if and only if $A \to B$ is faithfully flat.
+\end{example}
+
+\begin{example}{fpqc-covering}
+    Let $X = \AA^1_k$ be the affine line over an infinite field $k$, and consider the natural morphism
+    \[ f : \bigsqcup_{x \in X} \Spec(\mathcal{O}_{X, x}) \to X . \]
+    Altough it is flat and surjective, it does not define an fpqc covering of $X$, since any affine open of $\bigsqcup_{x \in X} \Spec(\mathcal{O}_{X, x})$ can only consist of finitely many points (because affines are quasi-compact).
 \end{example}
 
 \begin{topic}{faithfully-flat-morphism}{faithfully flat morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{faithfully flat} if it is both \tref{flat-morphism}{flat} and surjective.
 \end{topic}
 
-% \begin{topic}{big-small-sites}{big/small sites}
-%     Let $X$ be a \tref{scheme}{scheme}, and let $\tau$ be any of the properties in $\{$ Zariski, étale, smooth, fppf, fpqc $\}$. 
-% \end{topic}
+\begin{topic}{big-small-site}{big/small site}
+    Let $X$ be a \tref{scheme}{scheme}, and let $\tau$ be any of the properties in $\{$ Zariski, étale, smooth, fppf, fpqc $\}$.
+    
+    The \textbf{big $\tau$-site} of $X$ is the site $(\textbf{Sch}/X)_\tau$ of schemes over $X$ with the $\tau$-topology.
+    
+    The \textbf{small $\tau$-site} of $X$ is the full subcategory $X_\tau$ of $(\textbf{Sch}/X)_\tau$ whose objects are schemes $T$ over $X$ whose structure morphism $T \to X$ is part of a $\tau$-covering.
+\end{topic}

@@ -4,29 +4,29 @@
     and whose morphisms are order-preserving functions between these sets.
 \end{topic}
 
-\begin{topic}{simplicial-set}{simplicial set}
-    A \textbf{simplicial set} is a \tref{CT:functor}{functor}
-    \[ X : \Delta^\text{op} \to \textbf{Set} , \]
-    where $\Delta$ denotes the \tref{simplex-category}{simplex category}. Concretely, a simplicial set consists of a family of sets $X_n$ and a map $X_m \to X_n$ for each function $f : [n] \to [m]$, which compose nicely.
+\begin{topic}{simplicial-object}{simplicial object}
+    A \textbf{simplicial object} in a \tref{CT:category}{category} $\mathcal{C}$ is a \tref{CT:functor}{functor}
+    \[ X : \Delta^\text{op} \to \mathcal{C} , \]
+    where $\Delta$ denotes the \tref{simplex-category}{simplex category}. Concretely, a simplicial object consists of a family of objects $X_n$ in $\mathcal{C}$ and a morphism $X_m \to X_n$ for each function $f : [n] \to [m]$, which compose nicely.
     
     The \textit{face maps} are the maps $d_{n, i} : X_n \to X_{n - 1}$ corresponding to the function $\delta^{n, i} : [n - 1] \to [n]$ that misses $i$.
     
     The \textit{degeneracy maps} are the maps $s_{n, i} : X_n \to X_{n + 1}$ corresponding to the function $\sigma^{n, i} : [n + 1] \to [n]$ that repeat $i$.
 \end{topic}
 
-\begin{example}{simplicial-set}
-    \[ \Delta^n = \Hom_\Delta(-, [n]) \]
-    \[ \Lambda^n_i =  \]
-\end{example}
+% \begin{example}{simplicial-object}
+%     \[ \Delta^n = \Hom_\Delta(-, [n]) \]
+%     \[ \Lambda^n_i =  \]
+% \end{example}
 
-\begin{example}{simplicial-set}
-    Let $X$ be a topological space. The \textbf{singular set} of a topological space is the simplicial set $\mathcal{S}(X)$ given by
+\begin{example}{simplicial-object}
+    Let $X$ be a topological space. The \textbf{singular simplicial set} of a topological space is the simplicial set $\mathcal{S}(X)_\bdot$ given by
     \[ \mathcal{S}(X)_n = \{ \text{cont. maps } \Delta^n \to X \} . \]
     Every $[n] \to [m]$ induces a map $\Delta^n \to \Delta^m$ by labelling the vertices, which in turn induces a map $\mathcal{S}(X)_m \to \mathcal{S}(X)_m$. Also see \tref{AT:singular-homology}{singular homology}.
 \end{example}
 
 \begin{topic}{kan-complex}{Kan complex}
-    A \textbf{Kan complex} is a \tref{simplicial-set}{simplicial set} $X$ satisfying the \textit{Kan condition}: any map of simplicial sets $\Lambda^n_i \to X$ extends to a map of simplicial sets $\Delta^n \to X$. That is,
+    A \textbf{Kan complex} is a \tref{simplicial-object}{simplicial set} $X$ satisfying the \textit{Kan condition}: any map of simplicial sets $\Lambda^n_i \to X$ extends to a map of simplicial sets $\Delta^n \to X$. That is,
     \[ \begin{tikzcd} \Lambda^n_i \arrow{r}{f} \arrow{d} & X \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]
 \end{topic}
 
@@ -65,7 +65,7 @@
 \end{example}
 
 \begin{example}{model-category}
-    The Kan--Quillen model structure on $\textbf{sSet}$, the category of \tref{UN:simplicial-set}{simplicial sets}. Take
+    The Kan--Quillen model structure on $\textbf{sSet}$, the category of \tref{UN:simplicial-object}{simplicial sets}. Take
     \begin{itemize}
         \item \textit{weak equivalences} = weak homotopy equivalences,
         \item \textit{fibrations} = Kan fibrations,
@@ -101,3 +101,25 @@
 % \begin{topic}{dold-kan-correspondence}{Dold-Kan correspondence}
   
 % \end{topic}
+
+
+\begin{topic}{nerve}{nerve}
+    The \textbf{nerve} of a \tref{CT:category}{category} $\mathcal{C}$ is the \tref{simplicial-object}{simplicial set} $\text{N}_\bdot(\mathcal{C})$, where $\text{N}_n(\mathcal{C})$ is the set of \tref{CT:functor}{functors} from $[n] = \{ 0, 1, \ldots, n \}$ (viewed as category: a unique morphism from $i$ to $j$ iff $i \le j$) to $\mathcal{C}$.
+    Indeed, for any non-decreasing map $\alpha : [m] \to [n]$, precomposition with $\alpha$ gives a map $\text{N}_n(\mathcal{C}) \to \text{N}_m(\mathcal{C})$.
+    
+    It can be shown that the \textit{nerve functor}
+    \[ \text{N}_\bdot : \textbf{Cat} \to \textbf{sSet} \]
+    is \tref{CT:full-functor}{fully} \tref{CT:faithful-functor}{faithful}.
+\end{topic}
+
+\begin{topic}{homotopy-category}{homotopy category}
+    The \textbf{homotopy category} of a \tref{simplicial-object}{simplicial set} $S_\bdot$ is the category $\text{h}S_\bdot$ defined as follows:
+    \begin{itemize}
+        \item The objects are the \textit{vertices} $x \in S_0$.
+        \item Every \textit{edge} $e \in S_1$ determines a morphism $[e] : d_1(e) \to d_0(e)$. The collection of morphisms in $\text{h}S_\bdot$ is generated under composition by morphisms of the form $[e]$, subject to the relations
+        \[ [s_0(x)] = \id_x \text{ for } x \in S_0, \qquad [d_1(\sigma)] = [d_0(\sigma)] \circ [d_2(\sigma)] \text{ for } \sigma \in S_2 . \]
+    \end{itemize}
+    
+    The functor $S_\bdot \mapsto \text{h}S_\bdot$ is \tref{CT:adjoint-functors}{left adjoint} to the \tref{nerve}{nerve functor}.
+\end{topic}
+

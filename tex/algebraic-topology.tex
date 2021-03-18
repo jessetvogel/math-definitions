@@ -124,6 +124,17 @@
     \end{itemize}
 \end{topic}
 
+\begin{topic}{cap-product}{cap product}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. Given a commutative \tref{CA:ring}{ring} $R$, the \textbf{cap product} is the following bilinear map on \tref{singular-homology}{singular (co)homology}
+    \[ (-) \frown (-) : C^q(X; R) \times C_{p + q}(X; R) \to C_p(X; R) \]
+    induced by sending $f : \mathcal{S}(X)_q \to R$ and $\sigma \in \mathcal{S}(X)_{p + q}$ to
+    \[ f \frown \sigma = (-1)^{pq} f(\sigma \circ i_q^\text{back}) \cdot (\sigma \circ i_p^\text{front})  \]
+    where $i_p^\text{front} : \Delta^{p} \to \Delta^{p + q}$ sends vertex $i$ to vertex $i$, and $i_q^\text{back}$ sends vertex $i$ to vertex $n - q + i$.
+    
+    The cup product descents to a product on the cohomology groups
+    \[ (-) \frown (-) : H^q(X; R) \times H_{p + q}(X; R) \to H_q(X; R), \qquad ([f], [g]) \mapsto [f \frown g] . \]
+\end{topic}
+
 \begin{topic}{weak-homotopy-equivalence}{weak-homotopy-equivalence}
     A \textbf{weak homotopy equivalence} is a continuous map $f : X \to Y$ if it induces bijections
     \[ f_* : \pi_n(X, x) \to \pi_n(Y, f(x)) \]
@@ -140,4 +151,13 @@
     of basepoint preserving homotopy classes of based continuous maps $S^n \to X$.
     
     For $n \ge 1$ it has a group structure.
+\end{topic}
+
+\begin{topic}{cohomology-compact-support}{cohomology with compact support}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. The \textbf{cohomology of $X$ with compact support} $H_c^n(X; R)$ is given by the cohomology of the following subcomplex of the singular cohomology complex
+    \[ C_c^n(X; R) = \big\{ f : \mathcal{S}(X)_n \to R : \text{ there is a compact $K \subset X$ with $f(\sigma) = 0$ for all $\sigma \in \mathcal{S}(X \backslash K)_n$} \big\} . \]
+    
+    Alternatively,
+    \[ H_c^n(X; R) = \varinjlim H^n(X, X \backslash K; R) \]
+    where the direct limit is taken over all compact $K \subset X$ w.r.t. inclusions.
 \end{topic}
