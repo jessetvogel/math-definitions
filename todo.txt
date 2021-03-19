@@ -33,3 +33,6 @@ RT: Representation Theory!
 UN: classifying space
 
 
+
+
+HA: thick full triangulated subcategories

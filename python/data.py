@@ -1,6 +1,7 @@
 data = {
     "AG": [ "algebraic-geometry.tex",
-            "sheaves.tex" ],
+            "sheaves.tex",
+            "stacks.tex" ],
     "AT": [ "algebraic-topology.tex" ],
     "CA": [ "commutative-algebra.tex",
             "modules.tex",

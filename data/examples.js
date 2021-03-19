@@ -6,6 +6,7 @@ const examples = [
   "AG:formally-unramified",
   "AG:flat-morphism",
   "AG:complete-intersection",
+  "AG:fppf-covering",
   "AG:fpqc-covering",
   "AT:deformation-retract",
   "CA:noetherian-ring",

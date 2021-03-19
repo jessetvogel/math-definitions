@@ -89,17 +89,21 @@
     are all isomorphisms.
 \end{topic}
 
-\begin{topic}{resolution}{resolution}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $M$ an object in $\mathcal{A}$. A \textbf{resolution} of $M$ is a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to A^\bdot$ in $\text{Comp}(\mathcal{A})$. Equivalently, this is given by an exact complex
-    \[ 0 \to M \to A^0 \to A^1 \to \cdots \]
-    in $\mathcal{A}$.
-    
-    When all objects $A^i$ are \tref{injective-object}{injective}, we speak of an \textbf{injective resolution}, and similarly when they are all \tref{projective-object}{projective}, we speak of an \textbf{projective resolution}.
+\begin{topic}{injective-resolution}{injective resolution}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $M$ an object in $\mathcal{A}$. An \textbf{injective resolution} of $M$ is an exact sequence
+    \[ 0 \to M \to I^0 \to I^1 \to \cdots \]
+    where all $I^i$ are \tref{injective-object}{injective objects}. Equivalently, this can be seen as a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to I^\bdot$ in $\text{Comp}(\mathcal{A})$.
+\end{topic}
+
+\begin{topic}{projective-resolution}{projective resolution}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $M$ an object in $\mathcal{A}$. A \textbf{projective resolution} of $M$ is an exact sequence
+    \[ \cdots \to P^1 \to P^0 \to M \to 0 \]
+    where all $P^i$ are \tref{projective-object}{projective objects}. Equivalently, this can be seen as a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to P^\bdot$ in $\text{Comp}(\mathcal{A})$.
 \end{topic}
 
 % Derived functors
 \begin{topic}{right-derived-functors}{right derived functors}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{injective-resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
     \[ R^i F M = H^i(F(I^\bdot)) . \]
     This is well-defined (independent of the chosen resolution) and yields additive functors $R^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \simeq F$.
     
@@ -148,4 +152,10 @@
     
     In some sense, the objects $E_r^{p, q}$ converge towards subquotients of a certain filtration of $E^n$. Usually, the objects of one layer of some fixed $r$ are given. Then one writes
     \[ E_r^{p, q} \Rightarrow E^{p + q} . \]
+\end{topic}
+
+\begin{topic}{serre-subcategory}{Serre subcategory}
+    A non-empty \tref{CT:full-subcategory}{full subcategory} $\mathcal{B}$ of an \tref{abelian-category}{abelian category} $\mathcal{A}$ is a \textbf{Serre subcategory} if for any exact sequence in $\mathcal{A}$,
+    \[ 0 \to A \to B \to C \to 0 , \]
+    $B$ is in $\mathcal{B}$ if and only if $A$ and $C$ are in $\mathcal{B}$.
 \end{topic}

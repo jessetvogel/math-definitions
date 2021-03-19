@@ -58,7 +58,7 @@
     The morphism $f$ is \textbf{locally of finite presentation} if it is of finite presentation at each $x \in X$, and it is \textbf{of finite presentation} if it is locally of finite presentation, \tref{TO:quasi-compact}{quasi-compact}, and \tref{separated-morphism}{quasi-separated}.
 \end{topic}
 
-\begin{topic}{finite-morphism}{finite-morphism}
+\begin{topic}{finite-morphism}{finite morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{finite} if there exists a covering of $Y$ by open affine subsets $V_i = \Spec B_i$, such that for each $i$, $f^{-1}(V_i)$ is affine, equal to $\Spec A_i$, where $A_i$ is a $B_i$-algebra which is a finitely generated $B_i$-module.
 \end{topic}
 
@@ -335,6 +335,18 @@
     
     `fppf' stands for \textit{fidèlement plat de présentation finie}.
 \end{topic}
+
+\begin{example}{fppf-covering}
+    Any Zariski, étale, smooth or syntomic covering is an fppf covering.
+\end{example}
+
+\begin{example}{fppf-covering}
+    Consider the following cover of the affine line $\AA^1_k$,
+    \[ \left\{ \AA^1_k - \{ 0 \} \to \AA^1_k, \qquad \Spec(\mathcal{O}_{\AA^1_k, 0}) \to \AA^1_k \right\} . \]
+    It is not an fppf covering since the second morphism is not locally of finite presentation.
+    
+    (However, it is an \tref{fpqc-covering}{fpqc covering}.)
+\end{example}
 
 \begin{topic}{fpqc-covering}{fpqc covering}
     An \textbf{fpqc covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, and such that for every affine open $U \subset X$ there exists a finite subset $J \subset I$ and affine opens $V_j \subset X_j$ for each $j \in J$ such that $U = \bigcup_{j \in J} f_j(V_j)$. That is, every affine open in $X$ can be covered by finitely many affine opens from the $X_i$.

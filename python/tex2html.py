@@ -416,6 +416,8 @@ class Parser:
             s = s.replace('"', '&rdquo;')
         if '\'\'' in s:
             s = s.replace('\'\'', '&rdquo;')
+        if '--' in s:
+            s = s.replace('--', '&ndash;')
         return s
     
     def math_to_svg(self, tex):
