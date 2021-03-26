@@ -5,34 +5,43 @@ CA: direct sum, quotient ring
 CA: Chapter 10 (completions) of Atiyah & MacDonald (associated graded ring)
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 CA: Hilbert polynomials/series (See Chapter 11 of Commutative Algebra, M. Atiyah)
+CA: example: any projective module is flat ?
+AG/CA: Gorenstein/syntomic/Cohen-Macaulay
+
 
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
 AG: blowup / blowdown
-AG: examples fppf
+
 
 # Number theory
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
+NT: p-adic numbers
+CA/NT: Galois correspondence
+
 
 GT: parabolic subgroup
 
 # Category theory
 CT: pullback, pushout
 CT: retract (not a retraction)
-
-
-CA/NT: Galois correspondence
-
-
+CT: representable functor
+CT: localization example: Prototype 10.3.5 of weibel
 
 # Representation theory
 RT: Representation Theory!
+RT: Schur's lemma
+RT: Jordan--Holder stuff
+RT: representation ring R(G)
 
+Dynkin diagrams / Quivers
+
+# Homological algebra
+HA: Grothendieck group
+HA: thick full triangulated subcategories
+HA: Tor and Ext functors
+HA: admissible, distinguish between left/right/both
+HA: Morita equivalence (example: R is equiv. to M_n(R) for any n > 0)
 
 UN: classifying space
-
-
-
-
-HA: thick full triangulated subcategories

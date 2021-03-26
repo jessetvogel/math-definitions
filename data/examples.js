@@ -8,6 +8,8 @@ const examples = [
   "AG:complete-intersection",
   "AG:fppf-covering",
   "AG:fpqc-covering",
+  "AG:log-scheme",
+  "AG:log-differentials",
   "AT:deformation-retract",
   "CA:noetherian-ring",
   "CA:localization",

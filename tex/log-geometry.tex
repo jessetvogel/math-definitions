@@ -1,0 +1,69 @@
+\begin{topic}{log-scheme}{Log scheme}
+    A \textbf{log scheme} $(X, M)$ consists of a \tref{scheme}{scheme} $X$ together with a sheaf of commutative monoids $\mathcal{M}$ on the topological space of $X$, and a monoid morphism $\alpha : \mathcal{M} \to \mathcal{O}_X$ such that $\alpha : \alpha^{-1} \mathcal{O}_X^* \to \mathcal{O}_X^*$ is an isomorphism.
+    
+    A morphism of log schemes $(X, \mathcal{M}) \to (Y, \mathcal{N})$ is a morphism of schemes $f : X \to Y$ together with a map $h : f^{-1} \mathcal{N} \to \mathcal{M}$ such that
+    \[ \begin{tikzcd} f^{-1} \mathcal{N} \arrow{r}{h} \arrow[swap]{d}{f^{-1} \beta} & \mathcal{M} \arrow{d}{\alpha} \\ f^{-1} \mathcal{O}_Y \arrow{r}{f^\#} & \mathcal{O}_X \end{tikzcd} \]
+    commutes.
+\end{topic}
+
+\begin{example}{log-scheme}
+    For any scheme $X$, taking $\mathcal{M} = \mathcal{O}_X^*$ gives the \textit{trivial log structure} on $X$.
+\end{example}
+
+\begin{example}{log-scheme}
+    For a scheme $X$ and divisor $D \subset X$, the \textit{divisorial log structure} is given by
+    \[ \mathcal{M}(U) = \{ f \in \mathcal{O}_X(U) : f \text{ is invertible outside $D$} \} \]
+    for any open subset $U \subset X$. 
+\end{example}
+
+\begin{example}{log-scheme}
+    Let $X = \Spec k[x, y]$. The map $\NN^2 \to k[x, y] : (a, b) \mapsto x^a y^b$ induces a sheaf of monoids
+    \[ \mathcal{M}' = \NN^2 \oplus \mathcal{O}_X^* \to \mathcal{O}_X , \]
+    which is not quite a log structure. The \textit{associated} log structure is
+    \[ \mathcal{M} = \mathcal{M}' \oplus_{\alpha^{-1} \mathcal{O}_X^*} \mathcal{O}_X^* . \]
+\end{example}
+
+\begin{topic}{fine-log-scheme}{fine log scheme}
+    A \tref{log-scheme}{log scheme} $(X, \mathcal{M})$ is \textbf{fine} if it is \textit{coherent} and \textit{integral}. That is, étale locally on $X$, there exists a finitely generated integral monoid $P$ and a morphism $P_X \to \mathcal{O}_X$ (where $P_X$ denotes the constant sheaf) whose associated log structure is isomorphic to $\mathcal{M}$.
+\end{topic}
+
+\begin{topic}{log-smooth-morphism}{log smooth morphism}
+    Let $f : (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{fine-log-scheme}{fine} \tref{log-scheme}{log-schemes}. Then $f$ is \textbf{formally log smooth} if for any commutative diagram
+    \[ \begin{tikzcd} (T', \mathcal{L}') \arrow{r} \arrow[swap]{d}{i} & (X, \mathcal{M}) \arrow{d}{f} \\ (T, \mathcal{L}) \arrow{r} & (Y, \mathcal{N}) \end{tikzcd} \]
+    with $i$ an exact closed immersion (i.e. $T' \to T$ a \tref{closed-immersion}{closed immersion} and $i^* \mathcal{L} \to \mathcal{L}'$ an isomorphism), and $T' \subset T$ defined by an ideal $I$ with $I^2 = 0$, there exists étale locally on $T$ a morphism $g : (T, \mathcal{L}) \to (X, \mathcal{M})$ making the diagram commute.
+    
+    The morphism $f$ is \textbf{log smooth} if it is formally log smooth and the underlying morphism of schemes is \tref{finite-presentation}{locally of finite presentation}.
+\end{topic}
+
+\begin{topic}{log-etale-morphism}{log étale morphism}
+    Let $f : (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{fine-log-scheme}{fine} \tref{log-scheme}{log-schemes}. Then $f$ is \textbf{formally log étale} if for any commutative diagram
+    \[ \begin{tikzcd} (T', \mathcal{L}') \arrow{r} \arrow[swap]{d}{i} & (X, \mathcal{M}) \arrow{d}{f} \\ (T, \mathcal{L}) \arrow{r} & (Y, \mathcal{N}) \end{tikzcd} \]
+    with $i$ an exact closed immersion (i.e. $T' \to T$ a \tref{closed-immersion}{closed immersion} and $i^* \mathcal{L} \to \mathcal{L}'$ an isomorphism), and $T' \subset T$ defined by an ideal $I$ with $I^2 = 0$, there exists étale locally on $T$ a unique morphism $g : (T, \mathcal{L}) \to (X, \mathcal{M})$ making the diagram commute.
+    
+    The morphism $f$ is \textbf{log étale} if it is formally log étale and the underlying morphism of schemes is \tref{finite-presentation}{locally of finite presentation}.
+\end{topic}
+
+\begin{topic}{log-differentials}{log differentials}
+    Let $f : (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{log-scheme}{log schemes}. The $\mathcal{O}_X$-module $\omega^1_{X/Y}$ of \textbf{log differentials} is the quotient of
+    \[ \Omega_{X/Y}^1 \oplus (\mathcal{O}_X \otimes_\ZZ \mathcal{M}^\text{gp}) \]
+    by the following relations of local sections:
+    \begin{itemize}
+        \item $(d \alpha(a), 0) = (0, \alpha(a) \otimes a)$ for all $a \in M$,
+        \item $(0, 1 \otimes a) = 0$ for all $a \in \im(f^{-1} \mathcal{N} \to \mathcal{M})$.
+    \end{itemize}
+    
+    Think of $\omega^1_{X/Y}$ as an extension of the usual sheaf of differentials $\Omega_{X/Y}^1$, where elements of the form $d \log(a) = \frac{da}{a}$ (represented by $(0, 1 \otimes a)$) are added for all $a \in \mathcal{M}^\text{gp}$, up to the image of $f^{-1} \mathcal{N}$. In fact, we have a morphism
+    \[ d \log : \mathcal{M} \to \omega_{X/Y}^1, \quad f \mapsto d \log(f) . \]
+\end{topic}
+
+\begin{example}{log-differentials}
+    Let $k$ be a field with characteristic $\ne 2$. Consider the map $\AA^1_k \to \AA^1_k$ given by $t = s^2$. The usual sheaf of differentials $\Omega^1_{\AA^1_k}$ is given by the free $k[x]$-module with generator $\dif x$, and the above map induces
+    \[ \Omega^1_{\AA^1_k} \to \Omega^1_{\AA^1_k}, \qquad \dif t \mapsto 2 s \dif s \]
+    The idea is that this map is not very nice in the sense that the cokernel has support at $s = 0$, and that we `fix' this using log differentials.
+    
+    Take the divisor $D = \{ 0 \}$, and consider the log structure $\mathcal{M}$ on $\AA^1_k$ given by
+    \[ \mathcal{M} = \{ f \in \mathcal{O}_X : f \text{ is invertible outside } D \} . \]
+    Note that $x \in \mathcal{M}$, so we obtain $\dif \log(x) = \frac{\dif x}{x} \in \omega^1_{\AA^1_k}$. In fact, one can show that $\omega^1_{\AA^1_k}$ is given by the free $k[x]$-module generated by $\frac{\dif x}{x}$. Now the map from before is given by
+    \[ \omega^1_{\AA^1_k} \to \omega^1_{\AA^1_k} \qquad  \qquad \frac{\dif t}{t} \mapsto 2 \frac{\dif s} s , \]
+    which is now an isomorphism.
+\end{example}

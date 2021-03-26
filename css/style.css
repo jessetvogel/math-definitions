@@ -160,8 +160,27 @@ span.math.inline {
 }
 
 a {
+    display: inline-block;
     color: #3280b5;
     text-decoration: none;
+}
+
+a:focus {
+    position: relative;
+    outline: none;
+}
+
+a:focus::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2px 4px;
+    left: -4px;
+    top: -2px;
+    box-shadow: 0px 0px 0px 2px #3280b5a0;
+    border-radius: 12px;
 }
 
 br {

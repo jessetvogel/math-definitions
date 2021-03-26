@@ -1,5 +1,6 @@
 data = {
     "AG": [ "algebraic-geometry.tex",
+            "log-geometry.tex",
             "sheaves.tex",
             "stacks.tex" ],
     "AT": [ "algebraic-topology.tex" ],
