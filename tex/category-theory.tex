@@ -154,7 +154,7 @@
 \end{topic}
 
 \begin{topic}{site}{site}
-    A small category $\mathcal{C}$ together with a \tref{grothendieck-topology}{Grothendieck topology} on it is called a \textbf{site}.
+    A small \tref{category}{category} $\mathcal{C}$ together with a \tref{grothendieck-topology}{Grothendieck topology} on it is called a \textbf{site}.
 \end{topic}
 
 \begin{topic}{sheaf}{sheaf}
@@ -189,3 +189,17 @@
     \[ \begin{tikzcd} & D \arrow[dashed]{d} \arrow{ld} \arrow{rd} & \\ A & \arrow{l} C \arrow{r} & B \end{tikzcd} \]
     commutes. In this case, $C$ is also known as the \textit{product} of $A$ and $B$, and denoted $A \times B$.
 \end{example}
+
+\begin{topic}{category-of-elements}{category of elements}
+    The \textbf{category of elements} of a \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is the \tref{category}{category} $\int^{\mathcal{C}} F$ whose
+    \begin{itemize}
+        \item objects are pairs $(C, x)$ with $C$ an object of $\mathcal{C}$ and $x \in F(C)$,
+        \item morphisms $(C, x) \to (C', x')$ are morphisms $f : C \to C'$ with $F(f)(x) = x'$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{small-category}{small category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{small} if its objects and morphisms form a set.
+    
+    A category $\mathcal{C}$ is \textbf{locally small} if for all objects $X, Y$, the hom-class $\Hom(X, Y)$ is a set.
+\end{topic}

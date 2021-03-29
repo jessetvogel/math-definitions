@@ -1,4 +1,4 @@
-- Convert ` to backtick/reverse quote thingy
+- Make README.md
 
 # Commutative algebra
 CA: direct sum, quotient ring
