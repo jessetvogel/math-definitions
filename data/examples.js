@@ -27,8 +27,11 @@ const examples = [
   "CA:normal-field-extension",
   "CA:algebraically-closed-field",
   "CT:limit",
+  "GT:normal-subgroup",
   "GT:solvable-group",
   "LA:algebraic-geometric-multiplicity",
+  "TO:loop-space",
   "UN:simplicial-object",
   "UN:model-category",
+  "UN:infinity-category",
 ];

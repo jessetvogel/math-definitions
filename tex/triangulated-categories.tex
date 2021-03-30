@@ -38,7 +38,7 @@
 \end{topic}
 
 \begin{topic}{admissible-subcategory}{admissible subcategory}
-    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A full \tref{triangulated-subcategory}{triangulated subcategory} $\mathcal{D}' \subset \mathcal{D}'$ is \textbf{admissible} if the inclusion has a right adjoint $\pi : \mathcal{D} \to \mathcal{D}'$.
+    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A full \tref{triangulated-subcategory}{triangulated subcategory} $\mathcal{D}' \subset \mathcal{D}$ is \textbf{admissible} if the inclusion has a right adjoint $\pi : \mathcal{D} \to \mathcal{D}'$.
     
     Equivalently, $\mathcal{D}'$ is admissible if for all $A \in \mathcal{D}$ there exists a distinguished triangle
     \[ B \to A \to C \to B[1] \]
@@ -73,4 +73,11 @@
 
 \begin{topic}{thick-subcategory}{thick-subcategory}
     Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A \textbf{thick subcategory} $\mathcal{S}$ is a \tref{CT:full-subcategory}{full} \tref{triangulated-subcategory}{triangulated subcategory} which is closed under taking summands.
+\end{topic}
+
+\begin{topic}{verdier-quotient}{Verdier quotient}
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category} and $\mathcal{S} \subset \mathcal{T}$ a \tref{triangulated-subcategory}{triangulated subcategory}. The \textbf{Verdier quotient} $\mathcal{T}/\mathcal{S}$ is a triangulated category equipped with an \tref{additive-functor}{additive} and \tref{exact-functor-triangulated}{exact} quotient functor
+    \[ Q : \mathcal{T} \to \mathcal{T}/\mathcal{S} , \]
+    which is universal among all functors $\mathcal{T} \to \mathcal{D}$ which send objects of $\mathcal{S}$ to objects isomorphic to zero.
+    \[ \begin{tikzcd} \mathcal{T} \arrow{r}{Q} \arrow{rd} & \mathcal{T} / \mathcal{S} \arrow[dashed]{d} \\ & \mathcal{D} \end{tikzcd} \]
 \end{topic}

@@ -1,0 +1,13 @@
+\begin{topic}{monoidal-category}{Monoidal category}
+    A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $1$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
+    \[ \begin{aligned}
+        \alpha : - \otimes (- \otimes -) &\Rightarrow (- \otimes -) \otimes - \qquad \text{(associator)} \\
+        \lambda : 1 \otimes - &\Rightarrow \id_{\mathcal{C}} \qquad \text{(left unitor)} \\
+        \rho : - \otimes 1 &\Rightarrow \id_{\mathcal{C}} \qquad \text{(right unitor)}
+    \end{aligned} \]
+    such that the triangle
+    \[ \begin{tikzcd}[row sep=0em] (A \otimes 1) \otimes B \arrow{rr}{\alpha_{A,1,B}} \arrow[swap]{rd}{\rho_A \otimes \id_B} & & A \otimes (1 \otimes B) \arrow{ld}{\id_A \otimes \lambda_B} \\ & A \otimes B & \end{tikzcd} \]
+    and the pentagon
+    \[ \begin{tikzcd} & (A \otimes B) \otimes (C \otimes D) \arrow{rd}{\alpha_{A, B, C \otimes D}} & \\ ((A \otimes B) \otimes C) \otimes D \arrow{ur}{\alpha_{A \otimes B, C, D}} \arrow{d}{\alpha_{A,B,C} \otimes \id_D} & & A \otimes (B \otimes (C \otimes D)) \\ (A \otimes (B \otimes C)) \otimes D \arrow{rr}{\alpha_{A, B \otimes C, D}} & & A \otimes ((B \otimes C) \otimes D) \arrow{u}{\id_A \otimes \alpha_{B, C, D}} \end{tikzcd} \]
+    commute for all objects $A, B, C$ and $D$ in $\mathcal{C}$. In case the natural isomorphisms $\alpha, \lambda$ and $\rho$ are all equalities, we say that such a category is \textit{strict}. The above triangle and pentagon then commute automatically.
+\end{topic}

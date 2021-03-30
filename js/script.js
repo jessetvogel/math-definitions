@@ -204,7 +204,9 @@ function capitalize(str) {
 window.addEventListener('keydown',function (event) {
     const ctrlKey = navigator.platform.indexOf('Mac') > -1 ? event.metaKey : event.ctrlKey;
     if (ctrlKey && event.key == 'f') {
-        document.getElementById('input-search').focus();
+        const input = document.getElementById('input-search');
+        input.focus();
+        input.select();
         event.preventDefault();
     }
 });

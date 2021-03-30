@@ -1,0 +1,10 @@
+The <b>Dold&ndash;Kan correspondence</b> is an <a href="#CT:equivalence-of-categories">equivalence</a> between the category of <a href="#UN:simplicial-object">simplicial</a> <a href="#GT:abelian-group">abelian groups</a> and (nonnegatively graded) <a href="#HA:chain-complex">chain complexes</a> of abelian groups,
+<span class="math display">\[ \textbf{Ab}_\Delta \simeq \text{Ch}(\ZZ)_{\ge 0} . \]</span>
+To any simplicial abelian group <span class="math inline">\(A_\bdot\)</span>, one assigns the <i>(normalized) Moore complex</i>
+<span class="math display">\[ N(A_\bdot)_n := \bigcap_{i = 0}^{n - 1} \ker d_{n, i} \quad \text{ with differential } \quad \partial_n = d_{n, n}, \]</span>
+where <span class="math inline">\(d_{n, i} : A_n \to A_{n - 1}\)</span> are the face maps of <span class="math inline">\(A_\bdot\)</span>.<br/>
+Inversely, to any chain complex <span class="math inline">\(C_\bdot\)</span> one assigns the simplicial abelian group
+<span class="math display">\[ \sigma(C_\bdot)_n := \bigoplus_{[n] \twoheadrightarrow [k]} C_k \]</span>
+and the face and degeneracy maps are given by (todo).<br/>
+The statement can be generalized to any <a href="#HA:abelian-category">abelian category</a> <span class="math inline">\(\mathcal{A}\)</span>: there is an equivalence
+<span class="math display">\[ \mathcal{A}_\Delta \simeq \text{Ch}(\mathcal{A})_{\ge 0} . \]</span>

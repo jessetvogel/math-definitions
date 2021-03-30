@@ -1,0 +1,11 @@
+A <b>monoidal category</b> is a <a href="#CT:category">category</a> <span class="math inline">\(\mathcal{C}\)</span> with a functor <span class="math inline">\(\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}\)</span> (the <i>tensor product</i>), an object <span class="math inline">\(1\)</span> in <span class="math inline">\(\mathcal{C}\)</span> (the <i>unital object</i>) and <a href="#CT:natural-transformation">natural</a> isomorphisms
+<span class="math display">\[ \begin{aligned}
+        \alpha : - \otimes (- \otimes -) &\Rightarrow (- \otimes -) \otimes - \qquad \text{(associator)} \\
+        \lambda : 1 \otimes - &\Rightarrow \id_{\mathcal{C}} \qquad \text{(left unitor)} \\
+        \rho : - \otimes 1 &\Rightarrow \id_{\mathcal{C}} \qquad \text{(right unitor)}
+    \end{aligned} \]</span>
+such that the triangle
+<img class="display-math-svg" src="data/svg/8fa56a65649e373e2057817a122d7a6d4c86c6a8.svg" alt />
+and the pentagon
+<img class="display-math-svg" src="data/svg/e17416428291f2ced6028adeeb2cddad0dbbbd2b.svg" alt />
+commute for all objects <span class="math inline">\(A, B, C\)</span> and <span class="math inline">\(D\)</span> in <span class="math inline">\(\mathcal{C}\)</span>. In case the natural isomorphisms <span class="math inline">\(\alpha, \lambda\)</span> and <span class="math inline">\(\rho\)</span> are all equalities, we say that such a category is <i>strict</i>. The above triangle and pentagon then commute automatically.

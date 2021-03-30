@@ -104,11 +104,26 @@
 % Derived functors
 \begin{topic}{right-derived-functors}{right derived functors}
     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{injective-resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
-    \[ R^i F M = H^i(F(I^\bdot)) . \]
-    This is well-defined (independent of the chosen resolution) and yields additive functors $R^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \simeq F$.
+    \[ \text{R}^i F M = H^i(F(I^\bdot)) . \]
+    This is well-defined (independent of the chosen resolution) and yields additive functors $\text{R}^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \simeq F$.
     
     For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
-    \[ 0 \to FA \to FB \to FC \to R^1FA \to R^1FB \to R^1FC \to R^2FA \to \cdots \]
+    \[ 0 \to FA \to FB \to FC \to \text{R}^1FA \to \text{R}^1FB \to \text{R}^1FC \to \text{R}^2FA \to \cdots \]
+\end{topic}
+
+\begin{topic}{left-derived-functors}{left derived functors}
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough projectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{right exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick a \tref{projective-resolution}{projective resolution} $M[0] \to P^\bdot$. Then we define
+    \[ \text{L}_i F M = H^i(F(P^\bdot)) . \]
+    This is well-defined (independent of the chosen resolution) and yields additive functors $\text{L}_i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{left derived functors} of $F$. Note that $\text{L}_0 F \simeq F$.
+    
+    For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
+    \[ \cdots \to \text{L}_2FC \to \text{L}_1FA \to \text{L}_1FB \to \text{L}_1FC \to FA \to FB \to FC \to 0 \]
+\end{topic}
+
+\begin{topic}{acyclic-object}{acyclic object}
+    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. An object $A$ of $\mathcal{A}$ is called \textbf{acyclic w.r.t. $F$}, or \textbf{$F$-acyclic}, if
+    \[ \text{R}^iF(A) = 0 \quad \text{for all } i > 0, \]
+    where $\text{R}^i F$ are the \tref{right-derived-functors}{right derived functors} of $F$.
 \end{topic}
 
 % Homological lemmas
@@ -164,4 +179,18 @@
     The \textbf{Grothendieck group} $\text{K}_0(\mathcal{A})$ of an \tref{abelian-category}{abelian category} $\mathcal{A}$ is defined as the free abelian group on isomorphism classes of objects in $\mathcal{A}$, modulo the relations $[B] = [A] + [C]$ for every short exact sequence
     \[ 0 \to A \to B \to C \to 0 \]
     in $\mathcal{A}$.
+\end{topic}
+
+\begin{topic}{ext-functors}{Ext functors}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $A$ an object of $\mathcal{A}$. The functor
+    \[ \Hom_{\mathcal{A}}(A, -) : \mathcal{A} \to \textbf{Ab} \]
+    is \tref{exact-functor}{left exact}, so (if $\mathcal{A}$ has enough injectives) it has \tref{right-derived-functors}{right derived functors}, which are known as the \textbf{Ext functors}
+    \[ \text{Ext}^i_\mathcal{A}(A, B) = \text{R}^i \Hom_\mathcal{A}(A, B) . \]
+\end{topic}
+
+\begin{topic}{tor-functors}{Tor functors}
+    For a commutative \tref{CA:ring}{ring} $R$ and an $R$-module $B$, the \tref{CA:tensor-product}{tensor product} gives a functor
+    \[ (-) \otimes_R B : R\textbf{-Mod} \to R\textbf{-Mod} \]
+    which is \tref{exact-functor}{right exact}, so it has \tref{left-derived-functors}{left derived functors}, which are known as the \textbf{Tor functors}
+    \[ \text{Tor}^R_i(A, B) = A \overset{\text{L}_i}{\otimes} B . \]
 \end{topic}
