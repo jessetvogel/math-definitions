@@ -80,3 +80,11 @@
 \begin{topic}{simple-module}{(semi)simple module}
     Let $R$ be a \tref{ring}{ring}. A (left or right) $R$-module $M$ is \textbf{simple} if it is non-zero and has no proper submodules. It is \textbf{semisimple} if it is isomorphic to the direct sum of simple modules.
 \end{topic}
+
+\begin{topic}{graded-module}{graded module}
+    A \textbf{graded module} $M$ over a \tref{graded-ring}{graded ring} $R$ is an $R$-\tref{module}{module}
+    \[ M = \bigoplus_{i \ge 0} M_i \]
+    such that
+    \[ R_i M_j \subset M_{i + j} \]
+    for all $i, j \ge 0$.
+\end{topic}

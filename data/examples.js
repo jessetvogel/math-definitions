@@ -34,4 +34,5 @@ const examples = [
   "UN:simplicial-object",
   "UN:model-category",
   "UN:infinity-category",
+  "UN:pure-hodge-structure",
 ];
