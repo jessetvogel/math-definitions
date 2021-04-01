@@ -484,3 +484,21 @@
     \[ R_i R_j \subset R_{i + j} \]
     for all $i, j \ge 0$.
 \end{topic}
+
+\begin{example}{graded-ring}
+    The polynomial ring $R = k[x_1, \ldots, x_n]$ is a graded ring, with
+    \[ R_i = \{ f \in R : f \text{ is homogeneous of degree $i$} \} . \]
+\end{example}
+
+\begin{topic}{morita-equivalence}{Morita equivalence}
+    Two \tref{ring}{rings} $R$ and $S$ are said to be \textbf{Morita equivalent} if there is an \tref{CT:equivalence-of-categories}{equivalence of categories} between the category of (left) $R$-modules, and (left) $S$-modules.
+\end{topic}
+
+\begin{example}{morita-equivalence}
+    Any ring $R$ is Morita equivalent to the ring $\text{M}_n(R)$ of $n \times n$ matrices with elements in $R$, for any $n > 0$. Indeed, take
+    \[ R\text{-Mod} \to \text{M}_n(R)\text{-Mod}, \quad M \to R^{n \times 1} \otimes_R M \simeq M^n , \]
+    where $\text{M}_n(R)$ acts on $M^n$ by matrix multiplication on the left. Inversely, take
+    \[ \text{M}_n(R)\text{-Mod} \to R\text{-Mod}, \quad N \to R^{1 \times n} \otimes_{\text{M}_n(R)} N . \]
+    Indeed these are inverse to each other since
+    \[ R^{1 \times n} \otimes_{\text{M}_n(R)} R^{n \times 1} \simeq R \quad \text{and} \quad R^{n \times 1} \otimes_R R^{1 \times n} \simeq \text{M}_n(R) . \]
+\end{example}

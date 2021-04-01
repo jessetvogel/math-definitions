@@ -12,7 +12,7 @@ AG/CA: Gorenstein/syntomic/Cohen-Macaulay
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
 AG: blowup / blowdown
-
+AG: Néron–Severi group
 
 # Number theory
 NT: quadratic reciprocity
@@ -38,7 +38,7 @@ RT: representation ring R(G)
 Dynkin diagrams / Quivers
 
 # Homological algebra
-HA/AA?: Morita equivalence (example: R is equiv. to M_n(R) for any n > 0)
+
 
 UN: classifying space
 

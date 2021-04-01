@@ -20,6 +20,8 @@ const examples = [
   "CA:hilbert-series",
   "CA:standard-smooth",
   "CA:fitting-ideal",
+  "CA:graded-ring",
+  "CA:morita-equivalence",
   "CA:flat-module",
   "CA:frobenius-morphism",
   "CA:splitting-field",
