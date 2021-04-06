@@ -7,7 +7,7 @@ function loadTopic(id) {
     const content = document.getElementById('content');
 
     // Load definition
-    content.innerHTML = '<div id="definition"></div>';
+    content.innerHTML = '<div id="definition"><div class="loading"></div></div>';
 
     const xhttpDef = new XMLHttpRequest();
     xhttpDef.open('GET', 'data/definitions/' + id.replace(':', '-') + '.html', true);

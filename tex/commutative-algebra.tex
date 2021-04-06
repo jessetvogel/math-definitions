@@ -37,11 +37,11 @@
 \end{topic}
 
 \begin{topic}{domain}{domain}
-    A non-zero commutative \tref{ring}{ring} $R$ is called a \textbf{domain} if it has no zero-divisors, that is, $ab = 0$ implies $a = 0$ or $b = 0$ for all $a, b \in R$.
+    A non-zero \tref{ring}{commutative ring} $R$ is called a \textbf{domain} if it has no zero-divisors, that is, $ab = 0$ implies $a = 0$ or $b = 0$ for all $a, b \in R$.
 \end{topic}
 
 \begin{topic}{field}{field}
-    A commutative \tref{ring}{ring} $R$ is called a \textbf{field} if all non-zero elements are units, that is, for all non-zero $a \in R$ there exists a $b \in R$ such that $ab = 1$. 
+    A \tref{ring}{commutative ring} $R$ is called a \textbf{field} if all non-zero elements are units, that is, for all non-zero $a \in R$ there exists a $b \in R$ such that $ab = 1$. 
 \end{topic}
 
 \begin{topic}{ideal}{ideal}
@@ -54,7 +54,7 @@
 \end{topic}
 
 \begin{topic}{coprime-ideals}{coprime ideals}
-    Two \tref{ideal}{ideals} $I, J$ of a commutative \tref{ring}{ring} $R$ are \textbf{coprime} if $I + J = R$.
+    Two \tref{ideal}{ideals} $I, J$ of a \tref{ring}{commutative ring} $R$ are \textbf{coprime} if $I + J = R$.
 \end{topic}
 
 \begin{topic}{radical-ideal}{radical ideal}
@@ -88,6 +88,15 @@
 \begin{topic}{irreducible-ideal}{irreducible ideal}
     Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{irreducible} if
     \[ I = J_1 \cap J_2 \quad \implies \quad I = J_1 \text{ or } I = J_2 . \]
+\end{topic}
+
+\begin{topic}{quotient-ring}{quotient ring}
+    Given a \tref{ring}{commutative ring} $R$ and \tref{ideal}{ideal} $I$, the \textbf{quotient ring} $R/I$ is the ring
+    \[ R/I = \{ a + I : a \in R \} \]
+    where addition and multiplication are given by
+    \[ (a + I) + (b + I) = (a + b) + I \quad \text{ and } \quad (a + I) (b + I) = (ab) + I . \]
+    It has the universal property that each morphism of rings $f : R \to S$ with $f(I) = 0$ uniquely extends to a morphism $R/I \to S$.
+    \[ \begin{tikzcd} R \arrow{r}{f} \arrow[swap]{d}{\pi} & S \\ R/I \arrow[dashed]{ur} & \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{local-ring}{local ring}
@@ -128,7 +137,7 @@
 \end{topic}
 
 \begin{topic}{chinese-remainder-theorem}{Chinese remainder theorem}
-    Let $R$ be a commutative \tref{ring}{ring} and suppose $I, J$ are coprime ideals of $R$, i.e. $I + J = R$. Then the \textbf{Chinese remainder theorem} states that $I \cap J = I \cdot J$ and that there is an isomorphism of rings
+    Let $R$ be a \tref{ring}{commutative ring} and suppose $I, J$ are coprime ideals of $R$, i.e. $I + J = R$. Then the \textbf{Chinese remainder theorem} states that $I \cap J = I \cdot J$ and that there is an isomorphism of rings
     \[ R / (I \cdot J) \xrightarrow{\sim} (R / I) \times (R/J), \qquad a \text{ mod } (I \cdot J) \mapsto (a \text{ mod } I, b \text{ mod } J) . \]
     
     In particular, when $R = \ZZ$ with $I = (n)$ and $J = (m)$ for $n, m$ relatively prime, there is
@@ -140,12 +149,12 @@
 \end{topic}
 
 \begin{topic}{dual-numbers}{dual numbers}
-    Let $R$ be a commutative \tref{ring}{ring}. The \textbf{ring of dual numbers} over $R$ is the quotient ring
+    Let $R$ be a \tref{ring}{commutative ring}. The \textbf{ring of dual numbers} over $R$ is the quotient ring
     \[ R[\varepsilon] / (\varepsilon^2) . \]
 \end{topic}
 
 \begin{topic}{noetherian-ring}{noetherian ring}
-    A commutative \tref{ring}{ring} $R$ is called \textbf{noetherian} if it satisfies the \textit{ascending chain condition}: for any increasing sequence of ideals
+    A \tref{ring}{commutative ring} $R$ is called \textbf{noetherian} if it satisfies the \textit{ascending chain condition}: for any increasing sequence of ideals
     \[ I_1 \subset I_2 \subset I_3 \subset \cdots \]
     there exists some $N \in \NN$ such that $I_n = I_N$ for any $n \ge N$.
     
@@ -168,7 +177,7 @@
 \end{example}
 
 \begin{topic}{localization}{localization}
-    Let $R$ be a commutative \tref{ring}{ring}, and $S \subset R$ a \textit{multiplicative set} (that is, $1 \in S$ and $xy \in S$ for all $x, y \in S$). Then the \textbf{localization} of $R$ w.r.t. $S$ is the ring
+    Let $R$ be a \tref{ring}{commutative ring}, and $S \subset R$ a \textit{multiplicative set} (that is, $1 \in S$ and $xy \in S$ for all $x, y \in S$). Then the \textbf{localization} of $R$ w.r.t. $S$ is the ring
     \[ S^{-1} R = R \times S / \sim{} \quad \text{ where } (r_1, s_1) \sim{} (r_2, s_2) \text{ if } t(r_1 s_2 - r_2 s_1) = 0 \text{ for some } t \in S . \]
 \end{topic}
 
@@ -261,19 +270,19 @@
 \end{topic}
 
 \begin{topic}{integral-element}{integral element}
-    Let $A$ be a commutative \tref{ring}{ring}, and $B$ an $A$-algebra. An element $x \in B$ is said to be \textbf{integral} over $A$ if $x$ is a root of a monic polynomial with coefficients in $A$. That is,
+    Let $A$ be a \tref{ring}{commutative ring}, and $B$ an $A$-algebra. An element $x \in B$ is said to be \textbf{integral} over $A$ if $x$ is a root of a monic polynomial with coefficients in $A$. That is,
     \[ x^n + a_1 x^{n - 1} + \cdots + a_n = 0 \]
     for some $a_i \in A$.
 \end{topic}
 
 \begin{topic}{integral-closure}{integral closure}
-    Let $A$ be a commutative \tref{ring}{ring}, and $B$ an $A$-algebra. The \textbf{integral closure} of $A$ in $B$ is the subring of $B$ of elements which are \tref{integral-element}{integral} over $A$.
+    Let $A$ be a \tref{ring}{commutative ring}, and $B$ an $A$-algebra. The \textbf{integral closure} of $A$ in $B$ is the subring of $B$ of elements which are \tref{integral-element}{integral} over $A$.
     
     If the integral closure is equal to $A$, then $A$ is said to be \textbf{integrally closed} in $B$. If the integral closure is equal to $B$, the ring $B$ is said to be \textbf{integral} over $A$.
 \end{topic}
 
 \begin{topic}{artin-ring}{artin ring}
-    A commutative \tref{ring}{ring} $R$ is called \textbf{artin} if it satisfies the \textit{descending chain condition}: for any decreasing sequence of ideals
+    A \tref{ring}{commutative ring} $R$ is called \textbf{artin} if it satisfies the \textit{descending chain condition}: for any decreasing sequence of ideals
     \[ I_1 \supset I_2 \supset I_3 \supset \cdots \]
     there exists some $N \in \NN$ such that $I_n = I_N$ for any $n \ge N$.
 \end{topic}
@@ -290,14 +299,14 @@
 \end{topic}
 
 \begin{topic}{syzygy-module}{syzygy module}
-    Let $g_1, g_2, \ldots, g_k$ be generators of \tref{module}{module} $M$ over a commutative \tref{ring}{ring} $R$. The \textbf{syzygy module} is the $R$-module consisting of all relations between the generators, i.e. the kernel of
+    Let $g_1, g_2, \ldots, g_k$ be generators of \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$. The \textbf{syzygy module} is the $R$-module consisting of all relations between the generators, i.e. the kernel of
     \[ \bigoplus_{i = 1}^{k} R \to M, \qquad (r_1, \ldots, r_k) \mapsto r_1 g_1 + \cdots r_k g_k . \]
     Inductively, one can define the $n$-th syzygy module for any $n \ge 1$ after choosing generators.
 \end{topic}
 
 % Hilbert's three theorems
 \begin{topic}{hilbert-basis-theorem}{Hilbert's basis theorem}
-    \textbf{Hilbert's basis theorem} states that if a commutative \tref{ring}{ring} $R$ is \tref{noetherian-ring}{noetherian}, then so is the polynomial ring $R[x]$.
+    \textbf{Hilbert's basis theorem} states that if a \tref{ring}{commutative ring} $R$ is \tref{noetherian-ring}{noetherian}, then so is the polynomial ring $R[x]$.
 \end{topic}
 
 % \begin{topic}{hilbert-nullstellensatz}{Hilbert's Nullstellensatz}
@@ -316,40 +325,40 @@
 \end{topic}
 
 \begin{topic}{primary-ideal}{primary ideal}
-    Let $R$ be a commutative \tref{ring}{ring}. An \tref{ideal}{ideal} $\mathfrak{q}$ of $R$ is \textbf{primary} if $\mathfrak{q} \ne R$ and if
+    Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $\mathfrak{q}$ of $R$ is \textbf{primary} if $\mathfrak{q} \ne R$ and if
     \[ xy \in \mathfrak{q} \implies \text{ either } x \in \mathfrak{q} \text{ or } y^n \in \mathfrak{q} \text{ for some } n > 0 . \]
     In other words,
     \[ \mathfrak{q} \text{ is primary } \iff A / \mathfrak{q} \ne 0 \text{ and every zero-divisor in } A / \mathfrak{q} \text{ is nilpotent} . \]
 \end{topic}
 
 \begin{topic}{primary-decomposition}{primary decomposition}
-    Let $R$ be a commutative \tref{ring}{ring}. A \textbf{primary decomposition} of an ideal $I \subset R$ is an expression of $I$ as a finite intersection of \tref{primary-ideal}{primary ideals},
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{primary decomposition} of an ideal $I \subset R$ is an expression of $I$ as a finite intersection of \tref{primary-ideal}{primary ideals},
     \[ I = \bigcap_{i = 1}^{n} \mathfrak{q}_i . \]
     
     The primary decomposition is said to be \textbf{minimal} if (i) the $\mathfrak{p}_i = r(\mathfrak{q}_i)$ are all distinct, and (ii) no $\mathfrak{q}_i$ contains the intersection of the other primary ideals.
 \end{topic}
 
 \begin{topic}{annihilator}{annihilator}
-    Let $R$ be a commutative \tref{ring}{ring} and $M$ an $R$-module. The \textbf{annihilator} of $M$ is the subring
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an $R$-module. The \textbf{annihilator} of $M$ is the subring
     \[ \text{Ann}(M) = \{ x \in R : xM = 0 \} \]
 \end{topic}
 
 \begin{topic}{nilradical}{nilradical}
-     The \textbf{nilradical} of a commutative \tref{ring}{ring} $R$ is the ideal of \tref{nilpotent-element}{nilpotent} elements
+     The \textbf{nilradical} of a \tref{ring}{commutative ring} $R$ is the ideal of \tref{nilpotent-element}{nilpotent} elements
      \[ \mathfrak{N}_R = \{ x \in R : x \text{ is nilpotent } \} . \]
      It is equal to the intersection of all prime ideals of $R$,
      \[ \mathfrak{N}_R = \bigcap_{\mathfrak{p} \subset R \text{ prime}} \mathfrak{p} . \]
 \end{topic}
 
 \begin{topic}{jacobson-radical}{Jacobson radical}
-     The \textbf{Jacobson radical} of a commutative \tref{ring}{ring} $R$ is the ideal given by the intersection of all \tref{maximal-ideal}{maximal} ideals,
+     The \textbf{Jacobson radical} of a \tref{ring}{commutative ring} $R$ is the ideal given by the intersection of all \tref{maximal-ideal}{maximal} ideals,
      \[ \mathfrak{J}_R = \bigcap_{\mathfrak{m} \subset R \text{ maximal}} \mathfrak{m} . \]
      It can also be characterized by
      \[ x \in \mathfrak{J}_R \iff 1 - xy \text{ is a unit for all } y \in R . \]
 \end{topic}
 
 \begin{topic}{regular-sequence}{regular sequence}
-    Let $R$ be a commutative \tref{ring}{ring}, and $M$ an $R$-module. An $M$-\textbf{regular sequence} is a sequence
+    Let $R$ be a \tref{ring}{commutative ring}, and $M$ an $R$-module. An $M$-\textbf{regular sequence} is a sequence
     \[ r_1, r_2, \ldots, r_d \in R \]
     such that $r_i$ is not a \textit{zero-divisor} on $M/(r_1, \ldots, r_{i - 1})$. That is, if $r_i m = 0$ for some $m \in M / (r_1, \ldots, r_{i - 1})$, then $m = 0$.
     
@@ -381,11 +390,11 @@
 \end{example}
 
 \begin{topic}{absolutely-flat-ring}{absolutely flat ring}
-    A commutative \tref{ring}{ring} $R$ is called \textbf{absolutely flat} if every $R$-module is \tref{flat-module}{flat}.
+    A \tref{ring}{commutative ring} $R$ is called \textbf{absolutely flat} if every $R$-module is \tref{flat-module}{flat}.
 \end{topic}
 
 \begin{topic}{standard-smooth}{standard smooth}
-    Let $A$ be commutative \tref{ring}{ring}, and $B = A[x_1, \ldots, x_n] / (f_1, \ldots, f_c)$ a finitely presented $A$-algebra. Then $B$ is a \textbf{standard smooth} over $A$ if the determinant
+    Let $A$ be \tref{ring}{commutative ring}, and $B = A[x_1, \ldots, x_n] / (f_1, \ldots, f_c)$ a finitely presented $A$-algebra. Then $B$ is a \textbf{standard smooth} over $A$ if the determinant
     \[ \det \begin{pmatrix}
         \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_c} \\
         \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_c} \\ 
@@ -402,11 +411,11 @@
 \end{example}
 
 \begin{topic}{etale-algebra}{étale algebra}
-    Let $A$ be a commutative \tref{ring}{ring} and $B$ an $A$-algebra. Then $B$ is an \textbf{étale algebra} over $A$ if $B$ is a \tref{flat-module}{flat} $A$-module and $\Omega_{B/A} = 0$.
+    Let $A$ be a \tref{ring}{commutative ring} and $B$ an $A$-algebra. Then $B$ is an \textbf{étale algebra} over $A$ if $B$ is a \tref{flat-module}{flat} $A$-module and $\Omega_{B/A} = 0$.
 \end{topic}
 
 \begin{topic}{fitting-ideal}{Fitting ideal}
-    Let $R$ be a commutative \tref{ring}{ring} and $M$ an $R$-\tref{module}{module} generated by elements $m_1, \ldots, m_n \in M$, with relations
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an $R$-\tref{module}{module} generated by elements $m_1, \ldots, m_n \in M$, with relations
     \[ a_{i1} m_1 + \cdots a_{in} m_n = 0 \text{ for } i = 1, 2, \ldots, \ell . \]
     Then the \textbf{$i$-th Fitting ideal} $\text{Fitt}_i(M)$ of $M$ is generated by the minors (determinants of submatrices) of order $n - i$ of the matrix $a_{ij}$. It can be shown that this does not depend on the choice of generators or relations. One has the inclusions
     \[ \text{Fitt}_0(M) \subset \text{Fitt}_1(M) \subset \text{Fitt}_2(M) \subset \cdots \]
@@ -456,11 +465,11 @@
 \end{example}
 
 \begin{topic}{gcd}{greatest common divisor (GCD)}
-    Let $R$ be a commutative \tref{ring}{ring}. A \textbf{greatest common divisor} of two elements $a, b \in R$ is an element $d \in R$ such that $d | a, b$ and for any other $d' \in R$ with $d' | a, b$ one has $d' | d$. It is denoted $d = \text{gcd}(a, b)$.
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{greatest common divisor} of two elements $a, b \in R$ is an element $d \in R$ such that $d | a, b$ and for any other $d' \in R$ with $d' | a, b$ one has $d' | d$. It is denoted $d = \text{gcd}(a, b)$.
 \end{topic}
 
 \begin{topic}{lcm}{least common multiple (LCM)}
-    Let $R$ be a commutative \tref{ring}{ring}. A \textbf{least common multiple} of two elements $a, b \in R$ is an element $m \in R$ such that $a, b | m$ and for any other $m' \in R$ with $a, b | m$ one has $m | m'$. It is denoted $m = \text{lcm}(a, b)$.
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{least common multiple} of two elements $a, b \in R$ is an element $m \in R$ such that $a, b | m$ and for any other $m' \in R$ with $a, b | m$ one has $m | m'$. It is denoted $m = \text{lcm}(a, b)$.
 \end{topic}
 
 \begin{topic}{gcd-domain}{GCD domain}
@@ -468,8 +477,14 @@
 \end{topic}
 
 \begin{topic}{projective-dimension}{projective dimension}
-    The \textbf{projective resolution} of a \tref{module}{module} $M$ over a commutative \tref{ring}{ring} $R$ is the minimal length of a projective resolution of $M$.
+    The \textbf{projective dimension} of a \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$ is the minimal length of a projective resolution of $M$.
     \[ \cdots \to P_n \to \cdots \to P_2 \to P_1 \to P_0 \to M \to 0 \]
+    It may be infinite.
+\end{topic}
+
+\begin{topic}{injective-dimension}{injective dimension}
+    The \textbf{injective dimension} of a \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$ is the minimal length of a injective resolution of $M$.
+    \[ 0 \to M \to I^0 \to I^1 \to I^2 \to \cdots \]
     It may be infinite.
 \end{topic}
 
@@ -502,3 +517,17 @@
     Indeed these are inverse to each other since
     \[ R^{1 \times n} \otimes_{\text{M}_n(R)} R^{n \times 1} \simeq R \quad \text{and} \quad R^{n \times 1} \otimes_R R^{1 \times n} \simeq \text{M}_n(R) . \]
 \end{example}
+
+\begin{topic}{gorenstein-ring}{Gorenstein ring}
+    A \textbf{Gorenstein local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} \tref{ring}{ring} $R$ with finite \tref{injective-dimension}{injective dimension} as an $R$-module.
+    
+    A \textbf{Gorenstein ring} is a commutative noetherian ring $R$ such that the localization $R_\mathfrak{p}$ is Gorenstein for each \tref{prime-ideal}{prime ideal} $\mathfrak{p}$.
+\end{topic}
+
+\begin{topic}{cohen-macaulay}{Cohen--Macaulay}
+    A \tref{finitely-generated-module}{finitely generated} \tref{module}{module} $M$ over a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} \tref{ring}{ring} $R$ is \textbf{Cohen--Macaulay} if its \tref{depth-module}{depth} $\text{depth}_{\mathfrak{m}}(M)$ equals its \tref{krull-dimension}{dimension} $\dim_R(M) := \dim(R/\text{Ann}_R(M))$.
+    
+    More generally, for a commutative noetherian ring $R$, a finitely generated $R$-module $M$ is \textbf{Cohen--Macaulay} if the localization $M_\mathfrak{m}$ is Cohen--Macaulay over $R_\mathfrak{m}$ for each maximal ideal $\mathfrak{m}$ of $R$.
+    
+    A commutative noetherian ring $R$ is \textbf{Cohen--Macaulay} if it is so as a module over itself.
+\end{topic}

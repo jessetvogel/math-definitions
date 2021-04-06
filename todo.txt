@@ -1,13 +1,8 @@
-- Make README.md
-
 # Commutative algebra
-CA: direct sum, quotient ring
+CA: direct sum
 CA: Chapter 10 (completions) of Atiyah & MacDonald (associated graded ring)
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
-CA: Hilbert polynomials/series (See Chapter 11 of Commutative Algebra, M. Atiyah)
-CA: example: any projective module is flat ?
-AG/CA: Gorenstein/syntomic/Cohen-Macaulay
-
+CA: Hilbert polynomials (See Chapter 11 of Commutative Algebra, M. Atiyah)
 
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
@@ -17,16 +12,13 @@ AG: Néron–Severi group
 # Number theory
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
-NT: p-adic numbers
 CA/NT: Galois correspondence
 
 
 GT: parabolic subgroup
 
 # Category theory
-CT: pullback, pushout
 CT: retract (not a retraction)
-CT: representable functor
 CT: localization example: Prototype 10.3.5 of weibel
 
 # Representation theory
@@ -38,9 +30,19 @@ RT: representation ring R(G)
 Dynkin diagrams / Quivers
 
 # Homological algebra
-
+HA: examples abelian category
 
 UN: classifying space
 
 
-CA: examples graded rings
+HT: Kan fibration
+// HT: sifted simplicial set ?
+
+AT: EXAMPLES for Seifert–Van Kampen theorem (\Pi(S^1, { s_0, s_1 }) = pushout of 2 -> (1 <-> 1) and 2 -> (1 <-> 1) which is (1 <=> 1), in particular, \pi_1(S^1, s_0) is \ZZ)
+
+# Abstract algebra
+AA: move some commutative algebra which isn't commutative to AA
+
+
+# Analysis
+AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???

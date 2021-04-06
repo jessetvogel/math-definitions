@@ -161,3 +161,29 @@
     \[ H_c^n(X; R) = \varinjlim H^n(X, X \backslash K; R) \]
     where the direct limit is taken over all compact $K \subset X$ w.r.t. inclusions.
 \end{topic}
+
+\begin{topic}{fundamental-groupoid}{fundamental groupoid}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and $A \subset X$ a subset. The \textbf{fundamental groupoid of $X$ with respect to $A$}, denoted $\Pi(X, A)$, is the \tref{CT:groupoid}{groupoid category} whose objects are elements of $A$ and whose morphisms $a \to b$ are homotopy classes of paths from $a$ to $b$. Composition of morphisms is given by concatenation of paths.
+    
+    This construction only depends on the homotopy type of $(X, A)$. In particular, if $A = \{ x_0 \}$ is a single point, the fundamental groupoid $\Pi(X, A)$ equals the \tref{fundamental-group}{fundamental group} $\pi_1(X, x_0)$.
+\end{topic}
+
+\begin{topic}{seifert-van-kampen-theorem}{Seifert--van Kampen theorem}
+    The \textbf{Seifert--van Kampen theorem} states that for every \tref{TO:path-connected}{path-connected} \tref{TO:topological-space}{topological space} $X$ and path-connected subsets $U, V \subset X$ such that the intersection $U \cap V$ is path-connected and the \tref{TO:interior}{interiors} $\overset{\circ}{U}$ and $\overset{\circ}{V}$ cover $X$, the diagram of \tref{fundamental-group}{fundamental groups}
+    \[ \begin{tikzcd} \pi_1(U \cap V, x) \arrow{d} \arrow{r} & \pi_1(U, x) \arrow{d} \\ \pi_1(V, x) \arrow{r} & \pi_1(X, x) \end{tikzcd} \]
+    is a pushout square in the category of groups, for every $x \in U \cap V$.
+
+    Similarly, there is a \textbf{Seifert--van Kampen theorem for groupoids}, which states that for every topological space $X$ with subset $A \subset X$, and subsets $U, V$ such that the interiors $\overset{\circ}{U}$ and $\overset{\circ}{V}$ cover $X$, and $A$ intersects each connected component of $U, V$ and $U \cap V$, the diagram of \tref{fundamental-groupoid}{fundamental groupoids}
+    \[ \begin{tikzcd} \Pi(U \cap V, U \cap V \cap A) \arrow{d} \arrow{r} & \Pi(U, U \cap A) \arrow{d} \\ \Pi(V, V \cap A) \arrow{r} & \Pi(X, A) \end{tikzcd} \]
+    is a pushout square in the category of groupoids.
+\end{topic}
+
+\begin{example}{seifert-van-kampen-theorem}
+    Consider the \tref{TO:wedge-sum}{wedge sum} $S^1 \vee S^1$, and let $U = S^1$ and $V = S^1$ be the obvious cover of $X$. Take as basepoint $x_0$ the intersection of $U$ and $V$. By the Seifert--van Kampen theorem we find that $\pi_1(S^1 \vee S^1, x_0)$ is the pushout of $1 \to \ZZ$ and $1 \to \ZZ$ since $\pi_1(x_0, x_0) = 1$ and $\pi_1(S^1, x_0) = \ZZ$. This pushout is \tref{GT:free-group}{free group} $F_2$ on two elements.
+\end{example}
+
+\begin{example}{seifert-van-kampen-theorem}
+    Consider the circle $S^1$ with two opposite basepoints $x_0$ and $x_1$, and let $U, V$ be two U-shaped subsets, both containing $x_0$ and $x_1$, covering $S^1$. By the Seifert--van Kampen theorem we find that $\Pi(S^1, \{ x_0, x_1 \})$ is the pushout of $\textbf{2} \to \hat{\textbf{2}}$, where $\textbf{2} \simeq \Pi(U \cap V, \{ x_0, x_1 \})$ is the discrete category with two objects, and $\hat{\textbf{2}} \simeq \Pi(U, \{ x_0, x_1 \}) \simeq \Pi(V, \{ x_0, x_1 \})$ is the category with two objects and a single isomorphism between them. The objects of this pushout are $x_0$ and $x_1$, and there are isomorphisms $f, g : x_0 \to x_1$ such that all morphisms are compositions of $f, f^{-1}, g$ and $g^{-1}$.
+    
+    In particular, the fundamental group $\pi_1(S^1, x_0) \simeq \ZZ$.
+\end{example}

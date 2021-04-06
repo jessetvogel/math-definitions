@@ -73,18 +73,18 @@
     \[ \cdots \rightarrow H^i(A^\bdot) \rightarrow H^i(B^\bdot) \rightarrow H^i(C^\bdot) \rightarrow H^{i + 1}(A^\bdot) \rightarrow \cdots . \]
 \end{topic}
 
-\begin{topic}{homotopy}{homotopy}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : M^\bdot \to N^\bdot$ be morphisms of \tref{chain-complex}{complexes} in $\mathcal{A}$. A \textbf{homotopy} from $f$ to $g$ is a collection of morphisms $k^i : M^i \to N^{i - 1}$ such that $f - g = dk + kd$.
+\begin{topic}{chain-homotopy}{chain homotopy}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : M^\bdot \to N^\bdot$ be morphisms of \tref{chain-complex}{chain complexes} in $\mathcal{A}$. A \textbf{chain homotopy} from $f$ to $g$ is a collection of morphisms $k^i : M^i \to N^{i - 1}$ such that $f - g = dk + kd$.
     
     If a homotopy exists from $f$ to $g$, we say that $f$ and $g$ are \textbf{homotopic}. This gives an equivalence relation on the set of morphisms from $M^\bdot$ to $N^\bdot$.
 \end{topic}
 
-\begin{topic}{homotopy-equivalence}{homotopy equivalence}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A morphism of complexes $f : M^\bdot \to N^\bdot$ is called a \textbf{homotopy equivalence} if there exists a morphism $g : N^\bdot \to M^\bdot$ such that $fg$ and $gf$ are \tref{homotopy}{homotopic} to the identity morphism.
+\begin{topic}{chain-homotopy-equivalence}{chain homotopy equivalence}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A morphism of \tref{chain-complex}{chain complexes} $f : M^\bdot \to N^\bdot$ is called a \textbf{chain homotopy equivalence} if there exists a morphism $g : N^\bdot \to M^\bdot$ such that $fg$ and $gf$ are \tref{chain-homotopy}{homotopic} to the identity morphism.
 \end{topic}
 
 \begin{topic}{quasi-isomorphism}{quasi-isomorphism}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian-category}. A morphism $f : M^\bdot \to N^\bdot$ of \tref{chain-complex}{complexes} in $\mathcal{A}$ is called a \textbf{quasi-isomorphism} if the induced maps on homology
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian-category}. A morphism $f : M^\bdot \to N^\bdot$ of \tref{chain-complex}{chain complexes} in $\mathcal{A}$ is called a \textbf{quasi-isomorphism} if the induced maps on homology
     \[ H^i(f) : H^i(M^\bdot) \to H^i(N^\bdot) \]
     are all isomorphisms.
 \end{topic}
@@ -121,7 +121,7 @@
 \end{topic}
 
 \begin{topic}{acyclic-object}{acyclic object}
-    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. An object $A$ of $\mathcal{A}$ is called \textbf{acyclic w.r.t. $F$}, or \textbf{$F$-acyclic}, if
+    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. An object $A$ of $\mathcal{A}$ is called \textbf{acyclic with respect to $F$}, or \textbf{$F$-acyclic}, if
     \[ \text{R}^iF(A) = 0 \quad \text{for all } i > 0, \]
     where $\text{R}^i F$ are the \tref{right-derived-functors}{right derived functors} of $F$.
 \end{topic}
@@ -193,4 +193,11 @@
     \[ (-) \otimes_R B : R\textbf{-Mod} \to R\textbf{-Mod} \]
     which is \tref{exact-functor}{right exact}, so it has \tref{left-derived-functors}{left derived functors}, which are known as the \textbf{Tor functors}
     \[ \text{Tor}^R_i(A, B) = A \overset{\text{L}_i}{\otimes} B . \]
+\end{topic}
+
+\begin{topic}{mapping-complex}{mapping complex}
+    Let $C_\bdot$ and $D_\bdot$ be \tref{chain-complex}{chain complexes} with values in an \tref{additive-category}{additive category} $\mathcal{A}$. The \textbf{mapping complex} associated to $C_\bdot$ and $D_\bdot$ is the chain complex $[C, D]_\bdot$ given by
+    \[ [C, D]_n = \prod_{k \in \ZZ} \Hom_\mathcal{A}(C_k, D_{k + n}) \]
+    and with differentials
+    \[ \partial_n : [C, D]_n \to [C, D]_{n - 1}, \quad (f_k)_{k \in \ZZ} \mapsto \left(\partial_D \circ f_k - (-1)^n f_{k - 1} \circ \partial_C \right)_{k \in \ZZ} . \]
 \end{topic}

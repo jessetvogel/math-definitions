@@ -1,0 +1,23 @@
+\begin{topic}{monoid}{monoid}
+    A \textbf{monoid} is a set $M$ with a binary operation $\cdot : M \times M \to M$ satisfying
+    \begin{itemize}
+        \item (\textit{associative}) $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all $a, b, c \in M$,
+        \item (\textit{identity element}) there exists an element $e \in M$ such that $e \cdot a = a = a \cdot e$ for all $a \in M$.
+    \end{itemize}
+\end{topic}
+
+% \begin{topic}{dg-algebra}{dg-algebra}
+%     A \textbf{differential graded algebra} $A$ is a graded algebra with a map $d : A \to A$ having degree $1$ (cochain complex convention) or $-1$ (chain complex convention) satisfying
+%     \begin{itemize}
+%         \item (\textit{chain condition}) $d^2 = 0$, this gives $A$ the structure of a (co)chain complex,
+%         \item (\textit{graded Leibniz rule}) $d(a \cdot b) = (da) \cdot b + (-1)^{\deg(a)} a \cdot (db)$.
+%     \end{itemize}
+% \end{topic}
+
+% \begin{topic}{dg-category}{dg-category}
+%     A \textbf{differential graded category} is a category whose morphism sets are \tref{chain-complex}{cochain complexes}, that is
+%     \[ \Hom(A, B) = \bigoplus_{n \in \ZZ} \Hom_n(A, B) \]
+%     with differential $d : \Hom_n(A, B) \to \Hom_{n + 1}(A, B)$ such that $d^2 = 0$. Furthermore, composition of morphisms
+%     \[ \Hom(A, B) \otimes \Hom(B, C) \to \Hom(A, C) \]
+%     must be a chain map and $d(\id_A) = 0$.
+% \end{topic}

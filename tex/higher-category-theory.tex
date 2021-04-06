@@ -1,13 +1,159 @@
+% Monoidal categories
 \begin{topic}{monoidal-category}{Monoidal category}
-    A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $1$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
+    A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $\textbf{1}$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
     \[ \begin{aligned}
         \alpha : - \otimes (- \otimes -) &\Rightarrow (- \otimes -) \otimes - \qquad \text{(associator)} \\
-        \lambda : 1 \otimes - &\Rightarrow \id_{\mathcal{C}} \qquad \text{(left unitor)} \\
-        \rho : - \otimes 1 &\Rightarrow \id_{\mathcal{C}} \qquad \text{(right unitor)}
+        \lambda : \textbf{1} \otimes - &\Rightarrow \id_{\mathcal{C}} \qquad \text{(left unitor)} \\
+        \rho : - \otimes \textbf{1} &\Rightarrow \id_{\mathcal{C}} \qquad \text{(right unitor)}
     \end{aligned} \]
     such that the triangle
-    \[ \begin{tikzcd}[row sep=0em] (A \otimes 1) \otimes B \arrow{rr}{\alpha_{A,1,B}} \arrow[swap]{rd}{\rho_A \otimes \id_B} & & A \otimes (1 \otimes B) \arrow{ld}{\id_A \otimes \lambda_B} \\ & A \otimes B & \end{tikzcd} \]
+    \[ \begin{tikzcd}[row sep=0em] (X \otimes \textbf{1}) \otimes Y \arrow{rr}{\alpha_{X,\textbf{1},Y}} \arrow[swap]{rd}{\rho_X \otimes \id_Y} & & X \otimes (\textbf{1} \otimes Y) \arrow{ld}{\id_X \otimes \lambda_Y} \\ & X \otimes Y & \end{tikzcd} \]
     and the pentagon
-    \[ \begin{tikzcd} & (A \otimes B) \otimes (C \otimes D) \arrow{rd}{\alpha_{A, B, C \otimes D}} & \\ ((A \otimes B) \otimes C) \otimes D \arrow{ur}{\alpha_{A \otimes B, C, D}} \arrow{d}{\alpha_{A,B,C} \otimes \id_D} & & A \otimes (B \otimes (C \otimes D)) \\ (A \otimes (B \otimes C)) \otimes D \arrow{rr}{\alpha_{A, B \otimes C, D}} & & A \otimes ((B \otimes C) \otimes D) \arrow{u}{\id_A \otimes \alpha_{B, C, D}} \end{tikzcd} \]
-    commute for all objects $A, B, C$ and $D$ in $\mathcal{C}$. In case the natural isomorphisms $\alpha, \lambda$ and $\rho$ are all equalities, we say that such a category is \textit{strict}. The above triangle and pentagon then commute automatically.
+    \[ \begin{tikzcd} & (X \otimes Y) \otimes (Z \otimes W) \arrow{rd}{\alpha_{X, Y, Z \otimes W}} & \\ ((X \otimes Y) \otimes Z) \otimes W \arrow{ur}{\alpha_{X \otimes Y, Z, W}} \arrow{d}{\alpha_{X,Y,Z} \otimes \id_W} & & X \otimes (Y \otimes (Z \otimes W)) \\ (X \otimes (Y \otimes Z)) \otimes W \arrow{rr}{\alpha_{X, Y \otimes Z, W}} & & X \otimes ((Y \otimes Z) \otimes W) \arrow{u}{\id_X \otimes \alpha_{Y, Z, W}} \end{tikzcd} \]
+    commute for all objects $X, Y, Z, W$ in $\mathcal{C}$. In case the natural isomorphisms $\alpha, \lambda$ and $\rho$ are all equalities, we say that such a category is \textit{strict}. The above triangle and pentagon then commute automatically.
 \end{topic}
+
+\begin{example}{monoidal-category}
+    The category $\textbf{Set}$ with the disjoint union $\sqcup$ as tensor product, and the empty set $\varnothing$ as unital object is a monoidal category. Also $\textbf{Set}$ with the Cartesian product $\times$ as tensor product and a choice of singleton set as unital object is a monoidal category.
+\end{example}
+
+\begin{example}{monoidal-category}
+    Let $R$ be a \tref{CA:ring}{commutative ring}, then the category $R\text{-Mod}$ (resp. $R\text{-Alg}$) with the tensor product $\otimes_R$ and $R$ as unital object is a monoidal category. Also $R\text{-Mod}$ (resp. $R\text{-Alg}$) with $\oplus$ as tensor product and $0$ as unital object is a monoidal category.
+\end{example}
+
+\begin{example}{monoidal-category}
+    The category $\textbf{Sch}/S$ of \tref{AG:scheme}{schemes} over $S$, with the fiber product $\times_S$ as tensor product, and $S$ as unital object is a monoidal category.
+\end{example}
+
+\begin{topic}{symmetric-monoidal-category}{symmetric monoidal category}
+    A \textbf{symmetric monoidal category} is a \tref{monoidal-category}{monoidal category} $\mathcal{C}$ together with isomorphisms
+    \[ \tau_{X, Y} : X \otimes Y \to Y \otimes X , \]
+    \tref{natural-transformation}{natural} in $X$ and $Y$, such that
+    \[ \tau_{Y, X} \circ \tau_{X, Y} = \id_{X \otimes Y} \]
+    and the diagrams
+    \[ \begin{tikzcd}
+        (X \otimes Y) \otimes Z \arrow{r}{\alpha_{X, Y, Z}} \arrow[swap]{d}{\tau_{X, Y} \otimes \id_Z} & X \otimes (Y \otimes Z) \arrow{r}{\tau_{X, Y \otimes Z}} & (Y \otimes Z) \otimes X \arrow{d}{\alpha_{Y, Z, X}} \\ (Y \otimes X) \otimes Z \arrow{r}{\alpha_{Y, X, Z}} & Y \otimes (X \otimes Z) \arrow{r}{\id_Y \otimes \tau_{X, Z}} Y & Y \otimes (Z \otimes X)
+    \end{tikzcd} \]
+    and
+    \[ \begin{tikzcd}
+        X \otimes (Y \otimes Z) \arrow{r}{\alpha^{-1}_{X, Y, Z}} \arrow[swap]{d}{\id_X \otimes \tau_{Y, Z}} & (X \otimes Y) \otimes Z \arrow{r}{\tau_{X \otimes Y, Z}} & Z \otimes (X \otimes Y) \arrow{d}{\alpha^{-1}_{Z, X, Y}} \\ X \otimes (Y \otimes Z) \arrow{r}{\alpha^{-1}_{X, Z, Y}} & (X \otimes Z) \otimes Y \arrow{r}{\tau_{X, Z} \otimes \id_Y} & (Z \otimes X) \otimes Y
+    \end{tikzcd} \]
+    commute for all $X, Y, Z$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{example}{symmetric-monoidal-category}
+    The category $\textbf{Set}$ of sets, with either $\sqcup$ or $\times$ as tensor product, is naturally symmetric.
+    
+    The category $R\text{-}\textbf{Mod}$ of $R$-modules, with either $\oplus$ or $\otimes_R$ as tensor product, is naturally symmetric.
+\end{example}
+
+\begin{example}{symmetric-monoidal-category}
+    The category $R\text{-}\textbf{Bimod}$ of $R$-bimodules is monoidal, with $\otimes_R$ as tensor product and $R$ as unital object, but not necessarily symmetric. For example, take $R = k$ a field with two non-commuting automorphisms $\sigma, \tau$. Let $M = {}_1 k_\sigma$ be the abelian group $k$ with $k$-bimodule structure given by $a \cdot x \cdot b = ax \sigma(b)$, and let $N = {}_1 k_\tau$ similarly. Then we have a $k$-bimodule isomorphism $\varphi : M \otimes_k N \xrightarrow{\sim} {}_1 k_{\sigma \tau}$ given by $x \otimes y \mapsto x \sigma(y)$, and similarly $N \otimes_k M = {}_1 k_{\tau \sigma}$. If there were to exist some $k$-bimodule isomorphism $\psi : {}_1 k_{\sigma \tau} \xrightarrow{\sim} {}_1 k_{\tau \sigma}$ it would be given by $\psi(x) = x \psi(1)$ (since $\psi$ is a left $k$-module isomorphism). However, as $\psi$ is a right $k$-module isomorphism as well, we must have $\psi(x) = \psi(1) \tau \sigma \tau^{-1} \sigma^{-1} (x)$, which implies that $x = \tau \sigma \tau^{-1} \sigma^{-1} (x)$ for all $x \in k$, but we assumed $\tau$ and $\sigma$ did not commute. Hence such $\psi$ does not exist, and $k\text{-}\textbf{Bimod}$ cannot be symmetric.
+\end{example}
+
+\begin{example}{symmetric-monoidal-category}
+    A monoidal category can be symmetric in multiple ways. Let $\textbf{GrVect}_k$ be the category whose objects are graded vector spaces $V = \oplus_{n \in \ZZ} V_n$ over a field $k$, and whose morphisms are linear maps that respect the grading. The tensor product of two graded vector spaces $V$ and $W$ is again graded, with grading $(V \otimes W)_n = \oplus_{p + q = n} (V_p \otimes W_q)$, making $\textbf{GrVect}_k$ into a monoidal category, where the unital object is the ground field $k$ concentrated in degree zero.
+        
+    There is more than one way to make $\textbf{GrVect}_k$ symmetric. As the map $V \otimes W \to W \otimes V$ one could take the more obvious map $\tau : v \otimes w \to w \otimes v$. However, one could also take the map $\kappa : v \otimes w \mapsto (-1)^{pq} w \otimes v$ with $p = \deg(v)$ and $q = \deg(w)$, known as \textit{Koszul's sign change}. One can check that $\kappa$ indeed satisfies the axioms.
+\end{example}
+
+\begin{topic}{monoidal-functor}{(lax) monoidal functor}
+    A \textbf{lax monoidal functor} is a \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ between \tref{monoidal-category}{monoidal categories} together with a \tref{natural-transformation}{natural transformation}
+    \[ \mu : F(-) \otimes_\mathcal{D} F(-) \Rightarrow F(- \otimes_\mathcal{C} -) \]
+    and a morphism $\varepsilon : \textbf{1}_\mathcal{D} \to F(\textbf{1}_\mathcal{C})$, such that the diagrams
+    \[ \begin{tikzcd}[column sep=7em]
+        (F(X) \otimes_\mathcal{D} F(Y)) \otimes_\mathcal{D} F(Z) \arrow{r}{\alpha^\mathcal{D}_{F(X), F(Y), F(Z)}} \arrow[swap]{d}{\mu_{X, Y} \otimes \id_{F(Z)}} & F(X) \otimes_\mathcal{D} (F(Y) \otimes_\mathcal{D} F(Z)) \arrow{d}{\id_{F(X)} \otimes \mu_{Y, Z}} \\ F(X \otimes_\mathcal{C} Y) \otimes_\mathcal{D} F(Z) \arrow[swap]{d}{\mu_{X \otimes_\mathcal{C} Y, Z}} &  F(X) \otimes_\mathcal{D} F(Y \otimes_\mathcal{C} Z) \arrow{d}{\mu_{X, Y \otimes_\mathcal{C} Z}} \\ F((X \otimes_\mathcal{C} Y) \otimes_\mathcal{C} Z) \arrow{r}{F(\alpha^\mathcal{C}_{X, Y, Z})} & F(X \otimes_\mathcal{C} (Y \otimes_\mathcal{C} Z))
+    \end{tikzcd} \]
+    and
+    \[ \begin{tikzcd}[column sep=3em]
+        \textbf{1}_\mathcal{D} \otimes_\mathcal{D} F(X) \arrow{r}{\varepsilon \otimes \id_{F(X)}} \arrow[swap]{d}{\lambda^\mathcal{D}_F(X)} & F(\textbf{1}_\mathcal{C}) \otimes_\mathcal{D} F(X) \arrow{d}{\mu_{\textbf{1}_\mathcal{C}, X}} \\ F(X) & F(\textbf{1}_\mathcal{C} \otimes_\mathcal{C} X) \arrow{l}{F \left(\lambda^\mathcal{C}_X \right)}
+    \end{tikzcd} \text{ and } \begin{tikzcd}[column sep=3em]
+        F(X) \otimes_\mathcal{D} \textbf{1}_\mathcal{D} \arrow{r}{\id_{F(X)} \otimes \varepsilon} \arrow[swap]{d}{\rho^\mathcal{D}_F(X)} & F(X) \otimes_\mathcal{D} F(\textbf{1}_\mathcal{C}) \arrow{d}{\mu_{X, \textbf{1}_\mathcal{C}}} \\ F(X) & F(X \otimes_\mathcal{C} \textbf{1}_\mathcal{C}) \arrow{l}{F \left(\rho^\mathcal{C}_X \right)}
+    \end{tikzcd} \]
+    commute for all objects $X, Y, Z$ in $\mathcal{C}$. Such a functor is said to be a \textbf{strong monoidal functor}, or simply a \textbf{monoidal functor}, if all $\mu_{X, Y}$ and $\varepsilon$ are isomorphisms.
+\end{topic}
+
+\begin{topic}{enriched-category}{enriched category}
+    Let $\mathcal{A}$ be a \tref{monoidal-category}{monoidal category}. An \textbf{$\mathcal{A}$-enriched category} $\mathcal{C}$ consists of
+    \begin{itemize}
+        \item (\textit{objects}) a collection $\text{Ob}(\mathcal{C})$, whose elements are called \textit{objects} of $\mathcal{C}$,
+        \item (\textit{hom-objects}) for every pair of objects $X, Y$ an object $\underline{\Hom}_\mathcal{C}(X, Y)$ of $\mathcal{A}$,
+        \item (\textit{composition law}) for every triple of objects $X, Y, Z$ a morphism
+        \[ c_{Z, Y, X} : \underline{\Hom}_\mathcal{C}(Y, Z) \otimes \underline{\Hom}_\mathcal{C}(X, Y) \to \underline{\Hom}_\mathcal{C}(X, Z) \]
+        in $\mathcal{A}$,
+        \item (\textit{identities}) for every object $X$ a morphism $e_X : \textbf{1} \to \underline{\Hom}_\mathcal{C}(X, X)$ in $\mathcal{A}$,
+    \end{itemize}
+    such that for every quadruple of objects $W, X, Y, Z$ the diagram
+    \[ \begin{tikzcd}
+        & \underline{\Hom}_\mathcal{C}(Y, Z) \otimes \underline{\Hom}_\mathcal{C}(W, Y) \arrow{dd}{c_{Z, Y, W}} \\ \underline{\Hom}_\mathcal{C}(Y, Z) \otimes \left(\underline{\Hom}_\mathcal{C}(X, Y) \otimes \underline{\Hom}_\mathcal{C}(W, X)\right) \arrow{ur}{\id \otimes c_{Y, X, W}} \arrow{dd}{\alpha} & \\ & \underline{\Hom}_\mathcal{C}(W, Z) \arrow{dd}{c_{Z, X, W}} \\ \left(\underline{\Hom}_\mathcal{C}(Y, Z) \otimes \underline{\Hom}_\mathcal{C}(X, Y)\right) \otimes \underline{\Hom}_\mathcal{C}(W, X) \arrow{dr}{c_{Z, Y, X} \otimes \id} & \\ & \underline{\Hom}_\mathcal{C}(X, Z) \otimes \underline{\Hom}_\mathcal{C}(W, X)
+    \end{tikzcd} \]
+    commutes, and for every pair of objects $X, Y$, the diagrams
+    \[ \begin{tikzcd}
+        \textbf{1} \otimes \underline{\Hom}_\mathcal{C}(X, Y) \arrow{rr}{e_Y \otimes \id} \arrow{dr}{\lambda} && \underline{\Hom}_\mathcal{C}(Y, Y) \otimes \underline{\Hom}_\mathcal{C}(X, Y) \arrow{dl}{c_{Y, Y, X}} \\ & \underline{\Hom}_\mathcal{C}(X, Y) & \\
+        \underline{\Hom}_\mathcal{C}(X, Y) \otimes \textbf{1} \arrow{rr}{\id \otimes e_X} \arrow{dr}{\rho} && \underline{\Hom}_\mathcal{C}(X, Y) \otimes \underline{\Hom}_\mathcal{C}(X, X) \arrow{dl}{c_{Y, X, X}} \\ & \underline{\Hom}_\mathcal{C}(X, Y) &       
+    \end{tikzcd} \]
+    commute.
+\end{topic}
+
+\begin{example}{enriched-category}
+    For $\mathcal{A} = \textbf{Set}$ the category of sets, with monoidal structure given by the cartesian product, an $\mathcal{A}$-enriched category is the same as an ordinary \tref{category}{category}.
+\end{example}
+
+\begin{example}{enriched-category}
+    For $\mathcal{A} = \textbf{Cat}$ the category of (small) categories, with monoidal structure given by the product of categories, an $\mathcal{A}$-enriched category is the same as a 2-category.
+\end{example}
+
+\begin{example}{enriched-category}
+    For $\mathcal{A} = \textbf{Ab}$ the category of abelian groups, with monoidal structure given by the product of groups, an $\mathcal{A}$-enriched category is the same as a \textit{preadditive category}.
+\end{example}
+
+\begin{example}{enriched-category}
+    For $\mathcal{A} = \textbf{Vect}_k$ the category of vector spaces over a field $k$, with monoidal structure given by the tensor product over $k$, an $\mathcal{A}$-enriched category is also known as a \textit{$k$-linear category}.
+\end{example}
+
+% Simplicial objects and infinity categories
+\begin{topic}{simplex-category}{simplex category}
+    The \textbf{simplex category}, often denoted by $\Delta$, is the \tref{CT:category}{category} whose objects are sets of the form
+    \[ [n] = \{ 0, 1, 2, \ldots, n \}, \qquad \text{ with } n \ge 0 , \]
+    and whose morphisms are order-preserving functions between these sets.
+\end{topic}
+
+\begin{topic}{simplicial-object}{simplicial object}
+    A \textbf{simplicial object} in a \tref{CT:category}{category} $\mathcal{C}$ is a \tref{CT:functor}{functor}
+    \[ X : \Delta^\text{op} \to \mathcal{C} , \]
+    where $\Delta$ denotes the \tref{simplex-category}{simplex category}. Concretely, a simplicial object consists of a family of objects $X_n$ in $\mathcal{C}$ and a morphism $X_m \to X_n$ for each function $f : [n] \to [m]$, which compose nicely.
+    
+    The \textit{face maps} are the maps $d_{n, i} : X_n \to X_{n - 1}$ corresponding to the function $\delta^{n, i} : [n - 1] \to [n]$ that misses $i$.
+    
+    The \textit{degeneracy maps} are the maps $s_{n, i} : X_n \to X_{n + 1}$ corresponding to the function $\sigma^{n, i} : [n + 1] \to [n]$ that repeat $i$.
+\end{topic}
+
+\begin{example}{simplicial-object}
+    Let $X$ be a topological space. The \textbf{singular simplicial set} of a topological space is the simplicial set $\mathcal{S}(X)_\bdot$ given by
+    \[ \mathcal{S}(X)_n = \{ \text{cont. maps } \Delta^n \to X \} . \]
+    Every $[n] \to [m]$ induces a map $\Delta^n \to \Delta^m$ by labelling the vertices, which in turn induces a map $\mathcal{S}(X)_m \to \mathcal{S}(X)_m$. Also see \tref{AT:singular-homology}{singular homology}.
+\end{example}
+
+\begin{topic}{nerve}{nerve}
+    The \textbf{nerve} of a \tref{CT:category}{category} $\mathcal{C}$ is the \tref{simplicial-object}{simplicial set} $\text{N}_\bdot(\mathcal{C})$, where $\text{N}_n(\mathcal{C})$ is the set of \tref{CT:functor}{functors} from $[n] = \{ 0, 1, \ldots, n \}$ (viewed as category: a unique morphism from $i$ to $j$ iff $i \le j$) to $\mathcal{C}$.
+    Indeed, for any non-decreasing map $\alpha : [m] \to [n]$, precomposition with $\alpha$ gives a map $\text{N}_n(\mathcal{C}) \to \text{N}_m(\mathcal{C})$.
+    
+    It can be shown that the \textit{nerve functor}
+    \[ \text{N}_\bdot : \textbf{Cat} \to \textbf{Set}_\Delta \]
+    is \tref{CT:full-functor}{fully} \tref{CT:faithful-functor}{faithful}.
+\end{topic}
+
+\begin{topic}{infinity-category}{infinity category}
+    An \textbf{$\infty$-category} is a \tref{simplicial-object}{simplicial set} $\mathcal{C}$ such that every map of simplicial sets $\Lambda^n_i \to \mathcal{C}$ with $0 < i < n$ can be extended to a map $\Delta^n \to \mathcal{C}$.
+    \[ \begin{tikzcd} \Lambda^n_i \arrow{r} \arrow{d} & \mathcal{C} \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]
+    
+    One thinks of the vertices $\mathcal{C}_0$ as the objects, the edges $\mathcal{C}_1$ as the arrows ($\id_x = s_0(x)$ and $d_0(f) = \text{cod}(f)$ and $d_1(f) = \text{dom}(f)$), the triangles $\mathcal{C}_2$ as a specified homotopy from $g \circ f$ to $h$, etc.
+    
+    A \textit{functor} between $\infty$-categories is a map of simplicial sets.
+\end{topic}
+
+\begin{example}{infinity-category}
+    Any \tref{HT:kan-complex}{Kan complex} is an $\infty$-category.
+    
+    The \tref{nerve}{nerve} $N_\bdot(\mathcal{C})$ of a \tref{CT:category}{category} $\mathcal{C}$ is an $\infty$-category.
+\end{example}

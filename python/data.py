@@ -1,4 +1,5 @@
 data = {
+    "AA": [ "abstract-algebra.tex" ],
     "AG": [ "algebraic-geometry.tex",
             "log-geometry.tex",
             "sheaves.tex",
@@ -17,6 +18,7 @@ data = {
     "HA": [ "homological-algebra.tex",
             "triangulated-categories.tex",
             "derived-categories.tex" ],
+    "HT": [ "homotopy-theory.tex" ],
     "LA": [ "linear-algebra.tex" ],
     "NT": [ "number-theory.tex" ],
     "TO": [ "topology.tex" ],

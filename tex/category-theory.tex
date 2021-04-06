@@ -113,8 +113,13 @@
 \end{topic}
 
 \begin{topic}{fiber-product}{fiber product}
-    Let $f : X \to Z$ and $g : Y \to Z$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $W$ of $\mathcal{C}$ together with morphisms $\pi_X: W \to X$ and $\pi_Y : W \to Y$ is said to be a \textbf{fiber product} of the pair $f, g$ if $f \pi_X = g \pi_Y$ and for any other such $W'$ with maps $\pi_X'$ and $\pi_Y'$ there exists a unique morphism $h : W' \to W$ such that $\pi_X' = \pi_X h$ and $\pi_Y' = \pi_Y h$.
+    Let $f : X \to Z$ and $g : Y \to Z$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $W$ of $\mathcal{C}$ together with morphisms $\pi_X: W \to X$ and $\pi_Y : W \to Y$ is said to be a \textbf{fiber product} of the pair $f, g$ if $f \circ \pi_X = g \circ \pi_Y$ and for any other such $W'$ with maps $\pi_X'$ and $\pi_Y'$ there exists a unique morphism $h : W' \to W$ such that $\pi_X' = \pi_X \circ h$ and $\pi_Y' = \pi_Y \circ h$.
     \[ \begin{tikzcd} W' \arrow[bend left=30]{rrd}{\pi_X'} \arrow[swap, bend right=30]{ddr}{\pi_Y'} \arrow[dashed]{rd}{\exists!} & & \\ & W \arrow{r}{\pi_X} \arrow[swap]{d}{\pi_Y} & X \arrow{d}{f} \\ & Y \arrow[swap]{r}{g} & Z \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{pushout}{pushout}
+    Let $f : X \to Y$ and $g : X \to Z$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $W$ of $\mathcal{C}$ together with morphisms $i_Y: Y \to W$ and $i_Z : Z \to W$ is said to be a \textbf{pushout} of the pair $f, g$ if $i_Y \circ f = i_Z \circ g$ and for any other such $W'$ with maps $i'_Y$ and $i'_Z$ there exists a unique morphism $h : W \to W'$ such that $i'_Y = h \circ i_Y$ and $i'_Z = h \circ i_Z$.
+    \[ \begin{tikzcd} X \arrow{r}{f} \arrow[swap]{d}{g} & Y \arrow{d}{i_Y} \arrow[bend left=30]{rdd}{i'_Y} & \\ Z \arrow[swap]{r}{i_Z} \arrow[swap, bend right=30]{drr}{i'_Z} & W \arrow[dashed]{rd}{\exists!} & \\ & & W' \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{regular-monomorphism}{regular monomorphism}
@@ -202,4 +207,18 @@
     A \tref{category}{category} $\mathcal{C}$ is \textbf{small} if its objects and morphisms form a set.
     
     A category $\mathcal{C}$ is \textbf{locally small} if for all objects $X, Y$, the hom-class $\Hom(X, Y)$ is a set.
+\end{topic}
+
+\begin{topic}{presheaf}{presheaf}
+    A \textbf{presheaf} on a \tref{category}{category} $\mathcal{C}$ is a \tref{functor}{functor} $F : \mathcal{C}^\text{op} \to \textbf{Set}$.
+\end{topic}
+
+\begin{topic}{representable-functor}{representable functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is \textbf{representable} if it is \tref{natural-transformation}{naturally} isomorphic to $\Hom_\mathcal{C}(X, -)$ for some object $X$ of $\mathcal{C}$.
+    
+    Similarly, a functor $F : \mathcal{C}^\text{op} \to \textbf{Set}$ (i.e. a \tref{presheaf}{presheaf}) is \textbf{representable} if it is naturally isomorphic to $\Hom_\mathcal{C}(-, X)$ for some object $X$ of $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{opposite-category}{opposite category}
+    The \textbf{opposite category} $\mathcal{C}^\text{op}$ of a \tref{category}{category} $\mathcal{C}$ is formed by reversing the morphisms. That is, the objects of $\mathcal{C}^\text{op}$ are the objects of $\mathcal{C}$, and there is a morphism $f^\text{op} : Y \to X$ in $\mathcal{C}^\text{op}$ for each morphism $f : X \to Y$ in $\mathcal{C}$.
 \end{topic}

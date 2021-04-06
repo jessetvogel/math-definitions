@@ -8,6 +8,7 @@ const categories = {
     "DT": "Deformation Theory",
     "GT": "Group Theory",
     "HA": "Homological Algebra",
+    "HT": "Homotopy Theory",
     "LA": "Linear Algebra",
     "NT": "Number Theory",
     "TO": "Topology",

@@ -1,0 +1,7 @@
+A <b>lax monoidal functor</b> is a <a href="#CT:functor">functor</a> <span class="math inline">\(F : \mathcal{C} \to \mathcal{D}\)</span> between <a href="#CT:monoidal-category">monoidal categories</a> together with a <a href="#CT:natural-transformation">natural transformation</a>
+<span class="math display">\[ \mu : F(-) \otimes_\mathcal{D} F(-) \Rightarrow F(- \otimes_\mathcal{C} -) \]</span>
+and a morphism <span class="math inline">\(\varepsilon : \textbf{1}_\mathcal{D} \to F(\textbf{1}_\mathcal{C})\)</span>, such that the diagrams
+<img class="display-math-svg" src="data/svg/edf829b114248d522746a7e49b17708bef44d6ab.svg" alt />
+and
+<img class="display-math-svg" src="data/svg/e32eadde29c22799621c864696deff3f50bde069.svg" alt />
+commute for all objects <span class="math inline">\(X, Y, Z\)</span> in <span class="math inline">\(\mathcal{C}\)</span>. Such a functor is said to be a <b>strong monoidal functor</b>, or simply a <b>monoidal functor</b>, if all <span class="math inline">\(\mu_{X, Y}\)</span> and <span class="math inline">\(\varepsilon\)</span> are isomorphisms.

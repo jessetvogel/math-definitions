@@ -52,3 +52,11 @@
     
     This statement also works for \tref{CA:principal-ideal-domain}{PID's}: $(a) + (b) = (\gcd(a, b))$.
 \end{topic}
+
+\begin{topic}{p-adic-numbers}{p-adic numbers}
+    Let $p$ be a prime number. The \textbf{ring of $p$-adic integers} is defined as the inverse limit
+    \[ \ZZ_p = \varinjlim_{n \ge 1} \ZZ / p^n \ZZ . \]
+    That is, a $p$-adic integer is a sequence $(a_n)_{n \ge 1}$ such that $a_n \in \ZZ / p^n \ZZ$ and $a_m \equiv a_n \mod p^m$ for $m \le n$.
+    
+    The ring of $p$-adic rationals $\QQ_p$ is defined as the \tref{CA:field-of-fractions}{field of fractions} of $\ZZ_p$.
+\end{topic}

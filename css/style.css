@@ -240,3 +240,23 @@ img.display-math-svg {
     content: '(show examples)';
     cursor: pointer;
 }
+
+/* loading animation */
+.loading {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    opacity: 0.0;
+    background-color: black;
+    animation: loading 0.8s infinite;
+    animation-delay: 0.2s; /* if loading takes less than 0.2s, no animation is needed */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+@keyframes loading {
+    0% { transform: scale(0.0); opacity: 1.0 }
+    100% { transform: scale(1.0); opacity: 0.0; }
+}
