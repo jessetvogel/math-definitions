@@ -81,7 +81,7 @@ var autoCompleteNumItems = 0;
 function initAutoComplete() {
     autoCompleteInput = document.getElementById('input-search');
     autoCompleteList = document.getElementById('auto-complete-list');
-    autoCompleteInput.addEventListener('input', function (e) {
+    const updateAutoComplete = function (e) {
         const val = autoCompleteInput.value;
         // console.log(val);
         
@@ -125,8 +125,8 @@ function initAutoComplete() {
         for(let i = 0; i < autoCompleteNumItems; ++i) {
             autoCompleteList.appendChild(items[i][2]);
         }
-    });
-
+    };
+    autoCompleteInput.addEventListener('input', updateAutoComplete);
     autoCompleteInput.addEventListener('keydown', function(e) {
         if(e.key == 'ArrowDown') {
             if(autoCompleteItem < autoCompleteNumItems - 1)
@@ -147,6 +147,25 @@ function initAutoComplete() {
                 id = item.querySelector('.identifier').innerText;
             if(id != null)
                 gotoTopic(id);
+        }
+
+        if(e.key == 'Escape')
+            autoCompleteInput.blur();
+    });
+
+    autoCompleteInput.addEventListener('focusout', function(e) {
+        autoCompleteList.innerHTML = '';
+    });
+
+    // Override search function
+    window.addEventListener('keydown',function (event) {
+        const ctrlKey = navigator.platform.indexOf('Mac') > -1 ? event.metaKey : event.ctrlKey;
+        if (ctrlKey && event.key == 'f') {
+            const input = document.getElementById('input-search');
+            input.focus();
+            input.select();
+            updateAutoComplete(event);
+            event.preventDefault();
         }
     });
 }
@@ -199,14 +218,3 @@ function capitalize(str) {
 
     return str.substr(0, i) + str[i].toUpperCase() + str.substr(i + 1);
 }
-
-// Override search function
-window.addEventListener('keydown',function (event) {
-    const ctrlKey = navigator.platform.indexOf('Mac') > -1 ? event.metaKey : event.ctrlKey;
-    if (ctrlKey && event.key == 'f') {
-        const input = document.getElementById('input-search');
-        input.focus();
-        input.select();
-        event.preventDefault();
-    }
-});

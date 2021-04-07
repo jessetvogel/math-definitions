@@ -143,6 +143,10 @@
     A \textbf{section} of a morphism $p : X \to Y$ is a morphism $s : Y \to X$ such that $p \circ s = \id_Y$.
 \end{topic}
 
+\begin{topic}{retract}{retract}
+    An object $X$ is called a \textbf{retract} of an object $Y$ if there are morphisms $i : X \to Y$ and $r : Y \to X$ such that $r \circ i = \id_X$, i.e. $r$ is a \tref{retraction}{retraction} of $i$.
+\end{topic}
+
 \begin{topic}{sieve}{sieve}
     Let $\mathcal{C}$ be a category, and $C$ an object of $\mathcal{C}$. A \textbf{sieve} on $C$ is a set of morphisms $S = \{ f : C' \to C \}$ such that if $f : C' \to C$ is in $S$ and $g : C'' \to C'$ is arbitrary, then $f \circ g$ is in $S$.
     
@@ -222,3 +226,59 @@
 \begin{topic}{opposite-category}{opposite category}
     The \textbf{opposite category} $\mathcal{C}^\text{op}$ of a \tref{category}{category} $\mathcal{C}$ is formed by reversing the morphisms. That is, the objects of $\mathcal{C}^\text{op}$ are the objects of $\mathcal{C}$, and there is a morphism $f^\text{op} : Y \to X$ in $\mathcal{C}^\text{op}$ for each morphism $f : X \to Y$ in $\mathcal{C}$.
 \end{topic}
+
+\begin{topic}{zero-object}{zero object}
+    In a \tref{category}{category} $\mathcal{C}$, a \textbf{zero object} is an object which is both \tref{initial-object}{initial} and \tref{terminal-object}{terminal}.
+\end{topic}
+
+\begin{topic}{pointed-category}{pointed category}
+    A \textbf{pointed category} is a \tref{category}{category} with a \tref{zero-object}{zero object}.
+\end{topic}
+
+\begin{topic}{fiber}{(co)fiber}
+    Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{zero-object}{zero object} $0$. A \textbf{fiber} of a morphism $f : X \to Y$ in $\mathcal{C}$ is a \tref{fiber-product}{pullback diagram}
+    \[ \begin{tikzcd}
+        X \times_Y 0 \arrow{r} \arrow{d} & X \arrow{d}{f} \\ 0 \arrow{r} & Y .
+    \end{tikzcd} \]
+    Dually, a \textbf{cofiber} of $f$ is a \tref{pushout}{pushout diagram}
+    \[ \begin{tikzcd}
+        X \arrow{r}{f} \arrow{d} & Y \arrow{d} \\ 0 \arrow{r} & Y \amalg_X 0 .
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{slice-category}{slice category}
+    Given a \tref{category}{category} $\mathcal{C}$ over an object $X$, the \textbf{slice category} $\mathcal{C}/X$ is the category whose
+    \begin{itemize}
+        \item objects are morphisms $f : Y \to X$ of $\mathcal{C}$,
+        \item morphisms from $f : Y \to X$ to $f' : Y' \to X$ are morphisms $g : Y \to Y'$ such that $f' \circ g = f$.
+        \[ \begin{tikzcd}[row sep=0em] Y \arrow{rd}{f} \arrow[swap]{dd}{g} & \\ & X \\ Y' \arrow[swap]{ur}{f'} & \end{tikzcd} \]
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{arrow-category}{arrow category}
+    Given a \tref{category}{category} $\mathcal{C}$, the \textbf{arrow category} $\mathcal{C}^\rightarrow$ is the category whose
+    \begin{itemize}
+        \item objects are morphisms $f : X \to Y$ of $\mathcal{C}$,
+        \item morphisms from $f : X \to Y$ to $f' : X' \to Y'$ are pairs $(g, h)$, where $g : X \to X'$ and $h : Y \to Y'$ such that $f' \circ g = h \circ f$.
+        \[ \begin{tikzcd} X \arrow{r}{f} \arrow[swap]{d}{g} & Y \arrow{d}{h} \\ X' \arrow{r}{f'} & Y' \end{tikzcd} \]
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{comma-category}{comma category}
+    The \textbf{comma category} of two \tref{functor}{functors} $F : \mathcal{C} \to \mathcal{E}$ and $G : \mathcal{D} \to \mathcal{E}$ is the category $F \downarrow G$ whose
+    \begin{itemize}
+        \item objects are triples $(C, D, f)$ where $C, D$ are objects of $\mathcal{C}$ and $\mathcal{D}$, respectively, and $f : F(C) \to G(D)$ a morphism in $\mathcal{E}$,
+        \item morphisms from $(C, D, f)$ to $(C', D', f')$ are pairs $(g, h)$, where $g : C \to C'$ and $h : D \to D'$ are morphisms in $\mathcal{C}$ and $\mathcal{D}$, respectively, such that $f' \circ F(g) = G(h) \circ f$.
+        \[ \begin{tikzcd}
+            F(C) \arrow{r}{F(g)} \arrow[swap]{d}{f} & F(C') \arrow{d}{f'} \\ G(D) \arrow{r}{G(h)} & G(D')
+        \end{tikzcd} \]
+    \end{itemize}
+\end{topic}
+
+\begin{example}{comma-category}
+    When $F = \id_\mathcal{C}$ and $G : \textbf{1} \to \mathcal{C}$, given by $G(\star) = X$, the comma category $F \downarrow G$ is the same the \tref{slice-category}{slice category} $\mathcal{C}/X$.
+\end{example}
+
+\begin{example}{comma-category}
+    When $F = G = \id_\mathcal{C}$, the comma category $F \downarrow G$ is the same the \tref{arrow-category}{arrow category} $\mathcal{C}^\rightarrow$.
+\end{example}

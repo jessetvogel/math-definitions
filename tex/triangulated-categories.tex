@@ -21,7 +21,15 @@
             A' \arrow{r} & B' \arrow{r} & C' \arrow{r} & A'[1]
         \end{tikzcd} \]
         there exists an $h : C \to C'$ completing the diagram. Note: this $h$ may be non-unique.
-        \item The \textit{octahedron axiom}.
+        \item (\textit{octahedron axiom}) Given exact triangles
+        \[ X \xrightarrow{u} Y \xrightarrow{j} Z' \xrightarrow{k} X[1] \]
+        \[ Y \xrightarrow{v} Z \xrightarrow{\ell} X' \xrightarrow{i} Y[1] \]
+        \[ X \xrightarrow{vu} Z \xrightarrow{m} Y' \xrightarrow{n} X[1] , \]
+        there exists an exact triangle
+        \[ Z' \xrightarrow{f} Y' \xrightarrow{g} X' \xrightarrow{h} Z'[1] , \]
+        such that 
+        \[ \ell = gm, \quad k = nf, \quad h = j[1]i, \quad ig = u[1]n \quad \text{ and } \quad fj = mv . \]
+        \[ \begin{tikzcd}[row sep=4em, column sep=5em] & Y' \arrow{rd}{g} & \\ Z' \arrow{ur}{f} \arrow[d, swap,"k","{[}1{]}"'] \ar[from=ddr, crossing over]{}{j} & & X' \arrow[ddl, swap, "i", "{[}1{]}"'] \arrow[ll, "h"',"{[}1{]}"] \\ X \arrow[swap]{dr}{u} \arrow[crossing over]{rr}{vu} \arrow[swap, from=uur, crossing over, "n", "{[}1{]}"'] & & Z \arrow[swap]{u}{\ell} \arrow[crossing over, swap]{uul}{m} \\ & Y \arrow[swap]{ur}{v} & \end{tikzcd} \]
     \end{enumerate}
 \end{topic}
 

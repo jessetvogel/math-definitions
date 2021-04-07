@@ -10,15 +10,27 @@ AG: blowup / blowdown
 AG: Néron–Severi group
 
 # Number theory
+NT: ring of integers
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
+NT: places
+NT: inertia subgroup
+NT: tame/wild ramification
+NT: ramification groups
+NT: ray class group
+NT: ray class field
+NT: Hilbert class field
+NT: artin symbol
+NT: artin map
 CA/NT: Galois correspondence
 
 
+AG: Mordell--Weil theorem
+
+# Group theory
 GT: parabolic subgroup
 
 # Category theory
-CT: retract (not a retraction)
 CT: localization example: Prototype 10.3.5 of weibel
 
 # Representation theory
@@ -34,8 +46,11 @@ HA: examples abelian category
 
 UN: classifying space
 
+# Homotopy theory
+HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]
+HT: pointed infinity category [Definition 1.1.1.1]
+HT: stable infinity category [Definition 1.1.1.9]
 
-HT: Kan fibration
 // HT: sifted simplicial set ?
 
 AT: EXAMPLES for Seifert–Van Kampen theorem (\Pi(S^1, { s_0, s_1 }) = pushout of 2 -> (1 <-> 1) and 2 -> (1 <-> 1) which is (1 <=> 1), in particular, \pi_1(S^1, s_0) is \ZZ)

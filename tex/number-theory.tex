@@ -60,3 +60,82 @@
     
     The ring of $p$-adic rationals $\QQ_p$ is defined as the \tref{CA:field-of-fractions}{field of fractions} of $\ZZ_p$.
 \end{topic}
+
+\begin{topic}{valuation}{valuation}
+    A \textbf{valuation} on a \tref{CA:field}{field} $K$ is a function $\phi : K \to \RR_{\ge 0}$ satisfying
+    \begin{itemize}
+        \item $\phi(x) = 0$ if and only if $x = 0$,
+        \item $\phi(xy) = \phi(x) \phi(y)$ for $x, y \in K$,
+        \item there exists $C > 0$ such that $\phi(x + y) \le C \max \{ \phi(x), \phi(y) \}$ for all $x, y \in K$.
+    \end{itemize}
+    The smallest possible constant $C$ is called the \textbf{norm} $\norm{\phi}$ of $\phi$. Note that
+    \[ \norm{\phi} = \sup_{x : \phi(x) \le 1} \phi(1 + x) . \]
+\end{topic}
+
+\begin{example}{valuation}
+    For $K$ equal to $\CC$ or a subfield of it such as $\RR$ or $\QQ$, the absolute value $\phi = |\cdot|$ defines a valuation. Its norm is $2$.
+\end{example}
+
+\begin{example}{valuation}
+    For a prime $\mathfrak{p}$ of a \tref{number-field}{number field} $K$, there is the valuation
+    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
+    for some fixed $c \in (0, 1)$. From
+    \[ \text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \} \]
+    follows that $\norm{\phi_\mathfrak{p}} = 1$.
+\end{example}
+
+\begin{example}{valuation}
+    For an \tref{CA:irreducible-element}{irreducible} polynomial $P$ in the polynomial ring $F[X]$ over an arbitrary field $F$, we have the number $\text{ord}_P(f) \in \ZZ_{\ge 0}$ of factors $P$ occurring in the factorization of a non-zero polynomial $f \in F[X]$, which is well-defined as $F[X]$ is a \tref{CA:unique-factorization-domain}{unique factorization domain}. It yields the valuation on the field of fractions $F(X)$,
+    \[ \phi_P : F(X) \to \RR_{\ge 0}, \quad f \mapsto c^{\text{ord}_P(f)} ,  \]
+    for some fixed $c \in (0, 1)$. From
+    \[ \text{ord}_P(f + g) \ge \min \{ \text{ord}_P(f), \text{ord}_P(g) \} \]
+    follows that $\norm{\phi_P} = 1$.
+\end{example}
+
+\begin{example}{valuation}
+    If $K = \FF_q$ is a finite field, then every valuation $\phi$ is \textit{trivial}: every non-zero $x \in K$ has finite order, so $\phi(x)^n = \phi(x^n) = \phi(1) = 1$ for some $n \ge 1$, so $\phi(x) = 1$.
+\end{example}
+
+\begin{topic}{archimedean-valuation}{(non-)archimedean valuation}
+    A \tref{valuation}{valuation} $\phi$ on a \tref{CA:field}{field} $K$ is called \textbf{non-archimedean} if its norm $\norm{\phi}$ equals $1$. Otherwise, the valuation is called \textbf{archimedean}.
+\end{topic}
+
+\begin{example}{archimedean-valuation}
+    For a prime $\mathfrak{p}$ of a \tref{number-field}{number field} $K$, consider the valuation
+    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
+    for some fixed $c \in (0, 1)$. From
+    \[ \text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \} \]
+    follows that $\norm{\phi_\mathfrak{p}} = 1$, and thus $\phi_\mathfrak{p}$ is non-archimedean.
+\end{example}
+
+\begin{example}{archimedean-valuation}
+    If $K$ is a number field, and $\sigma : K \to \CC$ an embedding, the valuation coming from the absolute value,
+    \[ \phi_\sigma : K \to \RR_{\ge 0}, x \mapsto |\sigma(x)| , \]
+    has norm $2$, and thus is archimedean.
+\end{example}
+
+\begin{topic}{place}{place}
+    Two \tref{valuation}{valuations} $\phi$ and $\psi$ on a \tref{CA:field}{field} $K$ are said to be \textit{equivalent} if $\phi = \psi^r$ for some constant $r > 0$. A \textbf{place} of $K$ is an equivalence class of non-trivial valuations on $K$.
+    
+    Places are also known as \textbf{prime divisors}, or simply \textbf{primes}, of $K$. Places corresponding to \tref{archimedean-valuation}{archimedian} (resp. non-archimedean) valuations are called \textbf{infinite primes} (resp. \textbf{finite primes}). This terminology comes from the fact that finite primes on a \tref{number-field}{number field} $K$ precisely correspond to the non-zero prime ideals $\mathfrak{p}$ of the \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$, and infinite primes on $K$ correspond to embeddings $\sigma : K \to \CC$, up to complex conjugation.
+\end{topic}
+
+% \begin{topic}{complete-valued-field}{complete valued field}
+    
+% \end{topic}
+
+\begin{topic}{hensel-lifting-lemma}{Hensel's lifting lemma}
+    \textbf{Hensel's lifting lemma} states the following: let $K$ be a \tref{CA:field}{field}, complete with respect to a \tref{archimedean-valuation}{non-archimedean} \tref{valuation}{valuation}, and $A$ the valuation ring of $K$. Suppose that $f \in A[X]$ is a polynomial that factors over the residue class field $k = A / \mathfrak{m}$ as
+    \[ \overline{f} = \overline{g} \cdot \overline{h} \in k[X] \]
+    with $\overline{g}, \overline{h} \in k[X]$ non-zero and coprime. Then there exists a factorization $f = g \cdot h$ in $A[X]$ such that $\deg(g) = \deg(\overline{g})$ and $g, h$ have reduction $\overline{g}, \overline{h}$ in $k[X]$.
+\end{topic}
+
+\begin{example}{hensel-lifting-lemma}
+    Consider $f = 2X^2 + X + 2 \in \ZZ_2[X]$, whose reduction $\overline{f} = X \in \FF_2[X]$ can be factored as $\overline{g} \cdot \overline{h}$ with $\overline{g} = X$ and $\overline{h} = 1$. The proof of Hensel's lemma is constructive, in the sense that we can compute successive approximations for $g$ and $h$.
+    \[ g_0 = X + 2, \quad h_0 = 1 \quad (f \equiv g_0 h_0 \text{ mod } 2^1) \]
+    \[ g_1 = X + 10, \quad h_1 = 2X - 3 \quad (f \equiv g_1 h_1 \text{ mod } 2^4) \]
+    \[ g_2 = X + 4810, h_2 = 2X - 9619 \quad (f \equiv g_2 h_2 \text{ mod } 2^{10}) \]
+    \[ g_3 = X + 82462974405415300810, \quad h_2 = 2X - 164925948810830601619 \quad (f \equiv g_3 h_3 \text{ mod } 2^{18}) \]
+    In general, we are guaranteed to have $f \equiv g_i h_i \text{ mod } 2^{2^i}$.
+\end{example}
+
