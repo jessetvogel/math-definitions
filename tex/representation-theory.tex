@@ -1,0 +1,51 @@
+\begin{topic}{representation}{representation}
+    A \textbf{representation} of a \tref{GT:group}{group} $G$ on a \tref{LA:vector-space}{vector space} $V$ over a \tref{CA:field}{field} $k$ is a \tref{GT:group-homomorphism}{group homomorphism}
+    \[ \rho : G \to \text{GL}(V) . \]
+    The vector space $V$ is called the \textit{representation space} and $\dim_k V$ the \textit{dimension} of the representation.
+\end{topic}
+
+\begin{topic}{irreducible-representation}{(ir)reducible representation}
+    A \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is \textbf{reducible} if there exists a non-zero proper invariant subspace $W \subset V$, that is, $\rho(g) w \in W$ for all $w \in W$ and $g \in G$. If no such subspace exists, the representation is \textbf{irreducible}. If $\rho$ can be written as a direct sum $\rho_1 \oplus \rho_2$, then it is called \textbf{completely reducible}.
+\end{topic}
+
+\begin{topic}{faithful-representation}{faithful representation}
+    A \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is \textbf{faithful} if $\rho$ is injective.
+\end{topic}
+
+\begin{topic}{unitary-representation}{unitary representation}
+    A \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ over $\CC$ is \textbf{unitary} if $\rho(g)$ is unitary for all $g \in G$, that is $\rho(g)^\dagger \rho(g) = \rho(g) \rho(g)^\dagger = \id_V$.
+\end{topic}
+
+\begin{topic}{character}{character}
+    The \textbf{character} of a \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is the function
+    \[ \chi_\rho : G \to k, \quad g \mapsto \text{tr}(\rho(g)) . \]
+    Note that $\chi_\rho$ is constant on conjugacy classes.
+\end{topic}
+
+% \begin{topic}{character-table}{character-table}
+    
+% \end{topic}
+
+\begin{topic}{representation-ring}{representation ring}
+    Given a \tref{GT:group}{group} $G$ and a \tref{CA:field}{field} $k$, the \textbf{representation ring} $R_k(G)$ is the \tref{GT:free-group}{free abelian group} on isomorphism classes of finite-dimensional \tref{representation}{$k$-representations} of $G$. For the ring structure, addition is given by the direct sum of representations, and multiplication by their tensor product over $k$.
+    
+    Equivalently, the representation ring $R_k(G)$ is the \tref{HA:grothendieck-group}{Grothendieck ring} of the category of finite-dimensional representations of $G$.
+\end{topic}
+
+\begin{topic}{equivalent-representations}{equivalent representations}
+    Two \tref{representation}{representations} $\rho : G \to \text{GL}(V)$ and $\rho' : G \to \text{GL}(W)$ are called \textbf{equivalent}, or \textbf{isomorphic}, if there exists a linear isomorphism $A : V \to W$ such that $\rho'(g) = A \rho(g) A^{-1}$ for all $g \in G$.
+\end{topic}
+
+\begin{topic}{schur-lemma}{Schur's lemma}
+    \textbf{Schur's lemma} states:
+    \begin{enumerate}
+        \item If $\rho : G \to \text{GL}(V)$ and $\rho' : G \to \text{GL}(W)$ are two \tref{equivalent-representations}{inequivalent} \tref{irreducible-representation}{irreducible} \tref{representation}{representations} over $\CC$, and $A : V \to W$ is a linear map such that $A \rho(g) = \rho'(g) A$ for all $g \in G$, then $A = 0$.
+        \item If $\rho : G \to \text{GL}(V)$ is an irreducible representation over $\CC$, and $A : V \to V$ is a linear map such that $A \rho(g) = \rho(g) A$ for all $g \in G$, then $A$ is a scalar multiple of the identity map.
+    \end{enumerate}
+\end{topic}
+
+\begin{topic}{clebsch-gordan-series}{Clebsch--Gordan series}
+    If $G$ is a finite group, and $\rho_i, \rho_j$ two \tref{irreducible-representation}{irreducible} \tref{representation}{representations}, the tensor product $\rho_i \otimes \rho_j$ is generally reducible, and can be written as
+    \[ \rho_i \otimes \rho_j = A \left( \bigoplus_k a^k_{ij} \rho_k \right) A^{-1} , \]
+    for some invertible $A$ and coefficients $a^k_{ij}$, called the \textbf{Clebsch--Gordan series}. The matrix elements of $A$ in some standard basis are called the \textbf{Clebsch--Gordan coefficients}.
+\end{topic}

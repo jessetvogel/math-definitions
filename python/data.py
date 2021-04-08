@@ -21,6 +21,7 @@ data = {
     "HT": [ "homotopy-theory.tex" ],
     "LA": [ "linear-algebra.tex" ],
     "NT": [ "number-theory.tex" ],
+    "RT": [ "representation-theory.tex" ],
     "TO": [ "topology.tex" ],
     "UN": [ "uncategorized.tex" ]
 }

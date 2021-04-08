@@ -1,0 +1,12 @@
+<div class="example">Let <span class="math inline">\(\ell / k\)</span> be a <a href="#CA:galois-extension">Galois extension</a> with <a href="#CA:galois-group">Galois group</a> <span class="math inline">\(G = \text{Gal}(\ell/k)\)</span>. Then there is an isomorphism
+<span class="math display">\[ \ell \otimes_k \ell \to \prod_{\sigma \in G} \ell, \quad a \otimes b \mapsto (a \sigma(b))_{\sigma \in G} \]</span>
+which shows that
+<span class="math display">\[ G \times \Spec(\ell) \to \Spec(\ell) \times_{\Spec(k)} \Spec(\ell) \]</span>
+is an isomorphism, and thus <span class="math inline">\(\Spec(\ell) \to \Spec(k)\)</span> is a Galois cover.
+</div><div class="example">Consider <span class="math inline">\(f : X \to S\)</span> with <span class="math inline">\(X = S = \PP^1_k\)</span> given by <span class="math inline">\((x : y) \mapsto (x^2 : y^2)\)</span>, and suppose that <span class="math inline">\(\text{char}(k) \ne 2\)</span>. Then we see that
+<span class="math display">\[ X \times_S X = \{ (x_1 : y_1), (x_2 : y_2) \in \PP^1_k : (x_1^2 : y_1^2) = (x_2^2 : y_2^2) \} \]</span>
+is the disjoint union of <span class="math inline">\(\{ (x_1 : y_2) = (x_2 : y_2) \}\)</span> and <span class="math inline">\(\{ (x_1 : y_2) = (x_1 : -y_2) \}\)</span>, and thus <span class="math inline">\(f\)</span> is a Galois cover.
+</div><div class="example">Let <span class="math inline">\(E\)</span> be an elliptic curve over <span class="math inline">\(k\)</span>, and <span class="math inline">\(n\)</span> an integer invertible in <span class="math inline">\(k\)</span>. Consider the map <span class="math inline">\([n] : E \to E\)</span> given by multiplication by <span class="math inline">\(n\)</span>. We have an isomorphism
+<span class="math display">\[ E \times_E E = \{ (x, y) \in E^2 : nx = ny \} \xrightarrow{\sim} \ker [n] \times E \]</span>
+given by <span class="math inline">\((x, y) \mapsto (y - x, x)\)</span>, and since <span class="math inline">\(\ker [n]\)</span> is a finite group (acting on <span class="math inline">\(E\)</span> by translation), it follows that <span class="math inline">\([n]\)</span> is a Galois cover.
+</div>

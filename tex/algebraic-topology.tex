@@ -145,7 +145,7 @@
     A continuous map $f : X \to Y$ between \tref{TO:topological-space}{topological spaces} is \textbf{null-homotopic} if it is homotopic to a constant map.
 \end{topic}
 
-\begin{topic}{homotopy-groups}{homotopy groups}
+\begin{topic}{homotopy-group}{homotopy group}
     For any $n \ge 0$, the \textbf{$n$-th homotopy group} of a \tref{TO:topological-space}{topological space} $X$ with basepoint $x_0 \in X$ is the set
     \[ \pi_n(X, x_0) = [(S^n, s_0), (X, x_0)]_* \]
     of basepoint preserving homotopy classes of based continuous maps $S^n \to X$.
@@ -186,4 +186,51 @@
     Consider the circle $S^1$ with two opposite basepoints $x_0$ and $x_1$, and let $U, V$ be two U-shaped subsets, both containing $x_0$ and $x_1$, covering $S^1$. By the Seifert--van Kampen theorem we find that $\Pi(S^1, \{ x_0, x_1 \})$ is the pushout of $\textbf{2} \to \hat{\textbf{2}}$, where $\textbf{2} \simeq \Pi(U \cap V, \{ x_0, x_1 \})$ is the discrete category with two objects, and $\hat{\textbf{2}} \simeq \Pi(U, \{ x_0, x_1 \}) \simeq \Pi(V, \{ x_0, x_1 \})$ is the category with two objects and a single isomorphism between them. The objects of this pushout are $x_0$ and $x_1$, and there are isomorphisms $f, g : x_0 \to x_1$ such that all morphisms are compositions of $f, f^{-1}, g$ and $g^{-1}$.
     
     In particular, the fundamental group $\pi_1(S^1, x_0) \simeq \ZZ$.
+\end{example}
+
+\begin{topic}{homotopy-extension-property}{homotopy extension property}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and $A \subset X$ a subspace. Then the pair $(X, A)$ has the \textbf{homotopy extension property} (HEP) if for any topological space $Z$, continuous map $f : X \to Z$ and homotopy $F : A \times [0, 1] \to Z$ with $F|_{A \times \{ 0 \}} = f|_A$, there exists a homotopy $H : X \times [0, 1] \to Z$ with $H|_{X \times \{ 0 \}} = f$ and $H|_{A \times [0, 1]} = F$.
+    \[ \begin{tikzcd}[column sep=4em]
+        X \times \{ 0 \} \cup A \times [0, 1] \arrow[hookrightarrow]{d} \arrow{r}{f \cup F} & Z \\ X \times [0, 1] \arrow[swap, dashed]{ur}{H} &
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{homotopy-lifting-property}{homotopy lifting property}
+    Let $p : E \to B$ be a \tref{TO:continuous-map}{continuous map}, and let $A \subset X$ be a pair of topological spaces. Then $p$ is said to have the \textbf{homotopy lifting property} (HLP) for $(X, A)$ if for any continuous map $f : X \to E$, homotopy $F : A \times [0, 1] \to E$ with $F|_{A \times \{ 0 \}} = f|_A$, and homotopy $G : X \times [0, 1] \to B$ with $G|_{X \times \{ 0 \}} = p \circ f$ and $G|_{A \times [0, 1]} = p \circ F$, there exists a homotopy $H : X \times [0, 1] \to E$ such that $H|_{A \times [0, 1]} = F$, $H|_{X \times \{ 0 \}} = f$ and $p \circ H = G$.
+    \[ \begin{tikzcd}[column sep=4em]
+        X \times \{ 0 \} \cup A \times [0, 1] \arrow[hookrightarrow]{d} \arrow{r}{f \cup F} & E \arrow{d}{p} \\ X \times [0, 1] \arrow[swap]{r}{G} \arrow[swap, dashed]{ur}{H} & B
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{hurewicz-fibration}{Hurewicz fibration}
+    A \tref{TO:continuous-map}{continuous map} $p : E \to B$ is a \textbf{Hurewicz fibration} if it has the \tref{homotopy-lifting-property}{homotopy lifting property} with respect to all topological spaces $X$.
+\end{topic}
+
+\begin{example}{hurewicz-fibration}
+    Any map of the form $\pi_B : B \times F \to B$ is a Hurewicz fibration. Namely, for any $f : X \to B \times F$ and $G : X \times [0, 1] \to B$ with $G|_{X \times \{ 0 \}} = f$ we can simply take $H : X \times [0, 1] \to B \times F$ given by $H(x, t) = (G(x, t), \pi_F(f(x)))$.
+\end{example}
+
+\begin{topic}{serre-fibration}{Serre fibration}
+    A \tref{TO:continuous-map}{continuous map} $p : E \to B$ is a \textbf{Serre fibration} if it has the \tref{homotopy-lifting-property}{homotopy lifting property} with respect to all $n$-disks $D^n$ for $n \ge 0$.
+    
+    It can be shown that this is equivalent to having the HLP for all relative CW-complexes $(X, A)$.
+\end{topic}
+
+\begin{example}{serre-fibration}
+    Any \tref{hurewicz-fibration}{Hurewicz fibration} is a Serre fibration.
+    
+    Any \tref{TO:fiber-bundle}{fiber bundle} is a Serre fibration.
+\end{example}
+
+\begin{topic}{eilenberg-maclane-space}{Eilenberg--MacLane space}
+    An \textbf{Eilenberg--MacLane space} is a \tref{TO:topological-space}{topological space} with a single nontrivial \tref{homotopy-group}{homotopy group}.
+\end{topic}
+
+\begin{example}{eilenberg-maclane-space}
+    The spaces $S^1, \RR P^\infty$ and $\CC P^\infty$ are all Eilenberg--MacLane spaces, since
+    \[ \begin{aligned}
+        \pi_n(S^1) &= \left\{ \begin{array}{cl} \ZZ & \text{if } n = 1 \\ 0 & \text{otherwise} \end{array} \right. \\
+        \pi_n(\RR P^\infty) &= \left\{ \begin{array}{cl} \ZZ/2\ZZ & \text{if } n = 1 \\ 0 & \text{otherwise} \end{array} \right. \\
+        \pi_n(\CC P^\infty) &= \left\{ \begin{array}{cl} \ZZ & \text{if } n = 2 \\ 0 & \text{otherwise} . \end{array} \right.
+    \end{aligned} \]
 \end{example}

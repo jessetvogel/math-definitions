@@ -271,8 +271,15 @@
 \end{topic}
 
 \begin{topic}{picard-group}{Picard group}
-    The \textbf{Picard group} $\text{Pic}(X)$ of a scheme $X$ is the abelian group of isomorphism classes of \tref{invertible-sheaf}{invertible sheaves} on $X$, where addition is given by the tensor product
+    The \textbf{Picard group} $\text{Pic}(X)$ of a \tref{scheme}{scheme} $X$ is the \tref{GT:abelian-group}{abelian group} of isomorphism classes of \tref{invertible-sheaf}{invertible sheaves} on $X$, where addition is given by the tensor product
     \[ [\mathcal{L}_1] + [\mathcal{L}_2] = [\mathcal{L}_1 \otimes \mathcal{L}_2] . \]
+\end{topic}
+
+\begin{topic}{picard-functor}{Picard functor}
+    Let $f : X \to S$ be a \tref{scheme}{scheme} over $S$. The \textbf{absolute Picard functor} is the functor that assigns to any $T \to S$ the \tref{picard-group}{Picard group} $\text{Pic}(X \times_S T)$,
+    \[ \text{Pic}_X : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \text{Pic}(X \times_S T) . \]
+    The \textbf{relative Picard functor} is the functor
+    \[ \text{Pic}_{X/S} : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \text{Pic}(X \times_S T) / f_T^* \text{Pic}(T) . \]
 \end{topic}
 
 % \begin{example}{picard-group}
@@ -422,3 +429,29 @@
     
     The morphism $f$ is \textbf{syntomic} if it is syntomic at all points $x \in X$.
 \end{topic}
+
+\begin{topic}{galois-cover}{Galois cover}
+    A morphism $f : X \to S$ of \tref{scheme}{schemes} is a \textbf{Galois cover} if it is \tref{finite-morphism}{finite}, \tref{faithfully-flat-morphism}{faithfully flat}, and such that there exists a finite group $\Gamma$ of $S$-automorphisms, such that
+    \[ \Gamma \times X \to X \times_S X, \quad (\sigma, x) \mapsto (x, \sigma(x)) \]
+    is an isomorphism.
+\end{topic}
+
+\begin{example}{galois-cover}
+    Let $\ell / k$ be a \tref{CA:galois-extension}{Galois extension} with \tref{CA:galois-group}{Galois group} $G = \text{Gal}(\ell/k)$. Then there is an isomorphism
+    \[ \ell \otimes_k \ell \to \prod_{\sigma \in G} \ell, \quad a \otimes b \mapsto (a \sigma(b))_{\sigma \in G} \]
+    which shows that
+    \[ G \times \Spec(\ell) \to \Spec(\ell) \times_{\Spec(k)} \Spec(\ell) \]
+    is an isomorphism, and thus $\Spec(\ell) \to \Spec(k)$ is a Galois cover.
+\end{example}
+
+\begin{example}{galois-cover}
+    Consider $f : X \to S$ with $X = S = \PP^1_k$ given by $(x : y) \mapsto (x^2 : y^2)$, and suppose that $\text{char}(k) \ne 2$. Then we see that
+    \[ X \times_S X = \{ (x_1 : y_1), (x_2 : y_2) \in \PP^1_k : (x_1^2 : y_1^2) = (x_2^2 : y_2^2) \} \]
+    is the disjoint union of $\{ (x_1 : y_2) = (x_2 : y_2) \}$ and $\{ (x_1 : y_2) = (x_1 : -y_2) \}$, and thus $f$ is a Galois cover.
+\end{example}
+
+\begin{example}{galois-cover}
+    Let $E$ be an elliptic curve over $k$, and $n$ an integer invertible in $k$. Consider the map $[n] : E \to E$ given by multiplication by $n$. We have an isomorphism
+    \[ E \times_E E = \{ (x, y) \in E^2 : nx = ny \} \xrightarrow{\sim} \ker [n] \times E \]
+    given by $(x, y) \mapsto (y - x, x)$, and since $\ker [n]$ is a finite group (acting on $E$ by translation), it follows that $[n]$ is a Galois cover.
+\end{example}

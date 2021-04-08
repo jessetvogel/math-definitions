@@ -1,3 +1,6 @@
+-- Apply special chars to the titles of topics as well
+-- Clever search function: take care of switching words, () and dashes
+
 # Commutative algebra
 CA: direct sum
 CA: Chapter 10 (completions) of Atiyah & MacDonald (associated graded ring)
@@ -8,6 +11,7 @@ CA: Hilbert polynomials (See Chapter 11 of Commutative Algebra, M. Atiyah)
 AG: example invertible sheaves: correspondence to divisors
 AG: blowup / blowdown
 AG: Néron–Severi group
+AG: Example: Picard group is isomorphic to $H^1(X, \mathcal{O}_X^*)$
 
 # Number theory
 NT: ring of integers
@@ -34,10 +38,7 @@ GT: parabolic subgroup
 CT: localization example: Prototype 10.3.5 of weibel
 
 # Representation theory
-RT: Representation Theory!
-RT: Schur's lemma
 RT: Jordan--Holder stuff
-RT: representation ring R(G)
 
 Dynkin diagrams / Quivers
 
@@ -61,3 +62,9 @@ AA: move some commutative algebra which isn't commutative to AA
 
 # Analysis
 AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???
+
+
+# Differential Geometry
+DG: Lie group
+DG: Symplectic geometry (Darboux's theorem)
+DG: Chern classes

@@ -21,12 +21,12 @@
     Given two \tref{topological-space}{topologies} $\mathcal{T}_1$ and $\mathcal{T}_2$ on the same set. Then $\mathcal{T}_1$ is called \textbf{coarser} than $\mathcal{T}_2$ if $\mathcal{T}_1 \subset \mathcal{T}_2$. Equivalently, $\mathcal{T}_2$ is called \textbf{finer} than $\mathcal{T}_1$.
 \end{topic}
 
-\begin{topic}{continuous}{continuous}
+\begin{topic}{continuous-map}{continuous map}
     A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is \textbf{continuous} if for every open subset $V \subset Y$, the inverse image $f^{-1}(V)$ is open in $X$.
 \end{topic}
 
 \begin{topic}{homeomorphism}{homeomorphism}
-    A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is a \textbf{homeomorphism} if it is \tref{continuous}{continuous}, bijective and its inverse is continuous as well.
+    A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is a \textbf{homeomorphism} if it is \tref{continuous-map}{continuous}, bijective and its inverse is continuous as well.
 \end{topic}
 
 \begin{topic}{closure}{closure}
@@ -177,3 +177,22 @@
     \[ X \vee Y = (X \sqcup Y) / \sim{} \]
     where $x_0 \sim{} y_0$.
 \end{topic}
+
+\begin{topic}{fiber-bundle}{fiber bundle}
+    A \tref{continuous-map}{continuous map} $p : E \to B$ is a \textbf{fiber bundle} with fiber $F$, if for each $b \in B$ there is an open neighborhood $U$ and a \tref{homeomorphism}{homeomorphism} $\varphi : p^{-1}(U) \to U \times F$ over $U$, that is,
+    \[ \begin{tikzcd}
+        p^{-1}(U) \arrow{rr}{\varphi} \arrow[swap]{dr}{p} && U \times F \arrow{ld}{\pi_U} \\ & U &
+    \end{tikzcd} \]
+    commutes.
+    
+    To denote $p$ is a fiber bundle with fiber $F$, one often writes
+    \[ F \to B \xrightarrow{p} E . \]
+\end{topic}
+
+\begin{topic}{covering-space}{covering space}
+    A \textbf{covering space} of a \tref{topological-space}{topological space} $X$ is a continuous map $p : Y \to X$ such that each $x \in X$ has an open neighborhood $U$ such that $p^{-1}(U)$ decomposes as a union of $V_i$ such that the restrictions $p|_{V_i} \to U$ are \tref{homeomorphism}{homeomorphisms}.
+\end{topic}
+
+\begin{example}{covering-space}
+    For any topological space $X$ and discrete space $I$, the projection $\pi : X \times I \to X$ is the \textit{trivial covering space}.
+\end{example}
