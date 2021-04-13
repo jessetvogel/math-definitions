@@ -135,6 +135,16 @@
     \[ (-) \frown (-) : H^q(X; R) \times H_{p + q}(X; R) \to H_q(X; R), \qquad ([f], [g]) \mapsto [f \frown g] . \]
 \end{topic}
 
+\begin{topic}{homotopy}{homotopy}
+    A \textbf{homotopy} between \tref{TO:continuous-map}{continuous maps} $f, g : X \to Y$ is a continuous map
+    \[ H : X \times [0, 1] \to Y \]
+    such that $H(x, 0) = f(x)$ and $H(x, 1) = g(x)$ for all $x \in X$. If such a homotopy exists, $f$ and $g$ are called \textbf{homotopic}.
+\end{topic}
+
+\begin{topic}{homotopy-equivalence}{homotopy equivalence}
+    A \textbf{homotopy equivalence} between two \tref{TO:topological-space}{topological spaces} $X$ and $Y$ is a pair of \tref{TO:continuous-map}{continuous maps} $f : X \to Y$ and $g : Y \to X$ such that $g \circ f$ is \tref{homotopy}{homotopic} to $\id_X$ and $f \circ g$ is homotopic to $\id_Y$. If such a pair exists, then $X$ and $Y$ are said to be \textbf{homotopy equivalent}.
+\end{topic}
+
 \begin{topic}{weak-homotopy-equivalence}{weak homotopy equivalence}
     A \textbf{weak homotopy equivalence} is a continuous map $f : X \to Y$ if it induces bijections
     \[ f_* : \pi_n(X, x) \to \pi_n(Y, f(x)) \]
@@ -153,6 +163,10 @@
     For $n \ge 1$ it has a group structure.
 \end{topic}
 
+\begin{topic}{betti-number}{Betti number}
+    The \textbf{$n$-th Betti number} $b_n(X)$ of a \tref{TO:topological-space}{topological space} $X$ is the rank of the $n$-th \tref{singular-homology}{singular homology group} $H_n(X)$.
+\end{topic}
+
 \begin{topic}{cohomology-compact-support}{cohomology with compact support}
     Let $X$ be a \tref{TO:topological-space}{topological space}. The \textbf{cohomology of $X$ with compact support} $H_c^n(X; R)$ is given by the cohomology of the following subcomplex of the singular cohomology complex
     \[ C_c^n(X; R) = \big\{ f : \mathcal{S}(X)_n \to R : \text{ there is a compact $K \subset X$ with $f(\sigma) = 0$ for all $\sigma \in \mathcal{S}(X \backslash K)_n$} \big\} . \]
@@ -169,7 +183,7 @@
 \end{topic}
 
 \begin{topic}{seifert-van-kampen-theorem}{Seifert--van Kampen theorem}
-    The \textbf{Seifert--van Kampen theorem} states that for every \tref{TO:path-connected}{path-connected} \tref{TO:topological-space}{topological space} $X$ and path-connected subsets $U, V \subset X$ such that the intersection $U \cap V$ is path-connected and the \tref{TO:interior}{interiors} $\overset{\circ}{U}$ and $\overset{\circ}{V}$ cover $X$, the diagram of \tref{fundamental-group}{fundamental groups}
+    The \textbf{Seifert--van Kampen theorem} states that for every \tref{TO:path-connected-space}{path-connected} \tref{TO:topological-space}{topological space} $X$ and path-connected subsets $U, V \subset X$ such that the intersection $U \cap V$ is path-connected and the \tref{TO:interior}{interiors} $\overset{\circ}{U}$ and $\overset{\circ}{V}$ cover $X$, the diagram of \tref{fundamental-group}{fundamental groups}
     \[ \begin{tikzcd} \pi_1(U \cap V, x) \arrow{d} \arrow{r} & \pi_1(U, x) \arrow{d} \\ \pi_1(V, x) \arrow{r} & \pi_1(X, x) \end{tikzcd} \]
     is a pushout square in the category of groups, for every $x \in U \cap V$.
 
@@ -234,3 +248,41 @@
         \pi_n(\CC P^\infty) &= \left\{ \begin{array}{cl} \ZZ & \text{if } n = 2 \\ 0 & \text{otherwise} . \end{array} \right.
     \end{aligned} \]
 \end{example}
+
+\begin{topic}{contractible-space}{contractible space}
+    A \tref{TO:topological-space}{topological space} $X$ is \textbf{contractible} if the identity map $\id_X$ is \tref{null-homotopic}{null homotopic}, that is, if it is homotopic to some constant map.
+\end{topic}
+
+\begin{topic}{cw-complex}{CW-complex}
+    Let $A$ be a \tref{TO:topological-space}{topological space}. A \textbf{CW-complex} relative to $A$ is a topological space $X$ together with a sequence of subspaces
+    \[ A = X_{-1} \subset X_0 \subset X_1 \subset \cdots \subset X \]
+    such that
+    \begin{itemize}
+        \item for every $n \ge 0$, the space $X_n$ arises from $X_{n - 1}$ by \textit{attaching $n$-cells}, that is, there is a pushout square
+        \[ \begin{tikzcd}
+            J_n \times \partial D^n \arrow{r}{f_n} \arrow[hook]{d} & X_{n - 1} \arrow{d} \\ J_n \times D^n \arrow{r} & X_n
+        \end{tikzcd} \]
+        with $J_n$ an indexing set and where $f_n$ is called the \textit{attaching map}.
+        \item $X = \bigcup_{n \ge -1} X_n$, and a subset $U \subset X$ is open if and only if $U \cap X_n$ is open in $X_n$ for all $n \ge -1$.
+    \end{itemize}
+    
+    The subspace $X_n \subset X$ is called the \textit{$n$-skeleton} of $(X, A)$.
+    
+    A CW-complex is \textbf{absolute} if it is relative to the empty space $\varnothing$.
+    
+    A CW-complex is \textbf{finite dimensional} if $X = X_n$ for some $n \ge 0$.
+    
+    A CW-complex is \textbf{finite} if it is finite dimensional and the indexing sets $J_n$ are finite for each $n$.
+\end{topic}
+
+\begin{example}{cw-complex}
+    The surface of a cube has the structure of an absolute CW-complex where the $0$-cells are the $8$ vertices, the $1$-cells are the $12$ edges, and the $2$-cells are the $6$ faces.
+
+    The $n$-sphere $S^n$ has the structure of an absolute CW-complex with one $0$-cell and one $n$-cell.
+    
+    The real projective space $\PP_\RR^n$ has the structure of an absolute CW-complex having a single $k$-cell for each $0 \le k \le n$.
+\end{example}
+
+\begin{topic}{whitehead-theorem}{Whitehead theorem}
+    The \textbf{Whitehead theorem} states that any \tref{weak-homotopy-equivalence}{weak homotopy equivalence} $f : X \to Y$ between \tref{cw-complex}{CW-complexes} is a \tref{homotopy-equivalence}{homotopy equivalence}.
+\end{topic}

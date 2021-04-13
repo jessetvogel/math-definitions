@@ -218,7 +218,7 @@ class Parser:
         suffix = self.consume(Token.T_TEXT).data
         self.consume(Token.T_SEPARATOR, '}')
         self.consume(Token.T_SEPARATOR, '{')
-        name = self.consume(Token.T_TEXT).data
+        name = self.special_chars(self.consume(Token.T_TEXT).data)
         self.consume(Token.T_SEPARATOR, '}')
         
         identifier = self.prefix + ':' + suffix
@@ -407,17 +407,17 @@ class Parser:
     
     def special_chars(self, s):
         if '`' in s:
-            s = s.replace('`', '&lsquo;')
+            s = s.replace('`', '‘')
         if '\'' in s:
-            s = s.replace('\'', '&rsquo;')
+            s = s.replace('\'', '’')
         if '``' in s:
-            s = s.replace('``', '&ldquo;')
+            s = s.replace('``', '“')
         if '"' in s:
-            s = s.replace('"', '&rdquo;')
+            s = s.replace('"', '”')
         if '\'\'' in s:
-            s = s.replace('\'\'', '&rdquo;')
+            s = s.replace('\'\'', '”')
         if '--' in s:
-            s = s.replace('--', '&ndash;')
+            s = s.replace('--', '–')
         return s
     
     def math_to_svg(self, tex):

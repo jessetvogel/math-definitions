@@ -455,3 +455,35 @@
     \[ E \times_E E = \{ (x, y) \in E^2 : nx = ny \} \xrightarrow{\sim} \ker [n] \times E \]
     given by $(x, y) \mapsto (y - x, x)$, and since $\ker [n]$ is a finite group (acting on $E$ by translation), it follows that $[n]$ is a Galois cover.
 \end{example}
+
+\begin{topic}{equivariant-sheaf}{equivariant sheaf}
+    Given a \tref{scheme}{scheme} $X$ with an action $\sigma : G \times X \to X$ of a group scheme $G$, an \textbf{equivariant sheaf} on $X$ is an \tref{O-module}{$\mathcal{O}_X$-module} $\mathcal{F}$ together with an isomorphism of sheaves on $G \times X$,
+    \[ \phi : \sigma^* \mathcal{F} \xrightarrow{\sim} \pi_2^* \mathcal{F} \]
+    satisfying the \textit{cocycle condition}
+    \[ \pi_{23}^* \phi \circ (\id_G \times \sigma)^* \phi = (m \times \id_X)^* \phi \]
+    on $G \times G \times X$, where $m : G \times G \to G$ is the multiplication map on $G$. That is, the following diagram commutes:
+    \[ \begin{tikzcd}[column sep=5em]
+        (\sigma \circ (\id_G \times \sigma))^* \mathcal{L} \arrow["\sim{}"']{r}{(\id_G \times \sigma)^* \phi} \arrow[equal]{dd} & (\pi_2 \circ (\id_G \times \sigma))^* \mathcal{L} \arrow[equal]{d} & \\ & (\sigma \circ \pi_{23})^* \mathcal{L} \arrow["\sim{}"']{r}{\pi_{23}^* \phi} & (\pi_2 \circ \pi_{23})^* \mathcal{L} \arrow[equal]{d} \\ (\sigma \circ (m \times \id_X))^* \mathcal{L} \arrow["\sim{}"']{rr}{(m \times \id_X)^* \phi} & & (\pi_2 \circ (m \times \id_X))^* \mathcal{L}
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{group-scheme}{group scheme}
+    Let $S$ be a \tref{scheme}{scheme}. A \textbf{group scheme} over $S$ is a \tref{scheme}{scheme} $G$ over $S$ together with morphisms $\mu : G \times_S G \to G$ (multiplication), $\beta : G \to G$ (inversion), $e : S \to G$ (unit) such that
+    \begin{itemize}
+        \item \textit{(associativity)}
+        \[ \begin{tikzcd}
+            G \times_S G \times_S G \arrow{r}{\id_G \times \mu} \arrow[swap]{d}{\mu \times \id_G} & G \times_S G \arrow{d}{\mu} \\ G \times_S G \arrow{r}{\mu} & G
+        \end{tikzcd} \]
+        commutes,
+        \item \textit{(inverses)}
+        \[ \begin{tikzcd} G \arrow{r}{\Delta} & G \times_S G \arrow[shift left=0.25em]{r}{\id_G \times \beta} \arrow[swap, shift right=0.25em]{r}{\beta \times \id_G} & G \times_S G \arrow{r}{\mu} & G \end{tikzcd} \]
+        both equal $e \circ (G \to S)$, where $\Delta$ is the diagonal.
+        \item \textit{(unit)} The compositions
+        \[ \begin{tikzcd}[row sep=0.5em, column sep=1.5em] & S \times_S G \arrow{dr}{e \times \id_G} & & \\ G \arrow[equal]{ur} \arrow[equal]{dr} & & G \times_S G \arrow{r}{\mu} & G \\ & G \times_S S \arrow[swap]{ur}{\id_G \times e} & & \end{tikzcd} \]
+        both equal $\id_G$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{group-scheme}
+    Viewing schemes as functors of points, it follows directly from the definition that for any $S$-scheme $T \to S$, the set $G(T)$ of $T$-points of $G$ is a \tref{GT:group}{group}, with multiplication $\mu_T$ and unit $T \to S \xrightarrow{e} G$.
+\end{example}

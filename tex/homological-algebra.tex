@@ -3,7 +3,7 @@
     An \textbf{additive category} is a category $\mathcal{A}$ such that
     \begin{itemize}
         \item every $\Hom_\mathcal{A}(A, B)$ is an abelian group, and composition is bilinear,
-        \item there is a zero object $0$ which is both \tref{CT:terminal-object}{terminal} and \tref{CT:initial-object}{initial},
+        \item there is a \tref{CT:zero-object}{zero object} $0$ which is both \tref{CT:terminal-object}{terminal} and \tref{CT:initial-object}{initial},
         \item direct sums and direct products exist, and coincide.
     \end{itemize}
 \end{topic}
@@ -15,6 +15,12 @@
         \item every monomoprhism is the kernel of some morphism, and every epimoprhism is the cokernel of some morphism.
     \end{itemize}
 \end{topic}
+
+\begin{example}{abelian-category}
+    For a \tref{CA:ring}{ring} $R$, the category of left (or right) \tref{CA:module}{$R$-modules} is an abelian category.
+    
+    In particular, the category of abelian groups (that is, $\ZZ$-modules) $\textbf{Ab}$ is an abelian category.
+\end{example}
 
 \begin{topic}{additive-functor}{additive functor}
     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{additive-category}{additive categories}. A functor $F : \mathcal{A} \to \mathcal{B}$ is called \textbf{additive} if for all $A, B$ in $\mathcal{A}$ the map
@@ -196,7 +202,7 @@
 \end{topic}
 
 \begin{topic}{mapping-complex}{mapping complex}
-    Let $C_\bdot$ and $D_\bdot$ be \tref{chain-complex}{chain complexes} with values in an \tref{additive-category}{additive category} $\mathcal{A}$. The \textbf{mapping complex} associated to $C_\bdot$ and $D_\bdot$ is the chain complex $[C, D]_\bdot$ given by
+    Let $C_\bdot$ and $D_\bdot$ be \tref{chain-complex}{chain complexes} with values in an \tref{additive-category}{additive category} $\mathcal{A}$. The \textbf{mapping complex} associated to $C_\bdot$ and $D_\bdot$ is the chain complex $[C, D] _\bdot$ given by
     \[ [C, D]_n = \prod_{k \in \ZZ} \Hom_\mathcal{A}(C_k, D_{k + n}) \]
     and with differentials
     \[ \partial_n : [C, D]_n \to [C, D]_{n - 1}, \quad (f_k)_{k \in \ZZ} \mapsto \left(\partial_D \circ f_k - (-1)^n f_{k - 1} \circ \partial_C \right)_{k \in \ZZ} . \]

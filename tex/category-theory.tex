@@ -27,27 +27,27 @@
 \end{topic}
 
 \begin{topic}{monomorphism}{monomorphism}
-    A morphism $f : X \to Y$ in a category $\mathcal{C}$ is a \textbf{monomorphism} if $f \circ g = f \circ h$ implies $g = h$.
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is a \textbf{monomorphism} if $f \circ g = f \circ h$ implies $g = h$.
     \[ \begin{tikzcd} W \arrow[shift left=0.25em]{r}{g} \arrow[shift right=0.25em, swap]{r}{h} & X \arrow{r}{f} & Y \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{epimorphism}{epimorphism}
-    A morphism $f : X \to Y$ in a category $\mathcal{C}$ is a \textbf{epimorphism} if $g \circ f = h \circ f$ implies $g = h$.
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is a \textbf{epimorphism} if $g \circ f = h \circ f$ implies $g = h$.
     \[ \begin{tikzcd} X \arrow{r}{f} & Y \arrow[shift left=0.25em]{r}{g} \arrow[shift right=0.25em, swap]{r}{h} & Z \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{split-mono}{split monomorphism}
-    A morphism $f : X \to Y$ is a \textbf{split monomorphism} if there exists a $g : Y \to X$ such that $gf = \id_X$. That is, it has a left-inverse. In particular, it is an \tref{monomorphism}{monomorphism}.
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is a \textbf{split monomorphism} if there exists a $g : Y \to X$ such that $gf = \id_X$. That is, it has a left-inverse. In particular, it is an \tref{monomorphism}{monomorphism}.
     \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} & Y \arrow[shift left=0.25em]{l}{g} \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{split-epi}{split epimorphism}
-    A morphism $f : X \to Y$ is a \textbf{split epimorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$. That is, it has a right-inverse. In particular, it is an \tref{epimorphism}{epimorphism}.
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is a \textbf{split epimorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$. That is, it has a right-inverse. In particular, it is an \tref{epimorphism}{epimorphism}.
     \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} & Y \arrow[shift left=0.25em]{l}{g} \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{isomorphism}{isomorphism}
-    A morphism $f : X \to Y$ is an \textbf{isomorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$ and $gf = \id_X$. We call $g$ the \textbf{inverse} of $f$ and write $g = f^{-1}$. If it exists, it is unique.
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is an \textbf{isomorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$ and $gf = \id_X$. We call $g$ the \textbf{inverse} of $f$ and write $g = f^{-1}$. If it exists, it is unique.
 \end{topic}
 
 \begin{topic}{terminal-object}{terminal object}
@@ -181,6 +181,10 @@
     \end{itemize}
 \end{topic}
 
+\begin{example}{localization}
+    A \tref{CA:ring}{ring} $R$ can be considered as an \tref{HA:additive-category}{additive category} $\mathcal{R}$ with one object $\bdot$ via $R = \text{End}_\mathcal{R}(\bdot)$: multiplication is given by composition. Let $S$ is a multiplicatively closed subset of $R$ containing $1$. If $R$ is commutative, or more generally if $S$ is in the center of $R$, then the \tref{CA:localization}{localization} $S^{-1} R$ can be defined, which corresponds precisely to the localization $\mathcal{R}\left[\frac{1}{S}\right]$.
+\end{example}
+
 \begin{topic}{limit}{(co)limit}
     Given a \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$, a \textit{cone} for $F$ is an object $D$ of $\mathcal{D}$ together with a family of morphisms $\mu_C : D \to F(C)$ for all objects $C$ in $\mathcal{C}$, such that for all $f : C \to C'$ in $\mathcal{C}$,
     \[ \begin{tikzcd} & D \arrow[swap]{ld}{\mu_C} \arrow{rd}{\mu_{C'}} & \\ F(C) \arrow{rr}{F(f)} && F(C') \end{tikzcd} \]
@@ -236,15 +240,19 @@
 \end{topic}
 
 \begin{topic}{fiber}{(co)fiber}
-    Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{zero-object}{zero object} $0$. A \textbf{fiber} of a morphism $f : X \to Y$ in $\mathcal{C}$ is a \tref{fiber-product}{pullback diagram}
+    Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{terminal-object}{terminal object} $1$. A \textbf{fiber} of a morphism $f : X \to Y$ in $\mathcal{C}$ is a \tref{fiber-product}{pullback diagram}
     \[ \begin{tikzcd}
-        X \times_Y 0 \arrow{r} \arrow{d} & X \arrow{d}{f} \\ 0 \arrow{r} & Y .
+        X \times_Y 1 \arrow{r} \arrow{d} & X \arrow{d}{f} \\ 1 \arrow{r} & Y .
     \end{tikzcd} \]
     Dually, a \textbf{cofiber} of $f$ is a \tref{pushout}{pushout diagram}
     \[ \begin{tikzcd}
-        X \arrow{r}{f} \arrow{d} & Y \arrow{d} \\ 0 \arrow{r} & Y \amalg_X 0 .
+        X \arrow{r}{f} \arrow{d} & Y \arrow{d} \\ 1 \arrow{r} & Y \amalg_X 1 .
     \end{tikzcd} \]
 \end{topic}
+
+\begin{example}{fiber}
+    If $\mathcal{C}$ is an \tref{HA:additive-category}{additive category}, fibers are the same as kernels, and cofibers are the same as cokernels.
+\end{example}
 
 \begin{topic}{slice-category}{slice category}
     Given a \tref{category}{category} $\mathcal{C}$ over an object $X$, the \textbf{slice category} $\mathcal{C}/X$ is the category whose

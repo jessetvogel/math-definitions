@@ -1,11 +1,13 @@
-\begin{topic}{derived-category}{derived category}
+\begin{topic}{homotopy-category}{homotopy category}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. The \textbf{homotopy category} $\textbf{K}(\mathcal{A})$ is defined to be the category whose objects are \tref{chain-complex}{chain complexes} in $\mathcal{A}$, and morphisms are chain maps modulo \tref{chain-homotopy}{homotopy}.
-    
-    The \textbf{derived category} $\textbf{D}(\mathcal{A})$ is obtained from $\textbf{K}(\mathcal{A})$ by `pretending' any quasi-isomorphism is an isomorphism. Concretely, a morphism from $A^\bdot$ to $B^\bdot$ is given by a roof
+\end{topic}
+
+\begin{topic}{derived-category}{derived category}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. The \textbf{derived category} $\textbf{D}(\mathcal{A})$ is obtained from the \tref{homotopy-category}{homotopy category} $\textbf{K}(\mathcal{A})$ by \tref{CT:localization}{localizing} with respect to quasi-isomorphisms. Concretely, a morphism from $A^\bdot$ to $B^\bdot$ is given by a roof
     \[ \begin{tikzcd}[column sep = 0.5em] & \arrow[swap]{ld}{f} C^\bdot \arrow{rd}{g} & \\ A^\bdot \arrow[dashed]{rr} & & B^\bdot , \end{tikzcd} \]
-    where $f$ is a quasi-isomorphism, and we think of this roof as $g \circ f^{-1}$ (even though $f^{-1}$ might not exist). Technically, one \textit{localizes} the category $\textbf{K}(\mathcal{A})$ w.r.t. quasi-isomorphisms.
+    where $f$ is a quasi-isomorphism, and we think of this roof as $g \circ f^{-1}$ (even though $f^{-1}$ might not exist).
     
-    Both $\textbf{K}(\mathcal{A})$ and $\textbf{D}(\mathcal{A})$ naturally admit the structure of a \tref{triangulated-category}{triangulated category}. In both cases, a triangle is distinguished if it is isomorphic to one of the form
+    The derived category $\textbf{D}(\mathcal{A})$ naturally admits the structure of a \tref{triangulated-category}{triangulated category}: a triangle is distinguished if it is isomorphic to one of the form
     \[ A^\bdot \xrightarrow{f} B^\bdot \to C(f) \xrightarrow{\pi} A^\bdot[1] , \]
     where $C(f)$ is the \textit{mapping cone} of $f$. That is,
     \[ C(f)^i = A^{i + 1} \oplus B^i \quad \text{and} \quad d_{C(f)}^i = \begin{pmatrix} -d_A^{i + 1} & 0 \\ f^{i + 1} & d_B^i \end{pmatrix} . \]

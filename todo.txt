@@ -1,4 +1,3 @@
--- Apply special chars to the titles of topics as well
 -- Clever search function: take care of switching words, () and dashes
 
 # Commutative algebra
@@ -17,7 +16,6 @@ AG: Example: Picard group is isomorphic to $H^1(X, \mathcal{O}_X^*)$
 NT: ring of integers
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
-NT: places
 NT: inertia subgroup
 NT: tame/wild ramification
 NT: ramification groups
@@ -26,35 +24,26 @@ NT: ray class field
 NT: Hilbert class field
 NT: artin symbol
 NT: artin map
-CA/NT: Galois correspondence
-
+NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 
 AG: Mordell--Weil theorem
 
 # Group theory
 GT: parabolic subgroup
 
-# Category theory
-CT: localization example: Prototype 10.3.5 of weibel
-
 # Representation theory
 RT: Jordan--Holder stuff
 
 Dynkin diagrams / Quivers
 
-# Homological algebra
-HA: examples abelian category
-
 UN: classifying space
 
 # Homotopy theory
 HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]
-HT: pointed infinity category [Definition 1.1.1.1]
+// HT: pointed infinity category [Definition 1.1.1.1]
 HT: stable infinity category [Definition 1.1.1.9]
 
 // HT: sifted simplicial set ?
-
-AT: EXAMPLES for Seifert–Van Kampen theorem (\Pi(S^1, { s_0, s_1 }) = pushout of 2 -> (1 <-> 1) and 2 -> (1 <-> 1) which is (1 <=> 1), in particular, \pi_1(S^1, s_0) is \ZZ)
 
 # Abstract algebra
 AA: move some commutative algebra which isn't commutative to AA
@@ -68,3 +57,12 @@ AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???
 DG: Lie group
 DG: Symplectic geometry (Darboux's theorem)
 DG: Chern classes
+DG: manifold
+
+TO: locally compact (quasi-compact?)
+
+
+??: Metric spaces
+
+
+// GT: central series

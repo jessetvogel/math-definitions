@@ -87,6 +87,16 @@
     The \textbf{Galois group} $\text{Gal}(\ell/k)$ of a \tref{galois-extension}{Galois extension} $\ell \supset k$ is the group of $\ell$-linear automorphisms of $\ell$, that is $\text{Aut}_k(\ell)$.
 \end{topic}
 
+\begin{topic}{galois-correspondence}{Galois correspondence}
+    Let $\ell/k$ be a \tref{galois-extension}{Galois extension} with \tref{galois-group}{Galois group} $G = \text{Gal}(\ell/k)$. The \textbf{Galois correspondence} states there is an inclusion-reversing bijection between the set of intermediate fields $k \subset m \subset \ell$ and the set of subgroups of $G$.
+    \[ \begin{tikzcd}[row sep=0em]
+        \{ \text{intermediate fields } k \subset m \subset \ell \} \arrow[shift left=0.25em]{r} & \arrow[shift left=0.25em]{l} \{ \text{subgroups } H \subset G \} \\
+        \qquad m \qquad  \arrow[mapsto]{r} & \qquad \text{Gal}(\ell/m) \qquad \\
+        \qquad \ell^H \qquad & \arrow[mapsto]{l} \qquad H \qquad 
+    \end{tikzcd} \]
+    Moreover, a subgroup $H \subset G$ is \tref{GT:normal-subgroup}{normal} if and only if the intermediate field $m = \ell^H$ is a \tref{normal-field-extension}{normal extension} of $k$. In this case, $m/k$ is a Galois extension with Galois group $G/H$.
+\end{topic}
+
 \begin{topic}{algebraically-closed-field}{algebraically closed field}
     A \tref{field}{field} $k$ is \textbf{algebraically closed} if polynomial $f$ over $k$ has a root in $k$.
     
