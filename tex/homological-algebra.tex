@@ -30,6 +30,23 @@
     It follows that an additive functor preserves finite direct sums and sends $0$ to $0$.
 \end{topic}
 
+\begin{topic}{exact-sequence}{(short) exact sequence}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An \textbf{exact sequence} is a sequence of objects and morphisms
+    \[ \cdots \rightarrow A_{i - 1} \xrightarrow{f_{i - 1}} A_i \xrightarrow{f_i} A_{i + 1} \rightarrow \cdots \]
+    such that $\ker f_i = \im f_{i - 1}$ for all $i$.
+    A \textbf{short exact sequence} is an exact sequence of the form
+    \[ 0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0 . \]
+    Concretely, this means that $f$ is injective, $g$ is surjective, and $\ker g = \im f$.
+\end{topic}
+
+\begin{example}{exact-sequence}
+    Any exact sequence
+    \[ \cdots \rightarrow A_{i - 1} \xrightarrow{f_{i - 1}} A_i \xrightarrow{f_i} A_{i + 1} \rightarrow \cdots \]
+    can be split up into short exact sequences: let $B_i = \ker f_i = \im f_{i + 1}$, then we obtain short exact sequences
+    \[ 0 \to B_i \to A_i \to B_{i + 1} \to 0 \]
+    for each $i$.
+\end{example}
+
 \begin{topic}{exact-functor}{exact functor}
     Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. Then $F$ is called \textbf{left exact} if for all short exact sequences
     \[ 0 \to M \to N \to L \to 0 \]
@@ -134,20 +151,18 @@
 
 % Homological lemmas
 \begin{topic}{five-lemma}{five lemma}
-    Let $\mathcal{A}$ be an abelian category, and consider the following commutative diagram.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and consider the following commutative diagram.
     \[ \begin{tikzcd} A \arrow{r}{f} \arrow{d}{a} & B \arrow{r}{g} \arrow{d}{b} & C \arrow{r}{h} \arrow{d}{c} & D \arrow{r}{i} \arrow{d}{d} & E \arrow{d}{e} \\ A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \arrow{r}{h'} & D \arrow{r}{i'} & E' \end{tikzcd} \]
     Suppose that both rows are exact. The \textbf{five lemma} states that
     \begin{itemize}
         \item if $b$ and $d$ are injective and $a$ is surjective, then $c$ is injective.
-        
         \item if $b$ and $d$ are surjective and $e$ is injective, then $c$ is surjective.
-        
         \item if $b$ and $d$ are isomorphisms, $a$ is surjective and $e$ is injective, then $c$ is an isomorphism.
     \end{itemize}
 \end{topic}
 
 \begin{topic}{snake-lemma}{snake lemma}
-    Let $\mathcal{A}$ be an abelian category, and consider the following commutative diagram.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and consider the following commutative diagram.
     \[ \begin{tikzcd} & A \arrow{d}{a} \arrow{r}{f} & B \arrow{d}{b} \arrow{r}{g} & C \arrow{d}{c} \arrow{r} & 0 \\ 0 \arrow{r} & A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \end{tikzcd} \]
     Suppose that the rows are exact. The \textbf{snake lemma} states that there is an exact sequence of kernels and cokernels
     \[ \ker a \rightarrow \ker b \rightarrow \ker c \xrightarrow{d} \coker a \rightarrow \coker b \rightarrow \coker c \]
@@ -186,6 +201,18 @@
     \[ 0 \to A \to B \to C \to 0 \]
     in $\mathcal{A}$.
 \end{topic}
+
+\begin{example}{grothendieck-group}
+    Let $\mathcal{A} = \textbf{Vect}_k$ be the category of finite-dimensional vector spaces over a field $k$. Since such vector spaces are determined up to isomorphism by their dimension, and $\dim_k V \oplus W = \dim_k V + \dim_k W$, we find that $\text{K}_0(\textbf{Vect}_k) = \ZZ$.
+\end{example}
+
+\begin{example}{grothendieck-group}
+    Let $\mathcal{A} = \text{Coh}(\PP^n)$ be the category of coherent sheaves on projective space $\PP^n$. Note that the twisting sheaves $\mathcal{O}(d)$ must generate the Grothendieck group $\text{K}_0(\mathcal{A})$, as any coherent sheaf has a finite resolution by direct sums of twisting sheaves. The exact Koszul complex
+    \[ 0 \to \mathcal{O} \to \bigoplus^{n + 1} \mathcal{O}(1) \to \bigoplus^{\binom{n + 1}{2}} \mathcal{O}(2) \to \cdots \to \bigoplus^{n + 1} \mathcal{O}(n) \to \mathcal{O}(n + 1) \to 0 \]
+    now shows that
+    \[ \text{K}_0(\text{Coh}(\PP^n)) = \ZZ[T] / (1 - T)^{n + 1} \]
+    (injectivity can be shown using euler-characteristics). Moreover, the tensor product of coherent sheaves corresponds to the multiplication in the ring.
+\end{example}
 
 \begin{topic}{ext-functors}{Ext functors}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $A$ an object of $\mathcal{A}$. The functor

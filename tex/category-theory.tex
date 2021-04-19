@@ -156,7 +156,7 @@
 \begin{topic}{grothendieck-topology}{Grothendieck topology}
     Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{Grothendieck topology} on $\mathcal{C}$ consists of a family $\text{Cov}(C)$ of \tref{sieve}{sieves} on $C$ for every object $C$ of $\mathcal{C}$, called \textit{covering sieves}, such that
     \begin{itemize}
-        \item the maximal sieve $\text{mac}(C)$ is in $\text{Cov}(C)$,
+        \item the maximal sieve $\text{mac}(C) = \{ \text{all } f : C' \to C \}$ is in $\text{Cov}(C)$,
         \item if $R \in \text{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) \in \text{Cov}(C')$,
         \item if $R$ is any sieve on $C$ and $S$ is a covering sieve on $C$, such that for every $f : C' \to C$ from $S$ we have $f^*(R) \in \text{Cov}(C')$, then $R \in \text{Cov}(C)$.
     \end{itemize}
@@ -289,4 +289,31 @@
 
 \begin{example}{comma-category}
     When $F = G = \id_\mathcal{C}$, the comma category $F \downarrow G$ is the same the \tref{arrow-category}{arrow category} $\mathcal{C}^\rightarrow$.
+\end{example}
+
+\begin{topic}{inverse-limit}{inverse limit}
+    Let $\mathcal{C}$ be a \tref{category}{category}. An \textbf{inverse system} in $\mathcal{C}$ consists of a directed set $I$, an object $X_i$ for each $i \in I$, and a morphism $f_{ij} : X_j \to X_i$ for all $i \le j$, such that $f_{ii}$ is the identity on $X_i$ and
+    \[ f_{ij} \circ f_{jk} = f_{ik} \quad \text{for all } i \le j \le k . \]
+    An \textbf{inverse limit} of an inverse system is an object $X = \varprojlim_{i \in I} X_i$ in $\mathcal{C}$ with maps $\pi_i : X \to X_i$ for each $i \in I$ such that $\pi_i = f_{ij} \circ \pi_j$ for all $i \le j$, satisfying the universal property: for any other such object $Y$ with maps $p_i : Y \to Y_i$ there is a unique map $h : Y \to X$ such that $p_i = \pi_i \circ h$ for all $i \in I$.
+    \[ \begin{tikzcd} Y \arrow[dashed, swap]{d}{h} \arrow{dr}{p_i} & \\ X \arrow{r}{\pi_i} & X_i \end{tikzcd} \]
+    Equivalently, an inverse system is a \tref{functor}{functor} $F : I^\text{op} \to \mathcal{C}$ for a directed set $I$, and an inverse limit is a \tref{limit}{limit} for $F$.
+\end{topic}
+
+\begin{example}{inverse-limit}
+    When $\mathcal{C}$ is the category of sets, groups, rings or modules, an inverse limit can explicitly be described by
+    \[ \varprojlim_{i \in I} X_i = \left\{ (x_i)_{i \in I} \in \prod_{i \in I} X_i : f_{ij}(x_j) = x_i \text{ for all } i \le j \right\} . \]
+\end{example}
+
+\begin{topic}{direct-limit}{direct limit}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{direct system} in $\mathcal{C}$ consists of a directed set $I$, an object $X_i$ for each $i \in I$, and a morphism $f_{ij} : X_i \to X_j$ for all $i \le j$, such that $f_{ii}$ is the identity on $X_i$ and
+    \[ f_{jk} \circ f_{ij} = f_{ik} \quad \text{for all } i \le j \le k . \]
+    A \textbf{direct limit} of a direct system is an object $X = \varinjlim_{i \in I} X_i$ in $\mathcal{C}$ with maps $\iota_i : X_i \to X$ for each $i \in I$ such that $\iota_i = \iota_j \circ f_{ij}$ for all $i \le j$, satisfying the universal property: for any other such object $Y$ with maps $\iota'_i : Y_i \to Y$ there is a unique map $h : X \to Y$ such that $\iota'_i = h \circ \iota_i$ for all $i \in I$.
+    \[ \begin{tikzcd} X_i \arrow{r}{\iota_i} \arrow[swap]{dr}{\iota'_i} & X \arrow[dashed]{d}{h} \\ & Y \end{tikzcd} \]
+    Equivalently, a direct system is a \tref{functor}{functor} $F : I \to \mathcal{C}$ for a directed set $I$, and a direct limit is a \tref{limit}{colimit} for $F$.
+\end{topic}
+
+\begin{example}{direct-limit}
+    When $\mathcal{C}$ is the category of sets, groups, rings or modules, a direct limit can     explicitly be described by
+    \[ \varinjlim_{i \in I} X_i = \bigsqcup_{i \in I} X_i / \sim{} , \]
+    where $x_i \in X_i$ is equivalent to $x_j \in X_j$ if and only if there exists some $k \in I$ with $i, j \le k$ such that $f_{ik}(x_i) = f_{jk}(x_j)$. That is, $x_i$ is equivalent to $x_j$ if they `eventually become equal'.
 \end{example}

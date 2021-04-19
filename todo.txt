@@ -1,4 +1,6 @@
 -- Clever search function: take care of switching words, () and dashes
+-- Homepage
+-- PDF front cover
 
 # Commutative algebra
 CA: direct sum
@@ -11,6 +13,11 @@ AG: example invertible sheaves: correspondence to divisors
 AG: blowup / blowdown
 AG: Néron–Severi group
 AG: Example: Picard group is isomorphic to $H^1(X, \mathcal{O}_X^*)$
+AG: affine GIT quotient
+AG: Riemann--Roch Theorem
+AG: abelian variety
+AG: toric variety
+AG: étale fundamental group(oid)
 
 # Number theory
 NT: ring of integers
@@ -25,6 +32,9 @@ NT: Hilbert class field
 NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
+
+# Category theory
+CT: inverse limit/projective limit/direct limit/injective limit, whatever
 
 AG: Mordell--Weil theorem
 
@@ -54,10 +64,11 @@ AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???
 
 
 # Differential Geometry
-DG: Lie group
 DG: Symplectic geometry (Darboux's theorem)
 DG: Chern classes
 DG: manifold
+DG: inverse function theorem
+DG: implicit function theorem
 
 TO: locally compact (quasi-compact?)
 
@@ -66,3 +77,6 @@ TO: locally compact (quasi-compact?)
 
 
 // GT: central series
+
+
+GT: Weyl group W = N_G(T)/T

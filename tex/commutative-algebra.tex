@@ -200,6 +200,12 @@
     is a \tref{local-ring}{local ring} with maximal ideal $\mathfrak{p} R_\mathfrak{p}$.
 \end{example}
 
+\begin{topic}{total-quotient-ring}{total quotient ring}
+    The \textbf{total quotient ring} of a \tref{ring}{commutative ring} $R$ is the \tref{localization}{localization} $S^{-1} R$, with $S$ the set of elements of $R$ which are not \tref{zero-divisor}{zero-divisors}.
+    
+    When $R$ is a \tref{domain}{domain}, this construction gives the \tref{field-of-fractions}{field of fractions} of $R$.
+\end{topic}
+
 \begin{topic}{regular-ring}{regular (local) ring}
     A \textbf{regular local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} ring such that the minimal number of generators of its maximal ideal is equal to its \tref{krull-dimension}{Krull dimension}. Equivalently, a local ring $R$ with maximal ideal $\mathfrak{m}$ and residue field $k = R / \mathfrak{m}$ is regular iff $\dim_k(\mathfrak{m} / \mathfrak{m}^2) = \dim R$.
     
@@ -547,3 +553,22 @@
 \begin{example}{irrelevant-ideal}
     The irrelevant ideal of the graded ring $S = k[x_1, \ldots, x_n]$ is the ideal $S_+ = (x_1, \ldots, x_n)$.
 \end{example}
+
+\begin{topic}{algebra}{algebra}
+    Let $A$ be a \tref{ring}{commutative ring}. An \textbf{$A$-algebra} is ring $B$ with a \tref{ring-morphism}{ring morphism} $f : A \to B$.
+\end{topic}
+
+\begin{example}{algebra}
+    Let $k$ be a field, and $B = \text{Mat}_{n}(k)$ the ring of $n \times n$ matrices over $k$. Then $B$ is a $k$-algebra under the morphism $i : k \to B$ which sends $a \mapsto a \cdot I$.
+\end{example}
+
+\begin{topic}{derivation}{derivation}
+    Let $A$ be a \tref{ring}{commutative ring}, $B$ an \tref{algebra}{$A$-algebra}, and $M$ a \tref{module}{$B$-module}. An \textbf{$A$-derivation} is a map $d : B \to M$ such that
+    \begin{itemize}
+        \item $d(b + b') = db + db'$ for all $b, b' \in B$,
+        \item $d(bb') = bdb' + b'db$ for all $b, b' \in B$,
+        \item $da = 0$ for all $a \in A$.
+    \end{itemize}
+    The set of $A$-derivations $d : B \to M$ is often denoted $\text{Der}_A(B, M)$.
+\end{topic}
+

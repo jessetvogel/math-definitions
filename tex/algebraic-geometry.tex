@@ -10,7 +10,7 @@
 \end{topic}
 
 \begin{topic}{spectrum}{spectrum}
-    Let $R$ be a commutative ring. The \textbf{spectrum} of $R$ is the \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ defined as follows.
+    Let $R$ be a \tref{CA:ring}{commutative ring}. The \textbf{spectrum} of $R$ is the \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ defined as follows.
     \begin{itemize}
         \item The topological space $X$ is the set of \tref{CA:prime-ideal}{prime ideals} of $R$, whose closed sets are given precisely by the sets $V(I) = \{ \textup{prime ideals } \mathfrak{p} \text{ with } \mathfrak{p} \supset I \}$ for all ideals $I$ of $R$.
         
@@ -27,6 +27,12 @@
     A \textbf{scheme} is a \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ in which every point has an open neighborhood $U$ such that $(U, \mathcal{O}_X|_U)$ is an \tref{affine-scheme}{affine scheme}. A morphism of schemes is a morphism of locally ringed spaces.
     
     One calls $X$ the \textit{underlying topological space}, and $\mathcal{O}_X$ its \textit{structure sheaf}.
+\end{topic}
+
+\begin{topic}{principal-open-subset}{principal open subset}
+    A \textbf{principal open subset} of an \tref{affine-scheme}{affine scheme} $\Spec R$ is an open subset of the form
+    \[ (\Spec R)_f = \{ \mathfrak{p} \in \Spec R : f \not\in \mathfrak{p} \} \]
+    for some $f \in R$.
 \end{topic}
 
 % Scheme properties
@@ -55,7 +61,7 @@
 \begin{topic}{finite-presentation}{(locally) of finite presentation}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite presentation at $x \in X$} if there exists affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{CA:finite-presentation}{finitely presented} $B$-algebra (via the induced map $B \to A$).
     
-    The morphism $f$ is \textbf{locally of finite presentation} if it is of finite presentation at each $x \in X$, and it is \textbf{of finite presentation} if it is locally of finite presentation, \tref{TO:quasi-compact}{quasi-compact}, and \tref{separated-morphism}{quasi-separated}.
+    The morphism $f$ is \textbf{locally of finite presentation} if it is of finite presentation at each $x \in X$, and it is \textbf{of finite presentation} if it is locally of finite presentation, \tref{TO:quasi-compact}{quasi-compact}, and \tref{separated}{quasi-separated}.
 \end{topic}
 
 \begin{topic}{finite-morphism}{finite morphism}
@@ -84,27 +90,26 @@
 \end{topic}
 
 \begin{topic}{normal-scheme}{normal scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{normal} if all of its local rings are integrally closed domains.
-    
-    Every scheme can be `normalized'.
+    A \tref{scheme}{scheme} $X$ is \textbf{normal} if all of its local rings $\mathcal{O}_{X,x}$ are \tref{CA:integral-closure}{integrally closed} \tref{CA:domain}{domains}.
+    % Every scheme can be `normalized'.
 \end{topic}
 
-\begin{topic}{separated-morphism}{(quasi) separated morphism}
+\begin{topic}{separated}{(quasi) separated morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is quasi-compact, and it is \textbf{separated} if the diagonal $\Delta_{X/Y}$ is a closed immersion.
     
     A scheme $X$ is \textbf{(quasi-)separated} if the morphism $X \to \Spec \ZZ$ is (quasi-)separated.
 \end{topic}
 
-\begin{example}{separated-morphism}
+\begin{example}{separated}
     Any morphism of affine schemes is separated. Namely, for any $f : \Spec A \to \Spec B$, the diagonal $\Delta$ corresponds to the ring map $A \otimes_B A \to A : a \otimes a' \mapsto aa'$, which is clearly surjective. In this way $A$ is seen as a quotient of $A \otimes_B A$, so $\Delta$ is a closed immersion.
 \end{example}
 
-\begin{example}{separated-morphism}
+\begin{example}{separated}
     Let $X$ be the affine line with two origins, that is, glue two copies of $\AA_k^1$ along $\AA_k^1 - \{ 0 \}$. We claim that $X$ is not separated over $k$. Namely, consider the map $\AA^1_k \to X \times_k X$ obtained from the two different maps $\AA_k^1 \to X$. Then the inverse image of the diagonal is $\AA_k^1 - \{ 0 \}$, which is not closed. Hence, the diagonal is not closed and $\Delta$ is not a closed immersion.
 \end{example}
 
 \begin{topic}{proper-morphism}{proper morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated-morphism}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
 \end{topic}
 
 \begin{example}{proper-morphism}
@@ -120,7 +125,7 @@
     \[ X \xrightarrow{i} \PP^n_Y \xrightarrow{p} Y , \]
     with $i$ a \tref{closed-immersion}{closed immersion} and $p$ the projection.
     
-    It is \textbf{quasi-projective} if it factors as
+    The morphism $f$ is \textbf{quasi-projective} if it factors as
     \[ X \xrightarrow{j} X' \xrightarrow{g} Y , \]
     with $j$ an \tref{open-immersion}{open immersion} and $g$ a projective morphism.
 \end{topic}
@@ -130,7 +135,7 @@
 \end{topic}
 
 \begin{topic}{variety}{variety}
-    An (abstract) \textbf{variety} is an \tref{integral-scheme}{integral} \tref{separated-morphism}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over an algebraically closed field $k$.
+    An (abstract) \textbf{variety} is an \tref{integral-scheme}{integral} \tref{separated}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over an algebraically closed field $k$.
 \end{topic}
 
 \begin{topic}{complete-variety}{complete variety}
@@ -281,17 +286,6 @@
     The \textbf{relative Picard functor} is the functor
     \[ \text{Pic}_{X/S} : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \text{Pic}(X \times_S T) / f_T^* \text{Pic}(T) . \]
 \end{topic}
-
-% \begin{example}{picard-group}
-%     \begin{itemize}
-%         \item $\text{Pic}(\PP^n) \simeq \ZZ$
-%         \item $\text{Pic}(\AA^n) \simeq 0$
-%     \end{itemize}
-% \end{example}
-
-% \begin{example}{picard-group}
-%     \[ \text{Pic}(X) \simeq H^1(X, \mathcal{O}_X^*) \]
-% \end{example}
 
 \begin{topic}{euler-sequence}{Euler sequence}
     Let $A$ be any ground ring. The \textbf{Euler sequence} is the following exact sequence of sheaves on $\PP_A^n$:
@@ -486,4 +480,62 @@
 
 \begin{example}{group-scheme}
     Viewing schemes as functors of points, it follows directly from the definition that for any $S$-scheme $T \to S$, the set $G(T)$ of $T$-points of $G$ is a \tref{GT:group}{group}, with multiplication $\mu_T$ and unit $T \to S \xrightarrow{e} G$.
+\end{example}
+
+\begin{topic}{calabi-yau-variety}{Calabi--Yau variety}
+    A \textbf{Calabi--Yau variety} is a \tref{variety}{variety} $X$ which is \tref{smooth-morphism}{smooth} and \tref{proper-morphism}{proper} over a field $k$, whose \tref{canonical-sheaf}{canonical sheaf} is trivial, that is, $\wedge^n \Omega_{X/k} \simeq \mathcal{O}_X$.
+    
+    If moreover $H^i(X, \mathcal{O}_X) = 0$ for all $1 \le i \le n - 1$, one speaks of a \textbf{strict Calabi--Yau variety}.
+\end{topic}
+
+\begin{topic}{locally-factorial-scheme}{locally factorial scheme}
+    A \tref{scheme}{scheme} $X$ is \textbf{locally factorial} if all its local rings $\mathcal{O}_{X,x}$ are \tref{CA:unique-factorization-domain}{unique factorization domains}.
+\end{topic}
+
+\begin{topic}{weil-divisor}{Weil divisor}
+    Let $X$ be a \tref{noetherian-scheme}{noetherian} \tref{integral-scheme}{integral} \tref{separated}{separated} \tref{scheme}{scheme}, where every local ring $\mathcal{O}_{X,x}$ of dimension one is \tref{CA:regular-ring}{regular}.
+    
+    A \textbf{prime divisor} on $X$ is a \tref{closed-immersion}{closed} integral subscheme $Y$ of codimension one. A \textbf{Weil divisor} on $X$ is an element of the \tref{GT:free-group}{free abelian group} $\text{Div } X$ generated by the prime divisors.
+    
+    A Weil divisor $D = \sum_i n_i Y_i$ is \textbf{effective} if $n_i \ge 0$ for all $i$.
+    
+    The Weil divisor associated to a rational function $f$ on $X$ is
+    \[ \text{div}(f) = \sum v_Y(f) \cdot Y , \]
+    where the sum is taken over all prime divisors $Y$, and $v_Y : K(X) \to \ZZ$ denotes the discrete valuation of $Y$. Any Weil divisor of this form is called a \textbf{principal Weil divisor}.
+    
+    Two Weil divisors $D$ and $D'$ are \textbf{linearly equivalent}, denoted $D \sim{} D'$, if the difference $D - D'$ is principal. The quotient $\text{Cl } X = \text{Div } X / \sim{}$ is called the \textbf{divisor class group} of $X$.
+\end{topic}
+
+\begin{topic}{cartier-divisor}{Cartier divisor}
+    A \textbf{Cartier divisor} on a \tref{scheme}{scheme} $X$ is a global section of $\mathcal{M}^*/\mathcal{O}_X^*$, where $\mathcal{M}$ denotes the \textit{sheaf of total quotient rings} of $\mathcal{O}_X$, which is the sheaf \tref{associated-sheaf}{associated} to the presheaf that assigns to each open $U \subset X$ the \tref{CA:total-quotient-ring}{total quotient ring} of $\mathcal{O}_X(U)$.
+\end{topic}
+
+\begin{topic}{algebraic-group}{algebraic group}
+    An \textbf{algebraic group} is a \tref{variety}{variety} $G$ which is also a \tref{GT:group}{group}, such that the multiplication map $G \times G \to G$ and the inversion map $G \to G$ are morphisms of varieties.
+\end{topic}
+
+\begin{example}{algebraic-group}
+    \begin{itemize}
+        \item Linear groups such as $\text{GL}_n(k)$ and $\text{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
+        \item Finite groups can be realized as a disjoint union of points.
+        \item Elliptic curves, or more generally abelian varieties.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{radical-algebraic-group}{radical algebraic group}
+    The \textbf{radical} of an \tref{algebraic-group}{algebraic group} is the identity component of its maximal \tref{GT:normal-subgroup}{normal} \tref{GT:solvable-group}{solvable} \tref{GT:subgroup}{subgroup}.
+\end{topic}
+
+\begin{topic}{reductive-algebraic-group}{(linearly) reductive algebraic group}
+    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{reductive} if its \tref{radical-algebraic-group}{radical} is a torus.
+    
+    The algebraic group $G$ is \textbf{linearly reductive} if every \tref{RT:representation}{representation} of $G$ is \tref{RT:irreducible-representation}{semisimple}.
+    
+    In characteristic zero, the two notions are equivalent.
+\end{topic}
+
+\begin{example}{reductive-algebraic-group}
+    The groups $\mathbb{G}_m, \text{GL}_n(\CC), \text{SL}_n(\CC)$ and $\text{PGL}_n(\CC)$ are all reductive. Also any finite group is reductive.
+    
+    A group which is not reductive is $\mathbb{G}_a$. Namely, since it is solvable (it is abelian) its radical is $\mathbb{G}_a$, which is not a torus. Also, we see that it is not linearly reductive: take $V = k^2$ with $\mathbb{G}_a$ acting via $t \cdot (x, y) = (x + ty, y)$. Then $U := k \cdot (1, 0) \subset V$ is a sub-$k[\mathbb{G}_a]$-module, but $V \not\simeq U \oplus (V / U)$.
 \end{example}

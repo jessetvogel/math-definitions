@@ -16,7 +16,7 @@
 \end{topic}
 
 \begin{topic}{picard-group}{Picard group}
-    Let $R$ be a \tref{CA:domain}{domain} with \tref{CA:field-of-fractions}{field of fractions} $K$. Let $\mathcal{I}(R)$ be the set of invertible ideals of $R$, which forms a group under multiplication. The set of principal fractional ideals forms a subgroup $\mathcal{P}(R) \subset \mathcal{I}(R)$, isomorphic to $K^\times / R^\times$. The \textbf{Picard group} of $R$ is the quotient
+    Let $R$ be a \tref{CA:domain}{domain} with \tref{CA:field-of-fractions}{field of fractions} $K$. Let $\mathcal{I}(R)$ be the set of invertible ideals of $R$, which forms a group under multiplication. The set of principal fractional ideals forms a subgroup $\mathcal{P}(R) \subset \mathcal{I}(R)$, isomorphic to $K^* / R^*$. The \textbf{Picard group} of $R$ is the quotient
     \[ \text{Pic}(R) = \mathcal{I}(R) / \mathcal{P}(R) . \]
     It fits in the exact sequence
     \[ 0 \to R^* \to K^* \to \mathcal{I}(R) \to \text{Pic}(R) \to 0 . \]
@@ -55,7 +55,7 @@
 
 \begin{topic}{p-adic-numbers}{p-adic numbers}
     Let $p$ be a prime number. The \textbf{ring of $p$-adic integers} is defined as the inverse limit
-    \[ \ZZ_p = \varinjlim_{n \ge 1} \ZZ / p^n \ZZ . \]
+    \[ \ZZ_p = \varprojlim_{n \ge 1} \ZZ / p^n \ZZ . \]
     That is, a $p$-adic integer is a sequence $(a_n)_{n \ge 1}$ such that $a_n \in \ZZ / p^n \ZZ$ and $a_m \equiv a_n \mod p^m$ for $m \le n$.
     
     The ring of $p$-adic rationals $\QQ_p$ is defined as the \tref{CA:field-of-fractions}{field of fractions} of $\ZZ_p$.

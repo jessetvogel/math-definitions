@@ -189,3 +189,15 @@
 % Subgroup index
 % Lagrange's theorem
 % Sylow p-group
+
+
+
+\begin{topic}{topological-group}{topological group}
+    A \textbf{topological group} is a \tref{group}{group} $G$ which is also a \tref{TO:topological-space}{topological space}, such that multiplication $G \times G \to G, (x, y) \mapsto xy$ and inversion $G \to G, x \mapsto x^{-1}$ are \tref{TO:continuous-map}{continuous}.
+\end{topic}
+
+\begin{topic}{profinite-group}{profinite group}
+    A \textbf{profinite group} $G$ is a \tref{topological-group}{topological group} isomorphic to an \tref{CT:inverse-limit}{inverse limit} of \tref{TO:discrete-topology}{discrete} finite groups
+    \[ G \simeq \varprojlim_I G_i = \left\{ (x_i)_{i \in I} \in \prod_{i \in I} G_i : f_{ij}(x_j) = x_i \text{ for all } i \le j \right\} . \]
+    The topology on $G$ is the \tref{TO:subspace-topology}{subspace} \tref{TO:product-topology}{product topology.}
+\end{topic}

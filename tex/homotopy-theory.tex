@@ -17,7 +17,7 @@
     \begin{itemize}
         \item Finite limits and colimits exist in $\mathcal{C}$.
         \item For maps $f$ and $g$ in $\mathcal{C}$ such that $gf$ is defined, if two out of the three maps $f, g, gf$ are weak equivalences, then so is the third.
-        \item If $f$ is a retract of $g$, and $g$ is a fibration, cofibration or a weak equivalence, then so is $f$.
+        \item If $f$ is a \tref{CT:retract}{retract} of $g$, and $g$ is a fibration, cofibration or a weak equivalence, then so is $f$.
         \item For any commutative diagram
         \[ \begin{tikzcd} A \arrow[swap]{d}{i} \arrow{r}{f} & X \arrow{d}{p} \\ B \arrow[swap]{r}{g} \arrow[dashed]{ur} & Y \end{tikzcd} \]
         such that either (i) $i$ is a cofibration and $p$ an acyclic fibration, or (ii) $i$ an acyclic cofibration and $p$ a fibration, there exists a lift $h : B \to X$ making the diagram commute.
@@ -30,7 +30,7 @@
 \begin{example}{model-category}
     The category $\textbf{Top}$ of topological spaces can be given the structure of a model category by defining a map $f : X \to Y$ to be a
     \begin{itemize}
-        \item \textit{weak equivalence} if $f$ is a \tref{AT:weak-homotopy-equivalence}{weak-homotopy-equivalence},
+        \item \textit{weak equivalence} if $f$ is a \tref{AT:weak-homotopy-equivalence}{weak homotopy equivalence},
         \item \textit{cofibrations} if $f$ is a retract of a map $X \to Y'$ in which $Y'$ is obtained from $X$ by attaching cells,
         \item \textit{fibration} if $f$ is a Serre fibration.
     \end{itemize}

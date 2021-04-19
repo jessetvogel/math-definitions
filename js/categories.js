@@ -1,4 +1,5 @@
 const categories = {
+    "AA": "Abstract Algebra",
     "AG": "Algebraic Geometry",
     "AT": "Algebraic Topology",
     "CA": "Commutative Algebra",
