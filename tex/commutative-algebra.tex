@@ -572,3 +572,28 @@
     The set of $A$-derivations $d : B \to M$ is often denoted $\text{Der}_A(B, M)$.
 \end{topic}
 
+\begin{topic}{height-ideal}{height ideal}
+    The \textbf{height} of a \tref{prime-ideal}{prime ideal} $\mathfrak{p}$ in a \tref{ring}{commutative-ring} $R$ is the supremum of lengths of chains of prime ideals, where a chain
+    \[ \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n = \mathfrak{p} \]
+    has length $n$.
+\end{topic}
+
+\begin{topic}{associated-graded-ring}{associated graded ring}
+    The \textbf{associated graded ring} of a \tref{ring}{commutative-ring} $R$ and an \tref{ideal}{ideal} $\mathfrak{a}$ is the \tref{graded-ring}{graded ring}
+    \[ G_\mathfrak{a}(R) = \bigoplus_{n = 0}^{\infty} \mathfrak{a}^n / \mathfrak{a}^{n + 1} . \]
+\end{topic}
+
+\begin{topic}{completion}{completion}
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an \tref{module}{$R$-module}. Each \tref{ideal}{ideal} $\mathfrak{a} \subset R$ determines a \tref{TO:topological-space}{topology} on $M$ called the \textbf{$\mathfrak{a}$-adic topology}: a subset $U \subset M$ is \textit{open} if and only if for each $x \in U$ there exists a positive integer $n$ such that $x + \mathfrak{a}^n M \subset U$.
+    
+    The \textbf{completion} of $M$ with respect to $\mathfrak{a}$ is the \tref{CT:inverse-limit}{inverse limit}
+    \[ \widehat{M} = \varprojlim_{n \ge 1} M / \mathfrak{a}^n M = \left\{ (x_n)_{n \ge 1} \in \prod_{n \ge 1} M / \mathfrak{a}^n M : x_m = x_n \text{ mod } \mathfrak{a}^n M \text{ for } m \le n \right\} \]
+    with the \tref{TO:subspace-topology}{subspace} \tref{TO:product-topology}{product topology}.
+    
+    When $R = M$, the completion $\widehat{R}$ has a ring structure and is called the \textbf{completion} of $R$, with repsect to $\mathfrak{a}$.
+\end{topic}
+
+\begin{example}{completion}
+    When $R = k[x_1, \ldots, x_n]$ and $\mathfrak{a} = (x_1, \ldots, x_n)$, the completion is the power series ring
+    \[ \widehat{R} = k\llbracket x_1, \ldots, x_n \rrbracket . \]
+\end{example}

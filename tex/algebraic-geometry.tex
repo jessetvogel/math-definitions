@@ -518,7 +518,7 @@
     \begin{itemize}
         \item Linear groups such as $\text{GL}_n(k)$ and $\text{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
         \item Finite groups can be realized as a disjoint union of points.
-        \item Elliptic curves, or more generally abelian varieties.
+        \item Elliptic curves, or more generally \tref{abelian-variety}{abelian varieties}.
     \end{itemize}
 \end{example}
 
@@ -539,3 +539,11 @@
     
     A group which is not reductive is $\mathbb{G}_a$. Namely, since it is solvable (it is abelian) its radical is $\mathbb{G}_a$, which is not a torus. Also, we see that it is not linearly reductive: take $V = k^2$ with $\mathbb{G}_a$ acting via $t \cdot (x, y) = (x + ty, y)$. Then $U := k \cdot (1, 0) \subset V$ is a sub-$k[\mathbb{G}_a]$-module, but $V \not\simeq U \oplus (V / U)$.
 \end{example}
+
+\begin{topic}{abelian-variety}{abelian variety}
+    An \textbf{abelian variety} is a \tref{complete-variety}{complete} \tref{variety}{variety} $X$ over a field $k$ which is also an \tref{algebraic-group}{algebraic group}. That is, it comes with a group structure such that the multiplication map $X \times X \to X$ and the inversion map $X \to X$ are morphisms of varieties.
+\end{topic}
+
+% \begin{topic}{etale-fundamental-group}{étale fundamental group}
+        
+% \end{topic}

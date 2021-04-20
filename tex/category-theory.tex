@@ -317,3 +317,30 @@
     \[ \varinjlim_{i \in I} X_i = \bigsqcup_{i \in I} X_i / \sim{} , \]
     where $x_i \in X_i$ is equivalent to $x_j \in X_j$ if and only if there exists some $k \in I$ with $i, j \le k$ such that $f_{ik}(x_i) = f_{jk}(x_j)$. That is, $x_i$ is equivalent to $x_j$ if they `eventually become equal'.
 \end{example}
+
+\begin{topic}{conservative-functor}{conservative functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{conservative} if it reflects \tref{isomorphism}{isomorphisms}. That is, if $F(f)$ is an isomorphism for some morphism $f$ in $\mathcal{C}$, then $f$ is an isomorphism as well.
+\end{topic}
+
+\begin{topic}{galois-category}{Galois category}
+    A \textbf{Galois category} is a \tref{category}{category} $\mathcal{C}$ with a \tref{functor}{functor} $F : \mathcal{C} \to \textbf{FSet}$ to the category of finite sets, such that
+    \begin{itemize}
+        \item $\mathcal{C}$ has finite \tref{limit}{(co)limits},
+        \item any morphism $f : X \to Y$ in $\mathcal{C}$ can be written as $f = m \circ e$ with $e$ an \tref{epimorphism}{epimorphism} and $m$ a \tref{monomorphism}{monomorphism} onto a direct summand of $Y$,
+        \item $F$ preserves finite (co)limits and \tref{conservative-functor}{reflects isomorphisms}.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{galois-category}
+    Let $X$ be a \tref{TO:connected-space}{connected} \tref{TO:topological-space}{topological space} and $x \in X$ a basepoint. The category $\textbf{FCov}_X$ of finite \tref{TO:covering-space}{coverings} $Y \to X$ together with the functor $F : \textbf{FCov}_X \to \textbf{FSet}$ which maps $Y \to X$ to the fiber $Y_x$ is a Galois category.
+\end{example}
+
+\begin{example}{galois-category}
+    Let $k$ be a field, and $\mathcal{C}$ the \tref{opposite-category}{opposite} of the category $\textbf{SAlg}_k$ of free separable $k$-algebras, with $F(A) = \text{Alg}_k(A, k_s)$, where $k_s$ is a separable closure of $k$. Then $\mathcal{C}$ with $F$ is a Galois category.
+\end{example}
+
+\begin{example}{galois-category}
+    Let $\pi$ be a \tref{GT:profinite-group}{profinite group}. The category $\pi\text{-}\textbf{set}$ of finite sets with a continuous $\pi$-action, and $F : \pi\text{-}\textbf{set} \to \textbf{Set}$ the forgetful functor, is a Galois category.
+    
+    It is a theorem that any essentially small Galois category is equivalent to $\pi\text{-}\textbf{set}$ for the uniquely determined profinite group $\pi = \text{Aut}(F)$.
+\end{example}

@@ -28,7 +28,9 @@ window.MathJax = {
             bdot: "\\bullet",
             Spec: "\\operatorname{Spec}",
             Proj: "\\operatorname{Proj}",
-            norm: ["{\\left\\|#1\\right\\|}", 1]
+            norm: ["{\\left\\|#1\\right\\|}", 1],
+            llbracket: "⟦",
+            rrbracket: "⟧"
         }
       }
 };
