@@ -1,0 +1,62 @@
+\begin{topic}{symplectic-manifold}{symplectic manifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{symplectic form} on $M$ is a \tref{closed-form}{closed} and non-degenerate \tref{differential-form}{$2$-form} $\omega$ on $M$. The pair $(M, \omega)$ is called  \textbf{symplectic manifold}.
+\end{topic}
+
+\begin{example}{symplectic-manifold}
+    Let $M = \RR^{2n}$ with standard coordinates $q^1, \ldots, q^n, p_1, \ldots, p_n$. Then the $2$-form
+    \[ \omega = \sum_{i = 1}^{n} d q^i \wedge d p_i , \]
+    is a symplectic form, the \textit{standard symplectic form}.
+\end{example}
+
+\begin{topic}{symplectomorphism}{symplectomorphism}
+    A \textbf{symplectomorphism} is a \tref{diffeomorphism}{diffeomorphism} $\varphi : M \to M'$ between \tref{symplectic-manifold}{symplectic manifolds} $(M, \omega)$ and $(M', \omega')$ satisfying $\varphi^* \omega' = \omega$.
+\end{topic}
+
+\begin{topic}{tautological-one-form}{tautological 1-form}
+    Let $Q$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{tautological $1$-form} is the \tref{differential-form}{$1$-form} $\theta$ on the \tref{cotangent-bundle}{cotangent bundle} $T^*Q$ given by
+    \[ \theta_x = p(d \pi_x) \quad \text{ for all } x = (q, p) \in T^*Q , \]
+    where $\pi : T^*Q \to Q$ denotes the projection.
+\end{topic}
+
+\begin{example}{tautological-one-form}
+    Take $Q = \RR^n$ so that $T^* Q \simeq \RR^{2n}$ with standard coordinates $q^1, p_1, \ldots, q^n, p_n$. Then the tautological $1$-form is given by
+    \[ \theta = \sum_{i = 1}^{n} p_i dq^i . \]
+\end{example}
+
+\begin{topic}{canonical-symplectic-form}{canonical symplectic form}
+    Let $Q$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{canonical symplectic form} is the \tref{symplectic-manifold}{symplectic form} $\omega$ on the \tref{cotangent-bundle}{cotangent bundle} $T^* Q$ given by
+    \[ \omega = -d \theta , \]
+    where $\theta$ is the \tref{tautological-one-form}{tautological $1$-form}.
+\end{topic}
+
+\begin{example}{canonical-symplectic-form}
+    Take $Q = \RR^n$ so that $T^* Q \simeq \RR^{2n}$ with standard coordinates $q^1, p_1, \ldots, q^n, p_n$. Then the tautological $1$-form is given by
+    \[ \theta = \sum_{i = 1}^{n} p_i dq^i , \]
+    and thus the canonical symplectic form is given by
+    \[ \omega = -d \theta = \sum_{i = 1}^{n} d q^i \wedge d p_i. \]
+\end{example}
+
+\begin{topic}{symplectic-vector-field}{symplectic vector field}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. A \tref{vector-field}{vector field} $X$ on $M$ is called \textbf{symplectic} if the \tref{interior-product}{interior product}
+    \[ \iota_X \omega = \omega(X, -) \]
+    is \tref{closed-form}{closed}.
+\end{topic}
+
+\begin{example}{symplectic-vector-field}
+    Every \tref{hamiltonian-vector-field}{Hamiltonian vector field} is symplectic, since every exact form is closed. The converse is however not true. Let $M$ be the $2n$-torus $\RR^{2n}/\ZZ^{2n}$ with the standard symplectic form
+    \[ \omega = \sum_{i = 1}^{n} dp_i \wedge dq^i . \]
+    Then the vector field $X$ on $M$ given by $X(x) = v$ for some constant non-zero $v \in \RR^{2n}$ (identifying $T_x M$ canonically with $\RR^{2n}$) is symplectic, but not Hamiltonian.
+\end{example}
+
+\begin{topic}{hamiltonian-vector-field}{Hamiltonian vector field}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. Every smooth function $H : M \to \RR$ uniquely determines a \tref{vector-field}{vector field} $X_H$ satisfying
+    \[ \omega(X_H, -) = dH . \]
+    Such a vector field is called a \textbf{Hamiltonian vector field} with \textbf{Hamiltonian $H$}.
+\end{topic}
+
+\begin{example}{hamiltonian-vector-field}
+    Let $M = \RR^{2n}$ with the standard symplectic form
+    \[ \omega = \sum_{i = 1}^{n} dp_i \wedge dq^i . \]
+    Then the Hamiltonian vector field with Hamiltonian $H$ has the form
+    \[ X_H = \left(\frac{\partial H}{\partial p_i}, -\frac{\partial H}{\partial q^i} \right) . \]
+\end{example}

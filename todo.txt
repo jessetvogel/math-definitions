@@ -1,6 +1,10 @@
 -- Clever search function: take care of switching words, () and dashes
 -- Homepage
 -- PDF front cover
+-- Restructure directories:
+    - like '/tex/CA/commutative-algebra.tex'
+    - then we can just download from Overleaf immediately!
+    - also is a way to automatically determine the prefixes, so don't need 'data.py' anymore
 
 # Commutative algebra
 CA: direct sum
@@ -17,6 +21,7 @@ AG: affine GIT quotient
 AG: Riemann--Roch Theorem
 AG: toric variety
 AG: étale fundamental group(oid)
+AG: formal schemes, formal spectrum
 
 # Number theory
 NT: ring of integers
@@ -60,11 +65,32 @@ AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???
 
 
 # Differential Geometry
-DG: Symplectic geometry (Darboux's theorem)
+Good source for definitions: http://www.math.lsa.umich.edu/~jchw/WOMPtalk-Manifolds.pdf
+% DG: manifold (topological, smooth, C^k, C^\infty), atlas (maximal), smooth structure, manifold with boundary
+% DG: submersion, immersion, embedding, (local) diffeomorphism
+% DG: tangent space, cotangent space, tangent bundle, cotangent bundle
+% DG: parallelizable manifold // framed manifold
+% DG: vector bundle
+% DG: vector field
+% DG: differential form
+% DG: inverse function theorem
+% DG: Whitney embedding theorem (sharp lower bound example: RP^m cannot be embedded in R^{2m - 1} when m = power of 2)
+% DG: partition of unity
+% DG: Riemannian manifold
+DG: Kähler manifold, Riemannian manifold, symplectic manifold, Hyperkahler manifold
+
+DG: Symplectic geometry (Darboux's theorem) + all lecture notes from last year.
+    - Symplectic quotients
+    - Hamiltonian vector fields, blablaba
 DG: Chern classes
-DG: manifold
-DG: inverse function theorem
+DG: Lie derivative, Lie bracket vector fields, Poisson bracket (poisson bracket from symplectic form)
 DG: implicit function theorem
+DG: bordisms?
+DG: Example of a topological manifold having multiple smooth structures
+DG: Grassmanian
+DG: exterior derivative, interior product
+DG: Lie groups: (co)adjoint actions, Lie algebras
+DG: Hamiltonian manifold, moment maps
 
 TO: locally compact (quasi-compact?)
 

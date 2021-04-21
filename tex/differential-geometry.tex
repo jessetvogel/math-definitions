@@ -1,3 +1,125 @@
+\begin{topic}{topological-manifold}{topological manifold}
+    A \textbf{topological manifold of dimension $n$} is a \tref{TO:second-countable}{second countable} \tref{TO:hausdorff-space}{Hausdorff} \tref{TO:topological-space}{topological space} in which every point has an open neighborhood that is \tref{TO:homeomorphism}{homeomorphic} to an open subset of $\RR^n$.
+\end{topic}
+
+\begin{topic}{atlas}{atlas}
+    Let $M$ be a \tref{topological-manifold}{topological manifold}. A \textbf{chart} on $M$ is a pair $(U, \varphi)$ where $U$ is an open subset of $M$ and $\varphi : U \to \tilde{U}$ is a \tref{TO:homeomorphism}{homeomorphism} from $U$ to an open subset $\tilde{U} \subset \RR^n$. An \textbf{atlas} for $M$ is a collection of charts $\{ (U_\alpha, \varphi_\alpha) \}$ such that the $U_\alpha$ cover $M$.
+    
+    An atlas is \textbf{smooth} if any two charts $(U, \varphi)$ and $(V, \psi)$ are \textit{smoothly compatible}, that is, either $U \cap V = \varnothing$ or the \textit{transition map}
+    \[ \psi \circ \varphi^{-1} : \varphi(U \cap V) \to \psi(U \cap V) \]
+    is \textit{smooth}: all its continuous partial derivatives exist.
+    
+    A smooth atlas is \textbf{maximal} if it is not contained in any strictly larger smooth atlas.
+\end{topic}
+
+\begin{topic}{smooth-structure}{smooth structure}
+    A \textbf{smooth structure} on a \tref{topological-manifold}{topological manifold} $M$ is a \tref{atlas}{maximal smooth atlas} for $M$.
+\end{topic}
+
+\begin{topic}{smooth-manifold}{smooth manifold}
+    A \textbf{smooth manifold} is \tref{topological-manifold}{topological manifold} $M$ together with a \tref{smooth-structure}{smooth structure} on $M$.
+\end{topic}
+
+\begin{topic}{smooth-map}{smooth map}
+    A map $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is \textbf{smooth} if for all \tref{atlas}{charts} $(U, \varphi)$ of $M$ and $(V, \psi)$ of $N$, the composition
+    \[ \psi \circ f \circ \varphi^{-1} : \varphi(f^{-1}(V) \cap U) \to \psi(V) \]
+    is \textit{smooth}, i.e. all its continuous partial derivatives exist.
+\end{topic}
+
+\begin{topic}{diffeomorphism}{diffeomorphism}
+    A \textbf{diffeomorphism} is a \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} that has a smooth inverse $f^{-1} : N \to M$.
+    
+    A \textbf{local diffeomorphism} is a smooth map $f : M \to N$ for which every point $p \in M$ has a neighborhood $U \subset M$ such that $f(U)$ is open in $N$ and $f : U \to f(U)$ is a diffeomorphism.
+    
+    The manifolds $M$ and $N$ are called \textbf{diffeomorphic} if there exists diffeomorphism between them.
+\end{topic}
+
+\begin{topic}{submersion}{submersion}
+    A \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is a \textbf{submersion} if the derivative $df_p : T_p M \to T_{f(p)} N$ is surjective for all $p \in M$.
+\end{topic}
+
+\begin{topic}{immersion}{immersion}
+    A \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is an \textbf{immersion} if the derivative $df_p : T_p M \to T_{f(p)} N$ is injective for all $p \in M$.
+\end{topic}
+
+\begin{topic}{embedding}{embedding}
+    A \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is an \textbf{embedding} if it is an \tref{immersion}{immersion} and a \tref{TO:homeomorphism}{homeomorphism} onto its image.
+\end{topic}
+
+\begin{topic}{tangent-space}{tangent space}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $p$ a point of $M$. A \textbf{derivation at $p$}, or a \textbf{tangent vector at $p$}, is a linear map $v : C^\infty(M) \to \RR$ satisfying
+    \[ v(fg) = f(p) v(g) + g(p) v(f) \]
+    for all $f, g \in C^\infty(M)$. The \textbf{tangent space} to $M$ at $p$ is the set of all derivations at $p$, denoted $T_p M$. It is a real \tref{LA:vector-space}{vector space} of the same dimension as the dimension of $M$.
+\end{topic}
+
+\begin{topic}{tangent-bundle}{tangent bundle}
+    Let $M$ be an $n$-dimensional \tref{smooth-manifold}{smooth manifold}. The \textbf{tangent bundle} of $M$, denoted $TM$, is defined as the disjoint union of the \tref{tangent-space}{tangent spaces} at all points of $M$,
+    \[ TM = \bigsqcup_{p \in M} T_p M . \]
+    It naturally has the structure of a $2n$-dimensional smooth manifold such that the projection map
+    \[ \pi : TM \to M, \quad (p, v) \mapsto p \]
+    is \tref{smooth-map}{smooth}.
+\end{topic}
+
+\begin{topic}{vector-field}{vector field}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{vector field} on $M$ is a section of the \tref{tangent-bundle}{tangent bundle} $\pi : TM \to M$, i.e. a map $X : M \to TM$ such that $X(p) \in T_p M$ for all $p \in M$.
+\end{topic}
+
+\begin{topic}{cotangent-space}{cotangent space}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{cotangent space} to $M$ at a point $p \in M$, denoted $T^*_p M$ is the \tref{LA:dual-vector-space}{dual} of the \tref{tangent-space}{tangent space} $T_p M$,
+    \[ T^*_p M = (T_p M)^* . \]
+    Elements of $\xi \in T^*_p M$ are called \textbf{tangent covectors} at $p$.
+\end{topic}
+
+\begin{topic}{cotangent-bundle}{cotangent bundle}
+    Let $M$ be an $n$-dimensional \tref{smooth-manifold}{smooth manifold}. The \textbf{cotangent bundle} of $M$, denoted $T^*M$, is defined as the disjoint union of the \tref{cotangent-space}{cotangent spaces} at all points of $M$,
+    \[ T^*M = \bigsqcup_{p \in M} T^*_p M . \]
+    It naturally has the structure of a $2n$-dimensional smooth manifold such that the projection map
+    \[ \pi : T^*M \to M, \quad (p, \xi) \mapsto p \]
+    is \tref{smooth-map}{smooth}.
+\end{topic}
+
+\begin{topic}{vector-bundle}{vector bundle}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{vector bundle of rank $k$} over $M$ is a smooth manifold $E$ together with a surjective \tref{smooth-map}{smooth map} $\pi : E \to M$ such that
+    \begin{itemize}
+        \item for each $p \in M$, the \textit{fiber} $E_p = \pi^{-1}(p)$ has the structure of a real \tref{LA:vector-space}{vector space},
+        \item for each $p \in M$, there exists a neighborhood $U \subset M$ of $p$ and a \tref{diffeomorphism}{diffeomorphism} $\Phi : \pi^{-1}(U) \to U \times \RR^k$ such that
+        \[ \begin{tikzcd} \pi^{-1}(U) \arrow{rr}{\Phi} \arrow[swap]{dr}{\pi} && U \times \RR^k \arrow{dl}{\pi_U} \\ & U & \end{tikzcd} \]
+        commutes, and the restriction of $\Phi|_{E_p} : E_p \to \{ p \} \times \RR^k \simeq \RR^k$ is a linear isomorphism.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{differential-form}{differential form}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{smooth differential $k$-form} is a smooth section of the $k$-th exterior power of the \tref{cotangent-bundle}{cotangent bundle} $\wedge^k T^* M$. The set of all smooth differential $k$-forms is a \tref{LA:vector-space}{vector space} denoted by $\Omega^k(M)$.
+\end{topic}
+
+\begin{topic}{parallelizable-manifold}{parallelizable manifold}
+    A \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{parallelizable} if its \tref{tangent-bundle}{tangent bundle} $TM$ is trivial, that is, $TM$ is \tref{diffeomorphism}{diffeomorphic} to $M \times \RR^n$.
+\end{topic}
+
+\begin{topic}{inverse-function-theorem}{inverse function theorem}
+    The \textbf{inverse function theorem} states that if $f : M \to N$ is a \tref{smooth-map}{smooth map} between \tref{smooth-manifold}{smooth manifolds}, whose derivative $df_p : T_p M \to T_{f(p)} N$ at some point $p \in M$ is an isomorphism, then $f$ is a \tref{diffeomorphism}{local diffeomorphism} at $p$.
+\end{topic}
+
+\begin{topic}{partition-of-unity}{partition of unity}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{partition of unity} on $M$ is a set of smooth functions $\{ f_\alpha : M \to [0, 1] \}$ so that each point $p \in M$ has a neighborhood where only finitely many $f_\alpha$ are nonzero and $\sum_\alpha f_\alpha(p) = 1$.
+    
+    It is a theorem that for any open cover $\{ U_\alpha \}$ of $M$, there exists a partition of unity $\{ f_\alpha \}$ such that the support of $f_\alpha$ is contained in $U_\alpha$.
+\end{topic}
+
+\begin{topic}{whitney-embedding-theorem}{Whitney embedding theorem}
+    The \textbf{Whiteney embedding theorem} states that any \tref{smooth-manifold}{smooth $n$-dimensional manifold} can be \tref{embedding}{embedded} in $\RR^{2n}$, for all $n > 0$.
+\end{topic}
+
+\begin{example}{whitney-embedding-theorem}
+    The dimension $2n$ is a sharp lower bound: projective space $\RR P^n$ cannot be embedded in $\RR^{2n - 1}$ whenever $n$ is a power of $2$.
+\end{example}
+
+\begin{topic}{riemannian-manifold}{Riemannian manifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Riemannian metric} on $M$ is a smooth symmetric $2$-tensor field $g$ that is positive definite at each point $p \in M$. A \textbf{Riemannian manifold} is pair $(M, g)$, where $M$ is a \tref{smooth-manifold}{smooth manifold} and $g$ a Riemannian metric on $M$.
+\end{topic}
+
+% ---
+
 \begin{topic}{de-rham-isomorphism}{de Rham isomorphism}
     The \textbf{de Rham isomorphism} is the isomorphism given by
     \[ H_{\textup{dR}}^k(X) \xrightarrow{\sim} H^k(X; \RR) : [ \omega ] \mapsto \int_{(-)} \omega . \]
@@ -10,4 +132,12 @@
     \[ H^k(X; \ZZ) \xrightarrow{\sim} H_{n - k}(X; \ZZ) \]
     which sends $\omega$ to the cap product $[X] \frown \omega$, where $[X] \in H_n(X; \ZZ)$ denotes the fundamental class of $X$. That is, $\omega$ is sent to
     \[ (\eta \mapsto (\omega \smile \eta)([X])) \in \Hom(H^{n - k}(X; \ZZ), \ZZ) = H_{n - k}(X; \ZZ) . \]
+\end{topic}
+
+\begin{topic}{fundamental-class}{fundamental class}
+    The \textbf{fundamental class} of a closed orientable $n$-dimensional manifold $M$ is a homology class $[M] \in H_n(M; \ZZ)$ which is a generator of the homology group corresponding to the orientation of $M$.
+\end{topic}
+
+\begin{topic}{lie-group}{Lie group}
+    A \textbf{Lie group} is a \tref{GT:group}{group} $G$ which is also a finite-dimensional \tref{smooth-manifold}{smooth manifold}, such that the multiplication map $G \times G \to G : (x, y) \mapsto xy$ and the inversion map $G \to G : x \mapsto x^{-1}$ are \tref{smooth-map}{smooth}.
 \end{topic}
