@@ -56,6 +56,8 @@ const examples = [
   "CT:enriched-category",
   "CT:simplicial-object",
   "CT:infinity-category",
+  "DG:exterior-derivative",
+  "DG:lie-derivative",
   "DG:whitney-embedding-theorem",
   "DG:symplectic-manifold",
   "DG:tautological-one-form",

@@ -92,6 +92,80 @@
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{smooth differential $k$-form} is a smooth section of the $k$-th exterior power of the \tref{cotangent-bundle}{cotangent bundle} $\wedge^k T^* M$. The set of all smooth differential $k$-forms is a \tref{LA:vector-space}{vector space} denoted by $\Omega^k(M)$.
 \end{topic}
 
+\begin{topic}{exterior-derivative}{exterior derivative}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{exterior product} is the unique linear map $d : \Omega^k(M) \to \Omega^{k - 1}(M)$ between \tref{differential-form}{differential forms} satisfying
+    \begin{itemize}
+        \item for any smooth function $f$ (that is, a $0$-form), $df$ is the \textit{differential} of $f$, that is, $df(X) = X(f)$ for any \tref{vector-field}{vector field} $X$,
+        \item $d(df) = 0$ for all smooth functions $f$,
+        \item $d(\omega \wedge \eta) = d \omega \wedge \eta + (-1)^k (\omega \wedge d\eta)$ for all $k$-forms $\omega$ and $p$-forms $\eta$.
+    \end{itemize}
+    It can be shown that $d(d\omega) = 0$ for all $k$-forms $\omega$, which is commonly expressed as $d^2 = 0$.
+    
+    In local coordinates, if $\omega = \sum_I \omega_I dx^I$ (multi-index notation) then
+    \[ d \omega = \sum_I \sum_j \frac{\partial \omega_I}{\partial x^j} dx^j \wedge dx^I . \]
+\end{topic}
+
+\begin{example}{exterior-derivative}
+    Let $\omega = x^2 \; dy \wedge dz + yz \; dx \wedge dz$ be a $2$-form on $\RR^3$. Then
+    \[ \begin{aligned}
+        d\omega
+            &= 2x \; dx \wedge dy \wedge dz + z \; dy \wedge dx \wedge dz + y \; dz \wedge dx \wedge dz \\
+            &= (2x - z) \; dx \wedge dy \wedge dz .
+    \end{aligned} \]
+\end{example}
+
+\begin{topic}{interior-product}{interior product}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{interior product} is the \textit{contraction} of a \tref{differential-form}{differential form} with a \tref{vector-field}{vector field}. That is, if $X$ is a vector field on $M$, then
+    \[ \iota_X : \Omega^k(M) \to \Omega^{k - 1} \]
+    is the map defined by
+    \[ (\iota_X \omega)(Y_1, \ldots, Y_{k - 1}) = \omega(X, Y_1, \ldots, Y_{k - 1}) \]
+    for any vector fields $Y_1, \ldots, Y_{k - 1}$.
+\end{topic}
+
+\begin{topic}{lie-derivative}{Lie derivative}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Lie derivative} of a \tref{tensor-field}{tensor field} $T$ with respect to a \tref{vector-field}{vector field} $X$ is the tensor field $\mathcal{L}_X T$ (of the same type as $T$), given by
+    \[ (\mathcal{L}_X T)_p = \frac{d}{dt}\Big|_{t = 0} \left( \left(\varphi^t_X\right)^* T \right)_p \]
+    for all points $p \in M$. Here $\varphi^t_X$ denotes the flow of $X$.
+\end{topic}
+
+\begin{example}{lie-derivative}
+    When $f$ is a smooth function, we have
+    \[ \begin{aligned}
+        (\mathcal{L}_X f)(p)
+            &= \frac{d}{dt}\Big|_{t = 0} \left(\left(\varphi^t_X\right)^* f \right)(p) \\
+            &= \frac{d}{dt}\Big|_{t = 0} f \left(\varphi^t_X(p)\right) \\
+            &= df_p \left( \frac{d}{dt}\Big|_{t = 0} \varphi^t_X(p) \right) \\
+            &= df_p(X_p) \\
+            &= X(f)(p) .
+    \end{aligned} \]
+    
+\end{example}
+
+\begin{topic}{lie-bracket-vector-fields}{Lie bracket of vector fields}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Lie bracket} of two \tref{vector-field}{vector fields} $X, Y$ is defined as the vector field $[X, Y]$ given by
+    \[ [X, Y](f) = X(Y(f)) - Y(X(f)) \]
+    for all smooth functions $f$ on $M$.
+\end{topic}
+
+\begin{topic}{cartan-formula}{Cartan formula}
+    The \textbf{Cartan formula} relates the \tref{interior-product}{interior product}, \tref{exterior-derivative}{exterior derivative} and \tref{lie-derivative}{Lie derivative} via
+    \[ \mathcal{L}_X \omega = d(\iota_X \omega) + \iota_X d \omega . \]
+\end{topic}
+
+\begin{topic}{closed-form}{closed form}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \tref{differential-form}{differential form} $\omega$ is \textbf{closed} if its \tref{exterior-derivative}{exterior derivative} is zero, that is, if $dw = 0$.
+\end{topic}
+
+\begin{topic}{exact-form}{exact form}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \tref{differential-form}{differential form} $\omega$ is \textbf{exact} if it is the \tref{exterior-derivative}{exterior derivative} of another differential form $\eta$, that is, if $\omega = d \eta$.
+\end{topic}
+
+\begin{topic}{tensor-field}{tensor field}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{tensor bundle} on $M$ is any \tref{vector-bundle}{vector bundle} of the form
+    \[ \underbrace{TM \otimes \cdots TM}_{p \text{ times}} \otimes \underbrace{T^*M \otimes \cdots T^*M}_{q \text{ times}} . \]
+    A \textbf{tensor field} of \textit{type} $(p, q)$ is a section of this bundle.
+\end{topic}
+
 \begin{topic}{parallelizable-manifold}{parallelizable manifold}
     A \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{parallelizable} if its \tref{tangent-bundle}{tangent bundle} $TM$ is trivial, that is, $TM$ is \tref{diffeomorphism}{diffeomorphic} to $M \times \RR^n$.
 \end{topic}
@@ -115,7 +189,35 @@
 \end{example}
 
 \begin{topic}{riemannian-manifold}{Riemannian manifold}
-    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Riemannian metric} on $M$ is a smooth symmetric $2$-tensor field $g$ that is positive definite at each point $p \in M$. A \textbf{Riemannian manifold} is pair $(M, g)$, where $M$ is a \tref{smooth-manifold}{smooth manifold} and $g$ a Riemannian metric on $M$.
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Riemannian metric} on $M$ is a smooth symmetric \tref{tensor-field}{$(0, 2)$-tensor field} $g$ that is positive definite at each point $p \in M$. The pair $(M, g)$ is called a \textbf{Riemannian manifold}.
+\end{topic}
+
+\begin{topic}{almost-complex-structure}{almost complex manifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost complex structure} on $M$ is a smooth \tref{tensor-field}{tensor field} $J \in \Gamma(TM \otimes T*M)$ satisfying $J^2 = -1$ when viewed as a bundle isomorphism $J : TM \to TM$. The pair $(M, J)$ is called an \textbf{almost complex manifold}.
+\end{topic}
+
+\begin{topic}{kahler-manifold}{Kähler manifold}
+    A \textbf{Kähler manifold} is a \tref{smooth-manifold}{smooth manifold} $M$ with three compatible structures: a complex structure $J$, a \tref{riemannian-manifold}{Riemannian structure} $g$, and a \tref{symplectic-manifold}{symplectic structure} $\omega$. Compatibility means that
+    \[ g(X, Y) = \omega(X, JY) \]
+    for all \tref{vector-field}{vector fields} $X, Y$ on $M$.
+    
+    Note that two-out-of-three structures determines the other structure.
+\end{topic}
+
+\begin{topic}{connection}{connection}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} over a \tref{smooth-manifold}{smooth manifold} $M$. A \textbf{connetion} on $E$ is a linear differential operator
+    \[ \nabla : \Gamma(E) \to \Gamma(T^*M \otimes E) \]
+    satisfying the \textit{Leibniz rule}
+    \[ \nabla(fs) = df \otimes s + f \nabla s \]
+    for all smooth functions $f$ and sections $s \in \Gamma(E)$.
+\end{topic}
+
+\begin{topic}{curvature-connection}{curvature of a connection}
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The map $\nabla^2 : \Omega^0(M; E) \to \Omega^2(M; E)$ is $C^\infty(M)$-linear and hence induced by a section $F_\nabla \in \Omega^2(M; \text{End}(E))$, called the \textbf{curvature} of $\nabla$.
+\end{topic}
+
+\begin{topic}{curvature-form}{curvature form}
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \text{tr } F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \text{End}(M))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\text{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
 \end{topic}
 
 % ---

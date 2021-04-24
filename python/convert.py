@@ -26,10 +26,10 @@ for c in data:
 # Write topics.js
 topics_js = open('../data/topics.js', 'w')
 
-topics_js.write('const topics = {\n');
+topics_js.write('const topics = {\n')
 for i in parser.topics:
     topics_js.write('  "{}": "{}",\n'.format(i, parser.topics[i]));
-topics_js.write('}\n');
+topics_js.write('}\n')
 
 topics_js.close()
 
@@ -40,12 +40,19 @@ topics_js.close()
 # Write examples.js
 examples_js = open('../data/examples.js', 'w')
 
-examples_js.write('const examples = [\n');
+examples_js.write('const examples = [\n')
 for topic in parser.examples:
-    examples_js.write('  "{}",\n'.format(topic));
-examples_js.write('];\n');
+    examples_js.write('  "{}",\n'.format(topic))
+examples_js.write('];\n')
 
 examples_js.close()
+
+
+# In[4]:
+
+
+# Print stats
+print('\nCompiled {} topics'.format(len(parser.topics)))
 
 
 # In[ ]:

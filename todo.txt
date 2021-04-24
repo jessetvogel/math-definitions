@@ -5,6 +5,7 @@
     - like '/tex/CA/commutative-algebra.tex'
     - then we can just download from Overleaf immediately!
     - also is a way to automatically determine the prefixes, so don't need 'data.py' anymore
+-- Switch to the Palatino font?
 
 # Commutative algebra
 CA: direct sum
@@ -22,6 +23,8 @@ AG: Riemann--Roch Theorem
 AG: toric variety
 AG: étale fundamental group(oid)
 AG: formal schemes, formal spectrum
+AG: Zariski's main theorem
+
 
 # Number theory
 NT: ring of integers
@@ -77,11 +80,15 @@ Good source for definitions: http://www.math.lsa.umich.edu/~jchw/WOMPtalk-Manifo
 % DG: Whitney embedding theorem (sharp lower bound example: RP^m cannot be embedded in R^{2m - 1} when m = power of 2)
 % DG: partition of unity
 % DG: Riemannian manifold
-DG: Kähler manifold, Riemannian manifold, symplectic manifold, Hyperkahler manifold
+% DG: Kähler manifold, Riemannian manifold
+
+DG: complex manifold
+DG: hyperkahler manifold
+    Riemannian manifold with three complex structures I, J, K satsifying quaternionic relations.
+    "Definition 1.5. A complex structure on a smooth manifold XX is the structure of a complex manifold on XX. Every such defines an almost complex structure and almost complex structures arising this way are called integrable (see also at integrability of G-structures the section Examples – Complex structure)."
 
 DG: Symplectic geometry (Darboux's theorem) + all lecture notes from last year.
     - Symplectic quotients
-    - Hamiltonian vector fields, blablaba
 DG: Chern classes
 DG: Lie derivative, Lie bracket vector fields, Poisson bracket (poisson bracket from symplectic form)
 DG: implicit function theorem
@@ -91,6 +98,9 @@ DG: Grassmanian
 DG: exterior derivative, interior product
 DG: Lie groups: (co)adjoint actions, Lie algebras
 DG: Hamiltonian manifold, moment maps
+DG: distribution, involutive, integrable
+DG: parallel transport, covariant derivative, Levi-Civita connection, Christoffel symbols
+DG: Stiefel--Whitney class
 
 TO: locally compact (quasi-compact?)
 
@@ -102,3 +112,15 @@ TO: locally compact (quasi-compact?)
 
 
 GT: Weyl group W = N_G(T)/T
+
+
+AA: Lie algebra
+
+RT: projective representation
+RT: examples representation ring
+
+
+AT: Euler characteristic
+
+
+TO: Galois cover
