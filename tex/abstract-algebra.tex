@@ -25,3 +25,20 @@
 %     \[ \Hom(A, B) \otimes \Hom(B, C) \to \Hom(A, C) \]
 %     must be a chain map and $d(\id_A) = 0$.
 % \end{topic}
+
+\begin{topic}{lie-algebra}{Lie algebra}
+    A \textbf{Lie algebra} is is a \tref{LA:vector-space}{vector space} $\mathfrak{g}$ over a field $k$, together with an operation $\mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}, (x, y) \mapsto [x, y]$ called the \textbf{Lie bracket}, satisfying
+    \begin{itemize}
+        \item (\textit{bilinearity}) $[ax + by, z] = a[x, z] + b[y, z]$ and $[z, ax + by] = a[z, x] + b[z, y]$ for all $x, y, z \in \mathfrak{g}$ and $a, b \in k$,
+        \item (\textit{alternativity}) $[x, x] = 0$ for all $x \in \mathfrak{g}$,
+        \item (\textit{Jacobi identity}) $[x, [y, z]] + [z, [x, y]] + [y, [z, x]] = 0$ for all $x, y, z \in \mathfrak{g}$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{lie-algebra}
+    Consider $\mathfrak{g} = \RR^3$ with bracket operation defined by the \textit{cross product} $[x, y] = x \times y$.
+\end{example}
+
+\begin{example}{lie-algebra}
+    For any \tref{DG:lie-group}{Lie group} $G$, the tangent space at the identity $\mathfrak{g} = T_e G$ has a Lie algebra structure, called the \textit{Lie algebra} of $G$. Tangent vectors $v \in T_e G$ correspond one-to-one to \textit{left invariant vector fields} on $G$, i.e. vector fields $X$ satisfying $X_g = ((L_g)_* X)_e$ for all $g \in G$, where $L_g : G \to G$ denotes left multiplication by $g$. The Lie bracket on $\mathfrak{g}$ is then given by the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}. Note that the Lie bracket of left-invariant vector fields is indeed also left-invariant.
+\end{example}

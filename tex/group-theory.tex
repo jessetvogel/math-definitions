@@ -112,6 +112,10 @@
     satisfying $1 \cdot x = x$ and $g \cdot (h \cdot x) = (gh) \cdot x$ for all $g, h \in G$ and $x \in X$.
 \end{topic}
 
+\begin{topic}{free-group-action}{free group action}
+    A \tref{group-action}{group action} of a \tref{group}{group} $G$ on a set $X$ is \textbf{free} if $g \cdot x = x$ implies $g = 1$, for all $x \in X$.
+\end{topic}
+
 \begin{topic}{centralizer}{centralizer}
     Let $G$ be a \tref{group}{group}. The \textbf{centralizer} of an element $g \in G$ is the subgroup
     \[ G_g = \{ h \in G : h x h^{-1} = g \} . \]
@@ -190,10 +194,14 @@
 % Lagrange's theorem
 % Sylow p-group
 
-
-
 \begin{topic}{topological-group}{topological group}
     A \textbf{topological group} is a \tref{group}{group} $G$ which is also a \tref{TO:topological-space}{topological space}, such that multiplication $G \times G \to G, (x, y) \mapsto xy$ and inversion $G \to G, x \mapsto x^{-1}$ are \tref{TO:continuous-map}{continuous}.
+\end{topic}
+
+\begin{topic}{proper-group-action}{proper group action}
+    A continuous \tref{group-action}{group action} of a \tref{topological-group}{topological group} $G$ on a \tref{TO:topological-space}{topological space} $X$ is \textbf{proper} if the map
+    \[ G \times X \to X \times X, \quad (g, x) \mapsto (x, gx) \]
+    is \tref{TO:proper-map}{proper map}.
 \end{topic}
 
 \begin{topic}{profinite-group}{profinite group}
@@ -201,3 +209,9 @@
     \[ G \simeq \varprojlim_I G_i = \left\{ (x_i)_{i \in I} \in \prod_{i \in I} G_i : f_{ij}(x_j) = x_i \text{ for all } i \le j \right\} . \]
     The topology on $G$ is the \tref{TO:subspace-topology}{subspace} \tref{TO:product-topology}{product topology.}
 \end{topic}
+
+\begin{example}{profinite-group}
+    Let $G$ be an arbitrary group, and $I$ a collection of normal subgroups of finite index of $G$, partially ordered with respect to (reversed) inclusions: $N \le N' \iff N \supset N'$. This yields an inverse system $(G / N)_{N \in I}$ with transition maps $G/N' \to G/N$ for $N \le N'$, and the profinite group
+    \[ \hat{G} = \varprojlim_{N \in I} G / N ,\]
+    is called the \textit{profinite completion} of $G$.
+\end{example}

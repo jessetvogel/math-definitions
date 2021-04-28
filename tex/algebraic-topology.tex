@@ -257,6 +257,10 @@
     \end{aligned} \]
 \end{example}
 
+\begin{example}{eilenberg-maclane-space}
+    It is a theorem that for any $n \ge 0$ and group $G$ (abelian if $n \ge 1$), there exists an Eilenberg--MacLane space $X$ with $\pi_n(X) \simeq G$. This space is usually denoted by $K(G, n)$. It can be shown that any two $K(G, n)$'s are \tref{weak-homotopy-equivalence}{weakly homotopy equivalent}.
+\end{example}
+
 \begin{topic}{contractible-space}{contractible space}
     A \tref{TO:topological-space}{topological space} $X$ is \textbf{contractible} if the identity map $\id_X$ is \tref{null-homotopic}{null homotopic}, that is, if it is homotopic to some constant map.
 \end{topic}
@@ -346,6 +350,12 @@
     is a weak homotopy equivalence as well. This follows directly from the two long exact sequences corresponding to $f$ and $f'$ as above, and the \tref{HA:five-lemma}{five lemma}.
 \end{example}
 
+\begin{topic}{homotopy-cofiber}{homotopy cofiber}
+    Let $f : X \to Y$ be a \tref{TO:continuous-map}{continuous map} of pointed spaces $X, Y$ with basepoints $x \in X$ and $y \in Y$. Then the \textbf{homotopy cofiber} of $f$ is the space
+    \[ C(f) = Y \cup_X CX , \]
+    where $CX = X \times [0, 1] / (X \times \{ 1 \} \cup \{ x \} \times [0, 1])$ denotes the \textit{reduced cone} of $X$, and $X$ is identified with $X \times \{ 0 \}$.
+\end{topic}
+
 \begin{topic}{postnikov-tower}{Postnikov tower}
     Let $X$ be a \tref{TO:path-connected-space}{path-connected} pointed \tref{TO:topological-space}{space}. A \textbf{Postnikov tower} of $X$ is a commutative diagram of pointed spaces
     \[ \begin{tikzcd}
@@ -371,3 +381,21 @@
     \end{itemize}
     It is a theorem that a Whitehead tower of $X$ exists, and it is unique up to \tref{weak-homotopy-equivalence}{weak homotopy equivalence}. In fact, one can take $W_n X$ to be the \tref{homotopy-fiber}{homotopy fiber} $\text{hofib}(X \to P_n X)$ for a \tref{postnikov-tower}{Postnikov tower} $P_n X$.
 \end{topic}
+
+\begin{topic}{cofibration}{cofibration}
+    A map $i : A \to X$ of \tref{TO:topological-space}{topological spaces} is a \textbf{cofibration} if for any space $Y$ and map $f$ as in the diagram
+    \[ \begin{tikzcd} X \times \{ 0 \} \cup A \times [0, 1] \arrow{r}{f} \arrow{d} & Y \\ X \times [0, 1] \arrow[dashed]{ur}{g} \end{tikzcd} \]
+    there exists an extension $g : X \times [0, 1] \to Y$. That is, the map $i$ satisfies the \tref{homotopy-extension-property}{homotopy extension property}.
+\end{topic}
+
+\begin{topic}{well-pointed-space}{well-pointed space}
+    A pointed \tref{TO:topological-space}{topological space} $X$ with basepoint $x_0$ is \textbf{well-pointed} if the inclusion $\{ x_0 \} \to X$ is a \tref{cofibration}{cofibration}.
+\end{topic}
+
+\begin{topic}{spectrum}{spectrum}
+    A \textbf{spectrum} is a sequence of pointed \tref{topological-space}{topological spaces} $E = (E_n)_{n \ge 0}$ equipped with \tref{weak-homotopy-equivalence}{weak homotopy equivalences} $E_n \xrightarrow{\sim} \Omega E_{n + 1}$, where $\Omega E_{n + 1}$ denotes the \tref{loop-space}{loop space} of $E_{n + 1}$.
+\end{topic}
+
+\begin{example}{spectrum}
+    For a fixed \tref{GT:abelian-group}{abelian group} $G$, the sequence $E_n = K(G, n)$ of \tref{eilenberg-maclane-space}{Eilenberg--MacLane spaces} defines a spectrum.
+\end{example}

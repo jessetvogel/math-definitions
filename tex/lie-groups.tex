@@ -1,0 +1,11 @@
+\begin{topic}{lie-group}{Lie group}
+    A \textbf{Lie group} is a \tref{GT:group}{group} $G$ which is also a finite-dimensional \tref{smooth-manifold}{smooth manifold}, such that the multiplication map $G \times G \to G : (x, y) \mapsto xy$ and the inversion map $G \to G : x \mapsto x^{-1}$ are \tref{smooth-map}{smooth}.
+\end{topic}
+
+\begin{topic}{adjoint-representation}{adjoint-representation}
+    The \textbf{adjoint representation} of a \tref{lie-group}{Lie group} $G$ is a \tref{RT:representation}{representation} onto its Lie algebra $\mathfrak{g} = T_e G$ given by
+    \[ \text{Ad}_G : G \to \text{GL}(\mathfrak{g}), \quad g \mapsto \text{Ad}_g := d c_g(e) , \]
+    where $c_g : G \to G, h \mapsto g h g^{-1}$ denotes the \tref{GT:conjugation}{conjugation} map.
+    
+    The \textbf{co-adjoint representation} $\text{Ad}_G^* : G \to \text{GL}(\mathfrak{g}^*)$ is the \tref{RT:dual-representation}{dual representation} of $\text{Ad}_G$.
+\end{topic}

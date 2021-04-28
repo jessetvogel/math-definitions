@@ -9,7 +9,6 @@
 
 # Commutative algebra
 CA: direct sum
-CA: ring completion
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 CA: Hilbert polynomials (See Chapter 11 of Commutative Algebra, M. Atiyah)
 
@@ -40,9 +39,6 @@ NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 
-# Category theory
-CT: inverse limit/projective limit/direct limit/injective limit, whatever
-
 AG: Mordell--Weil theorem
 
 # Group theory
@@ -68,7 +64,6 @@ AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???
 
 
 # Differential Geometry
-Good source for definitions: http://www.math.lsa.umich.edu/~jchw/WOMPtalk-Manifolds.pdf
 % DG: manifold (topological, smooth, C^k, C^\infty), atlas (maximal), smooth structure, manifold with boundary
 % DG: submersion, immersion, embedding, (local) diffeomorphism
 % DG: tangent space, cotangent space, tangent bundle, cotangent bundle
@@ -81,25 +76,24 @@ Good source for definitions: http://www.math.lsa.umich.edu/~jchw/WOMPtalk-Manifo
 % DG: partition of unity
 % DG: Riemannian manifold
 % DG: Kähler manifold, Riemannian manifold
+% DG: exterior derivative, interior product
 
 DG: complex manifold
 DG: hyperkahler manifold
     Riemannian manifold with three complex structures I, J, K satsifying quaternionic relations.
     "Definition 1.5. A complex structure on a smooth manifold XX is the structure of a complex manifold on XX. Every such defines an almost complex structure and almost complex structures arising this way are called integrable (see also at integrability of G-structures the section Examples – Complex structure)."
 
-DG: Symplectic geometry (Darboux's theorem) + all lecture notes from last year.
-    - Symplectic quotients
 DG: Chern classes
-DG: Lie derivative, Lie bracket vector fields, Poisson bracket (poisson bracket from symplectic form)
+DG: % Lie derivative, % Lie bracket vector fields, Poisson bracket (poisson bracket from symplectic form)
 DG: implicit function theorem
-DG: bordisms?
-DG: Example of a topological manifold having multiple smooth structures
-DG: Grassmanian
-DG: exterior derivative, interior product
-DG: Lie groups: (co)adjoint actions, Lie algebras
+DG: bordisms ?
+DG: Smooth structure: example of a topological manifold having multiple smooth structures
+DG: Grassmanians
+
+DG: % Lie groups: (co)adjoint actions, % Lie algebras
 DG: Hamiltonian manifold, moment maps
 DG: distribution, involutive, integrable
-DG: parallel transport, covariant derivative, Levi-Civita connection, Christoffel symbols
+DG: % parallel transport, covariant derivative, % Levi-Civita connection, % Christoffel symbols
 DG: Stiefel--Whitney class
 
 TO: locally compact (quasi-compact?)
@@ -115,10 +109,6 @@ GT: Weyl group W = N_G(T)/T
 
 
 AA: Lie algebra
-
-RT: projective representation
-RT: examples representation ring
-
 
 AT: Euler characteristic
 

@@ -220,6 +220,37 @@
     Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \text{tr } F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \text{End}(M))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\text{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
 \end{topic}
 
+\begin{topic}{torsion-tensor}{torsion tensor}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} with a \tref{connection}{connection} $\nabla$ on the \tref{tangent-bundle}{tangent bundle} $TM$ of $M$. The \textbf{torsion tensor} of $\nabla$ is the tensor $T \in \Gamma(TM \otimes \wedge^2 T^* M)$ given by
+    \[ T_\nabla(X, Y) = \nabla_X Y  - \nabla_Y X - [X, Y] , \]
+    where $[X, Y]$ denotes the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}.
+    
+    The connection $\nabla$ is called \textit{torsion-free} if $T_\nabla = 0$.
+\end{topic}
+
+\begin{topic}{levi-civita-connection}{Levi-Civita connection}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Levi-Civita connection} is the unique \tref{connection}{connection} on the \tref{tangent-bundle}{tangent bundle} that preserves the metric $g$, i.e. $\nabla g = 0$, and is \tref{torsion-tensor}{torsion-free}.
+\end{topic}
+
+\begin{topic}{christoffel-symbols}{Christoffel symbols}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Christoffel symbols} ${\Gamma^k}_{ij}$ are the connection coefficients (in a given coordinate basis) of the \tref{levi-civita-connection}{Levi-Civita connection}. That is, they are the unique coefficients such that
+    \[ \nabla_{\partial_i} \partial_j = {\Gamma^k}_{ij} \partial_k , \]
+    where the $\partial_i$ denote a local coordinate basis, and $\nabla$ the Levi-Civita connection.
+    
+    The Christoffel symbols can be computed from the metric $g$ via
+    \[ {\Gamma^k}_{ij} = \frac{1}{2} g^{k \ell} \left(\frac{\partial g_{\ell i}}{\partial x^j} + \frac{\partial g_{\ell j}}{\partial x^i} - \frac{\partial g_{ij}}{\partial x^\ell} \right) . \]
+\end{topic}
+
+\begin{topic}{parallel-transport}{parallel transport}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}, and $E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with \tref{connection}{connection} $\nabla$. A section $s : M \to E$ is called \textbf{parallel} if $\nabla s = 0$.
+    
+    The problem of parallel transport asks, given a point $p \in M$ and vector $v \in E_p$, if there exists (locally) a section $s : U \to E$ such that $\nabla s = 0$ and $s(p) = v$, for some neighborhood $U \subset M$ of $p$. If it exists, this section is called the \textbf{parallel transport} of $v$. It is a theorem that this can be done for all $p$ and $v$ if and only if the \tref{curvature-connection}{curvature} $F_\nabla$ vanishes.
+\end{topic}
+
+\begin{example}{parallel-transport}
+    In particular, given a path $\gamma : [0, 1] \to M$, the connection $\gamma^* \nabla$ on $\gamma^* E$ must have zero curvature since $F_{\gamma^* \nabla}$ is a $2$-form. Therefore, for any starting vector $v \in E_{\gamma(0)}$ there is a unique section $s \in \Gamma(\gamma^* E)$ such that $s(0) = v$ and $(\gamma^* \nabla) s = 0$.
+\end{example}
+
 % ---
 
 \begin{topic}{de-rham-isomorphism}{de Rham isomorphism}
@@ -238,8 +269,4 @@
 
 \begin{topic}{fundamental-class}{fundamental class}
     The \textbf{fundamental class} of a closed orientable $n$-dimensional manifold $M$ is a homology class $[M] \in H_n(M; \ZZ)$ which is a generator of the homology group corresponding to the orientation of $M$.
-\end{topic}
-
-\begin{topic}{lie-group}{Lie group}
-    A \textbf{Lie group} is a \tref{GT:group}{group} $G$ which is also a finite-dimensional \tref{smooth-manifold}{smooth manifold}, such that the multiplication map $G \times G \to G : (x, y) \mapsto xy$ and the inversion map $G \to G : x \mapsto x^{-1}$ are \tref{smooth-map}{smooth}.
 \end{topic}

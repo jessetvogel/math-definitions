@@ -5,7 +5,7 @@
 \end{topic}
 
 \begin{topic}{irreducible-representation}{(ir)reducible representation}
-    A \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is \textbf{reducible} if there exists a non-zero proper invariant subspace $W \subset V$, that is, $\rho(g) w \in W$ for all $w \in W$ and $g \in G$. If no such subspace exists, the representation is \textbf{irreducible}. If $\rho$ can be written as a direct sum $\rho_1 \oplus \rho_2$, then it is called \textbf{completely reducible}.
+    A \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is \textbf{reducible} if there exists a non-zero proper invariant subspace $W \subset V$, that is, $\rho(g) w \in W$ for all $w \in W$ and $g \in G$. If no such subspace exists, the representation is \textbf{irreducible}. If $\rho$ can be written as a direct sum $\rho_1 \oplus \rho_2$, then it is called \textbf{completely reducible}, or \textbf{semisimple}.
 \end{topic}
 
 \begin{topic}{faithful-representation}{faithful representation}
@@ -22,15 +22,19 @@
     Note that $\chi_\rho$ is constant on conjugacy classes.
 \end{topic}
 
-% \begin{topic}{character-table}{character-table}
-    
-% \end{topic}
-
 \begin{topic}{representation-ring}{representation ring}
     Given a \tref{GT:group}{group} $G$ and a \tref{CA:field}{field} $k$, the \textbf{representation ring} $R_k(G)$ is the \tref{GT:free-group}{free abelian group} on isomorphism classes of finite-dimensional \tref{representation}{$k$-representations} of $G$. For the ring structure, addition is given by the direct sum of representations, and multiplication by their tensor product over $k$.
     
     Equivalently, the representation ring $R_k(G)$ is the \tref{HA:grothendieck-group}{Grothendieck ring} of the category of finite-dimensional representations of $G$.
 \end{topic}
+
+\begin{example}{representation-ring}
+    \begin{itemize}
+        \item Any representation of $G = \text{GL}_1(\CC) = \CC^*$ is a direct sum of $1$-dimensional representations of the form $\rho_n : \CC^* \to \CC^*, z \mapsto z^n$ for some character $n \in \ZZ$. Hence the representation ring of $G$ is $R_\CC(G) = \ZZ[t, t^{-1}]$, where $t$ corresponds to $\rho_1$.
+        
+        \item Any representation of the cyclic group $G = \ZZ/n\ZZ$ is a direct sum of $1$-dimensional representations which sends $1 \text{ mod } n$ to an $n$-th root of unity. Hence the (complex) representation ring of $G$ is $R_\CC(G) = \ZZ[t]/(t^n - 1)$, where $t$ corresponds to the representation $1 \mapsto \zeta_n$, a primitive root of unity.
+    \end{itemize}
+\end{example}
 
 \begin{topic}{equivalent-representations}{equivalent representations}
     Two \tref{representation}{representations} $\rho : G \to \text{GL}(V)$ and $\rho' : G \to \text{GL}(W)$ are called \textbf{equivalent}, or \textbf{isomorphic}, if there exists a linear isomorphism $A : V \to W$ such that $\rho'(g) = A \rho(g) A^{-1}$ for all $g \in G$.
@@ -45,7 +49,23 @@
 \end{topic}
 
 \begin{topic}{clebsch-gordan-series}{Clebsch--Gordan series}
-    If $G$ is a finite group, and $\rho_i, \rho_j$ two \tref{irreducible-representation}{irreducible} \tref{representation}{representations}, the tensor product $\rho_i \otimes \rho_j$ is generally reducible, and can be written as
+    If $G$ is a finite \tref{GT:group}{group}, and $\rho_i, \rho_j$ two \tref{irreducible-representation}{irreducible} \tref{representation}{representations}, the tensor product $\rho_i \otimes \rho_j$ is generally reducible, and can be written as
     \[ \rho_i \otimes \rho_j = A \left( \bigoplus_k a^k_{ij} \rho_k \right) A^{-1} , \]
     for some invertible $A$ and coefficients $a^k_{ij}$, called the \textbf{Clebsch--Gordan series}. The matrix elements of $A$ in some standard basis are called the \textbf{Clebsch--Gordan coefficients}.
+\end{topic}
+
+\begin{topic}{projective-representation}{projective representation}
+    A \textbf{projective representation} of a \tref{GT:group}{group} on a \tref{LA:vector-space}{vector space} $V$ over a field $k$ is a \tref{GT:group-homomorphism}{group homomorphism}
+    \[ \rho : G \to \text{PGL}(V) , \]
+    where $\text{PGL}(V) = \text{GL}(V) / k^*$ is the \textit{projective linear group} of $V$.
+\end{topic}
+
+% \begin{example}{projective-representation}
+%     Any representation $\rho : G \to \text{GL}(V)$ can be composed with $\text{GL}(V) \to \text{PGL}(V)$ to give a projective representation, but the converse is not true. Consider $G = \text{SO}(3)$ and $\rho : G \to \text{PGL}_2(\CC)$ induced by
+%     \[ \mathfrak{so}(3) \to \text{GL}_2(\CC), \quad \sigma_1 \mapsto \begin{pmatrix}  \end{pmatrix}, \quad \sigma_2 \mapsto \begin{pmatrix} \end{pmatrix}, \quad \sigma_3 \mapsto \begin{pmatrix} \end{pmatrix} . \]
+% \end{example}
+
+\begin{topic}{dual-representation}{dual representation}
+    The \textbf{dual representation} of a \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is the representation on the \tref{LA:dual-vector-space}{dual vector space} $V^*$ given by
+    \[ \rho^* : G \to \text{GL}(V^*), \quad g \mapsto \rho(g^{-1})^T = (-) \circ \rho(g^{-1}) . \]
 \end{topic}

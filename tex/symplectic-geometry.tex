@@ -1,5 +1,5 @@
 \begin{topic}{symplectic-manifold}{symplectic manifold}
-    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{symplectic form} on $M$ is a \tref{closed-form}{closed} and non-degenerate \tref{differential-form}{$2$-form} $\omega$ on $M$. The pair $(M, \omega)$ is called  \textbf{symplectic manifold}.
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{symplectic form} on $M$ is a \tref{closed-form}{closed} and non-degenerate \tref{differential-form}{$2$-form} $\omega$ on $M$. The pair $(M, \omega)$ is called a \textbf{symplectic manifold}.
 \end{topic}
 
 \begin{example}{symplectic-manifold}
@@ -60,3 +60,38 @@
     Then the Hamiltonian vector field with Hamiltonian $H$ has the form
     \[ X_H = \left(\frac{\partial H}{\partial p_i}, -\frac{\partial H}{\partial q^i} \right) . \]
 \end{example}
+
+\begin{topic}{symplectic-action}{symplectic action}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} acting on $M$. The action is called \textbf{symplectic} if every element of $G$ acts by a \tref{symplectomorphism}{symplectomorphism}.
+\end{topic}
+
+\begin{topic}{fundamental-vector-field}{fundamental vector field}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}, $G$ a \tref{lie-group}{Lie group} acting on $M$ via $\varphi : G \times M \to M$. For any $\xi \in \mathfrak{g}$ in the Lie algebra of $G$, the \textbf{fundamental vector field} of $\xi$ is the \tref{vector-field}{vector field} on $M$ given by
+    \[ X_\xi(p) = d(\varphi(-, p))(e) \xi \in T_p M . \]
+    Alternatively, we have
+    \[ X_\xi(p) = \frac{d}{d t}\Big|_{t = 0} \varphi(\exp(t \xi), p) . \]
+\end{topic}
+
+\begin{topic}{moment-map}{moment map}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} on $M$. A \textbf{moment map} for the action is a smooth map $\mu : M \to \mathfrak{g}^*$ such that
+    \[ d \langle \mu, \xi \rangle = \omega(X_\xi, -) \]
+    for all $\xi \in \mathfrak{g}$, and such that $\mu$ is $G$-equivariant with respect to the \tref{adjoint-representation}{co-adjoint representation} of $G$, that is,
+    \[ \mu(g \cdot p) = \text{Ad}_G^* (g) \mu(p) \]
+    for all $p \in M$ and $g \in G$.
+\end{topic}
+
+\begin{topic}{hamiltonian-manifold}{Hamiltonian manifold}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} $\varphi : G \times M \to M$ on $M$. The action is \textbf{Hamiltonian} if it admits a \tref{moment-map}{moment map}.
+    
+    The collection $(M, \omega, G, \varphi, \mu)$ is called a \textbf{Hamiltonian manifold}.
+\end{topic}
+
+\begin{topic}{marsden-weinstein-quotient}{Marsden--Weinstein quotient}
+    Let $(M, \omega, G, \varphi, \mu)$ be a \tref{hamiltonian-manifold}{Hamiltonian manifold}, and assume $G$ acts \tref{GT:free-group-action}{freely} and \tref{GT:proper-group-action}{properly} on the zero-level set of the \tref{moment-map}{moment map} $\mu^{-1}(0) \subset M$. The \textbf{Marsden--Weinstein theorem} states that the orbit space
+    \[ M \sslash G := \mu^{-1}(0) / G \]
+    is a \tref{symplectic-manifold}{symplectic manifold} in a canonical way, called the \textbf{Marsden--Weinstein quotient} of $M$ by $G$. That is, there exists a unique symplectic form $\overline{\omega}$ on $M \sslash G$ which pulls back to the restriction of $\omega$ on $\mu^{-1}(0) / G$.
+    
+    Furthermore,
+    \[ \dim(M \sslash G) = \dim M - 2 \dim G . \]
+\end{topic}
+
