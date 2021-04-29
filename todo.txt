@@ -5,7 +5,6 @@
     - like '/tex/CA/commutative-algebra.tex'
     - then we can just download from Overleaf immediately!
     - also is a way to automatically determine the prefixes, so don't need 'data.py' anymore
--- Switch to the Palatino font?
 
 # Commutative algebra
 CA: direct sum
@@ -64,20 +63,6 @@ AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???
 
 
 # Differential Geometry
-% DG: manifold (topological, smooth, C^k, C^\infty), atlas (maximal), smooth structure, manifold with boundary
-% DG: submersion, immersion, embedding, (local) diffeomorphism
-% DG: tangent space, cotangent space, tangent bundle, cotangent bundle
-% DG: parallelizable manifold // framed manifold
-% DG: vector bundle
-% DG: vector field
-% DG: differential form
-% DG: inverse function theorem
-% DG: Whitney embedding theorem (sharp lower bound example: RP^m cannot be embedded in R^{2m - 1} when m = power of 2)
-% DG: partition of unity
-% DG: Riemannian manifold
-% DG: Kähler manifold, Riemannian manifold
-% DG: exterior derivative, interior product
-
 DG: complex manifold
 DG: hyperkahler manifold
     Riemannian manifold with three complex structures I, J, K satsifying quaternionic relations.
@@ -90,27 +75,17 @@ DG: bordisms ?
 DG: Smooth structure: example of a topological manifold having multiple smooth structures
 DG: Grassmanians
 
-DG: % Lie groups: (co)adjoint actions, % Lie algebras
-DG: Hamiltonian manifold, moment maps
-DG: distribution, involutive, integrable
-DG: % parallel transport, covariant derivative, % Levi-Civita connection, % Christoffel symbols
+DG: foliation ??
 DG: Stiefel--Whitney class
+
+DG: exponential map
 
 TO: locally compact (quasi-compact?)
 
-
 ??: Metric spaces
-
 
 // GT: central series
 
-
 GT: Weyl group W = N_G(T)/T
 
-
-AA: Lie algebra
-
 AT: Euler characteristic
-
-
-TO: Galois cover

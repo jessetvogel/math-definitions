@@ -72,3 +72,17 @@
     Let $\mathcal{F}$ and $\mathcal{G}$ be \tref{sheaf}{sheaves} of abelian groups on a topological space $X$. The \textbf{sheaf hom} of $\mathcal{F}$ and $\mathcal{G}$ is the sheaf $\underline{\Hom}(\mathcal{F}, \mathcal{G})$ given by
     \[ \underline{\Hom}(\mathcal{F}, \mathcal{G})(U) = \Hom(\mathcal{F}|_U, \mathcal{G}|_U) . \]
 \end{topic}
+
+\begin{topic}{grothendieck-finiteness-theorem}{Grothendieck's finiteness theorem}
+    Let $X$ be a \tref{scheme}{scheme} \tref{proper-morphism}{proper} over a field $k$, and $\mathcal{F}$ a \tref{coherent-sheaf}{coherent sheaf} on $X$. \textbf{Grothendieck's finiteness theorem} states that the cohomology groups $H^i(X, \mathcal{F})$ are finite-dimensional over $k$.
+\end{topic}
+
+\begin{topic}{grothendieck-vanishing-theorem}{Grothendieck's vanishing theorem}
+    Let $X$ be a \tref{TO:noetherian-topological-space}{noetherian} \tref{TO:topological-space}{topological space} and $\mathcal{F}$ a \tref{sheaf}{sheaf} on $X$. \textbf{Grothendieck's vanishing theorem} states that $H^i(X, \mathcal{F}) = 0$ for all $i > \dim(X)$.
+\end{topic}
+
+\begin{topic}{euler-characteristic-sheaf}{Euler characteristic sheaf}
+    Let $\mathcal{F}$ be a \tref{coherent-sheaf}{coherent sheaf} on a \tref{scheme}{scheme} $X$ \tref{proper-morphism}{proper} over a field $k$. The \textbf{Euler characteristic} of $\mathcal{F}$ is defined as the alternating sum
+    \[ \chi(\mathcal{F}) = \sum_{i} (-1)^i \dim_k H^i(X, \mathcal{F}) . \]
+    The dimensions are assured to be finite by \tref{grothendieck-finiteness-theorem}{Grothendieck's finiteness theorem}.
+\end{topic}

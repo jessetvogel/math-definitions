@@ -26,6 +26,12 @@
     \[ \begin{tikzcd} & N \arrow[twoheadrightarrow]{d}{f} \\ P \arrow[swap]{r}{g} \arrow[dashed]{ur}{\exists h} & M \end{tikzcd} \]
 \end{topic}
 
+\begin{example}{projective-module}
+    \tref{free-module}{Free modules} are projective.
+    
+    More generally, a \tref{finitely-generated-module}{finitely generated} $R$-module $P$ is projective if and only if $P$ is finitely presented and the localization $P_\mathfrak{m}$ is a free $R_\mathfrak{m}$-module for all \tref{maximal-ideal}{maximal ideals} $\mathfrak{m}$ of $R$.
+\end{example}
+
 \begin{topic}{injective-module}{injective module}
     Let $R$ be a \tref{ring}{commutative ring}. An $R$-module $I$ is called \textbf{injective} if for every morphism $g : M \to I$ and injective morphism $f : M \to N$ of $R$-modules, there exists a morphism $h : N \to Q$ of $R$-modules such that $hf = g$. We do not require this map to be unique.
     \[ \begin{tikzcd} M \arrow[hookrightarrow]{r}{f} \arrow[swap]{d}{g} & N \arrow[dashed]{ld}{\exists h} \\ I & \end{tikzcd} \]

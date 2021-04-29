@@ -220,8 +220,8 @@
     Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \text{tr } F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \text{End}(M))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\text{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
 \end{topic}
 
-\begin{topic}{torsion-tensor}{torsion tensor}
-    Let $M$ be a \tref{smooth-manifold}{smooth manifold} with a \tref{connection}{connection} $\nabla$ on the \tref{tangent-bundle}{tangent bundle} $TM$ of $M$. The \textbf{torsion tensor} of $\nabla$ is the tensor $T \in \Gamma(TM \otimes \wedge^2 T^* M)$ given by
+\begin{topic}{torsion-connection}{torsion of connection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} with a \tref{connection}{connection} $\nabla$ on the \tref{tangent-bundle}{tangent bundle} $TM$ of $M$. The \textbf{torsion} of $\nabla$ is the tensor $T \in \Gamma(TM \otimes \wedge^2 T^* M)$ given by
     \[ T_\nabla(X, Y) = \nabla_X Y  - \nabla_Y X - [X, Y] , \]
     where $[X, Y]$ denotes the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}.
     
@@ -229,7 +229,7 @@
 \end{topic}
 
 \begin{topic}{levi-civita-connection}{Levi-Civita connection}
-    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Levi-Civita connection} is the unique \tref{connection}{connection} on the \tref{tangent-bundle}{tangent bundle} that preserves the metric $g$, i.e. $\nabla g = 0$, and is \tref{torsion-tensor}{torsion-free}.
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Levi-Civita connection} is the unique \tref{connection}{connection} on the \tref{tangent-bundle}{tangent bundle} that preserves the metric $g$, i.e. $\nabla g = 0$, and is \tref{torsion-connection}{torsion-free}.
 \end{topic}
 
 \begin{topic}{christoffel-symbols}{Christoffel symbols}
@@ -249,6 +249,58 @@
 
 \begin{example}{parallel-transport}
     In particular, given a path $\gamma : [0, 1] \to M$, the connection $\gamma^* \nabla$ on $\gamma^* E$ must have zero curvature since $F_{\gamma^* \nabla}$ is a $2$-form. Therefore, for any starting vector $v \in E_{\gamma(0)}$ there is a unique section $s \in \Gamma(\gamma^* E)$ such that $s(0) = v$ and $(\gamma^* \nabla) s = 0$.
+\end{example}
+
+\begin{topic}{distribution}{distribution}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{distribution} on $M$ is a vector subbundle $\mathcal{D} \subset TM$.
+\end{topic}
+
+\begin{example}{distribution}
+    If $M$ has a nowhere vanishing vector field $X$, the subbundle $\mathcal{D} \subset TM$ generated (fiberwise) by $X$ is a rank one distribution.
+\end{example}
+
+\begin{example}{distribution}
+    Given a \tref{submersion}{submersion} $f : N \to M$, the subbundle $\ker(f_*) \subset TN$ is a distribution on $N$ of rank $\dim N - \dim M$.
+\end{example}
+
+\begin{topic}{integral-submanifold}{integral submanifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. Given a rank $k$ \tref{distribution}{distribution} $\mathcal{D} \subset TM$ and a point $p \in M$, an \textbf{integral submanifold} of $\mathcal{D}$ through $p$ is an \tref{immersion}{immersion} of a $k$-dimensional manifold $i : N \to M$ such that $p \in i(N)$ and for all $q \in N$ one has $i_*(T_q N) = \mathcal{D}_{i(q)}$.
+\end{topic}
+
+\begin{topic}{integral-distribution}{integral distribution}
+    A \tref{distribution}{distribution} $\mathcal{D} \subset TM$ on a \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{integrable} if for every $p \in M$ there exists an \tref{integral-submanifold}{integral submanifold} of $\mathcal{D}$ through $p$.
+\end{topic}
+
+\begin{topic}{involutive-distribution}{involutive distribution}
+    A \tref{distribution}{distribution} $\mathcal{D} \subset TM$ on a \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{involutive} if for all $X, Y \in \Gamma(\mathcal{D})$, the \tref{lie-bracket-vector-fields}{Lie bracket} $[X, Y] \in \Gamma(\mathcal{D})$.
+\end{topic}
+
+\begin{example}{involutive-distribution}
+    Every \tref{integral-distribution}{integral distribution} is involutive. Indeed, at any point $p \in M$ there exists an \tref{integral-submanifold}{integral submanifold} $i : N \to M$, so that $X, Y \in \Gamma(\mathcal{D})$ can be viewed as vector fields on $N$. Hence, $[X, Y]$ is also a vector field on $N$.
+    
+    Conversely, it is a theorem by Frobenius that every involutive distribution is integrable.
+\end{example}
+
+\begin{topic}{vertical-distribution}{vertical distribution}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $p : E \to M$ a \tref{vector-bundle}{vector bundle} on $M$. Then the \textbf{vertical distribution} on $E$ is the \tref{distribution}{distribution} $\mathcal{V} = \ker(p_*) \subset TE$, whose rank is the rank of $E$.
+\end{topic}
+
+\begin{topic}{horizontal-distribution}{horizontal distribution}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $p : E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with a \tref{connection}{connection} $\nabla$. Then the \textbf{horizontal distribution} on $E$ is the \tref{distribution}{distribution} $\mathcal{H} \subset TE$ given by
+    \[ \mathcal{H}_x = \left\{ \frac{d}{dt}\Big|_{t = 0} s(t) : s : [-1, 1] \to E \text{ with } s(0) = x \text{ is a parallel section over } \gamma = p \circ s \right\} \]
+    for all points $x \in E$.
+    
+    That is, a section $s : M \to E$ is \tref{parallel-transport}{parallel} if and only if it is an \tref{integral-submanifold}{integral submanifold} of $\mathcal{H}$.
+\end{topic}
+
+\begin{topic}{geodesic}{geodesic}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $\nabla$ a \tref{connection}{connection} on $TM$. A \textbf{geodesic} is a curve $\gamma : I \to M$ such that $(\gamma^* \nabla) \gamma' = 0$. That is, a curve which \tref{parallel-transport}{parallel transports} its own tangent direction.
+\end{topic}
+
+\begin{example}{geodesic}
+    Suppose that $\nabla$ is the \tref{levi-civita-connection}{Levi-Civita connection} on $M$. Then in terms of local coordinates, the differential equation for a geodesic $\gamma : I \to M$ is given by
+    \[ \frac{d^2 x^k}{d t^2} + {\Gamma^k}_{ij} \frac{dx^i}{dt} \frac{dx^j}{dt} = 0 , \]
+    where ${\Gamma^k}_{ij}$ denote the \tref{christoffel-symbols}{Christoffel symbols}.
 \end{example}
 
 % ---
