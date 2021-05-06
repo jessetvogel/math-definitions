@@ -14,6 +14,7 @@ const examples = [
   "AG:group-scheme",
   "AG:algebraic-group",
   "AG:reductive-algebraic-group",
+  "AG:severi-brauer-variety",
   "AG:log-scheme",
   "AG:log-differentials",
   "AT:deformation-retract",

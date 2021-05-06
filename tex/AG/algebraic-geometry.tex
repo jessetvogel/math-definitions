@@ -135,7 +135,7 @@
 \end{topic}
 
 \begin{topic}{variety}{variety}
-    An (abstract) \textbf{variety} is an \tref{integral-scheme}{integral} \tref{separated}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over an algebraically closed field $k$.
+    An (abstract) \textbf{variety} is an \tref{integral-scheme}{integral} \tref{separated}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over a field $k$.
 \end{topic}
 
 \begin{topic}{complete-variety}{complete variety}
@@ -439,9 +439,11 @@
 \end{example}
 
 \begin{example}{galois-cover}
-    Consider $f : X \to S$ with $X = S = \PP^1_k$ given by $(x : y) \mapsto (x^2 : y^2)$, and suppose that $\text{char}(k) \ne 2$. Then we see that
-    \[ X \times_S X = \{ (x_1 : y_1), (x_2 : y_2) \in \PP^1_k : (x_1^2 : y_1^2) = (x_2^2 : y_2^2) \} \]
-    is the disjoint union of $\{ (x_1 : y_2) = (x_2 : y_2) \}$ and $\{ (x_1 : y_2) = (x_1 : -y_2) \}$, and thus $f$ is a Galois cover.
+    Let $n \ge 1$ and let $k$ be a field containing a primitive $n$-th root unity $\zeta_n \in k$. Consider $f : X \to S$ with $X = S = k^*$ given by $x \mapsto x^n$. Then we see that
+    \[ X \times_S X = \{ (x, y) \in (k^*)^2 : x^n = y^n \} \]
+    decomposes as the disjoint union
+    \[ (\ZZ/n\ZZ) \times k^* \simeq X \times_S X, \quad (k, x) \mapsto (x, \zeta_n^k x) , \]
+    and thus $f$ is a Galois cover.
 \end{example}
 
 \begin{example}{galois-cover}
@@ -547,3 +549,20 @@
 % \begin{topic}{etale-fundamental-group}{étale fundamental group}
         
 % \end{topic}
+
+\begin{topic}{severi-brauer-variety}{Severi--Brauer variety}
+    A \textbf{Severi--Brauer variety} is a \tref{variety}{variety} $X$ over a field $k$, such that $\overline{X} = X \times_k \overline{k}$ is isomorphic to $\PP^n_{\overline{k}}$ for some \tref{CA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$.
+\end{topic}
+
+\begin{example}{severi-brauer-variety}
+    Consider the projective variety $X$ over $\QQ$ defined by $X^2 + Y^2 + Z^2 = 0$. It is Severi--Brauer, since over the complex numbers we have $X_\CC \simeq \PP_\CC^1$ via $(X : Y : Z) \mapsto (X + iY : Z)$ with inverse $(S : T) \mapsto (\tfrac{1}{2} (S^2 - T^2) : -\tfrac{i}{2} (S^2 + T^2) : TS)$.
+\end{example}
+
+\begin{topic}{segre-embedding}{Segre embedding}
+    The \textbf{Segre embedding} is a projective embedding of the product of projective spaces, given by the \textbf{Segre map}
+    \[ \begin{aligned}
+        \sigma : \PP^n \times \PP^m &\to \PP^{(n + 1)(m + 1) - 1} \\
+        ([X_0 : \cdots : X_n], [Y_0 : \cdots : Y_m]) &\mapsto [X_0 Y_0 : X_0 Y_1 : \cdots : X_n Y_m] .
+    \end{aligned} \]
+\end{topic}
+

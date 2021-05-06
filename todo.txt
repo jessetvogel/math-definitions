@@ -1,13 +1,8 @@
 -- Clever search function: take care of switching words, () and dashes
 -- Homepage
 -- PDF front cover
--- Restructure directories:
-    - like '/tex/CA/commutative-algebra.tex'
-    - then we can just download from Overleaf immediately!
-    - also is a way to automatically determine the prefixes, so don't need 'data.py' anymore
 
 # Commutative algebra
-CA: direct sum
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 CA: Hilbert polynomials (See Chapter 11 of Commutative Algebra, M. Atiyah)
 
@@ -22,7 +17,6 @@ AG: toric variety
 AG: étale fundamental group(oid)
 AG: formal schemes, formal spectrum
 AG: Zariski's main theorem
-
 
 # Number theory
 NT: ring of integers

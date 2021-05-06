@@ -76,6 +76,8 @@ const topics = {
   "AG:radical-algebraic-group": "radical algebraic group",
   "AG:reductive-algebraic-group": "(linearly) reductive algebraic group",
   "AG:abelian-variety": "abelian variety",
+  "AG:severi-brauer-variety": "Severi–Brauer variety",
+  "AG:segre-embedding": "Segre embedding",
   "AG:sheaf": "sheaf",
   "AG:constant-sheaf": "constant sheaf",
   "AG:stalk": "stalk",
