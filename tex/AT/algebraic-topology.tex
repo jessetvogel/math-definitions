@@ -399,3 +399,23 @@
 \begin{example}{spectrum}
     For a fixed \tref{GT:abelian-group}{abelian group} $G$, the sequence $E_n = K(G, n)$ of \tref{eilenberg-maclane-space}{Eilenberg--MacLane spaces} defines a spectrum.
 \end{example}
+
+\begin{topic}{hurewicz-homomorphism}{Hurewicz homomorphism}
+    Let $X$ be a pointed \tref{TO:topological-space}{topological space}, $n \ge 1$ an integer, and $\iota_n \in H_n(S^n) \simeq \ZZ$ a generator. Then the \textbf{Hurewicz homomorphism} is the \tref{GT:group-homomorphism}{group homomorphism}
+    \[ \pi_n(X) \to H_n(X), \quad [f] \mapsto f_* \iota_n . \]
+\end{topic}
+
+\begin{topic}{hurewicz-theorem}{Hurewicz theorem}
+    Let $n \ge 1$ be a fixed number, and suppose $X$ is a pointed \tref{TO:topological-space}{topological space} with $\pi_i(X) = 0$ for $i < n$. The \textbf{Hurewicz theorem} states that the \tref{reduced-homology}{reduced homology} $\tilde{H}_i(X) = 0$ for $i < n$ and the \tref{hurewicz-homomorphism}{Hurewicz homomorphism} induces an isomorphism
+    \[ H_n(x) \simeq \left\{ \begin{array}{ll} \pi_1(X) / [\pi_1(X), \pi_1(X)] & \text{ if } n = 1 , \\ \pi_n(X) & \text{ if } n > 1 . \end{array} \right. \]
+\end{topic}
+
+\begin{topic}{reduced-homology}{reduced homology}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and $A$ an abelian group. The \textbf{reduced homology} of $X$ with coefficients in $A$ is defined by
+    \[ \tilde{H}_n(X; A) = \left\{ \begin{array}{ll} \ker(H_0(X; A) \to H_0(\star; A)) & \text{ if } n = 0 , \\ H_n(X; A) & \text{ if } n > 0 , \end{array} \right. \]
+    where $H_0(X; A) \to H_0(\star; A)$ is the map induced by the map $X \to \star$ to the one-point space.
+\end{topic}
+
+\begin{topic}{reduced-cohomology}{reduced cohomology}
+    Let $X$ be a \tref{TO:topological-space}{topological space} with basepoint $x_0 \in X$ and $A$ an abelian group. The \textbf{reduced cohomology} of $X$ with coefficients in $A$ is defined by $\tilde{H}^n(X: A) = H^n(X, \{ x_0 \}; A)$.
+\end{topic}

@@ -251,6 +251,10 @@
     In particular, given a path $\gamma : [0, 1] \to M$, the connection $\gamma^* \nabla$ on $\gamma^* E$ must have zero curvature since $F_{\gamma^* \nabla}$ is a $2$-form. Therefore, for any starting vector $v \in E_{\gamma(0)}$ there is a unique section $s \in \Gamma(\gamma^* E)$ such that $s(0) = v$ and $(\gamma^* \nabla) s = 0$.
 \end{example}
 
+\begin{topic}{affine-connection}{affine connection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{affine connection} on $M$ is a \tref{connection}{connection} on the \tref{tangent-bundle}{tangent bundle} $TM$ of $M$.
+\end{topic}
+
 \begin{topic}{distribution}{distribution}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{distribution} on $M$ is a vector subbundle $\mathcal{D} \subset TM$.
 \end{topic}
@@ -322,3 +326,18 @@
 \begin{topic}{fundamental-class}{fundamental class}
     The \textbf{fundamental class} of a closed orientable $n$-dimensional manifold $M$ is a homology class $[M] \in H_n(M; \ZZ)$ which is a generator of the homology group corresponding to the orientation of $M$.
 \end{topic}
+
+\begin{topic}{exponential-map}{exponential map}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} with a \tref{connection}{connection} $\nabla$ on the \tref{tangent-bundle}{tangent bundle} $TM$, and $p \in M$ a point. Any \tref{tangent-space}{tangent vector} $v \in T_p M$ induces a \tref{geodesic}{geodesic} $\gamma : [0, 1] \to M$ starting at $\gamma(0) = p$ with velocity $\gamma'(0) = v$. The \textbf{exponential map} at $p$ is the map
+    \[ \exp : T_p M \to M, \quad v \mapsto \gamma(1) . \]
+\end{topic}
+
+\begin{example}{exponential-map}
+    When $G$ is a \tref{lie-group}{Lie group}, the exponential map is the map
+    \[ \exp : \mathfrak{g} \to G \]
+    from Lie algebra $\mathfrak{g} = T_e G$ of $G$ to $G$, given by $\exp(v) = \gamma(1)$ where $\gamma : \RR \to G$ is the unique one-parameter subgroup of $G$ with $\gamma'(0) = v$.
+    
+    In particular, when $G = \text{GL}_n(\RR)$ is the general linear group, we have $\mathfrak{g} = \text{Mat}_{n \times n}(\RR)$ and
+    \[ \exp : \mathfrak{g} \to G, \quad A \mapsto \exp(A) = \sum_{k = 0}^{\infty} \frac{A^k}{k!} \]
+    is the usual exponential map.
+\end{example}

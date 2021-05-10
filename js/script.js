@@ -98,14 +98,14 @@ function initAutoComplete() {
 
         const items = [];
         for(const id in topics) {
-            const index = searchMatchIndex(topics[id], val);
-            if(index < 0)
+            const match = searchMatch(id, val);
+            if(match == null)
                 continue;
             const topic = topics[id];
             const item = document.createElement('div');
-            item.innerHTML = suggestionHTML(id, val);
+            item.innerHTML = match[1];
             item.addEventListener('click', function (e) { gotoTopic(id); });
-            items.push([ index, topic, item ]);
+            items.push([ match[0], topic, item ]);
         }
 
         if(items.length == 0) {
@@ -115,13 +115,13 @@ function initAutoComplete() {
             return;
         }
 
-        items.sort(function (a, b) {
+        items.sort(function (a, b) { // Sort primarily on the index, then alphabetically
             if(a[0] != b[0])
                 return a[0] - b[0];
             return a[1].localeCompare(b[1], 'en', { sensitivity: 'base' });
         });
 
-        autoCompleteNumItems = Math.min(items.length, 10);
+        autoCompleteNumItems = Math.min(items.length, 10); // Show only the top 10 results
         for(let i = 0; i < autoCompleteNumItems; ++i) {
             autoCompleteList.appendChild(items[i][2]);
         }
@@ -179,21 +179,21 @@ function autoCompleteSetFocus(i) {
         items[autoCompleteItem].classList.add('focus');
 }
 
-function searchMatchIndex(topic, input) {
-    topic = normalizeString(topic).toUpperCase();
-    input = normalizeString(input).toUpperCase();
-    return topic.indexOf(input);
-}
+function searchMatch(id, input) {
+    const normalizedTopic = normalizeString(topics[id]).toUpperCase();
+    const normalizedInput = normalizeString(input).toUpperCase();
+    
+    const i = normalizedTopic.indexOf(normalizedInput);
+    if(i < 0)
+        return null;
 
-function suggestionHTML(id, input) {
-    let topic = capitalize(topics[id]);
     const category = categories[id.substr(0, id.indexOf(':'))];
+    const topic = capitalize(topics[id]);
 
-    const i = searchMatchIndex(topic, input);
     const topicHTML = topic.substr(0, i) + '<b>' + topic.substr(i, input.length) + '</b>' + topic.substr(i + input.length);
-
     const html = '<span class="topic">' + topicHTML + '</span><span class="category">' + category + '</span><span class="identifier">' + id + '</span>';
-    return html;
+    return [ i, html ];
+
 }
 
 function setSearchCategory(str) {

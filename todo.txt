@@ -9,13 +9,10 @@ CA: Hilbert polynomials (See Chapter 11 of Commutative Algebra, M. Atiyah)
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
 AG: blowup / blowdown
-AG: Néron–Severi group
 AG: Example: Picard group is isomorphic to $H^1(X, \mathcal{O}_X^*)$
 AG: affine GIT quotient
 AG: Riemann--Roch Theorem
-AG: toric variety
 AG: étale fundamental group(oid)
-AG: formal schemes, formal spectrum
 AG: Zariski's main theorem
 
 # Number theory
@@ -63,7 +60,7 @@ DG: hyperkahler manifold
     "Definition 1.5. A complex structure on a smooth manifold XX is the structure of a complex manifold on XX. Every such defines an almost complex structure and almost complex structures arising this way are called integrable (see also at integrability of G-structures the section Examples – Complex structure)."
 
 DG: Chern classes
-DG: % Lie derivative, % Lie bracket vector fields, Poisson bracket (poisson bracket from symplectic form)
+DG: Poisson bracket (poisson bracket from symplectic form)
 DG: implicit function theorem
 DG: bordisms ?
 DG: Smooth structure: example of a topological manifold having multiple smooth structures
@@ -72,11 +69,7 @@ DG: Grassmanians
 DG: foliation ??
 DG: Stiefel--Whitney class
 
-DG: exponential map
-
 TO: locally compact (quasi-compact?)
-
-??: Metric spaces
 
 // GT: central series
 

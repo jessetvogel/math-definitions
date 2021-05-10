@@ -70,6 +70,16 @@
     For $n \ge 1$, the \textbf{alternating group} $A_n$ is the subgroup of the \tref{symmetric-group}{symmetric group} $S_n$ of all \tref{permutation-sign}{even} permutations.
 \end{topic}
 
+\begin{topic}{coset}{coset}
+    Let $G$ be a \tref{group}{group} and $H \subset G$ a \tref{subgroup}{subgroup}. A \textbf{left coset} of $H$ is a set of the form $gH = \{ gh : h \in H \}$ for some $g \in G$. A \textbf{right coset} of $H$ is a set of the form $Hg = \{ hg : h \in H \}$ for some $g \in G$.
+    
+    In particular, when $H$ is \tref{normal-subgroup}{normal}, left and right cosets coincide since $gH = Hg$ for all $g \in G$.
+\end{topic}
+
+\begin{topic}{index-subgroup}{index subgroup}
+    The \textbf{index} of a \tref{subgroup}{subgroup} $H$ of a \tref{group}{group} $G$ is the number of \tref{coset}{left cosets} (or equivalently, right cosets) of $H$ in $G$, and is denoted $[G : H]$.
+\end{topic}
+
 \begin{topic}{normal-subgroup}{normal subgroup}
     A \tref{subgroup}{subgroup} $N$ of a \tref{group}{group} $G$ is called \textbf{normal} if $N = g N g^{-1}$ for all $g \in G$.
 \end{topic}
@@ -87,7 +97,7 @@
 \end{topic}
 
 \begin{topic}{quotient-group}{quotient group}
-    Let $G$ be a \tref{group}{group} and $N$ a \tref{normal-subgroup}{normal subgroup}. The \textbf{quotient group} $G/N$ is the group of cosets
+    Let $G$ be a \tref{group}{group} and $N$ a \tref{normal-subgroup}{normal subgroup}. The \textbf{quotient group} $G/N$ is the group of \tref{coset}{cosets}
     \[ G/N = \{ gN : g \in G \} \]
     with group law $(gN)(hN) = (gh)N$ and unit $N$.
 \end{topic}

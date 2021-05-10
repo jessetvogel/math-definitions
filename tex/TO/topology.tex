@@ -238,3 +238,48 @@
 \begin{topic}{noetherian-topological-space}{noetherian topological space}
     A \tref{topological-space}{topological space} $X$ is \textbf{noetherian} if it satisfies the \textit{descending chain condition} for closed subsets. That is, for any sequence $Y_1 \supset Y_2 \supset \cdots$ of closed subsets $Y_i$ of $X$, there is an integer $n$ such that $Y_n = Y_{n + 1} = \cdots$.
 \end{topic}
+
+\begin{topic}{n-connected-space}{n-connected space}
+    A \tref{topological-space}{topological space} $X$ is called \textbf{$n$-connected} if the \tref{AT:homotopy-group}{homotopy groups} $\pi_i(X) = 0$ for all $i \le n$.
+    
+    In particular, being $1$-connected is the same as being \tref{path-connected-space}{path-connected}, and being $2$-connected is the same as being \tref{simply-connected-space}{simply connected}.
+\end{topic}
+
+\begin{topic}{universal-covering-space}{universal covering space}
+    A \textbf{universal covering space} of a \tref{topological-space}{topological space} $X$ is a \tref{covering-space}{covering space} $\pi : \tilde{X} \to X$ which is \tref{simply-connected-space}{simply connected}. It has the universal property that for any other connected covering $p : Y \to X$ there exists a unique covering map $f : \tilde{X} \to Y$ such that $\pi = p \circ f$.
+    \[ \begin{tikzcd} \tilde{X} \arrow[swap]{d}{\pi} \arrow[dashed]{r}{f} & Y \arrow{dl}{p} \\ X & \end{tikzcd} \]
+    A universal cover can explicitly be constructed as follows. Let $x \in X$ be a basepoint, and let $\tilde{X}_x$ be the set of homotopy classes of paths $\gamma : [0, 1] \to X$ starting at $x$, with $\pi : \tilde{X}_x \to X$ given by $\gamma \mapsto \gamma(1)$. There is a suitable topology on $\tilde{X}_x$ such that $\pi : \tilde{X}_x \to X$ is continuous and a universal covering space of $X$.
+\end{topic}
+
+\begin{example}{universal-covering-space}
+    \begin{itemize}
+        \item The universal covering space of the circle $S^1$ is the line $\RR$.
+        \item The $n$-sphere $S^n$ is a double cover of projective space $\RR P^n$, and universal for $n > 1$.
+        \item The universal covering space of the group $\text{SO}(3)$ is $\text{SU}(2)$. 
+    \end{itemize}    
+\end{example}
+
+\begin{topic}{metric-space}{metric space}
+    A \textbf{metric space} is a set $X$ together with a \textbf{metric} $d$ on $X$, that is, a function $d : X \times X \to \RR$ such that
+    \begin{itemize}
+        \item (\textit{indiscernibility}) $d(x, y) = 0$ if and only if $x = y$,
+        \item (\textit{symmetry}) $d(x, y) = d(y, x)$ for all $x, y \in X$,
+        \item (\textit{triangle inequality}) $d(x, z) \le d(x, y) + d(y, z)$ for all $x, y, z \in X$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{metric-space}
+    Take $X = \RR^n$ with $d(x, y) = \norm{x - y}$. This is a metric space since (i) $\norm{x - y} = 0$ if and only if $x = y$, (ii) $d(x, y) = \norm{x - y} = \norm{y - x} = d(x, y)$ and (iii) $\norm{x - z} \le \norm{x - y} + \norm{y - z}$ is the usual triangle inequality.
+\end{example}
+
+\begin{example}{metric-space}
+    Non-negativity of the metric follows directly from the axioms as
+    \[ d(x, y) = \frac{1}{2} (d(x, y) + d(y, x)) \ge \frac{1}{2} d(x, x) = 0 \]
+    for all $x, y \in X$.
+\end{example}
+
+\begin{example}{metric-space}
+    Any metric space is naturally a \tref{topological-space}{topological space}, where a basis of the topology is given by the set of \textit{open balls}
+    \[ B(x, r) = \{ y \in X : d(x, y) < r \} \]
+    for $x \in X$ and $r > 0$.
+\end{example}

@@ -1,5 +1,5 @@
 % Defining schemes
-\begin{topic}{ringed-space}{ringed space}
+\begin{topic}{ringed-space}{(locally) ringed space}
     A \textbf{ringed space} is a pair $(X, \mathcal{O}_X)$ consisting of a \tref{TO:topological-space}{topological space} $X$ and a \tref{sheaf}{sheaf} of rings $\mathcal{O}_X$ on $X$.
     
     A morphism of ringed spaces from $(X, \mathcal{O}_X)$ to $(Y, \mathcal{O}_Y)$ is a pair $(f, f^\#)$ of a continuous map $f : X \to Y$ and a map $f^\# : \mathcal{O}_Y \to f_* \mathcal{O}_X$ of sheaves of rings on $Y$.
@@ -566,3 +566,74 @@
     \end{aligned} \]
 \end{topic}
 
+\begin{topic}{algebraic-cycle}{algebraic cycle}
+    Let $X$ be a \tref{variety}{variety} over a field $k$. The \textbf{group of algebraic cycles} on $X$ is the free abelian group on closed integral subvarieties of $X$,
+    \[ Z_* X = \bigoplus_{Y \subset X} \ZZ \cdot [Y] . \] 
+    Elements of this group are formal linear combinations
+    \[ \sum_i n_i [Y_i] \]
+    called \textbf{algebraic cycles} on $X$.
+    
+    An algebraic cycle is \textbf{effective} if $n_i \ge 0$ for all $i$.
+\end{topic}
+
+\begin{topic}{rational-equivalence}{rational equivalence}
+    Two \tref{algebraic-cycle}{algebraic cycles} $Z, Z'$ on a \tref{variety}{variety} $X$ are \textbf{rationally equivalent} if there is an algebraic cycle $W$ on $X \times \PP^1$ \tref{flat-morphism}{flat} over $\PP^1$, such that
+    \[ [Z] - [Z'] = [W \cap X \times \{ 0 \}] - [W \cap X \times \{ \infty \}] . \]
+\end{topic}
+
+\begin{topic}{algebraic-equivalence}{algebraic equivalence}
+    Two \tref{algebraic-cycle}{algebraic cycles} $Z, Z'$ on a \tref{variety}{variety} $X$ are \textbf{algebraically equivalent} if there is an \tref{algebraic-curve}{curve} $C$ and an algebraic cycle $W$ on $X \times C1$ \tref{flat-morphism}{flat} over $C$, such that
+    \[ [Z] - [Z'] = [W \cap X \times \{ c_1 \}] - [W \cap X \times \{ c_2 \}] \]
+    for two points $c_1, c_2$ on $C$.
+    
+    The \tref{neron-severi-group}{Néron--Severi group}.
+\end{topic}
+
+\begin{topic}{algebraic-curve}{algebraic curve}
+    An \textbf{algebraic curve} is an (irreducible) \tref{variety}{variety} of pure dimension $1$.
+\end{topic}
+
+\begin{topic}{neron-severi-group}{Néron--Severi group}
+    The \textbf{Néron--Severi group} of a \tref{variety}{variety} $X$, denoted $\text{NS}(X)$, is the group of \tref{weil-divisor}{divisors} on $X$ modulo \tref{algebraic-equivalence}{algebraic equivalence}.
+\end{topic}
+
+\begin{topic}{algebraic-torus}{algebraic torus}
+    An \textbf{algebraic torus} $T$ over a field $k$ is an \tref{algebraic-group}{algebraic group} which, over an \tref{CA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$, is isomorphic to a finite product of copies of $\mathbb{G}_m = \Spec \overline{k}[t, t^{-1}]$, that is
+    \[ T \times_k \overline{k} \simeq \Spec \overline{k}[t_1, t_1^{-1}, \ldots, t_r, t_r^{-1}] , \]
+    where $r$ is called the \textit{rank} of the algebraic torus $T$.
+\end{topic}
+
+\begin{example}{algebraic-torus}
+    Over $k = \RR$, there are up to isomorphism two algebraic tori of rank one:
+    \begin{itemize}
+        \item the torus $\RR^* = \Spec \RR[t, t^{-1}]$,
+        \item the unitary group $U(1) = \Spec \RR[x, y] / (x^2 + y^2 - 1)$. Indeed we have
+        \[ U(1) \times_\RR \CC = \Spec \CC[x, y] / (x^2 + y^2 - 1) \simeq \Spec[z, z^{-1}] \]
+        via the isomorphism $z = x + iy$ and $z^{-1} = x - iy$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{toric-variety}{toric variety}
+    A \textbf{toric variety} is a \tref{variety}{variety} $X$ containing an \tref{algebraic-torus}{algebraic torus} $T$ as an open dense subset, such that the action of $T$ on itself (by translation) extends to the whole of $X$.
+\end{topic}
+
+% \begin{example}{toric-variety}
+%     % Toric variety from a fan
+% \end{example}
+
+\begin{example}{toric-variety}
+    Projective space $\PP^n$ is a toric variety, since the torus
+    \[ T = \{ (1 : t_1 : t_2 : \cdots : t_n) : t_i \ne 0 \} \subset \PP^n \]
+    is open and dense, and the action of $T$ on itself extends to $\PP^n$ via
+    \[ T \times \PP^n \to \PP^n, \quad \left( (t_1, \ldots, t_n), (x_0 : x_1 : \cdots x_n) \right) \mapsto (x_0 : t_1 x_1 : \cdots t_n x_n) . \]
+\end{example}
+
+\begin{topic}{formal-completion}{formal completion}
+    Let $X$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $Y \subset X$ a \tref{closed-immersion}{closed subscheme}, defined by a \tref{sheaf-of-ideals}{sheaf of ideals} $\mathcal{I}$. The \textbf{formal completion} of $X$ along $Y$, denoted $(\hat{X}, \mathcal{O}_{\hat{X}})$, is the \tref{ringed-space}{locally ringed space} whose topological space $\hat{X}$ is $Y$, and $\mathcal{O}_{\hat{X}}$ is the \tref{CT:inverse-limit}{inverse limit} $\varprojlim_n \mathcal{O}_X / \mathcal{I}^n$.
+    
+    When $X = \Spec R$ is an \tref{affine-scheme}{affine scheme} and $I \subset R$ an ideal, the formal completion is also known as the \textbf{formal spectrum} of $R$ along $I$, denoted $\text{Spf}(R)$.
+\end{topic}
+
+\begin{topic}{noetherian-formal-scheme}{noetherian formal scheme}
+    A \textbf{noetherian formal scheme} is a \tref{ringed-space}{locally ringed space} $(\mathfrak{X}, \mathcal{O}_\mathfrak{X})$, which has a finite open cover $\{ \mathfrak{U}_i \}$ such that for each $i$, the pair $(\mathfrak{U}_i, \mathcal{O}_\mathfrak{X}|_{\mathfrak{U}_i})$ is isomorphic to the \tref{formal-completion}{formal completion} of some noetherian scheme $X$ along a closed subscheme $Y \subset X$.
+\end{topic}

@@ -138,3 +138,30 @@
     \[ g_3 = X + 82462974405415300810, \quad h_3 = 2X - 164925948810830601619 \quad (f \equiv g_3 h_3 \text{ mod } 2^{18}) \]
     In general, we are guaranteed to have $f \equiv g_i h_i \text{ mod } 2^{2^i}$.
 \end{example}
+
+\begin{topic}{discriminant}{discriminant}
+    Let $f \in R[X]$ be a polynomial over some \tref{CA:domain}{domain} $R$. Then $f$ can be written as
+    \[ f = a \prod_{i = 1}^n (X - \alpha_i) \]
+    in some sufficiently large extension $R' \supset R$ of domains, with $\alpha_i \in R'$ and $a \in R$. The \textbf{discriminant} of $f$ is defined as
+    \[ \Delta(f) = a^{2n - 2} \prod_{1 \le i < j \le n} (\alpha_i - \alpha_j)^2 \in R . \]
+\end{topic}
+
+\begin{example}{discriminant}
+    For quadratic polynomials,
+    \[ \Delta(aX^2 + bX + c) = b^2 - 4ac . \]
+    For cubic polynomials,
+    \[ \Delta(X^3 + pX + q) = -4p^3 - 27q^2 . \]
+\end{example}
+
+\begin{topic}{resultant}{resultant}
+    The \textbf{resultant} of two polynomials
+    \[ f = a \prod_{i = 1}^{n} (X - \alpha_i) \quad \text{ and } \quad g = b \prod_{j = 1}^{m} (X - \beta_j) \]
+    in $k[X]$ for some field $k$, is defined as
+    \[ R(f, g) = a^m b^n \prod_{i = 1}^{n} \prod_{j = 1}^{m} (\alpha_i - \beta_j) \in k . \]
+\end{topic}
+
+\begin{example}{resultant}
+    The resultant can be used to compute \tref{discriminant}{discriminants}. In particular, for a polynomial $f = a \prod_{i = 1}^{n} (X - \alpha_i)$ we have
+    \[ R(f, f') = a^{n - 1} \prod_{i = 1}^{n} f'(\alpha_i) = \frac{(-1)^{n(n - 1)/2}}{a} \Delta(f) . \]
+\end{example}
+
