@@ -62,6 +62,11 @@
     If $A$ is not invertible, it is called \textbf{singular}.
 \end{topic}
 
+\begin{example}{invertible-matrix}
+    When $n = 2$, we have
+    \[ \begin{pmatrix} a & b \\ c & d \end{pmatrix} = \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix} . \]
+\end{example}
+
 \begin{topic}{matrix-rank}{matrix rank}
     The \textbf{rank} of an $m \times n$ matrix $A$ the \tref{dimension}{dimension} of its \textit{row space} $\im A$.
 \end{topic}
@@ -83,6 +88,13 @@
     Also, the determinant of $A$ is the scalar corresponding to the map induced on the top exterior power of $V$,
     \[ \wedge^n A : \wedge^n V \to \wedge^n V . \]
 \end{topic}
+
+\begin{example}{determinant}
+    When $n = 2$,
+    \[ \det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc . \]
+    When $n = 3$,
+    \[ \det \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} = a(ei - fh) - b(di - fg) + c(dh - eg) . \]
+\end{example}
 
 \begin{topic}{cofactor-matrix}{cofactor matrix}
     Let $A = (a_{ij})$ be an $n \times n$ matrix. The \textbf{cofactor} of an entry $a_{ij}$ of $A$ is
@@ -138,3 +150,57 @@
 \begin{topic}{dual-vector-space}{dual vector space}
     Given a \tref{vector-space}{vector space} $V$, the \textbf{dual vector space} $V^*$ is defined as the vector space of all \tref{linear-map}{linear maps} $f : V \to k$.
 \end{topic}
+
+\begin{topic}{grassmannian}{Grassmannian}
+    Given a \tref{LA:vector-space}{vector space} $V$, and $r \ge 0$, the \textbf{Grassmannian} $\text{Gr}(r, V)$ is a space that parametrizes all $r$-dimensional \tref{LA:vector-subspace}{linear subspaces} of $V$.
+\end{topic}
+
+\begin{example}{grassmannian}
+    When $r = 1$, the Grassmanian $\text{Gr}(1, V)$ parametrizes all lines in $V$ through the origin, that is, $\text{Gr}(1, V) = \PP(V)$.
+\end{example}
+
+\begin{topic}{general-linear-group}{general linear group}
+    The \textbf{general linear group} of degree $n$ over a field $k$, denoted $\text{GL}_n(k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{invertible-matrix}{invertible matrices} with the operation of matrix multiplication.
+\end{topic}
+
+\begin{topic}{special-linear-group}{special linear group}
+    The \textbf{special linear group} of degree $n$ over a field $k$, denoted $\text{SL}_n(k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{invertible-matrix}{invertible matrices} with \tref{determinant}{determinant} $1$, with the operation of matrix multiplication.
+\end{topic}
+
+\begin{topic}{orthogonal-matrix}{orthogonal matrix}
+    An $n \times n$ matrix $A$ is \textbf{orthogonal} if $A A^T = I$.
+\end{topic}
+
+\begin{topic}{orthogonal-group}{(special) orthogonal group}
+    The \textbf{orthogonal group} of degree $n$ over a field $k$, denoted $\text{O}(n, k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{orthogonal-matrix}{orthogonal matrices} with the operation of matrix multiplication.
+    
+    The \textbf{special orthogonal group} is the \tref{GT:subgroup}{subgroup} $\text{SO}(n, k) \subset \text{O}(n, k)$ of matrices with \tref{determinant}{determinant} $1$.
+\end{topic}
+
+\begin{topic}{unitary-matrix}{unitary matrix}
+    An $n \times n$ matrix $U$ over $\CC$ is \textbf{unitary} if $UU^H = I$, where $U^H$ is its conjugate \tref{matrix-transpose}{transpose}.
+\end{topic}
+
+\begin{topic}{unitary-group}{(special) unitary group}
+    The \textbf{unitary group} of degree $n$, denoted $\text{U}(n)$, is the \tref{GT:group}{group} of $n \times n$ \tref{unitary-matrix}{unitary matrices} with the operation of matrix multiplication.
+    
+    The \textbf{special unitary group} is the \tref{GT:subgroup}{subgroup} $\text{SU}(n) \subset \text{U}(n)$ of matrices with \tref{determinant}{determinant} $1$.
+\end{topic}
+
+\begin{topic}{symplectic-matrix}{symplectic matrix}
+    A $2n \times 2n$ matrix $M$ is \textbf{symplectic} if $M^T \Omega M = \Omega$, where $\Omega = \begin{pmatrix} 0 & I_n \\ -I_n & 0 \end{pmatrix}$.
+\end{topic}
+
+\begin{topic}{symplectic-group}{symplectic group}
+    The \textbf{symplectic group} of degree $2n$ over a field $k$, denoted $\text{Sp}(2n, k)$, is the \tref{GT:group}{group} of $2n \times 2n$ \tref{symplectic-matrix}{symplectic matrices} with the operation of matrix multiplication.
+\end{topic}
+
+\begin{topic}{hermitian-matrix}{Hermitian matrix}
+    An $n \times n$ complex matrix $A$ is \textbf{Hermitian} if it is equal to its conjugate \tref{matrix-transpose}{transpose}, that is $A = A^H$.
+\end{topic}
+
+\begin{example}{hermitian-matrix}
+    A Hermitian matrix $A$ always has real eigenvalues. Namely, if $Av = \lambda v$, then
+    \[ \lambda \norm{v} = v^H A v = v^H A^H v = (A v)^H v = \overline{\lambda} v^H v = \overline{\lambda} \norm{v} , \]
+    which shows $\lambda$ is real.
+\end{example}

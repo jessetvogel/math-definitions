@@ -1,9 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
+# To add a new cell, type '# %%'
+# To add a new markdown cell, type '# %% [markdown]'
+# %%
 import re
 import os
 import hashlib
@@ -11,9 +8,7 @@ import shutil
 from tex2svg import tex2svg
 
 
-# In[2]:
-
-
+# %%
 class Scanner():
     
     def __init__(self, file):
@@ -32,9 +27,7 @@ class Scanner():
         return c
 
 
-# In[3]:
-
-
+# %%
 class Token:
 
     T_TEXT = 0
@@ -51,9 +44,7 @@ class Token:
         self.data = data
 
 
-# In[4]:
-
-
+# %%
 class Lexer():
     
     def __init__(self, scanner):
@@ -143,9 +134,7 @@ class Lexer():
             return token
 
 
-# In[1]:
-
-
+# %%
 class Parser:
     
     def __init__(self, output_dir):
@@ -369,7 +358,7 @@ class Parser:
             s += self.consume().data
         self.consume()
         
-        if 'tikzcd' not in s:
+        if 'tikzcd' not in s and 'tikzpicture' not in s:
             self.output.write('<span class="math display">\\[' + s + '\\]</span>')
         else:
             svg = self.math_to_svg(s)
@@ -452,16 +441,13 @@ class Parser:
             return False
 
 
-# In[6]:
-
-
+# %%
 # parser = Parser('/Users/jessevogel/Projects/math-definitions/data/')
 # parser.set_prefix('AG')
 # parser.parse('/Users/jessevogel/Projects/math-definitions/tex/sheaves.tex')
 
 
-# In[ ]:
-
+# %%
 
 
 

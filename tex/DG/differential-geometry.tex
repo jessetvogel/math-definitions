@@ -341,3 +341,36 @@
     \[ \exp : \mathfrak{g} \to G, \quad A \mapsto \exp(A) = \sum_{k = 0}^{\infty} \frac{A^k}{k!} \]
     is the usual exponential map.
 \end{example}
+
+\begin{topic}{closed-manifold}{closed manifold}
+    A \textbf{closed manifold} is a \tref{smooth-manifold}{manifold} without boundary that is \tref{TO:compact-space}{compact}.
+\end{topic}
+
+\begin{topic}{bordism}{bordism}
+    Given two $(n - 1)$-dimensional \tref{closed-manifold}{closed} \tref{smooth-manifold}{smooth manifolds} $M$ and $M'$, a \textbf{bordism} from $M$ to $M'$ is an $n$-dimensional compact manifold $W$ with boundary together with inclusions
+    \[ M \xrightarrow{i} W \xleftarrow{i'} M' \]
+    such that $\partial W = i(M) \sqcup i(M')$.
+\end{topic}
+
+\begin{example}{bordism}
+    The following are visual examples of $2$-dimensional bordisms.
+    \[  \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0) ellipse (0.2cm and 0.4cm); \draw (-1,0.4) -- (1,0.4); \draw (-1,-0.4) -- (1,-0.4); \draw (1,0) ellipse (0.2cm and 0.4cm); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (0,0.5) ellipse (0.2cm and 0.4cm); \draw (0,-0.5) ellipse (0.2cm and 0.4cm); \draw (0,0.9) arc (90:-90:1.1cm and 0.9cm); \draw (0,0.1) arc (90:-90:0.3cm and 0.1cm); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (0,0.5) ellipse (0.2cm and 0.4cm);\draw (0,-0.5) ellipse (0.2cm and 0.4cm); \draw (0,0.9) arc (90:270:1.1cm and 0.9cm); \draw (0,0.1) arc (90:270:0.3cm and 0.1cm); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0) ellipse (0.2cm and 0.4cm); \draw (-1,0.4) .. controls (-0.5,0.6) and (0.5,0.6) .. (1,0.4); \draw (-1,-0.4) .. controls (-0.5,-0.6) and (0.5,-0.6) .. (1,-0.4); \draw (-0.5,0.1) .. controls (-0.5,-0.125) and (0.5,-0.125) .. (0.5,0.1); \draw (-0.4,0.0) .. controls (-0.4,0.0625) and (0.4,0.0625) .. (0.4,0.0); \draw (1,0) ellipse (0.2cm and 0.4cm); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0.5) ellipse (0.2cm and 0.4cm); \draw (-1,-0.5) ellipse (0.2cm and 0.4cm); \draw (1,0) ellipse (0.2cm and 0.4cm); \draw (-1,0.9) .. controls (0,0.9) and (0,0.4) .. (1,0.4); \draw (-1,-0.9) .. controls (0,-0.9) and (0,-0.4) .. (1,-0.4); \draw (-1,0.1) .. controls (-0.2,0.1) and (-0.2,-0.1) .. (-1,-0.1); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0) ellipse (0.2cm and 0.4cm); \draw (1,0.5) ellipse (0.2cm and 0.4cm); \draw (1,-0.5) ellipse (0.2cm and 0.4cm); \draw (-1,0.4) .. controls (0,0.4) and (0,0.9) .. (1,0.9); \draw (-1,-0.4) .. controls (0,-0.4) and (0,-0.9) .. (1,-0.9); \draw (1,0.1) .. controls (0.2,0.1) and (0.2,-0.1) .. (1,-0.1); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0.5) ellipse (0.2cm and 0.4cm); \draw (-1,-0.5) ellipse (0.2cm and 0.4cm); \draw (1,0.5) ellipse (0.2cm and 0.4cm); \draw (1,-0.5) ellipse (0.2cm and 0.4cm); \draw (-1,0.9) .. controls (0,0.9) and (0,-0.1) .. (1,-0.1); \draw (-1,0.1) .. controls (0,0.1) and (0,-0.9) .. (1,-0.9); \draw (-1,-0.9) .. controls (0,-0.9) and (0,0.1) .. (1,0.1); \draw (-1,-0.1) .. controls (0,-0.1) and (0,0.9) .. (1,0.9); \end{scope} \end{tikzpicture} \]
+\end{example}
+
+\begin{example}{bordism}
+    Given bordisms $W : M \to M'$ and $W' : M' \to M''$, it can be shown that $W \sqcup_{M'} W'$ admits a smooth structure such that the inclusions $W \to W \sqcup_{M'} W'$ and $W' \to W \sqcup_{M'} W'$ are diffeomorphisms onto their images, which is unique up to (non-unique) diffeomorphism. Hence $W$ and $W'$ can be `composed' to produce a bordism $W' \circ W : M \to M''$, which is well-defined up to isomorphism.
+    
+    Using this composition rule, one can define the \textit{category of $n$-bordisms} $\textbf{Bord}_n$, where the objects are $(n - 1)$-dimensional closed manifolds and where the morphisms are bordsims are taken up to isomorphism. In particular, the identity morphism of an object $M$ is the cylinder $\id_M = M \times [0, 1]$.
+\end{example}

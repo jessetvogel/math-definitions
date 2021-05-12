@@ -62,7 +62,6 @@ DG: hyperkahler manifold
 DG: Chern classes
 DG: Poisson bracket (poisson bracket from symplectic form)
 DG: implicit function theorem
-DG: bordisms ?
 DG: Smooth structure: example of a topological manifold having multiple smooth structures
 DG: Grassmanians
 
