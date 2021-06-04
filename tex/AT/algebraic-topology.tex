@@ -419,3 +419,19 @@
 \begin{topic}{reduced-cohomology}{reduced cohomology}
     Let $X$ be a \tref{TO:topological-space}{topological space} with basepoint $x_0 \in X$ and $A$ an abelian group. The \textbf{reduced cohomology} of $X$ with coefficients in $A$ is defined by $\tilde{H}^n(X: A) = H^n(X, \{ x_0 \}; A)$.
 \end{topic}
+
+\begin{topic}{generalized-cohomology-theory}{generalized cohomology theory}
+    A \textbf{generalized cohomology theory} is a sequence of contravariant \tref{CT:functor}{functors} $h^i$, indexed by $i \in \ZZ$, from the category of \tref{cw-complex}{CW-pairs} $(X, A)$ to the category of \tref{GT:abelian-group}{abelian groups}, together with a \tref{CT:natural-transformation}{natural transformation} $d^i : h^i(A) \to h^{i + 1}(X, A)$ called the \textit{boundary morphism} (writing $h^i(A)$ for $h^i(A, \varnothing)$). These should satisfy the following axioms:
+    \begin{itemize}
+        \item (\textit{homotopy}) \tref{homotopy}{homotopic} maps induce the same map on cohomology,
+        \item (\textit{exactness}) each pair $(X, A)$ induces a long exact sequence, via the inclusions $i : A \to X$ and $j : (X, \varnothing) \to (X, A)$,
+        \[ \cdots \rightarrow h^i(X, A) \xrightarrow{j_*} h^i(X) \xrightarrow{i_*} h^i(A) \xrightarrow{d} h^{i + 1}(X, A) \rightarrow \cdots \]
+        \item (\textit{excision}) if $X$ is the union of subcomplexes $A$ and $B$, then the inclusion $f : (A, A \cap B) \to (X, B)$ induces isomorphisms
+        \[ h^i(X, B) \xrightarrow{f_*} h^i(A, A \cap B) \]
+        for every $i$.
+        \item (\textit{additivity}) if $(X, A)$ is the disjoint union of $(X_\alpha, A_\alpha)$, then the natural map
+        \[ h^i(X, A) \to \prod_\alpha h^i(X_\alpha, A_\alpha) \]
+        is an isomorphism for every $i$.
+    \end{itemize}
+\end{topic}
+

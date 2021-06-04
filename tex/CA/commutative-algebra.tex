@@ -24,6 +24,10 @@
     Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{unit} if there exists some $b \in R$ such that $ab = 1$. This is denoted $b = a^{-1}$.
 \end{topic}
 
+\begin{example}{unit}
+    If $a \in R$ is a unit, its inverse is unique. Namely, if $ab = ca = 1$, then $b = cab = c$.
+\end{example}
+
 \begin{topic}{irreducible-element}{irreducible element}
     Let $R$ be a \tref{domain}{domain}. An element $a \in R$ is called a \textbf{irreducible} if $a$ is not a \tref{unit}{unit}, and for all $b, c \in R$ such that $bc = a$ either $b$ or $c$ is a unit.
 \end{topic}
@@ -35,6 +39,19 @@
 \begin{topic}{nilpotent-element}{nilpotent element}
     Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is \textbf{nilpotent} if $a^n = 0$ for some positive integer $n$.
 \end{topic}
+
+\begin{example}{nilpotent-element}
+    If $a \in R$ is nilpotent, then $1 - a$ is invertible in $R$. Namely, $a^n = 0$ for some $n \ge 0$, so
+    \[ (1 - a) (1 + a + a^2 + \cdots + a^{n - 1}) = 1 - a^n = 1 . \]
+\end{example}
+
+\begin{topic}{reduced-ring}{reduced ring}
+    A \tref{ring}{ring} $R$ is \textbf{reduced} if it has no non-zero \tref{nilpotent-element}{nilpotent} elements.
+\end{topic}
+
+\begin{example}{reduced-ring}
+    The ring $\ZZ[x] / (x^2)$ is not reduced, since $x \text{ mod } (x^2)$ squares to $0$.
+\end{example}
 
 \begin{topic}{domain}{domain}
     A non-zero \tref{ring}{commutative ring} $R$ is called a \textbf{domain} if it has no zero-divisors, that is, $ab = 0$ implies $a = 0$ or $b = 0$ for all $a, b \in R$.
@@ -144,9 +161,18 @@
     \[ \ZZ / nm \ZZ \simeq (\ZZ/n\ZZ) \times (\ZZ/m\ZZ), \qquad a \text{ mod } nm \mapsto (a \text{ mod } n, a \text{ mod } m) . \]
 \end{topic}
 
-\begin{topic}{idempotent}{idempotent}
+\begin{topic}{idempotent-element}{idempotent element}
     An element $e \in R$ of a \tref{ring}{ring} $R$ is called \textbf{idempotent} if $e^2 = e$.
 \end{topic}
+
+\begin{example}{idempotent-element}
+    The idempotent elements of a ring $R$ are in bijection with the decompositions of $R$ as a product $R = R_1 \times R_2$. Indeed, every such decomposition yields the idempotent element $(1, 0)$. Conversely, for every idempotent $e \in R$, we have that $Re$ and $R(1 - e)$ are subrings of $R$, and we have an isomorphism
+    \[ \begin{aligned}
+        R &\simeq Re \times R(1 - e) \\
+        r &\mapsto (re, r - re)
+    \end{aligned} \]
+    whose inverse is $(a, b) \mapsto a + b$. Clearly these two constructions are inverse to each other.
+\end{example}
 
 \begin{topic}{dual-numbers}{dual numbers}
     Let $R$ be a \tref{ring}{commutative ring}. The \textbf{ring of dual numbers} over $R$ is the quotient ring
@@ -570,7 +596,26 @@
         \item $da = 0$ for all $a \in A$.
     \end{itemize}
     The set of $A$-derivations $d : B \to M$ is often denoted $\text{Der}_A(B, M)$.
+    
+    An $A$-derivation $d : B \to M$ is \textbf{universal} if for any other $A$-derivation $d' : B \to N$ there exists a unique $B$-module morphism $\phi : M \to N$ such that $d' = \phi \circ d$. In this case one often writes $M = \Omega_{B/A}$.
 \end{topic}
+
+\begin{example}{derivation}
+    Let $\mu : B \otimes_A B \to B$ be the multiplication map $b_1 \otimes b_2 \mapsto b_1 b_2$, and let $I = \ker \mu$. Consider $B \otimes_A B$ as a $B$-module by multiplication on the left, that is $b \cdot (b_1 \otimes b_2) = (bb_1 \otimes b_2)$, then $I/I^2$ inherits the structure of a $B$-module, and the map
+    \[ d : B \to I/I^2, \quad b \mapsto 1 \otimes b - b \otimes 1 (\text{mod } I^2) \]
+    is a universal $A$-derivation. This can be seen as follows.
+    
+    First note that $I$ is generated as an $B$-module by elements of the form $1 \otimes b - b \otimes 1$ with $b \in B$. Namely, for any $x \in I$ we have $\mu(x) = 0$ so $x \equiv \mu(x) \otimes 1 \text{ mod } (1 \otimes b - b \otimes 1 : b \in B) = 0$, and the other inclusion is obvious. In other words, $d$ is surjective.
+    
+    Now for any other $A$-derivation $d' : B \to M$ we can (and must) define $\phi : I/I^2 \to M$ by putting $\phi(d(b)) = d' b$ and extending $B$-linearly. Indeed this is well-defined as any element of $I^2$ is a sum of elements of the form $xy$ with $x, y \in I$, and writing $x = \sum_i (1 \otimes b_i - b_i \otimes 1)$ and $y = \sum_j (1 \otimes b'_j - b'_j \otimes 1)$ we find that
+    \[ xy = \sum_{i,j} (1 \otimes b_i b'_j - b_i b'_j \otimes 1) - b_i (1 \otimes b'_j - b'_j \otimes 1) - b'_j (1 \otimes b_i - b_i \otimes 1) , \]
+    so $\phi(xy) = \sum_{i, j} d'(b_i b'_j) - b_i d' b'_j - b'_j d' b_i = 0$.
+\end{example}
+
+\begin{example}{derivation}
+    If $B = A[x_1, \ldots, x_n]$ is a polynomial ring over $A$, then
+    \[ \Omega_{B/A} = \bigoplus_{i = 1}^{n} B \cdot dx_i . \]
+\end{example}
 
 \begin{topic}{height-ideal}{height ideal}
     The \textbf{height} of a \tref{prime-ideal}{prime ideal} $\mathfrak{p}$ in a \tref{ring}{commutative-ring} $R$ is the supremum of lengths of chains of prime ideals, where a chain
@@ -596,4 +641,36 @@
 \begin{example}{completion}
     When $R = k[x_1, \ldots, x_n]$ and $\mathfrak{a} = (x_1, \ldots, x_n)$, the completion is the power series ring
     \[ \widehat{R} = k\llbracket x_1, \ldots, x_n \rrbracket . \]
+\end{example}
+
+\begin{topic}{azumaya-algebra}{Azumaya algebra}
+    An \textbf{Azumaya algebra} over a \tref{ring}{commutative ring} $R$ is an $R$-algebra $A$ that is \tref{finitely-generated-module}{finitely generated} \tref{faithful-module}{faithful} and \tref{projective-module}{projective} as an $R$-module, such that $A \otimes_R A^\text{op}$ is isomorphic to $\text{End}_R(A)$ via the map $a \otimes b \mapsto (x \mapsto axb)$.
+\end{topic}
+
+\begin{example}{azumaya-algebra}
+    When $R = k$ is a field, Azumaya algebras over $k$ are precisely \tref{central-simple-algebra}{central simple algebras} over $k$.
+\end{example}
+
+\begin{topic}{simple-ring}{simple ring}
+    A \tref{ring}{ring} $R$ is \textbf{simple} if it has no two-sided ideal besides the zero ideal and itself.
+\end{topic}
+
+\begin{example}{simple-ring}
+    A commutative ring is simple if and only if it is a \tref{field}{field}.
+\end{example}
+
+\begin{topic}{ring-center}{ring center}
+    The \textbf{center} of a \tref{ring}{ring} $R$ is the subring $Z(R)$ of all elements $x \in R$ such that $xy = yx$ for all $y \in R$.
+\end{topic}
+
+\begin{topic}{central-algebra}{central algebra}
+    Let $S$ be a \tref{ring}{commutative ring}. A \textbf{central algebra} over $S$ is an $S$-algebra whose \tref{ring-center}{center} is exactly $S$.
+\end{topic}
+
+\begin{topic}{central-simple-algebra}{central simple algebra}
+    A \textbf{central simple algebra (CSA)} over a field $k$ is a finite-dimensional $k$-algebra that is \tref{simple-ring}{simple} and whose \tref{ring-center}{center} is $k$.
+\end{topic}
+
+\begin{example}{central-simple-algebra}
+    The quaternions $\mathbb{H}$ are a central simple algebra over the reals $\RR$.
 \end{example}

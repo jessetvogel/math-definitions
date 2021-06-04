@@ -6,6 +6,11 @@
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 CA: Hilbert polynomials (See Chapter 11 of Commutative Algebra, M. Atiyah)
 
+
+
+CA/AG/DG: Hochschild cohomology
+
+
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
 AG: blowup / blowdown
@@ -14,6 +19,8 @@ AG: affine GIT quotient
 AG: Riemann--Roch Theorem
 AG: étale fundamental group(oid)
 AG: Zariski's main theorem
+AG: regular morphism ?
+AG: normal crossings divisor
 
 # Number theory
 NT: ring of integers
@@ -28,8 +35,6 @@ NT: Hilbert class field
 NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
-
-AG: Mordell--Weil theorem
 
 # Group theory
 GT: parabolic subgroup
@@ -63,9 +68,8 @@ DG: Chern classes
 DG: Poisson bracket (poisson bracket from symplectic form)
 DG: implicit function theorem
 DG: Smooth structure: example of a topological manifold having multiple smooth structures
-DG: Grassmanians
 
-DG: foliation ??
+DG: foliation
 DG: Stiefel--Whitney class
 
 TO: locally compact (quasi-compact?)
@@ -75,3 +79,11 @@ TO: locally compact (quasi-compact?)
 GT: Weyl group W = N_G(T)/T
 
 AT: Euler characteristic
+AT: Gysin sequence
+AT: Bockstein sequence
+
+AT/TO: equivariant cohomology ? Homotopy quotients
+
+
+# Noncmomutative deformations??
+- Quantum groups

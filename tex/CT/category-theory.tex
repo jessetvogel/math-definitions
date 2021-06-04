@@ -78,15 +78,15 @@
 
 \begin{topic}{yoneda-embedding}{Yoneda embedding}
     Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Yoneda embedding} is the functor
-    \[ y_{(-)} : \mathcal{C} \to \text{Set}^{\mathcal{C}^\text{op}} \]
+    \[ y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\text{op}} \]
     given by $y_X(Y) = \Hom_{\mathcal{C}}(Y, X)$.
 \end{topic}
 
 \begin{topic}{yoneda-lemma}{Yoneda lemma}
-    Let $\mathcal{C}$ be a \tref{category}{category}, and write $y_X = \Hom_{\mathcal{C}}(-, X)$. The \textbf{Yoneda lemma} states that for every $F : \mathcal{C}^\text{op} \to \text{Set}$ and $X$ in $\mathcal{C}$ there is a bijection
+    Let $\mathcal{C}$ be a \tref{category}{category}, and write $y_X = \Hom_{\mathcal{C}}(-, X)$. The \textbf{Yoneda lemma} states that for every $F : \mathcal{C}^\text{op} \to \textbf{Set}$ and $X$ in $\mathcal{C}$ there is a bijection
     \[ \Hom(y_X, F) \xrightarrow{\sim} F(X)  \]
     natural in $X$ and $F$. As a consequence, the \tref{yoneda-embedding}{Yoneda embedding}
-    \[ y_{(-)} : \mathcal{C} \to \text{Set}^{\mathcal{C}^\text{op}} \]
+    \[ y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\text{op}} \]
     is \tref{full-functor}{full} and \tref{faithful-functor}{faithful}.
 \end{topic}
 

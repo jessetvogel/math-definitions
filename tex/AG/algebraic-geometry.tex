@@ -113,6 +113,10 @@
 \end{topic}
 
 \begin{example}{proper-morphism}
+    Any \tref{closed-immersion}{closed immersion} $i : Y \to X$ is proper. Indeed, the base change of a closed immersion is again a closed immersion, so $i$ is universally closed. Separatedness can be checked locally on the target: if $X = \Spec R$ then $Y = \Spec R / I$ for some ideal $I \subset R$, so $Y$ is also affine, and any morphism between affine schemes is separated. From this local expression of $X$ and $Y$ it is also clear $i$ is of finite type.
+\end{example}
+
+\begin{example}{proper-morphism}
     The morphism $\AA_k^1 \to \Spec k$ is not proper as it is not universally closed. Namely, the projection $\AA^1_k \times \AA^1_k \to \AA^1_k$ sends the closed set $\{ xy - 1 \}$ to $\AA^1_k - \{ 0 \}$ and thus cannot be a closed mapping. However, the morphism is clearly of finite type, and also separated as the diagonal $\Delta : \AA^1_k \to \AA^1_k \times \AA^1_k$ is closed, it is given by $\{ x - y = 0 \}$.
 \end{example}
 
@@ -187,12 +191,6 @@
     
     Note that sheaves $\mathcal{O}_X(n)$ are all \tref{invertible-sheaf}{invertible} sheaves, and that $\mathcal{O}_X(n) \otimes \mathcal{O}_X(m) \simeq \mathcal{O}_X(n + m)$.
 \end{topic}
-
-% \begin{topic}{ample-invertible-sheaf}{(very) ample invertible sheaf}
-%     Let $X$ be a \tref{scheme}{scheme} over $S$. An \tref{invertible-sheaf}{invertible} sheaf $\mathcal{L}$ on $X$ is called \textbf{very ample} relative to $S$, if there is an \tref{immersion}{immersion} $i : X \to \PP_S^n$ for some $n$, such that $\mathcal{L} \simeq i^*(\mathcal{O}_{\PP^_S^n}(1))$.
-    
-%     If $X$ is scheme of finite type over a noetherian ring $A$, then any $\mathcal{L}$ is ample if and only if $\mathcal{L}^m$ is very ample over $\Spec A$ for some $m > 0$.
-% \end{topic}
 
 \begin{topic}{geometrically-regular}{geometrically regular}
     Let $X$ be a \tref{noetherian-scheme}{locally noetherian} \tref{scheme}{scheme} over a field $k$. Then $X$ is \textbf{geometrically regular at $x \in X$} over $k$ if for every finitely generated field extension $k \subset k'$ and any $x' \in X_{k'}$ lying over $x$, the local ring $\mathcal{O}_{X_{k'}, x'}$ is \tref{CA:regular-ring}{regular}.
@@ -568,17 +566,23 @@
 
 \begin{topic}{algebraic-cycle}{algebraic cycle}
     Let $X$ be a \tref{variety}{variety} over a field $k$. The \textbf{group of algebraic cycles} on $X$ is the free abelian group on closed integral subvarieties of $X$,
-    \[ Z_* X = \bigoplus_{Y \subset X} \ZZ \cdot [Y] . \] 
+    \[ Z_*(X) = \bigoplus_{Y \subset X} \ZZ \cdot [Y] . \] 
     Elements of this group are formal linear combinations
     \[ \sum_i n_i [Y_i] \]
     called \textbf{algebraic cycles} on $X$.
     
     An algebraic cycle is \textbf{effective} if $n_i \ge 0$ for all $i$.
+    
+    An \textbf{algebraic $k$-cycle} is a formal linear combination of closed integral subvarieties of $X$ of dimension $k$.
 \end{topic}
 
 \begin{topic}{rational-equivalence}{rational equivalence}
     Two \tref{algebraic-cycle}{algebraic cycles} $Z, Z'$ on a \tref{variety}{variety} $X$ are \textbf{rationally equivalent} if there is an algebraic cycle $W$ on $X \times \PP^1$ \tref{flat-morphism}{flat} over $\PP^1$, such that
     \[ [Z] - [Z'] = [W \cap X \times \{ 0 \}] - [W \cap X \times \{ \infty \}] . \]
+\end{topic}
+
+\begin{topic}{chow-group}{Chow group}
+    The $i$-th \textbf{Chow group} $\text{CH}_i(X)$ is the quotient of $Z_i(X)$, the group of \tref{algebraic-cycle}{algebraic $i$-cycles} on $X$, by the subgroup of $i$-cycles \tref{rational-equivalence}{rationally equivalent} to zero.
 \end{topic}
 
 \begin{topic}{algebraic-equivalence}{algebraic equivalence}
@@ -636,4 +640,60 @@
 
 \begin{topic}{noetherian-formal-scheme}{noetherian formal scheme}
     A \textbf{noetherian formal scheme} is a \tref{ringed-space}{locally ringed space} $(\mathfrak{X}, \mathcal{O}_\mathfrak{X})$, which has a finite open cover $\{ \mathfrak{U}_i \}$ such that for each $i$, the pair $(\mathfrak{U}_i, \mathcal{O}_\mathfrak{X}|_{\mathfrak{U}_i})$ is isomorphic to the \tref{formal-completion}{formal completion} of some noetherian scheme $X$ along a closed subscheme $Y \subset X$.
+\end{topic}
+
+\begin{topic}{algebraic-space}{algebraic space}
+    Let $S$ be a \tref{scheme}{scheme} in $\textbf{Sch}_\text{fppf}$. An \textbf{algebraic space} over $S$ is a \tref{CT:presheaf}{presheaf}
+    \[ F : (\textbf{Sch}/S)_\text{fppf}^\text{op} \to \textbf{Set} \]
+    such that
+    \begin{itemize}
+        \item $F$ is a \tref{CT:sheaf}{sheaf},
+        \item the diagonal $\Delta : F \to F \times F$ is \textit{representable}, that is, for every $T \in (\textbf{Sch}/S)_\text{fppf}$ and $\xi \in (F \times F)(T) = F(T) \times F(T)$ the fiber product $T \times_{(F \times F)} F$ is representable by a scheme,
+        \item there exists a scheme $X \in (\textbf{Sch}/S)_\text{fppf}$ and a representable map $X \to F$ which is surjective and étale. That is, for every $T \in (\textbf{Sch}/S)_\text{fppf}$ and $\xi \in F(T)$ the map $X \times_F T \to T$ (of schemes) is surjective and \tref{AG:etale-morphism}{étale}.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{mordell-weil-theorem}{Mordell--Weil theorem}
+    The \textbf{Mordell--Weil theorem} states that for an \tref{abelian-variety}{abelian variety} $A$ and a \tref{NT:number-field}{number field} $K$, the $K$-rational points $A(K)$ form a \tref{GT:finitely-generated-group}{finitely generated} \tref{GT:abelian-group}{abelian} \tref{GT:group}{group}, called the \textbf{Mordell--Weil group}.
+\end{topic}
+
+\begin{topic}{ample-invertible-sheaf}{(very) ample invertible sheaf}
+    Let $X$ be a \tref{scheme}{scheme} over $S$. An \tref{invertible-sheaf}{invertible sheaf} $\mathcal{L}$ on $X$ is called \textbf{very ample} relative to $S$, if there is an \tref{immersion}{immersion} $i : X \to \PP_S^n$ for some $n$, such that $\mathcal{L} \simeq i^*(\mathcal{O}_{\PP_S^n}(1))$.
+    
+    An invertible sheaf $\mathcal{L}$ on a \tref{noetherian-scheme}{noetherian scheme} $X$ is \textbf{ample} if for every \tref{coherent-sheaf}{coherent sheaf} $\mathcal{F}$ on $X$, there is an integer $n_0 > 0$ such that for every $n \ge n_0$ the sheaf $\mathcal{F} \otimes \mathcal{L}^{\otimes n}$ is generated by its global sections.
+\end{topic}
+
+\begin{example}{ample-invertible-sheaf}
+    When $X = \Spec R$ is affine, any invertible sheaf is ample, because every (quasi-)coherent sheaf on an affine scheme is generated by its global sections.
+\end{example}
+
+\begin{topic}{cech-cohomology}{Čech cohomology}
+    Let $X$ be a \tref{TO:topological-space}{topological space}, $\mathcal{U} = \{ U_i \}_{i \in I}$ an open covering of $X$, and $\mathcal{F}$ a \tref{AG:sheaf}{sheaf} on $X$. Put a well-ordering on $I$ and for convenience write $U_{i_0 \cdots i_p}$ for $U_{i_0} \cap \cdots \cap U_{i_p}$.
+    
+    The \textbf{Čech complex} of $\mathcal{F}$ with respect to $\mathcal{U}$ is the complex
+    \[ C^p(\mathcal{U}, \mathcal{F}) = \prod_{i_0 < \cdots < i_p} \mathcal{F}(U_{i_0 \cdots i_p}) \qquad p \ge 0 , \]
+    with differential
+    \[ d^p : C^p(\mathcal{U}, \mathcal{F}) \to C^{p + 1}(\mathcal{U}, \mathcal{F}) \]
+    \[ (d^p \alpha)_{i_0 , \ldots , i_{p + 1}} = \sum_{k = 0}^{p + 1} (-1)^k \alpha_{i_0 , \ldots , \hat{i}_k, \ldots, i_{p + 1}} | _{U_{i_0 \cdots i_{p + 1}}} . \]
+    For all $p \ge 0$ the $p$-th \textbf{Čech cohomology group} of $\mathcal{F}$ with respect to $\mathcal{U}$ is the cohomology group
+    \[ \hat{H}^p(\mathcal{U}, \mathcal{F}) = H^p(C^\bdot(\mathcal{U}, \mathcal{F})) . \]
+\end{topic}
+
+\begin{example}{cech-cohomology}
+    Note that 
+    \[ d^0 : C^0(\mathcal{U}, \mathcal{F}) = \prod_{i \in I} \mathcal{F}(U_i) \to C^1(\mathcal{U}, \mathcal{F}) = \prod_{i < j} \mathcal{F}(U_{ij}) \]
+    sends $s = (s_i)_{i \in I}$ to $d^0 s = \left(s_j|_{U_i} - s_i|_{U_j}\right)_{ij}$. Therefore, by the sheaf property $\hat{H}^0(\mathcal{U}, \mathcal{F}) = \ker d^0 \simeq \mathcal{F}(X)$.
+    % H^1 isomorphic to line bundles that trivialize on each U_i
+\end{example}
+
+\begin{topic}{sheaf-differentials}{sheaf of differentials}
+    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}. Covering $X$ and $Y$ by affine opens $V = \Spec A \subset Y$ and $U = \Spec B \subset X$ such that $f(U) \subset V$, consider the sheaf $\widetilde{\Omega_{B/A}}$ on $U$, the sheaf \tref{sheaf-associated-to-module}{associated} to the module \tref{CA:derivation}{$\Omega_{B/A}$}. Gluing these sheaves together gives $\Omega_{X/Y}$, the \textbf{relative sheaf of differentials}.
+    
+    Alternatively, consider the diagonal morphism $\Delta_{X/Y} : X \to X \times_Y X$, and view $X \xrightarrow{\sim{}} \Delta(X)$ as a \tref{closed-immersion}{closed subscheme} of an open subset $W$ of $X \times_Y X$, with corresponding sheaf of ideals $\mathcal{I}$. Then
+    \[ \Omega_{X/Y} = \Delta_{X/Y}^*(\mathcal{I}/\mathcal{I}^2) . \]
+\end{topic}
+
+\begin{topic}{albanese-variety}{Albanese variety}
+    Let $X$ be a connected \tref{complete-variety}{complete} \tref{variety}{variety} over an algebraically closed field $k$, with a basepoint. Then there exists an \tref{abelian-variety}{abelian variety} $\text{Alb}(X)$, the \textbf{Albanese variety} of $X$, and a morphism of pointed varieties $i : X \to \text{Alb}(X)$, the \textbf{Albanese map}, with the universal property that for any other abelian variety $A$ and morphism of pointed varieties $f : X \to A$, there exists a unique morphism of abelian varieties $f' : \text{Alb}(X) \to A$ such that $f = f' \circ i$.
+    \[ \begin{tikzcd} X \arrow{r}{i} \arrow[swap]{dr}{f} &  \text{Alb}(X) \arrow[dashed]{d}{f'} \\ &  A \end{tikzcd} \]
 \end{topic}
