@@ -36,23 +36,20 @@ NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 
-# Group theory
-GT: parabolic subgroup
-
 Dynkin diagrams / Quivers
 
 UN: classifying space
 
+DG?: Weyl group / maximal torus
+
 # Homotopy theory
 HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]
-// HT: pointed infinity category [Definition 1.1.1.1]
 HT: stable infinity category [Definition 1.1.1.9]
 
 // HT: sifted simplicial set ?
 
 # Abstract algebra
-AA: move some commutative algebra which isn't commutative to AA
-
+AA: move some commutative algebra which isn't commutative to AA ??
 
 # Analysis
 AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???
@@ -69,14 +66,19 @@ DG: Poisson bracket (poisson bracket from symplectic form)
 DG: implicit function theorem
 DG: Smooth structure: example of a topological manifold having multiple smooth structures
 
-DG: foliation
 DG: Stiefel--Whitney class
+
+DG: degree of vector bundle / slope
+DG: Lagrangian subspace / (co)isotropic subspace / one more?
+
+
+DG/AG: Higgs bundle
+
+DG: orbifold
 
 TO: locally compact (quasi-compact?)
 
 // GT: central series
-
-GT: Weyl group W = N_G(T)/T
 
 AT: Euler characteristic
 AT: Gysin sequence
@@ -85,5 +87,15 @@ AT: Bockstein sequence
 AT/TO: equivariant cohomology ? Homotopy quotients
 
 
+
 # Noncmomutative deformations??
 - Quantum groups
+
+- Mirror symmetry ??? What is this all about ??
+
+- Riemann surface
+
+- Voevodsky mixed motive category DM(k, Q) (is a triangulated category)
+
+- S-equivalence
+

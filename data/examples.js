@@ -1,4 +1,5 @@
 const examples = [
+  "AA:semiring",
   "AA:lie-algebra",
   "AG:separated",
   "AG:proper-morphism",
@@ -16,6 +17,7 @@ const examples = [
   "AG:reductive-algebraic-group",
   "AG:severi-brauer-variety",
   "AG:algebraic-torus",
+  "AG:borel-subgroup",
   "AG:toric-variety",
   "AG:ample-invertible-sheaf",
   "AG:cech-cohomology",
@@ -81,6 +83,7 @@ const examples = [
   "DG:geodesic",
   "DG:exponential-map",
   "DG:bordism",
+  "DG:lie-algebroid",
   "DG:symplectic-manifold",
   "DG:tautological-one-form",
   "DG:canonical-symplectic-form",

@@ -28,10 +28,6 @@
     If $a \in R$ is a unit, its inverse is unique. Namely, if $ab = ca = 1$, then $b = cab = c$.
 \end{example}
 
-\begin{topic}{irreducible-element}{irreducible element}
-    Let $R$ be a \tref{domain}{domain}. An element $a \in R$ is called a \textbf{irreducible} if $a$ is not a \tref{unit}{unit}, and for all $b, c \in R$ such that $bc = a$ either $b$ or $c$ is a unit.
-\end{topic}
-
 \begin{topic}{zero-divisor}{zero-divisor}
     Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{zero-divisor} if $a \ne 0$ and $ab = 0$ for some $b \ne 0$.
 \end{topic}
@@ -53,14 +49,6 @@
     The ring $\ZZ[x] / (x^2)$ is not reduced, since $x \text{ mod } (x^2)$ squares to $0$.
 \end{example}
 
-\begin{topic}{domain}{domain}
-    A non-zero \tref{ring}{commutative ring} $R$ is called a \textbf{domain} if it has no zero-divisors, that is, $ab = 0$ implies $a = 0$ or $b = 0$ for all $a, b \in R$.
-\end{topic}
-
-\begin{topic}{field}{field}
-    A \tref{ring}{commutative ring} $R$ is called a \textbf{field} if all non-zero elements are units, that is, for all non-zero $a \in R$ there exists a $b \in R$ such that $ab = 1$. 
-\end{topic}
-
 \begin{topic}{ideal}{ideal}
     Let $R$ be a \tref{ring}{ring}. An \textbf{ideal} of $R$ is a subset $I \subset R$ such that
     \begin{itemize}
@@ -70,12 +58,24 @@
     \end{itemize}
 \end{topic}
 
+\begin{topic}{domain}{domain}
+    A non-zero \tref{ring}{commutative ring} $R$ is called a \textbf{domain} if it has no zero-divisors, that is, $ab = 0$ implies $a = 0$ or $b = 0$ for all $a, b \in R$.
+\end{topic}
+
+\begin{topic}{irreducible-element}{irreducible element}
+    Let $R$ be a \tref{domain}{domain}. An element $a \in R$ is called a \textbf{irreducible} if $a$ is not a \tref{unit}{unit}, and for all $b, c \in R$ such that $bc = a$ either $b$ or $c$ is a unit.
+\end{topic}
+
+\begin{topic}{field}{field}
+    A \tref{ring}{commutative ring} $R$ is called a \textbf{field} if all non-zero elements are units, that is, for all non-zero $a \in R$ there exists a $b \in R$ such that $ab = 1$. 
+\end{topic}
+
 \begin{topic}{coprime-ideals}{coprime ideals}
     Two \tref{ideal}{ideals} $I, J$ of a \tref{ring}{commutative ring} $R$ are \textbf{coprime} if $I + J = R$.
 \end{topic}
 
 \begin{topic}{radical-ideal}{radical ideal}
-    Let $R$ be a \tref{ring}{ring}. The \textbf{radical} of an ideal $I \subset R$ is given by
+    Let $R$ be a \tref{ring}{commutative ring}. The \textbf{radical} of an \tref{ideal}{ideal} $I \subset R$ is given by
     \[ \sqrt{I} = \{ x \in R : x^n \in I \} . \]
     An ideal $I$ is called \textbf{radical} if $I = \sqrt{I}$.
 \end{topic}
@@ -94,8 +94,7 @@
 \end{topic}
 
 \begin{topic}{maximal-ideal}{maximal ideal}
-    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{maximal} if $I \ne R$ and
-    \[ I \subset J \subsetneq R \text{ for some ideal } J \subset R \implies I = J . \]
+    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{maximal} if $I \ne R$ and if $I \subset J \subsetneq R$ implies $I = J$ for any other ideal $J \subset R$.
     
     Equivalently, $I \subset R$ is a maximal ideal iff the quotient ring $R / I$ is a \tref{field}{field}.
     

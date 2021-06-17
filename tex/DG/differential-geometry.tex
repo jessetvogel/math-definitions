@@ -216,6 +216,10 @@
     Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The map $\nabla^2 : \Omega^0(M; E) \to \Omega^2(M; E)$ is $C^\infty(M)$-linear and hence induced by a section $F_\nabla \in \Omega^2(M; \text{End}(E))$, called the \textbf{curvature} of $\nabla$.
 \end{topic}
 
+\begin{topic}{flat-connection}{flat connection}
+    A \tref{connection}{connection} $\nabla$ on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$ is \textbf{flat} if its \tref{curvature-connection}{curvature} is zero.
+\end{topic}
+
 \begin{topic}{curvature-form}{curvature form}
     Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \text{tr } F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \text{End}(M))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\text{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
 \end{topic}
@@ -374,3 +378,29 @@
     
     Using this composition rule, one can define the \textit{category of $n$-bordisms} $\textbf{Bord}_n$, where the objects are $(n - 1)$-dimensional closed manifolds and where the morphisms are bordsims are taken up to isomorphism. In particular, the identity morphism of an object $M$ is the cylinder $\id_M = M \times [0, 1]$.
 \end{example}
+
+\begin{topic}{lie-algebroid}{Lie algebroid}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Lie algebroid} over $M$ is a \tref{vector-bundle}{vector bundle} $L$ on $M$ together with a \tref{AA:lie-algebra}{Lie bracket} $[\cdot, \cdot]$ on its global sections $\Gamma(L)$ and a map of vector bundles $a : L \to TM$, called the \textit{anchor map}, to the \tref{tangent-bundle}{tangent bundle} of $M$, satisfying
+    \begin{itemize}
+        \item (\textit{Lie algebra homomorphism}) $a([X, Y]) = [a(X), a(Y)]$ for all $X, Y \in \Gamma(L)$,
+        \item (\textit{Leibniz rule}) $[X, fY] = f[X, Y] + (a(X)  f) Y$ for all $X, Y \in \Gamma(L)$ and $f \in C^\infty(M)$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{lie-algebroid}
+    The tangent bundle $TM$ itself is a Lie algebroid, with the anchor map the identity $\id : TM \to TM$, and Lie bracket the \tref{lie-bracket-vector-fields}{Lie bracket for vector fields}.
+\end{example}
+
+\begin{example}{lie-algebroid}
+    Given a vector bundle $E \to M$, its \textit{general linear algebroid} is the vector bundle $\mathfrak{gl}(E) \to M$ whose sections are derivations $D : \Gamma(E) \to \Gamma(E)$ of $E$ admitting a vector field $X_D \in TM$ such that $D(f s) = f D(s) + (X_D f) s$ for all $s \in \Gamma(E)$ and $f \in C^\infty(M)$. The Lie bracket is the commutator of differential operators, and the anchor map is the map $D \mapsto X_D$.
+\end{example}
+
+\begin{topic}{foliation}{foliation}
+    Let $M$ be an $n$-dimensional \tref{smooth-manifold}{smooth manifold}. A $p$-dimensional \textbf{foliation} of $M$ is a decomposition of $M$ into a union of disjoint connected submanifolds
+    \[ M = \bigsqcup_{\alpha \in A} L_\alpha \]
+    such that each point $x \in M$ has a neighborhood $U$ with local coordinates $x^1, \ldots, x^n$ such that $x^{p + 1}, \ldots, x^n$ are constant on $U \cap L_\alpha$ for all $\alpha \in A$. The submanifolds $L_\alpha$ are called the \textbf{leaves} of the foliation, and the foliation is denoted as $\mathcal{F} = \{ L_\alpha \}_{\alpha \in A}$.
+\end{topic}
+
+\begin{topic}{higgs-bundle}{Higgs bundle}
+    Let $M$ be a complex manifold. A \textbf{Higgs bundle} on $M$ is a holomorphic vector bundle $E$ on $M$ together with a section $\phi \in \Omega^1(M; \text{End}(E))$, called the \textbf{Higgs field}, satisfying $\phi \wedge \phi = 0$.
+\end{topic}

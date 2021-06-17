@@ -1,0 +1,31 @@
+\begin{topic}{monoid}{monoid}
+    A \textbf{monoid} is a set $M$ with a binary operation $\cdot : M \times M \to M$ satisfying
+    \begin{itemize}
+        \item (\textit{associative}) $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all $a, b, c \in M$,
+        \item (\textit{identity element}) there exists an element $e \in M$ such that $e \cdot a = a = a \cdot e$ for all $a \in M$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{semigroup}{semigroup}
+    A \textbf{semigroup} is a set $S$ with a binary operation $\cdot : S \times S \to S$ which is associative, that is, $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all $a, b, c \in S$.
+\end{topic}
+
+\begin{topic}{semiring}{semiring}
+    A \textbf{semiring} is a set $R$ with two binary operations $+ : R \times R \to R$, called addition, satisfying
+    \begin{itemize}
+        \item (\textit{associative}) $(a + b) + c = a + (b + c)$ for all $a, b, c \in R$,
+        \item (\textit{commutative}) $a + b = b + a$ for all $a, b \in R$,
+        \item (\textit{zero element}) there exists an element $0 \in R$ such that $a + 0 = 0 + a = a$ for all $a \in R$,
+    \end{itemize}
+    and $\cdot : R \times R \to R$, called multiplication, satisfying
+    \begin{itemize}
+        \item (\textit{associative}) $(a \cdot b) \cdot c = a \cdot (b \cdot b)$ for all $a, b, c \in R$,
+        \item (\textit{unit element}) there exists an element $1 \in R$ such that $a \cdot 1 = 1 \cdot a = a$ for all $a \in R$,
+        \item (\textit{distributive}) $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ and $(a + b) \cdot c = (a \cdot c) + (b \cdot c)$ for all $a, b, c \in R$,
+        \item (\textit{zero element}) $0 \cdot a = a \cdot 0 = 0$ for all $a \in R$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{semiring}
+    The natural numbers $\NN$ (including zero) form a semiring under usual addition and multiplication. Similarly, $\QQ_{\ge 0}$ and $\RR_{\ge 0}$ are semirings.
+\end{example}
