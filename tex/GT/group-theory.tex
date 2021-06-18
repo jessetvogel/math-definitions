@@ -126,6 +126,10 @@
     A \tref{group-action}{group action} of a \tref{group}{group} $G$ on a set $X$ is \textbf{free} if $g \cdot x = x$ implies $g = 1$, for all $x \in X$.
 \end{topic}
 
+\begin{topic}{transitive-group-action}{transitive group action}
+    A \tref{group-action}{group action} of a \tref{group}{group} $G$ on a set $X$ is \textbf{transitive} for all $x, y \in X$ there exists a $g \in G$ such that $y = g \cdot x$.
+\end{topic}
+
 \begin{topic}{centralizer}{centralizer}
     Let $G$ be a \tref{group}{group}. The \textbf{centralizer} of an element $g \in G$ is the subgroup
     \[ G_g = \{ h \in G : h x h^{-1} = g \} . \]
@@ -230,6 +234,13 @@
     A \tref{group}{group} $G$ is \textbf{finitely generated} if there exists a finite set $S \subset G$ such that every element of $G$ can be written as a finite product of elements of $S$.
 \end{topic}
 
-% \begin{topic}{maximal-subgroup}{maximal subgroup}
-%     A \tref{subgroup}{subgroup} $H$ of a \tref{group}{group} $G$ is \textbf{maximal} if $H \ne G$ and for any other subgroup $H \subset K \subsetneq G$ implies $K = H$.
-% \end{topic}
+\begin{topic}{wreath-product}{wreath product}
+    Let $G, H$ be \tref{group}{groups} and $S$ a set with $H$ \tref{group-action}{acting} on $S$. Let $K$ be the direct product $K = \prod_{s \in S} G$. Then $H$ acts on $K$ by $h \cdot (g_s)_{s \in S} = (g_{h^{-1} s})_{s \in S}$. The \textbf{unrestricted wreath product} of $G$ and $H$, denoted $G \, \text{Wr}_S H$ or $G \overline{\wr}_S H$, is the \tref{semidirect-product}{semidirect product} $K \rtimes H$.
+    
+    The \textbf{restricted wreath product}, denoted $G \, \text{wr}_S H$ or $G \wr_S H$, is obtained by replacing $K$ with the direct sum $\bigoplus_{s \in S} G$.
+\end{topic}
+
+\begin{example}{wreath-product}
+    Let $G$ be any group $H = S_n$ the \tref{symmetric-group}{symmetric group} and $S = \{ 1, 2, \ldots, n \}$, where $S^n$ acts naturally on $S$. Then the wreath product is
+    \[ G_n = \left( \prod_{i = 1}^{n} G \right) \rtimes S_n . \]
+\end{example}

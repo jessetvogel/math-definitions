@@ -204,3 +204,44 @@
     \[ \lambda \norm{v} = v^H A v = v^H A^H v = (A v)^H v = \overline{\lambda} v^H v = \overline{\lambda} \norm{v} , \]
     which shows $\lambda$ is real.
 \end{example}
+
+\begin{topic}{pin-group}{pin group}
+    The \textbf{pin group} $\text{Pin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\text{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_k$ with $q(v_i) = 1$.
+    
+    As a special case, $\text{Pin}(n) = \text{Pin}(\RR^n, \langle \cdot, \cdot \rangle)$.
+\end{topic}
+
+\begin{topic}{spin-group}{spin group}
+    The \textbf{spin group} $\text{Spin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\text{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_{2k}$ with $q(v_i) = 1$.
+
+    As a special case, $\text{Spin}(n) = \text{Spin}(\RR^n, \langle \cdot, \cdot \rangle)$.
+    
+    The \textbf{spin group} $\text{Spin}(n)$ is the universal (double) cover of the \tref{orthogonal-group}{special orthogonal group} $\text{SO}(n)$.
+\end{topic}
+
+\begin{example}{spin-group}
+    Let $\{ e_i \}$ be an orthonormal basis for $V$ w.r.t. $q$. Define an \textit{antiautomorphism} $t : \text{Cl}(V, q) \to \text{Cl}(V, q)$ by $(e_i e_j \cdots e_k)^t = e_k \cdots e_j e_i$ and extending linearly. Then define the automorphism $\alpha : \text{Cl}(V, q) \to \text{Cl}(V, q)$ by $\alpha(v) = -v$ for $v \in V$. Let $a^*$ denote $\alpha(a)^t$ for $a \in \text{Cl}(V, q)$.
+    
+    With this notation, an explicit double cover of $\text{O}(V, q)$ by $\text{Pin}(V, q)$ is given by
+    \[ \rho : \text{Pin}(V, q) \to \text{O}(V, q), \quad \rho(a) v = a v a^* . \]
+    Restricting $\rho$ to $\text{Spin}(V, q)$ gives a double cover of $\text{SO}(V, q)$.
+\end{example}
+
+\begin{topic}{clifford-algebra}{Clifford algebra}
+    The \textbf{Clifford algebra} of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the algebra over $k$
+    \[ \text{Cl}(V, q) = T(V) / (v \otimes v - q(v)) , \]
+    where $T(V)$ denotes the \tref{CA:tensor-algebra}{tensor algebra} of $V$.
+\end{topic}
+
+\begin{topic}{quadratic-form}{quadratic form}
+    A \textbf{quadratic form} on a \tref{vector-space}{vector space} over $k$ is a function $q : V \to k$ such that
+    \begin{itemize}
+        \item $q(av) = a^2 v$ for all $a \in k$ and $v \in V$,
+        \item the \textit{polarization map} $V \times V \to k : (v, w) \mapsto q(v + w) - q(v) - q(w)$ is a bilinear form.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{quadratic-form}
+    On $V = \RR^n$, the standard quadratic form is the norm-function,
+    \[ \norm{\cdot} : \RR^n \to \RR, \quad v \mapsto \norm{v} . \]
+\end{example}

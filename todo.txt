@@ -6,7 +6,7 @@
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 CA: Hilbert polynomials (See Chapter 11 of Commutative Algebra, M. Atiyah)
 
-
+CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
 
 CA/AG/DG: Hochschild cohomology
 
@@ -70,9 +70,7 @@ DG: Stiefel--Whitney class
 
 DG: degree of vector bundle / slope
 DG: Lagrangian subspace / (co)isotropic subspace / one more?
-
-
-DG/AG: Higgs bundle
+DG: Spin manifold/spin structure
 
 DG: orbifold
 
@@ -87,6 +85,7 @@ AT: Bockstein sequence
 AT/TO: equivariant cohomology ? Homotopy quotients
 
 
+- C*-algebra
 
 # Noncmomutative deformations??
 - Quantum groups
@@ -98,4 +97,6 @@ AT/TO: equivariant cohomology ? Homotopy quotients
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category)
 
 - S-equivalence
+
+
 

@@ -404,3 +404,16 @@
 \begin{topic}{higgs-bundle}{Higgs bundle}
     Let $M$ be a complex manifold. A \textbf{Higgs bundle} on $M$ is a holomorphic vector bundle $E$ on $M$ together with a section $\phi \in \Omega^1(M; \text{End}(E))$, called the \textbf{Higgs field}, satisfying $\phi \wedge \phi = 0$.
 \end{topic}
+
+\begin{topic}{frame-bundle}{(tangent) frame bundle}
+    The \textbf{frame bundle} of a \tref{vector-bundle}{vector bundle} $E \to M$ of rank $k$ is the vector bundle $F(E) \to M$ whose fibers $F_x$ at a point $x \in M$ is the vector space of ordered bases $\{ e_1, \ldots, e_k \}$ of $E_x$.
+    
+    There is a natural fiber-wise action of $\text{GL}_k(\RR)$ on $F(E)$ given by change of basis: $\{ e_1, \ldots, e_k \} \cdot g = \{ f_1, \ldots, f_k \}$ where $f_i = \sum_j e_j g_{ji}$. This makes $F(E)$ into a \tref{TO:principal-bundle}{$\text{GL}_k(\RR)$-principal bundle}.
+    
+    When $E = TM$, the \tref{tangent-bundle}{tangent bundle}, the frame bundle $F(TM)$ is called the \textbf{tangent frame bundle}.
+\end{topic}
+
+\begin{topic}{spin-structure}{spin structure}
+    Let $(M, g)$ be an $n$-dimensional orientable \tref{riemannian-manifold}{Riemannian manifold}. A \textbf{spin structure} on $M$ is a \tref{TO:principal-bundle}{principal $\text{Spin}(n)$-bundle} $P \to M$ together with a bundle morphism $f : P \to F_{\text{SO}(n)}(M)$ to the oriented orthonormal \tref{frame-bundle}{tangent frame bundle}, equivariant with respect to the double cover $\text{Spin}(n) \to \text{SO}(n)$.
+    % Can be generalized to any vector bundle
+\end{topic}
