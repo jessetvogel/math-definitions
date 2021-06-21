@@ -673,3 +673,25 @@
 \begin{example}{central-simple-algebra}
     The quaternions $\mathbb{H}$ are a central simple algebra over the reals $\RR$.
 \end{example}
+
+\begin{topic}{involutive-ring}{involutive ring}
+    An \textbf{involutive ring} is a \tref{ring}{ring} $R$ together with a map $^* : R \to R$ satsifying
+    \begin{itemize}
+        \item (\textit{involution}) $(x^*)^* = x$ for all $x \in R$,
+        \item (\textit{antiautomorphism}) $(x + y)^* = x^* + y^*$ and $(xy)^* = y^* x^*$ for all $x, y \in R$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{involutive-ring}
+    The complex numbers $\CC$ are an involutive ring, with complex conjugation as involution.
+\end{example}
+
+\begin{topic}{involutive-algebra}{involutive algebra}
+    An \textbf{involutive algebra} is an \tref{involutive-ring}{involutive ring} $A$ with involution $^*$, which is an algebra over a \tref{ring}{commutative ring} $R$ with involution $'$, satisfying
+    \[ (ra)^* = r' a^* \]
+    for all $r \in R$ and $a \in A$.
+\end{topic}
+
+\begin{example}{involutive-algebra}
+    The ring of $n \times n$ matrices over the complex numbers $\CC$ are an involutive algebra, with the conjugate transpose as involution.
+\end{example}

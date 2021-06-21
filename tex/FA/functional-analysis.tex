@@ -1,0 +1,88 @@
+\begin{topic}{inner-product}{inner product}
+    An \textbf{inner product} on a \tref{LA:vector-space}{vector space} $V$ over $k = \RR$ or $\CC$ is a map $\langle \cdot, \cdot \rangle : V \times V \to k$ satisfying
+    \begin{itemize}
+        \item (\textit{linearity}) $\langle \alpha x + \beta y, z \rangle = \alpha \langle x, z \rangle + \beta \langle y, z \rangle$ for all scalars $\alpha$ and $x, y, z \in V$,
+        \item \textit{(conjugate symmetry)} $\langle x, y \rangle = \overline{\langle y, x \rangle}$ for all $x, y \in V$,
+        \item (\textit{positive definiteness}) $\langle x, x \rangle > 0$ for all $x \ne 0$ in $V$.
+    \end{itemize}
+    A vector space together with an inner product is called an \textbf{inner product space}.
+\end{topic}
+
+\begin{topic}{norm}{norm}
+    A \textbf{norm} on a \tref{LA:vector-space}{vector space} $V$ over $\RR$ or $\CC$ is a function $\norm{\cdot} : V \to \RR_{\ge 0}$ satisfying
+    \begin{itemize}
+        \item (\textit{positive definite}) $\norm{x} \ge 0$ for all $x \in V$ with equality if and only if $x = 0$,
+        \item (\textit{absolute homogeneity}) $\norm{\lambda x} = |\lambda| x$ for all scalars $\lambda$ and $x \in V$,
+        \item (\textit{triangle inequality}) $\norm{x + y} \le \norm{x} + \norm{y}$ for all $x, y \in V$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{norm}
+    Every \tref{inner-product}{inner product} $\langle \cdot, \cdot \rangle$ induces a norm $\norm{x} = \langle x, x \rangle$.
+\end{example}
+
+\begin{example}{norm}
+    Possible norms on $\RR^n$ or $\CC^n$ are
+    \[ \norm{x}_p = \left( \sum_{i = 1}^n |x_i|^p \right)^{1/p} \quad \text{with} \quad 1 \le p < \infty \]
+    and
+    \[ \norm{x}_\infty = \max_{i} |x_i| . \]
+    When $p = 2$, the above norm is equal to the \textit{Euclidean norm}.
+\end{example}
+
+\begin{example}{norm}
+    Let $\mathcal{C}([a, b], k)$ with $k = \RR$ or $\CC$ be the vector space of continuous functions $[a, b] \to k$. Possible norms are
+    \[ \norm{f}_p = \left(\int_a^b |f(x)|^p \dif x \right)^{1/p} \quad \text{with} \quad 1 \le p < \infty . \]
+\end{example}
+
+\begin{topic}{equivalent-norms}{equivalent norms}
+    Two \tref{norm}{norms} $\norm{\cdot}_1$ and $\norm{\cdot}_2$ on a \tref{LA:vector-space}{vector space} $V$ are \textbf{equivalent} if there exists numbers $m, M > 0$ such that
+    \[ m \norm{x}_1 \le \norm{x}_2 \le M \norm{x}_1 \]
+    for all $x \in V$.
+\end{topic}
+
+\begin{example}{equivalent-norms}
+    On a finite-dimensional vector space $V = \RR^n$ or $\CC^n$, all norms are equivalent. Namely, since the unit sphere is compact, both norms $\norm{\cdot}_1$ and $\norm{\cdot}_2$ attain minima $m_1, m_2$ and maxima $M_1, M_2$ on the sphere. Now it follows that
+    \[ \frac{m_2}{M_1} \norm{x}_1 \le \norm{x}_2 \le \frac{M_2}{m_1} \norm{x}_1 \]
+    for all $x \in V$ by linearity.
+\end{example}
+
+\begin{topic}{banach-space}{Banach space}
+    A \textbf{Banach space} is a \tref{norm}{normed} \tref{LA:vector-space}{vector space} which is \tref{TO:complete-metric-space}{complete} with respect to the metric $d(x, y) = \norm{x - y}$ induced by the norm.
+\end{topic}
+
+\begin{topic}{banach-algebra}{Banach algebra}
+    A \textbf{Banach algebra} is an \tref{CA:algebra}{algebra} $A$ over $\RR$ or $\CC$ which is also a \tref{banach-space}{Banach space}, satisfying
+    \[ \norm{xy} \le \norm{x} \norm{y} \]
+    for all $x, y \in A$.
+\end{topic}
+
+\begin{topic}{c-star-algebra}{C*-algebra}
+    A \textbf{C*-algebra} is a \tref{banach-algebra}{Banach algebra} $A$ over $\CC$ together with a map $A \to A, x \mapsto x^*$ satisfying
+    \begin{itemize}
+        \item (\textit{involution}) $(x^*)^* = x$ for all $x \in A$,
+        \item (\textit{antiautomorphism}) $(x + y)^* = x^* + y^*$ and $(xy)^* = y^* x^*$ for all $x, y \in A$,
+        \item (\textit{$\CC$-antilinear}) $(\lambda x)^* = \overline{\lambda} x^*$ for all $\lambda \in \CC$ and $x \in A$,
+        \item (\textit{C*-identity}) $\norm{x^* x} = \norm{x} \norm{x^*}$ for all $x \in A$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{c-star-algebra}
+    The algebra $\text{Mat}_n(\CC)$ of $n \times n$ matrices over $\CC$ becomes a C*-algebra if we use \textit{operator norm}
+    \[ \norm{A} = \inf \{ c \ge 0 : \norm{A v} \le c \norm{v} \text{ for all } v \in \CC^n \} . \]
+\end{example}
+
+\begin{topic}{hilbert-space}{Hilbert space}
+    A \textbf{Hilbert space} is an \tref{inner-product}{inner product space} which is \tref{TO:complete-metric-space}{complete} with respect to the metric $d(x, y) = \langle x - y, x - y \rangle$ induced by the inner product.
+\end{topic}
+
+\begin{topic}{bounded-operator}{bounded operator}
+    An operator $T : X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{bounded} if there exists a number $K > 0$ such that $\norm{Tx} \le K \norm{x}$ for all $x \in X$.
+\end{topic}
+
+\begin{topic}{invertible-operator}{invertible operator}
+    A \tref{bounded-operator}{bounded operator} $T : X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{invertible} if there exists a bounded operator $S : Y \to X$ such that $ST = \id_X$ and $TS = \id_Y$.
+\end{topic}
+
+\begin{topic}{compact-operator}{compact operator}
+    An operator $T : X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{compact} if for every bounded subset $V \subset X$, the image $T(V)$ is relatively compact, i.e. the closure $\overline{T(V)} \subset Y$ is compact.
+\end{topic}
