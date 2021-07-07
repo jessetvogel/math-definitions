@@ -16,7 +16,7 @@
 \end{topic}
 
 \begin{topic}{order}{order}
-    The \textbf{order} of a \tref{group}{group} $G$ is the number its elements.
+    The \textbf{order} of a \tref{group}{group} $G$ is its number of elements.
     
     The \textbf{order} of an element $x \in G$, denoted $\text{ord}(x)$, is the least positive integer $n$ such that $x^n = 1$. If no such $n$ exists, then $\text{ord}(x) = \infty$.
 \end{topic}
@@ -243,4 +243,14 @@
 \begin{example}{wreath-product}
     Let $G$ be any group $H = S_n$ the \tref{symmetric-group}{symmetric group} and $S = \{ 1, 2, \ldots, n \}$, where $S^n$ acts naturally on $S$. Then the wreath product is
     \[ G_n = \left( \prod_{i = 1}^{n} G \right) \rtimes S_n . \]
+\end{example}
+
+\begin{topic}{torsion-group}{torsion group}
+    A \textbf{torsion group} is a \tref{group}{group} in which each element has finite \tref{order}{order}.
+\end{topic}
+
+\begin{example}{torsion-group}
+    Every finite group is a torsion group.
+    
+    Every abelian group $A$ has a torsion subgroup $T = \{ a \in A : a^n = 1 \text{ for some } n \ge 1 \}$.
 \end{example}

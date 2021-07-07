@@ -4,12 +4,13 @@
 
 # Commutative algebra
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
-CA: Hilbert polynomials (See Chapter 11 of Commutative Algebra, M. Atiyah)
+-- CA: Hilbert polynomials! (See Chapter 11 of Commutative Algebra, M. Atiyah)
+
 
 CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
 
-CA/AG/DG: Hochschild cohomology
-
+CA/AG/DG: Hochschild cohomology!
+CA: bimodules
 
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
@@ -19,8 +20,8 @@ AG: affine GIT quotient
 AG: Riemann--Roch Theorem
 AG: étale fundamental group(oid)
 AG: Zariski's main theorem
-AG: regular morphism ?
 AG: normal crossings divisor
+AG: hyperelliptic curve
 
 # Number theory
 NT: ring of integers
@@ -41,6 +42,8 @@ Dynkin diagrams / Quivers
 UN: classifying space
 
 DG?: Weyl group / maximal torus
+
+HA: Yoneda's Ext
 
 # Homotopy theory
 HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]
@@ -77,6 +80,7 @@ DG: orbifold
 TO: locally compact (quasi-compact?)
 
 // GT: central series
+GT: braid group
 
 AT: Euler characteristic
 AT: Gysin sequence

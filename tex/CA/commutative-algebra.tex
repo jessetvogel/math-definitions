@@ -410,14 +410,32 @@
 
 \begin{topic}{hilbert-series}{Hilbert series}
     Let $S = \bigoplus_{i \ge 0} S_i$ be a finitely generated graded commutative algebra over a field $k$, with $S_0 = k$. The \textbf{Hilbert series} of $S$ is defined as
-    \[ \text{H}_S(t) = \sum_{i = 0}^{\infty} \dim_k S_i \cdot t^i . \]
+    \[ \text{HS}_S(t) = \sum_{i = 0}^{\infty} \dim_k S_i \cdot t^i . \]
 \end{topic}
 
 \begin{example}{hilbert-series}
     Let $R = k[x_1, \ldots, x_n]$ and $I = (f)$ for some homogenous polynomial of degree $d$. Then we have an exact sequence (a free resolution)
     \[ 0 \to R(-d) \xrightarrow{\cdot f} R \to R / I \to 0 , \]
     which implies that
-    \[ \text{H}_{R/I}(t) = \text{H}_R(t) - \text{H}_{R(-d)}(t) = \text{H}_R(t) (1 - t^d) = \frac{1 - t^d}{(1 - t)^n}. \]
+    \[ \text{HS}_{R/I}(t) = \text{H}_R(t) - \text{HS}_{R(-d)}(t) = \text{HS}_R(t) (1 - t^d) = \frac{1 - t^d}{(1 - t)^n}. \]
+\end{example}
+
+\begin{topic}{hilbert-polynomial}{Hilbert polynomial}
+    Let $S = \bigoplus_{i \ge 0} S_i$ be a finitely generated graded commutative algebra over a field $k$, with $S_0 = k$. The Hilbert function
+    \[ i \mapsto \dim_k S_i \]
+    becomes polynomial for large enough values of $i$, and the resulting polynomial is called the \textbf{Hilbert polynomial} $\text{HP}_S(i)$ of $S$.
+\end{topic}
+
+\begin{example}{hilbert-polynomial}
+    Let $R = k[x_1, \ldots, x_n]$, then
+    \[ \dim R_i = \binom{n - 1 + i}{i} = \frac{(n - 1 + i) \cdots (i + 1)}{(n - 1)!} , \]
+    which is a polynomial in $i$ for every value of $n$. In particular,
+    \[ \begin{aligned}
+        \text{HP}_{k[x]}(i) &= 1, \\
+        \text{HP}_{k[x, y]}(i) &= i + 1, \\
+        \text{HP}_{k[x, y, z]}(i) &= \tfrac{1}{2} (i + 1)(i + 2), \\
+        \text{HP}_{k[x, y, z, w]}(i) &= \tfrac{1}{6} (i + 1)(i + 2)(i + 3) .
+    \end{aligned} \]
 \end{example}
 
 \begin{topic}{absolutely-flat-ring}{absolutely flat ring}
@@ -695,3 +713,61 @@
 \begin{example}{involutive-algebra}
     The ring of $n \times n$ matrices over the complex numbers $\CC$ are an involutive algebra, with the conjugate transpose as involution.
 \end{example}
+
+\begin{topic}{hochschild-cohomology}{Hochschild (co)homology}
+    Let $k$ be a field, $R$ an $k$-algebra, and $M$ a bimodule over $R$. Let $C_n(R, M) := M \otimes R^{\otimes n}$, and define boundary maps $d_{n, i} : C_n(R, M) \to C_{n - 1}(R, M)$ for $0 \le i \le n$ by
+    \[ \begin{aligned}
+        d_{n, 0}(r \otimes m_1 \otimes \cdots \otimes m_n) &= mr_1 \otimes r_2 \otimes \cdots \otimes r_n , \\
+        d_{n, i}(r \otimes m_1 \otimes \cdots \otimes m_n) &= m \otimes r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n , \\
+        d_{n, n}(r \otimes m_1 \otimes \cdots \otimes m_n) &= r_n m \otimes r_2 \otimes \cdots \otimes r_{n - 1} .
+    \end{aligned} \]
+    Then $C_n(R, M)$ with differential $d_n = \sum_{i = 0}^{n} = (-i)^i d_{n, i}$ is a \tref{HA:chain-complex}{chain complex} called the \textbf{Hochschild complex}.
+    \[ \cdots \xrightarrow{d} M \otimes R^{\otimes n} \xrightarrow{d} M \otimes R^{\otimes n - 1} \xrightarrow{d} \cdots \xrightarrow{d} M \otimes R \xrightarrow{d} M \to 0 \]
+    The corresponding \tref{HA:homology-object}{homology} $HH_i(R, M)$ is called the \textbf{Hochschild homology} of $R$ with coefficients in $M$.
+    
+    Similarly, \textbf{Hochschild cohomology} is defined by from the cocomplex
+    \[ 0 \to M \xrightarrow{\partial} \Hom_k(R, M) \xrightarrow{\partial} \cdots \xrightarrow{\partial} \Hom_k(R^{\otimes n}, M) \xrightarrow{\partial} \Hom_k(R^{\otimes n + 1}, M) \xrightarrow{\partial} \cdots \]
+    where $\partial^n = \sum_{i = 0}^n (-1)^i \partial^{n, i}$ is given by
+    \[ \begin{aligned}
+        (\partial^{n, 0} f)(r_1 \otimes \cdots \otimes r_n) &= r_1 f(r_2 \otimes \cdots \otimes r_n) , \\
+        (\partial^{n, 1} f)(r_1 \otimes \cdots \otimes r_n) &= f(r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n) , \\
+        (\partial^{n, n} f)(r_1 \otimes \cdots \otimes r_n) &= f(r_1 \otimes \cdots \otimes r_{n - 1}) r_n .
+    \end{aligned} \]
+    The corresponding cohomology $HH^n(R, M)$ is the \textbf{Hochschild cohomology} of $R$ with coefficients in $M$.
+\end{topic}
+
+\begin{example}{hochschild-cohomology}
+    Note that $\ker \partial^1$ consists of all $f : R \to M$ for which $\partial f$, given by $(r \otimes s) \mapsto r f(s) - f(rs) + f(r) s$, is zero, that is, $f$ is a \tref{derivation}{$k$-derivation}. Furthermore, $\im \partial^0$ consists of all $f$ such that $f(r) = mr - rm$, which are known as \textit{inner derivations}. Therefore, $HH^1(R, M) = \{ \text{derivations} \} / \{ \text{inner derivations} \}$.
+\end{example}
+
+\begin{example}{hochschild-cohomology}
+    The Hochschild (co)homology can be expressed in terms of \tref{HA:tor-functors}{Tor} (\tref{HA:ext-functors}{Ext}) as
+    \[ HH_i(R, M) \simeq \text{Tor}_i^{R^\text{e}}(R, M) \quad \text{and} \quad HH^i(R, M) \simeq \text{Ext}^i_{R^\text{e}}(R, M) , \]
+    where $R^\text{e}$ denotes the \tref{enveloping-algebra}{enveloping algebra} of $R$. This can be shown by resolving $R$ as a (left) $R^\text{e}$-module using the \tref{standard-complex}{bar resolution}.
+\end{example}
+
+% \begin{example}{hochschild-cohomology}
+%     Using the \tref{UN:koszul-complex}{Koszul complex}, one can compute the Hochschild homology for the polynomial ring $R = k[x_1, \ldots, x_n]$:
+%     \[ HH_i(R) \simeq HH^i(R) \simeq \left\{ \begin{array}{cl} \bigwedge^i R^n & \text{for } 0 \le i \le n \\ 0 & \text{for } i > n . \end{array} \right. \]
+% \end{example}
+
+\begin{example}{hochschild-cohomology}
+    The (first order) deformations of a ring $R$ up to trivial deformations are parametrized by $HH^2(R)$. Namely, any deformed multiplication $r \star s := rs + \varepsilon f(r, s)$ with $f : R \otimes R \to R$ and $\varepsilon^2 = 0$ is associative if and only if $(r \star s) \star t = r \star (s \star t)$ for all $r, s, t \in R$. This translates to
+    \[ r f(s, t) - f(rs, t) + f(r, st) - f(r, s) t = 0 , \]
+    that is, $\partial f = 0$. If $f$ is a trivial deformation, then there exists some $k[\varepsilon]$-linear automorphism $\phi$ of $R[\varepsilon]$ such that $\phi(r_1 + \varepsilon r_2) \phi(s_1 + \varepsilon s_2) = \phi((r_1 + \varepsilon r_2) \star (s_1 + \varepsilon s_2))$. Expanding gives $f(r, s) = r \phi_1(s) - \phi(rs) + \phi(r) s = (\partial^1 \phi)(r, s)$ for all $r, s \in R$, that is, $f \in \im \partial$.
+\end{example}
+
+\begin{topic}{opposite-ring}{opposite ring}
+    The \textbf{opposite ring} of a \tref{ring}{ring} $R$ is the ring $R^\text{o}$ whose underlying additive group is the same as $R$, but with multiplication given by $r \cdot s = sr$.
+\end{topic}
+
+\begin{topic}{enveloping-algebra}{enveloping algebra}
+    Let $R$ be a \tref{ring}{commutative ring}. The \textbf{enveloping algebra} of an \tref{algebra}{$R$-algebra} $A$ is the algebra $A \otimes_R A^\text{o}$, where $A^\text{o}$ denotes the \tref{opposite-ring}{opposite} algebra.
+\end{topic}
+
+\begin{topic}{standard-complex}{standard complex (bar resolution)}
+    Let $k$ be a field and $A$ an $k$-algebra. The \textbf{standard complex} is the \tref{HA:chain-complex}{chain complex} with $A^{\otimes n + 2}$ at degree $n$,
+    \[ \cdots \xrightarrow{d_{n + 1}} A^{\otimes n + 2} \xrightarrow{d_n} \cdots \xrightarrow{d_1} A^{\otimes 2} \xrightarrow{d_0} A \to 0 \]
+    with differential given by
+    \[ d_n(a_0 \otimes \cdots \otimes a_{n + 1}) = \sum_{i = 0}^{n} (-1)^i a_0 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n . \]
+\end{topic}

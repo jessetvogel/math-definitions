@@ -715,3 +715,27 @@
     Let $X$ be a connected \tref{complete-variety}{complete} \tref{variety}{variety} over an algebraically closed field $k$, with a basepoint. Then there exists an \tref{abelian-variety}{abelian variety} $\text{Alb}(X)$, the \textbf{Albanese variety} of $X$, and a morphism of pointed varieties $i : X \to \text{Alb}(X)$, the \textbf{Albanese map}, with the universal property that for any other abelian variety $A$ and morphism of pointed varieties $f : X \to A$, there exists a unique morphism of abelian varieties $f' : \text{Alb}(X) \to A$ such that $f = f' \circ i$.
     \[ \begin{tikzcd} X \arrow{r}{i} \arrow[swap]{dr}{f} &  \text{Alb}(X) \arrow[dashed]{d}{f'} \\ &  A \end{tikzcd} \]
 \end{topic}
+
+\begin{topic}{torsion-sheaf}{torsion sheaf}
+    A \textbf{torsion sheaf} is a \tref{sheaf}{sheaf} $\mathcal{F}$ such that $\mathcal{F}(U)$ is a \tref{GT:torsion-group}{torsion} \tref{GT:abelian-group}{abelian group} for every $U$.
+\end{topic}
+
+\begin{topic}{flag-variety}{flag variety}
+    A \textbf{flag} in a finite-dimensional \tref{LA:vector-space}{vector space} $V$ over a field $k$ is a strictly increasing sequence of subspaces
+    \[ 0 = V_0 \subsetneq V_1 \subsetneq \cdots \subsetneq V_m = V . \]
+    A flag is \textbf{complete} if $m = \dim V$ and $\dim_k V_i = i$ for all $i$, otherwise it is \textbf{partial}. The \textit{signature} of the flag is the sequence $(d_1, \ldots, d_m)$.
+    
+    Given a signature, the set of all flags with such signature is called the \textbf{flag variety} of that signature. It naturally has the structure of a \tref{projective-morphism}{projective} \tref{variety}{variety}.
+\end{topic}
+
+\begin{example}{flag-variety}
+    The \textit{complete flag variety} (corresponding to signature $(1, \ldots, n)$) is $\text{GL}_n(k) / B_n(k)$. Namely, all flags are conjugate via base change, and the stabilizer of any given flag is isomorphic to $B_n(k)$, the group of invertible upper triangular matrices.
+\end{example}
+
+\begin{example}{flag-variety}
+    When $m = 2$, the flag variety parametrizes linear subspaces of $V$. That is, the flag variety is isomorphic to the \tref{LA:grassmannian}{Grassmannian} $\text{Gr}(d_1, V)$.
+\end{example}
+
+\begin{topic}{regular-morphism}{regular morphism}
+    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}, and assume that all fibers $X_y$ are \tref{noetherian-scheme}{locally noetherian}. Then $f$ \textbf{regular} at $x \in X$ if $f$ is \tref{flat-morphism}{flat} at $x$ and the fiber $X_{f(x)}$ is \tref{geometrically-regular}{geometrically regular} at $x$ over $k(y)$. The morphism $f$ is \textbf{regular} if it is regular at all points $x \in X$.
+\end{topic}
