@@ -221,6 +221,17 @@
     \[ \text{Ext}^i_\mathcal{A}(A, B) = \text{R}^i \Hom_\mathcal{A}(A, B) . \]
 \end{topic}
 
+\begin{example}{ext-functors}
+    For $n > 0$, elements of the Ext group $\text{Ext}^n(A, B)$ correspond to extensions
+    \[ 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 . \]
+    Consider the case $n = 1$. Let $P^\bdot \to A$ (call the differential maps $\pi_i$) be a projective resolution of $A$, so that $\text{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))$. This is the group of maps $g : P^1 \to B$ such that $g \circ \pi_2 = 0$, modulo all maps of the form $f \circ \pi_0$ for $f : A \to B$. Now we can construct the pushout
+    \[ E_0 = P^0 \oplus B / \{ \pi_1(q) = g(q) \text{ for } q \in P^1 \} . \]
+    Note that $g$ descends to $\overline{g} : P^0 \to B$, and that the maps $B \to E_0$, $b \mapsto (b, 0)$ and $E_0 \to A, (b, p) \mapsto \pi_0(p)$ are well-defined (the latter as $\pi_0 \pi_1 = 0$), and respectively injective and surjective. It is not hard to prove exactness in the middle, so we get an extension
+    \[ 0 \to B \to E_0 \to A \to 0 . \]
+    In particular, the trivial element in $\text{Ext}^1(A, B)$ yields the trivial extension
+    \[ 0 \to A \to A \oplus B \to B \to 0 . \]
+\end{example}
+
 \begin{topic}{tor-functors}{Tor functors}
     For a commutative \tref{CA:ring}{ring} $R$ and an $R$-module $B$, the \tref{CA:tensor-product}{tensor product} gives a functor
     \[ (-) \otimes_R B : R\textbf{-Mod} \to R\textbf{-Mod} \]
@@ -251,4 +262,23 @@
     and
     \[ 0 \subsetneq (B_1 + A_1)/A_1 \subsetneq \cdots \subsetneq (B_{j - 1} + A_1)/A_1 = B_j/A_1 \subsetneq B_{j + 1}/A_1 \subsetneq \cdots \subsetneq B_m/A_1 \]
     and the result follows from induction.
+\end{example}
+
+\begin{topic}{yoneda-product}{Yoneda product}
+    The \textbf{Yoneda product} is the pairing between \tref{ext-functors}{Ext groups}
+    \[ \text{Ext}^n(A, B) \otimes \text{Ext}^m(B, C) \to \text{Ext}^{m + n}(A, C) \]
+    induced by $\Hom(A, B) \otimes \Hom(B, C) \to \Hom(A, C)$, $f \otimes g \mapsto g \circ f$.
+    
+    Explicitly, given two extensions
+    \[ \xi : 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
+    \[ \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to B \to 0 \]
+    the Yoneda cup product is given by
+    \[ \xi \smile \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to E_0 \to \cdots \to A \to 0 \]
+    in $\text{Ext}^{m + n}(A, C)$.
+\end{topic}
+
+\begin{example}{yoneda-product}
+    For $n = 0$ and $m = 1$ we have that the product of $f : A \to B$ (in $\text{Ext}^0(A, B) = \Hom(A, B)$) and $\eta : 0 \to C \to F_0 \to B \to 0$ (in $\text{Ext}^1(A, B)$) is
+    \[ 0 \to C \to F_0 \oplus_B A \to A \to 0 . \]
+    It is not hard to verify this sequence is indeed exact.
 \end{example}

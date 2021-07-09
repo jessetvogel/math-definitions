@@ -1,6 +1,7 @@
 function init() {
     initAutoComplete();
     checkUrlFragment();
+    initTheme();
 }
 
 function loadTopic(id) {
@@ -217,4 +218,34 @@ function capitalize(str) {
         return str;
 
     return str.substr(0, i) + str[i].toUpperCase() + str.substr(i + 1);
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+function initTheme() {
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const cookieTheme = getCookie('theme');
+    if(cookieTheme !== undefined)
+        setTheme(cookieTheme === 'dark')
+    else
+        setTheme(prefersDark);        
+    document.getElementById('button-theme').addEventListener('click', function () {
+        document.cookie = `theme=${setTheme() ? 'dark' : 'light'}`;
+    });
+}
+
+function setTheme(dark) {
+    if(dark === true) {
+        document.body.classList.add('dark');
+        return true;
+    }
+    if(dark === false) {
+        document.body.classList.remove('dark');
+        return false;
+    }
+    return setTheme(!document.body.classList.contains('dark'));
 }

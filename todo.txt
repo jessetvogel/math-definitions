@@ -1,16 +1,15 @@
 -- Clever search function: take care of switching words, () and dashes
 -- Homepage
 -- PDF front cover
+-- Dark mode
 
 # Commutative algebra
 CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 -- CA: Hilbert polynomials! (See Chapter 11 of Commutative Algebra, M. Atiyah)
 
-
 CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
 
-CA/AG/DG: Hochschild cohomology!
-CA: bimodules
+-- CA/AG/DG: Hochschild cohomology!
 
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
@@ -37,13 +36,11 @@ NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 
-Dynkin diagrams / Quivers
+Dynkin diagrams
 
 UN: classifying space
 
 DG?: Weyl group / maximal torus
-
-HA: Yoneda's Ext
 
 # Homotopy theory
 HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]
@@ -71,23 +68,17 @@ DG: Smooth structure: example of a topological manifold having multiple smooth s
 
 DG: Stiefel--Whitney class
 
-DG: degree of vector bundle / slope
-DG: Lagrangian subspace / (co)isotropic subspace / one more?
-DG: Spin manifold/spin structure
+**DG: degree of vector bundle / slope**
 
 DG: orbifold
 
 TO: locally compact (quasi-compact?)
-
-// GT: central series
-GT: braid group
 
 AT: Euler characteristic
 AT: Gysin sequence
 AT: Bockstein sequence
 
 AT/TO: equivariant cohomology ? Homotopy quotients
-
 
 - C*-algebra
 

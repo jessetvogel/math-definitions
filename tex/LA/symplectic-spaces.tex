@@ -1,6 +1,24 @@
-\begin{topic}{symplectic-form}{symplectic form}
-    Let $V$ be a finite-dimensional, real \tref{vector-space}{vector space}. A \textbf{symplectic form} is a skew-symmetric non-degenerate bilinear map $\omega : V \times V \to \RR$.
-    
-    Such a vector space $V$ with a symplectic form $\omega$ is called a \textbf{symplectic vector space}.
+\begin{topic}{symplectic-vector-space}{symplectic vector space}
+    A \textbf{symplectic vector space} is a real \tref{vector-space}{vector space} together with a skew-symmetric non-degenerate bilinear map $\omega : V \times V \to \RR$, called the \textbf{symplectic form}.
 \end{topic}
 
+\begin{topic}{symplectic-complement}{symplectic complement}
+    Let $(V, \omega)$ be a \tref{symplectic-vector-space}{symplectic vector space}, and $W \subset V$ a linear subspace. The \textbf{symplectic complement} of $W$ is the subspace
+    \[ W^\perp = \{ v \in V : \omega(v, w) = 0 \text{ for all } w \in W \} . \]
+\end{topic}
+
+\begin{topic}{symplectic-subspace}{symplectic subspace}
+    A \textbf{symplectic subspace} of a \tref{symplectic-vector-space}{symplectic vector space} $(V, \omega)$ is a linear subspace $W \subset V$ satisfying $W \cap W^\perp = \{ 0 \}$.
+    
+    This is the case if and only if $\omega$ restricts to a symplectic form on $W$.
+\end{topic}
+
+\begin{topic}{isotropic-subspace}{(co)isotropic subspace}
+    Let $(V, \omega)$ be a \tref{symplectic-vector-space}{symplectic vector space}. A linear subspace $W \subset V$ is \textbf{isotropic} if $W \subset W^\perp$, and \textbf{coisotropic} if $W^\perp \subset W$.
+    
+    Equivalently, $W$ is \textbf{isotropic} if and only if $\omega|_W = 0$. And $W$ is \textbf{coisotropic} if and only if $\omega$ restricts to a symplectic form on $W/W^\perp$.
+\end{topic}
+
+\begin{topic}{lagrangian-subspace}{Lagrangian subspace}
+    Let $(V, \omega)$ be a \tref{symplectic-vector-space}{symplectic vector space}. A linear subspace $W \subset V$ is \textbf{Lagrangian} if $W = W^\perp$.
+\end{topic}
