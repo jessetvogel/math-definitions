@@ -122,6 +122,7 @@ const examples = [
   "LA:hermitian-matrix",
   "LA:spin-group",
   "LA:quadratic-form",
+  "LA:matrix-exponential",
   "NT:valuation",
   "NT:archimedean-valuation",
   "NT:hensel-lifting-lemma",
@@ -132,5 +133,6 @@ const examples = [
   "TO:galois-cover",
   "TO:universal-covering-space",
   "TO:metric-space",
+  "TO:cauchy-sequence",
   "UN:pure-hodge-structure",
 ];

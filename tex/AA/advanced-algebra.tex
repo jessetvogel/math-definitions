@@ -31,6 +31,10 @@
     For any \tref{DG:lie-group}{Lie group} $G$, the tangent space at the identity $\mathfrak{g} = T_e G$ has a Lie algebra structure, called the \textit{Lie algebra} of $G$. Tangent vectors $v \in T_e G$ correspond one-to-one to \textit{left invariant vector fields} on $G$, i.e. vector fields $X$ satisfying $X_g = ((L_g)_* X)_e$ for all $g \in G$, where $L_g : G \to G$ denotes left multiplication by $g$. The Lie bracket on $\mathfrak{g}$ is then given by the \tref{DG:lie-bracket-vector-fields}{Lie bracket of vector fields}. Note that the Lie bracket of left-invariant vector fields is indeed also left-invariant.
 \end{example}
 
+\begin{example}{lie-algebra}
+    For any \tref{CA:ring}{ring} $R$ over a field $k$ (in particular matrix rings), the commutator bracket $[x, y] = xy - yx$ makes $R$ into a Lie algebra.
+\end{example}
+
 \begin{topic}{poisson-algebra}{Poisson algebra}
     A \textbf{Poisson algebra} is a commutative \tref{CA:algebra}{algebra} $A$ over a \tref{CA:field}{field} $k$, together with an operation $\{ \cdot, \cdot \} : A \otimes_k A \to A$, called the \textbf{Poisson bracket}, making $A$ into a \tref{lie-algebra}{Lie bracket} and such that $\{ a, - \} : A \to A$ is a \tref{CA:derivation}{$k$-derivation} for every $a \in A$.
 \end{topic}

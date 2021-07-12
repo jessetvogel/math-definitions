@@ -299,3 +299,12 @@
     
     A sequence $x_1, x_2, \ldots$ is \textit{Cauchy} if for all $\varepsilon > 0$ there exists some $N > 0$ such that $m, n \ge N$ implies $d(x_m, x_n) < \varepsilon$.
 \end{topic}
+
+\begin{topic}{cauchy-sequence}{Cauchy sequence}
+    A sequence of points $x_1, x_2, \ldots$ in a \tref{metric-space}{metric space} $(X, d)$ is \textbf{Cauchy} if for every $\varepsilon > 0$ there exists an integer $N \ge 0$ such that $d(x_m, x_n) < \varepsilon$ for every $m, n \ge N$.
+\end{topic}
+
+\begin{example}{cauchy-sequence}
+    Every convergent sequence is Cauchy. Namely, if $x = \lim_{n \to \infty} x_n$, then given an $\varepsilon > 0$, there exists an $N \ge 0$ such that $d(x, x_n) < \varepsilon / 2$ for all $n \ge N$. In particular for $m, n \ge N$ we have
+    \[ d(x_m, x_n) \le d(x_m, x) + d(x, x_n) < \varepsilon/2 + \varepsilon/2 = \varepsilon . \]
+\end{example}

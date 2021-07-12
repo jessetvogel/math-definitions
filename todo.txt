@@ -9,7 +9,7 @@ CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
 
 CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
 
--- CA/AG/DG: Hochschild cohomology!
+-- AG/DG: Hochschild cohomology?
 
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
@@ -51,10 +51,6 @@ HT: stable infinity category [Definition 1.1.1.9]
 # Abstract algebra
 AA: move some commutative algebra which isn't commutative to AA ??
 
-# Analysis
-AN: Cauchy sequence, Cauchy-Schwarz inequality, Banach spaces, ... ???
-
-
 # Differential Geometry
 DG: complex manifold
 DG: hyperkahler manifold
@@ -64,7 +60,7 @@ DG: hyperkahler manifold
 DG: Chern classes
 DG: Poisson bracket (poisson bracket from symplectic form)
 DG: implicit function theorem
-DG: Smooth structure: example of a topological manifold having multiple smooth structures
+DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 
 DG: Stiefel--Whitney class
 
@@ -79,6 +75,14 @@ AT: Gysin sequence
 AT: Bockstein sequence
 
 AT/TO: equivariant cohomology ? Homotopy quotients
+
+
+RT: weights, dominant, integral elements
+
+??: Lie product formula
+
+AA: quaternion algebra
+
 
 - C*-algebra
 

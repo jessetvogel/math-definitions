@@ -249,3 +249,28 @@
 \begin{topic}{generalized-eigenvalue}{generalized eigenvalue/eigenvector}
     Let $A$ be an $n \times n$ matrix. A scalar $\lambda$ is a \textbf{generalized eigenvalue} if there exists a vector $v$ and integer $N \ge 1$ such that $(A - \lambda I)^N v = 0$. The vector $v$ is called the \textbf{generalized eigenvector} corresponding to $\lambda$.
 \end{topic}
+
+\begin{topic}{matrix-exponential}{matrix exponential}
+    The \textbf{exponential} of an $n \times n$ matrix $A$ is defined as
+    \[ \exp(A) = \sum_{k = 0}^{\infty} \frac{A^k}{k!} . \]
+\end{topic}
+
+\begin{example}{matrix-exponential}
+    For a diagonal matrix $D = \begin{pmatrix} d_1 & & \\ & d_2 & \\ & & d_3 \end{pmatrix}$ we have $\exp(D t) = \begin{pmatrix} e^{d_1 t} & & \\ & e^{d_2 t} & \\ & & e^{d_3 t} \end{pmatrix}$.
+    
+    For a Jordan block $J = \begin{pmatrix} \lambda & 1 & \\ & \lambda & 1 \\ & & & \lambda \end{pmatrix}$ we have $\exp(J t) = \begin{pmatrix} e^{\lambda t} & t e^{\lambda t} & \tfrac{1}{2} t^2 e^{\lambda t} \\ & e^{\lambda t} & t e^{\lambda t} \\ & & e^{\lambda t} \end{pmatrix}$.
+\end{example}
+
+\begin{topic}{lorentz-group}{Lorentz group}
+    The \textbf{Lorentz group} $O(3, 1)$ is the \tref{GT:group}{group} of orthogonal $4 \times 4$ matrices with respect to the bilinear form
+    \[ \langle (t, x, y, z), (t', x', y', z') \rangle = - tt' + xx' + yy' + zz' . \]
+\end{topic}
+
+\begin{topic}{poincare-group}{Poincaré group}
+    The \textbf{Poincaré group} is the full symmetry group (including translations) of $\RR^4$ with respect to the bilinear form
+    \[ \langle (t, x, y, z), (t', x', y', z') \rangle = - tt' + xx' + yy' + zz' . \]
+\end{topic}
+
+\begin{topic}{heisenberg-group}{Heisenberg group}
+    The \textbf{Heisenberg group} is the \tref{GT:group}{group} of $3 \times 3$ upper triangular matrices of the form $\begin{pmatrix} 1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 \end{pmatrix}$.
+\end{topic}
