@@ -35,10 +35,22 @@
     For any \tref{CA:ring}{ring} $R$ over a field $k$ (in particular matrix rings), the commutator bracket $[x, y] = xy - yx$ makes $R$ into a Lie algebra.
 \end{example}
 
+\begin{topic}{nilpotent-lie-algebra}{nilpotent Lie algebra}
+    A \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is called \textbf{nilpotent} if its lower central series
+    \[ \mathfrak{g} \supset [\mathfrak{g}, \mathfrak{g}] \supset [\mathfrak{g}, [\mathfrak{g}, \mathfrak{g}]] \supset [\mathfrak{g}, [\mathfrak{g}, [\mathfrak{g}, \mathfrak{g}]]] \supset \cdots \]
+    terminates in the zero algebra.
+\end{topic}
+
+\begin{topic}{cartan-subalgebra}{Cartan subalgebra}
+    A \textbf{Cartan subalgebra} of a \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is a \tref{nilpotent-lie-algebra}{nilpotent} subalgebra $\mathfrak{h}$ whose \textit{normalizer} $N_\mathfrak{g}(\mathfrak{h}) := \{ X \in \mathfrak{g} : [X, \mathfrak{h}] \subset \mathfrak{h} \}$ equals $\mathfrak{h}$.
+\end{topic}
+
+\begin{example}{cartan-subalgebra}
+    The Cartan subalgebra of $\mathfrak{gl}_n$ is the subalgebra of diagonal matrices.
+    
+    The Cartan subalgebra of $\mathfrak{sl}_n$ is the subalgebra of diagonal matrices with trace zero.
+\end{example}
+
 \begin{topic}{poisson-algebra}{Poisson algebra}
     A \textbf{Poisson algebra} is a commutative \tref{CA:algebra}{algebra} $A$ over a \tref{CA:field}{field} $k$, together with an operation $\{ \cdot, \cdot \} : A \otimes_k A \to A$, called the \textbf{Poisson bracket}, making $A$ into a \tref{lie-algebra}{Lie bracket} and such that $\{ a, - \} : A \to A$ is a \tref{CA:derivation}{$k$-derivation} for every $a \in A$.
 \end{topic}
-
-% \begin{topic}{cartan-subalgebra}{Cartan subalgebra}
-%     The \textbf{Cartan subalgebra} of a \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is the largest subset $\mathfrak{h}$ of $\mathfrak{g}$ such that 
-% \end{topic}

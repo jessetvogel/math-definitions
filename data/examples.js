@@ -1,6 +1,7 @@
 const examples = [
   "AA:semiring",
   "AA:lie-algebra",
+  "AA:cartan-subalgebra",
   "AG:separated",
   "AG:proper-morphism",
   "AG:smooth-morphism",
@@ -22,6 +23,7 @@ const examples = [
   "AG:ample-invertible-sheaf",
   "AG:cech-cohomology",
   "AG:flag-variety",
+  "AG:slope-vector-bundle",
   "AG:log-scheme",
   "AG:log-differentials",
   "AT:deformation-retract",
@@ -112,6 +114,7 @@ const examples = [
   "HA:ext-functors",
   "HA:composition-series",
   "HA:yoneda-product",
+  "HA:homological-dimension",
   "HT:kan-complex",
   "HT:model-category",
   "LA:invertible-matrix",
@@ -134,5 +137,6 @@ const examples = [
   "TO:universal-covering-space",
   "TO:metric-space",
   "TO:cauchy-sequence",
+  "UN:koszul-complex",
   "UN:pure-hodge-structure",
 ];

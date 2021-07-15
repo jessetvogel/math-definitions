@@ -118,3 +118,13 @@
 \begin{example}{bimodule}
     Given any field $k$, the ring of $m \times n$ matrices $\text{Mat}_{m \times n}(k)$ is an $R$-$S$-bimodule where $R = \text{Mat}_{m \times m}(k)$ and $S = \text{Mat}_{n \times n}(k)$.
 \end{example}
+
+\begin{topic}{torsionless-module}{torsionless module}
+    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{torsionless} if for every $m \in M$ there exists some $R$-module morphism $f : M \to R$ with $f(m) \ne 0$.
+\end{topic}
+
+\begin{topic}{reflexive-module}{reflexive module}
+    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{reflexive} if the map
+    \[ M \to \Hom_R(\Hom_R(M, R), R), \quad m \mapsto (f \mapsto f(m)) \]
+    is a bijection.
+\end{topic}

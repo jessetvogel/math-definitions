@@ -126,7 +126,7 @@
 \end{topic}
 
 \begin{topic}{finite-type}{finite type}
-    A ring morphism $R \to S$ is said to be of \textbf{finite type} if $S$ is isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some integer $n$.
+    A \tref{ring-morphism}{ring morphism} $R \to S$ is said to be of \textbf{finite type} if $S$ is isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some integer $n$.
     
     In this case, $S$ is also said to be a \textbf{finitely generated $R$-algebra}.
 \end{topic}
@@ -150,6 +150,11 @@
     \[ (a \cdot g) \cdot (b \cdot h) = (ab) \cdot gh . \]
     % where multiplication is given by
     % \[ (a_g)_{g \in G} \cdot (b_g)_{g \in G} = \left(\sum_{h \in G} a_h b_{h^{-1}g}\right)_{g \in G} \]
+\end{topic}
+
+\begin{topic}{augmentation-ideal}{augmentation ideal}
+    The \textbf{augmentation ideal} of a \tref{group-ring}{group ring} $R[G]$ is the \tref{ideal}{(two-sided) ideal}
+    \[ A = \ker\left( \varepsilon : R[G] \to G, \quad \sum_i r_i g_i \mapsto \sum_i r_i  \right) = (g - g' : g, g' \in G). \]
 \end{topic}
 
 \begin{topic}{chinese-remainder-theorem}{Chinese remainder theorem}
@@ -771,3 +776,19 @@
     with differential given by
     \[ d_n(a_0 \otimes \cdots \otimes a_{n + 1}) = \sum_{i = 0}^{n} (-1)^i a_0 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n . \]
 \end{topic}
+
+\begin{topic}{hereditary-ring}{hereditary ring}
+    A \tref{ring}{ring} $R$ is \textbf{hereditary} if every submodule of a \tref{projective-module}{projective modules} over $R$ is also projective.
+    
+    If this is only true for \tref{finitely-generated-module}{finitely generated submodules}, the ring $R$ is called \textbf{semi-hereditary}.
+\end{topic}
+
+\begin{topic}{cotangent-complex}{cotangent complex}
+    Let $A$ be a \tref{ring}{commutative ring} and let $B$ be an $A$-algebra. The \textbf{cotangent complex} $\mathbb{L}_{B/A}$ is the complex of $B$-modules associated to the simplicial $B$-module (via the \tref{HT:dold-kan-correspondence}{Dold--Kan correspondence})
+    \[ \Omega_{P_\bdot/A} \otimes_{P_\bdot, \varepsilon} B \]
+    where $\varepsilon : P_\bdot \to B$ is a free resolution of simplicial $A$-algebras.
+\end{topic}
+
+% \begin{example}{cotangent-complex}
+%     ???
+% \end{example}

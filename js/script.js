@@ -232,7 +232,7 @@ function initTheme() {
     if(cookieTheme !== undefined)
         setTheme(cookieTheme === 'dark')
     else
-        setTheme(prefersDark);        
+        setTheme(false); // prefersDark
     document.getElementById('button-theme').addEventListener('click', function () {
         document.cookie = `theme=${setTheme() ? 'dark' : 'light'}`;
     });

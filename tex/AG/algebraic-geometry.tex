@@ -739,3 +739,47 @@
 \begin{topic}{regular-morphism}{regular morphism}
     Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}, and assume that all fibers $X_y$ are \tref{noetherian-scheme}{locally noetherian}. Then $f$ \textbf{regular} at $x \in X$ if $f$ is \tref{flat-morphism}{flat} at $x$ and the fiber $X_{f(x)}$ is \tref{geometrically-regular}{geometrically regular} at $x$ over $k(y)$. The morphism $f$ is \textbf{regular} if it is regular at all points $x \in X$.
 \end{topic}
+
+\begin{topic}{local-to-global-sequence}{local-to-global Ext sequence}
+    Let $X$ be a \tref{scheme}{scheme} and $\mathcal{F}$ and $\mathcal{G}$ \tref{O-module}{$\mathcal{O}_X$-modules}. Then there is a \tref{HA:spectral-sequence}{spectral sequence} (a special case of the \tref{HA:grothendieck-spectral-sequence}{Grothendieck spectral sequence})
+    \[ E_2^{p, q} = H^p(X, \mathcal{E}\text{xt}_X^q(\mathcal{F}, \mathcal{G})) \Rightarrow \text{Ext}_X^{p + q}(\mathcal{F}, \mathcal{G}) . \]
+    In particular, this gives the \textbf{local-to-global Ext sequence}
+    \[ 0 \to H^1(X, \mathcal{H}\text{om}(\mathcal{F}, \mathcal{G})) \to \text{Ext}_X^1(\mathcal{F}, \mathcal{G}) \to H^0(X, \mathcal{E}\text{xt}_X^1(\mathcal{F}, \mathcal{G})) \to H^2(X, \mathcal{H}\text{om}(\mathcal{F}, \mathcal{G})) \to \text{Ext}_X^2(\mathcal{F}, \mathcal{G}) \]
+\end{topic}
+
+\begin{topic}{vector-bundle}{vector bundle}
+    A \textbf{vector bundle} is a \tref{free-sheaf}{locally free sheaf} $\mathcal{E}$ of finite rank.
+\end{topic}
+
+\begin{topic}{slope-vector-bundle}{slope vector bundle}
+    The \textbf{slope} of a \tref{vector-bundle}{vector bundle} $\mathcal{E}$ over a \tref{algebraic-curve}{curve} $C$ is
+    \[ \mu(\mathcal{E}) = \deg \mathcal{E} / \text{rk} \mathcal{E} . \]
+\end{topic}
+
+\begin{example}{slope-vector-bundle}
+    For any semistable (resp. stable) vector bundle $\mathcal{E}$ and quotient $\mathcal{E} \twoheadrightarrow \mathcal{G}$ we have $\mu(\mathcal{E}) \le \mu(\mathcal{G})$ (resp. $\mu(\mathcal{E}) < \mathcal{G}$). Namely, given an exact sequence $0 \to \mathcal{F} \to \mathcal{E} \to \mathcal{G} \to 0$ we have
+    \[ \begin{aligned} \mu(\mathcal{F}) \genfrac{\{}{\}}{0pt}{1}{\le}{<} \mu(\mathcal{E}) &\implies \deg \mathcal{F} \cdot \text{rk } \mathcal{E} \genfrac{\{}{\}}{0pt}{1}{\le}{<} \deg \mathcal{E} \cdot \text{rk } \mathcal{F} \\ &\implies \deg \mathcal{G} \cdot \text{rk } \mathcal{E} \genfrac{\{}{\}}{0pt}{1}{\ge}{>} \deg \mathcal{E} \cdot \text{rk } \mathcal{G} \implies \mu(\mathcal{G}) \genfrac{\{}{\}}{0pt}{1}{\ge}{>} \mu(\mathcal{E})  , \end{aligned} \]
+    since $\deg \mathcal{F} = \deg \mathcal{E} - \deg \mathcal{G}$ and $\text{rk } \mathcal{F} = \text{rk } \mathcal{E} - \text{rk } \mathcal{G}$.
+\end{example}
+
+\begin{topic}{stable-vector-bundle}{(semi)stable vector bundle}
+    A \tref{vector-bundle}{vector bundle} $\mathcal{E}$ over a \tref{algebraic-curve}{curve} $C$ is \textbf{semistable} (resp. \textbf{stable}) if $\mu(\mathcal{F}) \le \mu(\mathcal{E})$ (resp. $\mu(\mathcal{F}) < \mu(\mathcal{E})$) for every vector subbundle $0 \ne \mathcal{F} \subsetneq \mathcal{E}$, where $\mu(\mathcal{E})$ denotes the \tref{slope-vector-bundle}{slope} of $\mathcal{E}$.
+\end{topic}
+
+\begin{topic}{harder-narasimhan-filtration}{Harder--Narasimhan filtration}
+    Let $\mathcal{E}$ be a \tref{vector-bundle}{vector bundle} over a \tref{algebraic-curve}{curve} $C$. There exists a unique filtration by subbundles
+    \[ 0 = \mathcal{E}_0 \subset \mathcal{E}_1 \subset \cdots \subset \mathcal{E}_{r + 1} = \mathcal{E} \]
+    such that $\mathcal{E}_{i + 1}/\mathcal{E}_i$ are \tref{stable-vector-bundle}{semistable vector bundles} with slope $\mu_i$, where $\mu_1 > \mu_2 > \cdots > \mu_r$. This filtration is called the \textbf{Harder--Narasimhan filtration}.
+    
+    It is constructed as follows. If $\mathcal{E}$ is not semistable, take $0 \ne \mathcal{F} \subsetneq \mathcal{E}$ with maximal \tref{slope-vector-bundle}{slope} and among those with maximal rank. Then $\mathcal{E}_1 := \mathcal{F}$ is semistable by construction, and repeat the process with $\mathcal{E}/\mathcal{F}$.
+\end{topic}
+
+\begin{topic}{nef-line-bundle}{nef line bundle}
+    A \tref{invertible-sheaf}{line bundle} $\mathcal{L}$ on a \tref{scheme}{scheme} $X$, \tref{proper-morphism}{proper} over a field $k$, is \textbf{nef} (\textit{numerically effective}) if $\deg \mathcal{L}|_C \ge 0$ for every (\tref{closed-immersion}{closed} \tref{TO:irreducible}{irreducible}) \tref{algebraic-curve}{curve} $C$ in $X$.
+\end{topic}
+
+\begin{topic}{riemann-roch-theorem}{Riemann--Roch theorem}
+    Let $C$ be a smooth projective connected \tref{algebraic-curve}{curve} over a field $k$, and $\mathcal{E}$ a \tref{vector-bundle}{vector bundle} over $C$. The \textbf{Riemann--Roch theorem} states that
+    \[ \chi(\mathcal{E}) = \dim_k H^0(C, \mathcal{E}) - \dim_k H^1(C, \mathcal{E}) = (1 - g) \text{rk } \mathcal{E} + \deg \mathcal{E} , \]
+    where $g$ is the \tref{geometric-genus}{genus} of $C$ and $\chi(\mathcal{E})$ the \tref{euler-characteristic-sheaf}{Euler characteristic} of $\mathcal{E}$.
+\end{topic}

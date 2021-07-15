@@ -123,7 +123,6 @@ header {
     margin-bottom: 12px;
     margin-top: 16px;
     font-variant: small-caps;
-    color: var(--clr-text-main);
 }
 
 #search-bar {
@@ -383,5 +382,5 @@ body.dark #button-theme:hover {
 }
 
 body, input {
-    transition: background-color 0.5s;
+    transition: background-color 0.5s, color 0.5s;
 }

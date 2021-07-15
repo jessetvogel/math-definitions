@@ -135,7 +135,7 @@
 \end{topic}
 
 \begin{topic}{left-derived-functors}{left derived functors}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough projectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{right exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick a \tref{projective-resolution}{projective resolution} $M[0] \to P^\bdot$. Then we define
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough projectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{right exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick a \tref{projective-resolution}{projective resolution} $P^\bdot \to M[0]$. Then we define
     \[ \text{L}_i F M = H^i(F(P^\bdot)) . \]
     This is well-defined (independent of the chosen resolution) and yields additive functors $\text{L}_i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{left derived functors} of $F$. Note that $\text{L}_0 F \simeq F$.
     
@@ -282,3 +282,33 @@
     \[ 0 \to C \to F_0 \oplus_B A \to A \to 0 . \]
     It is not hard to verify this sequence is indeed exact.
 \end{example}
+
+\begin{topic}{homological-dimension}{(global) homological dimension}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $A$ an object in $\mathcal{A}$. The \textbf{homological dimension} of $A$ is the least number $n$ such that there exists a \tref{projective-resolution}{projective resolution}
+    \[ 0 \to P^n \to \cdots \to P^1 \to P^0 \to A . \]
+    If such a resolution does not exist, the homological dimension of $A$ is $\infty$.
+    
+    The \textbf{global homological dimension} of the category $\mathcal{A}$ is the supremum of the homological dimension of all objects $A$ of $\mathcal{A}$.
+\end{topic}
+
+\begin{example}{homological-dimension}
+    By \tref{CA:hilbert-syzygy-theorem}{Hilbert's syzygy theorem}, any $k[x_1, \ldots, x_n]$-module has a projective resolution of length $\le n$. Since this upper bound is attained for the \tref{UN:koszul-complex}{Koszul complex}, the global homological dimension of $k[x_1, \ldots, x_n]\text{-}\textbf{Mod}$ is $n$.
+\end{example}
+
+\begin{example}{homological-dimension}
+    Knowing the global homological dimension $n$ of a category $\mathcal{A}$ is useful, as it follows that for any \tref{exact-functor}{right exact functor} $F : \mathcal{A} \to \mathcal{B}$ the \tref{left-derived-functors}{left derived functors} $\text{L}^i F A$ are zero for all $A$ in $\mathcal{A}$ and $i > n$.
+    
+    In particular, for $F = \Hom_\mathcal{A}(-, B)$ we find $\text{Ext}_\mathcal{A}^i(A, B) = 0$ for all $A, B$ in $\mathcal{A}$ and $i > n$.
+\end{example}
+
+\begin{topic}{grothendieck-spectral-sequence}{Grothendieck spectral sequence}
+    Let $F : \mathcal{A} \to \mathcal{B}$ and $G : \mathcal{B} \to \mathcal{C}$ be \tref{exact-functor}{left exact functors} between \tref{abelian-category}{abelian categories}, such that $\mathcal{A}$ and $\mathcal{B}$ have enough injectives, and $F$ maps \tref{injective-object}{injective objects} to \tref{acyclic-object}{$G$-acyclic objects}. Then there is a \tref{spectral-sequence}{spectral sequence}
+    \[ E_2^{p, q} = (R^p G \circ R^q F)(A) \Rightarrow R^{p + q}(G \circ F)(A) , \]
+    called the \textbf{Grothendieck spectral sequence}.
+\end{topic}
+
+\begin{topic}{leray-spectral-sequence}{Leray spectral sequence}
+    Let $X$ and $Y$ be \tref{TO:topological-space}{topological spaces} and $f : X \to Y$ a continuous map. For a \tref{AG:sheaf}{sheaf} $\mathcal{F}$ on $X$, there exists a \tref{spectral-sequence}{spectral sequence}
+    \[ E_2^{p, q} = H^p(Y, R^q f_* \mathcal{F}) \Rightarrow H^{p + q}(X, \mathcal{F}) \]
+    called the \textbf{Leray spectral sequence}. It is a special case of the \tref{grothendieck-spectral-sequence}{Grothendieck spectral sequence}.
+\end{topic}
