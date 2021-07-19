@@ -95,3 +95,17 @@
     \[ \dim(M \sslash G) = \dim M - 2 \dim G . \]
 \end{topic}
 
+\begin{topic}{poisson-manifold}{Poisson manifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Poisson structure} on $M$ is a bracket $\{ \cdot, \cdot \}$ on the algebra $C^\infty(M)$ of smooth functions making it into a \tref{AA:poisson-algebra}{Poisson algebra}. A \textbf{Poisson manifold} is a manifold with a Poisson structure.
+\end{topic}
+
+\begin{example}{poisson-manifold}
+    Any \tref{symplectic-manifold}{symplectic manifold} $(M, \omega)$ gives rise to a Poisson manifold with bracket given by
+    \[ \{ F, G \} = \omega(X_F, X_G) \]
+    where $X_F$ is the \tref{hamiltonian-vector-field}{Hamiltonian vector field} of $F$.
+    Indeed the Leibniz rule is satisfied as
+    \[ \{ FG, H \} = d(FG) X_H = (F d G + G d F) X_H = F (d G X_H) + G (d F X_H) = F \{ G, H \} + G \{ F, H \} . \]
+    Furthermore, the Jacobi identity can be shown from
+    \[ \{ \{ F, G \}, H \} + \{ \{ G, H \}, F \} + \{ \{ H, F \}, G \} = -d \omega(X_F, X_G, X_H) \]
+    and that $\omega$ is closed.
+\end{example}

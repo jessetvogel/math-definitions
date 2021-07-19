@@ -83,10 +83,11 @@
     If the objects of $\mathcal{A}$ are sets, then elements of $A_n$ are called \textit{$n$-chains}, elements of $\ker d_n$ are called \textit{$n$-cycles}, and elements of $\im d_{n - 1}$ are called \textit{$n$-boundaries}. Similarly, elements of $A^n$ are called \textit{$n$-cochains}, elements of $\ker d^n$ are called \textit{$n$-cocycles}, and elements of $\im d^{n - 1}$ are called \textit{$n$-coboundaries}. Note that any $n$-(co)boundary is an $n$-(co)cycle.
 \end{topic}
 
-\begin{topic}{homology-object}{homology object}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $A^\bdot$ a \tref{chain-complex}{complex} in $\mathcal{A}$. For each $i \in \ZZ$, the quotient
-    \[ H_i(A^\bdot) = \ker d_i / \im d_{i + 1} \]
-    is called the \textbf{$i$-th homology object} of $A^\bdot$.
+\begin{topic}{homology-object}{(co)homology object}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. The \textbf{$i$-th homology object} of a \tref{chain-complex}{chain complex} $A_\bdot$ is the quotient
+    \[ H_i(A_\bdot) = \ker d_i / \im d_{i + 1} . \]
+    Dually, the \textbf{$i$-th cohomology object} of a cochain complex $A^\bdot$ is the quotient
+    \[ H^i(A^\bdot) = \ker d^i / \im d^{i - 1} . \]
 \end{topic}
 
 \begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}

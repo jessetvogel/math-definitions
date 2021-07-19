@@ -3,27 +3,20 @@
 -- PDF front cover
 -- Dark mode (improve)
 
+# Measure Theory ??
+MT: Measure Theory, sigma algebra, borel algebra
+
 # Commutative algebra
-CA: Chapter 11 (dimension theory) of Atiyah & MacDonald (Hilbert function)
--- CA: Hilbert polynomials! (See Chapter 11 of Commutative Algebra, M. Atiyah)
-
-CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
-
-CA: reflexive modules, torsionless
-
--- AG/DG: Hochschild cohomology?
+-- CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
 
 # Algebraic Geometry
 AG: example invertible sheaves: correspondence to divisors
 AG: blowup / blowdown
 AG: Example: Picard group is isomorphic to $H^1(X, \mathcal{O}_X^*)$
-AG: affine GIT quotient
-AG: Riemann--Roch Theorem (http://www.mathe2.uni-bayreuth.de/stoll/lecture-notes/vector-bundles-Faltings.pdf, line bundle version)
 AG: étale fundamental group(oid)
 AG: Zariski's main theorem
 AG: normal crossings divisor
 AG: hyperelliptic curve
-
 AG: Narasimhan--Seshadri theorem
 
 # Number theory
@@ -40,9 +33,9 @@ NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 
-Dynkin diagrams
+AA?: Dynkin diagrams
 
-UN: classifying space
+UN: classifying space -- vague?
 
 DG?: Weyl group / maximal torus
 
@@ -62,15 +55,7 @@ DG: hyperkahler manifold
     "Definition 1.5. A complex structure on a smooth manifold XX is the structure of a complex manifold on XX. Every such defines an almost complex structure and almost complex structures arising this way are called integrable (see also at integrability of G-structures the section Examples – Complex structure)."
 
 DG: Chern classes (> 1)
-DG: Poisson bracket (poisson bracket from symplectic form)
-DG: implicit function theorem
 DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
-
-**DG: degree of vector bundle / slope**
-
-DG: Hodge star / Hodge inner product
-DG: de Rham complex
-
 DG: orbifold
 
 TO: locally compact (quasi-compact?)
@@ -81,26 +66,15 @@ AT: Bockstein sequence
 
 AT/TO: equivariant cohomology ? Homotopy quotients
 
-AG: geometric quotient (and other GIT terms)
-
 RT: weights, dominant, integral elements
 
 ??: Lie product formula
-
-AA: quaternion algebra
-
-- C*-algebra
 
 # Noncmomutative deformations??
 - Quantum groups
 
 - Mirror symmetry ??? What is this all about ??
 
-- Riemann surface
-
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category)
 
 - S-equivalence
-
-
-

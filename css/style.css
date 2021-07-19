@@ -66,6 +66,7 @@ body {
     --clr-loading-icon: #121212;
     --clr-background-input: #ffffff;
     --clr-background-example: rgba(0, 0, 0, 0.033);
+    --clr-background-highlight: rgba(0, 0, 0, 0.08);
 }
 
 body.dark {
@@ -80,6 +81,7 @@ body.dark {
     --clr-loading-icon: rgba(255, 255, 255, 0.75);;
     --clr-background-input: #242424;
     --clr-background-example: #242424;
+    --clr-background-highlight: rgba(255, 255, 255, 0.08);
 }
 
 body.dark .display-math-svg {
@@ -159,6 +161,13 @@ header {
 #auto-complete-list {
     width: 100%;
     background-color: var(--clr-background-input);
+    max-height: 400px;
+    overflow: scroll;
+    scroll-snap-type: y proximity;
+}
+
+#auto-complete-list:focus {
+    outline: none;
 }
 
 #auto-complete-list > div {
@@ -168,6 +177,8 @@ header {
     padding-right: 8px;
     display: flex;
     justify-content: space-between;
+    scroll-snap-align: start;
+    cursor: pointer;
 }
 
 #auto-complete-list span.topic {
@@ -203,8 +214,8 @@ header {
 }
 
 
-#auto-complete-list > div.focus {
-    background-color: rgba(0, 0, 0, 0.08);
+#auto-complete-list > div.focus, #auto-complete-list > div:hover {
+    background-color: var(--clr-background-highlight);
 }
 
 #content {
@@ -341,7 +352,7 @@ img.display-math-svg {
 
 @keyframes glowing {
     0% { text-shadow: 0px 0px 1px rgba(255, 255, 255, 0);  }
-    50% { text-shadow: 0px 0px 4px aliceblue; }
+    50% { text-shadow: 0px 0px 3px aliceblue; }
     100% { text-shadow: 0px 0px 1px aliceblue;  }
 }
 
@@ -381,6 +392,4 @@ body.dark #button-theme:hover {
     100% { transform: rotate(360deg); }
 }
 
-body, input {
-    transition: background-color 0.5s, color 0.5s;
-}
+/* body, input { transition: background-color 0.5s, color 0.5s; } */

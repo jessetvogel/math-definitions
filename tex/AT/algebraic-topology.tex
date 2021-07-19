@@ -17,10 +17,11 @@
 %     Note that chain maps induce group morphisms on the \tref{homology-group}{homology groups}, $H_n(C_\bullet) \to H_n(D_\bullet)$.
 % \end{topic}
 
-\begin{topic}{homology-group}{homology group}
-    Let $C_\bullet$ be a \tref{HA:chain-complex}{chain complex}. The quotient
-    \[ H_n(C_\bullet) = \ker d_n / \im d_{n + 1} \]
-    is called the \textbf{$n$-th homology group} of $C_\bullet$.
+\begin{topic}{homology-group}{(co)homology group}
+    The \textbf{$i$-th homology group} of a \tref{HA:chain-complex}{chain complex} $C_\bullet$ is the quotient group
+    \[ H_i(C_\bullet) = \ker d_i / \im d_{i + 1} . \]
+    Dually, the \textbf{$i$-th cohomology group} of a cochain complex $C_\bullet$ is the quotient group
+    \[ H^i(C^\bullet) = \ker d^i / \im d^{i - 1} . \]
 \end{topic}
 
 \begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}

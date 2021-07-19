@@ -374,3 +374,13 @@
     
     A descent datum $(x_i, \varphi_{ij})$ is \textbf{effective} if there exists an object $x$ of $\mathfrak{X}$ over $S$ such that $(X_i, \varphi_{ij})$ is isomorphic to the \textit{canonical descent datum} $(f_i^* x, \text{can})$.
 \end{topic}
+
+\begin{topic}{category-fibered-in-groupoids}{category fibered in groupoids}
+    A \tref{category}{category} $\mathfrak{X}$ over $\mathfrak{S}$ is called a \textbf{category fibered in groupoids} over $\mathfrak{S}$ if for any $f : T \to S$ in $\mathfrak{S}$ and object $x$ over $S$, there exists a lift $\overline{f} : y \to x$ of $f$, which is unique up to unique isomorphism. That is, for any other lift $\overline{f}' : y' \to x$ of $f$, there exists a unique isomorphism $\alpha : y' \to y$ such that $\overline{f}' = \overline{f} \circ \alpha$.
+\end{topic}
+
+\begin{example}{category-fibered-in-groupoids}
+    Motivating the terminology, if $\mathfrak{X}$ is a category fibered in groupoids over $\mathfrak{S}$, then every morphism $\varphi : y \to x$ of $\mathfrak{X}$ that lies over an isomorphism $f : T \to S$ of $\mathfrak{S}$, is an isomorphism as well. In particular, all the \tref{fiber-category}{fibers} of $\mathfrak{X}$ are \tref{groupoid}{groupoids}.
+
+    Namely, let $g$ be the inverse of $f$, and choose a lifting $\overline{g} : z \to y$ of $g$. Now $\varphi \circ \overline{g} : z \to x$ lies over $f \circ g = \id_S$, so is a lifting of $\id_S$ with target $x$. Since $\id_x$ is so as well, there exists an isomorphism $\alpha : z \to x$ such that $\varphi \circ \overline{g} = \alpha$. Now it is clear that $\overline{g} \circ \alpha^{-1}$ is the inverse of $\varphi$.
+\end{example}

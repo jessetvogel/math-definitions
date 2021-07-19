@@ -316,8 +316,7 @@
 \begin{topic}{de-rham-isomorphism}{de Rham isomorphism}
     The \textbf{de Rham isomorphism} is the isomorphism given by
     \[ H_{\textup{dR}}^k(X) \xrightarrow{\sim} H^k(X; \RR) : [ \omega ] \mapsto \int_{(-)} \omega . \]
-    
-    The exterior product endows the direct sum of these groups with a ring structure. A further result of the theorem is that the two cohomology rings are isomorphic (as graded rings), where the analogous product on singular cohomology is the cup product.
+    The exterior product endows the direct sum of these groups with a ring structure. A further result of the theorem is that the two cohomology rings are isomorphic (as \tref{CA:graded-ring}{graded rings}), where the analogous product on \tref{AT:singular-homology}{singular cohomology} is the \tref{AT:cup-product}{cup product}.
 \end{topic}
 
 \begin{topic}{poincare-duality}{Poincaré duality}
@@ -444,4 +443,58 @@
 
 \begin{topic}{determinant-bundle}{determinant bundle}
     The \textbf{determinant bundle} of a \tref{vector-bundle}{vector bundle} $E \to M$ of rank $k$ is the exterior power $\det(E) = \wedge^k E$.
+\end{topic}
+
+\begin{topic}{riemann-surface}{Riemann surface}
+    A \textbf{Riemann surface} is a \tref{TO:connected-space}{connected} complex manifold of complex dimension one.
+\end{topic}
+
+\begin{topic}{volume-form}{volume form}
+    Let $M$ be an $n$-dimensional \tref{smooth-manifold}{smooth manifold}. A \textbf{volume form} on $M$ is an \tref{differential-form}{$n$-form} $\omega \in \Omega^n(M)$.
+\end{topic}
+
+\begin{example}{volume-form}
+    When $M$ is a \tref{riemannian-manifold}{Riemannian manifold} with metric $g$, there is a natural volume form on $M$. In local coordinates $x_1, \ldots, x_n$ it is given by
+    \[ \text{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge dx_2 \wedge \cdots \wedge dx_n , \]
+    which is indeed independent of the choice of local coordinates.
+\end{example}
+
+\begin{topic}{hodge-star-operator}{Hodge star operator}
+    Let $(M, g)$ be an $n$-dimensional \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Hodge star operators} are the maps
+    \[ \star : \Omega^k(M) \to \Omega^{n - k}(M) \]
+    for $0 \le k \le n$ defined by
+    \[ \alpha \wedge \star \beta = g(\alpha, \beta) \text{vol}_g \]
+    for all $\alpha, \beta \in \Omega^k(M)$, where $\text{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge \cdots dx_n$ is the \tref{volume-form}{volume form} induced by $g$. Here $g$ is defined on $\Omega^k(M)$ by
+    \[ g(\alpha, \beta) = \det\left(g(\alpha_i, \beta_j)\right)_{i, j = 1}^{k} \]
+    for decomposable $\alpha = \alpha_1 \wedge \cdots \wedge \alpha_k$ and $\beta = \beta_1 \wedge \cdots \wedge \beta_k$ and extended linearly.
+\end{topic}
+
+\begin{topic}{hodge-inner-product}{Hodge inner product}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Hodge inner product} is the (global) inner product on the de Rham spaces $\Omega^k(M)$ given by
+    \[ (\alpha, \beta) = \int_X \alpha \wedge \star \beta = \int_X g(\alpha, \beta) \; \text{vol}_g \]
+    for $\alpha, \beta \in \Omega^k(M)$, where $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}.
+\end{topic}
+
+\begin{topic}{de-rham-complex}{de Rham complex}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{de Rham complex} of $M$ is the \tref{HA:chain-complex}{cochain complex}
+    \[ 0 \to \Omega^0(M) \xrightarrow{d} \Omega^1(M) \xrightarrow{d} \Omega^2(M) \xrightarrow{d} \cdots \]
+    where $\Omega^k(M)$ denotes the space of \tref{differential-form}{differential $k$-forms}, and $d$ the \tref{exterior-derivative}{exterior derivative}.
+    
+    The \textbf{de Rham cohomology groups} $H_\text{dR}^k(M)$ are the \tref{AT:homology-group}{cohomology groups} of $\Omega^\bdot(M)$.
+\end{topic}
+
+\begin{topic}{harmonic-form}{harmonic form}
+    Let $(M, g)$ be an $n$-dimensional \tref{riemannian-manifold}{Riemannian manifold}. The \tref{exterior-derivative}{exterior derivative} $d : \Omega^k(M) \to \Omega^{k + 1}(M)$ has an adjoint $\delta = (-1)^{nk + 1} \star d \star : \Omega^k(M) \to \Omega^{k - 1}(M)$ with respect to the \tref{hodge-inner-product}{Hodge inner product}. That is,
+    \[ (d \alpha, \beta) = (\alpha, \delta \beta) \quad \text{for all } \alpha \in \Omega^k(M) \text{ and } \beta \in \Omega^{k + 1}(M) . \]
+    A differential form $\alpha \in \Omega^k(M)$ is \textbf{harmonic} if $\Delta \alpha = 0$, where $\Delta = d \delta + \delta d$ is the \textit{Laplacian operator}.
+\end{topic}
+
+\begin{topic}{holonomy-group}{holonomy group}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} over a \tref{smooth-manifold}{smooth manifold} $M$, and $\nabla$ a \tref{connection}{connection} on $E$. By \tref{parallel-transport}{parallel transport}, any loop $\gamma : [0, 1] \to M$ based at a point $x \in M$ yields a linear invertible map $P_\gamma : E_x \to E_x$. The \textbf{holonomy group} of $\nabla$ based at $x$ is the group
+    \[ \text{Hol}_x(\nabla) = \{ P_\gamma \in \text{GL}(E_x) : \gamma \text{ is a loop based at } x \} . \]
+    The \textbf{restricted holonomy group} is the subgroup $\text{Hol}_x^0(\nabla)$ coming from contractible loops.
+\end{topic}
+
+\begin{topic}{implicit-function-theorem}{implicit function theorem}
+    The \textbf{implicit function theorem} states that if $f : \RR^{n + m} \to \RR^m$ is a continuously differentiable function, and $p \in \RR^{n + m}$ a point with $f(p) = 0$ such that the Jacobian matrix $J_f = \left(\frac{\partial f_i}{\partial x_j}\right)_{i,j = n + 1}^{n + m}$ is invertible at $p$, then there exists an open set $U \subset \RR^n$ containing $(p_1, \ldots, p_n)$ and a continuously differentiable function $g : U \to \RR^m$ such that $g(p_1, \ldots, p_n) = (p_{n + 1}, \ldots, p_{m + n})$ and $f(y, g(y)) = 0$ for all $y \in U$.
 \end{topic}

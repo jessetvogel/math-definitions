@@ -122,7 +122,7 @@ function initAutoComplete() {
             return a[1].localeCompare(b[1], 'en', { sensitivity: 'base' });
         });
 
-        autoCompleteNumItems = Math.min(items.length, 10); // Show only the top 10 results
+        autoCompleteNumItems = items.length; //Math.min(items.length, 10); // Show only the top 10 results
         for(let i = 0; i < autoCompleteNumItems; ++i) {
             autoCompleteList.appendChild(items[i][2]);
         }
@@ -155,6 +155,7 @@ function initAutoComplete() {
     });
 
     autoCompleteInput.addEventListener('focusout', function(e) {
+        if(autoCompleteList.querySelectorAll('div:hover').length > 0) return; // otherwise click events don't trigger..
         autoCompleteList.innerHTML = '';
     });
 
@@ -176,8 +177,14 @@ function autoCompleteSetFocus(i) {
     let items = autoCompleteList.querySelectorAll('div');
     for(const item of items)
         item.classList.remove('focus');
-    if(autoCompleteItem >= 0 && autoCompleteItem < items.length)
+    if(autoCompleteItem >= 0 && autoCompleteItem < items.length) {
         items[autoCompleteItem].classList.add('focus');
+        items[autoCompleteItem].scrollIntoView({
+            behavior: 'auto',
+            block: 'nearest',
+            inline: 'nearest'
+        });
+    }
 }
 
 function searchMatch(id, input) {
@@ -236,6 +243,10 @@ function initTheme() {
     document.getElementById('button-theme').addEventListener('click', function () {
         document.cookie = `theme=${setTheme() ? 'dark' : 'light'}`;
     });
+    setTimeout(function () { // little hack to prevent initial transition, but it works
+        const sheet = window.document.styleSheets[0];
+        sheet.insertRule('body, input { transition: background-color 0.5s, color 0.5s; }', sheet.cssRules.length);
+    }, 100);
 }
 
 function setTheme(dark) {
