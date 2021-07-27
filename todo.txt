@@ -2,6 +2,10 @@
 -- Homepage
 -- PDF front cover
 -- Dark mode (improve)
+-- Validate \tref{} arguments, also auto-deduce prefix if not given!
+-- Reference system
+
+AA: Primitive ideal / Primitive spectrum (C*-algebra)
 
 # Measure Theory ??
 MT: Measure Theory, sigma algebra, borel algebra

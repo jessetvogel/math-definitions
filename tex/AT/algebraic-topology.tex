@@ -436,3 +436,20 @@
     \end{itemize}
 \end{topic}
 
+\begin{topic}{poincare-polynomial}{Poincaré polynomial}
+    The \textbf{Poincaré polynomial} of a \tref{TO:topological-space}{topological space} $X$ is the generating function of its \tref{betti-number}{Betti numbers},
+    \[ P(X) = \sum_{n = 0}^\infty b_n(X) t^n . \]
+\end{topic}
+
+\begin{example}{poincare-polynomial}
+    \begin{itemize}
+        \item $P(\text{contractible space}) = 1$,
+        \item $P(S^n) = 1 + t^n$, where $S^n$ is the $n$-sphere,
+        \item $P(\mathbb{T}^n) = (1 + t)^n$, where $\mathbb{T}^n$ is an $n$-torus,
+        \item $P(\Sigma_g) = 1 + 2gt + t^2$, where $\Sigma_g$ is a compact surface of genus $g$,
+        \item $P(\RR \PP^{2n}) = 1$ and $P(\RR \PP^{2n + 1}) = 1 + t^n$ and $P(\CC \PP^n) = 1 + t^2 + \cdots + t^{2n}$,
+        \item $P(X \sqcup Y) = P(X) + P(Y)$,
+        \item $P(X \times Y) = P(X) P(Y)$,
+        \item $P(X \wedge Y) = P(X) + P(Y)$ - 1.
+    \end{itemize}
+\end{example}

@@ -87,14 +87,13 @@
 \end{topic}
 
 \begin{topic}{prime-ideal}{prime ideal}
-    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{prime} if $I \ne R$ and
+    Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{prime} if $I \ne R$ and
     \[ ab \in I \implies a \in I \text{ or } b \in I . \]
-    
     Equivalently, $I \subset R$ is a prime ideal iff the quotient ring $R / I$ is a \tref{domain}{domain}.
 \end{topic}
 
 \begin{topic}{maximal-ideal}{maximal ideal}
-    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{maximal} if $I \ne R$ and if $I \subset J \subsetneq R$ implies $I = J$ for any other ideal $J \subset R$.
+    Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{maximal} if $I \ne R$ and if $I \subset J \subsetneq R$ implies $I = J$ for any other ideal $J \subset R$.
     
     Equivalently, $I \subset R$ is a maximal ideal iff the quotient ring $R / I$ is a \tref{field}{field}.
     
@@ -799,4 +798,14 @@
 
 \begin{example}{division-ring}
     Every \tref{field}{field} is a division ring, but the converse is not true. The \tref{AA:quaternion-algebra}{quaternion algebra} $\mathbb{H}$ is a division ring, but not a field since it is not commutative.
+\end{example}
+
+\begin{topic}{prime-avoidance-lemma}{prime avoidance lemma}
+    Let $R$ be a \tref{ring}{commutative ring}. The \textbf{prime avoidance lemma} states that if $\mathfrak{p}_1, \ldots, \mathfrak{p}_n$ are \tref{prime-ideal}{prime ideals} and $I$ an \tref{ideal}{ideal} with $I \subset \bigcup_{i = 1}^{n} \mathfrak{p}_i$, then $I \subset \mathfrak{p}_i$ for some $i$.
+\end{topic}
+
+\begin{example}{prime-avoidance-lemma}
+    Proof by induction on $n$. The base case $n = 1$ is trivial. Let $n > 1$ and assume the result holds for $n - 1$. Suppose for a contradiction that $I \not\subset \mathfrak{p}_i$ for all $i$, then by applying the induction hypothesis to each collection $\mathfrak{p}_1, \ldots, \mathfrak{p}_{i - 1}, \mathfrak{p}_{i + 1}, \ldots, \mathfrak{p}_n$, there exist elements $x_i \in I$ such that $x_i \not\in \mathfrak{p}_j$ whenever $j \ne i$. If for some $i$ we have $x_i \not\in \mathfrak{p}_i$ we are done. Otherwise, $x_i \in \mathfrak{p}_i$ for all $i$ and then
+    \[ y = \sum_{i = 1}^{n} x_1 x_2 \cdots x_{i - 1} x_{i + 1} \cdots x_n \]
+    is contained in $I$ but not in $\mathfrak{p}_i$ for any $i$. This shows $I \not\in \bigcup_{i = 1}^{n} \mathfrak{p}_i$.
 \end{example}

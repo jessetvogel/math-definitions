@@ -141,15 +141,23 @@ class Parser:
         self.output_dir = output_dir
         self.current_token = None
         self.prefix = ''
+        self.known_topics = []
         self.topics = {}
         self.examples = []
+        self.warnings = []
     
+    def set_known_topics(self, known_topics):
+        self.known_topics = known_topics
+
     def set_prefix(self, prefix):
         self.prefix = prefix
     
     def get_topics(self):
         return self.topics
     
+    def get_warnings(self):
+        return self.warnings
+
     def next_token(self):
         self.current_token = self.lexer.get_token()
             
@@ -385,8 +393,7 @@ class Parser:
     def parse_tref(self):
         self.consume(Token.T_COMMAND, '\\tref')
         self.consume(Token.T_SEPARATOR, '{')
-        identifier = self.consume(Token.T_TEXT).data
-        identifier = identifier if ':' in identifier else self.prefix + ':' + identifier
+        identifier = self.resolve_identifier(self.consume(Token.T_TEXT).data)
         self.consume(Token.T_SEPARATOR, '}')
         self.consume(Token.T_SEPARATOR, '{')
         self.output.write('<a href="#{}">'.format(identifier))
@@ -394,6 +401,32 @@ class Parser:
         self.output.write('</a>')
         self.consume(Token.T_SEPARATOR, '}')
     
+    def resolve_identifier(self, identifier):
+        if ':' not in identifier:
+            # Current prefix has the preference
+            if self.prefix + ':' + identifier in self.known_topics:
+                return self.prefix + ':' + identifier
+
+            # Look for candidates in other prefixes
+            candidates = []
+            for topic in self.known_topics:
+                if topic.endswith(':' + identifier):
+                    candidates.append(topic)
+
+            # Warnings if failed
+            if not candidates:
+                self.warnings.append('Unknown identifier `{}`'.format(identifier))
+
+            if len(candidates) > 1:
+                self.warnings.append('Ambiguous identifier `{}`'.format(identifier))
+
+            return candidates[0]
+        
+        if identifier not in self.known_topics:
+            self.warnings.append('Unknown identifier `{}`'.format(identifier))
+
+        return identifier
+
     def special_chars(self, s):
         if '`' in s:
             s = s.replace('`', '‘')

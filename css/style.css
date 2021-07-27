@@ -67,6 +67,7 @@ body {
     --clr-background-input: #ffffff;
     --clr-background-example: rgba(0, 0, 0, 0.033);
     --clr-background-highlight: rgba(0, 0, 0, 0.08);
+    --clr-background-tooltip: #fefdfc;
 }
 
 body.dark {
@@ -82,6 +83,7 @@ body.dark {
     --clr-background-input: #242424;
     --clr-background-example: #242424;
     --clr-background-highlight: rgba(255, 255, 255, 0.08);
+    --clr-background-tooltip: #323232;
 }
 
 body.dark .display-math-svg {
@@ -393,3 +395,59 @@ body.dark #button-theme:hover {
 }
 
 /* body, input { transition: background-color 0.5s, color 0.5s; } */
+
+
+
+
+
+
+
+/* citations */
+
+.cite {
+    position: relative;
+}
+
+.cite::before {
+    content: '[?]';
+    font-size: 14px;
+    vertical-align: super;
+    color: var(--clr-autocomplete-topic-default);
+}
+
+.cite > span {
+    position: absolute;
+    bottom: 32px;
+    right: -16px;
+    background-color: var(--clr-background-tooltip);
+    box-shadow: 0px 0px 5px var(--clr-shadow);
+    padding: 2px 4px;
+    font-size: 14px;
+    display: none;
+}
+
+.cite > span::after {
+    content: '';
+    box-shadow: 3px 3px 5px var(--clr-shadow);
+    background-color: var(--clr-background-tooltip);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    right: 20px;
+    bottom: -4px;
+    transform: rotate(45deg);
+}
+
+.cite > span::before { /* just as a bounding box for the :hover */
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 96px;
+    height: 32px;
+}
+
+.cite:hover > span {
+    display: block;
+    width: max-content;
+}

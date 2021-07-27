@@ -30,7 +30,8 @@ window.MathJax = {
             Proj: "\\operatorname{Proj}",
             norm: ["{\\left\\|#1\\right\\|}", 1],
             llbracket: "⟦",
-            rrbracket: "⟧"
+            rrbracket: "⟧",
+            sslash: "\\mathbin{/\\mkern-6mu/}"
         }
       }
 };

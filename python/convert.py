@@ -1,18 +1,20 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
+# To add a new cell, type '# %%'
+# To add a new markdown cell, type '# %% [markdown]'
+# %%
 import os
+import json
 from tex2html import Parser
 
 
-# In[2]:
-
-
+# %%
 # Create html files
 parser = Parser('../data/')
+
+# Load known topics
+with open ('../data/topics.js', 'r') as topics_js:
+    data = ''.join(topics_js.readlines())[15:]
+    known_topics = json.loads(data).keys()
+    parser.set_known_topics(known_topics)
 
 # Search .tex files inside the two-lettered category-directories
 tex_path = '../tex/'
@@ -29,23 +31,20 @@ for cat in categories:
         parser.parse(file_path)
 
 
-# In[3]:
-
-
+# %%
 # Write topics.js
 topics_js = open('../data/topics.js', 'w')
 
 topics_js.write('const topics = {\n')
 for i in parser.topics:
-    topics_js.write('  "{}": "{}",\n'.format(i, parser.topics[i]));
-topics_js.write('}\n')
+    topics_js.write('  "{}": "{}",\n'.format(i, parser.topics[i]))
+topics_js.seek(topics_js.tell() - 2, os.SEEK_SET)
+topics_js.write('\n}\n')
 
 topics_js.close()
 
 
-# In[4]:
-
-
+# %%
 # Write examples.js
 examples_js = open('../data/examples.js', 'w')
 
@@ -57,15 +56,14 @@ examples_js.write('];\n')
 examples_js.close()
 
 
-# In[5]:
-
-
+# %%
 # Print stats
 print('\nCompiled {} topics'.format(len(parser.topics)))
 
 
-# In[ ]:
-
-
+# %%
+# Show warnings
+for warning in parser.get_warnings():
+    print('⚠️ Warning: {}'.format(warning))
 
 
