@@ -127,7 +127,7 @@
 \begin{topic}{finite-type}{finite type}
     A \tref{ring-morphism}{ring morphism} $R \to S$ is said to be of \textbf{finite type} if $S$ is isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some integer $n$.
     
-    In this case, $S$ is also said to be a \textbf{finitely generated $R$-algebra}.
+    That is, $S$ is a \tref{finitely-generated-algebra}{finitely generated $R$-algebra}.
 \end{topic}
 
 \begin{topic}{finite-presentation}{finite presentation}
@@ -809,3 +809,42 @@
     \[ y = \sum_{i = 1}^{n} x_1 x_2 \cdots x_{i - 1} x_{i + 1} \cdots x_n \]
     is contained in $I$ but not in $\mathfrak{p}_i$ for any $i$. This shows $I \not\in \bigcup_{i = 1}^{n} \mathfrak{p}_i$.
 \end{example}
+
+\begin{topic}{integrally-closed-domain}{integrally closed domain}
+    A \tref{domain}{domain} $R$ is \textbf{integrally closed} if it is equal to its \tref{integral-closure}{integral closure} in its \tref{field-of-fractions}{field of fractions}.
+\end{topic}
+
+\begin{example}{integrally-closed-domain}
+    The ring $R = \ZZ[\sqrt{5}]$ is not integrally closed as it does not contain the integral element $\tfrac{1}{2} \sqrt{5} + \tfrac{1}{2} \in \QQ(\sqrt{5})$, which satisfies $x^2 - x - 1 = 0$.
+\end{example}
+
+\begin{topic}{finitely-generated-algebra}{finitely generated algebra}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{finitely generated algebra} over $R$ is an \tref{algebra}{$R$-algebra} isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some $n$.
+\end{topic}
+
+\begin{topic}{catenary-ring}{(universally) catenary ring}
+    A \tref{ring}{commutative ring} $R$ is \textbf{catenary} if for any \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ and $\mathfrak{q}$, any two strictly increasing chains of prime ideals
+    \[ \mathfrak{p} = \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n = \mathfrak{q} \]
+    are contained in maximally strictly increasing chains from $\mathfrak{p}$ to $\mathfrak{q}$ of the same (finite) length.
+    
+    The ring $R$ is \textbf{universally catenary} if all \tref{finitely-generated-algebra}{finitely generated algebras} over $R$ are catenary.
+\end{topic}
+
+\begin{topic}{G-ring}{G-ring}
+    A \tref{ring}{commutative ring} $R$ is a \textbf{G-ring} or \textbf{Grothendieck ring} if it is \tref{noetherian-ring}{noetherian} and for every localization $R_{\mathfrak{p}}$ the map $R_{\mathfrak{p}} \to \widehat{R_{\mathfrak{p}}}$ to its \tref{completion}{completion} (with respect to the maximal ideal) is a \tref{AG:regular-morphism}{regular morphism}.
+\end{topic}
+
+\begin{topic}{j0-j1-j2-ring}{J-0/J-1/J-2 ring}
+    Let $R$ be a \tref{noetherian-ring}{noetherian} \tref{ring}{commutative ring}. The \textit{regular locus} $\textup{Reg}(X)$ of $X = \Spec R$ is the set of \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ of $R$ such that the \tref{localization}{localization} $R_\mathfrak{p}$ is \tref{regular-ring}{regular}.
+    
+    The ring $R$ is \textbf{J-0} if $\textup{Reg}(X)$ contains a nonempty open.
+    
+    The ring $R$ is \textbf{J-1} if $\textup{Reg}(X)$ is open.
+    
+    The ring $R$ is \textbf{J-2} if $\textup{Reg}(X)$ if any \tref{finitely-generated-algebra}{finitely generated $R$-algebra} is J-1.
+\end{topic}
+
+\begin{topic}{excellent-ring}{(quasi-)excellent ring}
+    A \tref{ring}{commutative ring} $R$ is \textbf{quasi-excellent} if it is \tref{noetherian-ring}{noetherian}, a \tref{G-ring}{G-ring}, and \tref{j0-j1-j2-ring}{J-2}.
+    The ring $R$ is \textbf{excellent} if it is quasi-excellent and \tref{catenary-ring}{universally catenary}.
+\end{topic}

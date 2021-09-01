@@ -48,7 +48,7 @@
     Equivalently, this is the case if $X$ is \tref{reduced-scheme}{reduced} and \tref{TO:irreducible}{irreducible}.
 \end{topic}
 
-\begin{topic}{noetherian-scheme}{noetherian scheme}
+\begin{topic}{noetherian-scheme}{(locally) noetherian scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{locally noetherian} if it can be covered by open affine subsets $\Spec A_i$, where each $A_i$ is a \tref{CA:noetherian-ring}{noetherian ring}. It is \textbf{noetherian} if it is locally noetherian and \tref{TO:quasi-compact}{quasi-compact}.
 \end{topic}
 
@@ -144,52 +144,6 @@
 
 \begin{topic}{complete-variety}{complete variety}
     A \tref{variety}{variety} over $k$ is \textbf{complete} if it is \tref{proper-morphism}{proper} over $k$.
-\end{topic}
-
-% -- O_X modules --
-\begin{topic}{O-module}{sheaf of O-modules}
-    Let $(X, \mathcal{O}_X)$ be a \tref{ringed-space}{ringed space}. A \textbf{sheaf of $\mathcal{O}_X$-modules}, or simply $\mathcal{O}_X$-module, is a \tref{sheaf}{sheaf} $\mathcal{F}$ on $X$, such that for each open set $U \subset X$, the group $\mathcal{F}(U)$ is an $\mathcal{O}_X(U)$-module, and for each inclusion of open sets $V \subset U$, the restriction morphism $\mathcal{F}(U) \to \mathcal{F}(V)$ is an $\mathcal{O}_X(U)$-module morphism (here $\mathcal{F}(V)$ is seen as an $\mathcal{O}_X(U)$-module via $\mathcal{O}_X(U) \to \mathcal{O}_X(V)$).
-    
-    A morphism of $\mathcal{O}_X$-modules $\mathcal{F} \to \mathcal{G}$ is a morphism of sheaves, such that for each open set $U \subset X$, the map $\mathcal{F}(U) \to \mathcal{G}(U)$ is an $\mathcal{O}_X(U)$-module morphism.
-\end{topic}
-
-\begin{topic}{free-sheaf}{(locally) free sheaf}
-    Let $(X, \mathcal{O}_X)$ be a \tref{ringed-space}{ringed space}. An \tref{O-module}{$\mathcal{O}_X$-module} $\mathcal{F}$ is \textbf{free} if it is isomorphic to a direct sum of copies of $\mathcal{O}_X$.
-    
-    It is \textbf{locally free} if $X$ can be covered by open sets $U$ for which $\mathcal{F}|_U$ is free. In that case, the \textit{rank} of $\mathcal{F}$ on such an open set is the number of copies of $\mathcal{O}_X$. If $X$ is connected, this rank is the same everywhere.
-\end{topic}
-
-\begin{topic}{invertible-sheaf}{invertible sheaf}
-    Let $(X, \mathcal{O}_X)$ be a \tref{ringed-space}{ringed space}. An \textbf{invertible sheaf} $\mathcal{L}$ on $X$ is a \tref{free-sheaf}{locally free} \tref{O-module}{$\mathcal{O}_X$-modules} of rank 1.
-\end{topic}
-
-\begin{topic}{sheaf-of-ideals}{sheaf of ideals}
-    Let $(X, \mathcal{O}_X)$ be a \tref{ringed-space}{ringed space}. A \textbf{sheaf of ideals} is an $\mathcal{O}_X$-module $\mathcal{I}$ which is a subsheaf of $\mathcal{O}_X$.
-\end{topic}
-
-\begin{topic}{sheaf-associated-to-module}{sheaf associated to module}
-    Let $R$ be a ring and let $M$ be an $R$-module. The \textbf{sheaf associated} to $M$ on $X = \Spec R$, denoted $\tilde{M}$, is defined by the gluing data: to each distinguished open $X_f = \{ f \ne 0 \}$ is assigned the localized $R_f$-module $M_f$. For each $X_f \subset X_g$ there is the natural map $M_g \to M_f$. In particular, $\tilde{R} = \mathcal{O}_X$.
-    
-    For the projective case, let $S$ be a graded ring and $M$ a graded $S$-module. The \textbf{sheaf associated} to $M$ on $X = \Proj S$, denoted $\tilde{M}$, is defined by the gluing data: for each homogeneous $f \in S$, we have $\tilde{M}|_{\{ f \ne 0\}} \simeq (M_f)_0$.
-\end{topic}
-
-\begin{topic}{coherent-sheaf}{(quasi) coherent sheaf}
-    Let $X$ be a \tref{scheme}{scheme}. A \tref{O-module}{sheaf of $\mathcal{O}_X$-modules} $\mathcal{F}$ is \textbf{quasi-coherent} if $X$ can be covered by open affine subsets $U_i = \Spec R_i$, such that for each $i$, the restriction $\mathcal{F}|_{U_i}$ is isomorphic to $\tilde{M}_i$ for some $R_i$-module $M_i$.
-    
-    Furthermore, $\mathcal{F}$ is \textbf{coherent} is each $M_i$ can be taken to be a finitely generated $R_i$-module.
-\end{topic}
-
-\begin{topic}{ideal-sheaf}{ideal sheaf}
-    Let $i : Y \to X$ be a \tref{closed-immersion}{closed immersion} of \tref{scheme}{schemes}. The \textbf{ideal sheaf} $\mathcal{I}$ of $Y$ is the kernel of $i^\# : \mathcal{O}_X \to i_* \mathcal{O}_Y$. In particular, this is a \tref{sheaf-of-ideals}{sheaf of ideals} on $X$.
-    \[ 0 \to \mathcal{I} \to \mathcal{O}_X \to i_* \mathcal{O}_Y \to 0 . \]
-\end{topic}
-
-\begin{topic}{twisting-sheaf}{twisting sheaf}
-    Let $S$ be a graded ring and let $X = \Proj S$. For any $n \in \ZZ$, the \textbf{twisting sheaf} $\mathcal{O}_X(n)$ is the \tref{sheaf-associated-to-module}{sheaf associated} to $S(n)$ (recall: $S(n)_d = S_{d + n}$).
-    
-    For any sheaf of \tref{O-module}{$\mathcal{O}_X$-modules} $\mathcal{F}$, the \textbf{twisted sheaf} $\mathcal{F}(n)$ is given by $\mathcal{F} \otimes_{\mathcal{O}_X} \mathcal{O}_X(n)$.
-    
-    Note that sheaves $\mathcal{O}_X(n)$ are all \tref{invertible-sheaf}{invertible} sheaves, and that $\mathcal{O}_X(n) \otimes \mathcal{O}_X(m) \simeq \mathcal{O}_X(n + m)$.
 \end{topic}
 
 \begin{topic}{geometrically-regular}{geometrically regular}
@@ -881,4 +835,8 @@
     where $Z \subset X$ is a closed subvariety and $U = X \backslash Z$ its open complement. Multiplication is defined by
     \[ [X] \cdot [Y] = [(X \times_S Y)_\text{red}] \]
     and extended linearly.
+\end{topic}
+
+\begin{topic}{excellent-scheme}{(quasi-)excellent scheme}
+    A \tref{scheme}{scheme} $X$ is \textbf{(quasi-)excellent} if it has an affine open cover by schemes $\Spec R_i$ with $R_i$ an \tref{CA:excellent-ring}{(quasi-)excellent} ring.
 \end{topic}

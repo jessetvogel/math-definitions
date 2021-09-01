@@ -105,7 +105,7 @@ function initAutoComplete() {
             const topic = topics[id];
             const item = document.createElement('div');
             item.innerHTML = match[1];
-            item.addEventListener('click', function (e) { gotoTopic(id); });
+            item.addEventListener('mousedown', function (e) { gotoTopic(id); });
             items.push([ match[0], topic, item ]);
         }
 
@@ -155,7 +155,7 @@ function initAutoComplete() {
     });
 
     autoCompleteInput.addEventListener('focusout', function(e) {
-        if(autoCompleteList.querySelectorAll('div:hover').length > 0) return; // otherwise click events don't trigger..
+        // if(autoCompleteList.querySelectorAll('div:hover').length > 0) return; // otherwise click events don't trigger.. // doesn't work on mobile!
         autoCompleteList.innerHTML = '';
     });
 

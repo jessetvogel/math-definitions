@@ -5,6 +5,12 @@
 -- Validate \tref{} arguments, also auto-deduce prefix if not given!
 -- Reference system
 
+HA: example of a semi-orthogonal decomposition
+
+CT: Kan extensions
+
+??: pre-orders, boolean algebras, that kind of stuff,
+
 AA: Primitive ideal / Primitive spectrum (C*-algebra)
 
 # Measure Theory ??

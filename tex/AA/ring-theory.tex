@@ -26,4 +26,12 @@
 
 \begin{topic}{jacobson-ring}{Jacobson ring}
     A \tref{ring}{ring} $R$ is \textbf{Jacobson} if every \tref{prime-ideal}{prime ideal} is an intersection of \tref{primitive-ideal}{primitive ideals}.
+    
+    A commutative ring $R$ is \textbf{Jacobson} if every \tref{prime-ideal}{prime ideal} $\mathfrak{p}$ is the intersection of the \tref{maximal-ideal}{maximal ideals} containing it, $\mathfrak{p} = \bigcap_{\mathfrak{m} \supset \mathfrak{p}} \mathfrak{m}$.
 \end{topic}
+
+\begin{example}{jacobson-ring}
+    A \tref{local-ring}{local ring} $(R, \mathfrak{m})$ is Jacobson if and only there are no other prime ideals than the maximal ideal, i.e. if the \tref{krull-dimension}{Krull dimension} is zero. In particular, a \tref{discrete-valuation-ring}{discrete valuation ring} is not Jacobson.
+    
+    The intuition is that the closed points (i.e. maximal ideals) of a Jacobson scheme completely characterize the scheme. For local rings this is only the case if the ring is a field.
+\end{example}

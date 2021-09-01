@@ -416,9 +416,11 @@ class Parser:
             # Warnings if failed
             if not candidates:
                 self.warnings.append('Unknown identifier `{}`'.format(identifier))
+                return self.prefix + ':' + identifier
 
             if len(candidates) > 1:
                 self.warnings.append('Ambiguous identifier `{}`'.format(identifier))
+                return self.prefix + ':' + identifier
 
             return candidates[0]
         

@@ -384,3 +384,42 @@
 
     Namely, let $g$ be the inverse of $f$, and choose a lifting $\overline{g} : z \to y$ of $g$. Now $\varphi \circ \overline{g} : z \to x$ lies over $f \circ g = \id_S$, so is a lifting of $\id_S$ with target $x$. Since $\id_x$ is so as well, there exists an isomorphism $\alpha : z \to x$ such that $\varphi \circ \overline{g} = \alpha$. Now it is clear that $\overline{g} \circ \alpha^{-1}$ is the inverse of $\varphi$.
 \end{example}
+
+\begin{topic}{monad}{monad}
+    A \textbf{monad} on a \tref{category}{category} $\mathcal{C}$ is a \tref{functor}{functor} $T : \mathcal{C} \to \mathcal{C}$ together with two \tref{natural-transformation}{natural transformations} $\mu : T^2 \Rightarrow T$ and $\eta : \id_{\mathcal{C}} \Rightarrow T$, such that
+    \[ \begin{tikzcd} T^3 \arrow{r}{T \mu} \arrow[swap]{d}{\mu T} & T^2 \arrow{d}{\mu} \\ T^2 \arrow{r}{\mu} & T \end{tikzcd} \qquad \text{and} \qquad \begin{tikzcd} T \arrow{r}{\eta T} \arrow[swap]{dr}{\id_T} & T^2 \arrow{d}{\mu} & \arrow[swap]{l}{T \eta} T \arrow{ld}{\id_T} \\ & T & \end{tikzcd} \]
+    commute.
+\end{topic}
+
+\begin{example}{monad}
+    Any \tref{CT:adjoint-functors}{adjunction} $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ gives rise to a monad with $T = GF$. The map $\eta : \id_{\mathcal{C}} \to T$ is the unit of the adjunction, and the map $\mu : T^2 \to T$ is $G \varepsilon F$, where $\varepsilon : FG \to \id_{\mathcal{D}}$ is the counit of the adjunction.
+    % Conversely, any monad can be found as an explicit adjunction of functors, using the \textit{Eilenberg--Moore category}.
+\end{example}
+
+\begin{topic}{eilenberg-moore-category}{Eilenberg--Moore category}
+    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$.  A \textbf{$T$-algebra} in $\mathcal{C}$ is a pair $(X, h)$ of an object $X$ in $\mathcal{C}$ and a morphism $h : TX \to X$, such that
+    \[ \begin{tikzcd} T^2 X \arrow[swap]{d}{\mu_X} \arrow{r}{Th} & TX \arrow{d}{h} \\ TX \arrow{r}{h} & X \end{tikzcd} \qquad \text{and} \qquad \begin{tikzcd} X \arrow[swap]{dr}{\id_X} \arrow{r}{\eta_X} & TX \arrow{d}{h} \\ & X \end{tikzcd} \]
+    commute. Morphisms between $T$-algebras $(X, h) \to (Y, k)$ are morphisms $f : X \to Y$ in $\mathcal{C}$ for which
+    \[ \begin{tikzcd} TX \arrow{r}{Tf} \arrow[swap]{d}{h} & TY \arrow{d}{k} \\ X \arrow{r}{f} & Y \end{tikzcd} \]
+    commutes. The resulting category $T\text{-Alg}$ of $T$-algebras and morphisms is called the \textbf{Eilenberg--Moore category} of the monad.
+\end{topic}
+
+\begin{example}{eilenberg-moore-category}
+    There is an \tref{adjoint-functors}{adjunction} between $T\text{-Alg}$ and $\mathcal{C}$ yielding the initial monad. The forgetful functor $U : T\text{-Alg} \to \mathcal{C}$, mapping $(X, h)$ to $h$, has a left adjoint $F : \mathcal{C} \to T\text{-Alg}$, mapping an object $X$ to the $T$-algebra $(TX, \mu_X)$, and a morphism $f : X \to Y$ to $Tf$. One can show $F \dashv U$ and clearly $T = UF$.
+\end{example}
+
+\begin{topic}{cartesian-closed-category}{cartesian closed category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{cartesian closed} if it has finite products, and for every object $X$ of $\mathcal{C}$ the product functor $(-) \times X$ has a \tref{adjoint-functors}{right adjoint} $(-)^X$.
+\end{topic}
+
+\begin{example}{cartesian-closed-category}
+    The category \textbf{Set} is cartesian closed, where $Y^X = \Hom_\textbf{Set}(X, Y)$.
+\end{example}
+
+\begin{topic}{thin-category}{thin category}
+    A \tref{category}{category} is \textbf{thin} if there exists at most one morphism between any two given objects.
+\end{topic}
+
+% \begin{topic}{exponential-object}{exponential object}
+%     Let $X$ and $Y$ be objects of a \tref{category}{category} $\mathcal{C}$
+% \end{topic}
