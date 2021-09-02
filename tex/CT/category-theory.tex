@@ -423,3 +423,25 @@
 % \begin{topic}{exponential-object}{exponential object}
 %     Let $X$ and $Y$ be objects of a \tref{category}{category} $\mathcal{C}$
 % \end{topic}
+
+\begin{topic}{kleisli-category}{Kleisli category}
+    Let $(T, \mu, \nu)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. The \textbf{Kleisli category} of $T$ is the category $\mathcal{C}_T$ whose objects are the objects of $\mathcal{C}$, and a morphism from $X$ to $Y$ in $\mathcal{C}_T$ is given by a morphism $X \to TY$ in $\mathcal{C}$. Composition is given by
+    \[ (Y \xrightarrow{g} TZ) \circ_T (X \xrightarrow{f} TY) = \mu_Z \circ Tg \circ f : X \to TY \to T^2 Z \to TZ . \]
+    The identity morphisms are given by $\id_X = \eta_X$.
+\end{topic}
+
+\begin{example}{kleisli-category}
+    Taking inspiration from functional programming (e.g. Haskell), let $\mathcal{C} = \texttt{Type}$ be the category of types, and $T : \mathcal{C} \to \mathcal{C}$ the endofunctor sending a type $\alpha$ to \texttt{[$\alpha$]}, the type of lists with elements in $\alpha$. Given a function $f : \alpha \to \beta$, the function $Tf : \texttt{[$\alpha$]} \to \texttt{[$\beta$]}$ works element-wise.
+    Multiplication $\mu$ is given by concatenation of lists, and $\eta$ sends an object $x$ of type $\alpha$ to the singleton list $[x]$.
+    
+    Possible morphisms in $\mathcal{C}_T$ are
+    \[ \begin{aligned}
+        \texttt{primes} &: \texttt{Int} \to \texttt{[Int]}, \quad n \mapsto \texttt{[}p : p \textup{ is a prime factor of } n\texttt{]} \\
+        \texttt{is\_even} &: \texttt{Int} \to \texttt{[Int]}, \quad n \mapsto \left\{ \begin{array}{cl}
+         \texttt{[$n$]} & \text{if $n$ is even,} \\
+         \texttt{[]} & \text{otherwise.} \end{array} \right.
+    \end{aligned} \]
+    In this way, the composition $\texttt{is\_even} \circ_T \texttt{primes}$ maps a number $n$ to the list of its even prime factors.
+    
+    More generally, Kleisli categories appear in Haskell as a way to encode monads.
+\end{example}

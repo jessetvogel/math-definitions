@@ -1,4 +1,4 @@
--- Clever search function: take care of switching words, () and dashes
+-- Clever search function: take care of switching words, () and dashes 
 -- Homepage
 -- PDF front cover
 -- Dark mode (improve)
