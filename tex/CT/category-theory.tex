@@ -71,9 +71,9 @@
 \end{topic}
 
 \begin{topic}{natural-transformation}{natural transformation}
-    A \textbf{natural transformation} between two functors $F, G : \mathcal{C} \to \mathcal{D}$ consists of a collection of morphisms $\mu_X : F(X) \to G(X)$ for each object $C$ in $\mathcal{C}$, such that for each $f : X \to Y$ the diagram
+    A \textbf{natural transformation} between two \tref{functor}{functors} $F, G : \mathcal{C} \to \mathcal{D}$, denoted $\mu : F \Rightarrow G$, is a collection of morphisms $\mu_X : F(X) \to G(X)$ for each object $C$ in $\mathcal{C}$, such that for each morphism $f : X \to Y$ in $\mathcal{C}$ the diagram
     \[ \begin{tikzcd} F(X) \arrow{r}{\mu_X} \arrow[swap]{d}{F(f)} & G(X) \arrow{d}{G(f)} \\ F(Y) \arrow[swap]{r}{\mu_Y} & G(Y) \end{tikzcd} \]
-    commutes. We denote this by $\mu : F \Rightarrow G$.
+    commutes. 
 \end{topic}
 
 \begin{topic}{yoneda-embedding}{Yoneda embedding}
@@ -128,7 +128,7 @@
 \end{topic}
 
 \begin{topic}{adjoint-functors}{adjoint functors}
-    Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be a pair of functors. We say that $F$ is \textbf{left adjoint} to $G$, or $G$ is \textbf{right adjoint} to $F$, denoted $F \dashv G$, if there is a natural bijection
+    Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be a pair of functors. Then $F$ is \textbf{left adjoint} to $G$, or $G$ is \textbf{right adjoint} to $F$, denoted $F \dashv G$, if there is a natural bijection
     \[ \Hom_{\mathcal{D}}(F(C), D) \xrightarrow{\sim} \Hom_{\mathcal{D}}(C, G(D)) \]
     for each object $C$ in $\mathcal{C}$ and $D$ in $\mathcal{D}$. Naturality means that for all $f : C \to C'$ in $\mathcal{C}$ and $g : D' \to D$ in $\mathcal{D}$, the following square commutes.
     \[ \begin{tikzcd}[row sep=3em] \Hom_{\mathcal{D}}(F(C), D) \arrow{r} & \Hom_{\mathcal{C}}(C, G(D)) \\ \Hom_{\mathcal{D}}(F(C'), D') \arrow{r} \arrow{u}{g \circ (-) \circ F(f)} & \Hom_{\mathcal{C}}(C', G(D')) \arrow[swap]{u}{G(g) \circ (-) \circ f} \end{tikzcd} \]
@@ -393,19 +393,24 @@
 
 \begin{example}{monad}
     Any \tref{CT:adjoint-functors}{adjunction} $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ gives rise to a monad with $T = GF$. The map $\eta : \id_{\mathcal{C}} \to T$ is the unit of the adjunction, and the map $\mu : T^2 \to T$ is $G \varepsilon F$, where $\varepsilon : FG \to \id_{\mathcal{D}}$ is the counit of the adjunction.
-    % Conversely, any monad can be found as an explicit adjunction of functors, using the \textit{Eilenberg--Moore category}.
+    
+    Conversely, any monad can be found as an explicit adjunction of functors, using the \tref{eilenberg-moore-category}{Eilenberg--Moore category} or the \tref{kleisli-category}{Kleisli category}.
 \end{example}
 
-\begin{topic}{eilenberg-moore-category}{Eilenberg--Moore category}
-    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$.  A \textbf{$T$-algebra} in $\mathcal{C}$ is a pair $(X, h)$ of an object $X$ in $\mathcal{C}$ and a morphism $h : TX \to X$, such that
+\begin{topic}{t-algebra}{T-algebra}
+    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. A \textbf{$T$-algebra} in $\mathcal{C}$ is a pair $(X, h)$ of an object $X$ in $\mathcal{C}$ and a morphism $h : TX \to X$, such that
     \[ \begin{tikzcd} T^2 X \arrow[swap]{d}{\mu_X} \arrow{r}{Th} & TX \arrow{d}{h} \\ TX \arrow{r}{h} & X \end{tikzcd} \qquad \text{and} \qquad \begin{tikzcd} X \arrow[swap]{dr}{\id_X} \arrow{r}{\eta_X} & TX \arrow{d}{h} \\ & X \end{tikzcd} \]
     commute. Morphisms between $T$-algebras $(X, h) \to (Y, k)$ are morphisms $f : X \to Y$ in $\mathcal{C}$ for which
     \[ \begin{tikzcd} TX \arrow{r}{Tf} \arrow[swap]{d}{h} & TY \arrow{d}{k} \\ X \arrow{r}{f} & Y \end{tikzcd} \]
-    commutes. The resulting category $T\text{-Alg}$ of $T$-algebras and morphisms is called the \textbf{Eilenberg--Moore category} of the monad.
+    commutes.
+\end{topic}
+
+\begin{topic}{eilenberg-moore-category}{Eilenberg--Moore category}
+    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. The \textbf{Eilenberg--Moore category} $\mathcal{C}^T$ of the monad is the category of its \tref{t-algebra}{T-algebras}.
 \end{topic}
 
 \begin{example}{eilenberg-moore-category}
-    There is an \tref{adjoint-functors}{adjunction} between $T\text{-Alg}$ and $\mathcal{C}$ yielding the initial monad. The forgetful functor $U : T\text{-Alg} \to \mathcal{C}$, mapping $(X, h)$ to $h$, has a left adjoint $F : \mathcal{C} \to T\text{-Alg}$, mapping an object $X$ to the $T$-algebra $(TX, \mu_X)$, and a morphism $f : X \to Y$ to $Tf$. One can show $F \dashv U$ and clearly $T = UF$.
+    There is an \tref{adjoint-functors}{adjunction} between $\mathcal{C}^T$ and $\mathcal{C}$ yielding the initial monad. The forgetful functor $U : \mathcal{C}^T \to \mathcal{C}$, mapping $(X, h)$ to $h$, has a left adjoint $F : \mathcal{C} \to \mathcal{C}^T$, mapping an object $X$ to the $T$-algebra $(TX, \mu_X)$, and a morphism $f : X \to Y$ to $Tf$. One can show $F \dashv U$ and clearly $T = UF$.
 \end{example}
 
 \begin{topic}{cartesian-closed-category}{cartesian closed category}
@@ -431,7 +436,7 @@
 \end{topic}
 
 \begin{example}{kleisli-category}
-    Taking inspiration from functional programming (e.g. Haskell), let $\mathcal{C} = \texttt{Type}$ be the category of types, and $T : \mathcal{C} \to \mathcal{C}$ the endofunctor sending a type $\alpha$ to \texttt{[$\alpha$]}, the type of lists with elements in $\alpha$. Given a function $f : \alpha \to \beta$, the function $Tf : \texttt{[$\alpha$]} \to \texttt{[$\beta$]}$ works element-wise.
+    Taking inspiration from functional programming (e.g. Haskell), let $\mathcal{C} = \texttt{Type}$ be the category of types, and $T : \mathcal{C} \to \mathcal{C}$ the endofunctor sending a type $\alpha$ to \texttt{[$\alpha$]}, the type of lists with elements in $\alpha$. Given a function $f : \alpha \to \beta$, the function $Tf : \texttt{[}\alpha\texttt{]} \to \texttt{[}\beta\texttt{]}$ works element-wise.
     Multiplication $\mu$ is given by concatenation of lists, and $\eta$ sends an object $x$ of type $\alpha$ to the singleton list $[x]$.
     
     Possible morphisms in $\mathcal{C}_T$ are
@@ -445,3 +450,18 @@
     
     More generally, Kleisli categories appear in Haskell as a way to encode monads.
 \end{example}
+
+\begin{example}{kleisli-category}
+    Using the Kleisli category, we can construct an adjunction that gives rise to the monad $T$. Let $F : \mathcal{C} \to \mathcal{C}_T$ be given by $FX = X$ and $F(X \xrightarrow{f} Y) = \eta_Y \circ f : X \to TY$, and conversely let $G : \mathcal{C}_T \to \mathcal{C}$ be given by $GX = TX$ and $G(X \rightarrow{f} TY) = \mu_Y \circ Tf : TX \to TY$. It is not hard to show that $F$ is left adjoint to $G$, and that this adjunction gives rise to the monad $T = GF$.
+\end{example}
+
+\begin{topic}{profunctor}{profunctor}
+    A \textbf{profunctor} $\phi : \mathcal{C} \nrightarrow \mathcal{D}$ from a \tref{category}{category} $\mathcal{C}$ to a category $\mathcal{D}$ is a \tref{functor}{functor}
+    \[ \phi : \mathcal{C} \times \mathcal{D}^\textup{op} \to \textbf{Set} . \]
+\end{topic}
+
+\begin{topic}{dinatural-transformation}{dinatural transformation}
+    A \textbf{dinatural transformation} between two \tref{functor}{functors} $F, G : \mathcal{C}^\textup{op} \times \mathcal{C} \to \mathcal{D}$, denoted $\alpha : F \xrightarrow{\cdot\cdot} G$ is a collection of morphisms $\alpha_X : F(X, X) \to G(X, X)$, such that for every morphism $f : X \to Y$ the diagram
+    \[ \begin{tikzcd} & F(X, X) \arrow{r}{\alpha_X} & G(X, X) \arrow{dr}{G(\id_X, f)} & \\ F(Y, X) \arrow{ur}{F(f, \id_X)} \arrow[swap]{dr}{F(\id_Y, f)} & & & G(X, Y) \\ & F(Y, Y) \arrow{r}{\alpha_Y} & G(Y, Y) \arrow[swap]{ur}{G(f, \id_Y)} & \end{tikzcd} \]
+    commutes.
+\end{topic}

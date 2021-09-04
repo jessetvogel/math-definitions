@@ -311,7 +311,7 @@ class Parser:
             
     def parse_content(self):
         while True:
-            if self.found(Token.T_TEXT) or self.found(Token.T_WHITESPACE):
+            if self.found(Token.T_TEXT) or self.found(Token.T_WHITESPACE) or self.found(Token.T_SEPARATOR, '[') or self.found(Token.T_SEPARATOR, ']'):
                 token = self.consume()
                 self.output.write(self.special_chars(token.data))
                 continue
@@ -339,6 +339,10 @@ class Parser:
 
             if self.found(Token.T_COMMAND, '\\textit'):
                 self.parse_textit()
+                continue
+
+            if self.found(Token.T_COMMAND, '\\texttt'):
+                self.parse_texttt()
                 continue
                 
             if self.found(Token.T_COMMAND, '\\tref'):
@@ -389,6 +393,14 @@ class Parser:
         self.parse_content()
         self.consume(Token.T_SEPARATOR, '}')
         self.output.write('</i>')
+
+    def parse_texttt(self):
+        self.consume(Token.T_COMMAND, '\\texttt')
+        self.consume(Token.T_SEPARATOR, '{')
+        self.output.write('<span class="tt">')
+        self.parse_content()
+        self.consume(Token.T_SEPARATOR, '}')
+        self.output.write('</span>')
         
     def parse_tref(self):
         self.consume(Token.T_COMMAND, '\\tref')
@@ -402,6 +414,13 @@ class Parser:
         self.consume(Token.T_SEPARATOR, '}')
     
     def resolve_identifier(self, identifier):
+        if ':' in identifier:
+            return identifier
+        else:
+            return self.prefix + ':' + identifier
+            
+        # -- Maybe some fancy identifier system later... --
+
         if ':' not in identifier:
             # Current prefix has the preference
             if self.prefix + ':' + identifier in self.known_topics:

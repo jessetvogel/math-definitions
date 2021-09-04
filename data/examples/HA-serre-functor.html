@@ -1,0 +1,12 @@
+<div class="example">Let <span class="math inline">\(F : \mathcal{C} \to \mathcal{D}\)</span> be a functor between <span class="math inline">\(k\)</span>-linear categories <span class="math inline">\(\mathcal{C}\)</span> and <span class="math inline">\(\mathcal{D}\)</span> admitting Serre functors <span class="math inline">\(S_\mathcal{C}\)</span> and <span class="math inline">\(S_\mathcal{D}\)</span>. Assume <span class="math inline">\(F\)</span> has a left adjoint <span class="math inline">\(G : \mathcal{D} \to \mathcal{C}\)</span>, i.e. <span class="math inline">\(G \dashv F\)</span>. Then <span class="math inline">\(F\)</span> also has a right adjoint, given by
+<span class="math display">\[ H = S_\mathcal{C} \circ G \circ S_\mathcal{D}^{-1} : \mathcal{D} \to \mathcal{C} . \]</span>
+Namely,
+<span class="math display">\[ \begin{aligned} \Hom_\mathcal{D}(Fx, y) &\simeq \Hom_\mathcal{D}(S_\mathcal{D}^{-1} y, Fx)^\vee \simeq \Hom_\mathcal{C}(G S_\mathcal{D}^{-1} y, x)^\vee \\ &\simeq \Hom_\mathcal{C}(x, S_\mathcal{C} G S_\mathcal{D}^{-1} y) = \Hom_\mathcal{C}(x, H y) , \end{aligned} \]</span>
+where every step is a natural bijection.
+</div><div class="example">Let <span class="math inline">\(X\)</span> be a <a href="#AG:smooth-morphism">smooth</a> <a href="#AG:projective-variety">projective variety</a> of dimension <span class="math inline">\(n\)</span>. <a href="#AG:serre-duality">Serre duality</a> gives natural isomorphisms
+<span class="math display">\[ \textup{Ext}_X^i(\mathcal{F}, \mathcal{G}) \simeq H^i(X, \mathcal{F}^\vee \otimes \mathcal{G}) \simeq H^{n - i}(X, \mathcal{F} \otimes \mathcal{G}^\vee \otimes \omega_X) \simeq \textup{Ext}_X^{n - 1}(\mathcal{G}, \mathcal{F} \otimes \omega_X)^\vee , \]</span>
+for coherent sheaves <span class="math inline">\(\mathcal{F}, \mathcal{G}\)</span> on <span class="math inline">\(X\)</span>. In the derived category <span class="math inline">\(\textbf{D}^\textup{b}(X)\)</span> of coherent sheaves on <span class="math inline">\(X\)</span>, this can be rewritten as
+<span class="math display">\[ \Hom_{\textbf{D}^\textup{b}(X)}(\mathcal{F}, \mathcal{G}[i]) \simeq \Hom_{\textbf{D}^\textup{b}(X)}(\mathcal{G}[i], \mathcal{F} \otimes \omega_X[n])^\vee \]</span>
+This shows that <span class="math inline">\(\textbf{D}^\textup{b}(X)\)</span> admits a Serre functor given by
+<span class="math display">\[ S_X : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(X), \qquad \mathcal{F} \mapsto \mathcal{F} \otimes \omega_X[n] . \]</span>
+</div>

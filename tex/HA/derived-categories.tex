@@ -20,3 +20,57 @@
 \begin{topic}{perfect-complex}{perfect complex}
     A \textbf{perfect complex} of modules over a commutative ring $R$ is an object in the \tref{derived-category}{derived category} of $R$-modules that is quasi-isomorphic to a bounded complex of finite projective $R$-modules. A \textbf{perfect module} is a module which is perfect when seen as a complex concentrated at degree zero.
 \end{topic}
+
+\begin{topic}{fourier-mukai-transform}{Fourier--Mukai transform}
+    Let $X$ and $Y$ be \tref{AG:smooth-morphism}{smooth} \tref{AG:projective-variety}{projective varieties}, and $\mathcal{P} \in \textbf{D}^\textup{b}(X \times Y)$ an object in the (bounded) \tref{derived-category}{derived category} of \tref{AG:coherent-sheaf}{coherent sheaves} on their product. Write $q : X \times Y \to X$ and $p : X \times Y \to Y$ for the projections. The \textbf{Fourier--Mukai transform} is the functor
+    \[ \Phi_\mathcal{P} : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(Y), \quad \mathcal{E} \mapsto \textup{R} p_* \left( q^* \mathcal{E} \overset{\textup{L}}{\otimes} \mathcal{P} \right) . \]
+    The object $\mathcal{P}$ is called the \textbf{Fourier--Mukai kernel} of $\Phi_\mathcal{P}$.
+    
+    Note that $\Phi_\mathcal{P}$ is \tref{exact-functor-triangulated}{exact} since $q^*, (-) \overset{\textup{L}}{\otimes} \mathcal{P}$ and $\textup{R} p_*$ are all exact.
+\end{topic}
+
+\begin{example}{fourier-mukai-transform}
+    \begin{itemize}
+        \item The identity functor $\id : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(X)$ is naturally isomorphic to the Fourier--Mukai transform with kernel the structure sheaf $\mathcal{O}_\Delta$ of the diagonal $\Delta \subset X \times X$. Indeed, if $\iota : X \xrightarrow{\sim} \Delta \subset X \times X$ is the diagonal, then
+        \[ \begin{aligned}
+            \Phi_{\mathcal{O}_\Delta}(\mathcal{E})
+                &= \textup{R} p_* (q^* \mathcal{E} \overset{\textup{L}}{\otimes} \mathcal{O}_\Delta) \\
+                &= \textup{R} p_* (q^* \mathcal{E} \overset{\textup{L}}{\otimes} \iota_* \mathcal{O}_X) \\
+                &\simeq \textup{R} p_* (\textup{R} \iota_* (\iota^* q^* \mathcal{E} \overset{\textup{L}}{\otimes} \mathcal{O}_X) \\
+                &\simeq \textup{R} (p \circ \iota)_* (q \circ \iota)^* \mathcal{E} \\
+                &\simeq \mathcal{E} ,
+        \end{aligned} \]
+        as $p \circ \iota = q \circ \iota = \id_X$, and where in the third line we used the \tref{AG:projection-formula}{projection formula}.
+        
+        \item More generally, given a morphism $f : X \to Y$, we have
+        \[ \Phi_{\mathcal{O}_{\Gamma_f}} \simeq f_* : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(Y) , \]
+        where $\Gamma_f \subset X \times Y$ is the graph of $f$. In particular, cohomology $H^*(X, -)$ can be viewed as the Fourier--Mukai transform
+        \[ \Phi_{\mathcal{O}_X} : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(\textbf{FinVect}_k) , \]
+        where $X \subset X \times \Spec k$ is considered as the graph of $X \to \Spec k$.
+        
+        \item The shift functor $T : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(X)$ can be described as the Fourier--Mukai transform with kernel $\mathcal{O}_{\Delta}[1]$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{serre-functor}{Serre functor}
+    Let $\mathcal{C}$ be a $k$-linear category. A \textbf{Serre functor} is an auto-equivalence functor $S : \mathcal{C} \to \mathcal{C}$ such that there is a natural bijection
+    \[ \Hom_\mathcal{C}(A, B) \xrightarrow{\sim} \Hom_\mathcal{C}(B, SA)^\vee \]
+    for all $A, B$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{example}{serre-functor}
+    Let $F : \mathcal{C} \to \mathcal{D}$ be a functor between $k$-linear categories $\mathcal{C}$ and $\mathcal{D}$ admitting Serre functors $S_\mathcal{C}$ and $S_\mathcal{D}$. Assume $F$ has a left adjoint $G : \mathcal{D} \to \mathcal{C}$, i.e. $G \dashv F$. Then $F$ also has a right adjoint, given by
+    \[ H = S_\mathcal{C} \circ G \circ S_\mathcal{D}^{-1} : \mathcal{D} \to \mathcal{C} . \]
+    Namely,
+    \[ \begin{aligned} \Hom_\mathcal{D}(Fx, y) &\simeq \Hom_\mathcal{D}(S_\mathcal{D}^{-1} y, Fx)^\vee \simeq \Hom_\mathcal{C}(G S_\mathcal{D}^{-1} y, x)^\vee \\ &\simeq \Hom_\mathcal{C}(x, S_\mathcal{C} G S_\mathcal{D}^{-1} y) = \Hom_\mathcal{C}(x, H y) , \end{aligned} \]
+    where every step is a natural bijection.
+\end{example}
+
+\begin{example}{serre-functor}
+    Let $X$ be a \tref{AG:smooth-morphism}{smooth} \tref{AG:projective-variety}{projective variety} of dimension $n$. \tref{AG:serre-duality}{Serre duality} gives natural isomorphisms
+    \[ \textup{Ext}_X^i(\mathcal{F}, \mathcal{G}) \simeq H^i(X, \mathcal{F}^\vee \otimes \mathcal{G}) \simeq H^{n - i}(X, \mathcal{F} \otimes \mathcal{G}^\vee \otimes \omega_X) \simeq \textup{Ext}_X^{n - 1}(\mathcal{G}, \mathcal{F} \otimes \omega_X)^\vee , \]
+    for coherent sheaves $\mathcal{F}, \mathcal{G}$ on $X$. In the derived category $\textbf{D}^\textup{b}(X)$ of coherent sheaves on $X$, this can be rewritten as
+    \[ \Hom_{\textbf{D}^\textup{b}(X)}(\mathcal{F}, \mathcal{G}[i]) \simeq \Hom_{\textbf{D}^\textup{b}(X)}(\mathcal{G}[i], \mathcal{F} \otimes \omega_X[n])^\vee \]
+    This shows that $\textbf{D}^\textup{b}(X)$ admits a Serre functor given by
+    \[ S_X : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(X), \qquad \mathcal{F} \mapsto \mathcal{F} \otimes \omega_X[n] . \]
+\end{example}

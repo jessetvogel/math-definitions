@@ -2,4 +2,7 @@ Let <span class="math inline">\(f : X \to Y\)</span> be a map of topological spa
     {-1}\mathcal{G}\)</span> on <span class="math inline">\(X\)</span> is defined as the <a href="#AG:associated-sheaf">sheaf associated</a> to the presheaf given by <span class="math inline">\(U \mapsto \lim_{V \supset f(U)} \mathcal{G}(V)\)</span> for any open set <span class="math inline">\(U \subset X\)</span>.<br/>
 This construction yields the <b>inverse image functor</b>
 <span class="math display">\[ f^{-1} : \textup{Sh}(Y) \to \textup{Sh}(X) . \]</span>
-It is the <a href="#CT:adjoint-functors">left adjoint</a> of the <a href="#AG:direct-image-sheaf">direct image functor</a> <span class="math inline">\(f_*\)</span>.
+It is the <a href="#CT:adjoint-functors">left adjoint</a> of the <a href="#AG:direct-image-sheaf">direct image functor</a> <span class="math inline">\(f_* : \textup{Sh}(X) \to \textup{Sh}(Y)\)</span>.<br/>
+When <span class="math inline">\(f : X \to Y\)</span> is a morphism of <a href="#AG:scheme">schemes</a>, and <span class="math inline">\(\mathcal{G}\)</span> an <a href="#AG:O-module"><span class="math inline">\(\mathcal{O}_Y\)</span>-module</a>, the <b>inverse image sheaf</b> <span class="math inline">\(f^* \mathcal{G}\)</span> is the <span class="math inline">\(\mathcal{O}_X\)</span>-module defined by
+<span class="math display">\[ f^* \mathcal{G} = f^{-1} \mathcal{G} \otimes_{f^{-1} \mathcal{O}_Y} \mathcal{O}_X . \]</span>
+Again we have an adjunction <span class="math inline">\(f^* \dashv f_*\)</span>.
