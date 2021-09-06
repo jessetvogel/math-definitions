@@ -498,3 +498,7 @@
 \begin{topic}{implicit-function-theorem}{implicit function theorem}
     The \textbf{implicit function theorem} states that if $f : \RR^{n + m} \to \RR^m$ is a continuously differentiable function, and $p \in \RR^{n + m}$ a point with $f(p) = 0$ such that the Jacobian matrix $J_f = \left(\frac{\partial f_i}{\partial x_j}\right)_{i,j = n + 1}^{n + m}$ is invertible at $p$, then there exists an open set $U \subset \RR^n$ containing $(p_1, \ldots, p_n)$ and a continuously differentiable function $g : U \to \RR^m$ such that $g(p_1, \ldots, p_n) = (p_{n + 1}, \ldots, p_{m + n})$ and $f(y, g(y)) = 0$ for all $y \in U$.
 \end{topic}
+
+\begin{topic}{killing-vector-field}{Killing vector field}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. A \tref{vector-field}{vector field} $X$ on $M$ is a \textbf{Killing vector field} if it preserves the metric, i.e. $\mathcal{L}_X g = 0$, where $\mathcal{L}_X$ is the \tref{lie-derivative}{Lie derivative} with respect to $X$.
+\end{topic}

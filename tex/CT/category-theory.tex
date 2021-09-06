@@ -148,7 +148,7 @@
 \end{topic}
 
 \begin{topic}{sieve}{sieve}
-    Let $\mathcal{C}$ be a category, and $C$ an object of $\mathcal{C}$. A \textbf{sieve} on $C$ is a set of morphisms $S = \{ f : C' \to C \}$ such that if $f : C' \to C$ is in $S$ and $g : C'' \to C'$ is arbitrary, then $f \circ g$ is in $S$.
+    Let $\mathcal{C}$ be a \tref{category}{category}, and $C$ an object of $\mathcal{C}$. A \textbf{sieve} on $C$ is a set of morphisms $S = \{ f : C' \to C \}$ such that if $f : C' \to C$ is in $S$ and $g : C'' \to C'$ is arbitrary, then $f \circ g$ is in $S$.
     
     Equivalently, it is a subpresheaf of $y_C$, the \tref{yoneda-embedding}{yoneda functor}.
 \end{topic}
@@ -465,3 +465,59 @@
     \[ \begin{tikzcd} & F(X, X) \arrow{r}{\alpha_X} & G(X, X) \arrow{dr}{G(\id_X, f)} & \\ F(Y, X) \arrow{ur}{F(f, \id_X)} \arrow[swap]{dr}{F(\id_Y, f)} & & & G(X, Y) \\ & F(Y, Y) \arrow{r}{\alpha_Y} & G(Y, Y) \arrow[swap]{ur}{G(f, \id_Y)} & \end{tikzcd} \]
     commutes.
 \end{topic}
+
+\begin{topic}{subobject}{subobject}
+    In a \tref{category}{category} $\mathcal{C}$, a \textbf{subobject} of an object $X$ is an equivalence class of \tref{monomorphism}{monomorphisms} $m : Y \to X$, where $m : Y \to X$ and $m' : Y' \to X$ are equivalent if there is an isomorphism $h : Y \to Y'$ with $m = m' \circ h$.
+\end{topic}
+
+\begin{topic}{subobject-classifier}{subobject classifier}
+    Let $\mathcal{C}$ be a \tref{category}{category} with finite \tref{limit}{limits}. A \textbf{subobject classifier} is a \tref{monomorphism}{monomorphism} $t : 1 \to \Omega$, where $1$ is a \tref{terminal-object}{terminal object}, with the property that for any monomorphism $m : A \to B$, there is a unique arrow $\phi : B \to \Omega$ such that there is a pullback diagram
+    \[ \begin{tikzcd} A \arrow[swap]{d}{m} \arrow{r} & T \arrow{d}{t} \\ B \arrow{r}{\phi} & \Omega \end{tikzcd} \]
+    In particular, arrows $\phi : B \to \Omega$ classify \tref{subobject}{subobjects} of $B$, that is $\textup{Sub}(-) \simeq \Hom_\mathcal{C}(-, \Omega)$.
+\end{topic}
+
+\begin{example}{subobject-classifier}
+    In \textbf{Set}, the inclusion $\{ 1 \} \hookrightarrow \{ 0, 1 \}$ is a subobject classifier. Namely, for any set $B$ and subset $A \subset B$, we have a unique \textit{characteristic function} $\phi_A : B \to \{ 0, 1 \}$ given by $\phi_A(x) = 1$ if $x \in A$ and $\phi_A(x) = 0$ otherwise.
+\end{example}
+
+\begin{example}{subobject-classifier}
+    Let's construct a subobject classifier $\Omega$ in $\textbf{Set}^{\mathcal{C}^\textup{op}}$. For a representable presheaf $y_C$ we must have that morphisms $y_C \to \Omega$ correspond one-to-one with subpresheaves of $y_C$, a.k.a. \tref{sieve}{sieves} on $C$. By the \tref{yoneda-lemma}{Yoneda lemma}, we define $\Omega(C) \simeq \Hom(y_C, \Omega)$ to be the set of sieves on $C$. Naturally, for a morphism $f : C' \to C$ we define $\Omega(f)$ by sending a sieve $R$ on $C$ to the pullback $f^*(R) = \{ g : D \to C' : fg \in R \}$. The map $t : 1 \to \Omega$ sends, for each $C$, the unique element of $1(C)$ to the maximal sieve on $C$.
+    
+    To prove this is a subobject classifier, let $Y$ be a subpresheaf of $X$. For any $C$ and $x \in X(C)$, the set
+    \[ \phi_C(x) = \{ f : D \to C : X(f)(x) \in Y(D) \} \]
+    is a sieve on $C$, and defining $\phi : X \to \Omega$ this way gives a natural transformation: for $f : C' \to C$ we have
+    \[ \begin{aligned}
+        \phi_{C'}(X(f)(x))
+            &= \{ g : D \to C' : X(g)(X(f)(x)) \in Y(D) \} \\
+            &= \{ g : D \to C' : X(gf)(x) \in Y(D) \} \\
+            &= \{ g : D \to C' : fg \in \phi_C(x) \} \\
+            &= \Omega(f)(\phi_C(x)) .
+    \end{aligned} \]
+    If we take the pullback of $t$ along $\phi$, we get the subpresheaf of $X$ consisting of (at each object $C$) those elements $x$ for which $\id_C \in \phi_C(x)$, that is, we get $Y$.
+    
+    Conversely, if $\phi : X \to \Omega$ is a natural transformation such that the pullback of $t$ along $\phi$ gives $Y$, then for every $x \in X(C)$ we have that $x \in Y(C)$ if and only if $\id_C \in \phi_C(x)$. But then naturally for any $f : C' \to C$ we have that
+    \[ X(f)(x) \in Y(C') \iff \id_{C'} \in f^*(\phi_C(x)) \iff f \in \phi_C(x) \]
+    which shows that the classifying map $\phi$ is unique.
+\end{example}
+
+\begin{topic}{topos}{topos}
+    A \textbf{topos} is a \tref{category}{category} which is \tref{cartesian-closed-category}{cartesian closed}, has finite \tref{limit}{limits} and has a \tref{subobject-classifier}{subobject classifier}.
+\end{topic}
+
+\begin{example}{topos}
+    The category \textbf{Set}, and more generally $\textbf{Set}^{\mathcal{C}^\textup{op}}$, is a topos.
+\end{example}
+
+\begin{topic}{kan-extension}{Kan extension}
+    Let $F : \mathcal{C} \to \mathcal{D}$ and $K : \mathcal{C} \to \mathcal{E}$ be \tref{functor}{functors}. The \textbf{right Kan extension} of $F$ along $K$ is a functor $R : \mathcal{E} \to \mathcal{D}$ with a \tref{natural-transformation}{natural transformation} $\varepsilon : R \circ K \Rightarrow F$, which is universal in the sense that for any other functor $R' : \mathcal{E} \to \mathcal{D}$ with $\varepsilon' : R' \circ K \Rightarrow F$, there exists a unique natural transformation $\sigma : R' \Rightarrow R$ such that $\varepsilon' = \varepsilon \circ (\sigma K)$.
+    \[ \begin{tikzcd}[row sep=5em, column sep=5em] \mathcal{E} \arrow[swap, bend right=25]{dr}[name=R1]{R} \arrow[bend left=25]{dr}[name=R2]{R'} \\ \mathcal{C} \arrow[swap]{r}{F} \arrow{u}{K} & \mathcal{D} \arrow[shorten <=2pt,shorten >=2pt,Rightarrow,to path={(R2) -- node[label=right:$\sigma$] {} (R1)}]{}\end{tikzcd} \]
+    The right Kan extension, if it exists, is denoted $\textup{Ran}_K F$.
+
+    Similarly, a \textbf{left Kan extension} of $F$ along $K$ is a functor $L : \mathcal{E} \to \mathcal{D}$ with a natural transformation $\eta : F \Rightarrow L \circ K$, which is universal in the sense that for any other $L' : \mathcal{E} \to \mathcal{D}$ with $\eta' : F \Rightarrow L' \circ K$ there exists a unique $\sigma : L \Rightarrow L'$ such that $\eta' = (\sigma \circ K) \circ \eta$.
+    \[ \begin{tikzcd}[row sep=5em, column sep=5em] \mathcal{C} \arrow{r}{F} \arrow[swap]{d}{K} & \mathcal{D} \\ \mathcal{E} \arrow[bend left=25]{ur}[name=L1]{L} \arrow[swap, bend right=25]{ur}[name=L2]{L'} \arrow[shorten <=2pt,shorten >=2pt,Rightarrow,to path={(L1) -- node[label=right:$\sigma$] {} (L2)}]{} \end{tikzcd} \]
+    The left Kan extension, if it exists, is denoted $\textup{Lan}_K F$.
+\end{topic}
+
+\begin{example}{kan-extension}
+    \tref{limit}{Limits} (and colimits) can be expressed in terms of Kan extensions. The limit of a functor $\mathcal{F} : \mathcal{C} \to \mathcal{D}$ is the same as $\textup{Ran}_K F$, where $K : \mathcal{C} \to 1$ is the (unique) functor from $\mathcal{C}$ to $1$, the category with one object and one morphism. Similarly, the colimit $\textup{colim } F$ is the same as $\textup{Lan}_K F$.
+\end{example}

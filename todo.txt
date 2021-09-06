@@ -1,13 +1,9 @@
 -- Clever search function: take care of switching words, () and dashes 
 -- Homepage
 -- PDF front cover
--- Dark mode (improve)
--- Validate \tref{} arguments, also auto-deduce prefix if not given!
 -- Reference system
 
-HA: example of a semi-orthogonal decomposition
-
-CT: Kan extensions
+HA: example of a semi-orthogonal decomposition (derived category of some modules?)
 
 ??: pre-orders, boolean algebras, that kind of stuff,
 
@@ -67,6 +63,8 @@ DG: hyperkahler manifold
 DG: Chern classes (> 1)
 DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 DG: orbifold
+
+DG: Courant bracket, Courant algebroid
 
 TO: locally compact (quasi-compact?)
 

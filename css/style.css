@@ -298,6 +298,7 @@ img.display-math-svg {
     background-color: var(--clr-background-example);
     box-shadow: 0px 0px 5px var(--clr-shadow);
     font-size: 16px;
+    transition: background-color 0.2s;
 }
 
 #examples.hidden .example {
@@ -360,7 +361,7 @@ img.display-math-svg {
 
 /* theme */
 #button-theme {
-    position: absolute;
+    position: fixed;
     bottom: 8px;
     right: 8px;
     /* background-color: rgba(127, 127, 127, 0.5); */
