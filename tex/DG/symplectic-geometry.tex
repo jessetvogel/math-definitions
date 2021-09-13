@@ -6,6 +6,8 @@
     Let $M = \RR^{2n}$ with standard coordinates $q^1, \ldots, q^n, p_1, \ldots, p_n$. Then the $2$-form
     \[ \omega = \sum_{i = 1}^{n} d q^i \wedge d p_i , \]
     is a symplectic form, the \textit{standard symplectic form}.
+    
+    In fact, \tref{darboux-theorem}{Darboux's theorem} states that any symplectic manifold locally has this form.
 \end{example}
 
 \begin{topic}{symplectomorphism}{symplectomorphism}
@@ -109,3 +111,34 @@
     \[ \{ \{ F, G \}, H \} + \{ \{ G, H \}, F \} + \{ \{ H, F \}, G \} = -d \omega(X_F, X_G, X_H) \]
     and that $\omega$ is closed.
 \end{example}
+
+\begin{topic}{poisson-map}{Poisson map}
+    A \textbf{Poisson map} is a \tref{smooth-map}{smooth map} $\phi : M \to N$ between \tref{poisson-manifold}{Poisson manifolds} such that the pullback
+    \[ \phi^* : C^\infty(N) \to C^\infty(M), \quad f \mapsto f \circ \phi \]
+    is a morphism of Poisson algebras.
+\end{topic}
+
+\begin{topic}{darboux-theorem}{Darboux's theorem}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. \textbf{Darboux's theorem} states that around any point $x \in M$, there are local coordinates $q^1, \ldots, q^n, p_1, \ldots, p_n$ such that
+    \[ \omega = dq^i \wedge dp_i . \]
+\end{topic}
+
+\begin{topic}{moser-stability}{Moser's stability}
+    \textbf{Moser's stability} states that for a \tref{closed-manifold}{closed} \tref{smooth-manifold}{smooth manifold} $M$ and a family of \tref{symplectic-manifold}{symplectic forms} $(\omega_t)_{t \in [0, 1]}$ on $M$ such that the \tref{de-rham-complex}{cohomology classes} $[\omega_t] \in H^2_{\textup{dR}}(M)$ are constant, there exists an isotopy $\varphi : M \times [0, 1] \to M$ such that $\varphi_t^* \omega_0 = \omega_t$ for all $t \in [0, 1]$.
+\end{topic}
+
+\begin{example}{moser-stability}
+    The proof is known as \textbf{Moser's trick}. Suppose there exists such an isotopy $\varphi$, and define a vector field $X_t = \frac{d \varphi}{d t} \circ \varphi_t^{-1}$. Then by \tref{cartan-formula}{Cartan's formula} and properties of the \tref{lie-derivative}{Lie derivative},
+    \[ 0 = \frac{d}{dt} \left(\varphi_t^* \omega_t\right) = \varphi_t^* \left(\mathcal{L}_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) = \varphi_t^* \left(d \iota_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) \]
+    so we obtain
+    \[ d \iota_{X_t} \omega_t + \frac{d \omega_t}{dt} = d(\iota_{X_t} \omega_t + \alpha_t) = 0 , \]
+    where $\frac{d \omega_t}{d t} = d \alpha_t$ for a family of 1-forms $\alpha_t$ since $[\omega_t]$ is constant. Now since $\omega_t$ is non-degenerate, we can integrate $\iota_{X_t} \omega_t + \alpha_t$ to obtain $X_t$, and let $\varphi_t$ be the flow of $X_t$.
+\end{example}
+
+\begin{topic}{casimir-function}{Casimir function}
+    Let $(P, \{ \cdot, \cdot \})$ be a \tref{poisson-manifold}{Poisson manifold}. A function $f \in C^\infty(P)$ is called \textbf{Casimir} if the \tref{hamiltonian-vector-field}{Hamiltonian vector field} $X_f = \{ f, - \}$ is zero.
+\end{topic}
+
+\begin{topic}{symplectic-connection}{symplectic connection}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. A \textbf{symplectic connection} on $M$ is a \tref{affine-connection}{affine connection} $\nabla$ which is \tref{torsion-connection}{torsion-free} and preserves the symplectic form, i.e. $\nabla \omega = 0$.
+\end{topic}

@@ -313,3 +313,19 @@
     \[ E_2^{p, q} = H^p(Y, R^q f_* \mathcal{F}) \Rightarrow H^{p + q}(X, \mathcal{F}) \]
     called the \textbf{Leray spectral sequence}. It is a special case of the \tref{grothendieck-spectral-sequence}{Grothendieck spectral sequence}.
 \end{topic}
+
+\begin{topic}{exact-category}{exact category}
+    An \textbf{exact category} is an \tref{additive-category}{additive category} $\mathcal{A}$ with a class $E$ of sequences
+    \[ A \to B \to C \]
+    (referred to as `\textit{short exact sequences}') such that
+    \begin{itemize}
+        \item $E$ is closed under isomorphisms and contains all canonical sequences of the form
+        \[ A \to A \oplus C \to C , \]
+        \item if $B \to C$ occurs as the second arrow of a sequence in $E$ (called an \textit{admissible epimorphism}) and $D \to C$ is any morphism, then the pullback exists, and the projection to $D$ is an admissible epimorphism as well. Dually, if $A \to B$ occurs as the first arrow of a sequence in $E$ (called an \textit{admissible monomorphism}) and $A \to D$ is any morphism, then the pushout exists, and the inclusion from $A$ is also an admissible monomorphism,
+        \item admissible monomorphisms are kernels of their corresponding admissible epimorphisms, and dually admissible epimorphisms are cokernels of their corresponding admissible monomorphisms. The composition of two admissible monomorphisms is admissible, and similarly for admissible epimorphisms.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{frobenius-category}{Frobenius category}
+    A \textbf{Frobenius category} is an \tref{exact-category}{exact category} with enough \tref{injective-object}{injectives} and enough \tref{projective-object}{projectives}, such that the classes of injectives and projectives coincides.
+\end{topic}

@@ -1,0 +1,6 @@
+<div class="example">The proof is known as <b>Moser’s trick</b>. Suppose there exists such an isotopy <span class="math inline">\(\varphi\)</span>, and define a vector field <span class="math inline">\(X_t = \frac{d \varphi}{d t} \circ \varphi_t^{-1}\)</span>. Then by <a href="#DG:cartan-formula">Cartan’s formula</a> and properties of the <a href="#DG:lie-derivative">Lie derivative</a>,
+<span class="math display">\[ 0 = \frac{d}{dt} \left(\varphi_t^* \omega_t\right) = \varphi_t^* \left(\mathcal{L}_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) = \varphi_t^* \left(d \iota_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) \]</span>
+so we obtain
+<span class="math display">\[ d \iota_{X_t} \omega_t + \frac{d \omega_t}{dt} = d(\iota_{X_t} \omega_t + \alpha_t) = 0 , \]</span>
+where <span class="math inline">\(\frac{d \omega_t}{d t} = d \alpha_t\)</span> for a family of 1-forms <span class="math inline">\(\alpha_t\)</span> since <span class="math inline">\([\omega_t]\)</span> is constant. Now since <span class="math inline">\(\omega_t\)</span> is non-degenerate, we can integrate <span class="math inline">\(\iota_{X_t} \omega_t + \alpha_t\)</span> to obtain <span class="math inline">\(X_t\)</span>, and let <span class="math inline">\(\varphi_t\)</span> be the flow of <span class="math inline">\(X_t\)</span>.
+</div>

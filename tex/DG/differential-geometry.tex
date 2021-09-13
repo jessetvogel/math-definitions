@@ -502,3 +502,43 @@
 \begin{topic}{killing-vector-field}{Killing vector field}
     Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. A \tref{vector-field}{vector field} $X$ on $M$ is a \textbf{Killing vector field} if it preserves the metric, i.e. $\mathcal{L}_X g = 0$, where $\mathcal{L}_X$ is the \tref{lie-derivative}{Lie derivative} with respect to $X$.
 \end{topic}
+
+\begin{topic}{schouten-nijenhuis-bracket}{Schouten--Nijenhuis bracket}
+    The \textbf{Schouten--Nijenhuis bracket} is a unique extension of the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields} to a graded bracket of multivector fields. It is defined by
+    \[ \begin{aligned} {[}X_1 \wedge \cdots \wedge X_m, Y_1 \wedge \cdots \wedge Y_n{]} = \sum_{\substack{1 \le i \le m \\ 1 \le j \le n}} (-1)^{i + j} [X_i, X_j] &X_1 \wedge \cdots \wedge X_{i - 1} \wedge X_{i + 1} \wedge X_m \\ \wedge &Y_1 \wedge \cdots \wedge Y_{j - 1} \wedge Y_{j + 1} \wedge Y_n , \end{aligned} \]
+    for \tref{vector-field}{vector fields} $X_i$ and $Y_j$, and by
+    \[ [f, X_1 \wedge \cdots \wedge X_m] = -\iota_{df} X_1 \wedge \cdots \wedge X_m \]
+    for a function $f$.
+\end{topic}
+
+\begin{topic}{courant-bracket}{Courant bracket}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Courant bracket} on $M$ is the skew-symmetric bracket on $TM \oplus T^*M$ given by
+    \[ [X + \xi, Y + \eta] = [X, Y] + \mathcal{L}_X \eta - \mathcal{L}_Y \xi - \frac{1}{2} d \left(\iota_X \eta - \iota_Y \xi \right) , \]
+    where $[X, Y]$ is the usual \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}.
+\end{topic}
+
+\begin{topic}{courant-algebroid}{Courant algebroid}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Courant algebroid} over $M$ is a \tref{vector-bundle}{vector bundle} $E$ on $M$ together with a non-degenerate symmetric bilinear form $\langle \cdot, \cdot \rangle : \Gamma(E) \times \Gamma(E) \to \RR$, a skew-symmetric bracket $[\cdot, \cdot] : \Gamma(E) \times \Gamma(E) \to \Gamma(E)$ and a smooth bundle map $\pi : E \to TM$ called the \textit{anchor map}, satisfying
+    \begin{itemize}
+        \item (\textit{Respecting bracket}) $\pi([X, Y]) = [\pi(X), \pi(Y)]$,
+        \item (\textit{Left Jacobi identity}) $[X, [Y, Z]] = [[X, Y], Z] + [Y, [X, Z]]$,
+        \item (\textit{Leibniz rule}) $[X, fY] = f[X, X] + \rho(X)(f) Y$,
+        \item (\textit{Self-adjoint}) $\pi(X) \langle Y, Z \rangle = \langle [X, Y], Z \rangle + \langle Y, [X, Z] \rangle$,
+        \item (\textit{}) $[X, X] = \frac{1}{2} \mathcal{D} \langle X, X \rangle$,
+    \end{itemize}
+    where $\mathcal{D} : C^\infty(M) \to \Gamma(E)$ is the differential operator.
+\end{topic}
+
+\begin{example}{courant-algebroid}
+    The bundle $E = TM \oplus T^*M$ together with the bilinear form
+    \[ \langle X + \xi, Y + \eta \rangle = \xi(Y) + \eta(X) , \]
+    the \tref{courant-bracket}{Courant bracket}, and the projection map $\pi : TM \oplus T^*M \to TM$ as anchor map, is a Courant algebroid, called the \textit{split Courant algebroid}.
+\end{example}
+
+\begin{topic}{dirac-structure}{Dirac structure}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost Diract structure} on $M$ is a subbundle $L \subset TM \oplus T^*M$ which is maximal isotropic with respect to symmetric bilinear form $\langle X + \xi, Y + \eta \rangle = \xi(Y) + \eta(X)$. If moreover $L$ is closed under the \tref{courant-bracket}{Courant bracket}, it is called \textit{integrable}, or simply a \textbf{Dirac structure}.
+\end{topic}
+
+% \begin{example}{dirac-structure}
+
+% \end{example}

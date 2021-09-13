@@ -123,8 +123,13 @@
 \end{topic}
 
 \begin{topic}{regular-monomorphism}{regular monomorphism}
-    A \tref{monomorphism}{monomorphism} $f : X \to Y$ is called a \textbf{regular monomorphism} if fits into an equalizer diagram:
+    A \tref{monomorphism}{monomorphism} $f : X \to Y$ is called a \textbf{regular monomorphism} if fits into an \tref{equalizer}{equalizer} diagram:
     \[ \begin{tikzcd} X \arrow{r}{f} & Y \arrow[shift left=0.25em]{r} \arrow[shift right=0.25em]{r} & Z \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{regular-epimorphism}{regular epimorphism}
+    An \tref{epimorphism}{epimorphism} $f : X \to Y$ is called a \textbf{regular epimorphism} if fits into an \tref{coequalizer}{coequalizer} diagram:
+    \[ \begin{tikzcd} W \arrow[shift left=0.25em]{r} \arrow[shift right=0.25em]{r} & X \arrow{r}{f} & Y \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{adjoint-functors}{adjoint functors}
@@ -520,4 +525,60 @@
 
 \begin{example}{kan-extension}
     \tref{limit}{Limits} (and colimits) can be expressed in terms of Kan extensions. The limit of a functor $\mathcal{F} : \mathcal{C} \to \mathcal{D}$ is the same as $\textup{Ran}_K F$, where $K : \mathcal{C} \to 1$ is the (unique) functor from $\mathcal{C}$ to $1$, the category with one object and one morphism. Similarly, the colimit $\textup{colim } F$ is the same as $\textup{Lan}_K F$.
+\end{example}
+
+\begin{topic}{regular-category}{regular category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{regular} if
+    \begin{itemize}
+        \item $\mathcal{C}$ has all finite \tref{limit}{limits},
+        \item for every pullback diagram
+        \[ \begin{tikzcd} Z \arrow[swap]{d}{p_1} \arrow{r}{p_0} & X \arrow{d}{f} \\ X \arrow{r}{f} & Y \end{tikzcd} \]
+        the \tref{coequalizer}{coequalizer} of $p_0$ and $p_1$ exists,
+        \item \tref{regular-epimorphism}{regular morphisms} are stable under pullback.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{regular-category}
+    The categories \textbf{Set} and \textbf{Ring} are regular.
+    
+    The category \textbf{Top} is not regular! It satisfies the first two conditions, but not the third.
+    % TODO: explain why
+\end{example}
+
+\begin{example}{regular-category}
+    In a regular category, every morphism $f : X \to Y$ can be factored as $X \xrightarrow{e} Z \xrightarrow{m} Y$ with $m$ a monomorphism and $e$ an epimorphism, unique in the sense that for any other factorization $X \xrightarrow{e'} Z' \xrightarrow{m'} Y$ there exists an isomorphism $\sigma : Z \to Z'$ with $\sigma e = e'$ and $m' \sigma = m$.
+    % TODO: proof this
+\end{example}
+
+\begin{topic}{concrete-category}{concrete category}
+    A \textbf{concrete category} is a \tref{category}{category} $\mathcal{C}$ together with a \tref{faithful-functor}{faithful functor} $U : \mathcal{C} \to \textbf{Set}$, thought of as a \textit{forgetful functor}.
+\end{topic}
+
+\begin{example}{concrete-category}
+    The categories \textbf{Set}, \textbf{Group}, \textbf{Ring}, \textbf{Top} are all concrete, where the forgetful functor $U$ is the functor that maps an object to its underlying set.
+    
+    However, the category \textbf{hTop} of topological spaces where morphisms are \tref{AT:homotopy}{homotopy} classes of continuous maps, is not concrete. The obvious forgetful functor $U : \textbf{hTop} \to \textbf{Set}$ is not faithful, since homotopic maps need not be equal. Moreover, it is proven that \textbf{hTop} cannot be made into a concrete category.
+\end{example}
+
+\begin{topic}{end}{(co)end}
+    The \textbf{end} of a \tref{functor}{functor} $S : \mathcal{C}^\textup{op} \times \mathcal{C} \to \mathcal{E}$ is an object $e$ of $\mathcal{E}$ with a family of morphisms $\pi_c : e \to S(c, c)$ for $c$ in $\mathcal{C}$ such that the diagram
+    \[ \begin{tikzcd} & e \arrow[swap]{ld}{\pi_a} \arrow{dr}{\pi_b} & \\ S(a, a) \arrow[swap]{dr}{S(\id_a, f)} && S(b, b) \arrow{ld}{S(f, \id_b)} \\ & S(a, b) & \end{tikzcd} \]
+    commutes for all $f : a \to b$ in $\mathcal{C}$ (the \textit{wedge condition}), which is universal in the sense that for any other such $(e', \pi')$ there exists a unique morphism $h : e' \to e$ such that $\pi'_c = \pi_c \circ h$ for all $c$ in $\mathcal{C}$. The end is denoted
+    \[ e = \int_c S(c, c) . \]
+    
+    Dually, one can define the \textbf{coend} of a functor $S : \mathcal{C} \times \mathcal{C}^\textup{op} \to \mathcal{E}$, denoted $\int^c S(c, c)$.
+\end{topic}
+
+\begin{example}{end}
+    Given functors $F, G : \mathcal{C} \to \mathcal{D}$, form the functor
+    \[ S = \Hom_\mathcal{D}(F(-), G(-)) : \mathcal{C}^\textup{op} \times \mathcal{C} \to \textbf{Set} . \]
+    The end of $S$ is the set of natural transformations $F \Rightarrow G$,
+    \[ \int_c \Hom_\mathcal{D}(F(c), G(c)) \simeq \textup{Nat}(F, G) . \]
+    The components of any $\mu \in \int_c \Hom_\mathcal{D}(F(c), G(c))$ can be obtained via the projections $\pi_c$. The wedge condition precisely reduces to the naturality condition.
+\end{example}
+
+\begin{example}{end}
+    Let $T : \Delta^\textup{op} \to \textbf{Set}$ be a \tref{simplicial-object}{simplicial set} and let $\gamma : \Delta \to \textbf{Top}$ be the functor sending $[n]$ to the standard $n$-simplex in $\RR^{n + 1}$. Then form the functor
+    \[ S : \Delta^\textup{op} \times \Delta \to \textbf{Top}, \quad ([m], [n]) \mapsto T([m]) \times \gamma([n]) , \]
+    where $T([m])$ has the \tref{TO:discrete-topology}{discrete topology}. Now the coend $\int^c S(c, c)$ of $S$ is the \tref{geometric-realization}{geometric realization} of $T$.
 \end{example}

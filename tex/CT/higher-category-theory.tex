@@ -1,5 +1,5 @@
 % Monoidal categories
-\begin{topic}{monoidal-category}{Monoidal category}
+\begin{topic}{monoidal-category}{monoidal category}
     A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $\textbf{1}$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
     \[ \begin{aligned}
         \alpha : - \otimes (- \otimes -) &\Rightarrow (- \otimes -) \otimes - \qquad \text{(associator)} \\
@@ -56,6 +56,20 @@
         
     There is more than one way to make $\textbf{GrVect}_k$ symmetric. As the map $V \otimes W \to W \otimes V$ one could take the more obvious map $\tau : v \otimes w \to w \otimes v$. However, one could also take the map $\kappa : v \otimes w \mapsto (-1)^{pq} w \otimes v$ with $p = \deg(v)$ and $q = \deg(w)$, known as \textit{Koszul's sign change}. One can check that $\kappa$ indeed satisfies the axioms.
 \end{example}
+
+\begin{topic}{braided-monoidal-category}{braided monoidal category}
+    A \textbf{braided monoidal category} is a \tref{symmetric-monoidal-category}{symmetric monoidal category} $(\mathcal{C}, \tau)$ without the condition that $\tau_{Y, X} \circ \tau_{X, Y} = \id_{X \otimes Y}$.
+    % \[ \gamma_{X, Y} : X \otimes Y \to Y \otimes X \]
+    % such that the diagrams
+    % \[ \begin{tikzcd}
+    %     (X \otimes Y) \otimes Z \arrow{r}{\alpha_{X, Y, Z}} \arrow[swap]{d}{\tau_{X, Y} \otimes \id_Z} & X \otimes (Y \otimes Z) \arrow{r}{\tau_{X, Y \otimes Z}} & (Y \otimes Z) \otimes X \arrow{d}{\alpha_{Y, Z, X}} \\ (Y \otimes X) \otimes Z \arrow{r}{\alpha_{Y, X, Z}} & Y \otimes (X \otimes Z) \arrow{r}{\id_Y \otimes \tau_{X, Z}} Y & Y \otimes (Z \otimes X)
+    % \end{tikzcd} \]
+    % and
+    % \[ \begin{tikzcd}
+    %     X \otimes (Y \otimes Z) \arrow{r}{\alpha^{-1}_{X, Y, Z}} \arrow[swap]{d}{\id_X \otimes \tau_{Y, Z}} & (X \otimes Y) \otimes Z \arrow{r}{\tau_{X \otimes Y, Z}} & Z \otimes (X \otimes Y) \arrow{d}{\alpha^{-1}_{Z, X, Y}} \\ X \otimes (Y \otimes Z) \arrow{r}{\alpha^{-1}_{X, Z, Y}} & (X \otimes Z) \otimes Y \arrow{r}{\tau_{X, Z} \otimes \id_Y} & (Z \otimes X) \otimes Y
+    % \end{tikzcd} \]
+    % commute for all $X, Y, Z$ in $\mathcal{C}$.
+\end{topic}
 
 \begin{topic}{monoidal-functor}{(lax) monoidal functor}
     A \textbf{lax monoidal functor} is a \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ between \tref{monoidal-category}{monoidal categories} together with a \tref{natural-transformation}{natural transformation}

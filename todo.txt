@@ -3,11 +3,13 @@
 -- PDF front cover
 -- Reference system
 
-HA: example of a semi-orthogonal decomposition (derived category of some modules?)
+- Geometric realization of simplicial set (as a colimit): functorial, the functor is left/right adjoint to Sing(-)
 
-??: pre-orders, boolean algebras, that kind of stuff,
 
-AA: Primitive ideal / Primitive spectrum (C*-algebra)
+# Other
+LO ? : pre-orders, boolean algebras, that kind of stuff,
+??: von Neumann algebra
+UN: classifying space -- vague?
 
 # Measure Theory ??
 MT: Measure Theory, sigma algebra, borel algebra
@@ -25,7 +27,7 @@ AG: normal crossings divisor
 AG: hyperelliptic curve
 AG: Narasimhan--Seshadri theorem
 
-# Number theory
+# Number Theory
 NT: ring of integers
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
@@ -39,15 +41,18 @@ NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 
+# Homological Algebra
+HA: example of a semi-orthogonal decomposition (derived category of some modules?)
+
+# Algebra
 AA?: Dynkin diagrams
-
-UN: classifying space -- vague?
-
-DG?: Weyl group / maximal torus
+AA: Primitive ideal / Primitive spectrum (C*-algebra)
+AA: Universal enveloping algebra
 
 # Homotopy theory
 HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]
 HT: stable infinity category [Definition 1.1.1.9]
+HT: Spectra!
 
 // HT: sifted simplicial set ?
 
@@ -63,10 +68,7 @@ DG: hyperkahler manifold
 DG: Chern classes (> 1)
 DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 DG: orbifold
-
-DG: Courant bracket, Courant algebroid
-
-TO: locally compact (quasi-compact?)
+DG?: Weyl group / maximal torus
 
 AT: Euler characteristic
 AT: Gysin sequence
@@ -75,8 +77,6 @@ AT: Bockstein sequence
 AT/TO: equivariant cohomology ? Homotopy quotients
 
 RT: weights, dominant, integral elements
-
-??: Lie product formula
 
 # Noncmomutative deformations??
 - Quantum groups
