@@ -1,6 +1,18 @@
 \begin{topic}{vector-space}{vector space}
-    A \textbf{vector space} over a \tref{CA:field}{field} $k$ is a $k$-module. Its elements are called \textit{vectors}.
-    % Concretely, ...
+    A \textbf{vector space} over a \tref{CA:field}{field} $k$ is a \tref{CA:module}{$k$-module}. Its elements are called \textit{vectors}.
+    Concretely, a vector space over $k$ is a set $V$ with a distinguished object $0 \in V$ and two operations
+    \[ + : V \times V \to V, \quad \cdot : k \times V \to V \]
+    satisfying
+    \begin{itemize}
+        \item (\textit{commutativity}) $x + y = y + x$ for all $x, y \in V$,
+        \item (\textit{associativity}) $(x + y) + z = x + (y + z)$ for all $x, y, z \in V$,
+        \item (\textit{zero vector}) $x + 0 = x = 0 + x$ for all $x \in V$,
+        \item (\textit{negatives}) for all $x \in V$ there exists some $-x \in V$ such that $x + (-x) = 0$,
+        \item (\textit{associativity}) $\lambda \cdot (\mu \cdot x) = (\lambda \mu) \cdot x$ for all $x \in V$ and $\lambda, \mu \in k$,
+        \item (\textit{unit}) $1 \cdot x = x$ for all $x \in V$,
+        \item (\textit{distributivity 1}) $\lambda \cdot (x + y) = (\lambda \cdot x) + (\lambda \cdot y)$ for all $x, y \in V$ and $\lambda \in k$,
+        \item (\textit{distributivity 2}) $(\lambda + \mu) \cdot x = (\lambda \cdot x) + (\mu \cdot x)$ for all $x \in V$ and $\lambda, \mu \in k$.
+    \end{itemize}
 \end{topic}
 
 \begin{topic}{vector-subspace}{vector-subspace}

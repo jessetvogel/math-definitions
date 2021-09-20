@@ -148,6 +148,11 @@
     Every $[n] \to [m]$ induces a map $\Delta^n \to \Delta^m$ by labelling the vertices, which in turn induces a map $\mathcal{S}(X)_m \to \mathcal{S}(X)_m$. Also see \tref{AT:singular-homology}{singular homology}.
 \end{example}
 
+\begin{example}{simplicial-object}
+    The \textit{standard simplicial set} $\Delta^n$ is given by $\Hom_\Delta(-, [n])$. By the \tref{yoneda-lemma}{Yoneda lemma}, we can identify
+    \[ X_n = X([n]) \simeq \Hom(\Delta^n, X) . \]
+\end{example}
+
 \begin{topic}{nerve}{nerve}
     The \textbf{nerve} of a \tref{CT:category}{category} $\mathcal{C}$ is the \tref{simplicial-object}{simplicial set} $\text{N}_\bdot(\mathcal{C})$, where $\text{N}_n(\mathcal{C})$ is the set of \tref{CT:functor}{functors} from $[n] = \{ 0, 1, \ldots, n \}$ (viewed as category: a unique morphism from $i$ to $j$ iff $i \le j$) to $\mathcal{C}$.
     Indeed, for any non-decreasing map $\alpha : [m] \to [n]$, precomposition with $\alpha$ gives a map $\text{N}_n(\mathcal{C}) \to \text{N}_m(\mathcal{C})$.

@@ -94,3 +94,15 @@
     The statement can be generalized to any \tref{HA:abelian-category}{abelian category} $\mathcal{A}$: there is an equivalence
     \[ \mathcal{A}_\Delta \simeq \text{Ch}(\mathcal{A})_{\ge 0} . \]
 \end{topic}
+
+\begin{topic}{geometric-realization}{geometric realization}
+    The \textbf{geometric realization} of a \tref{CT:simplicial-object}{simplicial set} $X : \Delta^\textup{op} \to \textbf{Set}$ is the \tref{TO:topological-space}{topological space} $|X|$ defined as follows. The geometric realization of the standard $n$-simplex $\Delta^n$ is given by
+    \[ |\Delta^n| = \{ (x_0, \ldots, x_n) \in \RR^{n + 1} : 0 \le x_i \le 1, \sum_i x_i = 1 \} , \]
+    and is naturally extended to
+    \[ |X| = \textup{colim }_{\Delta^n \to X} |\Delta^n| , \]
+    where the \tref{CT:limit}{colimit} is taken over the $n$-simplex category of $X$.
+    
+    This construction gives a functor
+    \[ |\cdot| : \textbf{Set}_\Delta \to \textbf{Top} , \]
+    which is \tref{CT:adjoint-functors}{left adjoint} to the \tref{AT:singular-homology}{singular functor} $\textbf{Sing} : \textbf{Top} \to \textbf{Set}_\Delta$.
+\end{topic}

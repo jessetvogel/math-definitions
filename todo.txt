@@ -1,3 +1,5 @@
+# ---- System & Website ----
+
 -- Clever search function: take care of switching words, () and dashes 
 -- Homepage
 -- PDF front cover
@@ -5,6 +7,9 @@
 
 - Geometric realization of simplicial set (as a colimit): functorial, the functor is left/right adjoint to Sing(-)
 
+# ---- Theory ----
+
+- Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
 
 # Other
 LO ? : pre-orders, boolean algebras, that kind of stuff,
@@ -26,6 +31,7 @@ AG: Zariski's main theorem
 AG: normal crossings divisor
 AG: hyperelliptic curve
 AG: Narasimhan--Seshadri theorem
+AG: D-affine variety
 
 # Number Theory
 NT: ring of integers
@@ -80,9 +86,5 @@ RT: weights, dominant, integral elements
 
 # Noncmomutative deformations??
 - Quantum groups
-
 - Mirror symmetry ??? What is this all about ??
-
-- Voevodsky mixed motive category DM(k, Q) (is a triangulated category)
-
 - S-equivalence

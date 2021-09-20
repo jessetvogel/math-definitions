@@ -43,7 +43,7 @@
 \end{topic}
 
 \begin{topic}{integral-scheme}{integral scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{integral} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ is a \tref{CA:domain}{domain}.
+    A \tref{scheme}{scheme} $X$ is \textbf{integral} if it is non-empty and for every non-empty open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ is a \tref{CA:domain}{domain}.
     
     Equivalently, this is the case if $X$ is \tref{reduced-scheme}{reduced} and \tref{TO:irreducible}{irreducible}.
 \end{topic}
@@ -93,6 +93,19 @@
     A \tref{scheme}{scheme} $X$ is \textbf{normal} if all of its local rings $\mathcal{O}_{X,x}$ are \tref{CA:integral-closure}{integrally closed} \tref{CA:domain}{domains}.
     % Every scheme can be `normalized'.
 \end{topic}
+
+\begin{example}{normal-scheme}
+    The cusp $C = \Spec k[x, y] / (x^3 - y^2)$ is not normal since $k[x, y] / (x^3 - y^2)$ is not integrally closed: the element $t = y/x$ is integral, as $t^2 = x$, but does not lie in $k[x, y] / (x^3 - y^2)$.
+    
+    Adding this element gives
+    \[ \begin{aligned}
+        k[x, y, y/x] / (x^3 - y^2) &\simeq k[t] \\
+        x &\mapsto t^2 \\
+        y &\mapsto t^3
+    \end{aligned} \]
+    which is integrally closed. This is the \textit{normalization} of $C$
+    \[ \AA_k^1 \to C, \quad t \mapsto (t^2, t^3) . \]
+\end{example}
 
 \begin{topic}{separated}{(quasi) separated morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is quasi-compact, and it is \textbf{separated} if the diagonal $\Delta_{X/Y}$ is a closed immersion.
@@ -223,7 +236,7 @@
 \end{topic}
 
 \begin{topic}{serre-duality}{Serre duality}
-    Let $X$ be a smooth projective scheme of dimension $n$, and let $\omega_X$ be its canonical sheaf. Then \textbf{Serre duality} states that for every coherent sheaf $\mathcal{F}$ on $X$ there is a natural isomorphism
+    Let $X$ be a \tref{smooth-morphism}{smooth} projective \tref{scheme}{scheme} of dimension $n$, and let $\omega_X$ be its \tref{canonical-sheaf}{canonical sheaf}. Then \textbf{Serre duality} states that for every coherent sheaf $\mathcal{F}$ on $X$ there is a natural isomorphism
     \[ H^i(X, \mathcal{F}^\vee \otimes \omega_X) \simeq H^{n - i}(X, \mathcal{F})^\vee . \]
 \end{topic}
 
@@ -268,7 +281,7 @@
 \end{topic}
 
 \begin{topic}{geometric-genus}{geometric genus}
-    Let $X$ be a non-singular projective \tref{variety}{variety} over $k$. Its \textbf{geometric genus} is defined as
+    Let $X$ be a non-singular \tref{projective-variety}{projective variety} over $k$. Its \textbf{geometric genus} is defined as
     \[ p_g = \dim_k H^0(X, \omega_X) , \]
     where $\omega_X$ is the \tref{canonical-sheaf}{canonical sheaf} of $X$.
 \end{topic}
@@ -840,3 +853,12 @@
 \begin{topic}{excellent-scheme}{(quasi-)excellent scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{(quasi-)excellent} if it has an affine open cover by schemes $\Spec R_i$ with $R_i$ an \tref{CA:excellent-ring}{(quasi-)excellent} ring.
 \end{topic}
+
+\begin{topic}{genus-degree-formula}{genus-degree formula}
+    Let $C \subset \PP^2$ be a \tref{smooth-morphism}{smooth} \tref{algebraic-curve}{curve} given by a homogeneous polynomial of degree $d$. The \textbf{genus-degree formula} expresses the \tref{geometric-genus}{genus} $g$ of $C$ in terms of $d$,
+    \[ g = \frac{1}{2}(d - 1)(d - 2) . \]
+\end{topic}
+
+\begin{example}{genus-degree-formula}
+    Let $E \subset \PP^2$ be given by $Y^2Z - X^3 + XZ^2 = 0$ (of degree $3$), then the genus of $E$ is $\frac{1}{2}(d - 1)(d - 2) = 1$.
+\end{example}

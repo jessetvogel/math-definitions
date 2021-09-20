@@ -112,8 +112,8 @@
     \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow{r}{q} \arrow[swap]{dr}{q'} & Q \arrow[dashed]{d}{\exists!} \\ && Q' \end{tikzcd} \]
 \end{topic}
 
-\begin{topic}{fiber-product}{fiber product}
-    Let $f : X \to Z$ and $g : Y \to Z$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $W$ of $\mathcal{C}$ together with morphisms $\pi_X: W \to X$ and $\pi_Y : W \to Y$ is said to be a \textbf{fiber product} of the pair $f, g$ if $f \circ \pi_X = g \circ \pi_Y$ and for any other such $W'$ with maps $\pi_X'$ and $\pi_Y'$ there exists a unique morphism $h : W' \to W$ such that $\pi_X' = \pi_X \circ h$ and $\pi_Y' = \pi_Y \circ h$.
+\begin{topic}{pullback}{pullback}
+    Let $f : X \to Z$ and $g : Y \to Z$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $W$ of $\mathcal{C}$ together with morphisms $\pi_X: W \to X$ and $\pi_Y : W \to Y$ is said to be a \textbf{pullback} of the pair $f, g$ if $f \circ \pi_X = g \circ \pi_Y$ and for any other such $W'$ with maps $\pi_X'$ and $\pi_Y'$ there exists a unique morphism $h : W' \to W$ such that $\pi_X' = \pi_X \circ h$ and $\pi_Y' = \pi_Y \circ h$.
     \[ \begin{tikzcd} W' \arrow[bend left=30]{rrd}{\pi_X'} \arrow[swap, bend right=30]{ddr}{\pi_Y'} \arrow[dashed]{rd}{\exists!} & & \\ & W \arrow{r}{\pi_X} \arrow[swap]{d}{\pi_Y} & X \arrow{d}{f} \\ & Y \arrow[swap]{r}{g} & Z \end{tikzcd} \]
 \end{topic}
 
@@ -245,7 +245,7 @@
 \end{topic}
 
 \begin{topic}{fiber}{(co)fiber}
-    Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{terminal-object}{terminal object} $1$. A \textbf{fiber} of a morphism $f : X \to Y$ in $\mathcal{C}$ is a \tref{fiber-product}{pullback diagram}
+    Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{terminal-object}{terminal object} $1$. A \textbf{fiber} of a morphism $f : X \to Y$ in $\mathcal{C}$ is a \tref{pullback}{pullback diagram}
     \[ \begin{tikzcd}
         X \times_Y 1 \arrow{r} \arrow{d} & X \arrow{d}{f} \\ 1 \arrow{r} & Y .
     \end{tikzcd} \]
@@ -411,7 +411,7 @@
 \end{topic}
 
 \begin{topic}{eilenberg-moore-category}{Eilenberg--Moore category}
-    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. The \textbf{Eilenberg--Moore category} $\mathcal{C}^T$ of the monad is the category of its \tref{t-algebra}{T-algebras}.
+    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. The \textbf{Eilenberg--Moore category} $\mathcal{C}^T$ of the monad is the category of its \tref{t-algebra}{$T$-algebras}.
 \end{topic}
 
 \begin{example}{eilenberg-moore-category}
@@ -580,5 +580,17 @@
 \begin{example}{end}
     Let $T : \Delta^\textup{op} \to \textbf{Set}$ be a \tref{simplicial-object}{simplicial set} and let $\gamma : \Delta \to \textbf{Top}$ be the functor sending $[n]$ to the standard $n$-simplex in $\RR^{n + 1}$. Then form the functor
     \[ S : \Delta^\textup{op} \times \Delta \to \textbf{Top}, \quad ([m], [n]) \mapsto T([m]) \times \gamma([n]) , \]
-    where $T([m])$ has the \tref{TO:discrete-topology}{discrete topology}. Now the coend $\int^c S(c, c)$ of $S$ is the \tref{geometric-realization}{geometric realization} of $T$.
+    where $T([m])$ has the \tref{TO:discrete-topology}{discrete topology}. Now the coend $\int^c S(c, c)$ of $S$ is the \tref{HT:geometric-realization}{geometric realization} of $T$.
 \end{example}
+
+\begin{topic}{span}{(co)span}
+    In a \tref{category}{category} $\mathcal{C}$, a \textbf{span} from an object $X$ to an object $Y$ is a diagram of the form
+    \[ X \longleftarrow W \longrightarrow Y . \]
+    If the category $\mathcal{C}$ has \tref{pullback}{pullbacks}, we can compose spans
+    \[ \begin{tikzcd}[row sep=0.5em] && W \times_Y V \arrow{dl} \arrow{dr}  && \\ & W \arrow{dl} \arrow{dr} & & V \arrow{dl} \arrow{dr} & \\ X && Y && Z \end{tikzcd} \]
+    and form the \textit{category of spans} $\textup{Span}(\mathcal{C})$. In fact this is naturally a $2$-category, where a $2$-morphism from $X \leftarrow W \rightarrow Y$ to $X \leftarrow V \rightarrow Y$ is given by a morphism $W \to V$ such that
+    \[ \begin{tikzcd}[row sep=0.5em] & W \arrow{dd} \arrow{dl} \arrow{dr} & \\ X && Y \\ & V \arrow{ul} \arrow{ur} \end{tikzcd} \]
+    commutes.
+    
+    Dually, a \textbf{cospan} from an object $X$ to an object $Y$ is a diagram of the form $X \rightarrow W \leftarrow Y$, and similarly if $\mathcal{C}$ has \tref{pushout}{pushouts}, one can form the \textit{$2$-category of cospans} $\textup{Span}^\textup{op}(\mathcal{C})$.
+\end{topic}
