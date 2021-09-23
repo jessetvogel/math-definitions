@@ -594,3 +594,19 @@
     
     Dually, a \textbf{cospan} from an object $X$ to an object $Y$ is a diagram of the form $X \rightarrow W \leftarrow Y$, and similarly if $\mathcal{C}$ has \tref{pushout}{pushouts}, one can form the \textit{$2$-category of cospans} $\textup{Span}^\textup{op}(\mathcal{C})$.
 \end{topic}
+
+\begin{topic}{balanced-category}{balanced category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{balanced} if every morphism which is a \tref{monomorphism}{monomorphism} and a \tref{epimorphism}{epimorphism} is also an \tref{isomorphism}{isomorphism}.
+\end{topic}
+
+\begin{example}{balanced-category}
+    \begin{itemize}
+        \item The category \textbf{Set} is balanced, as injective and surjective imply bijective.
+        
+        \item Any \tref{HA:abelian-category}{abelian category} is balanced. Since every monomorphism $f : A \to B$ is the kernel of some map $\pi : B \to C$, it is also the \tref{equalizer}{equalizer} of $\pi$ and $0$. If moreover $f$ is an epimorphism, then $\pi = 0$, implying $f$ is an isomorphism.
+    
+        \item The category \textbf{Ring} is not balanced. Namely, the inclusion $\ZZ \to \QQ$ is a monomorphism since it is injective, and an epimorphism since a morphism $\QQ \to R$ is determined by the image of $\ZZ$. However, it is clearly not an isomorphism.
+    
+        \item The category \textbf{Top} is not balanced. Namely, the map $\RR \to \RR$ from the \tref{TO:discrete-topology}{discrete topology} to the usual topology is a monomorphism and an epimorphism, but not an isomorphism.
+    \end{itemize}
+\end{example}

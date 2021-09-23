@@ -23,9 +23,7 @@ MT: Measure Theory, sigma algebra, borel algebra
 -- CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
 
 # Algebraic Geometry
-AG: example invertible sheaves: correspondence to divisors
 AG: blowup / blowdown
-AG: Example: Picard group is isomorphic to $H^1(X, \mathcal{O}_X^*)$
 AG: étale fundamental group(oid)
 AG: Zariski's main theorem
 AG: normal crossings divisor

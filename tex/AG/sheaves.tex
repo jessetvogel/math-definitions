@@ -1,15 +1,15 @@
 \begin{topic}{sheaf}{sheaf}
     Let $X$ be a \tref{TO:topological-space}{topological space}. A \textbf{presheaf} $\mathcal{F}$ of abelian groups on $X$ consists of
     \begin{itemize}
-        \item an abelian group $\mathcal{F}(U)$ for every open subset $U \subset X$,
-        \item a morphism $r_{UV} : \mathcal{F}(U) \to \mathcal{F}(V)$ for every inclusion $V \subset U$ of open subsets of $X$,
+        \item an \tref{GT:abelian-group}{abelian group} $\mathcal{F}(U)$ for every open subset $U \subset X$,
+        \item a \tref{GT:group-homomorphism}{group morphism} $r_{UV} : \mathcal{F}(U) \to \mathcal{F}(V)$ for every inclusion $V \subset U$ of open subsets of $X$,
     \end{itemize}
     such that
     \begin{itemize}
         \item $r_{UU}$ is the identity map for any open $U \subset X$,
         \item if $W \subset V \subset U$ are open subsets of $X$, then $r_{UW} = r_{VW} \circ r_{UV}$.
     \end{itemize}
-    Elements of $\mathcal{F}(U)$ are called \textit{sections}. The maps $r_{UV}$ are thought of as restriction maps, and for this reason $r_{UV}(s)$ is often simply written as $s|_V$, for $s \in \mathcal{F}(V)$. One can similarly define a preseheaf of rings, sets, etc.
+    Elements of $\mathcal{F}(U)$ are called \textit{sections}. The maps $r_{UV}$ are thought of as restriction maps, and for this reason $r_{UV}(s)$ is often simply written as $s|_V$, for $s \in \mathcal{F}(V)$. One can similarly define a presheaf of rings, sets, etc.
     
     A presheaf $\mathcal{F}$ is a \textbf{sheaf} if it moreover satisfies:
     \begin{itemize}
@@ -33,7 +33,7 @@
 \end{topic}
 
 \begin{topic}{associated-sheaf}{associated sheaf}
-    Given a \tref{sheaf}{presheaf} $\mathcal{F}$, there is a sheaf $\mathcal{F}^+$ and a morphism $\theta : \mathcal{F} \to \mathcal{F}^+$, with the property that for any sheaf $\mathcal{G}$ and morphism $f : \mathcal{F} \to \mathcal{G}$ there is a unique morphism $g : \mathcal{F}^+ \to \mathcal{G}$ such that $f = g \circ \theta$. The sheaf $\mathcal{F}^+$ is called the \textbf{sheaf associated} to the presheaf $\mathcal{F}$.
+    Given a \tref{sheaf}{presheaf} $\mathcal{F}$, there is a \tref{sheaf}{sheaf} $\mathcal{F}^+$ and a morphism $\theta : \mathcal{F} \to \mathcal{F}^+$, with the property that for any sheaf $\mathcal{G}$ and morphism $f : \mathcal{F} \to \mathcal{G}$ there is a unique morphism $g : \mathcal{F}^+ \to \mathcal{G}$ such that $f = g \circ \theta$. The sheaf $\mathcal{F}^+$ is called the \textbf{sheaf associated} to the presheaf $\mathcal{F}$.
     \[ \begin{tikzcd} \mathcal{F} \arrow{rr}{f} \arrow[swap]{dr}{\theta} && \mathcal{G} \\ & \mathcal{F}^+ \arrow[swap,dashed]{ur}{g} & \end{tikzcd} \]
 \end{topic}
 
@@ -110,6 +110,12 @@
     Let $(X, \mathcal{O}_X)$ be a \tref{ringed-space}{ringed space}. An \textbf{invertible sheaf} $\mathcal{L}$ on $X$ is a \tref{free-sheaf}{locally free} \tref{O-module}{$\mathcal{O}_X$-modules} of rank 1.
 \end{topic}
 
+\begin{example}{invertible-sheaf}
+    Let $D$ be a \tref{cartier-divisor}{Cartier divisor} on a scheme $X$, represented by a collection $\{ (U_i, f_i) \}$ of open subsets $U_i$ and $f_i \in K_X / \mathcal{O}_X^* (U_i)$, where $K_X$ denotes the \tref{sheaf-rational-functions}{sheaf of rational functions}. One defines the invertible sheaf $\mathcal{O}_X(D)$ as the subsheaf of $K_X$ generated as an $\mathcal{O}_X$-submodule by $1/f_i$ on $U_i$. Indeed this gives an invertible sheaf, and moreover this construction gives a canonical homomorphism of groups
+    \[ \mathcal{O}_X(-) : \{ \textup{Cartier divisors} \} / \textup{linear equivalence} \to \textup{Pic}(X), \quad D \mapsto \mathcal{O}_X(D) . \]
+    This map is injective on any scheme $X$, and when $X$ is \tref{integral-scheme}{integral} it is also surjective.
+\end{example}
+
 \begin{topic}{sheaf-of-ideals}{sheaf of ideals}
     Let $(X, \mathcal{O}_X)$ be a \tref{ringed-space}{ringed space}. A \textbf{sheaf of ideals} is an $\mathcal{O}_X$-module $\mathcal{I}$ which is a subsheaf of $\mathcal{O}_X$.
 \end{topic}
@@ -142,4 +148,8 @@
 \begin{topic}{external-tensor-product}{external tensor product}
     Let $X, Y \to S$ be \tref{scheme}{schemes}, $\mathcal{F}$ an \tref{O-module}{$\mathcal{O}_X$-module} and $\mathcal{G}$ an $\mathcal{O}_Y$-module. The \textbf{external tensor product} of $\mathcal{F}$ and $\mathcal{G}$ is the $\mathcal{O}_{X \times_S Y}$-module
     \[ \mathcal{F} \boxtimes \mathcal{G} = \pi_X^* \mathcal{F} \otimes_{\mathcal{O}_S} \pi_Y^* \mathcal{G} . \]
+\end{topic}
+
+\begin{topic}{sheaf-rational-functions}{sheaf of rational functions}
+    Let $X$ be a \tref{scheme}{scheme}. The \textbf{sheaf of rational functions} $K_X$ on $X$ is the \tref{associated-sheaf}{sheafification} of the presheaf which assigns to an open $U \subset X$ the \tref{CA:localization}{localization} $S^{-1} \mathcal{O}_X(U)$, where $S$ is the multiplicative set of all $f \in \mathcal{O}_X(U)$ which are stalk-wise not zero-divisors.
 \end{topic}

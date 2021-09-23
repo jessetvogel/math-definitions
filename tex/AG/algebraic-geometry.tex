@@ -245,11 +245,21 @@
     \[ [\mathcal{L}_1] + [\mathcal{L}_2] = [\mathcal{L}_1 \otimes \mathcal{L}_2] . \]
 \end{topic}
 
+\begin{example}{picard-group}
+    A trivialization of an invertible sheaf $\mathcal{L}$ is given by an open cover $\{ U_i \}$ of $X$ such that $\mathcal{L}|_{U_i} = \mathcal{O}_{U_i} s_i$ for some non-vanishing sections $s_i \in \mathcal{O}_X(U_i)$. Then on overlaps $U_{ij} = U_i \cap U_j$ we have
+    \[ s_i|_{U_{ij}} = g_{ij} s_j|_{U_{ij}} \]
+    for some \textit{transition functions} $g_{ij} \in \mathcal{O}_X^*(U_i \cap U_j)$. These functions satisfy the \textit{cocycle condition}: $g_{ii} = 1$ and $g_{ij} g_{jk} g_{ki} = 1$ on $U_i \cap U_j \cap U_k$. Given another set of generators
+    \[ s'_i = h_i s_i \]
+    with $h_i \in \mathcal{O}_X^*(U_i)$, we find $g'_{ij} = h_i g_{ij} h_j^{-1}$. Hence, there is a natural isomorphism
+    \[ \textup{Pic}(X) \simeq \check{H}^1(X, \mathcal{O}_X^*) \simeq H^1(X, \mathcal{O}_X^*) . \]
+    Indeed this is a homomorphism since multiplying transition functions corresponds to the tensor product of the corresponding invertible sheaves.
+\end{example}
+
 \begin{topic}{picard-functor}{Picard functor}
     Let $f : X \to S$ be a \tref{scheme}{scheme} over $S$. The \textbf{absolute Picard functor} is the functor that assigns to any $T \to S$ the \tref{picard-group}{Picard group} $\text{Pic}(X \times_S T)$,
-    \[ \text{Pic}_X : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \text{Pic}(X \times_S T) . \]
+    \[ \textup{Pic}_X : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \textup{Pic}(X \times_S T) . \]
     The \textbf{relative Picard functor} is the functor
-    \[ \text{Pic}_{X/S} : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \text{Pic}(X \times_S T) / f_T^* \text{Pic}(T) . \]
+    \[ \textup{Pic}_{X/S} : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \textup{Pic}(X \times_S T) / f_T^* \textup{Pic}(T) . \]
 \end{topic}
 
 \begin{topic}{euler-sequence}{Euler sequence}
@@ -474,7 +484,7 @@
 \end{topic}
 
 \begin{topic}{cartier-divisor}{Cartier divisor}
-    A \textbf{Cartier divisor} on a \tref{scheme}{scheme} $X$ is a global section of $\mathcal{M}^*/\mathcal{O}_X^*$, where $\mathcal{M}$ denotes the \textit{sheaf of total quotient rings} of $\mathcal{O}_X$, which is the sheaf \tref{associated-sheaf}{associated} to the presheaf that assigns to each open $U \subset X$ the \tref{CA:total-quotient-ring}{total quotient ring} of $\mathcal{O}_X(U)$.
+    A \textbf{Cartier divisor} on a \tref{scheme}{scheme} $X$ is a global section of $K_X / \mathcal{O}_X^*$, where $K_X$ denotes the \tref{sheaf-rational-functions}{sheaf of rational functions}.
 \end{topic}
 
 \begin{topic}{algebraic-group}{algebraic group}
@@ -862,3 +872,7 @@
 \begin{example}{genus-degree-formula}
     Let $E \subset \PP^2$ be given by $Y^2Z - X^3 + XZ^2 = 0$ (of degree $3$), then the genus of $E$ is $\frac{1}{2}(d - 1)(d - 2) = 1$.
 \end{example}
+
+\begin{topic}{elliptic-curve}{elliptic curve}
+    An \textbf{elliptic curve} is a \tref{smooth-morphism}{smooth} \tref{projective-variety}{projective} \tref{algebraic-curve}{algebraic curve} $E$ over a field $k$ of \tref{geometric-genus}{genus} one, together with a specified point $O$ on $E$. An elliptic curve comes naturally with a group structure, making it an \tref{abelian-variety}{abelian variety}, where $O$ is the unit of the group structure.
+\end{topic}
