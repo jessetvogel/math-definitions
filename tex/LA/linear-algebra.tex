@@ -129,9 +129,16 @@
 
 \begin{topic}{characteristic-polynomial}{characteristic polynomial}
     Let $A$ be an $n \times n$ matrix. The \textbf{characteristic polynomial} of $A$ is the polynomial of degree $n$ given by
-    \[ p_A(\lambda) = \det(A - \lambda I) . \]
+    \[ p_A(\lambda) = \det(\lambda I - A) . \]
     Its roots are precisely the \tref{eigenvalue}{eigenvalues} of $A$.
 \end{topic}
+
+\begin{example}{characteristic-polynomial}
+    The coefficients of the characteristic polynomial are given by
+    \[ p_A(\lambda) = \sum_{k = 0}^{n} \lambda^{n - k} (-1)^k \textup{tr}(\wedge^k A) , \]
+    where $\wedge^k A : \wedge^k k^n \to \wedge^k k^n$ is the \tref{CA:exterior-algebra}{$k$-th exterior power} of $A$.
+    In particular, the constant coefficient is the \tref{determinant}{determinant} of $A$.
+\end{example}
 
 \begin{topic}{diagonalization}{diagonalization}
     A \textbf{diagonalization} of an $n \times n$ matrix $A$ consists of an invertible matrix $C$ and a diagonal matrix $D$ such that
@@ -291,3 +298,19 @@
     The \textbf{Lie product formula} states that for (real or complex) $n \times n$ matrices $A$ and $B$,
     \[ e^{A + B} = \lim_{n \to \infty} \left( e^{A/n} e^{B/n} \right)^n . \]
 \end{topic}
+
+\begin{topic}{pfaffian}{Pfaffian}
+    Let $A$ be a $2n \times 2n$ skew-symmetric matrix. The \textbf{Pfaffian} of $A$ is given by
+    \[ \operatorname{pf} A = \frac{1}{2^n n!} \sum_{\sigma \in S_{2n}} \textup{sign}(\sigma) \prod_{i = 1}^{n} a_{\sigma(2i - 1), \sigma(2i)} . \]
+    It satisfies
+    \[ (\operatorname{pf} A)^2 = \det A . \]
+    The Pfaffian of an $n \times n$ skew symmetric matrix $A$ with $n$ odd is defined to be zero, as the determinant of such a matrix is zero:
+    \[ \det A = \det A^T = \det (-A) = (-1)^n \det A = -\det A . \]
+\end{topic}
+
+\begin{example}{pfaffian}
+    For $n = 2$,
+    \[ \operatorname{pf} \begin{pmatrix} 0 & a \\ -a & 0 \end{pmatrix} = a \]
+    and for $n = 4$,
+    \[ \operatorname{pf} \begin{pmatrix} 0 & a & b & c \\ -a & 0 & d & e \\ -b & -c & 0 & f \\ -d & -e & -f & 0 \end{pmatrix} = af - be + dc . \]
+\end{example}

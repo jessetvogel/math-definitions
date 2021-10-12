@@ -292,6 +292,22 @@
     Let $X$ be a \tref{topological-space}{topological space} and $G$ a \tref{GT:topological-group}{topological group}. A \textbf{principal $G$-bundle} on $X$ is a \tref{fiber-bundle}{fiber bundle} $\pi : P \to X$ with a \tref{GT:free-group-action}{free} and \tref{GT:transitive-group-action}{transitive} \tref{GT:group-action}{action} of $G$ on $P$, preserving the fibers of $P$, such that for any $x \in X$ and $y \in P_x$ the map $G \to P_x, g \mapsto g \cdot y$ is a \tref{homeomorphism}{homeomorphism}.
 \end{topic}
 
+\begin{topic}{associated-bundle}{associated bundle}
+    Let $X$ be a \tref{topological-space}{topological space}, let $\pi : P \to X$ be a \tref{principal-bundle}{principal $G$-bundle}, and let $\rho : G \to \textup{Aut}(F)$ be a continuous right action of $G$ on a space $F$. There is a left action of $G$ on $P \times F$ given by $g \cdot (p, f) = (g \cdot p, f \cdot \rho(g^{-1}))$, and the \tref{quotient-topology}{quotient} $(P \times F) / G$ is called the \textbf{associated bundle} to $P$ of $\rho$.
+\end{topic}
+
+\begin{example}{associated-bundle}
+    Let $M$ be an $n$-dimensional \tref{DG:smooth-manifold}{smooth manifold}, and let $F(TM)$ be the \tref{DG:frame-bundle}{frame bundle} of $M$, which is a principal $\textup{GL}_n(\RR)$-bundle. Given a \tref{RT:representation}{representation} $\rho : \textup{GL}_n(\RR) \to \textup{GL}(V)$, we can form the associated (\tref{DG:vector-bundle}{vector}) bundle
+    \[ F(TM) \times_\rho V \to M . \]
+\end{example}
+
+% \begin{topic}{structure-group}{structure group}
+%     Let $p : E \to B$ be a \tref{fiber-bundle}{fiber bundle} with fiber $F$, and let $G$ be a group acting continuously and \tref{GT:faithful-action}{faithfully} on $F$.
+    
+    
+%     then $G$ is called the \textbf{structure group} of the bundle. In physics, this is called the \textit{gauge group} of the bundle.
+% \end{topic}
+
 % \begin{topic}{principal-homogeneous-space}{principal homogeneous space}
 %     Let $G$ be a \tref{GT:group}. A left (resp. right) \textbf{$G$-principal homogeneous space} is a \tref{topological-space}{topological space} $X$ with a left (resp. right) continuous action of $G$ such that
 %     \[ G \times X \to X \times X, \quad (x, g) \mapsto (g \cdot x, x) \]

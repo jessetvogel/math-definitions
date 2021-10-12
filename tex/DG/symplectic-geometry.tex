@@ -123,6 +123,14 @@
     \[ \omega = dq^i \wedge dp_i . \]
 \end{topic}
 
+\begin{example}{darboux-theorem}
+    \textbf{Proof}. Locally around $x$, we can write $\omega = \frac{1}{2} \omega_{ij} dx^i \wedge dx^j$. Consider $\omega_0 = \frac{1}{2} \omega_{ij}(x) dx^i \wedge dx^1$, which is also a symplectic form in the same neighborhood of $x$. Moreover, for a sufficiently small neighborhood around $x$, we have a family of symplectic forms
+    \[ \omega(t) = (1 - t) \omega_0 + t \omega , \quad t \in [0, 1] . \]
+    Since $\omega - \omega_0$ is closed, using \tref{poincare-lemma}{Poincaré's lemma} we can locally around $x$ write $\dot{\omega}(t) = \omega - \omega_0 = - d \lambda$ for some $1$-form $\lambda$. Since $\omega - \omega_0$ vanishes at $x$, we may choose $\lambda$ to vanish at $x$ up to second order. Now let $X(t)$ be the vector field defined by $\iota_{X(t)} \omega(t) = \lambda$, and let $\varphi_t$ be the flow of $X(t)$ around $x_0$. Since $\varphi_t(x) = x$ for all $t \in [0, 1]$, the flow $\varphi_t$ exists on the whole interval $t \in [0, 1]$ sufficiently close to $x$. Now,
+    \[ \frac{d}{dt} \varphi_t^* \omega(t) = \varphi_t^* \left(\frac{\partial \omega(t)}{\partial t} + \mathcal{L}_{X(t)} \omega(t) \right) = \varphi_t^* \left(\frac{\partial \omega(t)}{\partial t} + d(\iota_{X(t)} \omega(t)) \right) = \varphi_t^* \left( -d \lambda + d \lambda \right) = 0 , \]
+    using the \tref{cartan-formula}{Cartan formula}. This implies that $\varphi_1^* \omega = \varphi_1^* \omega(1) = \varphi_0^* \omega(0) = \omega_0$, so $\varphi_1$ is the desired diffeomorphism. Finally, by a linear change of variables the form $\omega_0$ can be reduced to the canonical form.
+\end{example}
+
 \begin{topic}{moser-stability}{Moser's stability}
     \textbf{Moser's stability} states that for a \tref{closed-manifold}{closed} \tref{smooth-manifold}{smooth manifold} $M$ and a family of \tref{symplectic-manifold}{symplectic forms} $(\omega_t)_{t \in [0, 1]}$ on $M$ such that the \tref{de-rham-complex}{cohomology classes} $[\omega_t] \in H^2_{\textup{dR}}(M)$ are constant, there exists an isotopy $\varphi : M \times [0, 1] \to M$ such that $\varphi_t^* \omega_0 = \omega_t$ for all $t \in [0, 1]$.
 \end{topic}
@@ -141,4 +149,10 @@
 
 \begin{topic}{symplectic-connection}{symplectic connection}
     Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. A \textbf{symplectic connection} on $M$ is a \tref{affine-connection}{affine connection} $\nabla$ which is \tref{torsion-connection}{torsion-free} and preserves the symplectic form, i.e. $\nabla \omega = 0$.
+\end{topic}
+
+\begin{topic}{fubini-study-form}{Fubini--Study form}
+    The \textbf{Fubini--study form} on $\CC \PP^n$ is the unique $2$-form $\omega_\textup{FS}$ on $\CC \PP^n$ such that
+    \[ \pi^* \omega_\textup{FS} = \frac{i}{2} \partial \bar{\partial} \log (|\cdot|^2) , \]
+    where $\pi : \CC^n \setminus \{ 0 \} \to \CC \PP^n$ is the projection map, $\partial$ and $\bar{\partial}$ are the \tref{dolbeault-operators}{Dolbeault operators}, and $|\cdot| : \CC^n \to \RR$ is the Euclidean norm. It is a \tref{symplectic-manifold}{symplectic form}.
 \end{topic}

@@ -153,3 +153,28 @@
 \begin{topic}{sheaf-rational-functions}{sheaf of rational functions}
     Let $X$ be a \tref{scheme}{scheme}. The \textbf{sheaf of rational functions} $K_X$ on $X$ is the \tref{associated-sheaf}{sheafification} of the presheaf which assigns to an open $U \subset X$ the \tref{CA:localization}{localization} $S^{-1} \mathcal{O}_X(U)$, where $S$ is the multiplicative set of all $f \in \mathcal{O}_X(U)$ which are stalk-wise not zero-divisors.
 \end{topic}
+
+\begin{topic}{sheaf-cohomology}{sheaf cohomology}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. The \textit{global section functor} from \tref{sheaf}{sheaves} on $X$ to \tref{GT:abelian-group}{abelian groups},
+    \[ \Gamma(X, -) : \textup{Sh}(X) \to \textbf{Ab} , \quad \mathcal{F} \mapsto \Gamma(X, \mathcal{F}) \]
+    is \tref{HA:exact-functor}{left exact}, and since $\textup{Sh}(X)$ has enough injectives, one can form the \tref{HA:right-derived-functors}{right derived functors} $H^i(X, -) = \textup{R}^i \Gamma(X, -)$. The group
+    \[ H^i(X, \mathcal{F}) \]
+    is called the $i$-th \textbf{cohomology group} of $X$ with coefficients in $\mathcal{F}$.
+\end{topic}
+
+\begin{topic}{local-cohomology}{local cohomology}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and let $i : A \to X$ be the inclusion of a closed subset. Consider the functor
+    \[ \Gamma_A(X, -) : \textup{Sh}(X) \to \textbf{Ab}, \quad \mathcal{F} \mapsto \Gamma_A(X, \mathcal{F}) = \{ s \in \Gamma(X, \mathcal{F}) \;|\;\textup{Supp}(s) \subset A \} \]
+    of \textit{global sections with support in $A$}. This is a \tref{HA:exact-functor}{left exact functor}, and one can form the \tref{HA:right-derived-functors}{right derived functors} $H_A^i(X, -) = \textup{R}^i \Gamma_A(X, -)$. The group
+    \[ H_A^i(X, \mathcal{F}) \]
+    is called the $i$-th \textbf{local cohomology group} of $X$ with support in $A$ and coefficients in $\mathcal{F}$.
+\end{topic}
+
+\begin{example}{local-cohomology}
+    Let $U$ be the complement of $A$ in $X$, and let $\mathcal{F}$ be a sheaf on $X$. Consider the exact sequence
+    \[ 0 \to \Gamma_A(X, \mathcal{F}) \to \Gamma(X, \mathcal{F}) \to \Gamma(U, \mathcal{F}) , \]
+    and note restriction from $U$ to $X$ is surjective when $\mathcal{F}$ is \tref{flasque-sheaf}{flasque}. Thus an \tref{HA:injective-resolution}{injective resolution} $\mathcal{F} \to \mathcal{I}^\bdot$ gives rise to a short exact sequence
+    \[ 0 \to \Gamma_A(X, \mathcal{I}^\bdot) \to \Gamma(X, \mathcal{I}^\bdot) \to \Gamma(U, \mathcal{I}^\bdot) \to 0 , \]
+    which gives rise to a long exact sequence
+    \[ \cdots \to H_A^i(X, \mathcal{F}) \to H^i(X, \mathcal{F}) \to H^i(U, \mathcal{F}) \to H_A^{i + 1}(X, \mathcal{F}) \to \cdots \]
+\end{example}

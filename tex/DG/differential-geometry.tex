@@ -212,9 +212,43 @@
     for all smooth functions $f$ and sections $s \in \Gamma(E)$.
 \end{topic}
 
+\begin{example}{connection}
+    Let $\nabla$ and $\nabla'$ be two connections on $E$. Then for any $f \in C^\infty(M)$ and $s \in \Gamma(E)$,
+    \[ (\nabla' - \nabla) (fs) = df \otimes s + f \nabla' s - df \otimes s - f \nabla s = f(\nabla' - \nabla) s , \]
+    so $\nabla' - \nabla : \Gamma(E) \to \Gamma(T^*M \otimes E)$ is $C^\infty(M)$-linear and thus corresponds to a section of $\Hom(E, T^*M \otimes E) \simeq T^*M \otimes \textup{End}(E)$. Hence, there exists some $A \in \Omega^1(M; \textup{End}(E))$ such that $\nabla' = \nabla + A$. This shows there are as many connections on $E$ as there are sections on $\Omega^1(M; \textup{End}(E))$. (Indeed there exists at least one connection on any $E$ using a partition of unity and the trivial connection.)
+\end{example}
+
+\begin{example}{connection}
+    Consider a trivialization $\Phi : E|_U \xrightarrow{\sim} U \times \RR^k$. The \textit{trivial connection} $\nabla^0$ on $E|_U$ is given by
+    \[ \nabla^0 \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} = \begin{pmatrix} df_1 \\ \vdots \\ df_k \end{pmatrix} . \]
+    Now by the above example, for any connection $\nabla$ on $E$, the induced connection $\nabla^\Phi$ on the trivialization has the form $\nabla^\Phi = \nabla^0 + A^\Phi$ for some $A^\Phi \in \Omega^1(U; \textup{End}(\RR^k))$. That is,
+    \[ \nabla^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} = \begin{pmatrix} df_1 \\ \vdots \\ df_k \end{pmatrix} + A^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} . \]
+    The matrix $A^\Phi$ is called the \textit{connection matrix} of $\nabla$ in the trivialization $\Phi$. Often one writes \[ \nabla = d + A^\Phi , \]
+    with the understanding that this only makes sense in a trivialization of $E$.
+\end{example}
+
 \begin{topic}{curvature-connection}{curvature of a connection}
     Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The map $\nabla^2 : \Omega^0(M; E) \to \Omega^2(M; E)$ is $C^\infty(M)$-linear and hence induced by a section $F_\nabla \in \Omega^2(M; \text{End}(E))$, called the \textbf{curvature} of $\nabla$.
 \end{topic}
+
+\begin{example}{curvature-connection}
+    Let $\nabla$ and $\nabla' = \nabla + A$ be two connections on $E$, related by some $A \in \Omega^1(M; \textup{End}(E))$. Then their curvatures are related via
+    \[ F_{\nabla'} = F_\nabla + \nabla A + A \wedge A , \]
+    since
+    \[ (\nabla')^2 s = (\nabla + A)^2 s = \nabla^2 s + \nabla (As) + A \nabla s + A \wedge A s = (F_\nabla + \nabla A + A \wedge A) s . \]
+    In particular, in a local trivialization $\nabla = d + A$, we have $F_\nabla = da + A \wedge A$.
+\end{example}
+
+\begin{topic}{bianchi-identity}{Bianchi's identity}
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$, and $F_\nabla$ the corresponding \tref{curvature-connection}{curvature}. Then \textbf{Bianchi's identity} states that
+    \[ \nabla F_\nabla = 0 . \]
+\end{topic}
+
+\begin{example}{bianchi-identity}
+    Note that for any section $s$ of $E$,
+    \[ \nabla^3 s = \nabla (F_\nabla s) = (\nabla F_\nabla) s + F_\nabla (\nabla s) , \]
+    and since $F_\nabla = \nabla^2$, it follows that $\nabla F_\nabla s = 0$.
+\end{example}
 
 \begin{topic}{flat-connection}{flat connection}
     A \tref{connection}{connection} $\nabla$ on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$ is \textbf{flat} if its \tref{curvature-connection}{curvature} is zero.
@@ -257,6 +291,10 @@
 
 \begin{topic}{affine-connection}{affine connection}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{affine connection} on $M$ is a \tref{connection}{connection} on the \tref{tangent-bundle}{tangent bundle} $TM$ of $M$.
+\end{topic}
+
+\begin{topic}{abelian-connection}{abelian connection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \tref{connection}{connection} $\nabla$ on a \tref{vector-bundle}{vector bundle} $E \to M$ is \textbf{abelian} if the induced connection on $\textup{End}(E)$ is \tref{flat-connection}{flat}.
 \end{topic}
 
 \begin{topic}{distribution}{distribution}
@@ -549,4 +587,37 @@
 
 \begin{topic}{multivector-field}{multivector field}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{multivector field} on $M$ is a section of the exterior algebra $\bigwedge^\bdot TM$.
+\end{topic}
+
+\begin{topic}{chern-class}{Chern class}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} of rank $n$, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The \textbf{total Chern form} of $E$ is given by
+    \[ C(E) = 1 + c_1(E) + \cdots + c_n(E) = \det \left(1 + \frac{F_\nabla}{2 \pi i} \right) , \]
+    where $c_k(E) \in \Omega^{2k}(M)$ is the \textbf{$k$-th Chern form}. The Chern forms are \tref{closed-form}{closed}, and the cohomology class $[c_k(E)] \in H^{2k}(M)$ is called the \textbf{$k$-th Chern class} of $E$. These classes are independent on the choice of connection.
+\end{topic}
+
+\begin{topic}{chern-character}{Chern character}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle}, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The \textbf{Chern character} of $E$ is given by
+    \[ \textup{ch}(E) = \operatorname{tr} \exp \left(\frac{F_\nabla}{2 \pi i} \right) = \sum_{k = 0}^{\infty} \frac{1}{k!} \operatorname{tr} \left(\frac{F_\nabla}{2 \pi i}\right)^k . \]
+    The cohomology class $[\textup{ch}(E)] \in H^\bdot(M)$ is independent on the choice of connection.
+    
+    The Chern character satisfies
+    \[ [\textup{ch}(E \oplus F)] = [\textup{ch}(E)] + [\textup{ch}(F)] \quad \text{and} \quad [\textup{ch}(E \otimes F)] = [\textup{ch}(E)] \cdot [\textup{ch}(F)] . \]
+\end{topic}
+
+\begin{topic}{flow-box-theorem}{flow box theorem}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} with a point $p \in M$, and $X$ a \tref{vector-field}{vector field} such that $X(p) \ne 0$. Then the \textbf{flow box theorem} states that there exist local coordinates $x^1, \ldots, x^n$ around $p$ such that $X = \frac{\partial}{\partial x^1}$.
+    
+    More generally, if $X_1, \ldots, X_k$ are pairwise commuting vector fields, that is $[X_i, X_j] = 0$ for all $i, j$, which are linearly independent at $p$, then there exist local coordinates $x^1, \ldots, x^n$ such that $X_i = \frac{\partial}{\partial x^i}$.
+\end{topic}
+
+\begin{topic}{dolbeault-operators}{Dolbeault operators}
+    Let $M$ be a complex manifold with coordinates $z^1, \ldots, z^n$. The \textbf{Dolbeault operators} are the operators
+    \[ \partial = \sum_{j = 1}^{n} dz^j \wedge \frac{\partial}{\partial z^j} \quad \text{and} \quad \bar{\partial} = \sum_{j = 1}^{n} d\bar{z}_j \wedge \frac{\partial}{\partial \bar{z}_j} . \]
+    They satisfy the properties
+    \[ \partial + \bar{\partial} = d, \quad \partial^2 = \bar{\partial}^2 = \partial \bar{\partial} + \bar{\partial} \partial = 0 , \]
+    where $d$ is the \tref{exterior-derivative}{exterior derivative}.
+\end{topic}
+
+\begin{topic}{poincare-lemma}{Poincaré lemma}
+    The \textbf{Poincaré lemma} states that on a \tref{AT:contractible-space}{contractible} \tref{smooth-manifold}{smooth manifold} $M$, every \tref{closed-form}{closed $k$-form} is \tref{exact-form}{exact} for $k \ge 1$. In particular, the \tref{de-rham-complex}{de Rham cohomology groups} $H^k_\textup{dR}(M) = 0$ for all $k \ge 1$.
 \end{topic}
