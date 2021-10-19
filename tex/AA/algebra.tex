@@ -36,3 +36,19 @@
 %     Now the universal enveloping algebra of $\mathfrak{g}$ is defined as the quotient
 %     \[ U(\mathfrak{g}) = T(\mathfrak{g}) / (a \otimes b - b \otimes a = [a, b]) . \]
 % \end{topic}
+
+\begin{topic}{bialgebra}{bialgebra}
+    A \textbf{bialgebra} over a \tref{CA:field}{field} $k$ is a \tref{algebra}{$k$-algebra} with morphisms of algebras $\Delta : A \to A \otimes A$ (\textit{comultiplication}) and $\varepsilon : A \to k$ (\textit{counit}). (TODO)
+\end{topic}
+
+\begin{topic}{hopf-algebra}{Hopf algebra}
+    A \textbf{Hopf algebra} over a \tref{CA:field}{field} $k$ is a \tref{bialgebra}{$k$-bialgebra} $A$ with a $k$-linear map $S : A \to A$ (the \textit{antipode}), such that the diagram
+    \[ \begin{tikzcd}[column sep=1em, row sep=2em] & A \otimes A \arrow{rr}{S \otimes \id} && A \otimes A \arrow{dr}{\mu} & \\ A \arrow{rr}{\varepsilon} \arrow{ur}{\Delta} \arrow[swap]{dr}{\Delta} && k \arrow{rr}{\eta} && A \\ & A \otimes A \arrow[swap]{rr}{\id \otimes S} && A \otimes A \arrow[swap]{ur}{\mu} &  \end{tikzcd} \]
+    commutes, where $\mu$ denotes the multiplication, $\Delta$ the comultiplication, $\eta$ the unit, and $\varepsilon$ the counit of the algebra.
+\end{topic}
+
+\begin{example}{hopf-algebra}
+    The category of commutative \tref{CA:finitely-generated-algebra}{finitely generated} Hopf algebras over $k$ is \tref{CT:equivalence-of-categories}{equivalent} to the category of \tref{AG:affine-scheme}{affine} \tref{AG:algebraic-group}{algebraic groups} over $k$, via the functors
+    \[ A \mapsto \Spec A, \quad \text{and} \quad G \mapsto \Gamma(G, \mathcal{O}_G) . \]
+    The antipode corresponds to group inversion.
+\end{example}

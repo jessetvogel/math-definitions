@@ -2,6 +2,18 @@
     A \textbf{symplectic vector space} is a real \tref{vector-space}{vector space} together with a skew-symmetric non-degenerate bilinear map $\omega : V \times V \to \RR$, called the \textbf{symplectic form}.
 \end{topic}
 
+\begin{example}{symplectic-vector-space}
+    Any symplectic vector space is even-dimensional, and there exists a basis of $V$ such that $\omega$ can be represented by a matrix of the form
+    \[ \Omega = \begin{pmatrix} 0 & 1 & & & \\ -1 & 0 & & & \\ & & \ddots & & \\ & & & 0 & 1 \\ & & & -1 & 0 \end{pmatrix} . \]
+    To prove this, let $e_1 \ne 0$ be any vector. Since $\omega$ is non-degenerate, there exists a vector $v$ for which $\omega(e_1, v) \ne 0$, and we take $e_2 = v/\omega(e_1, v)$. Now $V$ decomposes as $W \oplus W^\perp$, where $W$ is the subspace spanned by $e_1$ and $e_2$, and
+    \[ W^\perp = \{ v \in V : \omega(v, w) = 0 \text{ for all } w \in W \} . \]
+    This splitting can be obtained from the projection
+    \[ \pi_W : V \to W, \quad v \mapsto - \omega(e_2, v) e_1 + \omega(e_1, x) e_2 . \]
+    According to this splitting the matrix $\Omega$ has the form
+    \[ \Omega = \begin{pmatrix} 0 & 1 & \\ -1 & 0 & \\ & & \Omega' \end{pmatrix} , \]
+    where $\Omega'$ denotes the restriction of $\Omega$ to $W^\perp$, and we continue by induction.
+\end{example}
+
 \begin{topic}{symplectic-complement}{symplectic complement}
     Let $(V, \omega)$ be a \tref{symplectic-vector-space}{symplectic vector space}, and $W \subset V$ a linear subspace. The \textbf{symplectic complement} of $W$ is the subspace
     \[ W^\perp = \{ v \in V : \omega(v, w) = 0 \text{ for all } w \in W \} . \]

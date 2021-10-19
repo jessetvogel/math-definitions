@@ -1,5 +1,11 @@
-Let <span class="math inline">\(M\)</span> be a complex manifold with coordinates <span class="math inline">\(z^1, \ldots, z^n\)</span>. The <b>Dolbeault operators</b> are the operators
-<span class="math display">\[ \partial = \sum_{j = 1}^{n} dz^j \wedge \frac{\partial}{\partial z^j} \quad \text{and} \quad \bar{\partial} = \sum_{j = 1}^{n} d\bar{z}_j \wedge \frac{\partial}{\partial \bar{z}_j} . \]</span>
+Let <span class="math inline">\(M\)</span> be a complex manifold. The space <span class="math inline">\(\Omega^{p, q}(M)\)</span> of <span class="math inline">\((p, q)\)</span>-forms is defined by
+<span class="math display">\[ \Omega_X^{p, q} = \underbrace{\Omega^{1,0}(M) \wedge \cdots \wedge \Omega^{1,0}(M)}_{\text{$p$ times}} \;\; \wedge \;\; \underbrace{\Omega^{0,1}(M) \wedge \cdots \wedge \Omega^{0,1}(M)}_{\text{$q$ times}} , \]</span>
+where
+<span class="math display">\[ \Omega^{1,0}(M) = \left\{ \textstyle\sum_{i = 1}^{n} f_i dz^i \right\} \quad \textup{and} \quad \Omega^{0,1}(M) = \left\{ \textstyle\sum_{i = 1}^{n} g_i d \overline{z}^i \right\} , \]</span>
+and where <span class="math inline">\(z^1, \ldots, z^n\)</span> are local coordinates. Note that these definitions are independent of the chosen coordinates. The <b>Dolbeault operators</b> are the operators
+<span class="math display">\[ \partial : \Omega^{p, q}(M) \to \Omega^{p + 1, q}(M) \quad \textup{and} \quad \overline{\partial} : \Omega^{p, q}(M) \to \Omega^{p, q + 1}(M) \]</span>
+given by
+<span class="math display">\[ \partial = \sum_{j = 1}^{n} dz^j \wedge \frac{\partial}{\partial z^j} \quad \text{and} \quad \bar{\partial} = \sum_{j = 1}^{n} d\bar{z}^j \wedge \frac{\partial}{\partial \bar{z}^j} . \]</span>
 They satisfy the properties
 <span class="math display">\[ \partial + \bar{\partial} = d, \quad \partial^2 = \bar{\partial}^2 = \partial \bar{\partial} + \bar{\partial} \partial = 0 , \]</span>
 where <span class="math inline">\(d\)</span> is the <a href="#DG:exterior-derivative">exterior derivative</a>.

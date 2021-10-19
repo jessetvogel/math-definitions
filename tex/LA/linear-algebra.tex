@@ -314,3 +314,24 @@
     and for $n = 4$,
     \[ \operatorname{pf} \begin{pmatrix} 0 & a & b & c \\ -a & 0 & d & e \\ -b & -c & 0 & f \\ -d & -e & -f & 0 \end{pmatrix} = af - be + dc . \]
 \end{example}
+
+\begin{topic}{symmetric-matrix}{symmetric matrix}
+    A matrix $M$ is \textbf{symmetric} if $M = M^T$, where $M^T$ is the \tref{matrix-transpose}{tranpose} of $M$.
+\end{topic}
+
+\begin{topic}{definite-matrix}{definite matrix}
+    A real \tref{symmetric-matrix}{symmetric-matrix} $M$ is
+    \begin{itemize}
+        \item \textbf{positive-definite} if $x^T M x > 0$ for all non-zero vectors $x$,
+        \item \textbf{negative-definite} if $x^T M x < 0$ for all non-zero vectors $x$,
+        \item \textbf{positive semi-definite} if $x^T M x \ge 0$ for all vectors $x$,
+        \item \textbf{negative semi-definite} if $x^T M x \le 0$ for all vectors $x$.
+    \end{itemize}
+    Similarly, a \tref{hermitian-matrix}{Hermitian matrix} $H$ is
+    \begin{itemize}
+        \item \textbf{positive-definite} if $x^* M x > 0$ for all non-zero vectors $x$,
+        \item \textbf{negative-definite} if $x^* M x < 0$ for all non-zero vectors $x$,
+        \item \textbf{positive semi-definite} if $x^* M x \ge 0$ for all vectors $x$,
+        \item \textbf{negative semi-definite} if $x^* M x \le 0$ for all vectors $x$.
+    \end{itemize}
+\end{topic}

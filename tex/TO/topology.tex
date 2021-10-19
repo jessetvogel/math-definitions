@@ -289,7 +289,7 @@
 \end{example}
 
 \begin{topic}{principal-bundle}{principal bundle}
-    Let $X$ be a \tref{topological-space}{topological space} and $G$ a \tref{GT:topological-group}{topological group}. A \textbf{principal $G$-bundle} on $X$ is a \tref{fiber-bundle}{fiber bundle} $\pi : P \to X$ with a \tref{GT:free-group-action}{free} and \tref{GT:transitive-group-action}{transitive} \tref{GT:group-action}{action} of $G$ on $P$, preserving the fibers of $P$, such that for any $x \in X$ and $y \in P_x$ the map $G \to P_x, g \mapsto g \cdot y$ is a \tref{homeomorphism}{homeomorphism}.
+    Let $X$ be a \tref{topological-space}{topological space} and $G$ a \tref{topological-group}{topological group}. A \textbf{principal $G$-bundle} on $X$ is a \tref{fiber-bundle}{fiber bundle} $\pi : P \to X$ with a \tref{GT:free-group-action}{free} and \tref{GT:transitive-group-action}{transitive} \tref{GT:group-action}{action} of $G$ on $P$, preserving the fibers of $P$, such that for any $x \in X$ and $y \in P_x$ the map $G \to P_x, g \mapsto g \cdot y$ is a \tref{homeomorphism}{homeomorphism}.
 \end{topic}
 
 \begin{topic}{associated-bundle}{associated bundle}
@@ -301,12 +301,9 @@
     \[ F(TM) \times_\rho V \to M . \]
 \end{example}
 
-% \begin{topic}{structure-group}{structure group}
-%     Let $p : E \to B$ be a \tref{fiber-bundle}{fiber bundle} with fiber $F$, and let $G$ be a group acting continuously and \tref{GT:faithful-action}{faithfully} on $F$.
-    
-    
-%     then $G$ is called the \textbf{structure group} of the bundle. In physics, this is called the \textit{gauge group} of the bundle.
-% \end{topic}
+\begin{topic}{structure-group}{structure group}
+    Let $p : E \to B$ be a \tref{fiber-bundle}{fiber bundle} with fiber $F$, and let $G$ be a \tref{topological-group}{topological group} acting continuously and \tref{GT:faithful-group-action}{faithfully} on $F$. Then $G$ is called a \textbf{structure group} of the bundle if there exists a trivialization $\{ (U_i, \varphi_{ij} : E|_{U_i} \xrightarrow{\sim} U_i \times F) \}$ such that the transition functions $\varphi_i \circ \varphi_j^{-1}$ take values in $G$. In physics, the group $G$ is called the \textit{gauge group} of the bundle.
+\end{topic}
 
 % \begin{topic}{principal-homogeneous-space}{principal homogeneous space}
 %     Let $G$ be a \tref{GT:group}. A left (resp. right) \textbf{$G$-principal homogeneous space} is a \tref{topological-space}{topological space} $X$ with a left (resp. right) continuous action of $G$ such that
@@ -343,3 +340,23 @@
         \item Euclidean space $\RR^n$ is locally compact, but not compact.
     \end{itemize}
 \end{example}
+
+\begin{topic}{normal-space}{normal space}
+    A \tref{topological-space}{topological space} is \textbf{normal} if every two disjoint closed sets have disjoint open neighborhoods.
+\end{topic}
+
+\begin{topic}{T4-space}{T4 space}
+    A \textbf{T4 space} is a \tref{topological-space}{topological space} which is \tref{hausdorff-space}{Hausdorff} and \tref{normal-space}{normal}.
+\end{topic}
+
+\begin{topic}{urysohn-lemma}{Urysohn's lemma}
+    Let $X$ be a \tref{topological-space}{topological space}. \textbf{Urysohn's lemma} states that $X$ is \tref{normal-space}{normal} if and only if for any two disjoint closed subsets $Z_0, Z_1 \subset X$ there exists a \tref{continuous-map}{continuous map} $f : [0, 1] \to X$ such that $f(Z_0) = 0$ and $f(Z_1) = 1$.
+\end{topic}
+
+\begin{topic}{paracompact-space}{paracompact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{paracompact} if every open cover of $X$ has a refinement that is locally finite. An open cover is \textit{locally finite} if any point has an open neighborhood where only finitely many sets of the open cover intersect.
+\end{topic}
+
+\begin{topic}{topological-group}{topological group}
+    A \textbf{topological group} is a \tref{GT:group}{group} $G$ which is also a \tref{topological-space}{topological space}, such that multiplication $G \times G \to G, (x, y) \mapsto xy$ and inversion $G \to G, x \mapsto x^{-1}$ are \tref{continuous-map}{continuous}.
+\end{topic}

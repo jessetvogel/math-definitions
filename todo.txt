@@ -9,13 +9,13 @@
 
 # ---- Theory ----
 
-- Chern forms / Chern classes
+DG: Dolbeault cohomology
 
 
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
 
 # Other
-LO ? : pre-orders, boolean algebras, that kind of stuff,
+LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
 ??: von Neumann algebra
 UN: classifying space -- vague?
 
@@ -68,20 +68,17 @@ HT: Spectra!
 AA: move some commutative algebra which isn't commutative to AA ??
 
 # Differential Geometry
-
 DG/TO: structure group
 DG: abelian connection (Fedosov)
 DG: complex manifold
 DG: hyperkahler manifold
     Riemannian manifold with three complex structures I, J, K satsifying quaternionic relations.
     "Definition 1.5. A complex structure on a smooth manifold XX is the structure of a complex manifold on XX. Every such defines an almost complex structure and almost complex structures arising this way are called integrable (see also at integrability of G-structures the section Examples – Complex structure)."
-
-DG: Chern classes (> 1)
 DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 DG: orbifold
 DG?: Weyl group / maximal torus
 
-AT: Euler characteristic
+?AT: Euler characteristic
 AT: Gysin sequence
 AT: Bockstein sequence
 

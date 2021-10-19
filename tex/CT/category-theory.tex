@@ -618,3 +618,19 @@
 \begin{topic}{endomorphism}{endomorphism}
     Let $\mathcal{C}$ be a \tref{category}{category}. An \textbf{endomorphism} of an object $X$ of $\mathcal{C}$ is a morphism $f : X \to X$.
 \end{topic}
+
+\begin{topic}{group-object}{group object}
+    Let $\mathcal{C}$ be a \tref{category}{category} with finite products. A \textbf{group object} in $\mathcal{C}$ is an object $G$ of $\mathcal{C}$ together with morphisms $m : G \times G \to G$ (\textit{multiplication}), $e : 1 \to G$ (\textit{group unit}) and $i : G \to G$ (\textit{inversion}), such that
+    \begin{itemize}
+        \item (\textit{associativity}) $m \circ (m \times \id_G) = m \circ (\id \times m)$,
+        \item (\textit{unit}) $m \circ (\id_G \times e) = \id_G$ and $m \circ (e \times \id_G) = \id_G$, where we identified $G \times 1 \simeq G$,
+        \item (\textit{inversion}) $m \circ (\id_G \times i) \circ \Delta = m \circ (i \times \id_G) \circ \Delta = e_G$, where $\Delta : G \to G \times G$ is the diagonal map, and $e_G : G \to G$ is the composition of $e$ with the unique morphism $G \to 1$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{group-object}
+    \begin{itemize}
+        \item A \tref{TO:topological-group}{topological group} is a group object in the category of \tref{TO:topological-space}{topological spaces}.
+        \item A \tref{AG:algebraic-group}{algebraic group} is a group object in the category of \tref{AG:variety}{varieties}.
+    \end{itemize}
+\end{example}

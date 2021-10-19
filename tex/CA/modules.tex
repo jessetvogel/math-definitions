@@ -32,6 +32,14 @@
     More generally, a \tref{finitely-generated-module}{finitely generated} $R$-module $P$ is projective if and only if $P$ is finitely presented and the localization $P_\mathfrak{m}$ is a free $R_\mathfrak{m}$-module for all \tref{maximal-ideal}{maximal ideals} $\mathfrak{m}$ of $R$.
 \end{example}
 
+\begin{example}{projective-module}
+    An $R$-module $P$ is projective if and only if there exists another $R$-module $Q$ such that $P \oplus Q$ is free. Namely, if such $Q$ exists, then for any $f : N \to M$ surjective and $g : P \to N$, we can extend $g$ to $\tilde{g} : F \to N$ with $\tilde{g}(p, q) = g(p)$. Since free modules are projective, there exists $\tilde{h} : F \to M$ with $f \tilde{h} = \tilde{g}$, so restricting $\tilde{h}$ to $P$ gives $h : P \to M$ with $fh = g$.
+    
+    Conversely, if $P$ is projective, consider the free module $F = \oplus_{p \in P} R$ and the surjective $R$-module morphism
+    \[ f : F \to P, \quad (r_p)_{p \in P} \mapsto \sum_{p \in P} r_p \cdot p . \]
+    Since $P$ is projective, $f$ splits, i.e. there exists $g : P \to F$ with $fg = \id_P$. Then it follows that $F \simeq P \oplus \ker f$. Note that if $P$ is finitely generated, $F$ can be taken of finite rank.
+\end{example}
+
 \begin{topic}{injective-module}{injective module}
     Let $R$ be a \tref{ring}{commutative ring}. An $R$-module $I$ is called \textbf{injective} if for every morphism $g : M \to I$ and injective morphism $f : M \to N$ of $R$-modules, there exists a morphism $h : N \to Q$ of $R$-modules such that $hf = g$. We do not require this map to be unique.
     \[ \begin{tikzcd} M \arrow[hookrightarrow]{r}{f} \arrow[swap]{d}{g} & N \arrow[dashed]{ld}{\exists h} \\ I & \end{tikzcd} \]
@@ -123,6 +131,10 @@
     A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{torsionless} if for every $m \in M$ there exists some $R$-module morphism $f : M \to R$ with $f(m) \ne 0$.
 \end{topic}
 
+\begin{topic}{torsion-free-module}{torsion-free module}
+    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{torsion-free} if $rm = 0$ implies $r = 0$ or $m = 0$, for all $r \in R$ and $m \in M$.
+\end{topic}
+
 \begin{topic}{reflexive-module}{reflexive module}
     A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{reflexive} if the map
     \[ M \to \Hom_R(\Hom_R(M, R), R), \quad m \mapsto (f \mapsto f(m)) \]
@@ -132,4 +144,30 @@
 \begin{topic}{external-tensor-product}{external tensor product}
     Let $R$ and $S$ be \tref{algebra}{algebras} over a field $k$. If $M$ is an \tref{module}{$R$-module} and $N$ an $S$-module, then the \textbf{external tensor product} of $M$ and $N$ is the $R \otimes_k S$-module
     \[ M \boxtimes N = M|_k \otimes_k N|_k . \]
+\end{topic}
+
+\begin{topic}{indecomposable-module}{indecomposable module}
+    A non-zero \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{indecomposable} if it cannot be written as the direct sum of two non-zero submodules.
+\end{topic}
+
+\begin{example}{indecomposable-module}
+    Every \tref{simple-module}{simple module} is indecomposable, but not every indecomposable module is simple. For example, let
+    \[ R = \left\{ \begin{pmatrix} \alpha & \beta \\ 0 & \gamma \end{pmatrix} : \alpha, \beta, \gamma \in k \textup{ with } \alpha, \gamma \ne 0 \right\} \]
+    be the ring of upper triangular $2 \times 2$ matrices over a field $k$, and $M = k^2$ the $R$-module with
+    \[ \begin{pmatrix} \alpha & \beta \\ 0 & \gamma \end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} \alpha x + \beta y \\ \gamma y \end{pmatrix} . \]
+    Then $M$ is not simple, as $N = k \times \{ 0 \}$ is a non-zero proper submodule of $M$. However, $M$ is indecomposable since $M \not\simeq N \oplus (M / N)$.
+\end{example}
+
+\begin{topic}{noetherian-module}{noetherian module}
+    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{noetherian} if it satisfies the \textit{ascending chain condition}: for any increasing sequence of submodules
+    \[ M_1 \subset M_2 \subset M_3 \subset \cdots \]
+    there exists some $N \in \NN$ such that $M_n = M_N$ for any $n \ge N$.
+    
+    Equivalently, $M$ is noetherian if all its submodules are finitely generated.
+\end{topic}
+
+\begin{topic}{artinian-module}{artinian module}
+    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{artinian} if it satisfies the \textit{descending chain condition}: for any decreasing sequence of submodules
+    \[ M_1 \supset M_2 \supset M_3 \supset \cdots \]
+    there exists some $N \in \NN$ such that $M_n = M_N$ for any $n \ge N$.
 \end{topic}

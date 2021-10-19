@@ -229,6 +229,8 @@
 
 \begin{topic}{curvature-connection}{curvature of a connection}
     Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The map $\nabla^2 : \Omega^0(M; E) \to \Omega^2(M; E)$ is $C^\infty(M)$-linear and hence induced by a section $F_\nabla \in \Omega^2(M; \text{End}(E))$, called the \textbf{curvature} of $\nabla$.
+    
+    For any $k \ge 0$, the map $\nabla^2 : \Omega^k(M; E) \to \Omega^{k + 2}(M; E)$ is given by $\nabla^2 \omega = F_\nabla \wedge \omega$.
 \end{topic}
 
 \begin{example}{curvature-connection}
@@ -255,7 +257,7 @@
 \end{topic}
 
 \begin{topic}{curvature-form}{curvature form}
-    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \text{tr } F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \text{End}(M))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\text{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \text{tr } F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \text{End}(E))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\text{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
 \end{topic}
 
 \begin{topic}{torsion-connection}{torsion of connection}
@@ -358,9 +360,9 @@
 \end{topic}
 
 \begin{topic}{poincare-duality}{Poincaré duality}
-    Let $X$ be a compact oriented $n$-dimensional manifold. \textbf{Poincaré duality} states that there is a canonical isomorphism
+    Let $X$ be a \tref{TO:compact-space}{compact} oriented $n$-dimensional \tref{smooth-manifold}{smooth manifold}. \textbf{Poincaré duality} states that there is a canonical isomorphism
     \[ H^k(X; \ZZ) \xrightarrow{\sim} H_{n - k}(X; \ZZ) \]
-    which sends $\omega$ to the cap product $[X] \frown \omega$, where $[X] \in H_n(X; \ZZ)$ denotes the fundamental class of $X$. That is, $\omega$ is sent to
+    which sends $\omega$ to the \tref{AT:cap-product}{cap product} $[X] \frown \omega$, where $[X] \in H_n(X; \ZZ)$ denotes the fundamental class of $X$. That is, $\omega$ is sent to
     \[ (\eta \mapsto (\omega \smile \eta)([X])) \in \Hom(H^{n - k}(X; \ZZ), \ZZ) = H_{n - k}(X; \ZZ) . \]
 \end{topic}
 
@@ -592,16 +594,16 @@
 \begin{topic}{chern-class}{Chern class}
     Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} of rank $n$, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The \textbf{total Chern form} of $E$ is given by
     \[ C(E) = 1 + c_1(E) + \cdots + c_n(E) = \det \left(1 + \frac{F_\nabla}{2 \pi i} \right) , \]
-    where $c_k(E) \in \Omega^{2k}(M)$ is the \textbf{$k$-th Chern form}. The Chern forms are \tref{closed-form}{closed}, and the cohomology class $[c_k(E)] \in H^{2k}(M)$ is called the \textbf{$k$-th Chern class} of $E$. These classes are independent on the choice of connection.
+    where $c_k(E) \in \Omega^{2k}(M)$ is the \textbf{$k$-th Chern form}. The Chern forms are \tref{closed-form}{closed}, and the cohomology class $[c_k(E)] \in H_\textup{dR}^{2k}(M)$ is called the \textbf{$k$-th Chern class} of $E$. These classes are independent on the choice of connection.
 \end{topic}
 
 \begin{topic}{chern-character}{Chern character}
     Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle}, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The \textbf{Chern character} of $E$ is given by
     \[ \textup{ch}(E) = \operatorname{tr} \exp \left(\frac{F_\nabla}{2 \pi i} \right) = \sum_{k = 0}^{\infty} \frac{1}{k!} \operatorname{tr} \left(\frac{F_\nabla}{2 \pi i}\right)^k . \]
-    The cohomology class $[\textup{ch}(E)] \in H^\bdot(M)$ is independent on the choice of connection.
+    The cohomology class $[\textup{ch}(E)] \in H_\textup{dR}^\bdot(M)$ is independent on the choice of connection.
     
     The Chern character satisfies
-    \[ [\textup{ch}(E \oplus F)] = [\textup{ch}(E)] + [\textup{ch}(F)] \quad \text{and} \quad [\textup{ch}(E \otimes F)] = [\textup{ch}(E)] \cdot [\textup{ch}(F)] . \]
+    \[ [\textup{ch}(E \oplus F)] = [\textup{ch}(E)] + [\textup{ch}(F) ] \quad \text{ and } \quad [\textup{ch}(E \otimes F)] = [\textup{ch}(E)] \cdot [\textup{ch}(F)] . \]
 \end{topic}
 
 \begin{topic}{flow-box-theorem}{flow box theorem}
@@ -611,8 +613,14 @@
 \end{topic}
 
 \begin{topic}{dolbeault-operators}{Dolbeault operators}
-    Let $M$ be a complex manifold with coordinates $z^1, \ldots, z^n$. The \textbf{Dolbeault operators} are the operators
-    \[ \partial = \sum_{j = 1}^{n} dz^j \wedge \frac{\partial}{\partial z^j} \quad \text{and} \quad \bar{\partial} = \sum_{j = 1}^{n} d\bar{z}_j \wedge \frac{\partial}{\partial \bar{z}_j} . \]
+    Let $M$ be a complex manifold. The space $\Omega^{p, q}(M)$ of $(p, q)$-forms is defined by
+    \[ \Omega_X^{p, q} = \underbrace{\Omega^{1,0}(M) \wedge \cdots \wedge \Omega^{1,0}(M)}_{\text{$p$ times}} \;\; \wedge \;\; \underbrace{\Omega^{0,1}(M) \wedge \cdots \wedge \Omega^{0,1}(M)}_{\text{$q$ times}} , \]
+    where
+    \[ \Omega^{1,0}(M) = \left\{ \textstyle\sum_{i = 1}^{n} f_i dz^i \right\} \quad \textup{and} \quad \Omega^{0,1}(M) = \left\{ \textstyle\sum_{i = 1}^{n} g_i d \overline{z}^i \right\} , \]
+    and where $z^1, \ldots, z^n$ are local coordinates. Note that these definitions are independent of the chosen coordinates. The \textbf{Dolbeault operators} are the operators
+    \[ \partial : \Omega^{p, q}(M) \to \Omega^{p + 1, q}(M) \quad \textup{and} \quad \overline{\partial} : \Omega^{p, q}(M) \to \Omega^{p, q + 1}(M) \]
+    given by
+    \[ \partial = \sum_{j = 1}^{n} dz^j \wedge \frac{\partial}{\partial z^j} \quad \text{and} \quad \bar{\partial} = \sum_{j = 1}^{n} d\bar{z}^j \wedge \frac{\partial}{\partial \bar{z}^j} . \]
     They satisfy the properties
     \[ \partial + \bar{\partial} = d, \quad \partial^2 = \bar{\partial}^2 = \partial \bar{\partial} + \bar{\partial} \partial = 0 , \]
     where $d$ is the \tref{exterior-derivative}{exterior derivative}.
@@ -620,4 +628,24 @@
 
 \begin{topic}{poincare-lemma}{Poincaré lemma}
     The \textbf{Poincaré lemma} states that on a \tref{AT:contractible-space}{contractible} \tref{smooth-manifold}{smooth manifold} $M$, every \tref{closed-form}{closed $k$-form} is \tref{exact-form}{exact} for $k \ge 1$. In particular, the \tref{de-rham-complex}{de Rham cohomology groups} $H^k_\textup{dR}(M) = 0$ for all $k \ge 1$.
+\end{topic}
+
+\begin{topic}{serre-swan-theorem}{Serre--Swan theorem}
+    Let $M$ be a \tref{TO:compact-space}{compact} \tref{smooth-manifold}{smooth manifold}. The \textbf{Serre--Swan theorem} states that for any \tref{vector-bundle}{vector bundle} $E \to M$, its global sections $\Gamma(E)$ are a \tref{CA:finitely-generated-module}{finitely generated} \tref{CA:projective-module}{projective} $C^\infty(M)$-module, and conversely that all such modules arise in this way.
+    
+    In fact, the \tref{CT:functor}{functor} $\Gamma$ yields an \tref{CT:equivalence-of-categories}{equivalence of categories} between the category of vector bundles over $M$ and the category of finitely generated projective $C^\infty(M)$-modules.
+\end{topic}
+
+\begin{topic}{todd-class}{Todd class}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle}, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The form
+    \[ \det\left(\frac{F_\nabla / 2 \pi i}{\exp(F_\nabla / 2 \pi i) - 1}\right) \in \Omega^\bdot(M) \]
+    is \tref{closed-form}{closed}, and its cohomology class $\textup{td}(E) \in H^\bdot_\textup{dR}(M)$, called the \textbf{Todd class} of $E$, is independent of the choice of connection.
+    
+    The Todd class is multiplicative in the sense that $\textup{td}(E \oplus F) = \textup{td}(E) \cdot \textup{td}(F)$.
+\end{topic}
+
+\begin{topic}{dolbeault-cohomology}{Dolbeault cohomology}
+    Let $M$ be a complex smooth manifold, and consider the \tref{dolbeault-operators}{Dolbeault operator}
+    \[ \overline{\partial} : \Omega^{p, q}(M) \to \Omega^{p, q + 1}(M) . \]
+    Since $\overline{\partial}^2 = 0$, one can form the \tref{HA:chain-complex}{complex} $(\Omega^{p, \bdot}(M), \overline{\partial})$, and the corresponding \tref{HA:homology-object}{cohomology group} $H^{p, q}(M, \CC)$ is called the \textbf{$(p, q)$-th Dolbeault cohomology group}.
 \end{topic}

@@ -1,0 +1,10 @@
+<div class="example">Any symplectic vector space is even-dimensional, and there exists a basis of <span class="math inline">\(V\)</span> such that <span class="math inline">\(\omega\)</span> can be represented by a matrix of the form
+<span class="math display">\[ \Omega = \begin{pmatrix} 0 & 1 & & & \\ -1 & 0 & & & \\ & & \ddots & & \\ & & & 0 & 1 \\ & & & -1 & 0 \end{pmatrix} . \]</span>
+To prove this, let <span class="math inline">\(e_1 \ne 0\)</span> be any vector. Since <span class="math inline">\(\omega\)</span> is non-degenerate, there exists a vector <span class="math inline">\(v\)</span> for which <span class="math inline">\(\omega(e_1, v) \ne 0\)</span>, and we take <span class="math inline">\(e_2 = v/\omega(e_1, v)\)</span>. Now <span class="math inline">\(V\)</span> decomposes as <span class="math inline">\(W \oplus W^\perp\)</span>, where <span class="math inline">\(W\)</span> is the subspace spanned by <span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span>, and
+<span class="math display">\[ W^\perp = \{ v \in V : \omega(v, w) = 0 \text{ for all } w \in W \} . \]</span>
+This splitting can be obtained from the projection
+<span class="math display">\[ \pi_W : V \to W, \quad v \mapsto - \omega(e_2, v) e_1 + \omega(e_1, x) e_2 . \]</span>
+According to this splitting the matrix <span class="math inline">\(\Omega\)</span> has the form
+<span class="math display">\[ \Omega = \begin{pmatrix} 0 & 1 & \\ -1 & 0 & \\ & & \Omega' \end{pmatrix} , \]</span>
+where <span class="math inline">\(\Omega'\)</span> denotes the restriction of <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(W^\perp\)</span>, and we continue by induction.
+</div>

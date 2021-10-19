@@ -148,7 +148,9 @@
 \end{topic}
 
 \begin{topic}{symplectic-connection}{symplectic connection}
-    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. A \textbf{symplectic connection} on $M$ is a \tref{affine-connection}{affine connection} $\nabla$ which is \tref{torsion-connection}{torsion-free} and preserves the symplectic form, i.e. $\nabla \omega = 0$.
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. A \textbf{symplectic connection} on $M$ is a \tref{affine-connection}{affine connection} $\nabla$ which is \tref{torsion-connection}{torsion-free} and preserves the symplectic form, that is
+    \[ (\nabla_Z \omega)(X, Y) = d(w(X, Y)) - \omega(\nabla_Z X, Y) - \omega(X, \nabla_Z Y) = 0 \]
+    for any \tref{vector-field}{vector fields} $X, Y$ and $Z$.
 \end{topic}
 
 \begin{topic}{fubini-study-form}{Fubini--Study form}

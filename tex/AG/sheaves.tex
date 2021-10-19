@@ -162,6 +162,14 @@
     is called the $i$-th \textbf{cohomology group} of $X$ with coefficients in $\mathcal{F}$.
 \end{topic}
 
+\begin{example}{sheaf-cohomology}
+    Let $X = \Spec A$ for a \tref{CA:noetherian-ring}{noetherian ring} $A$, and $\mathcal{F}$ a \tref{coherent-sheaf}{quasi-coherent sheaf}. Then $H^i(X, \mathcal{F}) = 0$ for $i > 0$. Namely, write $M = \Gamma(X, \mathcal{F})$ and take an injective resolution
+    \[ 0 \to M \to I^\bdot \]
+    of $A$-modules. Since $\mathcal{F} = \widetilde{M}$ and each $\widetilde{I}^i$ can be shown to be flasque, we obtain a resolution
+    \[ 0 \to \mathcal{F} \to \widetilde{I}^\bdot \]
+    that can be used to compute the cohomology groups. Applying $\Gamma$ we return to the exact sequence $0 \to M \to I^\bdot$, and taking cohomology gives the desired result.
+\end{example}
+
 \begin{topic}{local-cohomology}{local cohomology}
     Let $X$ be a \tref{TO:topological-space}{topological space} and let $i : A \to X$ be the inclusion of a closed subset. Consider the functor
     \[ \Gamma_A(X, -) : \textup{Sh}(X) \to \textbf{Ab}, \quad \mathcal{F} \mapsto \Gamma_A(X, \mathcal{F}) = \{ s \in \Gamma(X, \mathcal{F}) \;|\;\textup{Supp}(s) \subset A \} \]

@@ -1,0 +1,37 @@
+\begin{topic}{primitive-ideal}{primitive ideal}
+    Let $R$ be a \tref{ring}{ring}. A left (resp. right) \textbf{primitive ideal} of $R$ is the \tref{annihilator}{annihilator} of a \tref{simple-module}{simple} left (resp. right) \tref{module}{module}.
+\end{topic}
+
+\begin{example}{primitive-ideal}
+    Any primitive ideal is \tref{prime-ideal}{prime}. Namely, 
+\end{example}
+
+\begin{example}{primitive-ideal}
+    Any primitive ideal in a commutative ring is a \tref{maximal-ideal}{maximal ideal}. Namely, 
+\end{example}
+
+\begin{topic}{primitive-ring}{primitive ring}
+    A \tref{ring}{ring} is \textbf{left primitive} (resp. \textbf{right primitive}) if it has a \tref{faithful-module}{faithful} \tref{simple-module}{simple} left (resp. right) \tref{module}{module}.
+\end{topic}
+
+\begin{example}{primitive-ring}
+    The endomorphism ring $R = \text{End}(V)$ of a vector space $V$ is a primitive ring. Indeed, the vector space $V$ is naturally a faithful simple $R$-module.
+\end{example}
+
+\begin{topic}{primitive-spectrum}{primitive spectrum}
+    The \textbf{primitive spectrum} of a \tref{ring}{ring} $R$ is the set $\text{Prim}(R)$ of \tref{primitive-ideal}{primitive ideals} of $R$, with the \textit{Jacobson topology}, defined by the \tref{TO:closure}{closure} operator
+    \[ \overline{T} := \left\{ I \in \text{Prim}(A) : \bigcap_{J \in T} J \subset I \right\} \]
+    for every $T \subset \text{Prim}(A)$.
+\end{topic}
+
+\begin{topic}{jacobson-ring}{Jacobson ring}
+    A \tref{ring}{ring} $R$ is \textbf{Jacobson} if every \tref{prime-ideal}{prime ideal} is an intersection of \tref{primitive-ideal}{primitive ideals}.
+    
+    A commutative ring $R$ is \textbf{Jacobson} if every \tref{prime-ideal}{prime ideal} $\mathfrak{p}$ is the intersection of the \tref{maximal-ideal}{maximal ideals} containing it, $\mathfrak{p} = \bigcap_{\mathfrak{m} \supset \mathfrak{p}} \mathfrak{m}$.
+\end{topic}
+
+\begin{example}{jacobson-ring}
+    A \tref{local-ring}{local ring} $(R, \mathfrak{m})$ is Jacobson if and only there are no other prime ideals than the maximal ideal, i.e. if the \tref{krull-dimension}{Krull dimension} is zero. In particular, a \tref{discrete-valuation-ring}{discrete valuation ring} is not Jacobson.
+    
+    The intuition is that the closed points (i.e. maximal ideals) of a Jacobson scheme completely characterize the scheme. For local rings this is only the case if the ring is a field.
+\end{example}

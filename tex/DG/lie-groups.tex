@@ -18,3 +18,18 @@
     \[ B : \mathfrak{g} \times \mathfrak{g} \to k, \quad B(x, y) = \textup{tr}(\textup{ad}_{\mathfrak{g}}(x) \circ \textup{ad}_{\mathfrak{g}}(y)) \]
     where $\text{ad}_\mathfrak{g} : \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$ is the \tref{adjoint-representation}{adjoint representation} of $\mathfrak{g}$.
 \end{topic}
+
+\begin{topic}{coadjoint-orbit}{coadjoint orbit}
+    Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textbf{coadjoint orbit} of some $\xi \in \mathfrak{g}^*$ is the \tref{GT:orbit}{orbit} of the \tref{adjoint-representation}{coadjoint representation} $\textup{Ad}^*_G : G \to \textup{GL}(\mathfrak{g}^*)$, that is
+    \[ \mathcal{O}_\xi = \{ \textup{Ad}_g^*(\xi) : g \in G \} . \]
+    Equivalently, it can be described as the quotient $G/G_\xi$, where $G_\xi$ is the \tref{GT:stabilizer}{stabilizer} of $\xi$, under the isomorphism
+    \[ G/G_\xi \xrightarrow{\sim} \mathcal{O}_\xi, \quad g \mapsto \textup{Ad}_g^*(\mu) . \]
+\end{topic}
+
+\begin{topic}{kirillov-form}{Kirillov form}
+    Let $G$ be a \tref{lie-group}{Lie group}, $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}, and $\mathcal{O}_\xi$ a \tref{coadjoint-orbit}{coadjoint orbit} for some $\xi \in \mathfrak{g}^*$. The \textbf{Kirillov form} on $\mathcal{O}_\xi$ is the \tref{symplectic-manifold}{symplectic form} $\omega \in \Omega^2(\mathcal{O}_\xi)$ given by
+    \[ \omega_\eta(\textup{ad}_X^* \eta, \textup{ad}_Y^* \eta) = \eta([X, Y]) \textup{ for all } \eta \in \mathcal{O}_\mu \textup{ and } X, Y \in \mathfrak{g} , \]
+    where the tangent space of $\mathcal{O}_\xi$ at $\eta$ is identified as
+    \[ \mathfrak{g}/\mathfrak{g}_\eta \xrightarrow{\sim} T_\eta \mathcal{O}_\xi, \quad X \mapsto \textup{ad}_X^* \eta . \]
+    Note that $\textup{ad}_X^* \eta = \eta([X, -]) = 0$ if and only if $X \in \mathfrak{g}_\eta$, which makes $\omega$ well-defined and non-degenerate. Also $\omega$ is \tref{closed-form}{closed}.
+\end{topic}
