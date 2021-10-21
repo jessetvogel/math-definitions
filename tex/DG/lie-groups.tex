@@ -33,3 +33,31 @@
     \[ \mathfrak{g}/\mathfrak{g}_\eta \xrightarrow{\sim} T_\eta \mathcal{O}_\xi, \quad X \mapsto \textup{ad}_X^* \eta . \]
     Note that $\textup{ad}_X^* \eta = \eta([X, -]) = 0$ if and only if $X \in \mathfrak{g}_\eta$, which makes $\omega$ well-defined and non-degenerate. Also $\omega$ is \tref{closed-form}{closed}.
 \end{topic}
+
+\begin{topic}{maurer-cartan-form}{Maurer--Cartan form}
+    Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textbf{Maurer--Cartan form} $\Theta \in \Omega^1(G; \mathfrak{g})$ is the $\mathfrak{g}$-valued $1$-form on $G$ given by
+    \[ \Theta_g(\xi) = (L_{g^{-1}})_* \xi \quad \textup{ for } g \in G \textup{ and } \xi \in T_g G, \]
+    where $L_g : G \to G$ denotes left multiplication by $g$, that is $L_g(h) = gh$.
+\end{topic}
+
+\begin{topic}{lie-theorems}{Lie's theorems}
+    \textbf{Lie's theorems} are three theorems about the relation between \tref{lie-group}{Lie groups} and finite-dimensional \tref{AA:lie-algebra}{Lie algebras}.
+    \begin{enumerate}[I]
+        \item If $G$ and $H$ are locally isomorphic Lie groups, then their Lie algebras $\mathfrak{g}$ and $\mathfrak{h}$ are isomorphic.
+        \item If $G$ and $H$ are Lie groups with Lie algebras $\mathfrak{g}$ and $\mathfrak{h}$, and $G$ is \tref{TO:simply-connected-space}{simply connected}, then any morphism of Lie algebras $f : \mathfrak{g} \to \mathfrak{h}$ lifts uniquely to a morphism of Lie groups $F : G \to H$, that is, $dF_e = f$.
+        \item Every Lie algebra is isomorphic to the Lie algebra of a (simply connected) Lie group.
+    \end{enumerate}
+\end{topic}
+
+\begin{topic}{lie-algebra-cohomology}{Lie algebra cohomology}
+    Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textit{left-invariant differential forms}, i.e. \tref{differential-form}{differential forms} $\omega \in \Omega^k(G)$ with $\omega_g = (L_{g^{-1}})^* \omega_e$ for all $g \in G$, where $L_g : G \to G$ denotes left multiplication $h \mapsto gh$, are completely determined by their value at the identity $e$. Hence there is a natural identification
+    \[ \wedge^\bdot \mathfrak{g}^* \xrightarrow{\sim} \Omega^\bdot_\textup{inv}(G), \]
+    where $(\Omega^\bdot_\textup{inv}(G), d) \subset (\Omega^\bdot(G), d)$ is the subcomplex of left-invariant differential forms. In this way, the \tref{exterior-derivative}{exterior} corresponds to the differential
+    \[ d_\mathfrak{g} : \wedge^k \mathfrak{g}^* \to \wedge^{k + 1} \mathfrak{g}^*, \quad d_\mathfrak{g} \omega(v_0, \ldots, v_k) = \sum_{0 \le i < j \le k} (-1)^{i + j} \omega([v_i, v_j], v_0, \ldots, \hat{v}_i, \ldots, v_k) . \]
+    The complex $(\wedge^\bdot \mathfrak{g}^*, d_\mathfrak{g})$ is called the \textbf{Chevalley--Eilenberg complex}, and the cohomology groups $H^k(\mathfrak{g})$ are the \textbf{Lie algebra cohomology groups} of $\mathfrak{g}$.
+    
+    If $\rho : \mathfrak{g} \to \mathfrak{gl}(V)$ is a Lie algebra representation of $\mathfrak{g}$, then the \textbf{Lie algebra cohomology of $\mathfrak{g}$ with coefficients in $V$}, denoted $H^k(\mathfrak{g}, V)$, is the cohomology of the complex $(\wedge^\bdot \mathfrak{g}^* \otimes V, d_\mathfrak{g})$ where
+    \[ \begin{aligned}
+        d_\mathfrak{g} \omega(v_0, \ldots, v_k) &= \sum_{i = 0}^{k} (-1)^i \rho(v_i) \cdot \omega(v_0, \ldots, \hat{v}_i, \ldots, v_k) \\ &+ \sum_{0 \le i < j \le k} (-1)^{i + j} \omega([v_i, v_j], v_0, \ldots, \hat{v}_i, \ldots, v_k) .
+    \end{aligned} \]
+\end{topic}

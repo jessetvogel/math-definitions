@@ -1,9 +1,6 @@
 const examples = [
   "AA:semiring",
   "AA:hopf-algebra",
-  "AA:primitive-ideal",
-  "AA:primitive-ring",
-  "AA:jacobson-ring",
   "AA:lie-algebra",
   "AA:cartan-subalgebra",
   "AG:normal-scheme",

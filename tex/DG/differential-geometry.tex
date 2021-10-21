@@ -114,6 +114,12 @@
     \end{aligned} \]
 \end{example}
 
+\begin{example}{exterior-derivative}
+    Given $\omega \in \Omega^k$, we have
+    \[ \begin{aligned} (d\omega)(X_0, \ldots, X_k) &= \sum_{i = 0}^{k} X_i\left( \omega\left(X_0, \ldots, \widehat{X}_i, \ldots, X_k \right) \right) \\ &+ \sum_{0 \le i < j \le k + 1} (-1)^{i + j} \omega\left([X_i, X_j], X_0, \ldots, \widehat{X}_i, \ldots, X_k \right) , \end{aligned} \]
+    where $[X_i, X_j]$ denotes the \tref{lie-bracket-vector-fields}{Lie bracket for vector fields}, and $\hat{X}_i$ means we omit $X_i$ from the sequence.
+\end{example}
+
 \begin{topic}{interior-product}{interior product}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{interior product} is the \textit{contraction} of a \tref{differential-form}{differential form} with a \tref{vector-field}{vector field}. That is, if $X$ is a vector field on $M$, then
     \[ \iota_X : \Omega^k(M) \to \Omega^{k - 1} \]
@@ -315,7 +321,7 @@
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. Given a rank $k$ \tref{distribution}{distribution} $\mathcal{D} \subset TM$ and a point $p \in M$, an \textbf{integral submanifold} of $\mathcal{D}$ through $p$ is an \tref{immersion}{immersion} of a $k$-dimensional manifold $i : N \to M$ such that $p \in i(N)$ and for all $q \in N$ one has $i_*(T_q N) = \mathcal{D}_{i(q)}$.
 \end{topic}
 
-\begin{topic}{integral-distribution}{integral distribution}
+\begin{topic}{integrable-distribution}{integrable distribution}
     A \tref{distribution}{distribution} $\mathcal{D} \subset TM$ on a \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{integrable} if for every $p \in M$ there exists an \tref{integral-submanifold}{integral submanifold} of $\mathcal{D}$ through $p$.
 \end{topic}
 
@@ -324,7 +330,7 @@
 \end{topic}
 
 \begin{example}{involutive-distribution}
-    Every \tref{integral-distribution}{integral distribution} is involutive. Indeed, at any point $p \in M$ there exists an \tref{integral-submanifold}{integral submanifold} $i : N \to M$, so that $X, Y \in \Gamma(\mathcal{D})$ can be viewed as vector fields on $N$. Hence, $[X, Y]$ is also a vector field on $N$.
+    Every \tref{integrable-distribution}{integral distribution} is involutive. Indeed, at any point $p \in M$ there exists an \tref{integral-submanifold}{integral submanifold} $i : N \to M$, so that $X, Y \in \Gamma(\mathcal{D})$ can be viewed as vector fields on $N$. Hence, $[X, Y]$ is also a vector field on $N$.
     
     Conversely, it is a theorem by Frobenius that every involutive distribution is integrable.
 \end{example}
@@ -648,4 +654,8 @@
     Let $M$ be a complex smooth manifold, and consider the \tref{dolbeault-operators}{Dolbeault operator}
     \[ \overline{\partial} : \Omega^{p, q}(M) \to \Omega^{p, q + 1}(M) . \]
     Since $\overline{\partial}^2 = 0$, one can form the \tref{HA:chain-complex}{complex} $(\Omega^{p, \bdot}(M), \overline{\partial})$, and the corresponding \tref{HA:homology-object}{cohomology group} $H^{p, q}(M, \CC)$ is called the \textbf{$(p, q)$-th Dolbeault cohomology group}.
+\end{topic}
+
+\begin{topic}{frobenius-theorem}{Frobeniuw theorem}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. \textbf{Frobenius theorem} states there is a one-to-one correspondence between \tref{foliation}{foliations} on $M$ and \tref{involutive-distribution}{involutive distributions} $\mathcal{D} \subset TM$. In particular, a foliation $\mathcal{F}$ corresponds to the involutive distribution $\mathcal{D} = T \mathcal{F}$, where $T_x \mathcal{F} = T_x L$ for any $x \in M$ with $L$ the leaf through $x$.
 \end{topic}

@@ -5,12 +5,7 @@
 -- PDF front cover
 -- Reference system
 
-- Geometric realization of simplicial set (as a colimit): functorial, the functor is left/right adjoint to Sing(-)
-
 # ---- Theory ----
-
-DG: Dolbeault cohomology
-
 
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
 
@@ -29,7 +24,6 @@ MT: Measure Theory, sigma algebra, borel algebra
 AG: Kodaira dimension
 AG: blowup / blowdown
 AG: étale fundamental group(oid)
-AG: Zariski's main theorem
 AG: normal crossings divisor
 AG: hyperelliptic curve
 AG: Narasimhan--Seshadri theorem
