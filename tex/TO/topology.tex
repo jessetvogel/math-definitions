@@ -360,3 +360,11 @@
 \begin{topic}{topological-group}{topological group}
     A \textbf{topological group} is a \tref{GT:group}{group} $G$ which is also a \tref{topological-space}{topological space}, such that multiplication $G \times G \to G, (x, y) \mapsto xy$ and inversion $G \to G, x \mapsto x^{-1}$ are \tref{continuous-map}{continuous}.
 \end{topic}
+
+\begin{topic}{sequentially-compact}{sequentially compact}
+    A \tref{topological-space}{topological space} is \textbf{sequentially compact} if every sequence of points $(x_n)_{n \in \NN}$ in $X$ has a \tref{convergent-sequence}{convergent} subsequence.
+\end{topic}
+
+\begin{topic}{convergent-sequence}{convergent sequence}
+    Let $X$ be a \tref{topological-space}{topological-space}. A sequence of points $(x_n)_{n \in \NN}$ in $X$ is \textbf{convergent} if there exists a point $x \in X$ such that for any open neighborhood $U$ of $x$, there exists some $N \in \NN$ such that $x_n \in U$ for every $n \ge N$. The point $x$ is called a \textit{limit point} of the sequence.
+\end{topic}

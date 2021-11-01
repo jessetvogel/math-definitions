@@ -7,7 +7,9 @@
 
 # ---- Theory ----
 
+- Borel construction (EG x X / G) : Example BG = classifying space
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
+- Proofs of theorems
 
 # Other
 LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,

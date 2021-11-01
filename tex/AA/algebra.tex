@@ -52,3 +52,42 @@
     \[ A \mapsto \Spec A, \quad \text{and} \quad G \mapsto \Gamma(G, \mathcal{O}_G) . \]
     The antipode corresponds to group inversion.
 \end{example}
+
+\begin{topic}{frobenius-algebra}{Frobenius algebra}
+    A \textbf{Frobenius algebra} over a field $k$ is a $k$-algebra $A$ equipped with a bilinear form $\beta : A \otimes_k A \to k$, called the \textit{Frobenius pairing}, satisfying
+    \begin{itemize}
+        \item (\textit{associativity}) $\beta(ab \otimes c) = \beta(a \otimes bc)$ for all $a, b, c \in A$,
+        \item (\textit{non-degeneracy}) there exists a $k$-linear map $\gamma : k \to A \otimes A$ such that 
+        \[ (\beta \otimes \id_A)(a \otimes \gamma(1)) = a = (\id_A \otimes \beta)(\gamma(1) \otimes a) \]
+        for all $a \in A$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{frobenius-algebra}
+    \begin{itemize}
+        \item Let $A$ be a finite field extension of $k$, and $\varepsilon : A \to k$ any non-zero $k$-linear map. Then $A$ with the pairing $\beta : A \otimes A \to k, a \otimes b \mapsto \varepsilon(ab)$ is a Frobenius algebra.
+        \item The ring $\textup{Mat}_n(k)$ of $n \times n$ matrices over $k$, with pairing $A \otimes B \mapsto \operatorname{tr}(AB)$, is a Frobenius algebra.
+    \end{itemize}
+\end{example}
+
+\begin{example}{frobenius-algebra}
+    Any Frobenius algebra $A$ is finite-dimensional. Namely, write $\gamma(1) = \sum_{i = 1}^{n} a_i \otimes b_i$ for some $a_i, b_i \in A$, and note for any $a \in A$ we have
+    \[ a = (\id_A \otimes \beta) \circ (\gamma \otimes \id_A)(1 \otimes a) = (\id_A \otimes \beta) \left( \sum_{i = 1}^{n} a_i \otimes b_i \otimes a \right) = \sum_{i = 1}^{n} a_i \cdot \beta(b_i \otimes a) , \]
+    so in particular $a \in \langle a_1, \ldots, a_n \rangle$, implying that $A$ is finite-dimensional.
+\end{example}
+
+\begin{example}{frobenius-algebra}
+    A Frobenius algebra $A$ naturally carries a $k$-coalgebra structure. Take as counit the map
+    \[ \varepsilon : A \to k, \quad a \mapsto \beta(1 \otimes a) = \beta(a \otimes 1) \]
+    which is well-defined by associativity of $\beta$. As comultiplication, take
+    \[ \delta : A \to A \otimes A, \quad a \mapsto (\mu \otimes \id_A)(a \otimes \gamma(1)) = (\id_A \otimes \mu)(\gamma(1) \otimes a) . \]
+    To see why this is well-defined, write $\gamma(1) = \sum_i a_i \otimes b_i$ as before, then the associativity and non-degeneracy of $\beta$ imply that
+    \[ \begin{aligned}
+        (\mu \otimes \id_A)(a \otimes \gamma(1)) &= \sum_{i = 1}^{n} a a_i \otimes b_i = \sum_{i,j = 1}^{n} \beta(b_j \otimes a a_i) a_j \otimes b_i \\ &= \sum_{i,j = 1}^{n} \beta(b_i a \otimes a_j) a_i \otimes b_j = \sum_{i = 1}^{n} a_i \otimes b_i a = (\id_A \otimes \mu)(\gamma(1) \otimes a) 
+    \end{aligned} \]
+    for all $a \in A$. Note that $\delta$ is coassociative since
+    \[ (\id_A \otimes \delta) \circ \delta(a) = \sum_{i, j = 1}^{n} a a_i \otimes b_i a_j \otimes b_j = \sum_{i, j = 1}^{n} a a_i \otimes b_i a_j \otimes b_j = \sum_{i, j = 1}^{n} a a_j a_i \otimes b_i \otimes b_j = (\delta \otimes \id_A) \circ \delta(a) \]
+    for all $a \in A$. Furthermore, $\varepsilon$ is a counit for the comultiplication since
+    \[ (\id_A \otimes \varepsilon)(\delta(a)) = \sum_{i = 1}^{n} a a_i \cdot \beta(b_i \otimes 1) = a \cdot 1 = a \]
+    for all $a \in A$. Similarly $(\varepsilon \otimes \id_A)(\delta(a)) = a$ for all $a \in A$.
+\end{example}

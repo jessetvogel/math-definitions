@@ -335,3 +335,20 @@
         \item \textbf{negative semi-definite} if $x^* M x \le 0$ for all vectors $x$.
     \end{itemize}
 \end{topic}
+
+\begin{topic}{cayley-hamilton-theorem}{Cayley--Hamilton theorem}
+    The \textbf{Cayley--Hamilton theorem} states that any $n \times n$ matrix $A$ is a root of its own \tref{characteristic-polynomial}{characteristic polynomial}, that is, $p_A(A) = 0$.
+\end{topic}
+
+\begin{example}{cayley-hamilton-theorem}
+    Take $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ with characteristic polynomial $p_A(\lambda) = \det \begin{pmatrix} \lambda - 1 & -2 \\ -3 & \lambda - 4 \end{pmatrix} = (\lambda - 1)(\lambda - 4)  + 6 = \lambda^2 - 5 \lambda + 6$. Then
+    \[ p_A(A) = A^2 - 5A + 6I = \begin{pmatrix} 7 & 10 \\ 15 & 22 \end{pmatrix} - \begin{pmatrix} 5 & 10 \\ 15 & 20 \end{pmatrix} + \begin{pmatrix} 6 & 0 \\ 0 & 6 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} . \]
+\end{example}
+
+\begin{example}{cayley-hamilton-theorem}
+    \textbf{Proof}. For \tref{diagonalization}{diagonalizable} matrices $A = PDP^{-1}$, with $D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}$, the proof is easy:
+    \[ p_A(A) = p_A(PDP^{-1}) = P p_A(D) P^{-1} = P \begin{pmatrix} p_A(\lambda_1) & & \\ & \ddots & \\ & & p_A(\lambda_n) \end{pmatrix} P^{-1} = 0 , \]
+    since all eigenvalues $\lambda_i$ are roots of $p_A$. In other words, the function
+    \[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
+    is zero on the set of diagonalizable complex matrices, which is \tref{TO:dense}{dense} in $\textup{Mat}_{n \times n}(\CC)$. Hence by continuity of $\varphi$, we must have $\varphi(A) = 0$ for all $A \in \textup{Mat}_{n \times n}(\CC)$.
+\end{example}

@@ -1,0 +1,20 @@
+<div class="example"><ul><li> Let <span class="math inline">\(A\)</span> be a finite field extension of <span class="math inline">\(k\)</span>, and <span class="math inline">\(\varepsilon : A \to k\)</span> any non-zero <span class="math inline">\(k\)</span>-linear map. Then <span class="math inline">\(A\)</span> with the pairing <span class="math inline">\(\beta : A \otimes A \to k, a \otimes b \mapsto \varepsilon(ab)\)</span> is a Frobenius algebra.
+</li><li> The ring <span class="math inline">\(\textup{Mat}_n(k)\)</span> of <span class="math inline">\(n \times n\)</span> matrices over <span class="math inline">\(k\)</span>, with pairing <span class="math inline">\(A \otimes B \mapsto \operatorname{tr}(AB)\)</span>, is a Frobenius algebra.
+</li></ul>
+</div><div class="example">Any Frobenius algebra <span class="math inline">\(A\)</span> is finite-dimensional. Namely, write <span class="math inline">\(\gamma(1) = \sum_{i = 1}^{n} a_i \otimes b_i\)</span> for some <span class="math inline">\(a_i, b_i \in A\)</span>, and note for any <span class="math inline">\(a \in A\)</span> we have
+<span class="math display">\[ a = (\id_A \otimes \beta) \circ (\gamma \otimes \id_A)(1 \otimes a) = (\id_A \otimes \beta) \left( \sum_{i = 1}^{n} a_i \otimes b_i \otimes a \right) = \sum_{i = 1}^{n} a_i \cdot \beta(b_i \otimes a) , \]</span>
+so in particular <span class="math inline">\(a \in \langle a_1, \ldots, a_n \rangle\)</span>, implying that <span class="math inline">\(A\)</span> is finite-dimensional.
+</div><div class="example">A Frobenius algebra <span class="math inline">\(A\)</span> naturally carries a <span class="math inline">\(k\)</span>-coalgebra structure. Take as counit the map
+<span class="math display">\[ \varepsilon : A \to k, \quad a \mapsto \beta(1 \otimes a) = \beta(a \otimes 1) \]</span>
+which is well-defined by associativity of <span class="math inline">\(\beta\)</span>. As comultiplication, take
+<span class="math display">\[ \delta : A \to A \otimes A, \quad a \mapsto (\mu \otimes \id_A)(a \otimes \gamma(1)) = (\id_A \otimes \mu)(\gamma(1) \otimes a) . \]</span>
+To see why this is well-defined, write <span class="math inline">\(\gamma(1) = \sum_i a_i \otimes b_i\)</span> as before, then the associativity and non-degeneracy of <span class="math inline">\(\beta\)</span> imply that
+<span class="math display">\[ \begin{aligned}
+        (\mu \otimes \id_A)(a \otimes \gamma(1)) &= \sum_{i = 1}^{n} a a_i \otimes b_i = \sum_{i,j = 1}^{n} \beta(b_j \otimes a a_i) a_j \otimes b_i \\ &= \sum_{i,j = 1}^{n} \beta(b_i a \otimes a_j) a_i \otimes b_j = \sum_{i = 1}^{n} a_i \otimes b_i a = (\id_A \otimes \mu)(\gamma(1) \otimes a) 
+    \end{aligned} \]</span>
+for all <span class="math inline">\(a \in A\)</span>. Note that <span class="math inline">\(\delta\)</span> is coassociative since
+<span class="math display">\[ (\id_A \otimes \delta) \circ \delta(a) = \sum_{i, j = 1}^{n} a a_i \otimes b_i a_j \otimes b_j = \sum_{i, j = 1}^{n} a a_i \otimes b_i a_j \otimes b_j = \sum_{i, j = 1}^{n} a a_j a_i \otimes b_i \otimes b_j = (\delta \otimes \id_A) \circ \delta(a) \]</span>
+for all <span class="math inline">\(a \in A\)</span>. Furthermore, <span class="math inline">\(\varepsilon\)</span> is a counit for the comultiplication since
+<span class="math display">\[ (\id_A \otimes \varepsilon)(\delta(a)) = \sum_{i = 1}^{n} a a_i \cdot \beta(b_i \otimes 1) = a \cdot 1 = a \]</span>
+for all <span class="math inline">\(a \in A\)</span>. Similarly <span class="math inline">\((\varepsilon \otimes \id_A)(\delta(a)) = a\)</span> for all <span class="math inline">\(a \in A\)</span>.
+</div>

@@ -1,24 +1,24 @@
 \begin{topic}{representation}{representation}
     A \textbf{representation} of a \tref{GT:group}{group} $G$ on a \tref{LA:vector-space}{vector space} $V$ over a \tref{CA:field}{field} $k$ is a \tref{GT:group-homomorphism}{group homomorphism}
-    \[ \rho : G \to \text{GL}(V) . \]
+    \[ \rho : G \to \textup{GL}(V) . \]
     The vector space $V$ is called the \textit{representation space} and $\dim_k V$ the \textit{dimension} of the representation.
 \end{topic}
 
 \begin{topic}{irreducible-representation}{(ir)reducible representation}
-    A \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is \textbf{reducible} if there exists a non-zero proper invariant subspace $W \subset V$, that is, $\rho(g) w \in W$ for all $w \in W$ and $g \in G$. If no such subspace exists, the representation is \textbf{irreducible}. If $\rho$ can be written as a direct sum $\rho_1 \oplus \rho_2$, then it is called \textbf{completely reducible}, or \textbf{semisimple}.
+    A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is \textbf{reducible} if there exists a non-zero proper invariant subspace $W \subset V$, that is, $\rho(g) w \in W$ for all $w \in W$ and $g \in G$. If no such subspace exists, the representation is \textbf{irreducible}. If $\rho$ can be written as a direct sum $\rho_1 \oplus \rho_2$, then it is called \textbf{completely reducible}, or \textbf{semisimple}.
 \end{topic}
 
 \begin{topic}{faithful-representation}{faithful representation}
-    A \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is \textbf{faithful} if $\rho$ is injective.
+    A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is \textbf{faithful} if $\rho$ is injective.
 \end{topic}
 
 \begin{topic}{unitary-representation}{unitary representation}
-    A \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ over $\CC$ is \textbf{unitary} if $\rho(g)$ is unitary for all $g \in G$, that is $\rho(g)^\dagger \rho(g) = \rho(g) \rho(g)^\dagger = \id_V$.
+    A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ over $\CC$ is \textbf{unitary} if $\rho(g)$ is unitary for all $g \in G$, that is $\rho(g)^\dagger \rho(g) = \rho(g) \rho(g)^\dagger = \id_V$.
 \end{topic}
 
 \begin{topic}{character}{character}
-    The \textbf{character} of a \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is the function
-    \[ \chi_\rho : G \to k, \quad g \mapsto \text{tr}(\rho(g)) . \]
+    The \textbf{character} of a \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is the function
+    \[ \chi_\rho : G \to k, \quad g \mapsto \textup{tr}(\rho(g)) . \]
     Note that $\chi_\rho$ is constant on conjugacy classes.
 \end{topic}
 
@@ -30,21 +30,21 @@
 
 \begin{example}{representation-ring}
     \begin{itemize}
-        \item Any representation of $G = \text{GL}_1(\CC) = \CC^*$ is a direct sum of $1$-dimensional representations of the form $\rho_n : \CC^* \to \CC^*, z \mapsto z^n$ for some character $n \in \ZZ$. Hence the representation ring of $G$ is $R_\CC(G) = \ZZ[t, t^{-1}]$, where $t$ corresponds to $\rho_1$.
+        \item Any representation of $G = \textup{GL}_1(\CC) = \CC^*$ is a direct sum of $1$-dimensional representations of the form $\rho_n : \CC^* \to \CC^*, z \mapsto z^n$ for some character $n \in \ZZ$. Hence the representation ring of $G$ is $R_\CC(G) = \ZZ[t, t^{-1}]$, where $t$ corresponds to $\rho_1$.
         
-        \item Any representation of the cyclic group $G = \ZZ/n\ZZ$ is a direct sum of $1$-dimensional representations which sends $1 \text{ mod } n$ to an $n$-th root of unity. Hence the (complex) representation ring of $G$ is $R_\CC(G) = \ZZ[t]/(t^n - 1)$, where $t$ corresponds to the representation $1 \mapsto \zeta_n$, a primitive root of unity.
+        \item Any representation of the cyclic group $G = \ZZ/n\ZZ$ is a direct sum of $1$-dimensional representations which sends $1 \textup{ mod } n$ to an $n$-th root of unity. Hence the (complex) representation ring of $G$ is $R_\CC(G) = \ZZ[t]/(t^n - 1)$, where $t$ corresponds to the representation $1 \mapsto \zeta_n$, a primitive root of unity.
     \end{itemize}
 \end{example}
 
 \begin{topic}{equivalent-representations}{equivalent representations}
-    Two \tref{representation}{representations} $\rho : G \to \text{GL}(V)$ and $\rho' : G \to \text{GL}(W)$ are called \textbf{equivalent}, or \textbf{isomorphic}, if there exists a linear isomorphism $A : V \to W$ such that $\rho'(g) = A \rho(g) A^{-1}$ for all $g \in G$.
+    Two \tref{representation}{representations} $\rho : G \to \textup{GL}(V)$ and $\rho' : G \to \textup{GL}(W)$ are called \textbf{equivalent}, or \textbf{isomorphic}, if there exists a linear isomorphism $A : V \to W$ such that $\rho'(g) = A \rho(g) A^{-1}$ for all $g \in G$.
 \end{topic}
 
 \begin{topic}{schur-lemma}{Schur's lemma}
     \textbf{Schur's lemma} states:
     \begin{enumerate}
-        \item If $\rho : G \to \text{GL}(V)$ and $\rho' : G \to \text{GL}(W)$ are two \tref{equivalent-representations}{inequivalent} \tref{irreducible-representation}{irreducible} \tref{representation}{representations} over $\CC$, and $A : V \to W$ is a linear map such that $A \rho(g) = \rho'(g) A$ for all $g \in G$, then $A = 0$.
-        \item If $\rho : G \to \text{GL}(V)$ is an irreducible representation over $\CC$, and $A : V \to V$ is a linear map such that $A \rho(g) = \rho(g) A$ for all $g \in G$, then $A$ is a scalar multiple of the identity map.
+        \item If $\rho : G \to \textup{GL}(V)$ and $\rho' : G \to \textup{GL}(W)$ are two \tref{equivalent-representations}{inequivalent} \tref{irreducible-representation}{irreducible} \tref{representation}{representations} over $\CC$, and $A : V \to W$ is a linear map such that $A \rho(g) = \rho'(g) A$ for all $g \in G$, then $A = 0$.
+        \item If $\rho : G \to \textup{GL}(V)$ is an irreducible representation over $\CC$, and $A : V \to V$ is a linear map such that $A \rho(g) = \rho(g) A$ for all $g \in G$, then $A$ is a scalar multiple of the identity map.
     \end{enumerate}
 \end{topic}
 
@@ -56,16 +56,40 @@
 
 \begin{topic}{projective-representation}{projective representation}
     A \textbf{projective representation} of a \tref{GT:group}{group} on a \tref{LA:vector-space}{vector space} $V$ over a field $k$ is a \tref{GT:group-homomorphism}{group homomorphism}
-    \[ \rho : G \to \text{PGL}(V) , \]
-    where $\text{PGL}(V) = \text{GL}(V) / k^*$ is the \textit{projective linear group} of $V$.
+    \[ \rho : G \to \textup{PGL}(V) , \]
+    where $\textup{PGL}(V) = \textup{GL}(V) / k^*$ is the \textit{projective linear group} of $V$.
 \end{topic}
 
 % \begin{example}{projective-representation}
-%     Any representation $\rho : G \to \text{GL}(V)$ can be composed with $\text{GL}(V) \to \text{PGL}(V)$ to give a projective representation, but the converse is not true. Consider $G = \text{SO}(3)$ and $\rho : G \to \text{PGL}_2(\CC)$ induced by
-%     \[ \mathfrak{so}(3) \to \text{GL}_2(\CC), \quad \sigma_1 \mapsto \begin{pmatrix}  \end{pmatrix}, \quad \sigma_2 \mapsto \begin{pmatrix} \end{pmatrix}, \quad \sigma_3 \mapsto \begin{pmatrix} \end{pmatrix} . \]
+%     Any representation $\rho : G \to \textup{GL}(V)$ can be composed with $\textup{GL}(V) \to \textup{PGL}(V)$ to give a projective representation, but the converse is not true. Consider $G = \textup{SO}(3)$ and $\rho : G \to \textup{PGL}_2(\CC)$ induced by
+%     \[ \mathfrak{so}(3) \to \textup{GL}_2(\CC), \quad \sigma_1 \mapsto \begin{pmatrix}  \end{pmatrix}, \quad \sigma_2 \mapsto \begin{pmatrix} \end{pmatrix}, \quad \sigma_3 \mapsto \begin{pmatrix} \end{pmatrix} . \]
 % \end{example}
 
 \begin{topic}{dual-representation}{dual representation}
-    The \textbf{dual representation} of a \tref{representation}{representation} $\rho : G \to \text{GL}(V)$ is the representation on the \tref{LA:dual-vector-space}{dual vector space} $V^*$ given by
-    \[ \rho^* : G \to \text{GL}(V^*), \quad g \mapsto \rho(g^{-1})^T = (-) \circ \rho(g^{-1}) . \]
+    The \textbf{dual representation} of a \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is the representation on the \tref{LA:dual-vector-space}{dual vector space} $V^*$ given by
+    \[ \rho^* : G \to \textup{GL}(V^*), \quad g \mapsto \rho(g^{-1})^T = (-) \circ \rho(g^{-1}) . \]
 \end{topic}
+
+\begin{topic}{first-orthogonality-theorem}{first orthogonality theorem}
+    Let $G$ be a finite \tref{GT:group}{group} and let $\rho_1 : G \to \textup{GL}(V)$ and $\rho_2 : G \to \textup{GL}(W)$ be two \tref{irreducible-representation}{irreducible representations} over $\CC$ with corresponding \tref{character}{characters} $\chi_1$ and $\chi_2$. Then the \textbf{first orthogonality theorem} states that
+    \[ \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \overline{\chi_2(g)} = \left\{ \begin{array}{cl} 1 & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 , \end{array} \right. \]
+    where $\simeq$ denotes \tref{equivalent-representations}{equivalence}.
+\end{topic}
+
+\begin{example}{first-orthogonality-theorem}
+    \textbf{Proof}. Let $A : W \to V$ be an arbitrary linear map, and take
+    \[ B = \sum_{g \in G} \rho_1(g) A \rho_2(g^{-1}) . \]
+    Note that
+    \[ \rho_1(h) B = \sum_{g \in G} \rho_1(hg) A \rho_2(g^{-1}) = \sum_{g' \in G} \rho_1(g') A \rho_2(g'^{-1} h) = B \rho_2(h) . \]
+    If $\rho_1 \simeq \rho_2$, then \tref{schur-lemma}{Schur's first lemma} implies $B = \lambda I$ for some $\lambda \in \CC$, and if $\rho_1 \not\simeq \rho_2$, then \tref{schur-lemma}{Schur's second lemma} yields $B = 0$. Now taking $A_{\ell m} = \delta_{\ell r} \delta_{ms}$, in terms of some basis for $V$ and $W$, gives
+    \[ \sum_{g \in G} (\rho_1(g))_{ir} (\rho_2(g^{-1}))_{sj} = \left\{ \begin{array}{cl} \lambda_{rs} \delta_{ij} & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 . \end{array} \right. \]
+    Whenever $\rho_1 \simeq \rho_2$, we can set $i = j$ and sum over $i$ to obtain $|G| \delta_{rs} = \lambda_{rs} \dim_\CC(V)$. Substituting this into the above, setting $r = i$ and $s = j$ and summing over $i$ and $j$ now gives
+    \[ \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) = \left\{ \begin{array}{cl} |G| & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 , \end{array} \right. \]
+    as desired.
+\end{example}
+
+\begin{example}{first-orthogonality-theorem}
+    Define an inner product on the characters of $G$,
+    \[ \langle \chi_1, \chi_2 \rangle = \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) . \]
+    The first orthogonality theorem now says that $\langle \chi, \chi \rangle = 1$ for any character $\chi$, and that inequivalent characters are orthogonal. In particular, two irreducible representations $\rho_1$ and $\rho_2$ are equivalent if and only if their characters are equal. Namely, if $\rho_1 \not\simeq \rho_2$, then $\langle \chi_1, \chi_2 \rangle = 0$, and since $\langle \chi_1, \chi_1 \rangle = 1$, we must have $\chi_1 \ne \chi_2$.
+\end{example}

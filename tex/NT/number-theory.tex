@@ -165,3 +165,16 @@
     \[ R(f, f') = a^{n - 1} \prod_{i = 1}^{n} f'(\alpha_i) = \frac{(-1)^{n(n - 1)/2}}{a} \Delta(f) . \]
 \end{example}
 
+\begin{topic}{abel-ruffini-theorem}{Abel--Ruffini theorem}
+    The \textbf{Abel--Ruffini theorem} states that polynomials of degree $\ge 5$ cannot be solved in general with solutions in radicals.
+\end{topic}
+
+\begin{example}{abel-ruffini-theorem}
+    \textbf{Proof}. Let $f \in k[x]$ be a polynomial over a field $k$, and let $\ell/k$ be a \tref{CA:splitting-field}{splitting field} of $f$. Then in particular $\ell/k$ is a \tref{CA:galois-extension}{Galois extension}. Now if $f$ is solvable by radicals, then we can write
+    \[ k = \ell_0 \subset \ell_1 \subset \ell_2 \subset \cdots \subset \ell_m = \ell , \]
+    where each $\ell_{i + 1}/\ell_i$ is a simple radical extension, that is, $\ell_{i + 1} = \ell_i(\sqrt[n_i]{\alpha_i})$ for some $n_i \in \NN$ and $\alpha_i \in \ell_i$. This implies the Galois groups $\textup{Gal}(\ell_{i + 1}/\ell_i) \simeq \ZZ/n_i\ZZ$ are all \tref{GT:cyclic-group}{cyclic}, and via the \tref{CA:galois-correspondence}{Galois correspondence} we obtain
+    \[ \textup{Gal}(\ell/k) = \textup{Gal}(\ell/\ell_0) \supset \textup{Gal}(\ell/\ell_1) \supset \cdots \supset \textup{Gal}(\ell/\ell) = \{ 1 \} . \]
+    Since each quotient $\textup{Gal}(\ell/\ell_i) / \textup{Gal}(\ell/\ell_{i + 1}) \simeq \textup{Gal}(\ell_{i + 1}/\ell)$ is cyclic, it follows that $\textup{Gal}(\ell/k)$ is a \tref{GT:solvable-group}{solvable group}.
+    
+    However, when $\deg(f) \ge 5$, the Galois group is generally not solvable. For example, the Galois group of the quintic polynomial $f = x^5 - x - 1 \in \QQ[x]$ is the symmetric group $S_5$, which is not solvable.
+\end{example}

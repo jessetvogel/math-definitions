@@ -107,7 +107,7 @@
     \[ \AA_k^1 \to C, \quad t \mapsto (t^2, t^3) . \]
 \end{example}
 
-\begin{topic}{separated}{(quasi) separated morphism}
+\begin{topic}{separated}{(quasi) separated}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is quasi-compact, and it is \textbf{separated} if the diagonal $\Delta_{X/Y}$ is a closed immersion.
     
     A scheme $X$ is \textbf{(quasi-)separated} if the morphism $X \to \Spec \ZZ$ is (quasi-)separated.
@@ -688,6 +688,12 @@
     \[ \Omega_{X/Y} = \Delta_{X/Y}^*(\mathcal{I}/\mathcal{I}^2) . \]
 \end{topic}
 
+\begin{example}{sheaf-differentials}
+    Let $f : X \to Y$ be locally of finite type. If $f$ is \tref{unramified-morphism}{unramified} then $\Omega_{X/Y} = 0$. Namely, since $\Omega_{X/Y}$ behaves well with respect to base change, this can be checked locally, that is, we can assume $Y = \Spec B$ and $X = \Spec A$ with $A \to B$ a local homomorphism of local rings. Using \tref{CA:nakayamas-lemma}{Nakayama's lemma} this reduces to the case where $A$ and $B$ are fields. Being unramified means that $A \subset B$ is a \tref{CA:separable-field-extension}{separable field extension}, and then it is clear that $\Omega_{B/A} = 0$.
+    
+    Conversely, if $\Omega_{X/Y} = 0$ then $f$ is unramified.
+\end{example}
+
 \begin{topic}{albanese-variety}{Albanese variety}
     Let $X$ be a connected \tref{complete-variety}{complete} \tref{variety}{variety} over an algebraically closed field $k$, with a basepoint. Then there exists an \tref{abelian-variety}{abelian variety} $\text{Alb}(X)$, the \textbf{Albanese variety} of $X$, and a morphism of pointed varieties $i : X \to \text{Alb}(X)$, the \textbf{Albanese map}, with the universal property that for any other abelian variety $A$ and morphism of pointed varieties $f : X \to A$, there exists a unique morphism of abelian varieties $f' : \text{Alb}(X) \to A$ such that $f = f' \circ i$.
     \[ \begin{tikzcd} X \arrow{r}{i} \arrow[swap]{dr}{f} &  \text{Alb}(X) \arrow[dashed]{d}{f'} \\ &  A \end{tikzcd} \]
@@ -891,4 +897,13 @@
 
 \begin{topic}{rational-curve}{rational curve}
     A \textbf{rational curve} is an \tref{algebraic-curve}{algebraic curve} which is \tref{birational-map}{birationally equivalent} to the projective line.
+\end{topic}
+
+\begin{topic}{zariski-main-theorem}{Zariski's main theorem}
+    \textbf{Zariski's main theorem} states that any \tref{separated}{separated} \tref{quasi-finite-morphism}{quasi-finite} morphism $f : Y \to X$ with $X$ \tref{TO:quasi-compact}{quasi-compact}, factors as $f' \circ g$, where $f' : Y \to Y'$ is an \tref{open-immersion}{open immersion} and $g : Y' \to X$ is a \tref{finite-morphism}{finite morphism}.
+\end{topic}
+
+\begin{topic}{brauer-group}{Brauer group}
+    Let $X$ be a \tref{scheme}{scheme}. The \textbf{Brauer group} of $X$ is the second étale cohomology group
+    \[ \textup{Br}(X) = H^2_\textup{ét}(X, \mathbb{G}_m) . \]
 \end{topic}

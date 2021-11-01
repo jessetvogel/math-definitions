@@ -292,3 +292,32 @@
     \[ B_n = \left\langle \sigma_1, \ldots, \sigma_{n - 1} \;\bigg|\; \begin{array}{cc} \sigma_i \sigma_{i + 1} \sigma_i = \sigma_{i + 1} \sigma_i \sigma_{i + 1} \text{ for } 1 \le i \le n - 2 \\ \sigma_i \sigma_j = \sigma_j \sigma_i \text{ for } |i - j| > 1 \end{array} \right\rangle . \]
     Intuitively, its elements are ways to `braid` $n$ strands, where $\sigma_i$ interchanges strands $i$ and $i + 1$.
 \end{topic}
+
+\begin{topic}{modular-group}{modular group}
+    The \textbf{modular group} is the \tref{group}{group}
+    \[ \textup{PSL}_2(\ZZ) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} : ad - bc = 1 \right\} / \{ \pm 1 \} \]
+    of $2 \times 2$ matrices with integer coefficients and determinant $1$, where any matrix $A$ is identified with $-A$.
+\end{topic}
+
+\begin{example}{modular-group}
+    Let $\mathcal{H} = \{ z \in \CC : \operatorname{im}(z) > 0 \}$ be the upper half-plane. The modular group acts on $\mathcal{H}$ via
+    \[ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \cdot z = \frac{az + b}{cz + d} . \]
+    Note that this gives a well-defined (left) \tref{group-action}{action}.
+\end{example}
+
+\begin{topic}{free-product}{free product}
+    Given two \tref{group}{groups} $G$ and $H$, the \textbf{free product} $G * H$ is the group of words that can be built from elements of $G \sqcup H$, modulo the group relations from $G$ and $H$, together with the natural inclusion maps $i_G : G \to G * H$ and $i_H : H \to G * H$.
+    
+    More generally, if there is also given a group $F$ and morphisms $\varphi : F \to G$ and $\psi : F \to H$, then the \textbf{free product with amalgamation}, denoted $G *_F H$, is the group $G * H$ modulo the relations $\varphi(f) = \psi(f)^{-1}$.
+    
+    The free product is the \tref{CT:pushout}{pushout} in the \tref{CT:category}{category} of groups. That is, for any $g : G \to K$ and $h : H \to K$ with $g \circ \varphi = h \circ \psi$, there is a unique morphism $f : G *_F H \to K$ such that $h = f \circ i_H$ and $g = f \circ i_G$.
+    \[ \begin{tikzcd} F \arrow{r}{\psi} \arrow{d}{\varphi} & H \arrow{d} \arrow[bend left=15]{ddr}{h} & \\ G \arrow{r} \arrow[bend right=15]{drr}{g} & G *_F H \arrow[dashed]{dr} & \\ & & K \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{free-product}
+    \begin{itemize}
+        \item If $G = \langle x \;|\; x^m = 1 \rangle$ and $H = \langle y \;|\; y^n = 1 \rangle$, then $G * H = \langle x, y \;|\; x^m = y^n = 1 \rangle$.
+        \item If $F_n$ is the \tref{free-group}{free group} on $n$ generators, then $F_m * F_n \simeq F_{m + n}$.
+        \item The \tref{modular-group}{modular group} $\textup{PSL}_2(\ZZ)$ is isomorphic to the free product $(\ZZ/2\ZZ) * (\ZZ/3\ZZ)$.
+    \end{itemize}
+\end{example}

@@ -146,6 +146,14 @@
     A \textbf{homotopy equivalence} between two \tref{TO:topological-space}{topological spaces} $X$ and $Y$ is a pair of \tref{TO:continuous-map}{continuous maps} $f : X \to Y$ and $g : Y \to X$ such that $g \circ f$ is \tref{homotopy}{homotopic} to $\id_X$ and $f \circ g$ is homotopic to $\id_Y$. If such a pair exists, then $X$ and $Y$ are said to be \textbf{homotopy equivalent}.
 \end{topic}
 
+\begin{example}{homotopy-equivalence}
+    The $n$-sphere $S^n \subset \RR^{n + 1}$ is homotopic to $\RR^{n + 1} \setminus \{ 0 \}$. Namely, consider the inclusion $i : S^n \to \RR^{n + 1}$ and the map
+    \[ f : \RR^{n + 1} \setminus \{ 0 \} \to S^n, \quad x \mapsto \frac{x}{\|x\|} . \]
+    Then $f \circ i = \id_{S^n}$, and $i \circ f$ is homotopic to $\id_{\RR^{n + 1}}$ since
+    \[ H : \RR^{n + 1} \times [0, 1] \to \RR^{n + 1}, \quad (x, t) \mapsto (1 - t) x + \frac{tx}{\|x\|} \]
+    satisfies $H(-, 0) = i \circ f$ and $H(-, 1) = \id_{\RR^{n + 1}}$.
+\end{example}
+
 \begin{topic}{weak-homotopy-equivalence}{weak homotopy equivalence}
     A \textbf{weak homotopy equivalence} is a continuous map $f : X \to Y$ if it induces bijections
     \[ f_* : \pi_n(X, x) \to \pi_n(Y, f(x)) \]

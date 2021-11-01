@@ -848,3 +848,25 @@
     A \tref{ring}{commutative ring} $R$ is \textbf{quasi-excellent} if it is \tref{noetherian-ring}{noetherian}, a \tref{G-ring}{G-ring}, and \tref{j0-j1-j2-ring}{J-2}.
     The ring $R$ is \textbf{excellent} if it is quasi-excellent and \tref{catenary-ring}{universally catenary}.
 \end{topic}
+
+\begin{topic}{henselian-ring}{Henselian ring}
+    A \tref{local-ring}{local-ring} $A$ with \tref{maximal-ideal}{maximal-ideal} $\mathfrak{m}$ is \textbf{Henselian} if \tref{NT:hensel-lifting-lemma}{Hensel's lifting lemma} holds: for every \tref{monic-polynomial}{monic polynomial} $f \in A[x]$, any factorization $\overline{f} = \overline{g} \cdot \overline{h}$ in $(A/\mathfrak{m})[x]$ with $\overline{g}$ and $\overline{h}$ monic and coprime can be lifted to a factorization $f = gh$ in $A[x]$ such that $\deg(\overline{g}) = \deg(g)$ and $g, h$ have reduction $\overline{g}, \overline{h}$ in $A/\mathfrak{m}$.
+    
+    The ring $A$ is called \textbf{strictly Henselian} if in addition the residue field $k = A/\mathfrak{m}$ is \tref{separably-closed-field}{separably closed}.
+\end{topic}
+
+\begin{topic}{going-up}{going-up}
+    Let $A$ be a \tref{ring}{commutative ring}, and $B$ an $A$-algebra. The ring extension $A \subset B$ satisfies the \textbf{going-up property} if whenever
+    \[ \mathfrak{p}_1 \subset \mathfrak{p}_2 \subset \cdots \subset \mathfrak{p}_n \quad \textup{and} \quad \mathfrak{q}_1 \subset \mathfrak{q}_2 \subset \cdots \subset \mathfrak{q}_m \]
+    are chains of \tref{prime-ideal}{prime ideals} of $A$ and $B$, respectively, with $m < n$ such that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ (that is, $\mathfrak{q}_i \cap A = \mathfrak{p}_i$) for each $1 \le i \le m$, the latter chain can be extended to a chain $\mathfrak{q}_1 \subset \cdots \subset \mathfrak{q}_m$ so that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ for all $1 \le i \le n$.
+    
+    The \textbf{going-up theorem} states that any \tref{integral-closure}{integral extension} $A \subset B$ satisfies the going-up property.
+\end{topic}
+
+\begin{topic}{going-down}{going-down}
+    Let $A$ be a \tref{ring}{commutative ring}, and $B$ an $A$-algebra. The ring extension $A \subset B$ satisfies the \textbf{going-down property} if whenever
+    \[ \mathfrak{p}_1 \supset \mathfrak{p}_2 \supset \cdots \supset \mathfrak{p}_n \quad \textup{and} \quad \mathfrak{q}_1 \supset \mathfrak{q}_2 \supset \cdots \supset \mathfrak{q}_m \]
+    are chains of \tref{prime-ideal}{prime ideals} of $A$ and $B$, respectively, with $m < n$ such that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ (that is, $\mathfrak{q}_i \cap A = \mathfrak{p}_i$) for each $1 \le i \le m$, the latter chain can be extended to a chain $\mathfrak{q}_1 \supset \cdots \supset \mathfrak{q}_m$ so that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ for all $1 \le i \le n$.
+    
+    The \textbf{going-down theorem} states that any \tref{integral-closure}{integral extension} $A \subset B$ with $B$ a \tref{domain}{domain} and $A$ \tref{integral-closure}{integrally closed} in its \tref{field-of-fractions}{field of fractions} satisfies the going-down property.
+\end{topic}

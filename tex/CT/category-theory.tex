@@ -634,3 +634,46 @@
         \item A \tref{AG:algebraic-group}{algebraic group} is a group object in the category of \tref{AG:variety}{varieties}.
     \end{itemize}
 \end{example}
+
+\begin{topic}{pro-representable-functor}{pro-representable functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is \textbf{pro-representable} if there is a \tref{natural-transformation}{natural} isomorphism
+    \[ \mapsto \varinjlim_{i \in I} \Hom_\mathcal{C}(X_i, -) \simeq F , \]
+    for some \tref{direct-limit}{direct system} $(X_i, f_{ij})$.
+\end{topic}
+
+\begin{topic}{filtered-category}{(co)filtered category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{filtered} if
+    \begin{itemize}
+        \item it is non-empty,
+        \item for every two objects $x, y$ in $\mathcal{C}$, there exists an object $z$ and arrows $x \to z$ and $y \to z$,
+        \item for every two morphisms $f, g : x \to y$ in $\mathcal{C}$, there exists an object $z$ and an arrow $h : x \to y$ with $hf = hg$.
+    \end{itemize}
+    Reversing arrows gives the definition of a \textbf{cofiltered category}.
+\end{topic}
+
+\begin{example}{filtered-category}
+    \begin{itemize}
+        \item Any category with a \tref{terminal-object}{terminal object} is filtered.
+        \item A \textit{lattice} (a partially ordered set where upper bounds exist), considered as a category, is filtered.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{strict-epimorphism}{strict epimorphism}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A morphism $f : X \to Y$ in $\mathcal{C}$ is a \textbf{strict epimorphism} if for all $g : X \to Z$ with the property that $fx = fy$ implies $gx = gy$ for all $x, y : W \to X$, there exists a unique $h : Y \to Z$ such that $g = hf$. In other words, $f$ is a split epimorphism if it is the \tref{limit}{colimit} of all parallel morphisms $x, y : X \to Y$ that it \tref{coequalizer}{coequalizes}.
+\end{topic}
+
+\begin{example}{strict-epimorphism}
+    Any strict epimorphism $f : X \to Y$ is an \tref{epimorphism}{epimorphism}. Suppose that $\alpha, \beta : Y \to Z$ are morphisms with $\alpha f = \beta f$. Then pick $g = \alpha f = \beta f$ and note that $fx = fy$ implies $gx = gy$ for any $x, y : W \to X$. Hence there is a unique morphism $h : Y \to Z$ with $g = hf$. Since $\alpha$ and $\beta$ both satisfy this property, it follows that $\alpha = \beta$.
+\end{example}
+
+\begin{example}{strict-epimorphism}
+    In \textbf{Set}, any epimorphism (surjective map) is a strict epimorphism, this is easy to check. However, in the category \textbf{Top} of \tref{TO:topological-space}{topological spaces} this is not the case. Consider $X = [0, 1) \sqcup [1, 2]$ and $Y = [0, 2]$ and the epimorphism (continuous surjective map) $f : X \to Y, x \mapsto x$. Whenever two maps $k, \ell : W \to X$ satisfy $fk = f\ell$, it follows that $k = \ell$ as this can be checked on the level of sets. However, there does not exist a continuous map $h : Y \to X$ with $\id_X = hf$.
+\end{example}
+
+\begin{topic}{strict-monomorphism}{strict monomorphism}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A morphism $f : X \to Y$ in $\mathcal{C}$ is a \textbf{strict monomorphism} if for all $g : Z \to Y$ with the property that $xg = yg$ implies $xg = yg$ for all $x, y : Y \to W$, there exists a unique $h : Z \to X$ such that $g = fh$. In other words, $f$ is a split monomorphism if it is the \tref{limit}{limit} of all parallel morphisms $x, y : Y \to W$ that it \tref{equalizer}{equalizes}.
+\end{topic}
+
+\begin{example}{strict-monomorphism}
+    Any strict monomorphism $f : X \to Y$ is a \tref{monomorphism}{monomorphism}. Suppose that $\alpha, \beta : Z \to X$ are morphisms with $f \alpha = f \beta$. Then pick $g = f \alpha = f \beta$ and note that $xf = yf$ implies $xg = yg$ for any $x, y : Y \to W$. Hence there is a unique morphism $h : Z \to X$ with $g = fh$. Since $\alpha$ and $\beta$ both satisfy this property, it follows that $\alpha = \beta$.
+\end{example}
