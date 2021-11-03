@@ -31,7 +31,7 @@
 
 \begin{example}{norm}
     Let $\mathcal{C}([a, b], k)$ with $k = \RR$ or $\CC$ be the vector space of continuous functions $[a, b] \to k$. Possible norms are
-    \[ \norm{f}_p = \left(\int_a^b |f(x)|^p \dif x \right)^{1/p} \quad \text{with} \quad 1 \le p < \infty . \]
+    \[ \norm{f}_p = \left(\int_a^b |f(x)|^p dx \right)^{1/p} \quad \text{with} \quad 1 \le p < \infty . \]
 \end{example}
 
 \begin{topic}{equivalent-norms}{equivalent norms}
@@ -56,23 +56,61 @@
     for all $x, y \in A$.
 \end{topic}
 
+\begin{topic}{star-algebra}{*-algebra}
+    A \textbf{*-algebra} is a \tref{banach-algebra}{Banach algebra} $A$ over $\CC$ together with a map $(-)^* : A \to A, x \mapsto x^*$ satisfying
+    \begin{itemize}
+        \item (\textit{involution}) $(x^*)^* = x$ for all $x \in A$,
+        \item (\textit{antiautomorphism}) $(x + y)^* = x^* + y^*$ and $(xy)^* = y^* x^*$ for all $x, y \in A$,
+        \item (\textit{$\CC$-antilinear}) $(\lambda x)^* = \overline{\lambda} x^*$ for all $\lambda \in \CC$ and $x \in A$.
+    \end{itemize}
+\end{topic}
+
 \begin{topic}{c-star-algebra}{C*-algebra}
     A \textbf{C*-algebra} is a \tref{banach-algebra}{Banach algebra} $A$ over $\CC$ together with a map $A \to A, x \mapsto x^*$ satisfying
     \begin{itemize}
         \item (\textit{involution}) $(x^*)^* = x$ for all $x \in A$,
         \item (\textit{antiautomorphism}) $(x + y)^* = x^* + y^*$ and $(xy)^* = y^* x^*$ for all $x, y \in A$,
         \item (\textit{$\CC$-antilinear}) $(\lambda x)^* = \overline{\lambda} x^*$ for all $\lambda \in \CC$ and $x \in A$,
-        \item (\textit{C*-identity}) $\norm{x^* x} = \norm{x} \norm{x^*}$ for all $x \in A$.
+        \item (\textit{C*-identity}) $\norm{x^* x} = \norm{x}^2$ for all $x \in A$.
     \end{itemize}
+    The first three conditions equivalent to saying $A$ is a \tref{star-algebra}{*-algebra}.
 \end{topic}
 
 \begin{example}{c-star-algebra}
     The algebra $\text{Mat}_n(\CC)$ of $n \times n$ matrices over $\CC$ becomes a C*-algebra if we use \textit{operator norm}
-    \[ \norm{A} = \inf \{ c \ge 0 : \norm{A v} \le c \norm{v} \text{ for all } v \in \CC^n \} . \]
+    \[ \norm{A} = \sup \{ \norm{A v} : v \in \CC^n \textup{ with } \norm{v} = 1 \} . \]
 \end{example}
 
+\begin{example}{c-star-algebra}
+    Let $X$ be a \tref{TO:topological-space}{topological space} which is \tref{TO:compact-space}{compact} and \tref{TO:hausdorff-space}{Haudorff}. The algebra of complex-valued functions
+    \[ C(X) = \{ f : X \to \CC \textup{ with $f$ continuous} \} \]
+    with norm
+    \[ \norm{f} = \sup_{x \in X} |f(x)| \]
+    and involution $f^*(x) = \overline{f(x)}$, is a C*-algebra.
+\end{example}
+
+\begin{topic}{gelfand-duality}{Gelfand duality}
+    \textbf{Gelfand duality} states that the \tref{CT:category}{category} of \tref{TO:compact-space}{compact} \tref{TO:hausdorff-space}{Hausdorff} \tref{TO:topological-space}{spaces} is \tref{CT:equivalence-of-categories}{equivalent} to the (\tref{CT:opposite-category}{opposite}) category of commutative \tref{c-star-algebra}{C*-algebras}. It is given by the functors
+    \[ \textbf{Top}_\textup{cpt} \stackrel{\overset{C}{\longrightarrow}}{\underset{\textup{sp}}{\longleftarrow}} \textbf{C*Alg}_\textup{comm}^\textup{op} , \]
+    where $C$ assigns to a space $X$ the C*-algebra of continuous functions
+    \[ C(X) = \{ f : X \to \CC \textup{ with $f$ continuous} \} , \]
+    and $\textup{sp}$ is given by the \tref{gelfand-spectrum}{Gelfand spectrum}.
+\end{topic}
+
+\begin{topic}{gelfand-spectrum}{Gelfand spectrum}
+    Let $A$ be a commutative \tref{c-star-algebra}{C*-algebra}. The \textbf{Gelfand spectrum} of $A$ is the set of \textit{characters}
+    \[ \textup{sp}(A) = \{ \phi : A \to \CC \;|\; \phi \ne 0 \textup{ is an algebra morphism} \} , \]
+    with the \textit{weak *-topology}: the \tref{TO:coarser}{coarsest} \tref{TO:topological-space}{topology} such that for all $a \in A$ the functions $\hat{a} : \textup{sp}(A) \to \CC$ given by $\hat{a}(\chi) = \chi(a)$ are continuous.
+    
+    It can be shown that $\textup{sp}(A)$ is \tref{TO:compact-space}{compact} and \tref{TO:hausdorff-space}{Hausdorff}.
+\end{topic}
+
+\begin{topic}{gelfand-naimark-segal-theorem}{Gelfand--Naimark--Segal theorem}
+    The \textbf{Gelfand--Naimark--Segal theorem} states that any \tref{c-star-algebra}{C*-algebra} is isometrically *-isomorphic to a C*-subalgebra of \tref{bounded-operator}{bounded operators} on a \tref{hilbert-space}{Hilbert space}. Such a Hilbert space and embedding can be constructed using the \textit{GNS construction}.
+\end{topic}
+
 \begin{topic}{hilbert-space}{Hilbert space}
-    A \textbf{Hilbert space} is an \tref{inner-product}{inner product space} which is \tref{TO:complete-metric-space}{complete} with respect to the metric $d(x, y) = \langle x - y, x - y \rangle$ induced by the inner product.
+    A \textbf{Hilbert space} is an \tref{inner-product}{inner product space} which is \tref{TO:complete-metric-space}{complete} with respect to the \tref{TO:metric-space}{metric} $d(x, y) = \langle x - y, x - y \rangle$ induced by the inner product.
 \end{topic}
 
 \begin{topic}{bounded-operator}{bounded operator}
@@ -102,4 +140,10 @@
 
 \begin{topic}{heine-borel-theorem}{Heine--Borel theorem}
     The \textbf{Heine--Borel theorem} states that a subset $S \subset \RR^n$ is \tref{TO:quasi-compact}{quasi-compact} if and only if it is closed and bounded.
+\end{topic}
+
+\begin{topic}{hilbert-schmidt-operator}{Hilbert--Schmidt operator}
+    Let $H$ be a \tref{hilbert-space}{Hilbert space}. A \textbf{Hilbert--Schmidt operator} is an operator $A : H \to H$ with finite \textit{Hilbert--Schmidt norm}
+    \[ \|A\|_\textup{HS}^2 = \sum_{i \in I} \|A e_i\|^2 < \infty , \]
+    where $\{ e_i : i \in I \}$ is an orthonormal basis.
 \end{topic}

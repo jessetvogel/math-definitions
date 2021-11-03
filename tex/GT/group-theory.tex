@@ -321,3 +321,25 @@
         \item The \tref{modular-group}{modular group} $\textup{PSL}_2(\ZZ)$ is isomorphic to the free product $(\ZZ/2\ZZ) * (\ZZ/3\ZZ)$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{sylow-p-group}{Sylow p-group}
+    Let $G$ be a finite \tref{group}{group} with $|G| = p^n \cdot m$ for a prime $p$ and $m \nmid p$ and $n \ge 1$. A \textbf{Sylow $p$-group} of $G$ is a \tref{subgroup}{subgroup} $H \subset G$ with $|H| = p^n$.
+\end{topic}
+
+\begin{topic}{sylow-theorem}{Sylow theorems}
+    Let $G$ be a finite \tref{group}{group} with $|G| = p^n \cdot m$ for a prime $p$ and $m \nmid p$ and $n \ge 1$. The \textbf{Sylow theorems} state that
+    \begin{itemize}
+        \item $G$ contains a \tref{sylow-p-group}{Sylow $p$-group}.
+        \item If $H$ and $H'$ are Sylow $p$-groups of $G$, then $H' = gHg^{-1}$ for some $g \in G$.
+        \item The number of distinct Sylow $p$-groups of $G$ is $1 \mod p$.
+        \item The number of distinct Sylow $p$-groups of $G$ divides $m$. 
+    \end{itemize}
+\end{topic}
+
+\begin{example}{sylow-theorem}
+    Suppose $G$ is a finite group of order $|G| = pq$, with $p$ and $q$ prime and $p \not\equiv 1 \mod q$ and $q \not\equiv 1 \mod p$. Then $G \simeq \ZZ/pq\ZZ$. Namely, from the Sylow theorems it follows that there is precisely one Sylow $p$-group and one Sylow $q$-group. Therefore, there are precisely $p - 1$ elements of \tref{order}{order} $p$, and $q - 1$ elements of order $q$. The only element of order $1$ is the group unit. Since $1 + (p - 1) + (q - 1) < pq = |G|$, it follows that there is at least one element $g \in G$ of order $\textup{ord}(g) = pq$, and hence $G \simeq \ZZ/pq\ZZ$.
+\end{example}
+
+\begin{example}{sylow-theorem}
+    If $G$ is a finite group, and $p$ a prime number with $p$ dividing $|G|$, then there exists an element $g \in G$ with $\textup{ord}(g) = p$. Namely, writing $|G| = p^n \cdot m$ as before, by the Sylow theorems there exists a Sylow $p$-group $H$ of $G$. Take any $h \in H$ not equal to the group unit, then $\textup{ord}(h) | p^n$, so $\textup{ord}(h) = p^\ell$ for some $1 \le \ell \ell n$. In particular $h^{p^{\ell - 1}}$ has order $p$.
+\end{example}

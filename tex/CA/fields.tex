@@ -1,5 +1,5 @@
 \begin{topic}{field-extension}{field extension}
-    A \textbf{field extension} is an inclusion of fields $k \hookrightarrow \ell$. We also say that $\ell$ is a field \textit{over} $k$, and write $k \subset \ell$ or $\ell / k$.
+    A \textbf{field extension} is an inclusion of \tref{field}{fields} $k \hookrightarrow \ell$. We also say that $\ell$ is a field \textit{over} $k$, and write $k \subset \ell$ or $\ell / k$.
     
     Note that any morphism of fields $k \to \ell$ is injective, and hence a field extension, as the only ideals of a field are $(0)$ and $(1)$, but $1$ does not lie in the kernel.
 \end{topic}
@@ -7,6 +7,18 @@
 \begin{topic}{algebraic-transcendental}{algebraic/transcendental element}
     Let $\ell / k$ be a \tref{field-extension}{field extension} and take an element $\alpha \in \ell$. If there exists a polynomial $f \in k[x]$ with $f(\alpha) = 0$, we call $\alpha$ \textbf{algebraic} over $k$. Otherwise, $\alpha$ is called \textbf{transcendental} over $k$.
 \end{topic}
+
+\begin{example}{algebraic-transcendental}
+    The sum and product of algebraic elements is again algebraic. Namely, let $\alpha, \beta \in \ell$ be algebraic elements. Then $[k(\alpha, \beta) : k(\alpha)]$ is the degree of the \tref{minimal-polynomial}{minimal polynomial} of $\beta$ over $k(\alpha)$, which can be at most $[k(\beta) : k]$ since this minimal polynomial is a factor of the minimal polynomial of $\beta$ over $k$. It follows that
+    \[ [k(\alpha, \beta) : k] = [k(\alpha, \beta) : k(\alpha)] \cdot [k(\alpha) : k] \le [k(\beta) : k] \cdot [k(\alpha) : k] \]
+    is finite, and thus $\alpha + \beta, \alpha \beta \in k(\alpha + \beta)$ must be algebraic over $k$.
+    % The sum and product of algebraic elements is again algebraic. Namely, let $\alpha, \beta \in \ell$ be algebraic numbers. Regarding $k(\alpha)$ and $k(\beta)$ as a $k$-vector spaces, multiplication by $\alpha$ and $\beta$ yields a $k$-linear maps
+    % \[ A : k(\alpha) \to k(\alpha), \quad x \mapsto \alpha x \qquad \textup{ and } \qquad B : k(\beta) \to k(\beta), \quad x \mapsto \beta x . \]
+    % Note that $\alpha$ is a root of the \tref{LA:characteristic-polynomial}{characteristic polynomial} of $A$, i.e. $p_A(\alpha) = 0$, and similarly $p_B(\beta) = 0$. Now multiplication by $\alpha \beta$
+    
+    % Now multiplication by $\alpha + \beta$ corresponds with $A \otimes I + I \otimes B$, and thus
+    % \[ p_{A + B}(\alpha + \beta) = 0 \].
+\end{example}
 
 \begin{topic}{algebraic-field-extension}{algebraic field extension}
     A \tref{field-extension}{field extension} $\ell / k$ is \textbf{algebraic} if every element $\alpha \in \ell$ is \tref{algebraic-transcendental}{algebraic} over $k$.
@@ -17,11 +29,11 @@
 \end{topic}
 
 \begin{topic}{prime-field}{prime field}
-    The \textbf{prime field} of a field $k$ is its smallest subfield. When $\text{char}(k) = 0$, this is $\QQ$ and when $\text{char}(k) = p > 0$, this is $\mathbb{F}_p$.
+    The \textbf{prime field} of a \tref{field}{field} $k$ is its smallest subfield. When $\text{char}(k) = 0$, this is $\QQ$ and when $\text{char}(k) = p > 0$, this is $\mathbb{F}_p$.
 \end{topic}
 
 \begin{topic}{frobenius-morphism}{frobenius morphism}
-    Let $k$ be a field of characteristic $p > 0$. The map $F : k \to k : x \mapsto x^p$ is a homomorphism (use binomial theorem) called the \textbf{Frobenius morphism}.
+    Let $k$ be a \tref{field}{field} of characteristic $p > 0$. The map $F : k \to k : x \mapsto x^p$ is a homomorphism (use binomial theorem) called the \textbf{Frobenius morphism}.
     
     Note that $F$ is injective as it is a field morphism. So when $k$ is finite, $F$ will also be surjective, and hence an automorphism of $k$. 
 \end{topic}
@@ -31,7 +43,7 @@
 \end{example}
 
 \begin{topic}{splitting-field}{splitting field}
-    Let $k$ be a field, and let $f \in k[x]$ be a non-constant polynomial. A \textbf{splitting field} $\ell$ of $f$ over $k$ is a \tref{field-extension}{field extension} such that
+    Let $k$ be a \tref{field}{field}, and let $f \in k[x]$ be a non-constant polynomial. A \textbf{splitting field} $\ell$ of $f$ over $k$ is a \tref{field-extension}{field extension} such that
     \begin{itemize}
         \item $f$ splits in $\ell[x]$ as a product of linear factors,
         \item if $\alpha_1, \ldots, \alpha_s$ are the zeros of $f$ in $\ell$, then $\ell = k(\alpha_1, \ldots, \alpha_s)$.
@@ -44,13 +56,13 @@
 \end{example}
 
 \begin{topic}{separable-polynomial}{separable polynomial}
-    Let $k$ be a field, and let $f \in k[x]$ be a non-constant polynomial. Then $f$ is called \textbf{separable} if the roots of $f$ in any field extension $k \subset \ell$ are distinct.
+    Let $k$ be a \tref{field}{field}, and let $f \in k[x]$ be a non-constant polynomial. Then $f$ is called \textbf{separable} if the roots of $f$ in any field extension $k \subset \ell$ are distinct.
     
     In particular, it suffices to verify this for a \tref{splitting-field}{splitting field} of $f$ over $k$.
 \end{topic}
 
 \begin{topic}{perfect-field}{perfect field}
-    A field $k$ is called \textbf{perfect} if every irreducible polynomial over $k$ is \tref{separable-polynomial}{separable}.
+    A \tref{field}{field} $k$ is \textbf{perfect} if every irreducible polynomial over $k$ is \tref{separable-polynomial}{separable}.
 \end{topic}
 
 \begin{example}{perfect-field}
@@ -77,7 +89,28 @@
     An \tref{algebraic-field-extension}{algebraic} \tref{field-extension}{field extension} $\ell/k$ is \textbf{separable} if for every $\alpha \in \ell$, the \tref{minimal-polynomial}{minimal polynomial} of $\alpha$ over $k$ is \tref{separable-polynomial}{separable}.
 \end{topic}
 
-\begin{topic}{separably-closed-field}{separably-closed-field}
+\begin{example}{separable-field-extension}
+\begin{itemize}
+    \item Every algebraic extension $\ell/k$ with $\operatorname{char} k = 0$ is separable. Namely, take any $\alpha \in \ell$ with minimal polynomial $f \in k[x]$. If $f$ were to be inseparable, then $f$ and its derivative $f' \ne 0$ would have a common factor of degree $\ge 1$, contradicting the irreducibility of $f$. 
+    \item Every algebraic extension $\ell/k$ with $k = \FF_p$ and $p$ prime is separable. Namely, every such algebraic extensions is of the form $\ell = \FF_{p^n}$ for some $n \ge 1$. Write $\ell = k(\alpha)$ for some $\alpha \in \ell$. As $\alpha^{p^n} = 1$, the minimal polynomial of $\alpha$ must divide $x^{p^n} - 1$, and since $x^{p^n} - 1$ has no multiple roots (its derivative is $-1$), neither has the minimal polynomial of $\alpha$, and thus it must be separable.
+\end{itemize}
+\end{example}
+
+\begin{topic}{separable-closure}{separable closure}
+    The \textbf{separable closure} of an \tref{algebraic-field-extension}{algebraic field extension} $\ell/k$ is the intermediate field $k \subset m \subset \ell$ of elements $\alpha \in \ell$ whose \tref{minimal-polynomial}{minimal polynomial} over $k$ is \tref{separable-polynomial}{separable}.
+    
+    The \textbf{separable closure} of a field $k$ is the separable closure of $k$ in an \tref{algebraic-closure}{algebraic closure} of $k$.
+\end{topic}
+
+\begin{topic}{separable-degree}{(in)separable degree}
+    Let $\ell/k$ be an \tref{algebraic-field-extension}{algebraic field extension}, and let $k \subset m \subset \ell$ be the \tref{separable-closure}{separable closure}. The \textbf{separable degree} of $\ell/k$, denoted $[\ell : k]_\textup{sep}$, is the degree $[m : k]$. The \textbf{inseparable degree} of $\ell/k$ is the degree $[\ell : m]$.
+\end{topic}
+
+\begin{example}{separable-field-extension}
+    Let $k = \FF_p(t)$ and $\ell = k[X] / (X^p - t) = \FF_p(\sqrt[p](t))$, for some prime number $p$. The minimal polynomial of $\sqrt[p](t)$ over $k$ is $f = x^p - t$, which over $\ell$ factors as $(x - \sqrt[p]{t})^p$, showing that $\ell/k$ is not separable.
+\end{example}
+
+\begin{topic}{separably-closed-field}{separably closed field}
     A \tref{field}{field} $k$ is \textbf{separably closed} if every \tref{separable-field-extension}{separable field extension} $\ell/k$ is trivial, i.e. $\ell = k$.
 \end{topic}
 
@@ -114,3 +147,8 @@
 \begin{topic}{algebraic-closure}{algebraic closure}
     An \textbf{algebraic closure} of a \tref{field}{field} $k$ is a \tref{field-extension}{field extension} $\overline{k} \supset k$ such that $\overline{k}$ is \tref{algebraic-field-extension}{algebraic} over $k$ and $\overline{k}$ is \tref{algebraically-closed-field}{algebraically closed}.
 \end{topic}
+
+% \begin{topic}{primitive-element-theorem}{Primitive element theorem}
+%     The \textbf{primitive element theorem} states that every \tref{separable-field-extension}{separable field extension} $\ell/k$
+% \end{topic}
+

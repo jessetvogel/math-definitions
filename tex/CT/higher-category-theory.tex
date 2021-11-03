@@ -175,3 +175,24 @@
     
     The \tref{nerve}{nerve} $N_\bdot(\mathcal{C})$ of a \tref{CT:category}{category} $\mathcal{C}$ is an $\infty$-category.
 \end{example}
+
+\begin{topic}{monoid-object}{monoid object}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. A \textbf{monoid object} in $\mathcal{C}$ is an object $M$ together with morphisms $\mu : M \otimes M \to M$ (the \textit{multiplication map}) and $\eta : \textbf{1} \to M$ (the \textit{unit}), such that
+    \begin{itemize}
+        \item (\textit{associativity}) the diagram
+        \[ \begin{tikzcd} (M \otimes M) \otimes M \arrow[swap]{d}{\mu \otimes \id} \arrow{r}{\alpha} & M \otimes (M \otimes M) \arrow{r}{\id \otimes \mu} & M \otimes M \arrow{d}{\mu} \\ M \otimes M \arrow{rr}{\mu} && M \end{tikzcd} \]
+        commutes, where $\alpha$ is the \textit{associator}.
+        \item (\textit{unit}) the diagram
+        \[ \begin{tikzcd} \textbf{1} \otimes M \arrow{r}{\eta \otimes \id} \arrow[swap]{rd}{\lambda} & M \otimes M \arrow{d}{\mu} & M \otimes \textbf{1} \arrow[swap]{l}{\id \otimes \eta} \arrow{dl}{\rho} \\ & M & \end{tikzcd} \]
+        commutes, where $\lambda$ and $\rho$ are the left and right unitor, respectively.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{monoid-object}
+    \begin{itemize}
+        \item A monoid object in the category of sets $(\textbf{Set}, \times, \{ \star \})$ is a \tref{AA:monoid}{monoid}.
+        \item A monoid object in the category of \tref{GT:abelian-group}{abelian groups} $(\textbf{Ab}, \otimes_\ZZ, \ZZ)$ is a \tref{CA:ring}{ring}.
+        \item For a \tref{CA:ring}{commutative ring} $R$, a monoid object in the category of \tref{CA:module}{$R$-modules} $(R\textup{-}\textbf{Mod}, \otimes_R, R)$ is an \tref{CA:algebra}{$R$-algebra}.
+        \item For any category $\mathcal{C}$, a monoid in the category of endofunctors of $\mathcal{C}$, $(\Hom_\textbf{Cat}(\mathcal{C}, \mathcal{C}), \circ, \id_\mathcal{C})$, is a \tref{monad}{monad} on $\mathcal{C}$.
+    \end{itemize}
+\end{example}

@@ -659,3 +659,22 @@
 \begin{topic}{frobenius-theorem}{Frobeniuw theorem}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. \textbf{Frobenius theorem} states there is a one-to-one correspondence between \tref{foliation}{foliations} on $M$ and \tref{involutive-distribution}{involutive distributions} $\mathcal{D} \subset TM$. In particular, a foliation $\mathcal{F}$ corresponds to the involutive distribution $\mathcal{D} = T \mathcal{F}$, where $T_x \mathcal{F} = T_x L$ for any $x \in M$ with $L$ the leaf through $x$.
 \end{topic}
+
+\begin{topic}{legendre-transform}{Legendre transform}
+    Let $V$ be a real \tref{LA:vector-space}{vector space} and $f : V \to \RR$ a smooth function which is \textit{super-linear}, that is, $\sup_{v \in V} \left(p(v) - f(v) \right) < \infty$ for all $p \in V^*$. Then the \textbf{Legendre transform} of $f$ is
+    \[ f^* : V^* \to \RR, \quad p \mapsto \sup_{v \in V} \left(p(v) - f(v) \right) . \]
+\end{topic}
+
+\begin{example}{legendre-transform}
+    Let $Q$ be a \tref{smooth-manifold}{smooth manifold} and $L \in C^\infty(TM)$ a smooth function on the \tref{tangent-bundle}{tangent bundle}. Assume $L$ is fiberwise super-linear, i.e. $L(q, -) : T_q M \to \RR$ is super-linear for all $q \in Q$. Then the Legendre transform of $L$ is
+    \[ H : T^*M \to \RR, \qquad (q, p) \mapsto \left(L(q, -)\right)^*(p) . \]
+    In physics, in particular classical mechanics, $L$ is the \textit{Lagrangian} for a mechanical system with configuration space $Q$, and the Legendre transform $H = L^*$ is the \textit{Hamiltonian} of the system.
+\end{example}
+
+\begin{example}{legendre-transform}
+    Let $f : V \to \RR$ be given by $f(v) = \tfrac{1}{2} g(v, v)$, for some positive definite metric $g : V \times V \to \RR$. Given some fixed $p \in V^*$, we can find the supremum $\sup_{v \in V} \left(p(v) - \tfrac{1}{2} g(v, v)\right)$ by looking for extreme values. Setting
+    \[ \partial_k \left( p_i v^i - \frac{1}{2} g_{ij} v^i v^j \right) = p_k - g_{ki} v^i \]
+    equal to zero gives $v^i = g^{ik} p_k$, and thus
+    \[ f^*(p) = p_i g^{ik} p_k - \frac{1}{2} g_{ij} g^{i k} p_k g^{j \ell} p_\ell = \frac{1}{2} g^{ik} p_i p_k , \]
+    that is, $f^*(p) = g^*(p, p)$ where $g^* : V^* \times V^* \to \RR$ is the dual metric.
+\end{example}

@@ -7,6 +7,19 @@
 
 # ---- Theory ----
 
+- C*-algebra example C(X) for X compact Hausdorff space
+- Gelfand duality
+- Gelfand spectrum
+- Gelfand--Naimark theorem (GNS construction)
+- Toeplitz algebra
+- L2, l2 spaces ?
+- Fréchet topology
+- Dirac operator
+
+
+- Simplicial homotopy groups
+- Weyl bundle / algebra
+- Sylow theorems proof (see Jaap Top lecture notes)
 - Borel construction (EG x X / G) : Example BG = classifying space
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
 - Proofs of theorems
@@ -16,8 +29,11 @@ LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
 ??: von Neumann algebra
 UN: classifying space -- vague?
 
-# Measure Theory ??
-MT: Measure Theory, sigma algebra, borel algebra
+# Functional analysis
+FA: Schwartz space
+
+# Measure Theory
+MT: Measure Theory, sigma algebra, Borel algebra, etc.
 
 # Commutative algebra
 -- CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)

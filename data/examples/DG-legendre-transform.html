@@ -1,0 +1,9 @@
+<div class="example">Let <span class="math inline">\(Q\)</span> be a <a href="#DG:smooth-manifold">smooth manifold</a> and <span class="math inline">\(L \in C^\infty(TM)\)</span> a smooth function on the <a href="#DG:tangent-bundle">tangent bundle</a>. Assume <span class="math inline">\(L\)</span> is fiberwise super-linear, i.e. <span class="math inline">\(L(q, -) : T_q M \to \RR\)</span> is super-linear for all <span class="math inline">\(q \in Q\)</span>. Then the Legendre transform of <span class="math inline">\(L\)</span> is
+<span class="math display">\[ H : T^*M \to \RR, \qquad (q, p) \mapsto \left(L(q, -)\right)^*(p) . \]</span>
+In physics, in particular classical mechanics, <span class="math inline">\(L\)</span> is the <i>Lagrangian</i> for a mechanical system with configuration space <span class="math inline">\(Q\)</span>, and the Legendre transform <span class="math inline">\(H = L^*\)</span> is the <i>Hamiltonian</i> of the system.
+</div><div class="example">Let <span class="math inline">\(f : V \to \RR\)</span> be given by <span class="math inline">\(f(v) = \tfrac{1}{2} g(v, v)\)</span>, for some positive definite metric <span class="math inline">\(g : V \times V \to \RR\)</span>. Given some fixed <span class="math inline">\(p \in V^*\)</span>, we can find the supremum <span class="math inline">\(\sup_{v \in V} \left(p(v) - \tfrac{1}{2} g(v, v)\right)\)</span> by looking for extreme values. Setting
+<span class="math display">\[ \partial_k \left( p_i v^i - \frac{1}{2} g_{ij} v^i v^j \right) = p_k - g_{ki} v^i \]</span>
+equal to zero gives <span class="math inline">\(v^i = g^{ik} p_k\)</span>, and thus
+<span class="math display">\[ f^*(p) = p_i g^{ik} p_k - \frac{1}{2} g_{ij} g^{i k} p_k g^{j \ell} p_\ell = \frac{1}{2} g^{ik} p_i p_k , \]</span>
+that is, <span class="math inline">\(f^*(p) = g^*(p, p)\)</span> where <span class="math inline">\(g^* : V^* \times V^* \to \RR\)</span> is the dual metric.
+</div>

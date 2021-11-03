@@ -159,7 +159,6 @@
 \begin{topic}{chinese-remainder-theorem}{Chinese remainder theorem}
     Let $R$ be a \tref{ring}{commutative ring} and suppose $I, J$ are coprime ideals of $R$, i.e. $I + J = R$. Then the \textbf{Chinese remainder theorem} states that $I \cap J = I \cdot J$ and that there is an isomorphism of rings
     \[ R / (I \cdot J) \xrightarrow{\sim} (R / I) \times (R/J), \qquad a \text{ mod } (I \cdot J) \mapsto (a \text{ mod } I, b \text{ mod } J) . \]
-    
     In particular, when $R = \ZZ$ with $I = (n)$ and $J = (m)$ for $n, m$ relatively prime, there is
     \[ \ZZ / nm \ZZ \simeq (\ZZ/n\ZZ) \times (\ZZ/m\ZZ), \qquad a \text{ mod } nm \mapsto (a \text{ mod } n, a \text{ mod } m) . \]
 \end{topic}
@@ -869,4 +868,50 @@
     are chains of \tref{prime-ideal}{prime ideals} of $A$ and $B$, respectively, with $m < n$ such that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ (that is, $\mathfrak{q}_i \cap A = \mathfrak{p}_i$) for each $1 \le i \le m$, the latter chain can be extended to a chain $\mathfrak{q}_1 \supset \cdots \supset \mathfrak{q}_m$ so that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ for all $1 \le i \le n$.
     
     The \textbf{going-down theorem} states that any \tref{integral-closure}{integral extension} $A \subset B$ with $B$ a \tref{domain}{domain} and $A$ \tref{integral-closure}{integrally closed} in its \tref{field-of-fractions}{field of fractions} satisfies the going-down property.
+\end{topic}
+
+\begin{topic}{eisenstein-polynomial}{Eisenstein polynomial}
+    Let $R$ be a \tref{unique-factorization-domain}{unique factorization domain} and $p \in R$ an \tref{irreducible-element}{irreducible element}. A polynomial
+    \[ f = a_n x^n + \cdots + a_1 x + a_0 \in R[x] \]
+    is \textbf{Eisenstein} (for $p$) if
+    \begin{itemize}
+        \item $p \nmid a_n$,
+        \item $p | a_i$ for $i = 0, 1, \ldots, n - 1$,
+        \item $p^2 \nmid a_0$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{eisenstein-polynomial}
+    \begin{itemize}
+        \item The polynomial $f = x^5 + 6x^2 - 12 \in \ZZ[x]$ is Eisenstein for $p = 3$, but not for $p = 2$.
+        \item The polynomial $f = x^3 + (y^4 - 1) x - (y^2 - 1) \in R[x]$ with $R = \ZZ[y]$ is Eisenstein for $p = y^2 + 1$.
+    \end{itemize}
+\end{example}
+
+\begin{example}{eisenstein-polynomial}
+    \textit{Eisenstein's criterion} states that if $f \in R[x]$ is an Eisenstein polynomial, then it is irreducible in $K[x]$, where $K$ is the \tref{field-of-fractions}{field of fractions} of $R$, and if $f$ is primitive it is also irreducible in $R[x]$.
+    
+    Namely, suppose that $f = a_n x^n + \cdots + a_0$ is Eisenstein, and that $f = gh$ for some $g, h \in R[x]$ with $\deg(g), \deg(h) > 0$. Reducing modulo $p$, we find that
+    \[ \overline{f} = f \mod p = \overline{a}_n x^n \in (R/pR)[x] \]
+    is non-zero as $p \nmid a_n$. Moreover $\overline{f} = \overline{g} \overline{h}$, which is only possible if $\overline{g} = \overline{b} x^k$ and $\overline{h} = \overline{c} x^\ell$ for some $b, c \in R$ and $k, l > 0$ with $k + \ell = n$. Hence, the constant coefficients of $g$ and $h$ are both divisible by $p$, which implies the constant coefficient $a_0$ of $f$ is divisible by $p^2$, a contradiction. Therefore $f$ is irreducible in $R[x]$, and if $f$ is primitive also in $K[x]$.
+\end{example}
+
+\begin{topic}{primitive-polynomial}{primitive polynomial}
+    Let $R$ be a \tref{unique-factorization-domain}{unique factorization domain}. A polynomial $f = a_n x^n + \cdots + a_1 x + a_0 \in R[x]$ is \textbf{primitive} if the \tref{gcd}{greatest common divisor} of its coefficients, $\gcd(a_n, \ldots, a_0)$, also known as its \tref{content-polynomial}{content} is a \tref{unit}{unit} in $R$.
+\end{topic}
+
+\begin{example}{primitive-polynomial}
+    The polynomial $f = 3x^4 + 5x \in \ZZ[x]$ is primitive since $\gcd(3, 5) = 1$, while $g = 2x^3 + 4 \in \ZZ[x]$ is not as $\gcd(2, 4) = 2$. However, both $f$ and $g$ are primitive in $\QQ[x]$.
+\end{example}
+
+\begin{topic}{content-polynomial}{content polynomial}
+    Let $R$ be a \tref{unique-factorization-domain}{unique factorization domain}. The \textbf{content} of a polynomial $f \in R[x]$ is the the \tref{gcd}{greatest common divisor} of its coefficients,
+    \[ \textup{co}(f) = \gcd(a_n, \ldots, a_0) , \]
+    which is well-defined up to a unit in $R$.
+\end{topic}
+
+\begin{topic}{laurent-polynomial}{Laurent polynomial}
+    A \textbf{Laurent polynomial} over a \tref{ring}{commutative ring} $R$ is an element $f \in R[x, x^{-1}]$, or explicitly
+    \[ f = \sum_{i} a_i x^i \]
+    where the sum is taken over finitely many $i \in \ZZ$.
 \end{topic}

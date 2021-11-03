@@ -21,13 +21,13 @@
 
 \begin{topic}{linearly-independent}{linearly independent}
     Let $V$ be a \tref{vector-space}{vector space}. A set of vectors $S \subset V$ is said to be \textbf{linearly independent} if for any relation
-    \[ \sum_{i = 1}^{n} a_i v_i = 0, \qquad \text{with $v_i \in S$ and $a_i \in k$,} \]
+    \[ \sum_{i = 1}^{n} a_i v_i = 0, \qquad \textup{with $v_i \in S$ and $a_i \in k$,} \]
     one has $a_i = 0$.
 \end{topic}
 
 \begin{topic}{span}{span}
     Let $V$ be a \tref{vector-space}{vector space}, and $S \subset V$ a subset. The \textbf{span} of $S$ is the subspace of all linear combinations of vectors in $S$.
-    \[ \text{span}(S) = \left\{ \sum_{i = 1}^{n} a_i v_i \text{ for any } v_i \in S \text{ and } a_i \in k \right\} \]
+    \[ \textup{span}(S) = \left\{ \sum_{i = 1}^{n} a_i v_i \textup{ for any } v_i \in S \textup{ and } a_i \in k \right\} \]
 \end{topic}
 
 \begin{topic}{basis}{basis}
@@ -85,7 +85,7 @@
 
 \begin{topic}{nullspace}{nullspace}
     The \textbf{nullspace}, or \textbf{kernel}, of a \tref{linear-map}{linear transformation} $T : V \to W$ is the subspace
-    \[ \left\{ v \in V \text{ such that } T(v) = 0 \right\} \subset V . \]
+    \[ \left\{ v \in V \textup{ such that } T(v) = 0 \right\} \subset V . \]
 \end{topic}
 
 \begin{topic}{projection}{projection}
@@ -94,7 +94,7 @@
 
 \begin{topic}{determinant}{determinant}
     The \textbf{determinant} of an $n \times n$ matrix $A$ is the scalar given by
-    \[ \det(A) = \sum_{\sigma \in S_n} \left( \text{sign}(\sigma) \prod_{i = 1}^{n} a_{i, \sigma(i)} \right) . \]
+    \[ \det(A) = \sum_{\sigma \in S_n} \left( \textup{sign}(\sigma) \prod_{i = 1}^{n} a_{i, \sigma(i)} \right) . \]
     It has the property that $A$ is \tref{invertible-matrix}{invertible} if and only if $\det(A) \ne 0$.
     
     Also, the determinant of $A$ is the scalar corresponding to the map induced on the top exterior power of $V$,
@@ -116,11 +116,11 @@
 
 \begin{topic}{adjoint-matrix}{adjoint matrix}
     Let $A$ be an $n \times n$ matrix. The \textbf{adjoint} of $A$ is the \tref{matrix-transpose}{transpose} of its \tref{cofactor-matrix}{cofactor matrix}:
-    \[ \text{adj}(A) = (A')^T . \]
+    \[ \textup{adj}(A) = (A')^T . \]
     It has the property that
-    \[ \text{adj}(A) A = \det(A) I , \]
+    \[ \textup{adj}(A) A = \det(A) I , \]
     so in particular, when $\det(A) \ne 0$, one has
-    \[ A^{-1} = \frac{1}{\det(A)} \text{adj}(A) . \]
+    \[ A^{-1} = \frac{1}{\det(A)} \textup{adj}(A) . \]
 \end{topic}
 
 \begin{topic}{eigenvalue}{eigenvalue/eigenvector}
@@ -163,7 +163,7 @@
     Consider the matrix
     \[ A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix} . \]
     Its characteristic polynomial is $p_A(\lambda) = (2 - \lambda)^2 (3 - \lambda)$, so its eigenvalues are $\lambda = 2$ (with alg. multiplicity $2$) and $\lambda = 3$ (with alg. multiplicity $1$). However, both have a geometric multiplicity of $1$ as
-    \[ E_2 = \ker(A - 2I) = \text{span}(1, 0, 0) \quad \text{ and } \quad E_3 = \ker(A - 3I) = \text{span}(0, 0, 1) . \]
+    \[ E_2 = \ker(A - 2I) = \textup{span}(1, 0, 0) \quad \textup{ and } \quad E_3 = \ker(A - 3I) = \textup{span}(0, 0, 1) . \]
 \end{example}
 
 \begin{topic}{dual-vector-space}{dual vector space}
@@ -171,29 +171,29 @@
 \end{topic}
 
 \begin{topic}{grassmannian}{Grassmannian}
-    Given a \tref{LA:vector-space}{vector space} $V$, and $r \ge 0$, the \textbf{Grassmannian} $\text{Gr}(r, V)$ is a space that parametrizes all $r$-dimensional \tref{LA:vector-subspace}{linear subspaces} of $V$.
+    Given a \tref{LA:vector-space}{vector space} $V$, and $r \ge 0$, the \textbf{Grassmannian} $\textup{Gr}(r, V)$ is a space that parametrizes all $r$-dimensional \tref{LA:vector-subspace}{linear subspaces} of $V$.
 \end{topic}
 
 \begin{example}{grassmannian}
-    When $r = 1$, the Grassmanian $\text{Gr}(1, V)$ parametrizes all lines in $V$ through the origin, that is, $\text{Gr}(1, V) = \PP(V)$.
+    When $r = 1$, the Grassmanian $\textup{Gr}(1, V)$ parametrizes all lines in $V$ through the origin, that is, $\textup{Gr}(1, V) = \PP(V)$.
 \end{example}
 
 \begin{topic}{general-linear-group}{general linear group}
-    The \textbf{general linear group} of degree $n$ over a field $k$, denoted $\text{GL}_n(k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{invertible-matrix}{invertible matrices} with the operation of matrix multiplication.
+    The \textbf{general linear group} of degree $n$ over a field $k$, denoted $\textup{GL}_n(k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{invertible-matrix}{invertible matrices} with the operation of matrix multiplication.
 \end{topic}
 
 \begin{topic}{special-linear-group}{special linear group}
-    The \textbf{special linear group} of degree $n$ over a field $k$, denoted $\text{SL}_n(k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{invertible-matrix}{invertible matrices} with \tref{determinant}{determinant} $1$, with the operation of matrix multiplication.
+    The \textbf{special linear group} of degree $n$ over a field $k$, denoted $\textup{SL}_n(k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{invertible-matrix}{invertible matrices} with \tref{determinant}{determinant} $1$, with the operation of matrix multiplication.
 \end{topic}
 
 \begin{topic}{orthogonal-matrix}{orthogonal matrix}
-    An $n \times n$ matrix $A$ is \textbf{orthogonal} if $A A^T = I$.
+    An $n \times n$ matrix $A$ is \textbf{orthogonal} if $A A^T = I$, where $A^T$ denotes the \tref{matrix-transpose}{transpose} of $A$.
 \end{topic}
 
 \begin{topic}{orthogonal-group}{(special) orthogonal group}
-    The \textbf{orthogonal group} of degree $n$ over a field $k$, denoted $\text{O}(n, k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{orthogonal-matrix}{orthogonal matrices} with the operation of matrix multiplication.
+    The \textbf{orthogonal group} of degree $n$ over a field $k$, denoted $\textup{O}(n, k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{orthogonal-matrix}{orthogonal matrices} with the operation of matrix multiplication.
     
-    The \textbf{special orthogonal group} is the \tref{GT:subgroup}{subgroup} $\text{SO}(n, k) \subset \text{O}(n, k)$ of matrices with \tref{determinant}{determinant} $1$.
+    The \textbf{special orthogonal group} is the \tref{GT:subgroup}{subgroup} $\textup{SO}(n, k) \subset \textup{O}(n, k)$ of matrices with \tref{determinant}{determinant} $1$.
 \end{topic}
 
 \begin{topic}{unitary-matrix}{unitary matrix}
@@ -201,9 +201,9 @@
 \end{topic}
 
 \begin{topic}{unitary-group}{(special) unitary group}
-    The \textbf{unitary group} of degree $n$, denoted $\text{U}(n)$, is the \tref{GT:group}{group} of $n \times n$ \tref{unitary-matrix}{unitary matrices} with the operation of matrix multiplication.
+    The \textbf{unitary group} of degree $n$, denoted $\textup{U}(n)$, is the \tref{GT:group}{group} of $n \times n$ \tref{unitary-matrix}{unitary matrices} with the operation of matrix multiplication.
     
-    The \textbf{special unitary group} is the \tref{GT:subgroup}{subgroup} $\text{SU}(n) \subset \text{U}(n)$ of matrices with \tref{determinant}{determinant} $1$.
+    The \textbf{special unitary group} is the \tref{GT:subgroup}{subgroup} $\textup{SU}(n) \subset \textup{U}(n)$ of matrices with \tref{determinant}{determinant} $1$.
 \end{topic}
 
 \begin{topic}{symplectic-matrix}{symplectic matrix}
@@ -211,7 +211,7 @@
 \end{topic}
 
 \begin{topic}{symplectic-group}{symplectic group}
-    The \textbf{symplectic group} of degree $2n$ over a field $k$, denoted $\text{Sp}(2n, k)$, is the \tref{GT:group}{group} of $2n \times 2n$ \tref{symplectic-matrix}{symplectic matrices} with the operation of matrix multiplication.
+    The \textbf{symplectic group} of degree $2n$ over a field $k$, denoted $\textup{Sp}(2n, k)$, is the \tref{GT:group}{group} of $2n \times 2n$ \tref{symplectic-matrix}{symplectic matrices} with the operation of matrix multiplication.
 \end{topic}
 
 \begin{topic}{hermitian-matrix}{Hermitian matrix}
@@ -225,38 +225,60 @@
 \end{example}
 
 \begin{topic}{pin-group}{pin group}
-    The \textbf{pin group} $\text{Pin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\text{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_k$ with $q(v_i) = 1$.
+    The \textbf{pin group} $\textup{Pin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\textup{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_k$ with $q(v_i) = 1$.
     
-    As a special case, $\text{Pin}(n) = \text{Pin}(\RR^n, \langle \cdot, \cdot \rangle)$.
+    As a special case, $\textup{Pin}(n) = \textup{Pin}(\RR^n, \langle \cdot, \cdot \rangle)$.
 \end{topic}
 
 \begin{topic}{spin-group}{spin group}
-    The \textbf{spin group} $\text{Spin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\text{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_{2k}$ with $q(v_i) = 1$.
+    The \textbf{spin group} $\textup{Spin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\textup{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_{2k}$ with $q(v_i) = 1$.
 
-    As a special case, $\text{Spin}(n) = \text{Spin}(\RR^n, \langle \cdot, \cdot \rangle)$.
+    As a special case, $\textup{Spin}(n) = \textup{Spin}(\RR^n, \langle \cdot, \cdot \rangle)$.
     
-    The \textbf{spin group} $\text{Spin}(n)$ is the universal (double) cover of the \tref{orthogonal-group}{special orthogonal group} $\text{SO}(n)$.
+    The \textbf{spin group} $\textup{Spin}(n)$ is the universal (double) cover of the \tref{orthogonal-group}{special orthogonal group} $\textup{SO}(n)$.
 \end{topic}
 
 \begin{example}{spin-group}
-    Let $\{ e_i \}$ be an orthonormal basis for $V$ w.r.t. $q$. Define an \textit{antiautomorphism} $t : \text{Cl}(V, q) \to \text{Cl}(V, q)$ by $(e_i e_j \cdots e_k)^t = e_k \cdots e_j e_i$ and extending linearly. Then define the automorphism $\alpha : \text{Cl}(V, q) \to \text{Cl}(V, q)$ by $\alpha(v) = -v$ for $v \in V$. Let $a^*$ denote $\alpha(a)^t$ for $a \in \text{Cl}(V, q)$.
+    Let $\{ e_i \}$ be an orthonormal basis for $V$ w.r.t. $q$. Define an \textit{antiautomorphism} $t : \textup{Cl}(V, q) \to \textup{Cl}(V, q)$ by $(e_i e_j \cdots e_k)^t = e_k \cdots e_j e_i$ and extending linearly. Then define the automorphism $\alpha : \textup{Cl}(V, q) \to \textup{Cl}(V, q)$ by $\alpha(v) = -v$ for $v \in V$. Let $a^*$ denote $\alpha(a)^t$ for $a \in \textup{Cl}(V, q)$.
     
-    With this notation, an explicit double cover of $\text{O}(V, q)$ by $\text{Pin}(V, q)$ is given by
-    \[ \rho : \text{Pin}(V, q) \to \text{O}(V, q), \quad \rho(a) v = a v a^* . \]
-    Restricting $\rho$ to $\text{Spin}(V, q)$ gives a double cover of $\text{SO}(V, q)$.
+    With this notation, an explicit double cover of $\textup{O}(V, q)$ by $\textup{Pin}(V, q)$ is given by
+    \[ \rho : \textup{Pin}(V, q) \to \textup{O}(V, q), \quad \rho(a) v = a v a^* . \]
+    Restricting $\rho$ to $\textup{Spin}(V, q)$ gives a double cover of $\textup{SO}(V, q)$.
 \end{example}
 
 \begin{topic}{clifford-algebra}{Clifford algebra}
-    The \textbf{Clifford algebra} of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the algebra over $k$
-    \[ \text{Cl}(V, q) = T(V) / (v \otimes v - q(v)) , \]
+    The \textbf{Clifford algebra} of a \tref{vector-space}{vector space} $V$ over a field $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the algebra over $k$ given by
+    \[ \textup{Cl}(V, q) = T(V) / (v \otimes v - q(v)) , \]
     where $T(V)$ denotes the \tref{CA:tensor-algebra}{tensor algebra} of $V$.
 \end{topic}
+
+\begin{example}{clifford-algebra}
+    Let $V$ be an $n$-dimensional vector space with basis vectors $e_1, \ldots, e_n$, which are orthogonal in the sense that $\langle e_i, e_j \rangle = \delta_{ij}$, where $\langle \cdot, \cdot \rangle$ is the bilinear form corresponding to the quadratic form $q$. Then $e_i \otimes e_i = q(e_i)$, and for $i \ne j$ we find
+    \[ q(e_i) + q(e_j) = q(e_i + e_j) = (e_i + e_j) \otimes (e_i + e_j) = q(e_i) + e_i \otimes e_j + e_j \otimes e_i + q(e_j) , \]
+    from which follows that $e_i \otimes e_j = - e_j \otimes e_i$. This shows that
+    \[ \{ e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k} : 1 \le i_1 < \cdots < i_k \le n \textup{ and } 0 \le k \le n  \} \]
+    is a basis for $\textup{Cl}(V, q)$, and in particular
+    \[ \dim_k \textup{Cl}(V, q) = \sum_{k = 0}^{n} \binom{n}{k} = 2^n . \]
+\end{example}
+
+\begin{example}{clifford-algebra}
+    Let $V = \RR^4$ with quadratic form given by $q(t, x, y, z) = t^2 - x^2 - y^2 - z^2$. The corresponding Clifford algebra $\textup{Cl}_{1,3}(\RR)$ is generated (as an algebra) by the standard basis vectors $\gamma^0, \gamma^1, \gamma^2, \gamma^3$ satisfying
+    \[ \{ \gamma^\mu, \gamma^\nu \} := \gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu = 2 \eta^{\mu \nu} , \qquad \text{ where } \eta^{\mu \nu} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1 \end{pmatrix} . \]
+    This Clifford algebra can be represented as a matrix algebra, with
+    \[
+        \gamma^0 = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1 \end{pmatrix} , \quad
+        \gamma^1 = \begin{pmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & -1 & 0 & 0 \\ -1 & 0 & 0 & 0 \end{pmatrix} , \]
+    \[
+        \gamma^2 = \begin{pmatrix} 0 & 0 & 0 & -i \\ 0 & 0 & i & 0 \\ 0 & i & 0 & 0 \\ -i & 0 & 0 & 0 \end{pmatrix} , \quad
+        \gamma^3 = \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ -1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix} .
+    \]
+\end{example}
 
 \begin{topic}{quadratic-form}{quadratic form}
     A \textbf{quadratic form} on a \tref{vector-space}{vector space} over $k$ is a function $q : V \to k$ such that
     \begin{itemize}
         \item $q(av) = a^2 v$ for all $a \in k$ and $v \in V$,
-        \item the \textit{polarization map} $V \times V \to k : (v, w) \mapsto q(v + w) - q(v) - q(w)$ is a bilinear form.
+        \item the \textit{polarization map} $V \times V \to k : (v, w) \mapsto \frac{1}{2}\left( q(v + w) - q(v) - q(w) \right)$ is a bilinear form.
     \end{itemize}
 \end{topic}
 
