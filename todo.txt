@@ -7,15 +7,17 @@
 
 # ---- Theory ----
 
-- C*-algebra example C(X) for X compact Hausdorff space
-- Gelfand duality
-- Gelfand spectrum
-- Gelfand--Naimark theorem (GNS construction)
-- Toeplitz algebra
-- L2, l2 spaces ?
-- Fréchet topology
-- Dirac operator
+- (infinity, k)-category
+- Nerve example: "concretely this means" (p.9 of HTT of Lurie) + Can recover C from its nerve: [...]
+- Dold-Kan fix constructions + examples
 
+- (Almost) complex manifold + "integrable" + example of almost complex manifold which is not complex "Any ... is ... , but not conversely. Namely, ..."
+- Nijenhuis tensor
+
+- Toeplitz algebra
+- Fréchet topology (any Banach space, any Schwartz space)
+- Dirac operator
+- Inequalities for FA (see Lp spaces)
 
 - Simplicial homotopy groups
 - Weyl bundle / algebra
@@ -28,9 +30,6 @@
 LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
 ??: von Neumann algebra
 UN: classifying space -- vague?
-
-# Functional analysis
-FA: Schwartz space
 
 # Measure Theory
 MT: Measure Theory, sigma algebra, Borel algebra, etc.

@@ -108,6 +108,16 @@
     \[ \det \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} = a(ei - fh) - b(di - fg) + c(dh - eg) . \]
 \end{example}
 
+\begin{topic}{trace}{trace}
+    The \textbf{trace} of an $n \times n$ matrix $A$ is the sum of the diagonal matrices.
+    \[ \operatorname{tr}(A) = \sum_{i = 1}^{n} a_{ii} . \]
+\end{topic}
+
+\begin{example}{trace}
+    The trace is cyclic in the sense that for any $A, B \in \textup{Mat}_{n \times n}(k)$ it holds that
+    \[ \operatorname{tr}(AB) = \sum_{i, j = 1}^{n} A_{ij} B_{ji} = \sum_{i, j = 1}^{n} B_{ji} A_{ij} = \operatorname{tr}(BA) . \]
+\end{example}
+
 \begin{topic}{cofactor-matrix}{cofactor matrix}
     Let $A = (a_{ij})$ be an $n \times n$ matrix. The \textbf{cofactor} of an entry $a_{ij}$ of $A$ is
     \[ a'_{ij} = (-1)^{i + j} \det(A_{ij}), \]
@@ -373,4 +383,22 @@
     since all eigenvalues $\lambda_i$ are roots of $p_A$. In other words, the function
     \[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
     is zero on the set of diagonalizable complex matrices, which is \tref{TO:dense}{dense} in $\textup{Mat}_{n \times n}(\CC)$. Hence by continuity of $\varphi$, we must have $\varphi(A) = 0$ for all $A \in \textup{Mat}_{n \times n}(\CC)$.
+\end{example}
+
+\begin{topic}{monomial-matrix}{monomial matrix}
+    A \textbf{monomial matrix} is an $n \times n$ matrix such that every row and every column has exactly one non-zero entry.
+\end{topic}
+
+\begin{example}{monomial-matrix}
+    The following $4 \times 4$ matrix is a monomial matrix:
+    \[ \begin{pmatrix} 0 & 11 & 0 & 0 \\ 0 & 0 & 0 & \frac{5}{2} \\ 0 & 0 & \sqrt{7} & 0 \\ -3 & 0 & 0 & 0 \end{pmatrix} \]
+\end{example}
+
+\begin{topic}{permutation-matrix}{permutation matrix}
+    A \textbf{permutation matrix} is an $n \times n$ matrix such that every row and every column has exactly one entry with a $1$, and all other entries zero.
+\end{topic}
+
+\begin{example}{permutation-matrix}
+    The following $4 \times 4$ matrix is a monomial matrix:
+    \[ \begin{pmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 \end{pmatrix} \]
 \end{example}

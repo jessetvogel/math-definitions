@@ -158,3 +158,20 @@
     \[ \pi^* \omega_\textup{FS} = \frac{i}{2} \partial \bar{\partial} \log (|\cdot|^2) , \]
     where $\pi : \CC^n \setminus \{ 0 \} \to \CC \PP^n$ is the projection map, $\partial$ and $\bar{\partial}$ are the \tref{dolbeault-operators}{Dolbeault operators}, and $|\cdot| : \CC^n \to \RR$ is the Euclidean norm. It is a \tref{symplectic-manifold}{symplectic form}.
 \end{topic}
+
+\begin{topic}{compatible-triple}{compatible triple}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{compatible triple} on $M$ is a triple $(\omega, J, g)$, where $\omega$ is a \tref{symplectic-manifold}{symplectic form} on $M$, $J$ is an \tref{complex-manifold}{almost complex structure} on $M$, and $g$ is a \tref{riemannian-manifold}{Riemannian metric} on $M$, such that
+    \[ g(X, Y) = \omega(X, J(Y)) \]
+    for all \tref{vector-field}{vector fields} $X$ and $Y$ on $M$.
+    % Given two out of the three structures of a compatible triple, the third structure can be obtained.
+\end{topic}
+
+\begin{example}{compatible-triple}
+    Let $M = \CC^n$ with the standard Hermitian metric $h(-, -)$. Decomposing in real and imaginary parts, we have
+    \[ h(u, v) = g(u, v) + i \omega(u, v) \]
+    for some bilinear forms $g$ and $\omega$. Since $h(v, u) = \overline{h(u, v)}$, it follows that $g$ is symmetric and $\omega$ is skew-symmetric. Moreover, $g$ and $\omega$ are non-degenerate since $h$ is. In particular, $g$ is a Riemannian metric, and $\omega$ a symplectic form. Furthermore, multiplication by $i$ defines an almost complex structure $J$. Note that
+    \[ g(u, Jv) + i \omega(u, Jv) = h(u, iv) = i h(u, v) = i g(u, v) - \omega(u, v) , \]
+    from which follows that
+    \[ g(u, v) = \omega(u, Jv) , \]
+    that is, $(\omega, J, g)$ is a compatible triple.
+\end{example}

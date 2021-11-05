@@ -198,9 +198,17 @@
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Riemannian metric} on $M$ is a smooth symmetric \tref{tensor-field}{$(0, 2)$-tensor field} $g$ that is positive definite at each point $p \in M$. The pair $(M, g)$ is called a \textbf{Riemannian manifold}.
 \end{topic}
 
-\begin{topic}{almost-complex-structure}{almost complex manifold}
+\begin{topic}{complex-manifold}{(almost) complex manifold}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost complex structure} on $M$ is a smooth \tref{tensor-field}{tensor field} $J \in \Gamma(TM \otimes T*M)$ satisfying $J^2 = -1$ when viewed as a bundle isomorphism $J : TM \to TM$. The pair $(M, J)$ is called an \textbf{almost complex manifold}.
-\end{topic}
+    
+    A smooth manifold $M$ is \textbf{complex} if it has an \tref{atlas}{atlas} of charts to open subsets of $\CC^n$, such that the transition maps are \textit{holomorphic}. Any complex smooth manifold has an almost complex structure given by multiplication by $i$. If an almost complex structure arises in this way, it is called \textbf{integrable}.
+ \end{topic}
+ 
+ \begin{example}{complex-manifold}
+    Any complex manifold is an almost complex manifold, but the converse does not hold. Consider the $6$-sphere inside the (imaginary) octonions
+     \[ S^6 = \left\{ \sum_{i = 1}^{7} x_i e_i \in \mathbb{O} : |x| = 1 \right\} , \]
+     and let $J : TS^6 \to TS^6$ be given at a point $p \in S^6$ by multiplication by $p$, where $T_p S^6 = p^\perp$. Then $J$ is defines an almost complex structure, but it is not integrable.
+ \end{example}
 
 \begin{topic}{kahler-manifold}{Kähler manifold}
     A \textbf{Kähler manifold} is a \tref{smooth-manifold}{smooth manifold} $M$ with three compatible structures: a complex structure $J$, a \tref{riemannian-manifold}{Riemannian structure} $g$, and a \tref{symplectic-manifold}{symplectic structure} $\omega$. Compatibility means that

@@ -88,8 +88,11 @@
     where $d_{n, i} : A_n \to A_{n - 1}$ are the face maps of $A_\bdot$.
     
     Inversely, to any chain complex $C_\bdot$ one assigns the simplicial abelian group
-    \[ \sigma(C_\bdot)_n := \bigoplus_{[n] \twoheadrightarrow [k]} C_k \]
-    and the face and degeneracy maps are given by (todo).
+    \[ \sigma(C_\bdot)_n := \bigoplus_{[n] \twoheadrightarrow [k]} C_k . \]
+    For any $\nu : [m] \to [n]$ and $\tau : [n] \twoheadrightarrow [k]$, the composition $\tau\nu : [m] \to [k]$ can uniquely be factored as $[m] \overset{\sigma}{\twoheadrightarrow} [j] \xhookrightarrow{\iota} [k]$ for some $j \le m, k$.
+    
+    \[ (C_k \to C_j) = \left\{ \begin{array}{cl} \id_{C_k} & \textup{ if } j = k , \\ (-1)^k \partial_k & \textup{ if } j = k - 1 \textup{ and } \iota = d_{k,k} , \\ 0 & \textup{ otherwise}. \end{array} \right. \]
+    This yields morphisms $\sigma(C_\bdot)_\nu : \sigma(C_\bdot)_n \to \sigma(C_\bdot)_m$.
     
     The statement can be generalized to any \tref{HA:abelian-category}{abelian category} $\mathcal{A}$: there is an equivalence
     \[ \mathcal{A}_\Delta \simeq \text{Ch}(\mathcal{A})_{\ge 0} . \]

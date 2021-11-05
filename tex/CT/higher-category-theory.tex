@@ -162,6 +162,10 @@
     is \tref{CT:full-functor}{fully} \tref{CT:faithful-functor}{faithful}.
 \end{topic}
 
+\begin{example}{nerve}
+    The standard simplicial set $\Delta^n = \Hom_\Delta(-, [n])$ can be seen as the nerve of $[n]$.
+\end{example}
+
 \begin{topic}{infinity-category}{infinity category}
     An \textbf{$\infty$-category} is a \tref{simplicial-object}{simplicial set} $\mathcal{C}$ such that every map of simplicial sets $\Lambda^n_i \to \mathcal{C}$ with $0 < i < n$ can be extended to a map $\Delta^n \to \mathcal{C}$.
     \[ \begin{tikzcd} \Lambda^n_i \arrow{r} \arrow{d} & \mathcal{C} \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]
@@ -171,9 +175,10 @@
 \end{topic}
 
 \begin{example}{infinity-category}
-    Any \tref{HT:kan-complex}{Kan complex} is an $\infty$-category.
-    
-    The \tref{nerve}{nerve} $N_\bdot(\mathcal{C})$ of a \tref{CT:category}{category} $\mathcal{C}$ is an $\infty$-category.
+    \begin{itemize}
+        \item Any \tref{HT:kan-complex}{Kan complex} is an $\infty$-category.
+        \item The \tref{nerve}{nerve} $N_\bdot(\mathcal{C})$ of a \tref{CT:category}{category} $\mathcal{C}$ is an $\infty$-category.
+    \end{itemize}
 \end{example}
 
 \begin{topic}{monoid-object}{monoid object}

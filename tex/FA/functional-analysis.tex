@@ -147,3 +147,48 @@
     \[ \|A\|_\textup{HS}^2 = \sum_{i \in I} \|A e_i\|^2 < \infty , \]
     where $\{ e_i : i \in I \}$ is an orthonormal basis.
 \end{topic}
+
+\begin{topic}{seminorm}{seminorm}
+    A \textbf{seminorm} on a \tref{LA:vector-space}{vector space} $V$ over $\RR$ or $\CC$ is a function $\norm{\cdot} : V \to \RR_{\ge 0}$ satisfying
+    \begin{itemize}
+        \item (\textit{absolute homogeneity}) $\norm{\lambda x} = |\lambda| x$ for all scalars $\lambda$ and $x \in V$,
+        \item (\textit{triangle inequality}) $\norm{x + y} \le \norm{x} + \norm{y}$ for all $x, y \in V$.
+    \end{itemize}
+    That is, a seminorm is a \tref{norm}{norm} without the condition that it is positive definite.
+\end{topic}
+
+\begin{example}{seminorm}
+    The following are examples of seminorms which are not a norm.
+    \begin{itemize}
+        \item The constant zero map on $V$ is a seminorm.
+        \item On $V = \RR^2$, the map $(x, y) \mapsto x^2$ is a semi-norm.
+        \item For any linear map $f : V \to \RR$, the map $v \mapsto |f(v)|$ is a seminorm.
+    \end{itemize}
+\end{example}
+
+\begin{example}{seminorm}
+    Any seminorm $\norm{\cdot}$ is non-negative, that is, $\norm{v} \ge 0$ for all $v \in V$. Namely, from absolute homogenity follows that $\norm{0} = 0$, and then
+    \[ 0 = \norm{0} \le \norm{v} + \norm{-v} = 2 \cdot \norm{v} . \]
+\end{example}
+
+\begin{topic}{schwartz-space}{Schwartz space}
+    The \textbf{Schwartz space} is the space of \textit{rapidly decreasing functions} on $\RR^n$, given by
+    \[ \mathcal{S}(\RR^n) = \left\{ f : \RR^n \to \CC \;|\; \textup{for all } \alpha, \beta \in \NN^n , \sup_{x \in \RR^n} |x^\alpha \partial_x^\beta f| < \infty \right\} , \]
+    where $x^\alpha$ denotes $x_1^{\alpha_1} x_2^{\alpha_2} \cdots x_n^{\alpha_n}$ and $\partial_x^\beta = \partial_{x_1}^{\beta_1} \partial_{x_2}^{\beta_2} \cdots \partial_{x_n}^{\beta_n}$.
+    % The Schwartz space is a real vector space with \tref{seminorm}{seminorm} given by
+    % \[ \norm{f}_{\alpha, \beta} = \sup_{x \in \RR^n} |x^\alpha \partial_x^\beta f| . \]
+\end{topic}
+
+\begin{topic}{lp-space}{Lp space}
+    Let $(X, \mu)$ be a measurable space, $0 < p < \infty$ and $\mathbb{K}$ equal to $\RR$ or $\CC$. The space of \textit{$p$-integrable functions} on $X$ is
+    \[ \mathcal{L}^p(X) = \left\{ f : X \to \mathbb{K} : \norm{f}_p < \infty \right\} , \]
+    where
+    \[ \norm{f}_p = \left(\int_X |f|^p \; d\mu \right)^{1/p} . \]
+    Now $L^p(X)$ is defined as the quotient
+    \[ L^p(X) = \mathcal{L}^p(X) / \mathcal{N} , \quad \text{ where } \mathcal{N} = \{ f \in L^p(X) : \norm{f}_p = 0 \} . \]
+    
+    Let $I$ be an indexing set, and $1 \le p < \infty$. Then
+    \[ \ell^p(I) = \left\{ (x_i)_{i \in I} \in \mathbb{K}^I : \norm{(x_i)_{i \in I}}_p < \infty \right\} , \]
+    where
+    \[ \norm{(x_i)_{i \in I}}_p = \left(\sum_{i \in I} |x_i|^p \right)^{1/p} . \]
+\end{topic}

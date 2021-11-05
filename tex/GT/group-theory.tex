@@ -150,7 +150,7 @@
 \end{topic}
 
 \begin{topic}{solvable-group}{solvable group}
-    A \tref{group}{group} $G$ is \textbf{solvable} if there exist \tref{subgroup}{subgroups} $H_1, H_2, \ldots, H_r$
+    A \tref{group}{group} $G$ is \textbf{solvable} if there exist \tref{subgroup}{subgroups} $H_1, H_2, \ldots, H_r$ such that
     \[ G = H_0 \supset H_1 \supset \cdots \supset H_r = \{ 1 \} \]
     where $H_{i + 1}$ is \tref{normal-subgroup}{normal} in $H_i$ and $H_i/H_{i + 1}$ is abelian.
     
@@ -259,7 +259,7 @@
 
 \begin{topic}{central-series}{central series}
     A \textbf{central series} of a \tref{group}{group} $G$ is a sequence of \tref{subgroup}{subgroups}
-    \[ \{ e \} = H_0 \subset H_1 \subset \cdots H_n = G \]
+    \[ \{ e \} = H_0 \subset H_1 \subset \cdots \subset H_n = G \]
     such that $H_i$ is \tref{normal-subgroup}{normal} in $H_{i + 1}$ and the quotient $H_{i + 1}/H_i$ lies in the \tref{group-center}{center} of $G/H_i$.
 \end{topic}
 
@@ -342,4 +342,17 @@
 
 \begin{example}{sylow-theorem}
     If $G$ is a finite group, and $p$ a prime number with $p$ dividing $|G|$, then there exists an element $g \in G$ with $\textup{ord}(g) = p$. Namely, writing $|G| = p^n \cdot m$ as before, by the Sylow theorems there exists a Sylow $p$-group $H$ of $G$. Take any $h \in H$ not equal to the group unit, then $\textup{ord}(h) | p^n$, so $\textup{ord}(h) = p^\ell$ for some $1 \le \ell \ell n$. In particular $h^{p^{\ell - 1}}$ has order $p$.
+\end{example}
+
+\begin{topic}{nilpotent-group}{nilpotent group}
+    A \tref{group}{group} $G$ is \textbf{nilpotent} if there exist \tref{subgroup}{subgroups} $H_1, H_2, \ldots, H_r$ such that
+    \[ G = H_0 \supset H_1 \supset \cdots \supset H_r = \{ 1 \} \]
+    where $H_{i + 1}$ is \tref{normal-subgroup}{normal} in $H_i$ and $H_i/H_{i + 1}$ is contained in the \tref{group-center}{center} of $G/H_{i + 1}$.
+\end{topic}
+
+\begin{example}{nilpotent-group}
+    \begin{itemize}
+        \item Every \tref{abelian-group}{abelian group} $G$ is nilpotent. Namely, the center $Z(G)$ equals $G$ and we have a series $G \supset \{ 1 \}$.
+        \item The quaternion group $Q_8 = \langle -1, i, j, k \;|\; (-1)^2 = 1 \textup{ and } i^2 = j^2 = k^2 = ijk = -1 \rangle$ is nilpotent. Namely, its center is $Z(Q_8) = \{ -1, 1 \}$ and we have a series $Q_8 \supset \{ -1, 1 \} \supset \{ 1 \}$.
+    \end{itemize}
 \end{example}

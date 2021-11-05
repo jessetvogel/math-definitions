@@ -368,3 +368,17 @@
 \begin{topic}{convergent-sequence}{convergent sequence}
     Let $X$ be a \tref{topological-space}{topological-space}. A sequence of points $(x_n)_{n \in \NN}$ in $X$ is \textbf{convergent} if there exists a point $x \in X$ such that for any open neighborhood $U$ of $x$, there exists some $N \in \NN$ such that $x_n \in U$ for every $n \ge N$. The point $x$ is called a \textit{limit point} of the sequence.
 \end{topic}
+
+\begin{topic}{coherent-topology}{coherent topology}
+    Let $X$ be a \tref{topological-space}{topological space} and $C = \{ X_i : i \in I \}$ a family of subsets $X_i \subset X$ with the \tref{subspace-topology}{subspace topology}. Then $X$ is \textbf{coherent with $C$} if $X$ has the \tref{coarser}{finest topology} such that the inclusions $\iota_i : X_i \to X$ are continuous.
+    
+    There are two equivalent definitions:
+    \begin{itemize}
+        \item A subset $A \subset X$ is closed if and only if $A \cap X_i$ is closed for all $i$.
+        \item A subset $A \subset X$ is open if and only if $A \cap X_i$ is open for all $i$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{compactly-generated-space}{compactly generated space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{compactly generated} if it is \tref{coherent-topology}{coherent} with the family of all \tref{compact-space}{compact} subspaces. That is, if a subset $A \subset X$ is closed if and only if $A \cap K$ is closed for all compact subsets $K \subset X$.
+\end{topic}
