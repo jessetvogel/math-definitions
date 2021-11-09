@@ -907,3 +907,23 @@
     Let $X$ be a \tref{scheme}{scheme}. The \textbf{Brauer group} of $X$ is the second étale cohomology group
     \[ \textup{Br}(X) = H^2_\textup{ét}(X, \mathbb{G}_m) . \]
 \end{topic}
+
+\begin{topic}{lie-kolchin-theorem}{Lie--Kolchin theorem}
+    The \textbf{Lie--Kolchin theorem} states that any \tref{GT:solvable-group}{solvable}, \tref{smooth-morphism}{smooth}, \tref{TO:connected-space}{connected} \tref{algebraic-group}{algebraic group} $G$ over an \tref{CA:algebraically-closed-field}{algebraically closed field} $k$ is \textit{triangularizable}: every representation $\rho : G \to \textup{GL}(V)$ contains a one-dimensional subrepresentation.
+\end{topic}
+
+\begin{example}{lie-kolchin-theorem}
+    The conditions in the above theorem are all necessary:
+    \begin{itemize}
+        \item (\textit{connected}) The algebraic group $G = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \right\} \simeq \ZZ/2\ZZ$ is smooth and solvable, but not connected. Also $G$ is not triangularizable, since for the natural representation of $G$ on $k^2$, the two matrices have no common eigenvector.
+        \item (\textit{smooth}) Let $k$ be an (algebraically closed) field of characteristic $2$, and let $G \subset \textup{SL}_2$ be the algebraic group given by
+        \[ G(R) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \textup{Mat}_{2 \times 2}(R) : a^2 = d^2 = 1 \textup{ and } b^2 = c^2 = 0 \right\} . \]
+        Then $G$ is connected (topologically it is a point) but not smooth, and the exact sequence
+        \[ 1 \to \mu_2 \xrightarrow{a \mapsto \left(\begin{smallmatrix} a & 0 \\ 0 & a \end{smallmatrix}\right)} G \xrightarrow{\left(\begin{smallmatrix} a & b \\ c & d \end{smallmatrix}\right) \mapsto (ab, cd)} \alpha_2 \times \alpha_2 \to 1 \]
+        shows that $G$ is solvable. However, $G$ is not triangularizable since the natural action of $G$ on $k^2$ does not fix any line.
+        \item (\textit{solvable}) Any triangularizable group is solvable.
+        \item (\textit{algebraically closed}) Let $k = \RR$ and consider the algebraic group $G$ given by
+        \[ G(R) = \left\{ \begin{pmatrix} a & -b \\ b & a \end{pmatrix} \in \textup{Mat}_{2 \times 2}(R) : a^2 + b^2 = 1 \right\} . \]
+        Then $G$ is solvable (since it is abelian), connected and smooth. However it is not triangularizable since it does not have eigenvectors when acting naturally on $\RR^2$.
+    \end{itemize}
+\end{example}

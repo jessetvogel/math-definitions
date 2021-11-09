@@ -5,7 +5,7 @@
 \end{topic}
 
 \begin{topic}{irreducible-representation}{(ir)reducible representation}
-    A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is \textbf{reducible} if there exists a non-zero proper invariant subspace $W \subset V$, that is, $\rho(g) w \in W$ for all $w \in W$ and $g \in G$. If no such subspace exists, the representation is \textbf{irreducible}. If $\rho$ can be written as a direct sum $\rho_1 \oplus \rho_2$, then it is called \textbf{completely reducible}, or \textbf{semisimple}.
+    A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is \textbf{reducible} if there exists a non-zero proper invariant subspace $W \subset V$, that is, $\rho(g) w \in W$ for all $w \in W$ and $g \in G$. If no such subspace exists, the representation is \textbf{irreducible}. % If $\rho$ can be written as a direct sum $\rho_1 \oplus \rho_2$, then it is called \textbf{reducible}.
 \end{topic}
 
 \begin{topic}{faithful-representation}{faithful representation}
@@ -43,10 +43,22 @@
 \begin{topic}{schur-lemma}{Schur's lemma}
     \textbf{Schur's lemma} states:
     \begin{enumerate}
-        \item If $\rho : G \to \textup{GL}(V)$ and $\rho' : G \to \textup{GL}(W)$ are two \tref{equivalent-representations}{inequivalent} \tref{irreducible-representation}{irreducible} \tref{representation}{representations} over $\CC$, and $A : V \to W$ is a linear map such that $A \rho(g) = \rho'(g) A$ for all $g \in G$, then $A = 0$.
-        \item If $\rho : G \to \textup{GL}(V)$ is an irreducible representation over $\CC$, and $A : V \to V$ is a linear map such that $A \rho(g) = \rho(g) A$ for all $g \in G$, then $A$ is a scalar multiple of the identity map.
+        \item If $\rho : G \to \textup{GL}(V)$ and $\rho' : G \to \textup{GL}(W)$ are two \tref{equivalent-representations}{inequivalent} \tref{irreducible-representation}{irreducible} \tref{representation}{representations}, and $A : V \to W$ is a linear map such that $A \rho(g) = \rho'(g) A$ for all $g \in G$, then $A = 0$.
+        \item If $\rho : G \to \textup{GL}(V)$ is an irreducible representation over an \tref{CA:algebraically-closed-field}{algebraically closed field $k$}, and $A : V \to V$ is a linear map such that $A \rho(g) = \rho(g) A$ for all $g \in G$, then $A$ is a scalar multiple of the identity map.
     \end{enumerate}
 \end{topic}
+
+\begin{example}{schur-lemma}
+    \textbf{Proof}.
+    \begin{itemize}
+        \item For any vector $v \in V$ and $g \in G$ we have
+        \[ A \rho(g) v = \rho'(g) A v . \]
+        This shows that $\im A$ is invariant under $\rho'$, and $\ker A$ is invariant under $\rho$. Since both $\rho$ and $\rho'$ are irreducible, it follows that $\im A$ equal to $0$ or $W$, and $\ker A$ equal to $0$ or $V$. If $A \ne 0$, then we must have $\im A = W$ and $\ker A = 0$, implying that $A$ is invertible. But then $\rho'(g) = A \rho(g) A^{-1}$, contradicting the inequivalence of representations.
+        \item Let $v \in V$ be an eigenvector of $A$ with eigenvalue $\lambda \in k$. Then for all $g \in G$,
+        \[ A \rho(g) v = \rho(g) A v = \lambda \rho(g) v , \]
+        so $\rho(g) v$ is again an eigenvector of $A$ with eigenvalue $\lambda$. This shows that the eigenspace of $A$ corresponding to $\lambda$ is invariant under $\rho$. Since $\rho$ is irreducible, this eigenspace must be $0$ or $V$, and since it contains $v$ already, it must be $V$. We conclude that $A = \lambda I$.
+    \end{itemize}
+\end{example}
 
 \begin{topic}{clebsch-gordan-series}{Clebsch--Gordan series}
     If $G$ is a finite \tref{GT:group}{group}, and $\rho_i, \rho_j$ two \tref{irreducible-representation}{irreducible} \tref{representation}{representations}, the tensor product $\rho_i \otimes \rho_j$ is generally reducible, and can be written as

@@ -15,18 +15,18 @@
     \end{itemize}
 \end{topic}
 
-\begin{topic}{vector-subspace}{vector-subspace}
-    Let $V$ be a \tref{vector-space}{vector space}. A \textbf{subspace} of $V$ is a subset $W \subset V$ which is a vector space itself.
+\begin{topic}{vector-subspace}{vector subspace}
+    Let $V$ be a \tref{vector-space}{vector space} over a field $k$. A \textbf{subspace} of $V$ is a subset $W \subset V$ which is closed under addition and scalar multiplication: $w_1 + w_2 \in W$ for all $w_1, w_2 \in W$ and $\lambda w \in W$ for all $w \in W$ and $\lambda \in k$.
 \end{topic}
 
 \begin{topic}{linearly-independent}{linearly independent}
     Let $V$ be a \tref{vector-space}{vector space}. A set of vectors $S \subset V$ is said to be \textbf{linearly independent} if for any relation
-    \[ \sum_{i = 1}^{n} a_i v_i = 0, \qquad \textup{with $v_i \in S$ and $a_i \in k$,} \]
+    \[ \sum_{i = 1}^{n} a_i v_i = 0, \qquad \textup{with $v_i \in S$ distinct and $a_i \in k$,} \]
     one has $a_i = 0$.
 \end{topic}
 
 \begin{topic}{span}{span}
-    Let $V$ be a \tref{vector-space}{vector space}, and $S \subset V$ a subset. The \textbf{span} of $S$ is the subspace of all linear combinations of vectors in $S$.
+    Let $V$ be a \tref{vector-space}{vector space}, and $S \subset V$ a subset. The \textbf{span} of $S$ is the \tref{vector-subspace}{subspace} of all linear combinations of vectors in $S$.
     \[ \textup{span}(S) = \left\{ \sum_{i = 1}^{n} a_i v_i \textup{ for any } v_i \in S \textup{ and } a_i \in k \right\} \]
 \end{topic}
 
@@ -44,15 +44,15 @@
     A \textbf{linear map} is a map $f : V \to W$ between \tref{vector-space}{vector spaces} such that
     \begin{itemize}
         \item $f(v + v') = f(v) + f(v')$,
-        \item $f(av) = a f(v)$,
+        \item $f(\lambda v) = \lambda f(v)$,
     \end{itemize}
-    for all vectors $v, v' \in V$ and scalars $a \in k$.
+    for all vectors $v, v' \in V$ and scalars $\lambda \in k$.
 \end{topic}
 
 \begin{topic}{matrix-representation}{matrix representation}
     Let $V$ and $W$ be finite-dimensional \tref{vector-space}{vector spaces}, and $T : V \to W$ a \tref{linear-map}{linear transformation}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are (ordered) \tref{basis}{bases} of $V$ and $W$, respectively, then the \textbf{matrix representation} of $T$ is the $m \times n$ matrix
     \[ A = \begin{pmatrix} a_{11} & a_{21} & \cdots & a_{n1} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix} \]
-    such that $i$-th component of $T(v_j)$ (w.r.t. the basis for $W$) is $a_{ij}$.
+    where $a_{ij}$ is the $i$-th component of $T(v_j)$ with respect to the basis for $W$.
 \end{topic}
 
 \begin{topic}{matrix-multiplication}{matrix multiplication}
@@ -83,9 +83,9 @@
     The \textbf{rank} of an $m \times n$ matrix $A$ the \tref{dimension}{dimension} of its \textit{row space} $\im A$.
 \end{topic}
 
-\begin{topic}{nullspace}{nullspace}
-    The \textbf{nullspace}, or \textbf{kernel}, of a \tref{linear-map}{linear transformation} $T : V \to W$ is the subspace
-    \[ \left\{ v \in V \textup{ such that } T(v) = 0 \right\} \subset V . \]
+\begin{topic}{kernel}{kernel}
+    The \textbf{kernel}, or \textbf{nullspace}, of a \tref{linear-map}{linear transformation} $T : V \to W$ is the subspace
+    \[ \ker T = \left\{ v \in V : T(v) = 0 \right\} \subset V . \]
 \end{topic}
 
 \begin{topic}{projection}{projection}
@@ -94,10 +94,10 @@
 
 \begin{topic}{determinant}{determinant}
     The \textbf{determinant} of an $n \times n$ matrix $A$ is the scalar given by
-    \[ \det(A) = \sum_{\sigma \in S_n} \left( \textup{sign}(\sigma) \prod_{i = 1}^{n} a_{i, \sigma(i)} \right) . \]
-    It has the property that $A$ is \tref{invertible-matrix}{invertible} if and only if $\det(A) \ne 0$.
+    \[ \det(A) = \sum_{\sigma \in S_n} \left( \textup{sign}(\sigma) \prod_{i = 1}^{n} a_{i, \sigma(i)} \right) , \]
+    where $\textup{sign}(\sigma)$ denotes the \tref{GT:permutation-sign}{sign} of the \tref{GT:symmetric-group}{permutation} $\sigma \in S_n$. The determinant has the property that $A$ is \tref{invertible-matrix}{invertible} if and only if $\det(A) \ne 0$.
     
-    Also, the determinant of $A$ is the scalar corresponding to the map induced on the top exterior power of $V$,
+    Alternatively, the determinant of $A$ is the scalar corresponding to the map induced on the top exterior power of $V$,
     \[ \wedge^n A : \wedge^n V \to \wedge^n V . \]
 \end{topic}
 
@@ -109,7 +109,7 @@
 \end{example}
 
 \begin{topic}{trace}{trace}
-    The \textbf{trace} of an $n \times n$ matrix $A$ is the sum of the diagonal matrices.
+    The \textbf{trace} of an $n \times n$ matrix $A$ is the sum of its diagonal entries,
     \[ \operatorname{tr}(A) = \sum_{i = 1}^{n} a_{ii} . \]
 \end{topic}
 

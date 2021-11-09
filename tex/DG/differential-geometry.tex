@@ -686,3 +686,12 @@
     \[ f^*(p) = p_i g^{ik} p_k - \frac{1}{2} g_{ij} g^{i k} p_k g^{j \ell} p_\ell = \frac{1}{2} g^{ik} p_i p_k , \]
     that is, $f^*(p) = g^*(p, p)$ where $g^* : V^* \times V^* \to \RR$ is the dual metric.
 \end{example}
+
+\begin{topic}{nijenhuis-tensor}{Nijenhuis tensor}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $A$ a \tref{tensor-field}{tensor field} of type $(1, 1)$, that is, a linear map of bundles $A : TM \to TM$. The \textbf{Nijenhuis tensor} of $A$ is a tensor field $N_A$ of type $(1, 2)$ given by
+    \[ N_A(X, Y) = -A^2 [X, Y] + A([AX, Y] + [X, AY]) - [AX, AY] . \]
+\end{topic}
+
+\begin{example}{nijenhuis-tensor}
+    The \textit{Newlander–Nirenberg theorem} states that an \tref{complex-manifold}{almost complex structure} $J$ is integrable if and only if $N_J = 0$.
+\end{example}

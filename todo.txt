@@ -3,16 +3,14 @@
 -- Clever search function: take care of switching words, () and dashes 
 -- Homepage
 -- PDF front cover
--- Reference system
+-- Go through document and fix missing tref's
 
 # ---- Theory ----
 
 - (infinity, k)-category
 - Nerve example: "concretely this means" (p.9 of HTT of Lurie) + Can recover C from its nerve: [...]
-- Dold-Kan fix constructions + examples
-
-- (Almost) complex manifold + "integrable" + example of almost complex manifold which is not complex "Any ... is ... , but not conversely. Namely, ..."
-- Nijenhuis tensor
+- Dold-Kan examples
+- Double centralizer theorem
 
 - Toeplitz algebra
 - Fréchet topology (any Banach space, any Schwartz space)
@@ -32,7 +30,7 @@ LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
 UN: classifying space -- vague?
 
 # Measure Theory
-MT: Measure Theory, sigma algebra, Borel algebra, etc.
+MT: Measure Theory, sigma algebra, Borel algebra, etc. (see lectures notes from RuG, Henk de Snoo) some integrability theorems
 
 # Commutative algebra
 -- CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)

@@ -11,7 +11,7 @@
 \end{topic}
 
 \begin{topic}{ring-morphism}{ring morphism}
-    A map $f : R \to S$ between \tref{ring}{rings} is a \textbf{ring morphism} if
+    A \textbf{ring morphism} is a map $f : R \to S$ between \tref{ring}{rings} satisfying
     \begin{itemize}
         \item $f(1) = 1$,
         \item $f(a + b) = f(a) + f(b)$,
@@ -25,7 +25,7 @@
 \end{topic}
 
 \begin{example}{unit}
-    If $a \in R$ is a unit, its inverse is unique. Namely, if $ab = ca = 1$, then $b = cab = c$.
+    If $a \in R$ is a unit, its inverse is unique. Namely, if $ab = ca = 1$ for some $b, c \in R$, then $b = cab = c$.
 \end{example}
 
 \begin{topic}{zero-divisor}{zero-divisor}
@@ -39,6 +39,16 @@
 \begin{example}{nilpotent-element}
     If $a \in R$ is nilpotent, then $1 - a$ is invertible in $R$. Namely, $a^n = 0$ for some $n \ge 0$, so
     \[ (1 - a) (1 + a + a^2 + \cdots + a^{n - 1}) = 1 - a^n = 1 . \]
+\end{example}
+
+\begin{topic}{unipotent-element}{unipotent element}
+    Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is \textbf{unipotent} if $(a - 1)^n = 0$ for some positive integer $n$.
+\end{topic}
+
+\begin{example}{unipotent-element}
+    Let $R = \textup{Mat}_{n \times n}(k)$ be the ring of $n \times n$ matrices over some field $k$. Then any matrix of the form
+    \[ \begin{pmatrix} 1 & * & \cdots & * \\ 0 & 1 & \cdots & * \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1 \end{pmatrix} \]
+    is unipotent.
 \end{example}
 
 \begin{topic}{reduced-ring}{reduced ring}
@@ -131,10 +141,14 @@
 \end{topic}
 
 \begin{topic}{finite-presentation}{finite presentation}
-    A ring morphism $R \to S$ is said to be of \textbf{finite presentation} if $S$ is isomorphic to $R[x_1, \ldots, x_n] / (f_1, \ldots, f_m)$ for some integer $n$ and some $f_i \in R[x_1, \ldots, x_n]$.
+    A \tref{ring-morphism}{ring morphism} $R \to S$ is said to be of \textbf{finite presentation} if $S$ is isomorphic to $R[x_1, \ldots, x_n] / (f_1, \ldots, f_m)$ for some integer $n$ and some $f_i \in R[x_1, \ldots, x_n]$.
     
     In this case, $S$ is also said to be a \textbf{finitely presented $R$-algebra}.
 \end{topic}
+
+\begin{example}{finite-presentation}
+    Let $R = k[x_1, x_2, \ldots]$ and $S = R / (x_1^2, x_2^2, \ldots)$. Then the quotient map $R \to S$ is of \tref{finite-type}{finite type}, but not of finite presentation.
+\end{example}
 
 \begin{topic}{krull-dimension}{Krull dimension}
     The \textbf{Krull dimension} of a commutative ring $R$ is the supremum of the lengths of all chains of \tref{prime-ideal}{prime ideals}, where a chain of the form
