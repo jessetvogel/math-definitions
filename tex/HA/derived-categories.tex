@@ -13,6 +13,14 @@
     \[ C(f)^i = A^{i + 1} \oplus B^i \quad \text{and} \quad d_{C(f)}^i = \begin{pmatrix} -d_A^{i + 1} & 0 \\ f^{i + 1} & d_B^i \end{pmatrix} . \]
 \end{topic}
 
+\begin{example}{derived-category}
+    Let $0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0$ be a short exact sequence in $\mathcal{A}$. There is a natural morphism $h : C \to A[1]$ in $\textbf{D}(\mathcal{A})$ given by the following maps of complexes:
+    \[ \begin{tikzcd} \cdots \arrow{r} & 0 \arrow{r} & C \arrow{r} & \cdots & C \arrow{dd}{h} \\ \cdots \arrow{r} & A \arrow{u} \arrow[swap]{d}{\id} \arrow{r}{f} & B \arrow{d} \arrow[swap]{u}{g} \arrow{r} & \cdots & \\ \cdots \arrow{r} & A \arrow{r} & 0 \arrow{r} & \cdots & A[1] , \end{tikzcd} \]
+    since the upper map of complexes is a quasi-isomorphism. This quasi-isomorphism also immediately shows that
+    \[ \begin{tikzcd}[column sep = 0.5em] A \arrow{rr}{f} & & B \arrow{dl}{g} \\ & C \arrow{ul}{h} & \end{tikzcd} \]
+    is an exact triangle in $\textbf{D}(\mathcal{A})$.
+\end{example}
+
 % \begin{topic}{Grothendieck--Verdier-duality}{Grothendieck--Verdier duality}
     
 % \end{topic}
@@ -69,7 +77,7 @@
 \begin{example}{serre-functor}
     Let $X$ be a \tref{AG:smooth-morphism}{smooth} \tref{AG:projective-variety}{projective variety} of dimension $n$. \tref{AG:serre-duality}{Serre duality} gives natural isomorphisms
     \[ \textup{Ext}_X^i(\mathcal{F}, \mathcal{G}) \simeq H^i(X, \mathcal{F}^\vee \otimes \mathcal{G}) \simeq H^{n - i}(X, \mathcal{F} \otimes \mathcal{G}^\vee \otimes \omega_X) \simeq \textup{Ext}_X^{n - 1}(\mathcal{G}, \mathcal{F} \otimes \omega_X)^\vee , \]
-    for coherent sheaves $\mathcal{F}, \mathcal{G}$ on $X$. In the derived category $\textbf{D}^\textup{b}(X)$ of coherent sheaves on $X$, this can be rewritten as
+    for coherent sheaves $\mathcal{F}, \mathcal{G}$ on $X$. In the \tref{derived-category}{derived category} $\textbf{D}^\textup{b}(X)$ of coherent sheaves on $X$, this can be rewritten as
     \[ \Hom_{\textbf{D}^\textup{b}(X)}(\mathcal{F}, \mathcal{G}[i]) \simeq \Hom_{\textbf{D}^\textup{b}(X)}(\mathcal{G}[i], \mathcal{F} \otimes \omega_X[n])^\vee \]
     This shows that $\textbf{D}^\textup{b}(X)$ admits a Serre functor given by
     \[ S_X : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(X), \qquad \mathcal{F} \mapsto \mathcal{F} \otimes \omega_X[n] . \]

@@ -1,18 +1,18 @@
 Let <span class="math inline">\(k\)</span> be a <a href="#CA:field">field</a>, <span class="math inline">\(R\)</span> an <span class="math inline">\(k\)</span>-algebra, and <span class="math inline">\(M\)</span> a <a href="#CA:bimodule">bimodule</a> over <span class="math inline">\(R\)</span>. Let <span class="math inline">\(C_n(R, M) := M \otimes R^{\otimes n}\)</span>, and define boundary maps <span class="math inline">\(d_{n, i} : C_n(R, M) \to C_{n - 1}(R, M)\)</span> for <span class="math inline">\(0 \le i \le n\)</span> by
-<span class="math display">\[ \begin{aligned}
-        d_{n, 0}(r \otimes m_1 \otimes \cdots \otimes m_n) &= mr_1 \otimes r_2 \otimes \cdots \otimes r_n , \\
-        d_{n, i}(r \otimes m_1 \otimes \cdots \otimes m_n) &= m \otimes r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n , \\
-        d_{n, n}(r \otimes m_1 \otimes \cdots \otimes m_n) &= r_n m \otimes r_2 \otimes \cdots \otimes r_{n - 1} .
-    \end{aligned} \]</span>
+<span class="math display">\[ d_{n, i}(r \otimes m_1 \otimes \cdots \otimes m_n) = \left\{ \begin{array}{cl}
+        mr_1 \otimes r_2 \otimes \cdots \otimes r_n & \textup{ if } i = 0, \\
+         m \otimes r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n & \textup{ if } 1 < i < n , \\
+        r_n m \otimes r_2 \otimes \cdots \otimes r_{n - 1} & \textup{ if } i = n .
+    \end{array} \right. \]</span>
 Then <span class="math inline">\(C_n(R, M)\)</span> with differential <span class="math inline">\(d_n = \sum_{i = 0}^{n} = (-i)^i d_{n, i}\)</span> is a <a href="#HA:chain-complex">chain complex</a> called the <b>Hochschild complex</b>.
 <span class="math display">\[ \cdots \xrightarrow{d} M \otimes R^{\otimes n} \xrightarrow{d} M \otimes R^{\otimes n - 1} \xrightarrow{d} \cdots \xrightarrow{d} M \otimes R \xrightarrow{d} M \to 0 \]</span>
 The corresponding <a href="#HA:homology-object">homology</a> <span class="math inline">\(HH_i(R, M)\)</span> is called the <b>Hochschild homology</b> of <span class="math inline">\(R\)</span> with coefficients in <span class="math inline">\(M\)</span>.<br/>
 Similarly, <b>Hochschild cohomology</b> is defined by from the cocomplex
 <span class="math display">\[ 0 \to M \xrightarrow{\partial} \Hom_k(R, M) \xrightarrow{\partial} \cdots \xrightarrow{\partial} \Hom_k(R^{\otimes n}, M) \xrightarrow{\partial} \Hom_k(R^{\otimes n + 1}, M) \xrightarrow{\partial} \cdots \]</span>
 where <span class="math inline">\(\partial^n = \sum_{i = 0}^n (-1)^i \partial^{n, i}\)</span> is given by
-<span class="math display">\[ \begin{aligned}
-        (\partial^{n, 0} f)(r_1 \otimes \cdots \otimes r_n) &= r_1 f(r_2 \otimes \cdots \otimes r_n) , \\
-        (\partial^{n, 1} f)(r_1 \otimes \cdots \otimes r_n) &= f(r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n) , \\
-        (\partial^{n, n} f)(r_1 \otimes \cdots \otimes r_n) &= f(r_1 \otimes \cdots \otimes r_{n - 1}) r_n .
-    \end{aligned} \]</span>
+<span class="math display">\[ (\partial^{n, i} f)(r_1 \otimes \cdots \otimes r_n) = \left\{ \begin{array}{cl}
+        r_1 f(r_2 \otimes \cdots \otimes r_n)  & \textup{ if } i = 0, \\
+         f(r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n) & \textup{ if } 1 < i < n, \\
+        f(r_1 \otimes \cdots \otimes r_{n - 1}) r_n & \textup{ if } i = n . \\ .
+    \end{array} \right. \]</span>
 The corresponding cohomology <span class="math inline">\(HH^n(R, M)\)</span> is the <b>Hochschild cohomology</b> of <span class="math inline">\(R\)</span> with coefficients in <span class="math inline">\(M\)</span>.

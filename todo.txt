@@ -7,13 +7,30 @@
 
 # ---- Theory ----
 
+- Rationally connected / rational variety
+- Baire space (with example and counter-example)
+- Verma module
+- Ricci identity
+- Induced connections on induced bundles
+- Atiyah--Singer theorem
+- Bott periodicity
+- Calkin algebra
+# - Sphere bundle / disk bundle
+- Thom isomorphism (Thom class)
+- Tubular neighborhood (theorem)
+- Relation of (universal enveloping algebras) to representation theory of Lie algebras
+    - Universal property of univeral enveloping algebra
+
+- Fine, separated, integral monoids
+
+- Modular form
 - (infinity, k)-category
 - Nerve example: "concretely this means" (p.9 of HTT of Lurie) + Can recover C from its nerve: [...]
 - Dold-Kan examples
 - Double centralizer theorem
 
 - Toeplitz algebra
-- Fréchet topology (any Banach space, any Schwartz space)
+- Fréchet topology (any Banach space, any Schwartz space) / Frechet space
 - Dirac operator
 - Inequalities for FA (see Lp spaces)
 
@@ -57,6 +74,7 @@ NT: Hilbert class field
 NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
+NT?: Hasse principle
 
 # Homological Algebra
 HA: example of a semi-orthogonal decomposition (derived category of some modules?)
@@ -64,7 +82,6 @@ HA: example of a semi-orthogonal decomposition (derived category of some modules
 # Algebra
 AA?: Dynkin diagrams
 AA: Primitive ideal / Primitive spectrum (C*-algebra)
-AA: Universal enveloping algebra
 
 # Homotopy theory
 HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]

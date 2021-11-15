@@ -467,7 +467,7 @@
         \vdots & \vdots & \ddots & \vdots \\ 
         \frac{\partial f_c}{\partial x_1} & \frac{\partial f_c}{\partial x_2} & \cdots & \frac{\partial f_c}{\partial x_c}
     \end{pmatrix} \]
-    maps to an invertible element in $B$. Note that this definition is dependent on the presentation of $B$!
+    maps to an invertible element in $B$. Note that this definition is dependent on the presentation of $B$.
 \end{topic}
 
 \begin{example}{standard-smooth}
@@ -733,11 +733,11 @@
 
 \begin{topic}{hochschild-cohomology}{Hochschild (co)homology}
     Let $k$ be a \tref{field}{field}, $R$ an $k$-algebra, and $M$ a \tref{bimodule}{bimodule} over $R$. Let $C_n(R, M) := M \otimes R^{\otimes n}$, and define boundary maps $d_{n, i} : C_n(R, M) \to C_{n - 1}(R, M)$ for $0 \le i \le n$ by
-    \[ \begin{aligned}
-        d_{n, 0}(r \otimes m_1 \otimes \cdots \otimes m_n) &= mr_1 \otimes r_2 \otimes \cdots \otimes r_n , \\
-        d_{n, i}(r \otimes m_1 \otimes \cdots \otimes m_n) &= m \otimes r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n , \\
-        d_{n, n}(r \otimes m_1 \otimes \cdots \otimes m_n) &= r_n m \otimes r_2 \otimes \cdots \otimes r_{n - 1} .
-    \end{aligned} \]
+    \[ d_{n, i}(r \otimes m_1 \otimes \cdots \otimes m_n) = \left\{ \begin{array}{cl}
+        mr_1 \otimes r_2 \otimes \cdots \otimes r_n & \textup{ if } i = 0, \\
+         m \otimes r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n & \textup{ if } 1 < i < n , \\
+        r_n m \otimes r_2 \otimes \cdots \otimes r_{n - 1} & \textup{ if } i = n .
+    \end{array} \right. \]
     Then $C_n(R, M)$ with differential $d_n = \sum_{i = 0}^{n} = (-i)^i d_{n, i}$ is a \tref{HA:chain-complex}{chain complex} called the \textbf{Hochschild complex}.
     \[ \cdots \xrightarrow{d} M \otimes R^{\otimes n} \xrightarrow{d} M \otimes R^{\otimes n - 1} \xrightarrow{d} \cdots \xrightarrow{d} M \otimes R \xrightarrow{d} M \to 0 \]
     The corresponding \tref{HA:homology-object}{homology} $HH_i(R, M)$ is called the \textbf{Hochschild homology} of $R$ with coefficients in $M$.
@@ -745,11 +745,11 @@
     Similarly, \textbf{Hochschild cohomology} is defined by from the cocomplex
     \[ 0 \to M \xrightarrow{\partial} \Hom_k(R, M) \xrightarrow{\partial} \cdots \xrightarrow{\partial} \Hom_k(R^{\otimes n}, M) \xrightarrow{\partial} \Hom_k(R^{\otimes n + 1}, M) \xrightarrow{\partial} \cdots \]
     where $\partial^n = \sum_{i = 0}^n (-1)^i \partial^{n, i}$ is given by
-    \[ \begin{aligned}
-        (\partial^{n, 0} f)(r_1 \otimes \cdots \otimes r_n) &= r_1 f(r_2 \otimes \cdots \otimes r_n) , \\
-        (\partial^{n, 1} f)(r_1 \otimes \cdots \otimes r_n) &= f(r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n) , \\
-        (\partial^{n, n} f)(r_1 \otimes \cdots \otimes r_n) &= f(r_1 \otimes \cdots \otimes r_{n - 1}) r_n .
-    \end{aligned} \]
+    \[ (\partial^{n, i} f)(r_1 \otimes \cdots \otimes r_n) = \left\{ \begin{array}{cl}
+        r_1 f(r_2 \otimes \cdots \otimes r_n)  & \textup{ if } i = 0, \\
+         f(r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n) & \textup{ if } 1 < i < n, \\
+        f(r_1 \otimes \cdots \otimes r_{n - 1}) r_n & \textup{ if } i = n . \\ .
+    \end{array} \right. \]
     The corresponding cohomology $HH^n(R, M)$ is the \textbf{Hochschild cohomology} of $R$ with coefficients in $M$.
 \end{topic}
 

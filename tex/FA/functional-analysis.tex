@@ -192,3 +192,29 @@
     where
     \[ \norm{(x_i)_{i \in I}}_p = \left(\sum_{i \in I} |x_i|^p \right)^{1/p} . \]
 \end{topic}
+
+\begin{topic}{fredholm-operator}{Fredholm operator}
+    Let $X$ and $Y$ be \tref{banach-space}{Banach spaces}. A \tref{bounded-operator}{bounded operator} $T : X \to Y$ is \textbf{Fredholm} if $\ker T$ and $\operatorname{coker} T$ are both finite-dimensional subspaces.
+    
+    The \textit{index} of a Fredholm operator $T$ is defined as $\operatorname{Ind}(T) = \dim \ker T - \dim \operatorname{coker} T$.
+\end{topic}
+
+\begin{example}{fredholm-operator}
+    Let $H$ be a Hilbert space with orthonormal basis $(e_n)_{n \in \NN}$. The right shift operator $S$ on $H$ defined by
+    \[ S(e_n) = e_{n + 1}, \quad \textup{ for } n \ge 0 , \]
+    has $\ker S = \{ 0 \}$ and $\operatorname{coker} S \simeq \langle e_0 \rangle$, so $S$ is a Fredholm operator with index $-1$. The powers $S^k$ for $k \ge 0$ are also Fredholm with index $-k$.
+    
+    Similarly, the adjoint $S^*$, the left shift operator,
+    \[ S^*(e_0) = 0 \text{ and } S^*(e_{n + 1}) = e_n, \quad \textup { for } n \ge 0 , \]
+    is Fredholm with index $1$.
+\end{example}
+
+\begin{example}{fredholm-operator}
+    Sometimes Fredholm operators are required to have a closed range, but this additional condition redundant. Namely, since the cokernel of $T$ is finite-dimensional, the image $\im T$ has a closed complement $C$. The map
+    \[ S : (X / \ker T) \oplus C \to Y, \quad (x, c) \mapsto T(x) + c \]
+    is a bounded linear isomorphism, and thus by the \tref{open-mapping-theorem}{open mapping theorem} $S$ is a topological isomorphism. Therefore, $\im T = S((X / \ker T) \oplus \{ 0 \})$ is closed.
+\end{example}
+
+\begin{topic}{open-mapping-theorem}{open mapping theorem}
+    Let $X$ and $Y$ be \tref{banach-space}{Banach spaces} and $T : X \to Y$ a surjective continuous linear operator. The \textbf{open mapping theorem} states that $T$ is an open map. That is, for all open $U \subset X$, the image  $T(U) \subset Y$ is open as well.
+\end{topic}

@@ -113,6 +113,16 @@
     are all isomorphisms.
 \end{topic}
 
+\begin{example}{quasi-isomorphism}
+    Quasi-isomorphisms are generally not invertible. For example, the morphism of complexes
+    \[ \begin{tikzcd} \cdots \arrow{r} & 0 \arrow{d} \arrow{r} & \ZZ \arrow{r}{\cdot 2} \arrow{d} & \ZZ \arrow{r} \arrow{d} & 0 \arrow{r} \arrow{d} & \cdots \\ \cdots \arrow{r} & 0 \arrow{r} & 0 \arrow{r} & \ZZ/2\ZZ \arrow{r} & 0 \arrow{r} & \cdots  \end{tikzcd} \]
+    is a quasi-isomorphism, but not invertible.
+    
+    Also there are complexes with isomorphic homology, but which are not quasi-isomorphic. For example,
+    \[ 0 \to \CC[x, y] \oplus \CC[x, y] \overset{\varphi}{\longrightarrow} \CC[x, y] \to 0 \qquad \text{ and } \qquad 0 \to \CC[x, y] \overset{0}{\longrightarrow} \CC \to 0 \]
+    with $\varphi(f, g) = xf + yg$.
+\end{example}
+
 \begin{topic}{injective-resolution}{injective resolution}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $M$ an object in $\mathcal{A}$. An \textbf{injective resolution} of $M$ is an exact sequence
     \[ 0 \to M \to I^0 \to I^1 \to \cdots \]

@@ -42,6 +42,12 @@
     A \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is an \textbf{immersion} if the derivative $df_p : T_p M \to T_{f(p)} N$ is injective for all $p \in M$.
 \end{topic}
 
+\begin{example}{immersion}
+    Every \tref{embedding}{embedding} is an immersion, but not conversely. For example, the map
+    \[ S^1 \to S^1, \quad \theta \mapsto 2 \theta  \]
+    is an immersion, but not embedding: it is not injective.
+\end{example}
+
 \begin{topic}{embedding}{embedding}
     A \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is an \textbf{embedding} if it is an \tref{immersion}{immersion} and a \tref{TO:homeomorphism}{homeomorphism} onto its image.
 \end{topic}
@@ -695,3 +701,8 @@
 \begin{example}{nijenhuis-tensor}
     The \textit{Newlander–Nirenberg theorem} states that an \tref{complex-manifold}{almost complex structure} $J$ is integrable if and only if $N_J = 0$.
 \end{example}
+
+\begin{topic}{normal-bundle}{normal bundle}
+    Let $i : N \to M$ be an \tref{immersion}{immersion} of \tref{smooth-manifold}{smooth manifolds}. The \textbf{normal bundle} to $N$ in $M$ is the quotient bundle
+    \[ T_{N/M} = i^* TM / TN . \]
+\end{topic}
