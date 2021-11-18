@@ -25,13 +25,15 @@ window.MathJax = {
             textup: ["\\text{#1}", 1],
             im: "\\operatorname{im}",
             coker: "\\operatorname{coker}",
+            tr: "\\operatorname{tr}",
             bdot: "\\bullet",
             Spec: "\\operatorname{Spec}",
             Proj: "\\operatorname{Proj}",
             norm: ["{\\left\\|#1\\right\\|}", 1],
             llbracket: "⟦",
             rrbracket: "⟧",
-            sslash: "\\mathbin{/\\mkern-6mu/}"
+            sslash: "\\mathbin{/\\mkern-6mu/}",
+            mod: "\\text{ mod }"
         }
       }
 };

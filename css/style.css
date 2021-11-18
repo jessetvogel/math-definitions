@@ -311,7 +311,7 @@ img.display-math-svg {
     font-weight: bold;
     font-size: 18px;
     text-decoration: underline;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     color: var(--clr-text-main);
     content: 'Example';
 }

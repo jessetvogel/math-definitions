@@ -7,4 +7,19 @@ Now by the above example, for any connection <span class="math inline">\(\nabla\
 <span class="math display">\[ \nabla^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} = \begin{pmatrix} df_1 \\ \vdots \\ df_k \end{pmatrix} + A^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} . \]</span>
 The matrix <span class="math inline">\(A^\Phi\)</span> is called the <i>connection matrix</i> of <span class="math inline">\(\nabla\)</span> in the trivialization <span class="math inline">\(\Phi\)</span>. Often one writes <span class="math display">\[ \nabla = d + A^\Phi , \]</span>
 with the understanding that this only makes sense in a trivialization of <span class="math inline">\(E\)</span>.
+</div><div class="example">Given a connection <span class="math inline">\(\nabla_E\)</span> on a vector bundle <span class="math inline">\(E\)</span>, there are naturally induced connections:
+<ul><li> (<i>Whitney sum</i>) <span class="math inline">\(\nabla_{E \oplus F}\)</span> on <span class="math inline">\(E \oplus F\)</span> given by
+<span class="math display">\[ \nabla_{E \oplus F}(s_E + s_F) = \nabla_E(s_E) + \nabla_F(s_F), \quad \textup{ for } s_E \in \Gamma(E), s_F \in \Gamma(F) . \]</span>
+</li><li> (<i>tensor product</i>) <span class="math inline">\(\nabla_{E \otimes F}\)</span> on <span class="math inline">\(E \otimes F\)</span> given by
+<span class="math display">\[ \nabla_{E \otimes F}(s_E \otimes s_F) = \nabla_E(s_E) \otimes s_F + s_E \otimes \nabla_F(s_F), \quad \textup{ for } s_E \in \Gamma(E), s_F \in \Gamma(F) . \]</span>
+</li><li> (<i>dual bundle</i>) <span class="math inline">\(\nabla_{E^*}\)</span> on the dual bundle <span class="math inline">\(E^*\)</span>, given by
+<span class="math display">\[ d \langle \sigma, s \rangle = \langle \nabla_{E^*} (\sigma), s \rangle + \langle \sigma, \nabla_E(s) \rangle, \quad \textup{ for } \sigma \in \Gamma(E^*), s \in \Gamma(E) . \]</span>
+</li><li> (<i>hom bundle</i>) <span class="math inline">\(\nabla_{\Hom(E, F)}\)</span> on the bundle <span class="math inline">\(\Hom(E, F)\)</span>, given by
+<span class="math display">\[ \nabla_F(\varphi(s)) = \nabla_{\Hom(E, F)}(\varphi)(s) + \varphi(\nabla_E(s)), \quad \textup{ for } \varphi : E \to F, s \in \Gamma(E) . \]</span>
+</li></ul>
+Furthermore, a connection <span class="math inline">\(\nabla\)</span> on <span class="math inline">\(E\)</span> extends uniquely to linear operators
+<span class="math display">\[ \nabla : \Omega^k(M; E) \to \Omega^{k + 1}(M; E), \quad \textup{ for all } k \ge 0,  \]</span>
+by requiring
+<span class="math display">\[ \nabla (\eta \otimes s) = d \eta \otimes s + (-1)^k \eta \otimes \nabla s \]</span>
+for all <span class="math inline">\(\eta \in \Omega^k(M)\)</span> and <span class="math inline">\(s \in \Gamma(E)\)</span>.
 </div>

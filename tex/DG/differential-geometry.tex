@@ -134,6 +134,11 @@
     for any vector fields $Y_1, \ldots, Y_{k - 1}$.
 \end{topic}
 
+\begin{example}{interior-product}
+    For $\alpha \in \Omega^k(M)$ and $\beta \in \Omega^\ell(M)$, the interior product satisfies
+    \[ \iota_X (\alpha \wedge \beta) = (\iota_X \alpha) \wedge \beta + (-1)^k \alpha \wedge (\iota_X \beta) . \]
+\end{example}
+
 \begin{topic}{lie-derivative}{Lie derivative}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Lie derivative} of a \tref{tensor-field}{tensor field} $T$ with respect to a \tref{vector-field}{vector field} $X$ is the tensor field $\mathcal{L}_X T$ (of the same type as $T$), given by
     \[ (\mathcal{L}_X T)_p = \frac{d}{dt}\Big|_{t = 0} \left( \left(\varphi^t_X\right)^* T \right)_p \]
@@ -245,6 +250,25 @@
     \[ \nabla^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} = \begin{pmatrix} df_1 \\ \vdots \\ df_k \end{pmatrix} + A^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} . \]
     The matrix $A^\Phi$ is called the \textit{connection matrix} of $\nabla$ in the trivialization $\Phi$. Often one writes \[ \nabla = d + A^\Phi , \]
     with the understanding that this only makes sense in a trivialization of $E$.
+\end{example}
+
+\begin{example}{connection}
+    Given a connection $\nabla_E$ on a vector bundle $E$, there are naturally induced connections:
+    \begin{itemize}
+        \item (\textit{Whitney sum}) $\nabla_{E \oplus F}$ on $E \oplus F$ given by
+        \[ \nabla_{E \oplus F}(s_E + s_F) = \nabla_E(s_E) + \nabla_F(s_F), \quad \textup{ for } s_E \in \Gamma(E), s_F \in \Gamma(F) . \]
+        \item (\textit{tensor product}) $\nabla_{E \otimes F}$ on $E \otimes F$ given by
+        \[ \nabla_{E \otimes F}(s_E \otimes s_F) = \nabla_E(s_E) \otimes s_F + s_E \otimes \nabla_F(s_F), \quad \textup{ for } s_E \in \Gamma(E), s_F \in \Gamma(F) . \]
+        \item (\textit{dual bundle}) $\nabla_{E^*}$ on the dual bundle $E^*$, given by
+        \[ d \langle \sigma, s \rangle = \langle \nabla_{E^*} (\sigma), s \rangle + \langle \sigma, \nabla_E(s) \rangle, \quad \textup{ for } \sigma \in \Gamma(E^*), s \in \Gamma(E) . \]
+        \item (\textit{hom bundle}) $\nabla_{\Hom(E, F)}$ on the bundle $\Hom(E, F)$, given by
+        \[ \nabla_F(\varphi(s)) = \nabla_{\Hom(E, F)}(\varphi)(s) + \varphi(\nabla_E(s)), \quad \textup{ for } \varphi : E \to F, s \in \Gamma(E) . \]
+    \end{itemize}
+    Furthermore, a connection $\nabla$ on $E$ extends uniquely to linear operators
+    \[ \nabla : \Omega^k(M; E) \to \Omega^{k + 1}(M; E), \quad \textup{ for all } k \ge 0,  \]
+    by requiring
+    \[ \nabla (\eta \otimes s) = d \eta \otimes s + (-1)^k \eta \otimes \nabla s \]
+    for all $\eta \in \Omega^k(M)$ and $s \in \Gamma(E)$.
 \end{example}
 
 \begin{topic}{curvature-connection}{curvature of a connection}
@@ -705,4 +729,22 @@
 \begin{topic}{normal-bundle}{normal bundle}
     Let $i : N \to M$ be an \tref{immersion}{immersion} of \tref{smooth-manifold}{smooth manifolds}. The \textbf{normal bundle} to $N$ in $M$ is the quotient bundle
     \[ T_{N/M} = i^* TM / TN . \]
+\end{topic}
+
+\begin{topic}{tubular-neighborhood}{tubular neighborhood (theorem)}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $N \subset M$ a smooth submanifold, and let $T_{N/M}$ be the \tref{normal-bundle}{normal bundle} to $N$ in $M$. The \textbf{tubular neighborhood theorem} states that there exists an open neighborhood $U \subset M$ of $N$, an open neighborhood $V \subset T_{N/M}$ of the zero section, and a \tref{diffeomorphism}{diffeomorphism} $\phi : U \to V$ extending this zero section.
+    
+    Such a neighborhood $U$ is called a \textbf{tubular neighborhood} of $N$ in $M$.
+\end{topic}
+
+\begin{topic}{riemannian-curvature-tensor}{Riemannian curvature tensor}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Riemann curvature tensor} is the \tref{tensor-field}{$(1, 3)$-tensor field} given by
+    \[ R(X, Y, Z) = \nabla_Y \nabla_X Z - \nabla_X \nabla_Y Z - \nabla_{[Y, X]} Z , \]
+    where $\nabla$ is the \tref{levi-civita-connection}{Levi-Civita connection} and $[\cdot, \cdot]$ the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}.
+\end{topic}
+
+\begin{topic}{ricci-curvature}{Ricci curvature}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Ricci curvature} is the \tref{tensor-field}{$(0, 2)$-tensor field} given by
+    \[ \textup{Ric}(X, Z) = \operatorname{tr} \left( Y \mapsto R(X, Y, Z) \right), \]
+    where $R$ is the \tref{riemannian-curvature-tensor}{Riemannian curvature tensor}.
 \end{topic}

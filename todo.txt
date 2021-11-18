@@ -6,20 +6,18 @@
 -- Go through document and fix missing tref's
 
 # ---- Theory ----
+HT: homotopy category of model category (with examples of course)
 
-- Rationally connected / rational variety
-- Baire space (with example and counter-example)
+- Fix compactness
+
+- Rationally connected
 - Verma module
-- Ricci identity
-- Induced connections on induced bundles
 - Atiyah--Singer theorem
 - Bott periodicity
 - Calkin algebra
 # - Sphere bundle / disk bundle
 - Thom isomorphism (Thom class)
-- Tubular neighborhood (theorem)
 - Relation of (universal enveloping algebras) to representation theory of Lie algebras
-    - Universal property of univeral enveloping algebra
 
 - Fine, separated, integral monoids
 
@@ -39,7 +37,12 @@
 - Sylow theorems proof (see Jaap Top lecture notes)
 - Borel construction (EG x X / G) : Example BG = classifying space
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
-- Proofs of theorems
+- Proofs of theorems (Yoneda lemma)
+- Lots of examples!
+
+- Grothendieck--Verdier duality
+
+LA: Vandermonde matrix
 
 # Other
 LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
@@ -116,3 +119,4 @@ RT: weights, dominant, integral elements
 - Quantum groups
 - Mirror symmetry ??? What is this all about ??
 - S-equivalence
+- Path-ordered exponential

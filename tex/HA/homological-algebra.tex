@@ -339,3 +339,10 @@
 \begin{topic}{frobenius-category}{Frobenius category}
     A \textbf{Frobenius category} is an \tref{exact-category}{exact category} with enough \tref{injective-object}{injectives} and enough \tref{projective-object}{projectives}, such that the classes of injectives and projectives coincides.
 \end{topic}
+
+\begin{topic}{mapping-cone}{mapping cone}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $f : A^\bdot \to B^\bdot$ a morphism between \tref{chain-complex}{cochain complexes} in $\mathcal{A}$. The \textbf{mapping cone} of $f$ is the complex $C(f)$ in $\mathcal{A}$ given by
+    \[ C(f)^i = A^{i + 1} \oplus B^i , \]
+    with differential
+    \[ d_{C(f)}^i = \begin{pmatrix} -d_A^{i + 1} & 0 \\ f^{i + 1} & d_B^i \end{pmatrix} . \]    
+\end{topic}

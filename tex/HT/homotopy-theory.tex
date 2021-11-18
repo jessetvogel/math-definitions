@@ -23,7 +23,6 @@
         such that either (i) $i$ is a cofibration and $p$ an acyclic fibration, or (ii) $i$ an acyclic cofibration and $p$ a fibration, there exists a lift $h : B \to X$ making the diagram commute.
         \item Any map $f$ can be factored in two ways: (i) $f = pi$ with $i$ a cofibration and $p$ an acyclic fibration, and (ii) $f = pi$ with $i$ an acyclic cofibration and $p$ a fibration.
     \end{itemize}
-    
     By the first axiom, $\mathcal{C}$ has an \tref{CT:initial-object}{initial} object $\varnothing$ and a \tref{CT:terminal-object}{terminal} object $\star$. An object $A$ of $\mathcal{C}$ is called \textbf{cofibrant} if $\varnothing \to A$ is a cofibration, and \textbf{fibrant} if $A \to \star$ is a fibration.
 \end{topic}
 
@@ -32,9 +31,9 @@
     \begin{itemize}
         \item \textit{weak equivalence} if $f$ is a \tref{AT:weak-homotopy-equivalence}{weak homotopy equivalence},
         \item \textit{cofibrations} if $f$ is a retract of a map $X \to Y'$ in which $Y'$ is obtained from $X$ by attaching cells,
-        \item \textit{fibration} if $f$ is a Serre fibration.
+        \item \textit{fibration} if $f$ is a \tref{AT:serre-fibration}{Serre fibration}.
     \end{itemize}
-    In this model category, all objects are fibrant and CW-complexes are cofibrant.
+    In this model category, all objects are fibrant and \tref{AT:cw-complex}{CW-complexes} are cofibrant.
 \end{example}
 
 \begin{example}{model-category}
@@ -44,7 +43,7 @@
         \item \textit{fibrations} = \tref{kan-fibration}{Kan fibrations},
         \item \textit{cofibrations} = monomorphisms (degreewise injective maps).
     \end{itemize}
-    All objects are cofibrant, and the fibrant objects are the Kan complexes.
+    All objects are cofibrant, and the fibrant objects are the \tref{HT:kan-complex}{Kan complexes}.
 \end{example}
 
 \begin{example}{model-category}
@@ -54,15 +53,39 @@
         \item \textit{fibrations} = degreewise surjective maps,
         \item \textit{cofibrations} = degreewise injective maps with projective cokernel.
     \end{itemize}
+    All objects are fibrant, and the cofibrant objects are the complexes which has in each degree a projective $R$-module.
+\end{example}
+
+\begin{example}{model-category}
+    In any model category, the fibrations are precisely the maps satisfying the right lifting property (RLP) w.r.t. acyclic cofibrations. Namely, suppose that $f : X \to Y$ satisfies this RLP, and factor $f$ as $X \xrightarrow{i} Z \xrightarrow{p} Y$ with $i$ an acyclic cofibration and $p$ a fibration. Then the RLP yields a lift $h : Z \to X$ such that
+    \[ \begin{tikzcd} X \arrow{r}{\id} \arrow[swap]{d}{i} & X \arrow{d}{f} \\ Z \arrow[dashed]{ur}{h} \arrow[swap]{r}{p} & Y \end{tikzcd} \]
+    commutes. Now it follows that $f$ is a retract of $p$, because of the diagram
+    \[ \begin{tikzcd} X \arrow{r}{i} \arrow{d}{f} & Z \arrow{d}{p} \arrow{r}{h} & X \arrow{d}{f} \\ Y \arrow{r}{\id} & Y \arrow{r}{\id} & Y \end{tikzcd} \]
+    Similarly, the cofibrations are precisely the maps satisfying the left lifting property (LLP) w.r.t. acyclic fibrations.
+\end{example}
+
+\begin{topic}{proper-model-category}{proper model category}
+    A \tref{model-category}{model category} $\mathcal{M}$ is called \textbf{right proper} if weak equivalences are preserved by pullback along fibrations. That is, for every weak equivalence $f : X \to Y$ and fibration $g : Z \to Y$, the pullback $g^* f : X \times_Y Z \to Z$ is a weak equivalence.
+    
+    Similarly, $\mathcal{M}$ is \textbf{left proper} if weak equivalences are preserved by pushout along cofibrations.
+    Finally, $\mathcal{M}$ is \textbf{proper} if it is both left and right proper.
+\end{topic}
+
+\begin{example}{proper-model-category}
+    \begin{itemize}
+        \item All model categories in which all objects are fibrant are right proper. For example, the categories $\textbf{Top}$ of topological spaces and $\textbf{Ch}_R = \textbf{Ch}_{\ge 0}(\textbf{Mod}_R)$ of chain complexes of $R$-modules, both with their classical model structure, are right proper.
+        \item All model categories in which all objects are cofibrant are left proper. For example, the category $\textbf{Set}_\Delta$ of simplicial sets with the classical model structure is left proper. 
+        \item The category $\textbf{Set}_\Delta$ is also right proper, even though not all objects are fibrant. Similarly, $\textbf{Top}$ and $\textbf{Ch}_R$ are also left proper, even though not all their objects are cofibrant.
+    \end{itemize}
 \end{example}
 
 \begin{topic}{quillen-adjunction}{Quillen adjunction}
-    Let $M, N$ be \tref{model-category}{model categories}. A \textbf{Quillen adjunction} is an \tref{CT:adjoint-functors}{adjunction}
-    \[ F : M \to N, \qquad G : N \to M, \qquad F \dashv G , \]
+    Let $\mathcal{C}, \mathcal{D}$ be \tref{model-category}{model categories}. A \textbf{Quillen adjunction} is an \tref{CT:adjoint-functors}{adjunction}
+    \[ F : \mathcal{C} \to \mathcal{D}, \qquad G : \mathcal{D} \to \mathcal{C}, \qquad F \dashv G , \]
     such that $F$ preserves cofibrations and $G$ preserves fibrations.
     
     In particular, a Quillen adjunction descends to an adjunction on the homotopy categories
-    \[ \mathbb{L} F : \textup{Ho}(M) \to \textup{Ho}(N), \qquad \mathbb{R} G : \textup{Ho}(N) \to \textup{Ho}(M), \qquad \mathbb{L} F \dashv \mathbb{R} G . \]
+    \[ \textbf{L} F : \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{D}), \qquad \textbf{R} G : \textup{Ho}(\mathcal{D}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{L} F \dashv \textbf{R} G . \]
 \end{topic}
 
 \begin{topic}{quillen-equivalence}{Quillen equivalence}
@@ -107,3 +130,43 @@
     \[ |\cdot| : \textbf{Set}_\Delta \to \textbf{Top} , \]
     which is \tref{CT:adjoint-functors}{left adjoint} to the \tref{AT:singular-homology}{singular functor} $\textbf{Sing} : \textbf{Top} \to \textbf{Set}_\Delta$.
 \end{topic}
+
+\begin{topic}{homotopy-limit}{homotopy (co)limit}
+    Let $\mathcal{C}$ be a \tref{model-category}{model category} and $\mathcal{I}$ a \textit{very small category}. Put a model structure on $\mathcal{C}^\mathcal{I}$ by saying $\mu : X \Rightarrow Y$ is a 
+    \begin{itemize}
+        \item weak equivalence if $\mu_C : X(C) \to Y(C)$ is a weak equivalence for all $C$ in $\mathcal{C}$,
+        \item cofibration if $\mu_C : X(C) \to Y(C)$ is a cofibration for all $C$ in $\mathcal{C}$,
+        \item fibration if (?).
+    \end{itemize}
+    Then the functors $\lim : \mathcal{C}^\mathcal{I} \to \mathcal{C}$ and $\Delta : \mathcal{C} \to \mathcal{C}^\mathcal{I}$ form a \tref{quillen-adjunction}{Quillen adjunction}, yielding an \tref{CT:adjoint-functors}{adjunction} on the \tref{homotopy-category}{homotopy categories}
+    \[ \textbf{L} \Delta : \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{C}^\mathcal{I}), \qquad \textbf{R}\lim : \textup{Ho}(\mathcal{C}^\mathcal{I}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{L} \Delta \dashv \textbf{R} \lim . \]
+     Now, for any functor $F : \mathcal{I} \to \mathcal{C}$, the \textbf{homotopy limit} of $F$ is $\textbf{R}\lim(F)$. In particular, $\textup{R}\lim(F)$ is isomorphic to $\lim(F)$ if $F$ is a fibrant object of $\mathcal{C}^\mathcal{I}$.
+     
+     Similarly, put another another model structure on $\mathcal{C}^\mathcal{I}$ by saying $\mu : X \Rightarrow Y$ is a
+     \begin{itemize}
+        \item weak equivalence if $\mu_C : X(C) \to Y(C)$ is a weak equivalence for all $C$ in $\mathcal{C}$,
+        \item fibration if $\mu_C : X(C) \to Y(C)$ is a fibration for all $C$ in $\mathcal{C}$,
+        \item cofibration if (?).
+    \end{itemize}
+    Again, the functors $\operatorname{colim} : \mathcal{C}^\mathcal{I} \to \mathcal{C}$ and $\Delta : \mathcal{C} \to \mathcal{C}^\mathcal{I}$ form a Quillen adjunction, yielding an adjunction on the homotopy categories
+    \[ \textbf{L}\operatorname{colim} : \textup{Ho}(\mathcal{C}^\mathcal{I}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{R} \Delta : \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{C}^\mathcal{I}), \qquad \textbf{L} \operatorname{colim} \dashv \textbf{R} \Delta . \]
+    Now, for any functor $F : \mathcal{I} \to \mathcal{C}$, the \textbf{homotopy colimit} of $F$ is $\textbf{L}\operatorname{colim}(F)$. In particular, $\textup{L}\operatorname{colim}(F)$ is isomorphic to $\operatorname{colim}(F)$ if $F$ is a cofibrant object of $\mathcal{C}^\mathcal{I}$.
+\end{topic}
+
+\begin{example}{homotopy-limit}
+    Note that the usual (co)limits in $\mathcal{C}$ may not behave well with respect to the model structure. For example, take $\mathcal{C} = \textbf{Top}$ with the usual model structure, and consider the diagram
+    \[ \begin{tikzcd} D^n \arrow{d} & S^{n - 1} \arrow[swap]{l}{i} \arrow{r}{i} \arrow[equals]{d} & D^n \arrow{d} \\ * & S^{n - 1} \arrow{l} \arrow{r} & * \end{tikzcd} \]
+    with $i : S^{n - 1} \to D^n$ the inclusion of the boundary, and where all vertical maps are homotopy equivalences. The usual pushout of the top row is homeomorphic to $S^n$, while the usual pushout of the bottom row is a point, and the induced map $S^n \to *$ is not a homotopy equivalence. The `correct' pushout (the homotopy pushout) is given by the top row, since $i$ is a cofibration while $S^{n - 1} \to *$ is not.
+\end{example}
+
+\begin{example}{homotopy-limit}
+    The \tref{AT:loop-space}{loop space} $\Omega_x X$ of a \tref{TO:topological-space}{topological space} $X$ with basepoint $x \in X$ can be seen as a homotopy pullback:
+    \[ \begin{tikzcd} \Omega_x X \arrow{d} \arrow{r} & * \arrow{d}{x} \\ * \arrow[swap]{r}{x} & X \end{tikzcd} \]
+    Namely, a fibrant replacement for $* \xrightarrow{x} X \xleftarrow{x} *$ is given by $P_x X \rightarrow X \leftarrow P_x X$, where $P_x X$ denotes the \tref{AT:path-space}{path space} of $X$ with respect to $x$. These diagrams are homotopy equivalent since $x \to P_x X$, the map to the constant path, is a homotopy equivalence.
+\end{example}
+
+\begin{example}{homotopy-limit}
+    Let $k$ be a field, let $\textbf{Ch}(k)$ the category of chain complexes over $k$, and suppose we want to compute the homotopy fiber product $k \times_{k \oplus k[n]} k$. First note that $k \to k \oplus k[n]$ factors as $k \xrightarrow{i} k \oplus C(\id_{k[n]}) \xrightarrow{p} k \oplus k[n]$, where $C(\id_{k[n]}) = k[n] \oplus k[n - 1]$ is the \tref{HA:mapping-cone}{mapping cone} of $\id_{k[n]}$, and $i$ is an acyclic cofibration, and $p$ a fibration. Hence, after a fibrant replacement, we can compute the fiber product as usual:
+    \[ \begin{tikzcd} k \oplus k[n] \oplus k[n - 1]^2 \arrow{d} \arrow{r} & k \oplus k[n] \oplus k[n - 1] \arrow{d} \\ k \oplus k[n] \oplus k[n - 1] \arrow{r} & k \oplus k[n] \end{tikzcd} \]
+    Finally, since $[ \cdots \to k \xrightarrow{\Delta} k^2 \to \cdots ]$ is quasi-isomorphic to $[ \cdots \to 0 \to k \to \cdots ]$, we can also write the homotopy fiber product as $k \oplus k[n - 1]$.
+\end{example}

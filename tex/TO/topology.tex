@@ -110,7 +110,6 @@
 \begin{topic}{quotient-topology}{quotient topology}
     Let $X$ be a \tref{topological-space}{topological space} with an equivalence relation $\sim{}$, denote the set of equivalence classes by $X / \sim{}$, and let $\pi : X \to X / \sim{}$ be the natural map. The \textbf{quotient topology} on $X / \sim{}$ is given by
     \[ \tilde{\mathcal{T}} = \{ U \subset X / \sim{} : \pi^{-1}(U) \text{ open in } X \} . \]
-    
     This is the \tref{coarser}{finest} topology that makes $\pi$ continuous.
 \end{topic}
 
@@ -385,4 +384,38 @@
 
 \begin{topic}{separable-space}{separable space}
     A \tref{topological-space}{topological space} $X$ is \textbf{separable} if it contains a countable $\tref{dense}{dense}$ subset.
+\end{topic}
+
+\begin{topic}{baire-space}{Baire space}
+    A \tref{topological-space}{topological space} $X$ is a \textbf{Baire space}, if for any countable collection $(X_n)_{n \in \NN}$ of subsets of $X$ with empty \tref{interior}{interior}, the union $\bigcup_{n \in \NN} X_n$ also has empty interior.
+    
+    Equivalently, $X$ is a Baire space if the intersection of a countable number of \tref{dense}{dense} subsets of $X$ is again dense.
+\end{topic}
+
+\begin{example}{baire-space}
+    \begin{itemize}
+        \item Every \tref{locally-compact-space}{locally compact} \tref{hausdorff-space}{Hausdorff space} is a Baire space.
+        \item Every \tref{complete-metric-space}{complete metric space} is a Baire space.
+        \item Every \tref{DG:smooth-manifold}{smooth manifold} is a Baire space.
+        \item Let $X = \QQ \subset \RR$ with the subspace topology, and consider the family of singleton sets $(\{ q \})_{q \in }$. Indeed each $\{ q \}$ has empty interior, but interior of the union $\bigcup_{q \in \QQ} \{ q \} = \QQ$ is $\QQ$ itself.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{mapping-cone}{mapping cone}
+    Let $f : X \to Y$ be a \tref{continuous-map}{continuous map} of \tref{topological-space}{topological spaces}. The \textbf{mapping cone} of $f$ is defined as the \tref{quotient-topology}{quotient space}
+    \[ C_f = ( (X \times [0, 1]) \sqcup Y ) / \sim{} , \]
+    where $(x, 0) \sim (x', 0)$ and $(x, 1) \sim f(x)$ for all $x, x' \in X$.
+\end{topic}
+
+\begin{example}{mapping-cone}
+    \begin{itemize}
+        \item The mapping cone of the identity of the $n$-sphere, $C_{\id_S^{n}}$, is homeomorphic to $D^{n + 1}$.
+        \item If $f : S^n \to D^{n + 1}$ is the standard inclusion of the boundary, then $C_f$ is homeomorphic to $S^{n + 1}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{mapping-cylinder}{mapping cylinder}
+    Let $f : X \to Y$ be a \tref{continuous-map}{continuous map} of \tref{topological-space}{topological spaces}. The \textbf{mapping cylinder} of $f$ is defined as the \tref{quotient-topology}{quotient space}
+    \[ M_f = ( (X \times [0, 1]) \sqcup Y ) / \sim{} , \]
+    where $(x, 1) \sim f(x)$ for all $x \in X$.
 \end{topic}
