@@ -11,12 +11,13 @@ HT: homotopy category of model category (with examples of course)
 - Fix compactness
 
 - Rationally connected
-- Verma module
+
 - Atiyah--Singer theorem
 - Bott periodicity
 - Thom isomorphism (Thom class)
 
 - AA: root system (Lie algebra) { lambda : g^lambda != 0}, et al
+- AA: Verma module (Lie algebra)
 
 - Modular form
 - (infinity, k)-category
@@ -88,6 +89,7 @@ HT: Spectra!
 AA: move some commutative algebra which isn't commutative to AA ??
 
 # Differential Geometry
+DG: Dorfman bracket
 DG/TO: structure group
 DG: abelian connection (Fedosov)
 DG: complex manifold

@@ -934,6 +934,45 @@
     \end{itemize}
 \end{example}
 
+\begin{topic}{triangularizable-algebraic-group}{triangularizable algebraic group}
+    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{triangularizable} if every non-zero representation of $G$ has a one-dimensional subrepresentation.
+\end{topic}
+
+\begin{example}{triangularizable-algebraic-group}
+    The algebraic group $\mathbb{T}_n$ of upper triangular $n \times n$ matrices,
+    \[ \mathbb{T}_n = \left\{ \begin{pmatrix} * & * & \cdots & * \\ 0 & * & \cdots & * \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & * \end{pmatrix} \right\} , \]
+    is triangularizable, as well as any subgroup of $\mathbb{T}_n$.
+\end{example}
+
+\begin{example}{triangularizable-algebraic-group}
+    Triangularizable groups can be characterized in a number of ways. The following are all equivalent.
+    \begin{enumerate}[(i)]
+        \item $G$ is triangularizable.
+        \item For every representation $(V, \rho)$ of $G$, there exists a basis of $V$ for which $\rho(G) \subset \mathbb{T}_n$, with $n = \dim V$.
+        \item $G$ is isomorphic to an algebraic subgroup of $\mathbb{T}_n$ for some $n$.
+        \item There exists a \tref{GT:normal-subgroup}{normal} \tref{unipotent-algebraic-group}{unipotent} algebraic subgroup $U$ of $G$ such that $G/U$ is diagonalizable.
+    \end{enumerate}
+    \textbf{Proof}. $(i \Rightarrow ii)$ Proof by induction on $n = \dim V$, where the case $n = 0$ is trivial. For $n > 0$, pick $e_1 \in V$ such that $\langle e_1 \rangle$ is a subrepresentation of $V$. The induction hypothesis on $V / \langle e_1 \rangle$ gives a basis $\overline{e}_2, \ldots, \overline{e}_n$ for $V / \langle e_1 \rangle$ such that $G$ acts via $\mathbb{T}_{n - 1}$. Lifting each $\overline{e}_i$ to some $e_i \in V$ gives a basis $e_1, \ldots, e_n$ of $V$ such that $G$ acts via $\mathbb{T}_n$.
+    
+    $(ii \Rightarrow iii)$ Apply $(ii)$ to a faithful finite-dimensional representation of $G$.
+    
+    $(iii \Rightarrow iv)$ Embed $G \subset \mathbb{T}_n$ and let $U = G \cap \mathbb{U}_n$. Then $U \subset G$ is normal and unipotent since $\mathbb{U}_n \subset \mathbb{T}_n$ is. Now $G/U$ injects into $\mathbb{T}_n/\mathbb{U}_n \simeq \mathbb{G}_m^n$, and a subgroup of a diagonalizable group is diagonalizable.
+    
+    $(iv \Rightarrow i)$ Take some $U \subset G$ as in $(iv)$ and a representation $(V, r)$ of $G$. Since $U$ is unipotent, we have $V^U \ne 0$, and since $U$ is normal in $G$, we have that $V^U$ is stable under $G$. Namely, for any $v \in V^U$ with $n \in U(k)$ and $g \in G(k)$ we find that
+    \[ r(n) r(g) v = r(ng) v = r(gn') v = r(g) r(n') v = r(g) v , \]
+    with $n' = g^{-1} n g \in U(k)$, so $r(g) v \in V^U$ as well. Hence $G/U$, which is diagonalizable, acts on $V^U$, so $V^U \ne 0$ is the sum of $1$-dimensional subrepresentations. In particular, there exists a one-dimensional subrepresentation of $V$.
+\end{example}
+
+\begin{topic}{unipotent-algebraic-group}{unipotent algebraic group}
+    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{unipotent} if every non-zero representation of $G$ has a non-zero fixed vector.
+\end{topic}
+
+\begin{example}{unipotent-algebraic-group}
+    The algebraic group $\mathbb{U}_n$ of upper triangular $n \times n$ matrices with ones on the diagonal,
+    \[ \mathbb{U}_n = \left\{ \begin{pmatrix} 1 & * & * & \cdots & * \\ 0 & 1 & * & \cdots & * \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix} \right\} , \]
+    is unipotent, as well as any subgroup of $\mathbb{U}_n$.
+\end{example}
+
 % \begin{topic}{rationally-connected-variety}{rationally connected variety}
 %     A \textbf{rationally connected variety} is a \tref{variety}{variety}
 % \end{topic}

@@ -596,7 +596,7 @@
 \end{topic}
 
 \begin{topic}{courant-bracket}{Courant bracket}
-    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Courant bracket} on $M$ is the skew-symmetric bracket on $TM \oplus T^*M$ given by
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Courant bracket} on $M$ is the skew-symmetric bracket on the \tref{generalized-tangent-bundle}{generalized tangent bundle} $TM \oplus T^*M$ given by
     \[ [X + \xi, Y + \eta] = [X, Y] + \mathcal{L}_X \eta - \mathcal{L}_Y \xi - \frac{1}{2} d \left(\iota_X \eta - \iota_Y \xi \right) , \]
     where $[X, Y]$ is the usual \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}.
 \end{topic}
@@ -620,7 +620,7 @@
 \end{example}
 
 \begin{topic}{dirac-structure}{Dirac structure}
-    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost Diract structure} on $M$ is a subbundle $L \subset TM \oplus T^*M$ which is maximal isotropic with respect to symmetric bilinear form $\langle X + \xi, Y + \eta \rangle = \xi(Y) + \eta(X)$. If moreover $L$ is closed under the \tref{courant-bracket}{Courant bracket}, it is called \textit{integrable}, or simply a \textbf{Dirac structure}.
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost Dirac structure} on $M$ is a subbundle $L \subset TM \oplus T^*M$ of the \tref{generalized-tangent-bundle}{generalized tangent bundle} of $M$, such that $L$ maximal isotropic with respect to symmetric bilinear form $\langle X + \xi, Y + \eta \rangle = \xi(Y) + \eta(X)$. If moreover $L$ is closed under the \tref{courant-bracket}{Courant bracket}, it is called \textit{integrable}, or simply a \textbf{Dirac structure}.
 \end{topic}
 
 % \begin{example}{dirac-structure}
@@ -748,3 +748,34 @@
     \[ \textup{Ric}(X, Z) = \operatorname{tr} \left( Y \mapsto R(X, Y, Z) \right), \]
     where $R$ is the \tref{riemannian-curvature-tensor}{Riemannian curvature tensor}.
 \end{topic}
+
+\begin{topic}{generalized-tangent-bundle}{generalized tangent bundle}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{generalized tangent bundle} of $M$ is the direct sum $TM \oplus T^*M$ of the \tref{tangent-bundle}{tangent bundle} $TM$ and the \tref{cotangent-bundle}{cotangent bundle} $T^*M$.
+    
+    There is a natural symmetric bilinear form on the generalized tangent bundle, given by
+    \[ \langle X + \xi, Y + \eta \rangle = \xi(Y) + \eta(X) , \]
+    for $X + \xi, Y + \eta \in \Gamma(TM \oplus T^*M)$.
+\end{topic}
+
+\begin{topic}{dorfman-bracket}{Dorfman bracket}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Dorfman bracket} is the bracket $[\cdot, \cdot]$ on the \tref{generalized-tangent-bundle}{generalized tangent bundle} given by
+    \[ [X + \xi, Y + \eta] = [X, Y] + \mathcal{L}_X \eta - \mathcal{L}_Y \xi + d \iota_Y \xi , \]
+    for $X + \xi, Y + \eta \in \Gamma(TM \oplus T^*M)$, where $[X, Y]$ denotes the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}, and $\mathcal{L}$ the \tref{lie-derivative}{Lie derivative}.
+\end{topic}
+
+\begin{topic}{generalized-complex-structure}{generalized complex structure}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{generalized almost complex structure} on $M$ is an endomorphism
+    \[ \mathcal{J} : TM \oplus T^*M \to TM \oplus T^*M , \]
+    of the \tref{generalized-tangent-bundle}{generalized tangent bundle} on $M$, such that
+    \begin{itemize}
+        \item (\textit{complex structure}) $\mathcal{J}^2 = -\id$,
+        \item (\textit{symplectic structure}) $\mathcal{J}^* = -\mathcal{J}$.
+    \end{itemize}
+    A \textbf{generalized complex structure} on $M$ is a generalized almost complex structure which is \textit{integrable}, meaning its $+i$-eigenbundle $T_{0, 1} \subset (TM \oplus T^*M)_\CC$ is involutive with respect to the \tref{courant-bracket}{Courant bracket}.
+\end{topic}
+
+\begin{example}{generalized-complex-structure}
+    A generalized complex structure generalizes both \tref{complex-manifold}{(almost) complex structures} and \tref{symplectic-manifold}{symplectic structures}. Namely, given an almost complex structure $J : TM \to TM$ and symplectic structure $\omega : TM \to T^*M$, the endomorphisms
+    \[ \mathcal{J}_J = \begin{pmatrix} -J & 0 \\ 0 & J^* \end{pmatrix} \qquad \textup{and} \qquad \mathcal{J}_\omega = \begin{pmatrix} 0 & -\omega^{-1} \\ \omega & 0 \end{pmatrix} \]
+    are both generalized complex structures.
+\end{example}
