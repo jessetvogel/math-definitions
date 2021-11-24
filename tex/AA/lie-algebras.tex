@@ -61,3 +61,21 @@
 \begin{topic}{poisson-algebra}{Poisson algebra}
     A \textbf{Poisson algebra} is a commutative \tref{CA:algebra}{algebra} $A$ over a \tref{CA:field}{field} $k$, together with an operation $\{ \cdot, \cdot \} : A \otimes_k A \to A$, called the \textbf{Poisson bracket}, making $A$ into a \tref{lie-algebra}{Lie algebra} and satisfying the \textit{Leibniz rule} $\{ f, gh \} = \{ f, g \} h + g \{ f, h \}$. % $\{ a, - \} : A \to A$ is a \tref{CA:derivation}{$k$-derivation} for every $a \in A$.
 \end{topic}
+
+\begin{topic}{simple-lie-algebra}{(semi)simple Lie algebra}
+    A \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is \textbf{simple} if it is non-abelian and contains no non-zero proper ideals.
+    
+    A Lie algebra is \textbf{semisimple} if it is the direct sum of simple Lie algebras.
+\end{topic}
+
+\begin{topic}{root-system-lie-algebra}{root system Lie algebra}
+    Let $\mathfrak{g}$ be a complex \tref{simple-lie-algebra}{semisimple} \tref{lie-algebra}{Lie algebra}, and $\mathfrak{h}$ a \tref{cartan-subalgebra}{Cartan subalgebra}. A \textbf{root} of $\mathfrak{g}$ (relative to $\mathfrak{h}$) is an element $\lambda \in \mathfrak{h}^*$ such that
+    \[ \mathfrak{g}^\lambda := \{ x \in \mathfrak{g} : [h, x] = \lambda(h) x \textup{ for all } h \in \mathfrak{h} \} \]
+    is non-empty. The \textbf{root system} of $\mathfrak{g}$ (relative to $\mathfrak{h}$) is the set of all roots, often denoted $\Phi$.
+\end{topic}
+
+\begin{topic}{killing-form}{Killing form}
+    Let $\mathfrak{g}$ be a \tref{lie-algebra}{Lie algebra} of finite dimension over a field $k$. The \textbf{Killing form} of $\mathfrak{g}$ is the symmetric bilinear form
+    \[ B : \mathfrak{g} \times \mathfrak{g} \to k, \quad B(x, y) = \textup{tr}(\textup{ad}_{\mathfrak{g}}(x) \circ \textup{ad}_{\mathfrak{g}}(y)) \]
+    where $\text{ad}_\mathfrak{g} : \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$ is the \tref{DG:adjoint-representation}{adjoint representation} of $\mathfrak{g}$.
+\end{topic}

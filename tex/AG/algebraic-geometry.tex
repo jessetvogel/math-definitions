@@ -107,7 +107,7 @@
     \[ \AA_k^1 \to C, \quad t \mapsto (t^2, t^3) . \]
 \end{example}
 
-\begin{topic}{separated}{(quasi) separated}
+\begin{topic}{separated}{(quasi-)separated}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is quasi-compact, and it is \textbf{separated} if the diagonal $\Delta_{X/Y}$ is a closed immersion.
     
     A scheme $X$ is \textbf{(quasi-)separated} if the morphism $X \to \Spec \ZZ$ is (quasi-)separated.
@@ -137,7 +137,7 @@
     Let $X$ be the affine line with double origin, i.e. two copies of $\AA^1$ glued along $\AA^1 \backslash \{ 0 \}$. Then $X \to \AA^1$ is of finite type and universally closed (the latter as $X_R \to \AA^1_R$ is closed for all rings $R$). However, $X \to \AA^1$ is not separated and hence not proper. For this we need to show $\Delta_{X / \AA^1} : X \to X \times_{\AA^1} X$ is not a closed immersion. Consider $\AA^1 \to X \times_{\AA^1} X$ induced from the two maps different maps $\AA^1 \to X$, and note that the inverse image of the diagonal is $\AA^1 \backslash \{ 0 \}$ which is not closed. Hence the diagonal is not closed.
 \end{example}
 
-\begin{topic}{projective-morphism}{(quasi) projective morphism}
+\begin{topic}{projective-morphism}{(quasi-)projective morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{projective} if it factors as
     \[ X \xrightarrow{i} \PP^n_Y \xrightarrow{p} Y , \]
     with $i$ a \tref{closed-immersion}{closed immersion} and $p$ the projection.
@@ -218,6 +218,12 @@
     
     That is, $f$ is formally smooth if it is \tref{formally-smooth}{formally smooth} and \tref{formally-unramified}{formally unramified}.
 \end{topic}
+
+\begin{example}{formally-etale}
+    Any \tref{etale-morphism}{étale morphism} is formally étale, but the converse does not hold. Namely, the morphism $f : \Spec k \to \Spec k[x_1, x_2, \ldots] / (x_1^2, x_2^2, \cdots)$ is easily checked to be formally étale. However, since $f$ is not \tref{finite-presentation}{locally of finite presentation}, it cannot be étale.
+    
+    A morphism is étale if and only if it is formally étale and locally of finite presentation.
+\end{example}
 
 \begin{topic}{flat-morphism}{flat morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{flat} if for every $x \in X$, the local ring $\mathcal{O}_{X, x}$ is \tref{CA:flat-module}{flat} as an $\mathcal{O}_{Y, f(x)}$-module.

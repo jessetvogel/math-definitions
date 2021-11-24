@@ -18,7 +18,7 @@
 \end{topic}
 
 \begin{topic}{functor}{functor}
-    Given two categories $\mathcal{C}$ and $\mathcal{D}$, a \textbf{functor} $F : \mathcal{C} \to \mathcal{D}$ assigns an object (resp. a morphism) in $\mathcal{D}$ to each object (resp. morphism) in $\mathcal{C}$, such that
+    Given two \tref{category}{categories} $\mathcal{C}$ and $\mathcal{D}$, a \textbf{functor} $F : \mathcal{C} \to \mathcal{D}$ assigns an object (resp. a morphism) in $\mathcal{D}$ to each object (resp. morphism) in $\mathcal{C}$, such that
     \begin{itemize}
         \item $F(f) : F(X) \to F(Y)$ for each $f : X \to Y$,
         \item $F(gf) = F(g) F(f)$,
@@ -77,21 +77,40 @@
 \end{topic}
 
 \begin{topic}{yoneda-embedding}{Yoneda embedding}
-    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Yoneda embedding} is the functor
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Yoneda embedding} is the \tref{functor}{functor}
     \[ y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\text{op}} \]
-    given by $y_X(Y) = \Hom_{\mathcal{C}}(Y, X)$.
+    which assigns to an object $X$ of $\mathcal{C}$ the functor
+    \[ y_X = \Hom_{\mathcal{C}}(-, X) , \]
+    and to a morphism $f : X \to Y$ the natural transformation
+    \[ y_f : y_X \Rightarrow y_Y , \]
+    given by $(y_f)_Z(g) = f \circ g$ for any object $Z$ and morphism $g : Z \to X$ in $\mathcal{C}$.
 \end{topic}
 
 \begin{topic}{yoneda-lemma}{Yoneda lemma}
-    Let $\mathcal{C}$ be a \tref{category}{category}, and write $y_X = \Hom_{\mathcal{C}}(-, X)$. The \textbf{Yoneda lemma} states that for every $F : \mathcal{C}^\text{op} \to \textbf{Set}$ and $X$ in $\mathcal{C}$ there is a bijection
-    \[ \Hom(y_X, F) \xrightarrow{\sim} F(X)  \]
-    natural in $X$ and $F$. As a consequence, the \tref{yoneda-embedding}{Yoneda embedding}
-    \[ y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\text{op}} \]
-    is \tref{full-functor}{full} and \tref{faithful-functor}{faithful}.
+    Let $\mathcal{C}$ be a \tref{category}{category} and $F : \mathcal{C}^\textup{op} \to \textbf{Set}$ a \tref{functor}{functor}. The \textbf{Yoneda lemma} states that for any object $X$ of $\mathcal{C}$ there is a bijection
+    \[ \Hom(y_X, F) \xrightarrow{\sim} F(X) , \]
+    where $y_{(-)}$ denotes the \tref{yoneda-embedding}{Yoneda embedding}, and that this bijection is natural in $X$ and $F$. That is, for any morphism $f : X \to Y$ in $\mathcal{C}$ and \tref{natural-transformation}{natural transformation} $\mu : F \Rightarrow G$, the diagram
+    \[ \begin{tikzcd} \Hom(y_Y, F) \arrow{r}{\sim} \arrow[swap]{d}{\mu \circ (-) \circ y_f} & F(Y) \arrow{d}{G(f) \circ \mu_Y = \mu_X \circ F(f)} \\ \Hom(y_X, G) \arrow{r}{\sim} & G(X) \end{tikzcd} \]
+    commutes.
 \end{topic}
 
+\begin{example}{yoneda-lemma}
+    \textbf{Proof}. Any natural transformation $\nu : y_X \Rightarrow F$ induces an element $x = \nu_X(\id_X) \in F(X)$, and this element completely determines $\nu$ since for any $Y$ in $\mathcal{C}$ and $f \in y_X(Y) = \Hom_\mathcal{C}(Y, X)$ we have that
+    \[ \nu_{Y}(f) = \nu_{Y}(\id_X \circ f) = F(f)(\nu_X(\id_X)) = F(f)(x) . \]
+    Furthermore, any $x \in F(X)$ induces a natural transformation $\nu : y_X \Rightarrow F$ in this way. Namely, for any morphism $g : Y \to Z$ in $\mathcal{C}$ we have
+    \[ F(g)(\nu_Z(h)) = F(g)(F(h)(x)) = F(hg)(x) = \nu_Y(hg) = \nu_Y(y_g(h)) , \]
+    for all $h \in y_X(Z) = \Hom_\mathcal{C}(Z, X)$. This proves the bijection. To prove that this bijection is natural in $X$ and $F$, let $f : X \to Y$ be a morphism in $\mathcal{C}$, and $\mu : F \Rightarrow G$ a natural transformation. Then for any $\nu : y_Y \Rightarrow F$ we have that
+    \[ (\mu \circ \nu \circ y_f)_X(\id_X) = \mu_X(\nu_X(f)) = \mu_X(F(f)(\nu_Y(\id_Y))) , \]
+    which shows the bijection is indeed natural.
+\end{example}
+
+\begin{example}{yoneda-lemma}
+    As a consequence, the Yoneda embedding $y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\text{op}}$ is \tref{full-functor}{full} and \tref{faithful-functor}{faithful}. Namely, for any objects $X$ and $Y$ in $\mathcal{C}$ there is a natural bijection
+    \[ \Hom(y_X, y_Y) \simeq y_Y(X) = \Hom_\mathcal{C}(X, Y) . \]
+\end{example}
+
 \begin{topic}{groupoid}{groupoid}
-    A \textbf{groupoid} is a category where every morphism is an isomorphism.
+    A \textbf{groupoid} is a \tref{category}{category} in which every morphism is an \tref{isomorphism}{isomorphism}.
 \end{topic}
 
 \begin{topic}{equivalence-of-categories}{equivalence of categories}
@@ -168,7 +187,7 @@
 \begin{topic}{sieve}{sieve}
     Let $\mathcal{C}$ be a \tref{category}{category}, and $C$ an object of $\mathcal{C}$. A \textbf{sieve} on $C$ is a set of morphisms $S = \{ f : C' \to C \}$ such that if $f : C' \to C$ is in $S$ and $g : C'' \to C'$ is arbitrary, then $f \circ g$ is in $S$.
     
-    Equivalently, it is a subpresheaf of $y_C$, the \tref{yoneda-embedding}{yoneda functor}.
+    Equivalently, a sieve on $C$ is a subpresheaf of $y_C$, the \tref{yoneda-embedding}{yoneda functor}.
 \end{topic}
 
 \begin{topic}{grothendieck-topology}{Grothendieck topology}

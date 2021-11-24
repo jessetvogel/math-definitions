@@ -14,21 +14,21 @@ function loadTopic(id) {
     xhttpDef.open('GET', 'data/definitions/' + id.replace(':', '-') + '.html', true);
     xhttpDef.onload = function () {
         const definition = document.getElementById('definition');
-        if(xhttpDef.status == 200) {
+        if (xhttpDef.status == 200) {
             definition.innerHTML = this.responseText;
-            if(MathJax && MathJax.typeset)
-                MathJax.typeset([ definition ]);
+            if (MathJax && MathJax.typeset)
+                MathJax.typeset([definition]);
         }
-        else if(xhttpDef.status == 404)
+        else if (xhttpDef.status == 404)
             definition.innerHTML = '<div class="error">Definition not found 🥺</div>';
-    }
+    };
     xhttpDef.onerror = function () {
         content.innerHTML = '<div class="error">Could not load definition 🥺</div>';
-    }
+    };
     xhttpDef.send();
 
     // Load examples
-    if(!examples.includes(id))
+    if (!examples.includes(id))
         return;
 
     content.innerHTML += '<div id="examples" class="hidden"></div>';
@@ -41,12 +41,12 @@ function loadTopic(id) {
         toggle.addEventListener('click', function () { examples_.classList.toggle('hidden'); });
         examples_.append(toggle);
         examples_.insertAdjacentHTML('beforeend', this.responseText);
-        if(MathJax && MathJax.typeset)
-            MathJax.typeset([ examples_ ]);
-    }
+        if (MathJax && MathJax.typeset)
+            MathJax.typeset([examples_]);
+    };
     xhttpEx.onerror = function () {
         console.log('error..');
-    }
+    };
     xhttpEx.send();
 }
 
@@ -55,20 +55,20 @@ function gotoTopic(id) {
     const topic = capitalize(topics[id]);
     autoCompleteInput.value = topic;
     autoCompleteList.innerHTML = '';
-    setSearchCategory(categories[id.substr(0, id.indexOf(':'))])
+    setSearchCategory(categories[id.substr(0, id.indexOf(':'))]);
     window.history.pushState(id, 'Math: ' + id, '#' + id);
 }
 
 function checkUrlFragment() {
     const id = window.location.hash.substr(1);
-    if(id == '') {
+    if (id == '') {
         document.getElementById('content').innerHTML = '';
         return;
     }
     loadTopic(id);
     const topic = capitalize(topics[id]);
     autoCompleteInput.value = topic;
-    setSearchCategory(categories[id.substr(0, id.indexOf(':'))])
+    setSearchCategory(categories[id.substr(0, id.indexOf(':'))]);
 }
 
 window.addEventListener('popstate', checkUrlFragment);
@@ -77,6 +77,7 @@ var autoCompleteInput = null;
 var autoCompleteList = null;
 var autoCompleteItem = -1;
 var autoCompleteNumItems = 0;
+var autoCompleteTopicParts = {};
 
 // Autocomplete function
 function initAutoComplete() {
@@ -85,7 +86,7 @@ function initAutoComplete() {
     const updateAutoComplete = function (e) {
         const val = autoCompleteInput.value;
         // console.log(val);
-        
+
         // Hide #result-category
         setSearchCategory();
 
@@ -94,22 +95,22 @@ function initAutoComplete() {
         autoCompleteItem = -1;
         autoCompleteNumItems = 0;
 
-        if(val == '')
+        if (val == '')
             return;
 
         const items = [];
-        for(const id in topics) {
+        for (const id in topics) {
             const match = searchMatch(id, val);
-            if(match == null)
+            if (match == null)
                 continue;
             const topic = topics[id];
             const item = document.createElement('div');
             item.innerHTML = match[1];
             item.addEventListener('mousedown', function (e) { gotoTopic(id); });
-            items.push([ match[0], topic, item ]);
+            items.push([match[0], topic, item]);
         }
 
-        if(items.length == 0) {
+        if (items.length == 0) {
             const item = document.createElement('div');
             item.innerHTML = '<span style="color: rgba(0, 0, 0, 0.5);">no results</span>';
             autoCompleteList.appendChild(item);
@@ -117,50 +118,50 @@ function initAutoComplete() {
         }
 
         items.sort(function (a, b) { // Sort primarily on the index, then alphabetically
-            if(a[0] != b[0])
+            if (a[0] != b[0])
                 return a[0] - b[0];
             return a[1].localeCompare(b[1], 'en', { sensitivity: 'base' });
         });
 
         autoCompleteNumItems = items.length; //Math.min(items.length, 10); // Show only the top 10 results
-        for(let i = 0; i < autoCompleteNumItems; ++i) {
+        for (let i = 0; i < autoCompleteNumItems; ++i) {
             autoCompleteList.appendChild(items[i][2]);
         }
     };
     autoCompleteInput.addEventListener('input', updateAutoComplete);
-    autoCompleteInput.addEventListener('keydown', function(e) {
-        if(e.key == 'ArrowDown') {
-            if(autoCompleteItem < autoCompleteNumItems - 1)
+    autoCompleteInput.addEventListener('keydown', function (e) {
+        if (e.key == 'ArrowDown') {
+            if (autoCompleteItem < autoCompleteNumItems - 1)
                 autoCompleteSetFocus(autoCompleteItem + 1);
         }
 
-        if(e.key == 'ArrowUp') {
-            if(autoCompleteItem > -1)
+        if (e.key == 'ArrowUp') {
+            if (autoCompleteItem > -1)
                 autoCompleteSetFocus(autoCompleteItem - 1);
         }
 
-        if(e.key == 'Enter') {
+        if (e.key == 'Enter') {
             let item = autoCompleteList.querySelector('div.focus');
             let id = null;
-            if(item == null)
+            if (item == null)
                 item = autoCompleteList.querySelector('div');
-            if(item != null)
+            if (item != null)
                 id = item.querySelector('.identifier').innerText;
-            if(id != null)
+            if (id != null)
                 gotoTopic(id);
         }
 
-        if(e.key == 'Escape')
+        if (e.key == 'Escape')
             autoCompleteInput.blur();
     });
 
-    autoCompleteInput.addEventListener('focusout', function(e) {
+    autoCompleteInput.addEventListener('focusout', function (e) {
         // if(autoCompleteList.querySelectorAll('div:hover').length > 0) return; // otherwise click events don't trigger.. // doesn't work on mobile!
         autoCompleteList.innerHTML = '';
     });
 
     // Override search function
-    window.addEventListener('keydown',function (event) {
+    window.addEventListener('keydown', function (event) {
         const ctrlKey = navigator.platform.indexOf('Mac') > -1 ? event.metaKey : event.ctrlKey;
         if (ctrlKey && event.shiftKey && event.key == 'f') {
             const input = document.getElementById('input-search');
@@ -170,14 +171,24 @@ function initAutoComplete() {
             event.preventDefault();
         }
     });
+
+    // Precompute topic parts for searching
+    const re = /\w+/g;
+    for (let id in topics) {
+        const topic = normalizeString(topics[id]).toLowerCase();
+        const topicParts = [];
+        while ((match = re.exec(topic)) != null)
+            topicParts.push([match.index, match[0]]);
+        autoCompleteTopicParts[id] = topicParts;
+    }
 }
 
 function autoCompleteSetFocus(i) {
     autoCompleteItem = i;
     let items = autoCompleteList.querySelectorAll('div');
-    for(const item of items)
+    for (const item of items)
         item.classList.remove('focus');
-    if(autoCompleteItem >= 0 && autoCompleteItem < items.length) {
+    if (autoCompleteItem >= 0 && autoCompleteItem < items.length) {
         items[autoCompleteItem].classList.add('focus');
         items[autoCompleteItem].scrollIntoView({
             behavior: 'auto',
@@ -188,25 +199,52 @@ function autoCompleteSetFocus(i) {
 }
 
 function searchMatch(id, input) {
-    const normalizedTopic = normalizeString(topics[id]).toUpperCase();
-    const normalizedInput = normalizeString(input).toUpperCase();
-    
-    const i = normalizedTopic.indexOf(normalizedInput);
-    if(i < 0)
-        return null;
+    // Search based on 'parts': split both topic and input on words, and match each word of the input to a word on the topic
+    // Note that the parts of the topics have already been precomputed
+    const topicParts = autoCompleteTopicParts[id];
+    const inputParts = normalizeString(input).toLowerCase().match(/\w+/g);
+    const m = topicParts.length;
+    const n = inputParts.length;
+
+    const ranges = []; // ranges of the topic which are a match
+    for (let i = 0; i < n; ++i) {
+        let found = false;
+        for (let j = 0; j < m; ++j) {
+            const index = topicParts[j][1].indexOf(inputParts[i]);
+            if (index < 0) continue; // input part not found
+            const range = [topicParts[j][0] + index, topicParts[j][0] + index + inputParts[i].length];
+            if (ranges.some(other => other[0] < range[1] && other[1] > range[0])) continue; // overlap with some other range
+            ranges.push(range);
+            found = true;
+            break;
+        }
+        if (!found) return null;
+    }
+    ranges.sort((a, b) => a[0] - b[0]);
+
+    function makeBold(str, ranges) {
+        let offset = 0;
+        for (let r of ranges) {
+            const start = r[0] + offset;
+            const end = r[1] + offset;
+            str = str.substr(0, start) + '<b>' + str.substr(start, end - start) + '</b>' + str.substr(end);
+            offset += 7; // '<b></b>' counts 7 characters
+        }
+        return str;
+    }
 
     const category = categories[id.substr(0, id.indexOf(':'))];
-    const topic = capitalize(topics[id]);
-
-    const topicHTML = topic.substr(0, i) + '<b>' + topic.substr(i, input.length) + '</b>' + topic.substr(i + input.length);
+    const topicHTML = makeBold(capitalize(topics[id]), ranges);
     const html = '<span class="topic">' + topicHTML + '</span><span class="category">' + category + '</span><span class="identifier">' + id + '</span>';
-    return [ i, html ];
-
+    let order = 0; // determine the order in which results must be listed, based on a number
+    for (let i = 0; i < ranges.length; ++i)
+        order += ranges[i][0] * (1 << (i * 6));
+    return [order, html];
 }
 
 function setSearchCategory(str) {
     const div = document.getElementById('result-category');
-    if(str == undefined || str == '') {
+    if (str == undefined || str == '') {
         div.style.display = 'none';
     }
     else {
@@ -217,11 +255,11 @@ function setSearchCategory(str) {
 
 function normalizeString(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-} 
+}
 
 function capitalize(str) {
     const i = normalizeString(str).search(/[a-z]/i); // Index of first letter in string
-    if(i < 0)
+    if (i < 0)
         return str;
 
     return str.substr(0, i) + str[i].toUpperCase() + str.substr(i + 1);
@@ -231,13 +269,13 @@ function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
-  }
+}
 
 function initTheme() {
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const cookieTheme = getCookie('theme');
-    if(cookieTheme !== undefined)
-        setTheme(cookieTheme === 'dark')
+    if (cookieTheme !== undefined)
+        setTheme(cookieTheme === 'dark');
     else
         setTheme(false); // prefersDark
     document.getElementById('button-theme').addEventListener('click', function () {
@@ -250,11 +288,11 @@ function initTheme() {
 }
 
 function setTheme(dark) {
-    if(dark === true) {
+    if (dark === true) {
         document.body.classList.add('dark');
         return true;
     }
-    if(dark === false) {
+    if (dark === false) {
         document.body.classList.remove('dark');
         return false;
     }

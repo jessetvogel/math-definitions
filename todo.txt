@@ -14,18 +14,14 @@ HT: homotopy category of model category (with examples of course)
 - Verma module
 - Atiyah--Singer theorem
 - Bott periodicity
-- Calkin algebra
-# - Sphere bundle / disk bundle
 - Thom isomorphism (Thom class)
-- Relation of (universal enveloping algebras) to representation theory of Lie algebras
 
-- Fine, separated, integral monoids
+- AA: root system (Lie algebra) { lambda : g^lambda != 0}, et al
 
 - Modular form
 - (infinity, k)-category
 - Nerve example: "concretely this means" (p.9 of HTT of Lurie) + Can recover C from its nerve: [...]
 - Dold-Kan examples
-- Double centralizer theorem
 
 - Toeplitz algebra
 - Fréchet topology (any Banach space, any Schwartz space) / Frechet space
@@ -33,16 +29,11 @@ HT: homotopy category of model category (with examples of course)
 - Inequalities for FA (see Lp spaces)
 
 - Simplicial homotopy groups
-- Weyl bundle / algebra
-- Sylow theorems proof (see Jaap Top lecture notes)
 - Borel construction (EG x X / G) : Example BG = classifying space
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
-- Proofs of theorems (Yoneda lemma)
-- Lots of examples!
+- Proofs of theorems
 
 - Grothendieck--Verdier duality
-
-LA: Vandermonde matrix
 
 # Other
 LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,

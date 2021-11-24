@@ -175,3 +175,39 @@
     \[ g(u, v) = \omega(u, Jv) , \]
     that is, $(\omega, J, g)$ is a compatible triple.
 \end{example}
+
+\begin{topic}{weyl-bundle}{Weyl bundle}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. The \textbf{Weyl bundle} on $M$ is the \tref{vector-bundle}{vector bundle}
+    \[ W = \widehat{\textup{Sym}}(T^*M) , \]
+    that is, the \tref{CA:completion}{completed} \tref{CA:symmetric-algebra}{symmetric algebra} of the \tref{cotangent-bundle}{cotangent bundle}.
+    
+    The \textbf{formal Weyl algebra} is the vector bundle
+    \[ W_\hbar = \widehat{\textup{Sym}}(T^*M) \llbracket \hbar \rrbracket , \]
+    where $\hbar$ is a formal parameter.
+\end{topic}
+
+\begin{topic}{moyal-weyl-product}{Moyal--Weyl product}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. The \textbf{Moyal--Weyl product} is a non-commutative product on the sections of the \tref{weyl-bundle}{formal Weyl bundle} $W_\hbar$. In local coordinates, if $y^1, \ldots, y^{2n}$ is a basis for $T^*M$, the Moyal--Weyl product is given by
+    \[ \begin{aligned}
+        a \circ b
+            &= \left. \exp \left(-\frac{i\hbar}{2} \omega^{ij} \frac{\partial}{\partial y^i} \frac{\partial}{\partial z^j}\right) a(y) b(z) \right|_{z = y} \\
+            &= \sum_{k = 0}^{\infty} \left(-\frac{i\hbar}{2}\right)^k \frac{1}{k!} \omega^{i_1 j_1} \cdots \omega^{i_k j_k} \frac{\partial^k a}{\partial y^{i_1} \cdots \partial y^{i_k}} \frac{\partial^k b}{\partial y^{j_1} \cdots \partial y^{j_k}} ,
+    \end{aligned} \]
+    for sections $a, b \in \Gamma(W_\hbar)$.
+\end{topic}
+
+\begin{example}{moyal-weyl-product}
+    The center of $\Gamma(W_\hbar)$ with respect to the Weyl product is $C^\infty(M)\llbracket \hbar \rrbracket$. Namely, if $a$ is in the center of $\Gamma(W_\hbar)$ and $b = y^k$ for some $k$, then
+    \[ a \circ b = a y^k - \frac{i\hbar}{2} \omega^{ik} \frac{\partial a}{\partial y^i} \qquad \text{ and } \qquad b \circ a = a y^k - \frac{i\hbar}{2} \omega^{kj} \frac{\partial a}{\partial y^j} , \]
+    so
+    \[ 0 = a \circ b - b \circ a = - i \hbar \omega^{ik} \frac{\partial a}{\partial y^i} . \]
+    Varying $k$, we find that $\frac{\partial a}{\partial y^i} = 0$ for all $i$, so $a \in C^\infty(M)\llbracket \hbar \rrbracket$. The converse inclusion is straightforward.
+\end{example}
+
+\begin{topic}{fedosov-manifold}{Fedosov manifold}
+    A \textbf{Fedosov manifold} is a triple $(M, \omega, \nabla)$, where $(M, \omega)$ is a \tref{symplectic-manifold}{symplectic manifold} and $\nabla$ is a \tref{torsion-connection}{torsion-free} \tref{symplectic-connection}{symplectic connection} on $M$.
+\end{topic}
+
+\begin{example}{fedosov-manifold}
+    Any symplectic manifold $(M, \omega)$ admits a torsion-free symplectic connection. Namely, by \tref{darboux-theorem}{Darboux's theorem}, there exists a covering of $M$ by \textit{Darboux charts}, which are open subsets of the standard symplectic space $\RR^{2n}$ with coordinates $q^1, \ldots, q^n, p_1, \ldots, p_n$ and symplectic form $\omega = \sum_{i = 1}^{n} dq^i \wedge dp_i$. On such a standard symplectic space, the \tref{exterior-derivative}{exterior derivative} $d$ is a torsion-free symplectic connection, and gluing these using a \tref{partition-of-unity}{partition of unity}, we obtain a global torsion-free symplectic connection on $M$.
+\end{example}
