@@ -26,7 +26,7 @@
     is \textit{smooth}, i.e. all its continuous partial derivatives exist.
 \end{topic}
 
-\begin{topic}{diffeomorphism}{diffeomorphism}
+\begin{topic}{diffeomorphism}{(local) diffeomorphism}
     A \textbf{diffeomorphism} is a \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} that has a smooth inverse $f^{-1} : N \to M$.
     
     A \textbf{local diffeomorphism} is a smooth map $f : M \to N$ for which every point $p \in M$ has a neighborhood $U \subset M$ such that $f(U)$ is open in $N$ and $f : U \to f(U)$ is a diffeomorphism.
@@ -212,7 +212,7 @@
 \begin{topic}{complex-manifold}{(almost) complex manifold}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost complex structure} on $M$ is a smooth \tref{tensor-field}{tensor field} $J \in \Gamma(TM \otimes T*M)$ satisfying $J^2 = -1$ when viewed as a bundle isomorphism $J : TM \to TM$. The pair $(M, J)$ is called an \textbf{almost complex manifold}.
     
-    A smooth manifold $M$ is \textbf{complex} if it has an \tref{atlas}{atlas} of charts to open subsets of $\CC^n$, such that the transition maps are \textit{holomorphic}. Any complex smooth manifold has an almost complex structure given by multiplication by $i$. If an almost complex structure arises in this way, it is called \textbf{integrable}.
+    A smooth manifold $M$ is \textbf{complex} if it has an \tref{atlas}{atlas} of charts to open subsets of $\CC^n$, such that the transition maps are \textit{holomorphic}. Any complex smooth manifold has an almost complex structure given by multiplication by $i$. If an almost complex structure arises in this way, it is called a \textbf{complex structure} or \textit{integrable}.
  \end{topic}
  
  \begin{example}{complex-manifold}
@@ -778,4 +778,73 @@
     A generalized complex structure generalizes both \tref{complex-manifold}{(almost) complex structures} and \tref{symplectic-manifold}{symplectic structures}. Namely, given an almost complex structure $J : TM \to TM$ and symplectic structure $\omega : TM \to T^*M$, the endomorphisms
     \[ \mathcal{J}_J = \begin{pmatrix} -J & 0 \\ 0 & J^* \end{pmatrix} \qquad \textup{and} \qquad \mathcal{J}_\omega = \begin{pmatrix} 0 & -\omega^{-1} \\ \omega & 0 \end{pmatrix} \]
     are both generalized complex structures.
+\end{example}
+
+\begin{topic}{orientable-manifold}{orientable manifold}
+    An $n$-dimensional \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{orientable} if there exists a nowhere vanishing \tref{differential-form}{$n$-form} $\omega \in \Omega^n(M)$. Such an $n$-form is called a \textit{volume form} on $M$.
+    % An \textbf{oriented manifold} is a manifold $M$ together with a choice of volume form.
+\end{topic}
+
+\begin{example}{orientable-manifold}
+    \begin{itemize}
+        \item Euclidean space $\RR^n$ is orientable, with $\omega = dx^1 \wedge \cdots \wedge dx^n$ a volume form.
+        \item The $n$-torus $\mathbb{T}^n = \RR^n / \ZZ^n$ is orientable, with $\omega = dx^1 \wedge \cdots \wedge dx^n$ a volume form.
+        \item The Mobiüs strip is not orientable.
+        \item The real projective plane $\RR P^2$ is not orientable.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{isometry}{(local) isometry}
+    Let $(M, g)$ and $(M', g')$ be two \tref{riemannian-manifold}{Riemannian manifolds}. A \tref{smooth-map}{smooth map} $f : M \to M'$ is an \textbf{isometry} if it is a \tref{diffeomorphism}{diffeomorphism} and $f^*g' = g$.
+    
+    Such a map $f$ is a \textbf{local isometry} if it is a \tref{diffeomorphism}{local diffeomorphism} and $f^*g' = g$.
+\end{topic}
+
+\begin{example}{isometry}
+    Every isometry is a local isometry, but not conversely. Namely, if $M = \RR^1$ and $M' = S^1 \subset \RR^2$ with the natural Euclidean metrics, then the map $\RR \to S^1$ given by $x \mapsto (\cos(x), \sin(x))$ is a local isometry, but not an isometry since it is not a diffeomorphism.
+\end{example}
+
+\begin{topic}{scalar-curvature}{scalar curvature}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{scalar curvature} $R$ of $M$ is the trace of the \tref{ricci-curvature}{Ricci curvature} $\textup{Ric}$ with respect to the metric $g$. In local coordinates,
+    \[ R = g^{ij} \textup{Ric}_{ij} . \]
+\end{topic}
+
+\begin{topic}{einstein-tensor}{Einstein tensor}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Einstein tensor} is the \tref{tensor-field}{$(0, 2)$-tensor field} on $M$ given by
+    \[ G = \textup{Ric} - \frac{1}{2} R g , \]
+    where $\textup{Ric}$ denotes the \tref{ricci-curvature}{Ricci curvature} and $R$ the \tref{scalar-curvature}{scalar curvature}.
+\end{topic}
+
+\begin{topic}{hyperkahler-manifold}{hyperkähler manifold}
+    A \textbf{hyperkähler manifold} is a \tref{riemannian-manifold}{Riemannian manifold} $(M, g)$ with three \tref{complex-manifold}{complex structures} $I, J, K$ on $M$ satisfying the quaternionic relations
+    \[ I^2 = J^2 = K^2 = IJK = -1 . \]
+\end{topic}
+
+\begin{topic}{hypercomplex-manifold}{hypercomplex manifold}
+    A \textbf{hypercomplex manifold} is a \tref{smooth-manifold}{smooth manifold} $M$ with three \tref{complex-manifold}{complex structures} $I, J, K$ on $M$ satisfying the quaternionic relations
+    \[ I^2 = J^2 = K^2 = IJK = -1 . \]
+\end{topic}
+
+\begin{topic}{stokes-theorem}{Stokes' theorem}
+    Let $M$ be an $n$-dimensional oriented \tref{TO:compact-space}{compact} \tref{smooth-manifold}{smooth manifold} (possibly with boundary), and $\omega$ an \tref{differential-form}{$(n - 1)$-form}. Then \textbf{Stokes' theorem} states that
+    \[ \int_M d \omega = \int_{\partial M} \omega , \]
+    where $\partial M$ denotes the boundary of $M$.
+\end{topic}
+
+\begin{example}{stokes-theorem}
+    For $M = [a, b]$ a closed interval on the real line, Stokes' theorem reduces to the \textit{fundamental theorem of calculus}: for any $F : [a, b] \to \RR$, we have
+    \[ \int_a^b F'(x) dx = F(b) - F(a) . \]
+\end{example}
+
+\begin{topic}{teichmuller-space}{Teichmüller space}
+    Let $\Sigma$ be a surface (a $2$-dimensional \tref{smooth-manifold}{smooth manifold}). The \textbf{Teichmüller space} $T(\Sigma)$ of $\Sigma$ is the space of equivalence classes of \tref{complex-manifold}{complex structures} on $\Sigma$, where two complex structures $I, J$ are \textit{equivalent} if there is a holomorphic \tref{diffeomorphism}{diffeomorphism} $f : (\Sigma, I) \to (\Sigma, J)$, \tref{TO:isotopy}{isotopic} to the identity on $\Sigma$.
+\end{topic}
+
+\begin{example}{teichmuller-space}
+    \begin{itemize}
+        \item The Teichmüller space of the $2$-sphere $S^2$ is a single point.
+        \item The Teichmüller space of $\RR^2$ is two points.
+        \item The Teichmüller space of the open annulus is the interval $[0, 1)$, where the complex structure associated to $\lambda \in [0, 1)$ is the Riemann surface $\{ z \in \CC : \lambda < |z| < \lambda^{-1} \}$.
+        \item The Teichmüller space of the torus $\mathbb{T}^2 = \RR^2/\ZZ^2$ is the upper half-plane $\mathbb{H} = \{ z \in \CC : \operatorname{Im} z > 0 \}$, where the complex structure associated to $\tau \in \mathbb{H}$ is the Riemann surface $\CC / (\ZZ + \tau \ZZ)$, a complex elliptic curve.
+    \end{itemize}
 \end{example}

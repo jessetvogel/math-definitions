@@ -112,7 +112,7 @@ function initAutoComplete() {
 
         if (items.length == 0) {
             const item = document.createElement('div');
-            item.innerHTML = '<span style="color: rgba(0, 0, 0, 0.5);">no results</span>';
+            item.innerHTML = '<span style="color: var(--clr-autocomplete-topic-default); opacity: 0.5;">no results</span>';
             autoCompleteList.appendChild(item);
             return;
         }

@@ -68,6 +68,7 @@ body {
     --clr-background-example: rgba(0, 0, 0, 0.033);
     --clr-background-highlight: rgba(0, 0, 0, 0.08);
     --clr-background-tooltip: #fefdfc;
+    --clr-list-marker: rgba(0, 0, 0, 0.5);
 }
 
 body.dark {
@@ -84,6 +85,7 @@ body.dark {
     --clr-background-example: #242424;
     --clr-background-highlight: rgba(255, 255, 255, 0.08);
     --clr-background-tooltip: #323232;
+    --clr-list-marker: rgba(255, 255, 255, 0.5);
 }
 
 body.dark .display-math-svg {
@@ -244,6 +246,28 @@ ol, ul {
 
 li {
     margin: 12px 0px;
+}
+
+ol[type="(i)"], ol[type="(1)"] {
+    counter-reset: list;
+    padding-left: 32px;
+}
+
+ol[type="(i)"] > li, ol[type="(1)"] > li {
+    counter-increment: list;
+}
+
+ol[type="(i)"] > li::marker {
+    content: "(" counter(list, lower-roman) ") ";
+}
+
+ol[type="(1)"] > li::marker {
+    content: "(" counter(list, numeric) ") ";
+}
+
+li::marker {
+    color: var(--clr-list-marker);
+    transition: color 0.2s;
 }
 
 span.math.inline {

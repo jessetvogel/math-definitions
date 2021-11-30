@@ -4,14 +4,23 @@
 
 \begin{topic}{adjoint-representation}{(co)adjoint representation}
     The \textbf{adjoint representation} of a \tref{lie-group}{Lie group} $G$ is a \tref{RT:representation}{representation} onto its Lie algebra $\mathfrak{g} = T_e G$ given by
-    \[ \text{Ad}_G : G \to \text{GL}(\mathfrak{g}), \quad g \mapsto \text{Ad}_g := d c_g(e) , \]
+    \[ \textup{Ad}_G : G \to \textup{GL}(\mathfrak{g}), \quad g \mapsto \textup{Ad}_g := d c_g(e) , \]
     where $c_g : G \to G, h \mapsto g h g^{-1}$ denotes the \tref{GT:conjugation}{conjugation} map.
     
-    The \textbf{co-adjoint representation} $\text{Ad}_G^* : G \to \text{GL}(\mathfrak{g}^*)$ is the \tref{RT:dual-representation}{dual representation} of $\text{Ad}_G$.
+    The \textbf{co-adjoint representation} $\textup{Ad}_G^* : G \to \textup{GL}(\mathfrak{g}^*)$ is the \tref{RT:dual-representation}{dual representation} of $\textup{Ad}_G$.
     
     The \textbf{adjoint representation} of a \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$ is a representation onto itself, given by
-    \[ \text{ad}_{\mathfrak{g}}: \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g}), \quad X \mapsto [X, -] . \]
+    \[ \textup{ad}_{\mathfrak{g}}: \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g}), \quad X \mapsto \textup{ad}_X = [X, -] , \]
+    and the \textbf{co-adjoint representation} of $\mathfrak{g}$ is the dual representation $\textup{ad}_{\mathfrak{g}}^*$.
 \end{topic}
+
+\begin{example}{adjoint-representation}
+    The Jacobi identity for a Lie algebra $\mathfrak{g}$ is equivalent to saying $\textup{ad}_X$ is a derivation for all $X \in \mathfrak{g}$, that is,
+    \[ \textup{ad}_X([Y, Z]) = [\textup{ad}_X(Y), Z] + [Y, \textup{ad}_X(Z)] . \]
+    Moreover, from the Jacobi identity follows that
+    \[ \textup{ad}_{[X, Y]}(Z) = [[X, Y], Z] = [X, [Y, Z]] - [Y, [X, Z]] = [\textup{ad}_X, \textup{ad}_Y](Z) , \]
+    which shows that the map $\textup{ad} : \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$ is a Lie algebra homomorphism.
+\end{example}
 
 \begin{topic}{coadjoint-orbit}{coadjoint orbit}
     Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textbf{coadjoint orbit} of some $\xi \in \mathfrak{g}^*$ is the \tref{GT:orbit}{orbit} of the \tref{adjoint-representation}{coadjoint representation} $\textup{Ad}^*_G : G \to \textup{GL}(\mathfrak{g}^*)$, that is
@@ -55,3 +64,13 @@
         d_\mathfrak{g} \omega(v_0, \ldots, v_k) &= \sum_{i = 0}^{k} (-1)^i \rho(v_i) \cdot \omega(v_0, \ldots, \hat{v}_i, \ldots, v_k) \\ &+ \sum_{0 \le i < j \le k} (-1)^{i + j} \omega([v_i, v_j], v_0, \ldots, \hat{v}_i, \ldots, v_k) .
     \end{aligned} \]
 \end{topic}
+
+\begin{topic}{weyl-group-lie-group}{Weyl group of Lie group}
+    Let $G$ be a \tref{TO:connected-space}{connected} \tref{TO:compact-space}{compact} \tref{lie-group}{Lie group}, and $T \subset G$ a maximal torus. The \textbf{Weyl group} of $G$ (relative to $T$) is the quotient group
+    \[ W = N(T) / Z(T) , \]
+    where $N(T) = \{ g \in G : gTg^{-1} = T \}$ is the \tref{GT:normalizer}{normalizer} of $T$ in $G$, and $Z(T) = \{ g \in G : gtg^{-1} = t \textup{ for all } t \in T \}$ is the \tref{GT:centralizer}{centralizer} of $T$ in $G$. In fact, $Z(T) = T$, so that the Weyl group can be expressed as $W = N(T) / T$.
+\end{topic}
+
+\begin{example}{weyl-group-lie-group}
+    Let $G = \textup{GL}_n(\RR)$ and $T$ the maximal torus consisting of diagonal matrices. Then $N(T)$ is the subgroup of \tref{LA:monomial-matrix}{monomial matrices}, and $Z(T) = T$ is again the subgroup of diagonal matrices. Hence, the Weyl group $W = N(T)/Z(T)$ is the \tref{GT:symmetric-group}{symmetric group} $S_n$.
+\end{example}

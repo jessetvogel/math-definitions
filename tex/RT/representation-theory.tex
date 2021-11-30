@@ -42,7 +42,7 @@
 
 \begin{topic}{schur-lemma}{Schur's lemma}
     \textbf{Schur's lemma} states:
-    \begin{enumerate}
+    \begin{enumerate}[(i)]
         \item If $\rho : G \to \textup{GL}(V)$ and $\rho' : G \to \textup{GL}(W)$ are two \tref{equivalent-representations}{inequivalent} \tref{irreducible-representation}{irreducible} \tref{representation}{representations}, and $A : V \to W$ is a linear map such that $A \rho(g) = \rho'(g) A$ for all $g \in G$, then $A = 0$.
         \item If $\rho : G \to \textup{GL}(V)$ is an irreducible representation over an \tref{CA:algebraically-closed-field}{algebraically closed field $k$}, and $A : V \to V$ is a linear map such that $A \rho(g) = \rho(g) A$ for all $g \in G$, then $A$ is a scalar multiple of the identity map.
     \end{enumerate}
@@ -50,14 +50,14 @@
 
 \begin{example}{schur-lemma}
     \textbf{Proof}.
-    \begin{itemize}
+    \begin{enumerate}[(i)]
         \item For any vector $v \in V$ and $g \in G$ we have
         \[ A \rho(g) v = \rho'(g) A v . \]
         This shows that $\im A$ is invariant under $\rho'$, and $\ker A$ is invariant under $\rho$. Since both $\rho$ and $\rho'$ are irreducible, it follows that $\im A$ equal to $0$ or $W$, and $\ker A$ equal to $0$ or $V$. If $A \ne 0$, then we must have $\im A = W$ and $\ker A = 0$, implying that $A$ is invertible. But then $\rho'(g) = A \rho(g) A^{-1}$, contradicting the inequivalence of representations.
         \item Let $v \in V$ be an eigenvector of $A$ with eigenvalue $\lambda \in k$. Then for all $g \in G$,
         \[ A \rho(g) v = \rho(g) A v = \lambda \rho(g) v , \]
         so $\rho(g) v$ is again an eigenvector of $A$ with eigenvalue $\lambda$. This shows that the eigenspace of $A$ corresponding to $\lambda$ is invariant under $\rho$. Since $\rho$ is irreducible, this eigenspace must be $0$ or $V$, and since it contains $v$ already, it must be $V$. We conclude that $A = \lambda I$.
-    \end{itemize}
+    \end{enumerate}
 \end{example}
 
 \begin{topic}{clebsch-gordan-series}{Clebsch--Gordan series}

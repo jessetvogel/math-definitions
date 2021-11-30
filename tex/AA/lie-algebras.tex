@@ -16,7 +16,27 @@
 \end{example}
 
 \begin{example}{lie-algebra}
-    For any \tref{CA:ring}{ring} $R$ over a field $k$ (in particular matrix rings), the commutator bracket $[x, y] = xy - yx$ makes $R$ into a Lie algebra.
+    \begin{itemize}
+        \item $\mathfrak{sl}_n(k) = \{ X \in \textup{Mat}_{n \times n}(k) : \tr X = 0 \}$ is the Lie algebra associated to the \tref{LA:special-linear-group}{special linear group}.
+        \item $\mathfrak{so}_n = \{ X \in \textup{Mat}_{n \times n}(\RR) : X + X^T = 0 \}$ is the Lie algebra associated to the \tref{LA:orthogonal-group}{(special) orthogonal group}.
+        \item $\mathfrak{u}_n = \{ A \in \textup{Mat}_{n \times n}(\CC) : X + X^H = 0 \}$ is the Lie algebra associated to the \tref{LA:unitary-group}{special unitary group}.
+        \item $\mathfrak{su}_n = \{ A \in \textup{Mat}_{n \times n}(\CC) : X + X^H = 0 \textup{ and } \tr X = 0 \}$ is the Lie algebra associated to the \tref{LA:unitary-group}{special unitary group}.
+        \item $\mathfrak{sp}_{2n}(k) = \{ A \in \textup{Mat}_{2n \times 2n}(k) : \Omega X + X^T \Omega = 0 \}$ is the Lie algebra associated to the \tref{LA:symplectic-group}{symplectic group}.
+    \end{itemize}
+\end{example}
+
+\begin{example}{lie-algebra}
+    For any \tref{CA:ring}{ring} $A$ over a field $k$ (in particular matrix rings), the commutator bracket $[x, y] = xy - yx$ makes $A$ into a Lie algebra.
+\end{example}
+
+\begin{topic}{lie-algebra-ideal}{Lie algebra ideal}
+    An \textbf{ideal} of a \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is a subalgebra $\mathfrak{h} \subset \mathfrak{g}$ such that $[X, H] \in \mathfrak{h}$ for all $X \in \mathfrak{g}$ and $H \in \mathfrak{h}$.
+\end{topic}
+
+\begin{example}{lie-algebra-ideal}
+    For any Lie algebra $\mathfrak{g}$, the \textit{commutator ideal} $[\mathfrak{g}, \mathfrak{g}]$ is an ideal of $\mathfrak{g}$, given as the set of all elements in $\mathfrak{g}$ of the form
+    \[ c_1 [X_1, Y_1] + \cdots + c_m [X_m, Y_m] , \]
+    for some constants $c_i$ and vectors $X_i, Y_i \in \mathfrak{g}$.
 \end{example}
 
 \begin{topic}{ado-theore}{Ado's theorem}
@@ -28,6 +48,32 @@
     \[ \mathfrak{g} \supset [\mathfrak{g}, \mathfrak{g}] \supset [\mathfrak{g}, [\mathfrak{g}, \mathfrak{g}]] \supset [\mathfrak{g}, [\mathfrak{g}, [\mathfrak{g}, \mathfrak{g}]]] \supset \cdots \]
     terminates in the zero algebra.
 \end{topic}
+
+\begin{example}{nilpotent-lie-algebra}
+    \begin{itemize}
+        \item The Lie algebra given by
+        \[ \mathfrak{g} = \left\{ \begin{pmatrix} 0 & x & y \\ 0 & 0 & z \\ 0 & 0 & 0 \end{pmatrix} \right\} , \]
+        and the commutator bracket, is nilpotent. Namely, $[\mathfrak{g}, \mathfrak{g}]$ is the span of $\begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$, and $[\mathfrak{g}, [\mathfrak{g}, \mathfrak{g}]] = \{ 0 \}$.
+        
+        \item The Lie algebra $\mathfrak{sl}_2(\CC)$ is not nilpotent since $[\mathfrak{sl}_2(\CC), \mathfrak{sl}_2(\CC)] = \mathfrak{sl}_2(\CC)$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{solvable-lie-algebra}{solvable Lie algebra}
+    A \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is \textbf{solvable} if the \textit{derived series} of subalgebras
+    \[ \mathfrak{g} = \mathfrak{g}_0 \supset \mathfrak{g}_1 \supset \mathfrak{g}_2 \supset \cdots \]
+    given by $\mathfrak{g}_{i + 1} = [\mathfrak{g}_i, \mathfrak{g}_i]$, results in the zero algebra. That is, $\mathfrak{g}_i = \{ 0 \}$ for some $i > 0$.
+\end{topic}
+
+\begin{example}{solvable-lie-algebra}
+    Every \tref{nilpotent-lie-algebra}{nilpotent} Lie algebra is solvable, but the converse does not hold. Namely, consider the Lie algebra
+    \[ \mathfrak{g} = \left\{ \begin{pmatrix} x & y \\ 0 & z \end{pmatrix} \right\} , \]
+    with the commutator bracket. Then
+    \[ \left[ \begin{pmatrix} x & y \\ 0 & z \end{pmatrix}, \begin{pmatrix} a & b \\ 0 & c \end{pmatrix} \right] = \begin{pmatrix} 0 & w \\ 0 & 0 \end{pmatrix} \]
+    with $w = xb + yc - ya - zb$, which shows that $\mathfrak{g}_1 = [\mathfrak{g}, \mathfrak{g}]$ is one-dimensional, and thus $\mathfrak{g}_2 = [\mathfrak{g}_1, \mathfrak{g}_1] = \{ 0 \}$, so $\mathfrak{g}$ is solvable. However, since
+    \[ \left[ \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \right] = \begin{pmatrix} 0 & 2 \\ 0 & 0 \end{pmatrix} , \]
+    it follows that $[\mathfrak{g}, [\mathfrak{g}, \mathfrak{g}]] = [\mathfrak{g}, \mathfrak{g}]$, so the lower central series does not terminate in the zero algebra, and thus $\mathfrak{g}$ is not nilpotent.
+\end{example}
 
 \begin{topic}{cartan-subalgebra}{Cartan subalgebra}
     A \textbf{Cartan subalgebra} of a \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is a \tref{nilpotent-lie-algebra}{nilpotent} subalgebra $\mathfrak{h}$ whose \textit{normalizer} $N_\mathfrak{g}(\mathfrak{h}) := \{ X \in \mathfrak{g} : [X, \mathfrak{h}] \subset \mathfrak{h} \}$ equals $\mathfrak{h}$.
@@ -51,11 +97,11 @@
 
 \begin{example}{universal-enveloping-algebra}
     The Lie algebra $\mathfrak{g} = \mathfrak{sl}_2$ has a basis
-    \[ H = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}, \quad X = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \quad Y = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} , \]
+    \[ H = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \quad X = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \quad Y = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} , \]
     satisfying the relations
-    \[ [H, X] = -2X, \quad [H, Y] = -2Y, \quad [X, Y] = -H . \]
+    \[ [H, X] = 2X, \quad [H, Y] = -2Y, \quad [X, Y] = H . \]
     This shows that the universal enveloping algebra of $\mathfrak{sl}_2$ is given by
-    \[ U(\mathfrak{sl}_2) = \CC \langle x, y, z \rangle / (zx - xz + 2x, zy - yz + 2y, xy - yz + z) . \]
+    \[ U(\mathfrak{sl}_2) = \CC \langle x, y, z \rangle / (zx - xz - 2x, zy - yz + 2y, xy - yz - z) . \]
 \end{example}
 
 \begin{topic}{poisson-algebra}{Poisson algebra}
@@ -63,10 +109,18 @@
 \end{topic}
 
 \begin{topic}{simple-lie-algebra}{(semi)simple Lie algebra}
-    A \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is \textbf{simple} if it is non-abelian and contains no non-zero proper ideals.
+    A \tref{lie-algebra}{Lie algebra} is \textbf{simple} if it is non-commutative and contains no non-zero proper \tref{lie-algebra-ideal}{ideals}.
     
     A Lie algebra is \textbf{semisimple} if it is the direct sum of simple Lie algebras.
 \end{topic}
+
+\begin{example}{simple-lie-algebra}
+    The Lie algebra $\mathfrak{sl}_2(\CC)$ is simple. A basis for $\mathfrak{sl}_2(\CC)$is given by
+    \[ H = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \quad X = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \quad Y = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} , \]
+    satisfying the relations
+    \[ [H, X] = 2X, \quad [H, Y] = -2Y, \quad [X, Y] = H . \]
+    Let $\mathfrak{h}$ be a non-zero ideal of $\mathfrak{sl}_2(\CC)$. Then $\mathfrak{h}$ contains an element $Z = aX + bH + cY$ where $a, b, c \in \CC$ are not all zero. If $c \ne 0$, then $[X, [X, Z]] = -2cX$, so $X \in \mathfrak{h}$, and also $[Y, X] = -H \in \mathfrak{h}$ and hence also $[Y, H] = 2Y \in \mathfrak{h}$, which shows $\mathfrak{h} = \textup{sl}_2(\CC)$. If $c = 0$ and $b \ne 0$, then $[X, Z] = -2bX$, so $X \in \mathfrak{h}$ and similarly $\mathfrak{h} = \mathfrak{sl}_2(\CC)$. Finally, if $b = c = 0$ and $a \ne 0$, then $Z = aX$, so $X \in \mathfrak{h}$, so $h = \mathfrak{sl}_2(\CC)$.
+\end{example}
 
 \begin{topic}{root-system-lie-algebra}{root system Lie algebra}
     Let $\mathfrak{g}$ be a complex \tref{simple-lie-algebra}{semisimple} \tref{lie-algebra}{Lie algebra}, and $\mathfrak{h}$ a \tref{cartan-subalgebra}{Cartan subalgebra}. A \textbf{root} of $\mathfrak{g}$ (relative to $\mathfrak{h}$) is an element $\lambda \in \mathfrak{h}^*$ such that

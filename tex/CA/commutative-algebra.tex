@@ -936,3 +936,57 @@
     where $I^0 = R$. % The \textbf{extended Rees algebra} of $I$ in $R$ is the ring given by
     % \[ R[It, t^{-1}] = \bigoplus_{n = -\infty}^\infty I^n t^n \subset R[t^{\pm 1}] . \]
 \end{topic}
+
+\begin{topic}{formal-group-law}{formal group law}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{(1-dimensional) formal group law} on $R$ is a power series $F(x, y) \in R\llbracket x, y \rrbracket$ such that
+    \begin{itemize}
+        \item (\textit{linear terms}) $F(x, 0) = x$ and $F(0, y) = y$,
+        \item (\textit{associativity}) $F(x, F(y, z)) = F(F(x, y), z)$.
+    \end{itemize}
+    Such a formal group law is called \textbf{commutative} if $F(x, y) = F(y, x)$.
+\end{topic}
+
+\begin{example}{formal-group-law}
+    \begin{itemize}
+        \item The \textit{additive group law} is given by $F(x, y) = x + y$.
+        \item The \textit{multiplicative group law} is given by $F(x, y) = x + y + xy$.
+        \item The group law $F(x, y) = (x + y) / (1 + xy)$ appears in \textit{special relativity} as the addition law for velocities (here the speed of light is set to $c = 1$).
+        % \item  Any Lie group gives rise to a formal group law
+    \end{itemize}
+\end{example}
+
+\begin{topic}{lazard-universal-ring}{Lazard's universal ring}
+    \textbf{Lazard's universal ring} is \tref{ring}{commutative ring} $\mathbb{L}$ with a \tref{formal-group-law}{formal group law}
+    \[ F(x, y) = x + y + \sum_{i + j \ge 2} a_{i,j} x^i y^j \in \mathbb{L}\llbracket x, y \rrbracket , \]
+    with the universal property that for any formal group law $G(x, y) \in R \llbracket x, y \rrbracket$ over a commutative ring $R$, there exists a unique \tref{ring-morphism}{ring morphism} $f : \mathbb{L} \to R$ such that $G(f(x), f(y)) = f(F(x, y))$. The ring $\mathbb{L}$ is constructed as the quotient of the polynomial ring $\ZZ[a_{i, j} : i + j \ge 2]$ by the relations on the $a_{i, j}$ in order to make $F$ associative.
+    
+    It can be shown that $\mathbb{L}$ is isomorphic to the \tref{graded-ring}{graded ring} $\ZZ[x_1, x_2, \ldots]$, where $x_i$ has degree $i$, such that $a_{i, j}$ has degree $(i + j - 1)$.
+\end{topic}
+
+\begin{topic}{dedekind-domain}{Dedekind domain}
+    A \textbf{Dedekind domain} is a \tref{domain}{domain} $R$ in which every non-zero \tref{ideal}{ideal} $I \subsetneq R$ factors into a product of \tref{prime-ideal}{prime ideals}.
+\end{topic}
+
+\begin{example}{dedekind-domain}
+    Dedekind domains can be characterized in a number of ways. The following are all equivalent.
+    \begin{enumerate}[(i)]
+        \item $R$ is a Dedekind domain.
+        \item $R$ is \tref{noetherian-ring}{noetherian}, and for every prime ideal $\mathfrak{p} \subset R$, the \tref{localization}{localization} $R_\mathfrak{p}$ is a \tref{discrete-valuation-ring}{discrete valuation ring}.
+        \item Every \tref{fractional-ideal}{fractional ideal} of $R$ is \tref{invertible-ideal}{invertible}.
+        \item $R$ is a \tref{noetherian-ring}{noetherian} \tref{integrally-closed-domain}{integrally closed domain} of \tref{krull-dimension}{dimension} $\le 1$ (that is, every non-zero prime ideal is maximal).
+    \end{enumerate}
+    % \textbf{Proof}. $(i \Rightarrow ii)$ Let $I$ be any non-zero ideal, and take some non-zero $a \in I$. Then $(a) \subset I$, so we can write
+    % \[ I = \mathfrak{p}_1^{r_1} \cdots \mathfrak{p}_m^{r_m} \quad \textup{ and } \quad (a) = \mathfrak{p}_1^{s_1} \cdots \mathfrak{p}_m^{s_m} , \]
+    % with $r_i \le s_i$. In particular, the fractional ideal $J = a^{-1} \mathfrak{p}_1^{s_1 - r_1} \cdots \mathfrak{p}_m^{s_m - r_m}$ is the inverse of $I$.
+    % Why noetherian?
+    % $(ii \Rightarrow iii)$ 
+    
+\end{example}
+
+\begin{example}{dedekind-domain}
+    \begin{itemize}
+        \item Any \tref{field}{field} is a Dedekind domain.
+        \item The \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of a \tref{NT:number-field}{number field} $K$ is a Dedekind domain.
+        \item The ring $\ZZ[\sqrt{5}]$ is not a Dedekind domain as it is not integrally closed: the element $\alpha = \frac{1 + \sqrt{5}}{2}$ satisfies $\alpha^2 - \alpha - 1 = 0$.
+    \end{itemize}
+\end{example}

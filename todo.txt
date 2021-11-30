@@ -1,6 +1,5 @@
 # ---- System & Website ----
 
--- Clever search function: take care of switching words, () and dashes 
 -- Homepage
 -- PDF front cover
 -- Go through document and fix missing tref's
@@ -8,16 +7,25 @@
 # ---- Theory ----
 HT: homotopy category of model category (with examples of course)
 
+CA: Dedekind domain (Example: give equivalent definitions / proof)
+
+NT: fractional ideals are invertible sheaves over O_K the ring of integers
+
 - Fix compactness
 
 - Rationally connected
+
+- Examples Borel subgroups:
+    - relation Borel subgroups to flag varieties
+    - All are conjugate (over algebraically closed field k)
 
 - Atiyah--Singer theorem
 - Bott periodicity
 - Thom isomorphism (Thom class)
 
-- AA: root system (Lie algebra) { lambda : g^lambda != 0}, et al
+- AA: root system (Lie algebra) { lambda : g^lambda != 0}, et al (Examples: sl_2 and sl_3)
 - AA: Verma module (Lie algebra)
+- AA: Weyl group Lie algebra
 
 - Modular form
 - (infinity, k)-category
@@ -42,12 +50,13 @@ LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
 UN: classifying space -- vague?
 
 # Measure Theory
-MT: Measure Theory, sigma algebra, Borel algebra, etc. (see lectures notes from RuG, Henk de Snoo) some integrability theorems
+# MT: Measure Theory, sigma algebra, Borel algebra, etc. (see lectures notes from RuG, Henk de Snoo) some integrability theorems
 
 # Commutative algebra
 -- CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
 
 # Algebraic Geometry
+# AG: parabolic vector bundle
 AG: Kodaira dimension
 AG: blowup / blowdown
 AG: étale fundamental group(oid)
@@ -89,16 +98,13 @@ HT: Spectra!
 AA: move some commutative algebra which isn't commutative to AA ??
 
 # Differential Geometry
-DG: Dorfman bracket
+DG: Floer homology
+DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
+DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
+DG: Some examples for the (ricci/scalar)curvature/geodesics stuff
 DG/TO: structure group
-DG: abelian connection (Fedosov)
-DG: complex manifold
-DG: hyperkahler manifold
-    Riemannian manifold with three complex structures I, J, K satsifying quaternionic relations.
-    "Definition 1.5. A complex structure on a smooth manifold XX is the structure of a complex manifold on XX. Every such defines an almost complex structure and almost complex structures arising this way are called integrable (see also at integrability of G-structures the section Examples – Complex structure)."
 DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 DG: orbifold
-DG?: Weyl group / maximal torus
 
 ?AT: Euler characteristic
 AT: Gysin sequence
@@ -111,5 +117,6 @@ RT: weights, dominant, integral elements
 # Noncmomutative deformations??
 - Quantum groups
 - Mirror symmetry ??? What is this all about ??
+    - Kontsevich Homological Mirror Symmetry
 - S-equivalence
 - Path-ordered exponential

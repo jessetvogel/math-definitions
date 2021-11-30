@@ -419,3 +419,17 @@
     \[ M_f = ( (X \times [0, 1]) \sqcup Y ) / \sim{} , \]
     where $(x, 1) \sim f(x)$ for all $x \in X$.
 \end{topic}
+
+\begin{topic}{embedding}{embedding}
+    A \tref{continuous-map}{continuous map} $f : X \to Y$ between \tref{topological-space}{topological spaces} is an \textbf{embedding} if it is a \tref{homeomorphism}{homeomorphism} onto its image.
+\end{topic}
+
+\begin{topic}{isotopy}{isotopy}
+    Let $X$ and $Y$ be \tref{topological-space}{topological spaces}, and let $f, g : X \to Y$ be two \tref{embedding}{embeddings}. An \textbf{isotopy} from $f$ to $g$ is a \tref{AT:homotopy}{homotopy} $H : X \times [0, 1] \to Y$ from $f$ to $g$ such that $H(-, t) : X \to Y$ is an embedding for all $t \in [0, 1]$. If such an isotopy exists, $f$ and $g$ are called \textbf{isotopic}.
+\end{topic}
+
+\begin{example}{isotopy}
+    Every isotopy is a homotopy, but not conversely. Namely, let $X = Y = [0, 1]$ and $f, g : X \to Y$ given by $f(x) = x$ and $g(x) = 1 - x$. Then there is a homotopy from $f$ to $g$ given by
+    \[ H(x, t) = (1 - t) x - t (1 - x) . \]
+    However, no isotopy from $f$ to $g$ can exist, since for any homotopy from $f$ to $g$ the endpoints must cross for some $t$.
+\end{example}

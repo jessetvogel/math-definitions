@@ -211,3 +211,24 @@
 \begin{example}{fedosov-manifold}
     Any symplectic manifold $(M, \omega)$ admits a torsion-free symplectic connection. Namely, by \tref{darboux-theorem}{Darboux's theorem}, there exists a covering of $M$ by \textit{Darboux charts}, which are open subsets of the standard symplectic space $\RR^{2n}$ with coordinates $q^1, \ldots, q^n, p_1, \ldots, p_n$ and symplectic form $\omega = \sum_{i = 1}^{n} dq^i \wedge dp_i$. On such a standard symplectic space, the \tref{exterior-derivative}{exterior derivative} $d$ is a torsion-free symplectic connection, and gluing these using a \tref{partition-of-unity}{partition of unity}, we obtain a global torsion-free symplectic connection on $M$.
 \end{example}
+
+\begin{topic}{lagrangian-submanifold}{Lagrangian submanifold}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. A submanifold $L \subset M$ is \textbf{Lagrangian} if $T_p L \subset T_p M$ is a \tref{LA:lagrangian-subspace}{Lagrangian subspace} for each $p \in M$.
+\end{topic}
+
+\begin{example}{lagrangian-submanifold}
+    For any smooth manifold $Q$, consider the cotangent bundle $T^*Q$ with the \tref{canonical-symplectic-form}{canonical symplectic form} $\omega$.
+    \begin{itemize}
+        \item Then the zero section of $T^*Q \to Q$ is a Lagrangian submanifold.
+        \item The fibers of $T^*Q \to Q$ are Lagrangian submanifolds.
+        \item Given a one-form $\alpha \in \Omega^1(Q)$, the graph $\Gamma_\alpha \subset T^*L$ is a Lagrangian submanifold if and only if $\alpha$ is closed.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{weinstein-lagrangian-neighborhood-theorem}{Weinstein's Lagrangian neighborhood theorem}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}, and $L \subset M$ a \tref{TO:compact-space}{compact} \tref{lagrangian-submanifold}{Lagrangian submanifold}. Then \textbf{Weinstein's Lagrangian neighborhood theorem} states that there exists a neighborhood $U$ of the zero section in $T^*L$, and a neighborhood $V$ of $L$ in $M$, and a \tref{symplectomorphism}{symplectomorphism} $\varphi : (V, \omega) \to (U, \omega_\textup{can})$, where $\omega_\textup{can}$ denotes the \tref{canonical-symplectic-form}{canonical symplectic form} on $T^*L$.
+\end{topic}
+
+% \begin{topic}{fukaya-category}{Fukaya category}
+%     Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. The \textbf{Fukaya category} of $M$ is the \tref{CT:category}{category} whose objects are \tref{lagrangian-submanifold}{Lagrangian submanifolds} of $M$, and whose morphisms ...
+% \end{topic}
