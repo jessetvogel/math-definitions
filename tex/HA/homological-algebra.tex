@@ -98,14 +98,33 @@
 \end{topic}
 
 \begin{topic}{chain-homotopy}{chain homotopy}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : A^\bdot \to B^\bdot$ be morphisms of \tref{chain-complex}{chain complexes} in $\mathcal{A}$. A \textbf{chain homotopy} from $f$ to $g$ is a collection of morphisms $k^i : A^i \to B^{i - 1}$ such that $f - g = dk + kd$.
-    
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : A^\bdot \to B^\bdot$ be morphisms of \tref{chain-complex}{chain complexes} in $\mathcal{A}$. A \textbf{chain homotopy} from $f$ to $g$ is a collection of morphisms $k^i : A^i \to B^{i - 1}$ such that
+    \[ f^i - g^i = d_B^{i - 1} k^i + k^{i + 1} d_A^i . \]
     If a homotopy exists from $f$ to $g$, we say that $f$ and $g$ are \textbf{homotopic}. This gives an equivalence relation on the set of morphisms from $A^\bdot$ to $B^\bdot$.
 \end{topic}
+
+\begin{example}{chain-homotopy}
+    Homotopic maps $f, g : A^\bdot \to B^\bdot$ yield the same map on the level of homology. Namely, if $f - g = dk + kd$, then for any $x \in H^i(A^\bdot)$ we have
+    \[ f(x) - g(x) = d_B^{i - 1}(k^i(x)) + k^{i + 1}(d_A^i(x)) = 0 , \]
+    since $d_B^{i - 1}(k^i(x)) = 0 \in H^{i}(B^\bdot)$ and $d_A^i(x) = 0 \in H^{i + 1}(A^\bdot)$, since $x \in \ker d_A^i$.
+\end{example}
 
 \begin{topic}{chain-homotopy-equivalence}{chain homotopy equivalence}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A morphism of \tref{chain-complex}{chain complexes} $f : M^\bdot \to N^\bdot$ is called a \textbf{chain homotopy equivalence} if there exists a morphism $g : N^\bdot \to M^\bdot$ such that $fg$ and $gf$ are \tref{chain-homotopy}{homotopic} to the identity morphism.
 \end{topic}
+
+\begin{example}{chain-homotopy-equivalence}
+    Consider $R = \ZZ \times \ZZ$ and the $R$-module $M = \ZZ \times \{ 0 \}$. Then
+    \[ 0 \to M \xrightarrow{\id} M \to 0 \qquad \textup{ and } \qquad  0 \to \{ 0 \} \times \ZZ \hookrightarrow \ZZ \times \ZZ \twoheadrightarrow M \to 0 \]
+    are two projective resolutions of $M$ as an $R$-module, so they should be related by a homotopy equivalence. Calling the resolutions $A^\bdot$ and $B^\bdot$, respectively, define chain maps $f : A^\bdot \to B^\bdot$ and $g : B^\bdot \to A^\bdot$ as
+    \[ \begin{tikzcd}
+        0 \arrow{r} & 0 \arrow[bend left=20]{d} \arrow{r} & M \arrow[bend left=20]{d}{i} \arrow{r} & 0 \\
+        0 \arrow{r} & \{ 0 \} \times \ZZ \arrow[bend left=20]{u} \arrow[hookrightarrow]{r} & \ZZ \times \ZZ \arrow[bend left=20]{u}{r} \arrow{r} & 0
+    \end{tikzcd} \]
+    with $i(0, b) = (0, b)$ and $r(a, b) = (0, b)$. Indeed, $gf = \id$ and $fg - \id = dk + kd$ for
+    \[ k^0 : \ZZ \times \ZZ \to \{ 0 \} \times \ZZ, \quad (a, b) \mapsto (0, b) . \]
+    This shows that $f$ and $g$ are homotopy equivalences. In particular, the compositions $fg$ and $gf$ are \tref{quasi-isomorphism}{quasi-isomorphisms}.
+\end{example}
 
 \begin{topic}{quasi-isomorphism}{quasi-isomorphism}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian-category}. A morphism $f : M^\bdot \to N^\bdot$ of \tref{chain-complex}{chain complexes} in $\mathcal{A}$ is called a \textbf{quasi-isomorphism} if the induced maps on homology
@@ -129,6 +148,20 @@
     where all $I^i$ are \tref{injective-object}{injective objects}. Equivalently, this can be seen as a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to I^\bdot$ in $\text{Comp}(\mathcal{A})$.
 \end{topic}
 
+\begin{example}{injective-resolution}
+    Let $A, B$ be objects of $\mathcal{A}$, and $f : A \to B$ a morphism. Let $0 \to A \to I_A^\bdot$ and $0 \to B \to I_B^\bdot$ be injective resolutions of $A$ and $B$, respectively. Then the map $f : A \to B$ can be lifted to a map $f^\bdot : I_A^\bdot \to I_B^\bdot$ such that $H^0(f^\bdot) = f$. Moreover, any two such liftings of $f$ are homotopic. In particular, for $A = B$ and $f = \id_A$, this shows that an injective resolution of $A$ is unique up to homotopy equivalence. Moreover, there is a bijection
+    \[ \Hom_{\textbf{K}(\mathcal{A})}(I_A^\bdot, I_B^\bdot) \simeq \Hom_{\mathcal{A}}(A, B) , \]
+    where $\textbf{K}(\mathcal{A})$ is the \tref{homotopy-category}{homotopy category} of $\mathcal{A}$.
+    
+    \textbf{Proof}. First we construct one such lift $f^\bdot$. Since $A \to I_A^0$ is injective, the map $d_B \circ f : A \to I_B^0$ lifts to some $f^0 : I_A^0 \to I_B^0$ by injectivity of $I_B^0$. Suppose by induction that we have defined $f^k$ for $k \le n$ such that $d_B \circ f^k = f^{k + 1} \circ d_A$ for all $k < n$. Note that $d_B \circ f^n$ sends $\ker d_A^n$ to $\im (d_B \circ f^n \circ d_A^{n - 1}) = \im (d_B \circ d_B \circ f^{n - 1}) = 0$. Hence $d_B \circ f^n$ descends to a map $d_A(I_A^n) \to I_B^{n + 1}$, and by injectivity of $I_B^{n + 1}$ this lifts to a map $f^{n + 1} : I_A^{n + 1} \to I_B^{n + 1}$. By construction this map satisfies $f^{n + 1} \circ d_A = d_B \circ f^n$. Indeed, as $i_B \circ f = f^0 \circ i_A$, we have $H^0(f^\bdot) = f$.
+    
+    To show two such liftings $f_1^\bdot$ and $f_2^\bdot$ are homotopic, we can equivalently show that $f_1^\bdot - f_2^\bdot$ is homotopic to the zero map $I_A^\bdot \to I_B^\bdot$. Note that $f_1^\bdot - f_2^\bdot$ lifts the zero map $A \to B$, so it suffices to take $f = 0$ and show that the obtained map $f^\bdot$ is of the form $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$.
+    
+    Since $f^0(A) = 0$, the map $f^0$ descends to a map $d(I_A^0) \to I_B^0$, which lifts to a map $h^1 : I_A^1 \to I_B^0$ by injectivity of $I_B^0$. Again by induction, assume that we have maps $h^k : I_A^k \to I_B^{k - 1}$ for all $k < n$, such that $f^k = d_B \circ h^k + h^{k + 1} \circ d_A$ for all $k < n$. Then, note that $f^n - d_B h^n$ sends $\ker d_A^n$ to
+    \[ \im ((f^n - d_B \circ h^n) \circ d_A) = \im (d_B \circ f^{n - 1} - d_B \circ (f^{n - 1} - d_B \circ h^{n - 1})) = 0 , \]
+    so $f^n - d_B \circ h^n$ descends to a map $d(I_A^n) \to I_B^n$ and by injectivity of $I_B^n$ lifts to a map $h^{n + 1} : I_A^{n + 1} \to I_B^n$, which satisfies $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$ by construction.
+\end{example}
+
 \begin{topic}{projective-resolution}{projective resolution}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $M$ an object in $\mathcal{A}$. A \textbf{projective resolution} of $M$ is an exact sequence
     \[ \cdots \to P^1 \to P^0 \to M \to 0 \]
@@ -137,7 +170,7 @@
 
 % Derived functors
 \begin{topic}{right-derived-functors}{right derived functors}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{injective-resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{injective-resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
     \[ \text{R}^i F M = H^i(F(I^\bdot)) . \]
     This is well-defined (independent of the chosen resolution) and yields additive functors $\text{R}^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \simeq F$.
     
@@ -228,7 +261,7 @@
 \begin{topic}{ext-functors}{Ext functors}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $A$ an object of $\mathcal{A}$. The functor
     \[ \Hom_{\mathcal{A}}(A, -) : \mathcal{A} \to \textbf{Ab} \]
-    is \tref{exact-functor}{left exact}, so (if $\mathcal{A}$ has enough injectives) it has \tref{right-derived-functors}{right derived functors}, which are known as the \textbf{Ext functors}
+    is \tref{exact-functor}{left exact}, so (if $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}) it has \tref{right-derived-functors}{right derived functors}, which are known as the \textbf{Ext functors}
     \[ \text{Ext}^i_\mathcal{A}(A, B) = \text{R}^i \Hom_\mathcal{A}(A, B) . \]
 \end{topic}
 
@@ -313,7 +346,7 @@
 \end{example}
 
 \begin{topic}{grothendieck-spectral-sequence}{Grothendieck spectral sequence}
-    Let $F : \mathcal{A} \to \mathcal{B}$ and $G : \mathcal{B} \to \mathcal{C}$ be \tref{exact-functor}{left exact functors} between \tref{abelian-category}{abelian categories}, such that $\mathcal{A}$ and $\mathcal{B}$ have enough injectives, and $F$ maps \tref{injective-object}{injective objects} to \tref{acyclic-object}{$G$-acyclic objects}. Then there is a \tref{spectral-sequence}{spectral sequence}
+    Let $F : \mathcal{A} \to \mathcal{B}$ and $G : \mathcal{B} \to \mathcal{C}$ be \tref{exact-functor}{left exact functors} between \tref{abelian-category}{abelian categories}, such that $\mathcal{A}$ and $\mathcal{B}$ have \tref{enough-injectives}{enough injectives}, and $F$ maps \tref{injective-object}{injective objects} to \tref{acyclic-object}{$G$-acyclic objects}. Then there is a \tref{spectral-sequence}{spectral sequence}
     \[ E_2^{p, q} = (R^p G \circ R^q F)(A) \Rightarrow R^{p + q}(G \circ F)(A) , \]
     called the \textbf{Grothendieck spectral sequence}.
 \end{topic}
@@ -346,3 +379,17 @@
     with differential
     \[ d_{C(f)}^i = \begin{pmatrix} -d_A^{i + 1} & 0 \\ f^{i + 1} & d_B^i \end{pmatrix} . \]    
 \end{topic}
+
+\begin{topic}{enough-injectives}{enough injectives}
+    An \tref{abelian-category}{abelian category} $\mathcal{A}$ is said to have \textbf{enough injectives} if for every object $A$ in $\mathcal{A}$ there exists an \tref{injective-object}{injective object} $I$ and an injective map $A \to I$.
+\end{topic}
+
+\begin{example}{enough-injectives}
+    If $\mathcal{A}$ has enough injectives, then any object $A$ of $\mathcal{A}$ has an \tref{injective-resolution}{injective resolution}. Such a resolution can be constructed inductively as follows.
+    
+    Start with an injective object $I^0$ and an injective map $A \to I^0$. Then let $C^0 = \coker (A \to I^0)$, and pick an injective object $I^1$ with injective map $C^0 \to I^1$, and take $I^0 \to I^1$ the composition via $C^0$. Note, since $C^0 \to I^1$ is injective, that $\ker (I^0 \to I^1) = \ker(I^0 \to C^0) = \im (A \to I^0)$ by construction. Inductively, for any $i \ge 0$, define $C^{i + 1} = \coker(I^i \to I^{i + 1})$ and pick an injective object $I^{i + 1}$ with injective map $C^{i + 1} \to I^{i + 2}$, and let $I^{i + 1} \to I^{i + 2}$ be the composition via $C^{i + 1}$. Again, by construction $\ker (I^{i + 1} \to I^{i + 2}) = \ker (I^{i + 1} \to C^{i + 1}) = \im (I^i \to I^{i + 1})$, which shows exactness at $I^{i + 1}$.
+    \[ \begin{tikzcd}
+        0 \arrow{r} & A \arrow{r} & I^0 \arrow[twoheadrightarrow]{d} \arrow{r} & I^1 \arrow[twoheadrightarrow]{d} \arrow{r} & I^2 \arrow[twoheadrightarrow]{d} \arrow{r} & \cdots \\
+        & & C^0 \arrow[hookrightarrow]{ur} & C^1 \arrow[hookrightarrow]{ur} & C^2 \arrow[hookrightarrow]{ur} & \cdots
+    \end{tikzcd} \]
+\end{example}

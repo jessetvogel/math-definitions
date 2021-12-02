@@ -232,3 +232,16 @@
 % \begin{topic}{fukaya-category}{Fukaya category}
 %     Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. The \textbf{Fukaya category} of $M$ is the \tref{CT:category}{category} whose objects are \tref{lagrangian-submanifold}{Lagrangian submanifolds} of $M$, and whose morphisms ...
 % \end{topic}
+
+\begin{topic}{formal-deformation-quantization}{formal deformation quantization}
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. A \textbf{formal deformation quantization} of $M$ is an associative product $\star$ on $Z = C^\infty(M) \llbracket \hbar \rrbracket$ (complex-valued functions), called a \textit{star product}, bilinear over $\CC \llbracket \hbar \rrbracket$, satisfying
+    \begin{itemize}
+        \item (\textit{formal deformation}) $a \star b \mod \hbar = ab$ for all $a, b \in Z$,
+        \item (\textit{locality}) if $a, b \in Z$, then
+        \[ a \star b = \sum_{k \ge 0} \hbar^k c_k , \]
+        with $c_k$ depending only on $\partial^\alpha a_i \partial^\beta b_j$ for $i + j + |\alpha| + |\beta| \le k$.
+        \item (\textit{correspondence principle}) if $a, b \in Z$, then
+        \[ [a, b] = a \star b - b \star a = - i \hbar \{ a_0, b_0 \} + \mathcal{O}(\hbar^2) , \]
+        where $\{ \cdot, \cdot \}$ denotes the Poisson bracket associated to $\omega$.
+    \end{itemize}
+\end{topic}

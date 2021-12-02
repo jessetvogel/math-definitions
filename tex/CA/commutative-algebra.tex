@@ -182,7 +182,7 @@
 \end{topic}
 
 \begin{example}{idempotent-element}
-    The idempotent elements of a ring $R$ are in bijection with the decompositions of $R$ as a product $R = R_1 \times R_2$. Indeed, every such decomposition yields the idempotent element $(1, 0)$. Conversely, for every idempotent $e \in R$, we have that $Re$ and $R(1 - e)$ are subrings of $R$, and we have an isomorphism
+    The idempotent elements of a commutative ring $R$ are in bijection with the decompositions of $R$ as a product $R = R_1 \times R_2$. Indeed, every such decomposition yields the idempotent element $(1, 0)$. Conversely, for every idempotent $e \in R$, we have that $Re$ and $R(1 - e)$ are subrings of $R$, and we have an isomorphism
     \[ \begin{aligned}
         R &\simeq Re \times R(1 - e) \\
         r &\mapsto (re, r - re)
@@ -748,7 +748,7 @@
     \[ (\partial^{n, i} f)(r_1 \otimes \cdots \otimes r_n) = \left\{ \begin{array}{cl}
         r_1 f(r_2 \otimes \cdots \otimes r_n)  & \textup{ if } i = 0, \\
          f(r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n) & \textup{ if } 1 < i < n, \\
-        f(r_1 \otimes \cdots \otimes r_{n - 1}) r_n & \textup{ if } i = n . \\ .
+        f(r_1 \otimes \cdots \otimes r_{n - 1}) r_n & \textup{ if } i = n .
     \end{array} \right. \]
     The corresponding cohomology $HH^n(R, M)$ is the \textbf{Hochschild cohomology} of $R$ with coefficients in $M$.
 \end{topic}
@@ -989,4 +989,14 @@
         \item The \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of a \tref{NT:number-field}{number field} $K$ is a Dedekind domain.
         \item The ring $\ZZ[\sqrt{5}]$ is not a Dedekind domain as it is not integrally closed: the element $\alpha = \frac{1 + \sqrt{5}}{2}$ satisfies $\alpha^2 - \alpha - 1 = 0$.
     \end{itemize}
+\end{example}
+
+\begin{topic}{corner-ring}{corner ring}
+    Let $R$ be a \tref{ring}{ring}. A \textbf{corner} of $R$ is a subset $eRe \subset R$ with $e \in R$ an \tref{idempotent-element}{idempotent}. Such a corner is itself a ring, with $e$ as multiplicative identity.
+\end{topic}
+
+\begin{example}{corner-ring}
+    Let $R = \textup{Mat}_{3 \times 3}(k)$ and $e = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$. The associated corner is
+    \[ eRe = \left\{ \begin{pmatrix} a & b & 0 \\ c & d & 0 \\ 0 & 0 & 0 \end{pmatrix} \right\} \]
+    with $e$ as multiplicative identity.
 \end{example}

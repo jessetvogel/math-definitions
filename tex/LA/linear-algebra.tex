@@ -417,3 +417,16 @@
 %         \item ...
 %     \end{itemize}
 % \end{topic}
+
+\begin{topic}{cramer-rule}{Cramer's rule}
+    Let $A$ be an \tref{invertible-matrix}{invertible} $n \times n$ matrix, and $b \in \RR^n$ a vector. Then \textbf{Cramer's rule} says that the solution $x \in \RR^n$ for $Ax = b$ is given by
+    \[ x_i = \frac{\det(A_i)}{\det(A)} \quad \textup{ for } i = 1, \ldots, n, \]
+    where $A_i$ is the matrix formed by replacing the $i$-th column of $A$ by the column vector $b$.
+\end{topic}
+
+\begin{example}{cramer-rule}
+    Let $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $b = \begin{pmatrix} 6 \\ 8 \end{pmatrix}$. Then the solution to $Ax = b$ is given by
+    \[ x_1 = \frac{\det \begin{pmatrix} 6 & 2 \\ 8 & 4 \end{pmatrix}}{\det \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}} = \frac{8}{-2} = -4, \quad \textup{ and} \quad x_2 = \frac{\det \begin{pmatrix} 1 & 6 \\ 3 & 8 \end{pmatrix}}{\det \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}} = \frac{-10}{-2} = 5 . \]
+    And indeed, now we find
+    \[ Ax = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} -4 \\ 5 \end{pmatrix} = \begin{pmatrix} 6 \\ 8 \end{pmatrix} = b . \]
+\end{example}

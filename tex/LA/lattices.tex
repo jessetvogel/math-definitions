@@ -1,0 +1,11 @@
+\begin{topic}{minkowski-theorem}{Minkowski's theorem}
+    Let $L$ be a lattice in $\RR^n$, and $S \subset \RR^n$ a convex subset, which is symmetric with respect to the origin. That is, for all $x \in S$ also $-x \in S$. Then \textbf{Minkowski's theorem} states that if the volume of $S$ is strictly larger than $2^n \det(L)$, then $S$ must contain at least one non-zero lattice point of $L$.
+\end{topic}
+
+\begin{example}{minkowski-theorem}
+    The given bound is sharp. Namely, consider $L = \ZZ^n$ with $\det(L) = 1$, and $S$ the interior of $[-1, 1]^n$, whose volume is $2^n$. Then $S$ does not contain any non-zero lattice points.
+\end{example}
+
+\begin{example}{minkowski-theorem}
+    \textbf{Proof}. By assumption, the set $\tfrac{1}{2} S = \{ \tfrac{1}{2} x : x \in S \}$ has volume $\textup{vol}(\tfrac{1}{2} S) = 2^{-n} \textup{vol}(S) > \textup{vol}(\RR^n/L)$, so the map $\tfrac{1}{2} S \to \RR^n / L$ cannot be injective. Hence, there are distinct points $x_1, x_2 \in S$ such that $\tfrac{1}{2} x_1 - \tfrac{1}{2} x_2 \in L$. Since $-x_2 \in S$ and $S$ is convex, the linear combination $\tfrac{1}{2} x_1 - \tfrac{1}{2} x_2$ is a non-zero lattice point in $S$.
+\end{example}

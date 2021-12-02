@@ -377,3 +377,15 @@
         \item The quaternion group $Q_8 = \langle -1, i, j, k \;|\; (-1)^2 = 1 \textup{ and } i^2 = j^2 = k^2 = ijk = -1 \rangle$ is nilpotent. Namely, its center is $Z(Q_8) = \{ -1, 1 \}$ and we have a series $Q_8 \supset \{ -1, 1 \} \supset \{ 1 \}$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{abelianization}{abelianization}
+    The \textbf{abelianization} of a \tref{group}{group} $G$ is the \tref{quotient-group}{quotient}
+    \[ G/[G, G] \]
+    where $[G, G]$ denotes the \tref{commutator-subgroup}{commutator subgroup}. Indeed, the abelianization of any group is \tref{abelian-group}{abelian}.
+\end{topic}
+
+\begin{example}{abelianization}
+    Let $G = \textup{GL}_n(\RR)$ be the the \tref{LA:general-linear-group}{general linear group}. The \tref{LA:determinant}{determinant} $\det : G \to \RR^*$ has constant value $1$ on $[G, G]$, since the determinant of products of commutators is always $1$. Conversely, after showing that any matrix of determinant $1$ can be written as a product of commutators, it follows that
+    \[ \det : G / [G, G] \xrightarrow{\sim} \RR^* \]
+    is an isomorphism.
+\end{example}

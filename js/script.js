@@ -162,8 +162,8 @@ function initAutoComplete() {
 
     // Override search function
     window.addEventListener('keydown', function (event) {
-        const ctrlKey = navigator.platform.indexOf('Mac') > -1 ? event.metaKey : event.ctrlKey;
-        if (ctrlKey && event.shiftKey && event.key == 'f') {
+        // const ctrlKey = navigator.platform.indexOf('Mac') > -1 ? event.metaKey : event.ctrlKey;
+        if (event.altKey && event.key == 'f') {
             const input = document.getElementById('input-search');
             input.focus();
             input.select();

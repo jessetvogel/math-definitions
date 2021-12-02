@@ -5,14 +5,22 @@
 -- Go through document and fix missing tref's
 
 # ---- Theory ----
+
+HA: enough injectives
+    + examples of common categories which have those
+    + example of existence of injective resolution (proof)
+
+AG: (counter)examples to all types of properties of morphisms. Also quasi-compact morphism does not seem to be in the list?
+
 HT: homotopy category of model category (with examples of course)
+
+HA: Group cohomology (Example: interpretation of first cohomology groups. Would be nice if some examples as well (concrete groups)) https://en.wikipedia.org/wiki/Group_cohomology
 
 CA: Dedekind domain (Example: give equivalent definitions / proof)
 
-NT: fractional ideals are invertible sheaves over O_K the ring of integers
+NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 
 - Fix compactness
-
 - Rationally connected
 
 - Examples Borel subgroups:
@@ -26,16 +34,14 @@ NT: fractional ideals are invertible sheaves over O_K the ring of integers
 - AA: root system (Lie algebra) { lambda : g^lambda != 0}, et al (Examples: sl_2 and sl_3)
 - AA: Verma module (Lie algebra)
 - AA: Weyl group Lie algebra
+- AA: Cartan's criterion (https://en.wikipedia.org/wiki/Cartan%27s_criterion)
 
 - Modular form
 - (infinity, k)-category
 - Nerve example: "concretely this means" (p.9 of HTT of Lurie) + Can recover C from its nerve: [...]
 - Dold-Kan examples
 
-- Toeplitz algebra
-- Fréchet topology (any Banach space, any Schwartz space) / Frechet space
-- Dirac operator
-- Inequalities for FA (see Lp spaces)
+
 
 - Simplicial homotopy groups
 - Borel construction (EG x X / G) : Example BG = classifying space
@@ -102,7 +108,7 @@ DG: Floer homology
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
 DG: Some examples for the (ricci/scalar)curvature/geodesics stuff
-DG/TO: structure group
+DG: Ricci identity
 DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 DG: orbifold
 
@@ -113,6 +119,11 @@ AT: Bockstein sequence
 AT/TO: equivariant cohomology ? Homotopy quotients
 
 RT: weights, dominant, integral elements
+
+# Functional Analysis
+FA: Fréchet topology (any Banach space, any Schwartz space) / Frechet space
+FA: Toeplitz algebra
+FA: Inequalities for FA (see Lp spaces)
 
 # Noncmomutative deformations??
 - Quantum groups
