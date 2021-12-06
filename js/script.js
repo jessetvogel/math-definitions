@@ -16,8 +16,7 @@ function loadTopic(id) {
         const definition = document.getElementById('definition');
         if (xhttpDef.status == 200) {
             definition.innerHTML = this.responseText;
-            if (MathJax && MathJax.typeset)
-                MathJax.typeset([definition]);
+            typeset(definition);
         }
         else if (xhttpDef.status == 404)
             definition.innerHTML = '<div class="error">Definition not found 🥺</div>';
@@ -41,8 +40,7 @@ function loadTopic(id) {
         toggle.addEventListener('click', function () { examples_.classList.toggle('hidden'); });
         examples_.append(toggle);
         examples_.insertAdjacentHTML('beforeend', this.responseText);
-        if (MathJax && MathJax.typeset)
-            MathJax.typeset([examples_]);
+        typeset(examples_);
     };
     xhttpEx.onerror = function () {
         console.log('error..');
@@ -163,7 +161,7 @@ function initAutoComplete() {
     // Override search function
     window.addEventListener('keydown', function (event) {
         // const ctrlKey = navigator.platform.indexOf('Mac') > -1 ? event.metaKey : event.ctrlKey;
-        if (event.altKey && event.key == 'f') {
+        if (event.altKey && event.code == 'KeyF') {
             const input = document.getElementById('input-search');
             input.focus();
             input.select();
@@ -297,4 +295,19 @@ function setTheme(dark) {
         return false;
     }
     return setTheme(!document.body.classList.contains('dark'));
+}
+
+function typeset(elem) {
+    // Typeset math
+    if (MathJax && MathJax.typeset)
+        MathJax.typeset([elem]);
+
+    // Make sure the svg images have correct margin
+    function setImageMargin(img) {
+        const margin = 0.5 * img.height * 0.33 + 16;
+        img.style.marginTop = img.style.marginBottom = `${margin}px`;
+    }
+    for (const img of elem.querySelectorAll('img.display-math-svg')) {
+        if (img.complete) setImageMargin(img); else img.addEventListener('load', function () { setImageMargin(this); });
+    }
 }

@@ -88,3 +88,17 @@
     \[ q_Q(d) = \langle d, d \rangle_Q = \sum_{i \in Q_0} d_i^2 - \sum_{(\alpha : i \to j) \in Q_1} d_i d_j \]
     for any $d = (d_i)_{i \in Q_0}$, where $\langle \cdot, \cdot \rangle_Q$ denotes the \tref{euler-form}{Euler form} of $Q$.
 \end{topic}
+
+\begin{topic}{differential-graded-category}{differential graded category}
+    A \textbf{differential graded (dg) category} $\mathcal{A}$ over a commutative ring $k$, is a \tref{CT:category}{category} \tref{CT:enriched-category}{enriched} over \tref{HA:chain-complex}{chain complexes} of $k$-modules. Concretely, morphisms between objects $A$ and $B$ of $\mathcal{A}$ form a chain complex,
+    \[ \Hom_\mathcal{A}(A, B) = \bigoplus_{n \in \ZZ} \Hom^n_\mathcal{A}(A, B) , \]
+    with differential $d : \Hom^n_\mathcal{A}(A, B) \to \Hom^{n + 1}_\mathcal{A}(A, B)$ satisfying $d^2 = 0$. Furthermore, composition of morphisms
+    \[ \Hom_\mathcal{A}(A, B) \otimes_k \Hom_\mathcal{A}(B, C) \to \Hom_\mathcal{A}(A, C) \]
+    must be a chain map.
+\end{topic}
+
+\begin{topic}{differential-graded-functor}{differential graded functor}
+    A \textbf{differential graded (dg) functor} is a \tref{CT:functor}{functor} $F : \mathcal{A} \to \mathcal{B}$ between \tref{differential-graded-category}{dg categories}, such that for all objects $A$ and $B$ of $\mathcal{A}$, the map
+    \[ F : \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{B}(F(A), F(B)) \]
+    is a morphism of chain complexes.
+\end{topic}

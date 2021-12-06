@@ -1,6 +1,6 @@
-The <b>homotopy category</b> of a <a href="#CT:simplicial-object">simplicial set</a> <span class="math inline">\(S_\bdot\)</span> is the category <span class="math inline">\(\text{h}S_\bdot\)</span> defined as follows:
-<ul><li> The objects are the <i>vertices</i> <span class="math inline">\(x \in S_0\)</span>.
-</li><li> Every <i>edge</i> <span class="math inline">\(e \in S_1\)</span> determines a morphism <span class="math inline">\([e] : d_1(e) \to d_0(e)\)</span>. The collection of morphisms in <span class="math inline">\(\text{h}S_\bdot\)</span> is generated under composition by morphisms of the form <span class="math inline">\([e]\)</span>, subject to the relations
-<span class="math display">\[ [s_0(x)] = \id_x \text{ for } x \in S_0, \qquad [d_1(\sigma)] = [d_0(\sigma)] \circ [d_2(\sigma)] \text{ for } \sigma \in S_2 . \]</span>
-</li></ul><br/>
-The functor <span class="math inline">\(S_\bdot \mapsto \text{h}S_\bdot\)</span> is <a href="#CT:adjoint-functors">left adjoint</a> to the <a href="#CT:nerve">nerve functor</a>.
+Let <span class="math inline">\(\mathcal{C}\)</span> be a <a href="#HT:model-category">model category</a>. The <b>homotopy category</b> <span class="math inline">\(\textup{Ho}(\mathcal{C})\)</span> of <span class="math inline">\(\mathcal{C}\)</span> is the <a href="#CT:category">category</a> whose
+<ul><li> objects are the objects of <span class="math inline">\(\mathcal{C}\)</span> which are both fibrant and cofibrant,
+</li><li> morphisms are <a href="#HT:homotopy">homotopy classes</a> of maps.
+</li></ul>
+There is a functor <span class="math inline">\(\mathcal{C} \to \textup{Ho}(\mathcal{C})\)</span>, sending an object <span class="math inline">\(X\)</span> to its fibrant-cofibrant replacement.<br/>
+Equivalently, the homotopy category is given as the <a href="#CT:localization">localization</a> of <span class="math inline">\(\mathcal{C}\)</span> by its class of weak equivalences.

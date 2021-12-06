@@ -1,0 +1,6 @@
+Let <span class="math inline">\(G\)</span> be a <a href="#GT:group">group</a>, and <span class="math inline">\(M\)</span> an <a href="#GT:abelian-group">abelian group</a> with an action of <span class="math inline">\(G\)</span>. Let <span class="math inline">\(C^\bdot(G, M)\)</span> be the <a href="#HA:chain-complex">cochain complex</a> given by
+<span class="math display">\[ C^n(G, M) = \{ \textup{functions } f : G^n \to M \} \]</span>
+with differentials <span class="math inline">\(d^n : C^n(G, M) \to C^{n + 1}(G, M)\)</span> given by
+<span class="math display">\[ \begin{aligned} (d^n f)(g_1, \ldots, g_{n + 1}) &= g_1 f(g_2, \ldots, g_{n + 1}) + \sum_{i = 1}^{n} (-1)^i f(g_1, \ldots, g_{i - 1}, g_i g_{i + 1}, \ldots, g_{n + 1}) \\ &\qquad + (-1)^{n + 1} f(g_1, \ldots, g_n) . \end{aligned} \]</span>
+The <b>group cohomology</b> of <span class="math inline">\(G\)</span> with coefficients in <span class="math inline">\(M\)</span> are the <a href="#HA:homology-object">cohomology groups</a>
+<span class="math display">\[ H^i(G, M) = H^i(C^\bdot(G, M)) . \]</span>

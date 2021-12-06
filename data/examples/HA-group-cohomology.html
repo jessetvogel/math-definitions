@@ -1,0 +1,10 @@
+<div class="example">Consider the cohomology groups in low degree.
+<ul><li> (<i>degree <span class="math inline">\(0\)</span></i>) For any <span class="math inline">\(m \in M\)</span> we have <span class="math inline">\((d^0(m))(g) = gm - m\)</span>, so
+<span class="math display">\[ H^0(G, M) = \ker d^0 = \{ m \in M : gm - m = 0 \textup{ for all } g \in G \} = M^G \]</span>
+is the <span class="math inline">\(G\)</span>-invariant submodule of <span class="math inline">\(M\)</span>.
+</li><li> (<i>degree <span class="math inline">\(1\)</span></i>) Functions <span class="math inline">\(f : G \to M\)</span> such that <span class="math inline">\(f(g_1 g_2) = f(g_1) + g_1 f(g_2)\)</span> for all <span class="math inline">\(g_1, g_2 \in G\)</span> are called <i>crossed homomorphisms</i>. Functions <span class="math inline">\(f : G \to M\)</span> of the form <span class="math inline">\(f(g) = gm - m\)</span> for some <span class="math inline">\(m \in M\)</span> are called <i>principal homomorphisms</i>. Note that <span class="math inline">\(\ker d^1\)</span> and <span class="math inline">\(\im d^0\)</span> are precisely the sets of crossed and principal homomorphisms, respectively. Therefore, <span class="math inline">\(H^1(G, M)\)</span> is the set of crossed homomorphisms modulo the set of principal homomorphisms.<br/>
+In particular, if <span class="math inline">\(G\)</span> acts trivially on <span class="math inline">\(M\)</span>, every principal homomorphism is trivial, and crossed homomorphisms correspond to group homomorphisms <span class="math inline">\(G \to M\)</span>, so that <span class="math inline">\(H^1(G, M) \simeq \Hom(G, M)\)</span>.
+</li></ul>
+</div><div class="example">Alternatively, group cohomology can be described by
+<span class="math display">\[ H^n(G, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) . \]</span>
+</div>

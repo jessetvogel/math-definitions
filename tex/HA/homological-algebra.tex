@@ -380,6 +380,10 @@
     \[ d_{C(f)}^i = \begin{pmatrix} -d_A^{i + 1} & 0 \\ f^{i + 1} & d_B^i \end{pmatrix} . \]    
 \end{topic}
 
+\begin{example}{mapping-cone}
+    Let $f : X \to Y$ be a \tref{TO:continuous-map}{continuous map} between \tref{TO:topological-space}{topological spaces}. Then the mapping cone $C(f_\bdot)$ of the induced morphism $f_\bdot : C_\bdot(X; \ZZ) \to C_\bdot(Y; \ZZ)$ between \tref{AT:singular-homology}{singular complexes} of $X$ and $Y$ is \tref{AT:homotopy-equivalence}{homotopy equivalent} to the singular complex of the \tref{mapping-cone}{mapping cone} of $f$.
+\end{example}
+
 \begin{topic}{enough-injectives}{enough injectives}
     An \tref{abelian-category}{abelian category} $\mathcal{A}$ is said to have \textbf{enough injectives} if for every object $A$ in $\mathcal{A}$ there exists an \tref{injective-object}{injective object} $I$ and an injective map $A \to I$.
 \end{topic}
@@ -392,4 +396,74 @@
         0 \arrow{r} & A \arrow{r} & I^0 \arrow[twoheadrightarrow]{d} \arrow{r} & I^1 \arrow[twoheadrightarrow]{d} \arrow{r} & I^2 \arrow[twoheadrightarrow]{d} \arrow{r} & \cdots \\
         & & C^0 \arrow[hookrightarrow]{ur} & C^1 \arrow[hookrightarrow]{ur} & C^2 \arrow[hookrightarrow]{ur} & \cdots
     \end{tikzcd} \]
+\end{example}
+
+\begin{example}{enough-injectives}
+    \begin{itemize}
+        \item The category $\textbf{Ab}$ of \tref{GT:abelian-group}{abelian groups} has enough injectives.
+        \item For each \tref{CA:ring}{ring} $R$, the category of (left) \tref{CA:module}{$R$-modules} has enough injectives.
+        \item The category of \tref{AG:sheaf}{sheaves} on a topological space $X$ has enough injectives.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{delta-functor}{delta-functor}
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}. A \textbf{homological $\delta$-functor} from $\mathcal{A}$ to $\mathcal{B}$ is a collection of \tref{additive-functor}{additive functors} $T_n : \mathcal{A} \to \mathcal{B}$ for $n \ge 0$, together with morphisms
+    \[ \delta_n : T_n(C) \to T_{n - 1}(A) \]
+    for each \tref{exact-sequence}{short exact sequence} $0 \to A \to B \to C \to 0$ in $\mathcal{A}$, satisfying the following conditions.
+    \begin{itemize}
+        \item For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$, there is a long exact sequence
+        \[ \cdots \to T_{n + 1}(C) \xrightarrow{\delta_{n + 1}} T_n(A) \to T_n(B) \to T_n(C) \xrightarrow{\delta} T_{n - 1}(A) \to \cdots \to T_0(C) \to 0 . \]
+        \item For each morphism of short exact sequences from $0 \to A' \to B' \to C' \to 0$ to $0 \to A \to B \to C \to 0$, the diagram
+        \[ \begin{tikzcd} T_n(C') \arrow{r}{\delta_n} \arrow{d} & T_{n - 1}(A') \arrow{d} \\ T_n(C) \arrow{r}{\delta_n} & T_{n - 1}(A) \end{tikzcd} \]
+        commutes.
+    \end{itemize}
+    Similarly, a \textbf{cohomological $\delta$-functor} is a collection of additive functors $T^n : \mathcal{A} \to \mathcal{B}$ for $n \ge 0$, together with morphisms $\delta^n : T^n(C) \to T^{n + 1}(A)$ for each short exact sequence $0 \to A \to B \to C \to 0$, satisfying the dual conditions.
+\end{topic}
+
+\begin{example}{delta-functor}
+    \begin{itemize}
+        \item \tref{homology-object}{Homology} gives a homological $\delta$-functor $H_*(-)$ from \tref{chain-complex}{chain complexes} $\textbf{Ch}_{\ge 0}(\mathcal{A})$ to $\mathcal{A}$.
+        \item Similarly, cohomology gives a cohomological $\delta$-functor $H^*(-)$ from cochain complexes $\textbf{Ch}^{\ge 0}(\mathcal{A})$ to $\mathcal{A}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{group-cohomology}{group cohomology}
+    Let $G$ be a \tref{GT:group}{group}, and $M$ an \tref{GT:abelian-group}{abelian group} with an action of $G$. Let $C^\bdot(G, M)$ be the \tref{chain-complex}{cochain complex} given by
+    \[ C^n(G, M) = \{ \textup{functions } f : G^n \to M \} \]
+    with differentials $d^n : C^n(G, M) \to C^{n + 1}(G, M)$ given by
+    \[ \begin{aligned} (d^n f)(g_1, \ldots, g_{n + 1}) &= g_1 f(g_2, \ldots, g_{n + 1}) + \sum_{i = 1}^{n} (-1)^i f(g_1, \ldots, g_{i - 1}, g_i g_{i + 1}, \ldots, g_{n + 1}) \\ &\qquad + (-1)^{n + 1} f(g_1, \ldots, g_n) . \end{aligned} \]
+    The \textbf{group cohomology} of $G$ with coefficients in $M$ are the \tref{homology-object}{cohomology groups}
+    \[ H^i(G, M) = H^i(C^\bdot(G, M)) . \]
+\end{topic}
+
+\begin{example}{group-cohomology}
+    Consider the cohomology groups in low degree.
+    \begin{itemize}
+        \item (\textit{degree $0$}) For any $m \in M$ we have $(d^0(m))(g) = gm - m$, so
+        \[ H^0(G, M) = \ker d^0 = \{ m \in M : gm - m = 0 \textup{ for all } g \in G \} = M^G \]
+        is the $G$-invariant submodule of $M$.
+        \item (\textit{degree $1$}) Functions $f : G \to M$ such that $f(g_1 g_2) = f(g_1) + g_1 f(g_2)$ for all $g_1, g_2 \in G$ are called \textit{crossed homomorphisms}. Functions $f : G \to M$ of the form $f(g) = gm - m$ for some $m \in M$ are called \textit{principal homomorphisms}. Note that $\ker d^1$ and $\im d^0$ are precisely the sets of crossed and principal homomorphisms, respectively. Therefore, $H^1(G, M)$ is the set of crossed homomorphisms modulo the set of principal homomorphisms.
+        
+        In particular, if $G$ acts trivially on $M$, every principal homomorphism is trivial, and crossed homomorphisms correspond to group homomorphisms $G \to M$, so that $H^1(G, M) \simeq \Hom(G, M)$.
+    \end{itemize}
+\end{example}
+
+\begin{example}{group-cohomology}
+    Alternatively, group cohomology can be described by
+    \[ H^n(G, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) . \]
+\end{example}
+
+\begin{topic}{contractible-chain-complex}{contractible chain complex}
+    A \tref{chain-complex}{chain complex} $C^\bdot$ is \textbf{contractible} if it is \tref{chain-homotopy-equivalence}{homotopy equivalent} to the zero complex. That is, there exist a collection of morphisms $k^i : C^i \to C^{i - 1}$, with $i \in \ZZ$, such that
+    \[ d^{i - 1} k^i + k^{i + 1} d^i = \id_{C^i} . \]
+\end{topic}
+
+\begin{example}{contractible-chain-complex}
+    The complex
+    \[ \cdots \to 0 \to \ZZ \xrightarrow{\id} \ZZ \to 0 \to \cdots \]
+    is contractible, which follows from taking $k^0 : \ZZ \to \ZZ$ to be the identity.
+    
+    Note that any contractible complex has zero \tref{homology-object}{homology}, since homotopy equivalences preserve homology. However, not every complex with zero homology is contractible. Namely, the complex
+    \[ \cdots \to 0 \to \ZZ \xrightarrow{\cdot 2} \ZZ \to \ZZ / 2\ZZ \to 0 \to \cdots \]
+    has zero homology, but is not contractible since the sequence does not split.
 \end{example}

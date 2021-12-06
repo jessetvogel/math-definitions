@@ -172,6 +172,13 @@
     Similarly, for any object $D$ of $\mathcal{D}$, the morphism $\id_{G(D)}$ corresponds to some $\varepsilon_D : FG(D) \to D$, which yields a natural transformation $\varepsilon : FG \Rightarrow \id_\mathcal{D}$, called the \textit{counit} of the adjunction.
 \end{example}
 
+\begin{example}{adjoint-functors}
+    Consider the integers $\ZZ$ and the real numbers $\RR$ as categories, whose objects are the numbers, and there is a morphism from $x$ to $y$ if and only if $x \le y$. The inclusion $i : \ZZ \to \RR$ is a functor, and conversely, the \textit{floor} $\lfloor \cdot \rfloor : \RR \to \ZZ$ and \textit{ceil} $\lceil \cdot \rceil : \RR \to \ZZ$ functions are also functors. Note that
+    \[ n \le x \iff n \le \lfloor x \rfloor \qquad \textup{ and } \qquad \lceil x \rceil \le n \iff x \le n \]
+    for all $n \in \ZZ$ and $x \in \RR$. This shows that there are adjunctions
+    \[ \lceil \cdot \rceil \dashv i \dashv \lfloor \cdot \rfloor . \]
+\end{example}
+
 \begin{topic}{retraction}{retraction}
     A \textbf{retraction} of a morphism $i : X \to Y$ is a morphism $r : Y \to X$ such that $r \circ i = \id_X$.
 \end{topic}
@@ -713,3 +720,20 @@
 \begin{example}{strict-monomorphism}
     Any strict monomorphism $f : X \to Y$ is a \tref{monomorphism}{monomorphism}. Suppose that $\alpha, \beta : Z \to X$ are morphisms with $f \alpha = f \beta$. Then pick $g = f \alpha = f \beta$ and note that $xf = yf$ implies $xg = yg$ for any $x, y : Y \to W$. Hence there is a unique morphism $h : Z \to X$ with $g = fh$. Since $\alpha$ and $\beta$ both satisfy this property, it follows that $\alpha = \beta$.
 \end{example}
+
+\begin{topic}{idempotent-morphism}{(split) idempotent morphism}
+    Let $\mathcal{C}$ be a \tref{category}{category}. An endomorphism $e : X \to X$ in $\mathcal{C}$ is \textbf{idempotent} if $e \circ e = e$.
+    
+    An endomorphism $e : X \to X$ in $\mathcal{C}$ is \textbf{split idempotent} if there exist morphisms $f : X \to Y$ and $g : Y \to X$ such that $f \circ g = \id_Y$ and $g \circ f = e$.
+\end{topic}
+
+\begin{topic}{karoubi-envelope}{Karoubi envelope}
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Karoubi envelope} of $\mathcal{C}$ is the category defined as follows.
+    \begin{itemize}
+        \item Objects are pairs $(X, e)$, with $X$ an object of $\mathcal{C}$ and $e : X \to X$ an \tref{idempotent-morphism}{idempotent}.
+        \item A morphism from $(X, e)$ to $(X', e')$ is a morphism $f : X \to X'$ such that $e' \circ f = f = f \circ e$.
+        \item Composition of morphisms is the same as composition in $\mathcal{C}$.
+        \item The identity morphism of $(A, e)$ is $e$.
+    \end{itemize}
+    The Karoubi envelope has the property that every idempotent morphisms \tref{idempotent-morphism}{splits}, and is universal with this property.
+\end{topic}

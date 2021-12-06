@@ -6,17 +6,20 @@
 
 # ---- Theory ----
 
-HA: enough injectives
-    + examples of common categories which have those
-    + example of existence of injective resolution (proof)
+??: DG quotient (lifts the Verdier quotient)
+AG: Construct Severi--Brauer variety from CSA
 
-AG: (counter)examples to all types of properties of morphisms. Also quasi-compact morphism does not seem to be in the list?
+HA: (Grothendieck) derivator (example: Quillen Model structures D = HO(M), then X \mapsto Ho(Fun(X^op, M))) (Appendix A of https://math.mit.edu/~tabuada/BuenosAires.pdf)
 
-HT: homotopy category of model category (with examples of course)
+AG: Chow motives (EXAMPLES??) (https://ncatlab.org/nlab/show/Chow+motive) (https://www.math.leidenuniv.nl/scripties/1MasterCommelin.pdf Chapter on Chow motives)
+AG: Correspondences
+AG: Category of (pure effective?) Chow motives
 
-HA: Group cohomology (Example: interpretation of first cohomology groups. Would be nice if some examples as well (concrete groups)) https://en.wikipedia.org/wiki/Group_cohomology
+AG: (counter)examples to all types of properties of morphisms.
 
 CA: Dedekind domain (Example: give equivalent definitions / proof)
+
+HA: Baer sum
 
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 
@@ -40,8 +43,6 @@ NT: example: fractional ideals are invertible sheaves over O_K the ring of integ
 - (infinity, k)-category
 - Nerve example: "concretely this means" (p.9 of HTT of Lurie) + Can recover C from its nerve: [...]
 - Dold-Kan examples
-
-
 
 - Simplicial homotopy groups
 - Borel construction (EG x X / G) : Example BG = classifying space
@@ -85,6 +86,7 @@ NT: artin symbol
 NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 NT?: Hasse principle
+NT: Dirichlet unit theorem
 
 # Homological Algebra
 HA: example of a semi-orthogonal decomposition (derived category of some modules?)

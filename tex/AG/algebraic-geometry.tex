@@ -89,6 +89,18 @@
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{affine} if the inverse image of every affine open in $Y$ is an affine open of $X$. 
 \end{topic}
 
+\begin{example}{affine-morphism}
+    \begin{itemize}
+        \item Any morphism $f : \Spec(R) \to \Spec(S)$ between affine schemes is affine.
+        \item The inclusion $\iota : \AA^2_k \setminus \{ (0, 0) \} \to \AA^2_k$ is not affine, since $\AA^2_k \setminus \{ (0, 0) \}$ is not affine.
+        \item Let $Y_1 = Y_2 = \AA^2_k$, and let $Y$ be obtained by gluing $Y_1$ and $Y_2$ along $\AA^2_k \setminus \{ (0, 0) \}$. Then the inclusions $\iota_i : Y_i \to Y$ are not affine, since $j_1^{-1}(Y_2) = j_2^{-1}(Y_1) = \AA^2_k \setminus \{ (0, 0) \}$ is not affine.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{quasi-compact-morphism}{quasi-compact morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-compact} if the inverse image of every \tref{TO:quasi-compact}{quasi-compact} open in $Y$ is quasi-compact in $X$.
+\end{topic}
+
 \begin{topic}{normal-scheme}{normal scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{normal} if all of its local rings $\mathcal{O}_{X,x}$ are \tref{CA:integral-closure}{integrally closed} \tref{CA:domain}{domains}.
     % Every scheme can be `normalized'.
@@ -976,3 +988,7 @@
 % \begin{topic}{rationally-connected-variety}{rationally connected variety}
 %     A \textbf{rationally connected variety} is a \tref{variety}{variety}
 % \end{topic}
+
+\begin{topic}{quasi-affine-scheme}{quasi-affine scheme}
+    A \tref{scheme}{scheme} is \textbf{quasi-affine} if it is \tref{TO:quasi-compact}{quasi-compact} and isomorphic to an open subscheme of an \tref{affine-scheme}{affine scheme}.
+\end{topic}

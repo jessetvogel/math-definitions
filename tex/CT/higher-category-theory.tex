@@ -87,6 +87,16 @@
     commute for all objects $X, Y, Z$ in $\mathcal{C}$. Such a functor is said to be a \textbf{strong monoidal functor}, or simply a \textbf{monoidal functor}, if all $\mu_{X, Y}$ and $\varepsilon$ are isomorphisms.
 \end{topic}
 
+\begin{topic}{rigid-monoidal-category}{rigid monoidal category}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. An object $X$ of $\mathcal{C}$ is \textbf{left rigid} if there exists an object $Y$ and morphisms $\eta_X : \textbf{1} \to X \otimes Y$ and $\varepsilon_X : Y \otimes X \to \textbf{1}$ such that the compositions
+    \[ X \xrightarrow{\eta_X \otimes \id} (X \otimes Y) \otimes X \xrightarrow{\alpha_{X, Y, X}^{-1}} X \otimes (Y \otimes X) \xrightarrow{\id \otimes \varepsilon_X} X \]
+    and
+    \[ Y \xrightarrow{\eta_X \otimes \id} Y \otimes (X \otimes Y) \xrightarrow{\alpha_{Y, X, Y}} (Y \otimes X) \otimes Y \xrightarrow{\varepsilon_X \otimes \id} Y \]
+    are equal to $\id_X$ and $\id_Y$, respectively. Similarly, one can define \textbf{right rigid} objects.
+    
+    The monoidal category $\mathcal{C}$ is \textbf{left rigid} (resp. \textbf{right rigid}) if all objects are left rigid (resp. right rigid), and \textbf{rigid} if it is both left and right rigid.
+\end{topic}
+
 \begin{topic}{enriched-category}{enriched category}
     Let $\mathcal{A}$ be a \tref{monoidal-category}{monoidal category}. An \textbf{$\mathcal{A}$-enriched category} $\mathcal{C}$ consists of
     \begin{itemize}

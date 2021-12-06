@@ -1,0 +1,10 @@
+Let <span class="math inline">\(\mathcal{A}\)</span> and <span class="math inline">\(\mathcal{B}\)</span> be <a href="#HA:abelian-category">abelian categories</a>. A <b>homological <span class="math inline">\(\delta\)</span>-functor</b> from <span class="math inline">\(\mathcal{A}\)</span> to <span class="math inline">\(\mathcal{B}\)</span> is a collection of <a href="#HA:additive-functor">additive functors</a> <span class="math inline">\(T_n : \mathcal{A} \to \mathcal{B}\)</span> for <span class="math inline">\(n \ge 0\)</span>, together with morphisms
+<span class="math display">\[ \delta_n : T_n(C) \to T_{n - 1}(A) \]</span>
+for each <a href="#HA:exact-sequence">short exact sequence</a> <span class="math inline">\(0 \to A \to B \to C \to 0\)</span> in <span class="math inline">\(\mathcal{A}\)</span>, satisfying the following conditions.
+<ul><li> For each short exact sequence <span class="math inline">\(0 \to A \to B \to C \to 0\)</span> in <span class="math inline">\(\mathcal{A}\)</span>, there is a long exact sequence
+<span class="math display">\[ \cdots \to T_{n + 1}(C) \xrightarrow{\delta_{n + 1}} T_n(A) \to T_n(B) \to T_n(C) \xrightarrow{\delta} T_{n - 1}(A) \to \cdots \to T_0(C) \to 0 . \]</span>
+</li><li> For each morphism of short exact sequences from <span class="math inline">\(0 \to A' \to B' \to C' \to 0\)</span> to <span class="math inline">\(0 \to A \to B \to C \to 0\)</span>, the diagram
+<img class="display-math-svg" src="data/svg/82372e5f0714fc429c11f76985eb60a18aacee67.svg" alt />
+commutes.
+</li></ul>
+Similarly, a <b>cohomological <span class="math inline">\(\delta\)</span>-functor</b> is a collection of additive functors <span class="math inline">\(T^n : \mathcal{A} \to \mathcal{B}\)</span> for <span class="math inline">\(n \ge 0\)</span>, together with morphisms <span class="math inline">\(\delta^n : T^n(C) \to T^{n + 1}(A)\)</span> for each short exact sequence <span class="math inline">\(0 \to A \to B \to C \to 0\)</span>, satisfying the dual conditions.

@@ -382,7 +382,6 @@
 \begin{topic}{primary-decomposition}{primary decomposition}
     Let $R$ be a \tref{ring}{commutative ring}. A \textbf{primary decomposition} of an ideal $I \subset R$ is an expression of $I$ as a finite intersection of \tref{primary-ideal}{primary ideals},
     \[ I = \bigcap_{i = 1}^{n} \mathfrak{q}_i . \]
-    
     The primary decomposition is said to be \textbf{minimal} if (i) the $\mathfrak{p}_i = r(\mathfrak{q}_i)$ are all distinct, and (ii) no $\mathfrak{q}_i$ contains the intersection of the other primary ideals.
 \end{topic}
 
@@ -964,7 +963,7 @@
 \end{topic}
 
 \begin{topic}{dedekind-domain}{Dedekind domain}
-    A \textbf{Dedekind domain} is a \tref{domain}{domain} $R$ in which every non-zero \tref{ideal}{ideal} $I \subsetneq R$ factors into a product of \tref{prime-ideal}{prime ideals}.
+    A \textbf{Dedekind domain} is a \tref{noetherian-ring}{noetherian} \tref{integrally-closed-domain}{integrally closed domain} of \tref{krull-dimension}{dimension} $\le 1$ (that is, every non-zero \tref{prime-ideal}{prime ideal} is \tref{maximal-ideal}{maximal}).
 \end{topic}
 
 \begin{example}{dedekind-domain}
@@ -973,14 +972,13 @@
         \item $R$ is a Dedekind domain.
         \item $R$ is \tref{noetherian-ring}{noetherian}, and for every prime ideal $\mathfrak{p} \subset R$, the \tref{localization}{localization} $R_\mathfrak{p}$ is a \tref{discrete-valuation-ring}{discrete valuation ring}.
         \item Every \tref{fractional-ideal}{fractional ideal} of $R$ is \tref{invertible-ideal}{invertible}.
-        \item $R$ is a \tref{noetherian-ring}{noetherian} \tref{integrally-closed-domain}{integrally closed domain} of \tref{krull-dimension}{dimension} $\le 1$ (that is, every non-zero prime ideal is maximal).
+        \item Every non-zero \tref{ideal}{ideal} $I \subsetneq R$ factors into a product of prime ideals.
     \end{enumerate}
     % \textbf{Proof}. $(i \Rightarrow ii)$ Let $I$ be any non-zero ideal, and take some non-zero $a \in I$. Then $(a) \subset I$, so we can write
     % \[ I = \mathfrak{p}_1^{r_1} \cdots \mathfrak{p}_m^{r_m} \quad \textup{ and } \quad (a) = \mathfrak{p}_1^{s_1} \cdots \mathfrak{p}_m^{s_m} , \]
     % with $r_i \le s_i$. In particular, the fractional ideal $J = a^{-1} \mathfrak{p}_1^{s_1 - r_1} \cdots \mathfrak{p}_m^{s_m - r_m}$ is the inverse of $I$.
     % Why noetherian?
     % $(ii \Rightarrow iii)$ 
-    
 \end{example}
 
 \begin{example}{dedekind-domain}
