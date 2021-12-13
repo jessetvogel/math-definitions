@@ -259,7 +259,10 @@
 \end{example}
 
 \begin{example}{regular-ring}
-    The local ring $R = k[x]/(x^2)$ is not a regular local ring. Its only prime ideal is its maximal ideal $\mathfrak{m} = (x)/(x^2)$, so the Krull dimension is zero, but the minimal number of generators of $\mathfrak{m}$ is one.
+    \begin{itemize}
+        \item The local ring $R = k[x]/(x^2)$ is not a regular local ring. Its only prime ideal is its maximal ideal $\mathfrak{m} = (x)/(x^2)$, so the Krull dimension is zero, but the minimal number of generators of $\mathfrak{m}$ is one.
+        \item The ring $R = k[x, y]/(y^2 - x^3)$ is not regular. Namely, at the maximal ideal $\mathfrak{m} = (x, y)$ we have $\dim R_\mathfrak{m} = 1$ since the only non-zero prime ideal in $R$ is $\mathfrak{m}$. However, $\dim_k(\mathfrak{m} / \mathfrak{m}^2) = \dim_k(k \cdot x \oplus k \cdot y) = 2$.
+    \end{itemize}
 \end{example}
 
 \begin{topic}{principal-ideal-domain}{principal ideal domain (PID)}
@@ -731,25 +734,25 @@
 \end{example}
 
 \begin{topic}{hochschild-cohomology}{Hochschild (co)homology}
-    Let $k$ be a \tref{field}{field}, $R$ an $k$-algebra, and $M$ a \tref{bimodule}{bimodule} over $R$. Let $C_n(R, M) := M \otimes R^{\otimes n}$, and define boundary maps $d_{n, i} : C_n(R, M) \to C_{n - 1}(R, M)$ for $0 \le i \le n$ by
-    \[ d_{n, i}(r \otimes m_1 \otimes \cdots \otimes m_n) = \left\{ \begin{array}{cl}
-        mr_1 \otimes r_2 \otimes \cdots \otimes r_n & \textup{ if } i = 0, \\
-         m \otimes r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n & \textup{ if } 1 < i < n , \\
-        r_n m \otimes r_2 \otimes \cdots \otimes r_{n - 1} & \textup{ if } i = n .
+    Let $k$ be a \tref{field}{field}, $A$ an $k$-algebra, and $M$ a \tref{bimodule}{bimodule} over $A$. Let $C_n(A, M) := M \otimes A^{\otimes n}$, and define boundary maps $d_{n, i} : C_n(A, M) \to C_{n - 1}(A, M)$ for $0 \le i \le n$ by
+    \[ d_{n, i}(m \otimes a_1 \otimes \cdots \otimes a_n) = \left\{ \begin{array}{cl}
+        m a_1 \otimes a_2 \otimes \cdots \otimes a_n & \textup{ if } i = 0, \\
+         m \otimes a_1 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n & \textup{ if } 1 < i < n , \\
+        a_n m \otimes a_1 \otimes \cdots \otimes a_{n - 1} & \textup{ if } i = n .
     \end{array} \right. \]
-    Then $C_n(R, M)$ with differential $d_n = \sum_{i = 0}^{n} = (-i)^i d_{n, i}$ is a \tref{HA:chain-complex}{chain complex} called the \textbf{Hochschild complex}.
-    \[ \cdots \xrightarrow{d} M \otimes R^{\otimes n} \xrightarrow{d} M \otimes R^{\otimes n - 1} \xrightarrow{d} \cdots \xrightarrow{d} M \otimes R \xrightarrow{d} M \to 0 \]
-    The corresponding \tref{HA:homology-object}{homology} $HH_i(R, M)$ is called the \textbf{Hochschild homology} of $R$ with coefficients in $M$.
+    Then $C_n(A, M)$ with differential $d_n = \sum_{i = 0}^{n} = (-1)^i d_{n, i}$ is a \tref{HA:chain-complex}{chain complex} called the \textbf{Hochschild complex}.
+    \[ \cdots \xrightarrow{d} M \otimes A^{\otimes n} \xrightarrow{d} M \otimes A^{\otimes n - 1} \xrightarrow{d} \cdots \xrightarrow{d} M \otimes A \xrightarrow{d} M \to 0 \]
+    The corresponding \tref{HA:homology-object}{homology} $HH_i(A, M)$ is called the \textbf{Hochschild homology} of $A$ with coefficients in $M$.
     
     Similarly, \textbf{Hochschild cohomology} is defined by from the cocomplex
-    \[ 0 \to M \xrightarrow{\partial} \Hom_k(R, M) \xrightarrow{\partial} \cdots \xrightarrow{\partial} \Hom_k(R^{\otimes n}, M) \xrightarrow{\partial} \Hom_k(R^{\otimes n + 1}, M) \xrightarrow{\partial} \cdots \]
+    \[ 0 \to M \xrightarrow{\partial} \Hom_k(A, M) \xrightarrow{\partial} \cdots \xrightarrow{\partial} \Hom_k(A^{\otimes n}, M) \xrightarrow{\partial} \Hom_k(A^{\otimes n + 1}, M) \xrightarrow{\partial} \cdots \]
     where $\partial^n = \sum_{i = 0}^n (-1)^i \partial^{n, i}$ is given by
-    \[ (\partial^{n, i} f)(r_1 \otimes \cdots \otimes r_n) = \left\{ \begin{array}{cl}
-        r_1 f(r_2 \otimes \cdots \otimes r_n)  & \textup{ if } i = 0, \\
-         f(r_1 \otimes \cdots \otimes r_i r_{i + 1} \otimes \cdots \otimes r_n) & \textup{ if } 1 < i < n, \\
-        f(r_1 \otimes \cdots \otimes r_{n - 1}) r_n & \textup{ if } i = n .
+    \[ (\partial^{n, i} f)(a_1 \otimes \cdots \otimes a_n) = \left\{ \begin{array}{cl}
+        a_1 f(a_2 \otimes \cdots \otimes a_n)  & \textup{ if } i = 0, \\
+         f(a_1 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n) & \textup{ if } 1 < i < n, \\
+        f(a_1 \otimes \cdots \otimes a_{n - 1}) a_n & \textup{ if } i = n .
     \end{array} \right. \]
-    The corresponding cohomology $HH^n(R, M)$ is the \textbf{Hochschild cohomology} of $R$ with coefficients in $M$.
+    The corresponding cohomology $HH^n(A, M)$ is the \textbf{Hochschild cohomology} of $A$ with coefficients in $M$.
 \end{topic}
 
 \begin{example}{hochschild-cohomology}
@@ -817,9 +820,11 @@
 \end{topic}
 
 \begin{example}{prime-avoidance-lemma}
-    Proof by induction on $n$. The base case $n = 1$ is trivial. Let $n > 1$ and assume the result holds for $n - 1$. Suppose for a contradiction that $I \not\subset \mathfrak{p}_i$ for all $i$, then by applying the induction hypothesis to each collection $\mathfrak{p}_1, \ldots, \mathfrak{p}_{i - 1}, \mathfrak{p}_{i + 1}, \ldots, \mathfrak{p}_n$, there exist elements $x_i \in I$ such that $x_i \not\in \mathfrak{p}_j$ whenever $j \ne i$. If for some $i$ we have $x_i \not\in \mathfrak{p}_i$ we are done. Otherwise, $x_i \in \mathfrak{p}_i$ for all $i$ and then
-    \[ y = \sum_{i = 1}^{n} x_1 x_2 \cdots x_{i - 1} x_{i + 1} \cdots x_n \]
-    is contained in $I$ but not in $\mathfrak{p}_i$ for any $i$. This shows $I \not\in \bigcup_{i = 1}^{n} \mathfrak{p}_i$.
+    \begin{proof}
+        Proof by induction on $n$. The base case $n = 1$ is trivial. Let $n > 1$ and assume the result holds for $n - 1$. Suppose for a contradiction that $I \not\subset \mathfrak{p}_i$ for all $i$, then by applying the induction hypothesis to each collection $\mathfrak{p}_1, \ldots, \mathfrak{p}_{i - 1}, \mathfrak{p}_{i + 1}, \ldots, \mathfrak{p}_n$, there exist elements $x_i \in I$ such that $x_i \not\in \mathfrak{p}_j$ whenever $j \ne i$. If for some $i$ we have $x_i \not\in \mathfrak{p}_i$ we are done. Otherwise, $x_i \in \mathfrak{p}_i$ for all $i$ and then
+        \[ y = \sum_{i = 1}^{n} x_1 x_2 \cdots x_{i - 1} x_{i + 1} \cdots x_n \]
+        is contained in $I$ but not in $\mathfrak{p}_i$ for any $i$. This shows $I \not\in \bigcup_{i = 1}^{n} \mathfrak{p}_i$.
+    \end{proof}
 \end{example}
 
 \begin{topic}{integrally-closed-domain}{integrally closed domain}
@@ -950,7 +955,8 @@
         \item The \textit{additive group law} is given by $F(x, y) = x + y$.
         \item The \textit{multiplicative group law} is given by $F(x, y) = x + y + xy$.
         \item The group law $F(x, y) = (x + y) / (1 + xy)$ appears in \textit{special relativity} as the addition law for velocities (here the speed of light is set to $c = 1$).
-        % \item  Any Lie group gives rise to a formal group law
+        \item (Campbell--Hausdorff formula) Let $G$ be a \tref{DG:lie-group}{Lie group} and $\mathfrak{g}$ the corresponding \tref{AA:lie-algebra}{Lie algebra}. For small enough $x, y \in \mathfrak{g}$ one has $\exp(x) \exp(y) = \exp(\mu(x, y))$ with
+        \[ \mu(x, y) = x + y + \frac{1}{2} [x, y] + \frac{1}{12}([x, [x, y]] + [y, [y, x]]) + \cdots \]
     \end{itemize}
 \end{example}
 

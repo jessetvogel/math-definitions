@@ -4,7 +4,7 @@
     \begin{itemize}
         \item every $\Hom_\mathcal{A}(A, B)$ is an abelian group, and composition is bilinear,
         \item there is a \tref{CT:zero-object}{zero object} $0$ which is both \tref{CT:terminal-object}{terminal} and \tref{CT:initial-object}{initial},
-        \item direct sums and direct products exist, and coincide.
+        \item finite direct sums and finite direct products exist, and coincide.
     \end{itemize}
 \end{topic}
 
@@ -152,14 +152,15 @@
     Let $A, B$ be objects of $\mathcal{A}$, and $f : A \to B$ a morphism. Let $0 \to A \to I_A^\bdot$ and $0 \to B \to I_B^\bdot$ be injective resolutions of $A$ and $B$, respectively. Then the map $f : A \to B$ can be lifted to a map $f^\bdot : I_A^\bdot \to I_B^\bdot$ such that $H^0(f^\bdot) = f$. Moreover, any two such liftings of $f$ are homotopic. In particular, for $A = B$ and $f = \id_A$, this shows that an injective resolution of $A$ is unique up to homotopy equivalence. Moreover, there is a bijection
     \[ \Hom_{\textbf{K}(\mathcal{A})}(I_A^\bdot, I_B^\bdot) \simeq \Hom_{\mathcal{A}}(A, B) , \]
     where $\textbf{K}(\mathcal{A})$ is the \tref{homotopy-category}{homotopy category} of $\mathcal{A}$.
+    \begin{proof}
+        First we construct one such lift $f^\bdot$. Since $A \to I_A^0$ is injective, the map $d_B \circ f : A \to I_B^0$ lifts to some $f^0 : I_A^0 \to I_B^0$ by injectivity of $I_B^0$. Suppose by induction that we have defined $f^k$ for $k \le n$ such that $d_B \circ f^k = f^{k + 1} \circ d_A$ for all $k < n$. Note that $d_B \circ f^n$ sends $\ker d_A^n$ to $\im (d_B \circ f^n \circ d_A^{n - 1}) = \im (d_B \circ d_B \circ f^{n - 1}) = 0$. Hence $d_B \circ f^n$ descends to a map $d_A(I_A^n) \to I_B^{n + 1}$, and by injectivity of $I_B^{n + 1}$ this lifts to a map $f^{n + 1} : I_A^{n + 1} \to I_B^{n + 1}$. By construction this map satisfies $f^{n + 1} \circ d_A = d_B \circ f^n$. Indeed, as $i_B \circ f = f^0 \circ i_A$, we have $H^0(f^\bdot) = f$.
     
-    \textbf{Proof}. First we construct one such lift $f^\bdot$. Since $A \to I_A^0$ is injective, the map $d_B \circ f : A \to I_B^0$ lifts to some $f^0 : I_A^0 \to I_B^0$ by injectivity of $I_B^0$. Suppose by induction that we have defined $f^k$ for $k \le n$ such that $d_B \circ f^k = f^{k + 1} \circ d_A$ for all $k < n$. Note that $d_B \circ f^n$ sends $\ker d_A^n$ to $\im (d_B \circ f^n \circ d_A^{n - 1}) = \im (d_B \circ d_B \circ f^{n - 1}) = 0$. Hence $d_B \circ f^n$ descends to a map $d_A(I_A^n) \to I_B^{n + 1}$, and by injectivity of $I_B^{n + 1}$ this lifts to a map $f^{n + 1} : I_A^{n + 1} \to I_B^{n + 1}$. By construction this map satisfies $f^{n + 1} \circ d_A = d_B \circ f^n$. Indeed, as $i_B \circ f = f^0 \circ i_A$, we have $H^0(f^\bdot) = f$.
+        To show two such liftings $f_1^\bdot$ and $f_2^\bdot$ are homotopic, we can equivalently show that $f_1^\bdot - f_2^\bdot$ is homotopic to the zero map $I_A^\bdot \to I_B^\bdot$. Note that $f_1^\bdot - f_2^\bdot$ lifts the zero map $A \to B$, so it suffices to take $f = 0$ and show that the obtained map $f^\bdot$ is of the form $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$.
     
-    To show two such liftings $f_1^\bdot$ and $f_2^\bdot$ are homotopic, we can equivalently show that $f_1^\bdot - f_2^\bdot$ is homotopic to the zero map $I_A^\bdot \to I_B^\bdot$. Note that $f_1^\bdot - f_2^\bdot$ lifts the zero map $A \to B$, so it suffices to take $f = 0$ and show that the obtained map $f^\bdot$ is of the form $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$.
-    
-    Since $f^0(A) = 0$, the map $f^0$ descends to a map $d(I_A^0) \to I_B^0$, which lifts to a map $h^1 : I_A^1 \to I_B^0$ by injectivity of $I_B^0$. Again by induction, assume that we have maps $h^k : I_A^k \to I_B^{k - 1}$ for all $k < n$, such that $f^k = d_B \circ h^k + h^{k + 1} \circ d_A$ for all $k < n$. Then, note that $f^n - d_B h^n$ sends $\ker d_A^n$ to
-    \[ \im ((f^n - d_B \circ h^n) \circ d_A) = \im (d_B \circ f^{n - 1} - d_B \circ (f^{n - 1} - d_B \circ h^{n - 1})) = 0 , \]
-    so $f^n - d_B \circ h^n$ descends to a map $d(I_A^n) \to I_B^n$ and by injectivity of $I_B^n$ lifts to a map $h^{n + 1} : I_A^{n + 1} \to I_B^n$, which satisfies $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$ by construction.
+        Since $f^0(A) = 0$, the map $f^0$ descends to a map $d(I_A^0) \to I_B^0$, which lifts to a map $h^1 : I_A^1 \to I_B^0$ by injectivity of $I_B^0$. Again by induction, assume that we have maps $h^k : I_A^k \to I_B^{k - 1}$ for all $k < n$, such that $f^k = d_B \circ h^k + h^{k + 1} \circ d_A$ for all $k < n$. Then, note that $f^n - d_B h^n$ sends $\ker d_A^n$ to
+        \[ \im ((f^n - d_B \circ h^n) \circ d_A) = \im (d_B \circ f^{n - 1} - d_B \circ (f^{n - 1} - d_B \circ h^{n - 1})) = 0 , \]
+        so $f^n - d_B \circ h^n$ descends to a map $d(I_A^n) \to I_B^n$ and by injectivity of $I_B^n$ lifts to a map $h^{n + 1} : I_A^{n + 1} \to I_B^n$, which satisfies $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$ by construction.
+    \end{proof}
 \end{example}
 
 \begin{topic}{projective-resolution}{projective resolution}
@@ -188,10 +189,25 @@
 \end{topic}
 
 \begin{topic}{acyclic-object}{acyclic object}
-    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. An object $A$ of $\mathcal{A}$ is called \textbf{acyclic with respect to $F$}, or \textbf{$F$-acyclic}, if
-    \[ \text{R}^iF(A) = 0 \quad \text{for all } i > 0, \]
-    where $\text{R}^i F$ are the \tref{right-derived-functors}{right derived functors} of $F$.
+    Let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact functor} between \tref{abelian-category}{abelian categories}. An object $A$ of $\mathcal{A}$ is called \textbf{acyclic with respect to $F$}, or \textbf{$F$-acyclic}, if
+    \[ \textup{R}^iF(A) = 0 \quad \textup{for all } i > 0, \]
+    where $\textup{R}^i F$ are the \tref{right-derived-functors}{right derived functors} of $F$.
+    
+    Similarly, if $F : \mathcal{A} \to \mathcal{B}$ is a right exact functor, an object $A$ of $\mathcal{A}$ is \textbf{$F$-acyclic} if $\textup{L}_i F(A) = 0$ for all $i > 0$, where $\textup{L}_i F$ denote the \tref{left-derived-functors}{left derived functors} of $F$.
 \end{topic}
+
+\begin{example}{acyclic-object}
+    Given a left (resp. right) exact functor $F : \mathcal{A} \to \mathcal{B}$ and an object $A$ of $\mathcal{A}$, an \textit{acyclic resolution} of $A$ is a resolution $0 \to A \to I^0 \to I^1 \to \cdots$ (resp. $\cdots \to P^1 \to P^0 \to A \to 0$) of $A$ where the $I^i$ (resp. $P^i$) are $F$-acyclic objects. The left (resp. right) derived functors can be computed as
+    \[ \textup{R}^i F(A) = H^i(F(I^\bdot)) \qquad \left(\textup{resp. } \textup{L}_i F(A) = H^i(F(P^\bdot)) \right) . \]
+\end{example}
+
+\begin{example}{acyclic-object}
+    \begin{itemize}
+        \item Given a \tref{CA:ring}{commutative ring} $R$, the objects which are acyclic with respect to all functors $(-) \otimes_R M$, are the \tref{CA:flat-module}{flat modules} over $R$.
+        \item The objects which are acyclic with respect to all functors $\Hom_\mathcal{A}(A, -)$, are the \tref{injective-object}{injective objects}. Moreover, an injective object is acyclic with respect to any left exact functor $F$.
+        \item The objects which are acyclic with respect to all functors $\Hom_\mathcal{A}(-, A)$, are the \tref{projective-object}{projective objects}. Moreover, a projective object is acyclic with respect to any right exact functor $F$.
+    \end{itemize}
+\end{example}
 
 % Homological lemmas
 \begin{topic}{five-lemma}{five lemma}
@@ -467,3 +483,26 @@
     \[ \cdots \to 0 \to \ZZ \xrightarrow{\cdot 2} \ZZ \to \ZZ / 2\ZZ \to 0 \to \cdots \]
     has zero homology, but is not contractible since the sequence does not split.
 \end{example}
+
+\begin{topic}{baer-sum}{Baer sum}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $0 \to A \xrightarrow{f} E \xrightarrow{g} B \to 0$ and $0 \to A \xrightarrow{f'} E' \xrightarrow{g'} B \to 0$ be two \tref{exact-sequence}{short exact sequences}. The \textbf{Baer sum} of these sequences is the sequence
+    \[ 0 \to A \to \coker \left(A \xrightarrow{(f, -f')} E \oplus_B E'\right) \to B \to 0 , \]
+    where the maps are given by $a \mapsto (f(a), 0) = (0, f'(a))$ and $(e, e') \mapsto g(e) = g'(e')$.
+    
+    Viewing the sequences as extensions, the Baer sum is given by addition in $\textup{Ext}_\mathcal{A}^1(B, A)$.
+\end{topic}
+
+\begin{topic}{linear-category}{linear category}
+    Let $k$ be a \tref{CA:ring}{commutative ring}. A \textbf{linear category} $\mathcal{A}$ is a \tref{CT:category}{category} \tref{CT:enriched-category}{enriched} over the category of \tref{CA:module}{$k$-modules}. Concretely, all morphism sets are $k$-modules, and composition
+    \[ \Hom_\mathcal{A}(A, B) \times \Hom_\mathcal{A}(B, C) \to \Hom_\mathcal{A}(A, C) \]
+    is $k$-bilinear.
+\end{topic}
+
+\begin{topic}{grothendieck-category}{Grothendieck category}
+    A \textbf{Grothendieck category} is an \tref{abelian-category}{abelian category} $\mathcal{A}$ such that
+    \begin{itemize}
+        \item arbitrary direct sums exist in $\mathcal{A}$,
+        \item \tref{CT:direct-limit}{direct limits} of short exact sequences in $\mathcal{A}$ are again short exact,
+        \item $\mathcal{A}$ has a \textit{generator}, that is, there exists an object $G$ in $\mathcal{A}$ such that the \tref{CT:functor}{functor} $\Hom_\mathcal{A}(G, -) : \mathcal{A} \to \textbf{Set}$ is \tref{CT:faithful-functor}{faithful}.
+    \end{itemize}
+\end{topic}

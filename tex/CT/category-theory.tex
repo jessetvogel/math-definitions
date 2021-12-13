@@ -95,13 +95,15 @@
 \end{topic}
 
 \begin{example}{yoneda-lemma}
-    \textbf{Proof}. Any natural transformation $\nu : y_X \Rightarrow F$ induces an element $x = \nu_X(\id_X) \in F(X)$, and this element completely determines $\nu$ since for any $Y$ in $\mathcal{C}$ and $f \in y_X(Y) = \Hom_\mathcal{C}(Y, X)$ we have that
-    \[ \nu_{Y}(f) = \nu_{Y}(\id_X \circ f) = F(f)(\nu_X(\id_X)) = F(f)(x) . \]
-    Furthermore, any $x \in F(X)$ induces a natural transformation $\nu : y_X \Rightarrow F$ in this way. Namely, for any morphism $g : Y \to Z$ in $\mathcal{C}$ we have
-    \[ F(g)(\nu_Z(h)) = F(g)(F(h)(x)) = F(hg)(x) = \nu_Y(hg) = \nu_Y(y_g(h)) , \]
-    for all $h \in y_X(Z) = \Hom_\mathcal{C}(Z, X)$. This proves the bijection. To prove that this bijection is natural in $X$ and $F$, let $f : X \to Y$ be a morphism in $\mathcal{C}$, and $\mu : F \Rightarrow G$ a natural transformation. Then for any $\nu : y_Y \Rightarrow F$ we have that
-    \[ (\mu \circ \nu \circ y_f)_X(\id_X) = \mu_X(\nu_X(f)) = \mu_X(F(f)(\nu_Y(\id_Y))) , \]
-    which shows the bijection is indeed natural.
+    \begin{proof}
+        Any natural transformation $\nu : y_X \Rightarrow F$ induces an element $x = \nu_X(\id_X) \in F(X)$, and this element completely determines $\nu$ since for any $Y$ in $\mathcal{C}$ and $f \in y_X(Y) = \Hom_\mathcal{C}(Y, X)$ we have that
+        \[ \nu_{Y}(f) = \nu_{Y}(\id_X \circ f) = F(f)(\nu_X(\id_X)) = F(f)(x) . \]
+        Furthermore, any $x \in F(X)$ induces a natural transformation $\nu : y_X \Rightarrow F$ in this way. Namely, for any morphism $g : Y \to Z$ in $\mathcal{C}$ we have
+        \[ F(g)(\nu_Z(h)) = F(g)(F(h)(x)) = F(hg)(x) = \nu_Y(hg) = \nu_Y(y_g(h)) , \]
+        for all $h \in y_X(Z) = \Hom_\mathcal{C}(Z, X)$. This proves the bijection. To prove that this bijection is natural in $X$ and $F$, let $f : X \to Y$ be a morphism in $\mathcal{C}$, and $\mu : F \Rightarrow G$ a natural transformation. Then for any $\nu : y_Y \Rightarrow F$ we have that
+        \[ (\mu \circ \nu \circ y_f)_X(\id_X) = \mu_X(\nu_X(f)) = \mu_X(F(f)(\nu_Y(\id_Y))) , \]
+        which shows the bijection is indeed natural.
+    \end{proof}
 \end{example}
 
 \begin{example}{yoneda-lemma}
@@ -114,7 +116,7 @@
 \end{topic}
 
 \begin{topic}{equivalence-of-categories}{equivalence of categories}
-    A \tref{functor}{functor} $F : \mathcal{C} \Rightarrow \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \Rightarrow \mathcal{C}$ and natural isomorphisms $\mu : F \Rightarrow G$ and $\nu : G \Rightarrow F$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
+    A \tref{functor}{functor} $F : \mathcal{C} \Rightarrow \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \Rightarrow \mathcal{C}$ and \tref{natural-transformation}{natural isomorphisms} $\mu : F \Rightarrow G$ and $\nu : G \Rightarrow F$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
 \end{topic}
 
 \begin{topic}{essentially-surjective-functor}{essentially surjective functor}
@@ -151,32 +153,39 @@
     \[ \begin{tikzcd} W \arrow[shift left=0.25em]{r} \arrow[shift right=0.25em]{r} & X \arrow{r}{f} & Y \end{tikzcd} \]
 \end{topic}
 
-\begin{topic}{adjoint-functors}{adjoint functors}
-    Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be a pair of \tref{functor}{functors}. Then $F$ is \textbf{left adjoint} to $G$, or $G$ is \textbf{right adjoint} to $F$, denoted $F \dashv G$, if there is a natural bijection
+\begin{topic}{adjunction}{adjunction}
+    Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be a pair of \tref{functor}{functors}. Then $F$ is \textbf{left adjoint} to $G$, or $G$ is \textbf{right adjoint} to $F$, or there is an \textbf{adjunction} $F \dashv G$, if there is a natural bijection
     \[ \Hom_{\mathcal{D}}(F(C), D) \xrightarrow{\sim} \Hom_{\mathcal{D}}(C, G(D)) \]
     for each object $C$ in $\mathcal{C}$ and $D$ in $\mathcal{D}$. Naturality means that for all $f : C \to C'$ in $\mathcal{C}$ and $g : D' \to D$ in $\mathcal{D}$, the following square commutes.
     \[ \begin{tikzcd}[row sep=3em] \Hom_{\mathcal{D}}(F(C), D) \arrow{r} & \Hom_{\mathcal{C}}(C, G(D)) \\ \Hom_{\mathcal{D}}(F(C'), D') \arrow{r} \arrow{u}{g \circ (-) \circ F(f)} & \Hom_{\mathcal{C}}(C', G(D')) \arrow[swap]{u}{G(g) \circ (-) \circ f} \end{tikzcd} \]
     Two maps $f : F(C) \to D$ and $g : C \to G(D)$ which correspond to each other are called \textit{transposes}.
 \end{topic}
 
-\begin{example}{adjoint-functors}
+\begin{example}{adjunction}
     Let $U : \textbf{Grp} \to \textbf{Set}$ be the \textit{forgetful functor}, which sends a \tref{GT:group}{group} $G$ to its underlying set, and let $F : \textbf{Set} \to \textbf{Grp}$ be the \textit{free functor}, which sends a set $S$ to the \tref{GT:free-group}{free group} $F_S$. Given a group $G$ and set $S$, any function of sets $S \to G$ can uniquely be extended to a group morphism $F_S \to G$, and any such morphism comes uniquely from a function. This gives a bijection
     \[ \Hom_{\textbf{Grp}}(F(S), G) \simeq \Hom_{\textbf{Set}}(S, U(G)) , \]
     which is natural in $S$ and $G$, or in other words, we have an adjunction $F \dashv U$.
 \end{example}
 
-\begin{example}{adjoint-functors}
+\begin{example}{adjunction}
     Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be adjoint functors, $F \dashv G$. Then for any object $C$ of $\mathcal{C}$, we have a natural bijection
     \[ \Hom_{\mathcal{D}}(F(C), F(C)) \simeq \Hom_{\mathcal{C}}(C, GF(C)) . \]
     In particular, the identity morphism $\id_{F(C)}$ corresponds to some $\eta_C : C \to GF(C)$. Since this construction is natural in $C$, we obtain a \tref{natural-transformation}{natural transformation} $\eta : \id_\mathcal{C} \Rightarrow GF$, called the \textit{unit} of the adjunction.
     Similarly, for any object $D$ of $\mathcal{D}$, the morphism $\id_{G(D)}$ corresponds to some $\varepsilon_D : FG(D) \to D$, which yields a natural transformation $\varepsilon : FG \Rightarrow \id_\mathcal{D}$, called the \textit{counit} of the adjunction.
 \end{example}
 
-\begin{example}{adjoint-functors}
+\begin{example}{adjunction}
     Consider the integers $\ZZ$ and the real numbers $\RR$ as categories, whose objects are the numbers, and there is a morphism from $x$ to $y$ if and only if $x \le y$. The inclusion $i : \ZZ \to \RR$ is a functor, and conversely, the \textit{floor} $\lfloor \cdot \rfloor : \RR \to \ZZ$ and \textit{ceil} $\lceil \cdot \rceil : \RR \to \ZZ$ functions are also functors. Note that
     \[ n \le x \iff n \le \lfloor x \rfloor \qquad \textup{ and } \qquad \lceil x \rceil \le n \iff x \le n \]
     for all $n \in \ZZ$ and $x \in \RR$. This shows that there are adjunctions
     \[ \lceil \cdot \rceil \dashv i \dashv \lfloor \cdot \rfloor . \]
+\end{example}
+
+\begin{example}{adjunction}
+    If there is an adjunction $F \dashv G$ between functors $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$, then $G$ preserves all \tref{limit}{limits} which exist in $\mathcal{D}$, and $F$ preserves all colimits which exist in $\mathcal{C}$.
+    \begin{proof}
+        Suppose a functor $H : \mathcal{I} \to \mathcal{D}$ has a limiting cone $(D, \mu)$ in $\mathcal{D}$. Any cone $(C, \nu)$ for $GH$ in $\mathcal{C}$ consists of a family of morphisms $\nu_I : C \to GH(I)$ such that $\nu_J = GH(f) \circ \nu_I$ for all $f : I \to J$ in $\mathcal{I}$. Under the adjunction, this corresponds to a family of morphisms $\nu'_I : F(C) \to H(I)$ such that $\nu'_J = H(f) \circ \nu'_I$ for all $f : I \to J$ in $\mathcal{I}$. Hence, there exists a unique map of cones $(F(C), \nu') \to (D, \mu)$, which under the adjunction corresponds to a map of cones $(C, \nu) \to (G(D), \mu \circ G)$. Therefore, $(G(C), \mu \circ G)$ is a limiting cone for $GH$ in $\mathcal{C}$, which shows that $G$ preserves limits. Dually, one can show that $F$ preserves all colimits.
+    \end{proof}
 \end{example}
 
 \begin{topic}{retraction}{retraction}
@@ -440,7 +449,7 @@
 \end{topic}
 
 \begin{example}{monad}
-    Any \tref{CT:adjoint-functors}{adjunction} $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ gives rise to a monad with $T = GF$. The map $\eta : \id_{\mathcal{C}} \to T$ is the unit of the adjunction, and the map $\mu : T^2 \to T$ is $G \varepsilon F$, where $\varepsilon : FG \to \id_{\mathcal{D}}$ is the counit of the adjunction.
+    Any \tref{adjunction}{adjunction} $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ gives rise to a monad with $T = GF$. The map $\eta : \id_{\mathcal{C}} \to T$ is the unit of the adjunction, and the map $\mu : T^2 \to T$ is $G \varepsilon F$, where $\varepsilon : FG \to \id_{\mathcal{D}}$ is the counit of the adjunction.
     
     Conversely, any monad can be found as an explicit adjunction of functors, using the \tref{eilenberg-moore-category}{Eilenberg--Moore category} or the \tref{kleisli-category}{Kleisli category}.
 \end{example}
@@ -458,11 +467,11 @@
 \end{topic}
 
 \begin{example}{eilenberg-moore-category}
-    There is an \tref{adjoint-functors}{adjunction} between $\mathcal{C}^T$ and $\mathcal{C}$ yielding the initial monad. The forgetful functor $U : \mathcal{C}^T \to \mathcal{C}$, mapping $(X, h)$ to $h$, has a left adjoint $F : \mathcal{C} \to \mathcal{C}^T$, mapping an object $X$ to the $T$-algebra $(TX, \mu_X)$, and a morphism $f : X \to Y$ to $Tf$. One can show $F \dashv U$ and clearly $T = UF$.
+    There is an \tref{adjunction}{adjunction} between $\mathcal{C}^T$ and $\mathcal{C}$ yielding the initial monad. The forgetful functor $U : \mathcal{C}^T \to \mathcal{C}$, mapping $(X, h)$ to $h$, has a left adjoint $F : \mathcal{C} \to \mathcal{C}^T$, mapping an object $X$ to the $T$-algebra $(TX, \mu_X)$, and a morphism $f : X \to Y$ to $Tf$. One can show $F \dashv U$ and clearly $T = UF$.
 \end{example}
 
 \begin{topic}{cartesian-closed-category}{cartesian closed category}
-    A \tref{category}{category} $\mathcal{C}$ is \textbf{cartesian closed} if it has finite products, and for every object $X$ of $\mathcal{C}$ the product functor $(-) \times X$ has a \tref{adjoint-functors}{right adjoint} $(-)^X$.
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{cartesian closed} if it has finite products, and for every object $X$ of $\mathcal{C}$ the product functor $(-) \times X$ has a \tref{adjunction}{right adjoint} $(-)^X$.
 \end{topic}
 
 \begin{example}{cartesian-closed-category}
@@ -728,7 +737,7 @@
 \end{topic}
 
 \begin{topic}{karoubi-envelope}{Karoubi envelope}
-    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Karoubi envelope} of $\mathcal{C}$ is the category defined as follows.
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Karoubi envelope} (or \textbf{idempotent completion}) of $\mathcal{C}$ is the category defined as follows.
     \begin{itemize}
         \item Objects are pairs $(X, e)$, with $X$ an object of $\mathcal{C}$ and $e : X \to X$ an \tref{idempotent-morphism}{idempotent}.
         \item A morphism from $(X, e)$ to $(X', e')$ is a morphism $f : X \to X'$ such that $e' \circ f = f = f \circ e$.
@@ -737,3 +746,31 @@
     \end{itemize}
     The Karoubi envelope has the property that every idempotent morphisms \tref{idempotent-morphism}{splits}, and is universal with this property.
 \end{topic}
+
+\begin{topic}{filtered-limit}{filtered (co)limit}
+    A \textbf{filtered (co)limit} is a \tref{limit}{(co)limit} of a \tref{functor}{functor} $F : \mathcal{I} \to \mathcal{C}$, where $\mathcal{I}$ is a \tref{filtered-category}{filtered category}.
+\end{topic}
+
+\begin{topic}{compact-object}{compact object}
+    Let $\mathcal{C}$ be a \tref{small-category}{locally small} \tref{category}{category} in which \tref{filtered-limit}{filtered colimits} exist. An object $X$ of $\mathcal{C}$ is \textbf{compact} if
+    \[ \Hom_\mathcal{C}(X, -) : \mathcal{C} \to \textbf{Set} \]
+    preserves filtered colimits, that is, for every \tref{filtered-category}{filtered category} $\mathcal{I}$ and \tref{functor}{functor} $F : \mathcal{I} \to \mathcal{C}$, the natural morphism
+    \[ \varinjlim_{I \in \mathcal{I}} \Hom_\mathcal{C}(X, F(I)) \xrightarrow{\sim} \Hom_\mathcal{C}(X, \varinjlim_{I \in \mathcal{I}} F(I)) \]
+    is an isomorphism.
+\end{topic}
+
+\begin{example}{compact-object}
+    \begin{itemize}
+        \item The compact objects in $\textbf{Set}$ are finite sets.
+        \item The compact objects in $\textbf{Grp}$ are finitely presented groups.
+        \item For $X$ a \tref{TO:topological-space}{topological space}, the compact objects in the category of open subsets of $X$ with respect to inclusions, are the \tref{TO:compact-space}{compact} subsets.
+        \item The compact objects in $\textbf{Vect}_k$ are the finite-dimensional vector spaces.
+        \begin{proof}
+            Let $V$ be a compact vector space. Since $V$ is isomorphic to the filtered colimit of its finite-dimensional subspaces $W \subset V$, it follows that
+            \[ \underset{\textup{fd } W \subset V}{\operatorname{colim}} \Hom(V, W) \simeq \Hom(V, V) . \]
+            In particular, there exists a finite-dimensional subspace $i : W \hookrightarrow V$ and a morphism $f : V \to W$ such that $i \circ f = \id_V$, which shows that $V \simeq W$ is finite-dimensional. Conversely, for any finite-dimensional vector space $V$, there is an \tref{adjunction}{adjunction}
+            \[ \Hom(V, -) \dashv \Hom(V^*, -) , \]
+            where $V^*$ denotes the \tref{LA:dual-vector-space}{dual} of $V$. Therefore, $\Hom(V, - )$ preserves all colimits, so $V$ is compact.
+        \end{proof}
+    \end{itemize}
+\end{example}

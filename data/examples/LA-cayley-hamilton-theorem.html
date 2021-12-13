@@ -1,8 +1,9 @@
 <div class="example">Take <span class="math inline">\(A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\)</span> with characteristic polynomial <span class="math inline">\(p_A(\lambda) = \det \begin{pmatrix} \lambda - 1 & -2 \\ -3 & \lambda - 4 \end{pmatrix} = (\lambda - 1)(\lambda - 4)  + 6 = \lambda^2 - 5 \lambda + 6\)</span>. Then
 <span class="math display">\[ p_A(A) = A^2 - 5A + 6I = \begin{pmatrix} 7 & 10 \\ 15 & 22 \end{pmatrix} - \begin{pmatrix} 5 & 10 \\ 15 & 20 \end{pmatrix} + \begin{pmatrix} 6 & 0 \\ 0 & 6 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} . \]</span>
-</div><div class="example"><b>Proof</b>. For <a href="#LA:diagonalization">diagonalizable</a> matrices <span class="math inline">\(A = PDP^{-1}\)</span>, with <span class="math inline">\(D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}\)</span>, the proof is easy:
+</div><div class="example"><div class="proof">For <a href="#LA:diagonalization">diagonalizable</a> matrices <span class="math inline">\(A = PDP^{-1}\)</span>, with <span class="math inline">\(D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}\)</span>, the proof is easy:
 <span class="math display">\[ p_A(A) = p_A(PDP^{-1}) = P p_A(D) P^{-1} = P \begin{pmatrix} p_A(\lambda_1) & & \\ & \ddots & \\ & & p_A(\lambda_n) \end{pmatrix} P^{-1} = 0 , \]</span>
 since all eigenvalues <span class="math inline">\(\lambda_i\)</span> are roots of <span class="math inline">\(p_A\)</span>. In other words, the function
 <span class="math display">\[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]</span>
 is zero on the set of diagonalizable complex matrices, which is <a href="#TO:dense">dense</a> in <span class="math inline">\(\textup{Mat}_{n \times n}(\CC)\)</span>. Hence by continuity of <span class="math inline">\(\varphi\)</span>, we must have <span class="math inline">\(\varphi(A) = 0\)</span> for all <span class="math inline">\(A \in \textup{Mat}_{n \times n}(\CC)\)</span>.
+</div>
 </div>

@@ -1,0 +1,12 @@
+<div class="example"><ul><li> The compact objects in <span class="math inline">\(\textbf{Set}\)</span> are finite sets.
+</li><li> The compact objects in <span class="math inline">\(\textbf{Grp}\)</span> are finitely presented groups.
+</li><li> For <span class="math inline">\(X\)</span> a <a href="#TO:topological-space">topological space</a>, the compact objects in the category of open subsets of <span class="math inline">\(X\)</span> with respect to inclusions, are the <a href="#TO:compact-space">compact</a> subsets.
+</li><li> The compact objects in <span class="math inline">\(\textbf{Vect}_k\)</span> are the finite-dimensional vector spaces.
+<div class="proof">Let <span class="math inline">\(V\)</span> be a compact vector space. Since <span class="math inline">\(V\)</span> is isomorphic to the filtered colimit of its finite-dimensional subspaces <span class="math inline">\(W \subset V\)</span>, it follows that
+<span class="math display">\[ \underset{\textup{fd } W \subset V}{\operatorname{colim}} \Hom(V, W) \simeq \Hom(V, V) . \]</span>
+In particular, there exists a finite-dimensional subspace <span class="math inline">\(i : W \hookrightarrow V\)</span> and a morphism <span class="math inline">\(f : V \to W\)</span> such that <span class="math inline">\(i \circ f = \id_V\)</span>, which shows that <span class="math inline">\(V \simeq W\)</span> is finite-dimensional. Conversely, for any finite-dimensional vector space <span class="math inline">\(V\)</span>, there is an <a href="#CT:adjunction">adjunction</a>
+<span class="math display">\[ \Hom(V, -) \dashv \Hom(V^*, -) , \]</span>
+where <span class="math inline">\(V^*\)</span> denotes the <a href="#LA:dual-vector-space">dual</a> of <span class="math inline">\(V\)</span>. Therefore, <span class="math inline">\(\Hom(V, - )\)</span> preserves all colimits, so <span class="math inline">\(V\)</span> is compact.
+</div>
+</li></ul>
+</div>

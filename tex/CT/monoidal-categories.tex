@@ -1,0 +1,120 @@
+\begin{topic}{monoidal-category}{monoidal category}
+    A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $\textbf{1}$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
+    \[ \begin{aligned}
+        \alpha : - \otimes (- \otimes -) &\Rightarrow (- \otimes -) \otimes - \qquad \text{(associator)} \\
+        \lambda : \textbf{1} \otimes - &\Rightarrow \id_{\mathcal{C}} \qquad \text{(left unitor)} \\
+        \rho : - \otimes \textbf{1} &\Rightarrow \id_{\mathcal{C}} \qquad \text{(right unitor)}
+    \end{aligned} \]
+    such that the triangle
+    \[ \begin{tikzcd}[row sep=0em] (X \otimes \textbf{1}) \otimes Y \arrow{rr}{\alpha_{X,\textbf{1},Y}} \arrow[swap]{rd}{\rho_X \otimes \id_Y} & & X \otimes (\textbf{1} \otimes Y) \arrow{ld}{\id_X \otimes \lambda_Y} \\ & X \otimes Y & \end{tikzcd} \]
+    and the pentagon
+    \[ \begin{tikzcd} & (X \otimes Y) \otimes (Z \otimes W) \arrow{rd}{\alpha_{X, Y, Z \otimes W}} & \\ ((X \otimes Y) \otimes Z) \otimes W \arrow{ur}{\alpha_{X \otimes Y, Z, W}} \arrow{d}{\alpha_{X,Y,Z} \otimes \id_W} & & X \otimes (Y \otimes (Z \otimes W)) \\ (X \otimes (Y \otimes Z)) \otimes W \arrow{rr}{\alpha_{X, Y \otimes Z, W}} & & X \otimes ((Y \otimes Z) \otimes W) \arrow{u}{\id_X \otimes \alpha_{Y, Z, W}} \end{tikzcd} \]
+    commute for all objects $X, Y, Z, W$ in $\mathcal{C}$. In case the natural isomorphisms $\alpha, \lambda$ and $\rho$ are all equalities, we say that such a category is \textit{strict}. The above triangle and pentagon then commute automatically.
+\end{topic}
+
+\begin{example}{monoidal-category}
+    The category $\textbf{Set}$ with the disjoint union $\sqcup$ as tensor product, and the empty set $\varnothing$ as unital object is a monoidal category. Also $\textbf{Set}$ with the Cartesian product $\times$ as tensor product and a choice of singleton set as unital object is a monoidal category.
+\end{example}
+
+\begin{example}{monoidal-category}
+    Let $R$ be a \tref{CA:ring}{commutative ring}, then the category $R\text{-Mod}$ (resp. $R\text{-Alg}$) with the tensor product $\otimes_R$ and $R$ as unital object is a monoidal category. Also $R\text{-Mod}$ (resp. $R\text{-Alg}$) with $\oplus$ as tensor product and $0$ as unital object is a monoidal category.
+\end{example}
+
+\begin{example}{monoidal-category}
+    The category $\textbf{Sch}/S$ of \tref{AG:scheme}{schemes} over $S$, with the fiber product $\times_S$ as tensor product, and $S$ as unital object is a monoidal category.
+\end{example}
+
+\begin{topic}{symmetric-monoidal-category}{symmetric monoidal category}
+    A \textbf{symmetric monoidal category} is a \tref{monoidal-category}{monoidal category} $\mathcal{C}$ together with isomorphisms
+    \[ \tau_{X, Y} : X \otimes Y \to Y \otimes X , \]
+    \tref{natural-transformation}{natural} in $X$ and $Y$, such that
+    \[ \tau_{Y, X} \circ \tau_{X, Y} = \id_{X \otimes Y} \]
+    and the diagrams
+    \[ \begin{tikzcd}
+        (X \otimes Y) \otimes Z \arrow{r}{\alpha_{X, Y, Z}} \arrow[swap]{d}{\tau_{X, Y} \otimes \id_Z} & X \otimes (Y \otimes Z) \arrow{r}{\tau_{X, Y \otimes Z}} & (Y \otimes Z) \otimes X \arrow{d}{\alpha_{Y, Z, X}} \\ (Y \otimes X) \otimes Z \arrow{r}{\alpha_{Y, X, Z}} & Y \otimes (X \otimes Z) \arrow{r}{\id_Y \otimes \tau_{X, Z}} Y & Y \otimes (Z \otimes X)
+    \end{tikzcd} \]
+    and
+    \[ \begin{tikzcd}
+        X \otimes (Y \otimes Z) \arrow{r}{\alpha^{-1}_{X, Y, Z}} \arrow[swap]{d}{\id_X \otimes \tau_{Y, Z}} & (X \otimes Y) \otimes Z \arrow{r}{\tau_{X \otimes Y, Z}} & Z \otimes (X \otimes Y) \arrow{d}{\alpha^{-1}_{Z, X, Y}} \\ X \otimes (Y \otimes Z) \arrow{r}{\alpha^{-1}_{X, Z, Y}} & (X \otimes Z) \otimes Y \arrow{r}{\tau_{X, Z} \otimes \id_Y} & (Z \otimes X) \otimes Y
+    \end{tikzcd} \]
+    commute for all $X, Y, Z$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{example}{symmetric-monoidal-category}
+    The category $\textbf{Set}$ of sets, with either $\sqcup$ or $\times$ as tensor product, is naturally symmetric.
+    
+    The category $R\text{-}\textbf{Mod}$ of $R$-modules, with either $\oplus$ or $\otimes_R$ as tensor product, is naturally symmetric.
+\end{example}
+
+\begin{example}{symmetric-monoidal-category}
+    The category $R\text{-}\textbf{Bimod}$ of $R$-bimodules is monoidal, with $\otimes_R$ as tensor product and $R$ as unital object, but not necessarily symmetric. For example, take $R = k$ a field with two non-commuting automorphisms $\sigma, \tau$. Let $M = {}_1 k_\sigma$ be the abelian group $k$ with $k$-bimodule structure given by $a \cdot x \cdot b = ax \sigma(b)$, and let $N = {}_1 k_\tau$ similarly. Then we have a $k$-bimodule isomorphism $\varphi : M \otimes_k N \xrightarrow{\sim} {}_1 k_{\sigma \tau}$ given by $x \otimes y \mapsto x \sigma(y)$, and similarly $N \otimes_k M = {}_1 k_{\tau \sigma}$. If there were to exist some $k$-bimodule isomorphism $\psi : {}_1 k_{\sigma \tau} \xrightarrow{\sim} {}_1 k_{\tau \sigma}$ it would be given by $\psi(x) = x \psi(1)$ (since $\psi$ is a left $k$-module isomorphism). However, as $\psi$ is a right $k$-module isomorphism as well, we must have $\psi(x) = \psi(1) \tau \sigma \tau^{-1} \sigma^{-1} (x)$, which implies that $x = \tau \sigma \tau^{-1} \sigma^{-1} (x)$ for all $x \in k$, but we assumed $\tau$ and $\sigma$ did not commute. Hence such $\psi$ does not exist, and $k\text{-}\textbf{Bimod}$ cannot be symmetric.
+\end{example}
+
+\begin{example}{symmetric-monoidal-category}
+    A monoidal category can be symmetric in multiple ways. Let $\textbf{GrVect}_k$ be the category whose objects are graded vector spaces $V = \oplus_{n \in \ZZ} V_n$ over a field $k$, and whose morphisms are linear maps that respect the grading. The tensor product of two graded vector spaces $V$ and $W$ is again graded, with grading $(V \otimes W)_n = \oplus_{p + q = n} (V_p \otimes W_q)$, making $\textbf{GrVect}_k$ into a monoidal category, where the unital object is the ground field $k$ concentrated in degree zero.
+        
+    There is more than one way to make $\textbf{GrVect}_k$ symmetric. As the map $V \otimes W \to W \otimes V$ one could take the more obvious map $\tau : v \otimes w \to w \otimes v$. However, one could also take the map $\kappa : v \otimes w \mapsto (-1)^{pq} w \otimes v$ with $p = \deg(v)$ and $q = \deg(w)$, known as \textit{Koszul's sign change}. One can check that $\kappa$ indeed satisfies the axioms.
+\end{example}
+
+\begin{topic}{braided-monoidal-category}{braided monoidal category}
+    A \textbf{braided monoidal category} is a \tref{symmetric-monoidal-category}{symmetric monoidal category} $(\mathcal{C}, \tau)$ without the condition that $\tau_{Y, X} \circ \tau_{X, Y} = \id_{X \otimes Y}$.
+    % \[ \gamma_{X, Y} : X \otimes Y \to Y \otimes X \]
+    % such that the diagrams
+    % \[ \begin{tikzcd}
+    %     (X \otimes Y) \otimes Z \arrow{r}{\alpha_{X, Y, Z}} \arrow[swap]{d}{\tau_{X, Y} \otimes \id_Z} & X \otimes (Y \otimes Z) \arrow{r}{\tau_{X, Y \otimes Z}} & (Y \otimes Z) \otimes X \arrow{d}{\alpha_{Y, Z, X}} \\ (Y \otimes X) \otimes Z \arrow{r}{\alpha_{Y, X, Z}} & Y \otimes (X \otimes Z) \arrow{r}{\id_Y \otimes \tau_{X, Z}} Y & Y \otimes (Z \otimes X)
+    % \end{tikzcd} \]
+    % and
+    % \[ \begin{tikzcd}
+    %     X \otimes (Y \otimes Z) \arrow{r}{\alpha^{-1}_{X, Y, Z}} \arrow[swap]{d}{\id_X \otimes \tau_{Y, Z}} & (X \otimes Y) \otimes Z \arrow{r}{\tau_{X \otimes Y, Z}} & Z \otimes (X \otimes Y) \arrow{d}{\alpha^{-1}_{Z, X, Y}} \\ X \otimes (Y \otimes Z) \arrow{r}{\alpha^{-1}_{X, Z, Y}} & (X \otimes Z) \otimes Y \arrow{r}{\tau_{X, Z} \otimes \id_Y} & (Z \otimes X) \otimes Y
+    % \end{tikzcd} \]
+    % commute for all $X, Y, Z$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{monoidal-functor}{(lax) monoidal functor}
+    A \textbf{lax monoidal functor} is a \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ between \tref{monoidal-category}{monoidal categories} together with a \tref{natural-transformation}{natural transformation}
+    \[ \mu : F(-) \otimes_\mathcal{D} F(-) \Rightarrow F(- \otimes_\mathcal{C} -) \]
+    and a morphism $\varepsilon : \textbf{1}_\mathcal{D} \to F(\textbf{1}_\mathcal{C})$, such that the diagrams
+    \[ \begin{tikzcd}[column sep=7em]
+        (F(X) \otimes_\mathcal{D} F(Y)) \otimes_\mathcal{D} F(Z) \arrow{r}{\alpha^\mathcal{D}_{F(X), F(Y), F(Z)}} \arrow[swap]{d}{\mu_{X, Y} \otimes \id_{F(Z)}} & F(X) \otimes_\mathcal{D} (F(Y) \otimes_\mathcal{D} F(Z)) \arrow{d}{\id_{F(X)} \otimes \mu_{Y, Z}} \\ F(X \otimes_\mathcal{C} Y) \otimes_\mathcal{D} F(Z) \arrow[swap]{d}{\mu_{X \otimes_\mathcal{C} Y, Z}} &  F(X) \otimes_\mathcal{D} F(Y \otimes_\mathcal{C} Z) \arrow{d}{\mu_{X, Y \otimes_\mathcal{C} Z}} \\ F((X \otimes_\mathcal{C} Y) \otimes_\mathcal{C} Z) \arrow{r}{F(\alpha^\mathcal{C}_{X, Y, Z})} & F(X \otimes_\mathcal{C} (Y \otimes_\mathcal{C} Z))
+    \end{tikzcd} \]
+    and
+    \[ \begin{tikzcd}[column sep=3em]
+        \textbf{1}_\mathcal{D} \otimes_\mathcal{D} F(X) \arrow{r}{\varepsilon \otimes \id_{F(X)}} \arrow[swap]{d}{\lambda^\mathcal{D}_F(X)} & F(\textbf{1}_\mathcal{C}) \otimes_\mathcal{D} F(X) \arrow{d}{\mu_{\textbf{1}_\mathcal{C}, X}} \\ F(X) & F(\textbf{1}_\mathcal{C} \otimes_\mathcal{C} X) \arrow{l}{F \left(\lambda^\mathcal{C}_X \right)}
+    \end{tikzcd} \text{ and } \begin{tikzcd}[column sep=3em]
+        F(X) \otimes_\mathcal{D} \textbf{1}_\mathcal{D} \arrow{r}{\id_{F(X)} \otimes \varepsilon} \arrow[swap]{d}{\rho^\mathcal{D}_F(X)} & F(X) \otimes_\mathcal{D} F(\textbf{1}_\mathcal{C}) \arrow{d}{\mu_{X, \textbf{1}_\mathcal{C}}} \\ F(X) & F(X \otimes_\mathcal{C} \textbf{1}_\mathcal{C}) \arrow{l}{F \left(\rho^\mathcal{C}_X \right)}
+    \end{tikzcd} \]
+    commute for all objects $X, Y, Z$ in $\mathcal{C}$. Such a functor is said to be a \textbf{strong monoidal functor}, or simply a \textbf{monoidal functor}, if all $\mu_{X, Y}$ and $\varepsilon$ are isomorphisms.
+\end{topic}
+
+\begin{topic}{rigid-monoidal-category}{rigid monoidal category}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. An object $X$ of $\mathcal{C}$ is \textbf{left rigid} if there exists an object $Y$ and morphisms $\eta_X : \textbf{1} \to X \otimes Y$ and $\varepsilon_X : Y \otimes X \to \textbf{1}$ such that the compositions
+    \[ X \xrightarrow{\eta_X \otimes \id} (X \otimes Y) \otimes X \xrightarrow{\alpha_{X, Y, X}^{-1}} X \otimes (Y \otimes X) \xrightarrow{\id \otimes \varepsilon_X} X \]
+    and
+    \[ Y \xrightarrow{\eta_X \otimes \id} Y \otimes (X \otimes Y) \xrightarrow{\alpha_{Y, X, Y}} (Y \otimes X) \otimes Y \xrightarrow{\varepsilon_X \otimes \id} Y \]
+    are equal to $\id_X$ and $\id_Y$, respectively. Similarly, one can define \textbf{right rigid} objects.
+    
+    The monoidal category $\mathcal{C}$ is \textbf{left rigid} (resp. \textbf{right rigid}) if all objects are left rigid (resp. right rigid), and \textbf{rigid} if it is both left and right rigid.
+\end{topic}
+
+\begin{topic}{internal-hom}{internal hom}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{symmetric-monoidal-category}{symmetric} \tref{monoidal-category}{monoidal category}. An \textbf{internal hom} in $\mathcal{C}$ is a \tref{functor}{functor}
+    \[ [-, -] : \mathcal{C}^\textup{op} \times \mathcal{C} \to \mathcal{C} \]
+    such that for every object $X$ of $\mathcal{C}$ there is an \tref{adjunction}{adjunction}
+    \[ (-) \otimes X \dashv [X, -] . \]
+    If such an internal hom exists, $\mathcal{C}$ is called a \tref{closed-monoidal-category}{closed monoidal category}.
+\end{topic}
+
+\begin{example}{internal-hom}
+    In the monoidal category $(\textbf{Set}, \times, \{ \star \})$, an internal hom is given by
+    \[ [A, B] = \Hom_\textbf{Set}(A, B) . \]
+    Indeed, for any set $X$ there is an adjunction $(-) \otimes X \dashv [X, -]$ since we have a natural bijection
+    \[ \begin{array}{ccc}
+        \Hom_\textbf{Set}(A \times X, B) & \simeq & \Hom_\textbf{Set}(A, [X, B]) \\
+        f & \mapsto & (a \mapsto f(a, -)) \\
+        ((a, x) \mapsto g(a)(x)) & \mapsfrom & g
+    \end{array} \]
+\end{example}
+
+\begin{topic}{closed-monoidal-category}{closed monoidal category}
+    A \tref{symmetric-monoidal-category}{symmetric} \tref{monoidal-category}{monoidal category} $(\mathcal{C}, \otimes, \textbf{1})$ is \textbf{closed} if it has an \tref{internal-hom}{internal hom}.
+\end{topic}

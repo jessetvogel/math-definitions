@@ -33,8 +33,9 @@ window.MathJax = {
             llbracket: "⟦",
             rrbracket: "⟧",
             sslash: "\\mathbin{/\\mkern-6mu/}",
-            mod: "\\text{ mod }"
+            mod: "\\text{ mod }",
+            mapsfrom: "\\mathrel{\\unicode{x21a4}}"
         }
-      }
+    }
 };
 

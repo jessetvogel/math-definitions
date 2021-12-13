@@ -13,13 +13,13 @@
 \end{topic}
 
 \begin{topic}{model-category}{model category}
-    A \textbf{model category} is a \tref{CT:category}{category} $\mathcal{C}$ with three distinguished classes of maps: \textit{weak equivalences}, \textit{fibrations} and \textit{cofibrations}, each of which is closed under composition and contains all identity maps. A map which is both a fibration (resp. cofibration) and a weak equivalence is called an \textit{acyclic fibration} (resp. \textit{acyclic cofibration}). We require the following axioms.
+    A \textbf{model category} is a \tref{CT:category}{category} $\mathcal{C}$ with three distinguished classes of maps: \textit{weak equivalences}, \textit{fibrations} and \textit{cofibrations}, each of which is closed under composition and contains all identity maps. A map which is both a fibration (resp. cofibration) and a weak equivalence is called an \textit{acyclic fibration} (resp. \textit{acyclic cofibration}). The following axioms are required.
     \begin{itemize}
         \item Finite limits and colimits exist in $\mathcal{C}$.
-        \item For maps $f$ and $g$ in $\mathcal{C}$ such that $gf$ is defined, if two out of the three maps $f, g, gf$ are weak equivalences, then so is the third.
+        \item For maps $f$ and $g$ in $\mathcal{C}$ such that $gf$ is defined, if two out of the three maps $f, g$ and $gf$ are weak equivalences, then so is the third.
         \item If $f$ is a \tref{CT:retract}{retract} of $g$, and $g$ is a fibration, cofibration or a weak equivalence, then so is $f$.
         \item For any commutative diagram
-        \[ \begin{tikzcd} A \arrow[swap]{d}{i} \arrow{r}{f} & X \arrow{d}{p} \\ B \arrow[swap]{r}{g} \arrow[dashed]{ur} & Y \end{tikzcd} \]
+        \[ \begin{tikzcd} A \arrow[swap]{d}{i} \arrow{r}{f} & X \arrow{d}{p} \\ B \arrow[swap]{r}{g} \arrow[dashed]{ur}{h} & Y \end{tikzcd} \]
         such that either (i) $i$ is a cofibration and $p$ an acyclic fibration, or (ii) $i$ an acyclic cofibration and $p$ a fibration, there exists a lift $h : B \to X$ making the diagram commute.
         \item Any map $f$ can be factored in two ways: (i) $f = pi$ with $i$ a cofibration and $p$ an acyclic fibration, and (ii) $f = pi$ with $i$ an acyclic cofibration and $p$ a fibration.
     \end{itemize}
@@ -80,7 +80,7 @@
 \end{example}
 
 \begin{topic}{quillen-adjunction}{Quillen adjunction}
-    Let $\mathcal{C}, \mathcal{D}$ be \tref{model-category}{model categories}. A \textbf{Quillen adjunction} is an \tref{CT:adjoint-functors}{adjunction}
+    Let $\mathcal{C}, \mathcal{D}$ be \tref{model-category}{model categories}. A \textbf{Quillen adjunction} is an \tref{CT:adjunction}{CT:adjunction}
     \[ F : \mathcal{C} \to \mathcal{D}, \qquad G : \mathcal{D} \to \mathcal{C}, \qquad F \dashv G , \]
     such that $F$ preserves cofibrations and $G$ preserves fibrations.
     
@@ -100,7 +100,7 @@
 %         \[ [s_0(x)] = \id_x \text{ for } x \in S_0, \qquad [d_1(\sigma)] = [d_0(\sigma)] \circ [d_2(\sigma)] \text{ for } \sigma \in S_2 . \]
 %     \end{itemize}
     
-%     The functor $S_\bdot \mapsto \text{h}S_\bdot$ is \tref{CT:adjoint-functors}{left adjoint} to the \tref{CT:nerve}{nerve functor}.
+%     The functor $S_\bdot \mapsto \text{h}S_\bdot$ is \tref{CT:adjunction}{left adjoint} to the \tref{CT:nerve}{nerve functor}.
 % \end{topic}
 
 \begin{topic}{dold-kan-correspondence}{Dold--Kan correspondence}
@@ -128,7 +128,7 @@
     
     This construction gives a functor
     \[ |\cdot| : \textbf{Set}_\Delta \to \textbf{Top} , \]
-    which is \tref{CT:adjoint-functors}{left adjoint} to the \tref{AT:singular-homology}{singular functor} $\textbf{Sing} : \textbf{Top} \to \textbf{Set}_\Delta$.
+    which is \tref{CT:adjunction}{left adjoint} to the \tref{AT:singular-homology}{singular functor} $\textbf{Sing} : \textbf{Top} \to \textbf{Set}_\Delta$.
 \end{topic}
 
 \begin{topic}{homotopy-limit}{homotopy (co)limit}
@@ -138,7 +138,7 @@
         \item cofibration if $\mu_C : X(C) \to Y(C)$ is a cofibration for all $C$ in $\mathcal{C}$,
         \item fibration if (?).
     \end{itemize}
-    Then the functors $\lim : \mathcal{C}^\mathcal{I} \to \mathcal{C}$ and $\Delta : \mathcal{C} \to \mathcal{C}^\mathcal{I}$ form a \tref{quillen-adjunction}{Quillen adjunction}, yielding an \tref{CT:adjoint-functors}{adjunction} on the \tref{homotopy-category}{homotopy categories}
+    Then the functors $\lim : \mathcal{C}^\mathcal{I} \to \mathcal{C}$ and $\Delta : \mathcal{C} \to \mathcal{C}^\mathcal{I}$ form a \tref{quillen-adjunction}{Quillen adjunction}, yielding an \tref{CT:adjunction}{CT:adjunction} on the \tref{homotopy-category}{homotopy categories}
     \[ \textbf{L} \Delta : \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{C}^\mathcal{I}), \qquad \textbf{R}\lim : \textup{Ho}(\mathcal{C}^\mathcal{I}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{L} \Delta \dashv \textbf{R} \lim . \]
      Now, for any functor $F : \mathcal{I} \to \mathcal{C}$, the \textbf{homotopy limit} of $F$ is $\textbf{R}\lim(F)$. In particular, $\textup{R}\lim(F)$ is isomorphic to $\lim(F)$ if $F$ is a fibrant object of $\mathcal{C}^\mathcal{I}$.
      

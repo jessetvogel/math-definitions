@@ -42,23 +42,35 @@
 \end{topic}
 
 \begin{topic}{triangulated-subcategory}{triangulated subcategory}
-    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. Then a subcategory $\mathcal{D}' \subset \mathcal{D}$ is a \textbf{triangulated subcategory} if it admits the structure of a triangulated category such that the inclusion is \tref{exact-functor-triangulated}{exact}.
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. Then a subcategory $\mathcal{S} \subset \mathcal{T}$ is a \textbf{triangulated subcategory} if it admits the structure of a triangulated category such that the inclusion is \tref{exact-functor-triangulated}{exact}.
 \end{topic}
 
 \begin{topic}{admissible-subcategory}{admissible subcategory}
-    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A full \tref{triangulated-subcategory}{triangulated subcategory} $\mathcal{D}' \subset \mathcal{D}$ is \textbf{right admissible} (resp. \textbf{left admissible}) if the inclusion has a right (resp. left) adjoint $\pi : \mathcal{D} \to \mathcal{D}'$.
-    
-    Equivalently, $\mathcal{D}'$ is right admissible if for all $A \in \mathcal{D}$ there exists a distinguished triangle
-    \[ B \to A \to C \to B[1] \]
-    with $B \in \mathcal{D}'$ and $C \in {\mathcal{D}'}^\perp$ (the \tref{orthogonal-complement}{orthogonal complement}). Indeed, one may use $B = \pi(A)$.
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A full \tref{triangulated-subcategory}{triangulated subcategory} $\mathcal{S} \subset \mathcal{T}$ is \textbf{right admissible} (resp. \textbf{left admissible}) if the inclusion $i : \mathcal{S} \to \mathcal{T}$ has a right (resp. left) adjoint $\pi : \mathcal{T} \to \mathcal{S}$. If it is both left and right admissible, it is called \textbf{admissible}.
 \end{topic}
 
+\begin{example}{admissible-subcategory}
+    The following are equivalent.
+    \begin{enumerate}[(i)]
+        \item The full triangulated subcategory $\mathcal{S} \subset \mathcal{T}$ is right admissible.
+        \item For all $X \in \mathcal{T}$ there exists a distinguished triangle
+        \[ A \to X \to B \to A[1] \]
+        with $A \in \mathcal{S}$ and $B \in {\mathcal{S}}^\perp$, the \tref{orthogonal-complement}{orthogonal complement}.
+    \end{enumerate}
+    \textbf{Proof}. $(i \Rightarrow ii)$ Let $\pi : \mathcal{T} \to \mathcal{S}$ be a right adjoint and take $A = \pi(X)$. The transpose of $\id_{\pi(X)}$ under the adjunction is a morphism $A \to X$, and fits into some exact triangle $A \to X \to B \to A[1]$. Now for any $D \in \mathcal{S}$ we have
+    \[ \Hom_\mathcal{T}(D, A) = \Hom_{\mathcal{S}'}(D, \pi(X)) \simeq \Hom_\mathcal{T}(i(D), X) = \Hom_\mathcal{T}(D, X) , \]
+    so from the long exact sequence
+    \[ \cdots \to \Hom_\mathcal{T}(D, A) \to \Hom_\mathcal{T}(D, X) \to \Hom_\mathcal{T}(D, B) \to \Hom_\mathcal{T}(D, A[1]) \to \cdots \]
+    follows that $\Hom_\mathcal{T}(D, B) = 0$, that is, $B \in \mathcal{S}^\perp$.
+    $(ii \Rightarrow i)$ For each $X \in \mathcal{T}$, choose an exact triangle $A_X \to X \to B_X \to A_X[1]$ as described. Define a functor $\pi : \mathcal{T} \to \mathcal{S}$ by $\pi(X) = A_X$. For a morphism $f : X \to Y$, note that $\Hom_\mathcal{T}(A_X, A_Y) \simeq \Hom_\mathcal{T}(A_X, Y)$ since $B_Y \in \mathcal{S}^\perp$ (again use the long exact sequence). Hence, there is a unique morphism $f' : A_X \to A_Y$ making the obvious square commute, and we set $\pi(f) = f'$. One can check that this indeed gives a functor, and that $\pi$ is right adjoint to $i$.
+\end{example}
+
 \begin{topic}{orthogonal-complement}{orthogonal complement}
-    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. The (right) \textbf{orthogonal complement} of a subcategory $\mathcal{D}' \subset \mathcal{D}$ is the full subcategory ${\mathcal{D}'}^\perp$ of all objects $A \in \mathcal{D}$ such that $\Hom(B, A) = 0$ for all $B \in \mathcal{D}'$.
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. The (right) \textbf{orthogonal complement} of a subcategory $\mathcal{S} \subset \mathcal{T}$ is the full subcategory $\mathcal{S}^\perp$ of all objects $A \in \mathcal{T}$ such that $\Hom(B, A) = 0$ for all $B \in \mathcal{S}$.
 \end{topic}
 
 \begin{topic}{spanning-class}{spanning class}
-    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A collection $\Omega$ of objects in $\mathcal{D}$ is a \textbf{spanning class} (or spans $\mathcal{D}$) if for all $B \in \mathcal{D}$ we have
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A collection $\Omega$ of objects in $\mathcal{T}$ is a \textbf{spanning class} (or spans $\mathcal{T}$) if for all $B \in \mathcal{T}$ we have
     \begin{itemize}
         \item $\Hom(A, B[i]) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \simeq 0$,
         \item $\Hom(B[i], A) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \simeq 0$.
@@ -67,13 +79,26 @@
 
 \begin{topic}{exceptional-sequence}{exceptional sequence}
     Let $\mathcal{D}$ be a $k$-linear \tref{triangulated-category}{triangulated category}. An object $E \in \mathcal{D}$ is called \textbf{exceptional} if
-    \[ \Hom(E, E[\ell]) = \left\{\begin{array}{cl} k & \text{ if } \ell = 0, \\ 0 & \text{ otherwise.} \end{array}\right. \]
+    \[ \Hom_\mathcal{D}(E, E[\ell]) = \left\{\begin{array}{cl} k & \text{ if } \ell = 0, \\ 0 & \text{ otherwise.} \end{array}\right. \]
     An \textbf{exceptional sequence} is a sequence $E_1, \ldots, E_n$ of exceptional objects such that
-    \[ \Hom(E_i, E_j[\ell]) = 0 \qquad \text{for $i > j$ and all $\ell$}. \]
+    \[ \Hom_\mathcal{D}(E_i, E_j[\ell]) = 0 \qquad \textup{for $i > j$ and all $\ell$}. \]
+    Such an exceptional sequence is \textbf{strong} if moreover
+    \[ \Hom_\mathcal{D}(E_i, E_j[\ell]) = 0 \qquad \textup{for all $i, j$ and $\ell \ne 0$}. \]
+    If $\mathcal{D}$ is a \tref{triangulated-category}{triangulated category}, such an exceptional sequence is \textbf{full} if the objects $E_1, \ldots, E_n$ generate $\mathcal{D}$.
 \end{topic}
 
+% \begin{example}{exceptional-sequence}
+%     Let $X$ be a connected smooth projective variety, and $\mathcal{D} = \textbf{D}^\textup{b}(X)$. Then any line bundle $\mathcal{L}$ over $X$ is exceptional, since
+%     \[ \Hom_{\mathcal{O}_X}(\mathcal{L}, \mathcal{L}) = k \]
+%     and
+%     \[ \textup{Ext}^i(\mathcal{L}, \mathcal{L}) = 0 \]
+%     for $i > 0$ since $\mathcal{L}$ is locally free.
+% \end{example}
+
 \begin{example}{exceptional-sequence}
-    Given an exceptional object $E \in \mathcal{D}$, the subcategory $\langle E \rangle$ generated by $E$ is equivalent to $\textbf{D}^\textup{b}(\textbf{FinVect}_k)$, the bounded derived category of finite vector spaces over $k$. For example, every object in $\langle E \rangle$ is isomorphic to a direct sum of shifts of $E$.
+    For $\mathcal{D} = \textbf{D}^\textup{b}(\textbf{FinVect}_k)$, the bounded derived category of finite vector spaces over $k$, the one-dimensional vector space $k$ is exceptional, and moreover, it generates $\mathcal{D}$ as a triangulated category.
+
+    For general $\mathcal{D}$, the subcategory $\langle E \rangle$ generated by an exceptional object $E \in \mathcal{D}$ is equivalent to $\textbf{D}^\textup{b}(\textbf{FinVect}_k)$. For example, every object in $\langle E \rangle$ is isomorphic to a direct sum of shifts of $E$.
 \end{example}
 
 \begin{topic}{semi-orthogonal-decomposition}{semi-orthogonal decomposition}
@@ -92,6 +117,15 @@
 \begin{example}{semi-orthogonal-decomposition}
     The \tref{derived-category}{derived category} $\textbf{D}^\textup{b}(\PP^n)$ of coherent sheaves on projective space has a semi-orthogonal decomposition
     \[ \textbf{D}^\textup{b}(\PP^n) = \langle \mathcal{O}(-n), \mathcal{O}(-n + 1), \ldots, \mathcal{O}(-1), \mathcal{O} \rangle . \]
+    Indeed, the sequence $\mathcal{O}(-n), \ldots, \mathcal{O}$ is exceptional since
+    \[ \textup{Ext}^r(\mathcal{O}(i), \mathcal{O}(j)) \simeq \textup{Ext}^r(\mathcal{O}, \mathcal{O}(j - i)) \simeq H^r(\PP^n, \mathcal{O}(j - i)) = \left\{ \begin{array}{cl}
+         k & \textup{ if } r = 0, i \le j , \\
+         k & \textup{ if } r = n, i - j < n + 1 , \\
+         0 & \textup{ otherwise}.
+    \end{array} \right. \]
+    Furthermore, any coherent sheaf on $\PP^n$ has a finite resolution by direct sums of sheaves $\mathcal{O}(i)$, and combined with the Koszul complex (and tensor products with $\mathcal{O}(i)$ thereof),
+    \[ 0 \to \mathcal{O} \to \cdots \to \mathcal{O}(i)^{\binom{n + 1}{n + 1 - i}} \to \cdots \to \mathcal{O}(n)^{n + 1} \to \mathcal{O}(n + 1) \to 0 , \]
+    it follows that the sheaves $\mathcal{O}(-n), \ldots, \mathcal{O}$ generate $\textbf{D}^\textup{b}(\PP^n)$.
 \end{example}
 
 \begin{topic}{thick-subcategory}{thick subcategory}

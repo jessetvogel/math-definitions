@@ -1,12 +1,9 @@
-# To add a new cell, type '# %%'
-# To add a new markdown cell, type '# %% [markdown]'
 # %%
 import re
 import os
 import hashlib
 import shutil
 from tex2svg import tex2svg
-
 
 # %%
 class Scanner():
@@ -26,7 +23,6 @@ class Scanner():
                 self.position += 1
         return c
 
-
 # %%
 class Token:
 
@@ -42,7 +38,6 @@ class Token:
         self.line = line
         self.position = position
         self.data = data
-
 
 # %%
 class Lexer():
@@ -132,7 +127,6 @@ class Lexer():
             self.tmp_position = self.scanner.position
             self.current_token = self.tokenize(self.tmp)
             return token
-
 
 # %%
 class Parser:
@@ -285,6 +279,11 @@ class Parser:
         elif env == 'itemize':
             self.omit_whitespace()
             self.parse_environment_list(False)
+        elif env == 'proof':
+            self.omit_whitespace()
+            self.output.write('<div class="proof">')
+            self.parse_content()
+            self.output.write('</div>')
         else:
             self.parse_content()
             
@@ -493,15 +492,3 @@ class Parser:
             return svg_file_relative
         except:
             return False
-
-
-# %%
-# parser = Parser('/Users/jessevogel/Projects/math-definitions/data/')
-# parser.set_prefix('AG')
-# parser.parse('/Users/jessevogel/Projects/math-definitions/tex/sheaves.tex')
-
-
-# %%
-
-
-

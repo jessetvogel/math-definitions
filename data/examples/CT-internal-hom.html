@@ -1,0 +1,9 @@
+<div class="example">In the monoidal category <span class="math inline">\((\textbf{Set}, \times, \{ \star \})\)</span>, an internal hom is given by
+<span class="math display">\[ [A, B] = \Hom_\textbf{Set}(A, B) . \]</span>
+Indeed, for any set <span class="math inline">\(X\)</span> there is an adjunction <span class="math inline">\((-) \otimes X \dashv [X, -]\)</span> since we have a natural bijection
+<span class="math display">\[ \begin{array}{ccc}
+        \Hom_\textbf{Set}(A \times X, B) & \simeq & \Hom_\textbf{Set}(A, [X, B]) \\
+        f & \mapsto & (a \mapsto f(a, -)) \\
+        ((a, x) \mapsto g(a)(x)) & \mapsfrom & g
+    \end{array} \]</span>
+</div>

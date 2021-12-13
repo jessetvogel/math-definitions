@@ -121,14 +121,8 @@
     Equivalently, this is the case if the diagonal $\Delta = \{ (x, x) \in X \times X : x \in X \}$ is closed in $X \times X$.
 \end{topic}
 
-\begin{topic}{quasi-compact}{quasi-compact}
-    A \tref{topological-space}{topological space} $X$ is \textbf{quasi-compact} if every open covering of $X$ has a finite subcover.
-    
-    A continuous map $f : X \to Y$ is \textbf{quasi-compact} if the inverse image $f^{-1}(V)$ of every quasi-compact open $V \subset Y$ is quasi-compact.
-\end{topic}
-
 \begin{topic}{compact-space}{compact space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{compact} if it is \tref{quasi-compact}{quasi-compact} and \tref{hausdorff-space}{Hausdorff}.
+    A \tref{topological-space}{topological space} $X$ is \textbf{compact} if every open covering of $X$ has a finite subcover.
 \end{topic}
 
 \begin{topic}{connected-space}{connected space}
@@ -235,7 +229,7 @@
 \end{example}
 
 \begin{topic}{proper-map}{proper map}
-    A \tref{continuous-map}{continuous map} $f : X \to Y$ is \textbf{proper} if $f^{-1}(K) \subset X$ is \tref{quasi-compact}{quasi-compact} for all quasi-compact subsets $K \subset Y$.
+    A \tref{continuous-map}{continuous map} $f : X \to Y$ is \textbf{proper} if $f^{-1}(K) \subset X$ is \tref{compact-space}{compact} for all compact subsets $K \subset Y$.
 \end{topic}
 
 \begin{topic}{noetherian-topological-space}{noetherian topological space}

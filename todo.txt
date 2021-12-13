@@ -6,24 +6,35 @@
 
 # ---- Theory ----
 
-??: DG quotient (lifts the Verdier quotient)
-AG: Construct Severi--Brauer variety from CSA
+AG: Luna slice theorem (Theorem 14.78 of JS Milne)
+
+HA: Verdier quotient by full triangulated (left/right) admissible subcategory gives orthogonal complement (proof??)
+HA: exceptional sequence example: any line bundle in D^b(X) for X connected smooth projective. Hom(L, L) = k, and Ext^(i > 0)(L, L) = 0, since $L$ locally free! ??
+HA: (Semiorthogonal decomposition for projective bundles)
+
+AG: Brauer group of field parametrizes CSA's / (Morita) equivalence
+    - Brauer group of RR is ZZ/2ZZ = { RR, HH }, Brauer group finite field / algebraically closed field is trivial (https://www.math.leidenuniv.nl/scripties/AbtienJavanpeykarBach.pdf)
+
+CA: Morita equivalence equivalent to M_n(R) = M_m(S) for some n, m ?
+
+HT: triangulated enhancement
+HT: quasi-functor
+HT/HA: homotopically injective / homotopically projective
+HT: DG quotient (lifts the Verdier quotient)
+HT: derived Morita equivalence (still a bit hard...)
+
+CA: projective module iff locally free
+
+HT: Bivariant theory (as in DAG seminar)
 
 HA: (Grothendieck) derivator (example: Quillen Model structures D = HO(M), then X \mapsto Ho(Fun(X^op, M))) (Appendix A of https://math.mit.edu/~tabuada/BuenosAires.pdf)
-
-AG: Chow motives (EXAMPLES??) (https://ncatlab.org/nlab/show/Chow+motive) (https://www.math.leidenuniv.nl/scripties/1MasterCommelin.pdf Chapter on Chow motives)
-AG: Correspondences
-AG: Category of (pure effective?) Chow motives
 
 AG: (counter)examples to all types of properties of morphisms.
 
 CA: Dedekind domain (Example: give equivalent definitions / proof)
 
-HA: Baer sum
-
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 
-- Fix compactness
 - Rationally connected
 
 - Examples Borel subgroups:
@@ -113,6 +124,7 @@ DG: Some examples for the (ricci/scalar)curvature/geodesics stuff
 DG: Ricci identity
 DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 DG: orbifold
+DG: Finsler manifold
 
 ?AT: Euler characteristic
 AT: Gysin sequence

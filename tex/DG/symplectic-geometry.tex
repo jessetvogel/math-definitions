@@ -124,11 +124,13 @@
 \end{topic}
 
 \begin{example}{darboux-theorem}
-    \textbf{Proof}. Locally around $x$, we can write $\omega = \frac{1}{2} \omega_{ij} dx^i \wedge dx^j$. Consider $\omega_0 = \frac{1}{2} \omega_{ij}(x) dx^i \wedge dx^1$, which is also a symplectic form in the same neighborhood of $x$. Moreover, for a sufficiently small neighborhood around $x$, we have a family of symplectic forms
-    \[ \omega(t) = (1 - t) \omega_0 + t \omega , \quad t \in [0, 1] . \]
-    Since $\omega - \omega_0$ is closed, using \tref{poincare-lemma}{Poincaré's lemma} we can locally around $x$ write $\dot{\omega}(t) = \omega - \omega_0 = - d \lambda$ for some $1$-form $\lambda$. Since $\omega - \omega_0$ vanishes at $x$, we may choose $\lambda$ to vanish at $x$ up to second order. Now let $X(t)$ be the vector field defined by $\iota_{X(t)} \omega(t) = \lambda$, and let $\varphi_t$ be the flow of $X(t)$ around $x_0$. Since $\varphi_t(x) = x$ for all $t \in [0, 1]$, the flow $\varphi_t$ exists on the whole interval $t \in [0, 1]$ sufficiently close to $x$. Now,
-    \[ \frac{d}{dt} \varphi_t^* \omega(t) = \varphi_t^* \left(\frac{\partial \omega(t)}{\partial t} + \mathcal{L}_{X(t)} \omega(t) \right) = \varphi_t^* \left(\frac{\partial \omega(t)}{\partial t} + d(\iota_{X(t)} \omega(t)) \right) = \varphi_t^* \left( -d \lambda + d \lambda \right) = 0 , \]
-    using the \tref{cartan-formula}{Cartan formula}. This implies that $\varphi_1^* \omega = \varphi_1^* \omega(1) = \varphi_0^* \omega(0) = \omega_0$, so $\varphi_1$ is the desired diffeomorphism. Finally, by a linear change of variables the form $\omega_0$ can be reduced to the canonical form.
+    \begin{proof}
+        Locally around $x$, we can write $\omega = \frac{1}{2} \omega_{ij} dx^i \wedge dx^j$. Consider $\omega_0 = \frac{1}{2} \omega_{ij}(x) dx^i \wedge dx^1$, which is also a symplectic form in the same neighborhood of $x$. Moreover, for a sufficiently small neighborhood around $x$, we have a family of symplectic forms
+        \[ \omega(t) = (1 - t) \omega_0 + t \omega , \quad t \in [0, 1] . \]
+        Since $\omega - \omega_0$ is closed, using \tref{poincare-lemma}{Poincaré's lemma} we can locally around $x$ write $\dot{\omega}(t) = \omega - \omega_0 = - d \lambda$ for some $1$-form $\lambda$. Since $\omega - \omega_0$ vanishes at $x$, we may choose $\lambda$ to vanish at $x$ up to second order. Now let $X(t)$ be the vector field defined by $\iota_{X(t)} \omega(t) = \lambda$, and let $\varphi_t$ be the flow of $X(t)$ around $x_0$. Since $\varphi_t(x) = x$ for all $t \in [0, 1]$, the flow $\varphi_t$ exists on the whole interval $t \in [0, 1]$ sufficiently close to $x$. Now,
+        \[ \frac{d}{dt} \varphi_t^* \omega(t) = \varphi_t^* \left(\frac{\partial \omega(t)}{\partial t} + \mathcal{L}_{X(t)} \omega(t) \right) = \varphi_t^* \left(\frac{\partial \omega(t)}{\partial t} + d(\iota_{X(t)} \omega(t)) \right) = \varphi_t^* \left( -d \lambda + d \lambda \right) = 0 , \]
+        using the \tref{cartan-formula}{Cartan formula}. This implies that $\varphi_1^* \omega = \varphi_1^* \omega(1) = \varphi_0^* \omega(0) = \omega_0$, so $\varphi_1$ is the desired diffeomorphism. Finally, by a linear change of variables the form $\omega_0$ can be reduced to the canonical form.
+    \end{proof}
 \end{example}
 
 \begin{topic}{moser-stability}{Moser's stability}
@@ -136,11 +138,13 @@
 \end{topic}
 
 \begin{example}{moser-stability}
-    The proof is known as \textbf{Moser's trick}. Suppose there exists such an isotopy $\varphi$, and define a vector field $X_t = \frac{d \varphi}{d t} \circ \varphi_t^{-1}$. Then by \tref{cartan-formula}{Cartan's formula} and properties of the \tref{lie-derivative}{Lie derivative},
-    \[ 0 = \frac{d}{dt} \left(\varphi_t^* \omega_t\right) = \varphi_t^* \left(\mathcal{L}_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) = \varphi_t^* \left(d \iota_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) \]
-    so we obtain
-    \[ d \iota_{X_t} \omega_t + \frac{d \omega_t}{dt} = d(\iota_{X_t} \omega_t + \alpha_t) = 0 , \]
-    where $\frac{d \omega_t}{d t} = d \alpha_t$ for a family of 1-forms $\alpha_t$ since $[\omega_t]$ is constant. Now since $\omega_t$ is non-degenerate, we can integrate $\iota_{X_t} \omega_t + \alpha_t$ to obtain $X_t$, and let $\varphi_t$ be the flow of $X_t$.
+    \begin{proof}
+        The proof is known as \textbf{Moser's trick}. Suppose there exists such an isotopy $\varphi$, and define a vector field $X_t = \frac{d \varphi}{d t} \circ \varphi_t^{-1}$. Then by \tref{cartan-formula}{Cartan's formula} and properties of the \tref{lie-derivative}{Lie derivative},
+        \[ 0 = \frac{d}{dt} \left(\varphi_t^* \omega_t\right) = \varphi_t^* \left(\mathcal{L}_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) = \varphi_t^* \left(d \iota_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) \]
+        so we obtain
+        \[ d \iota_{X_t} \omega_t + \frac{d \omega_t}{dt} = d(\iota_{X_t} \omega_t + \alpha_t) = 0 , \]
+        where $\frac{d \omega_t}{d t} = d \alpha_t$ for a family of 1-forms $\alpha_t$ since $[\omega_t]$ is constant. Now since $\omega_t$ is non-degenerate, we can integrate $\iota_{X_t} \omega_t + \alpha_t$ to obtain $X_t$, and let $\varphi_t$ be the flow of $X_t$.
+    \end{proof}
 \end{example}
 
 \begin{topic}{casimir-function}{Casimir function}

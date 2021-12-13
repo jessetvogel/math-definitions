@@ -180,6 +180,16 @@
     Given a \tref{vector-space}{vector space} $V$, the \textbf{dual vector space} $V^*$ is defined as the vector space of all \tref{linear-map}{linear maps} $f : V \to k$.
 \end{topic}
 
+\begin{example}{dual-vector-space}
+    For any vector space $V$, there is a canonical linear map from $V$ to the double dual $V^{**}$ given by
+    \[ V \to V^{**}, \quad v \mapsto (f \mapsto f(v)) . \tag{$(*)$} \]
+    This map is injective since $f(v) = 0$ for all $f \in V^*$ implies $v = 0$. For finite-dimensional $V$ this map is also surjective. Namely, let $e_1, \ldots, e_n$ be a basis for $V$, then $f_1, \ldots, f_n \in V^*$ given by $f_i(e_j) = \delta_{ij}$ form a basis for $V^*$. Now for any $\varphi \in V^{**}$, the element
+    \[ v = \sum_{i = 1}^{n} \varphi(f_i) e_i \]
+    maps under $(*)$ to $\varphi$. In particular, $V^{**}$ is canonically isomorphic to $V$.
+    
+    If $V$ is not finite-dimensional, the map $(*)$ need not be surjective. Namely, let $V$ be a vector space with an infinite basis $e_1, e_2, \ldots$, and define $f_1, f_2, \ldots \in V^*$ by $f_i(e_j) = \delta_{ij}$. Furthermore, take $\varphi \in V^{**}$ to be any map such that $\varphi(f_i) = 1$. Since any $v \in V$ can be written as a finite sum $v = \sum_{i = 1}^{N} v_i e_i$, we have $f_{N + 1}(v) = 0 \ne 1 = \varphi(f_{N + 1})$, which shows that $(*)$ is not surjective.
+\end{example}
+
 \begin{topic}{grassmannian}{Grassmannian}
     Given a \tref{LA:vector-space}{vector space} $V$, and $r \ge 0$, the \textbf{Grassmannian} $\textup{Gr}(r, V)$ is a space that parametrizes all $r$-dimensional \tref{LA:vector-subspace}{linear subspaces} of $V$.
 \end{topic}
@@ -378,11 +388,13 @@
 \end{example}
 
 \begin{example}{cayley-hamilton-theorem}
-    \textbf{Proof}. For \tref{diagonalization}{diagonalizable} matrices $A = PDP^{-1}$, with $D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}$, the proof is easy:
-    \[ p_A(A) = p_A(PDP^{-1}) = P p_A(D) P^{-1} = P \begin{pmatrix} p_A(\lambda_1) & & \\ & \ddots & \\ & & p_A(\lambda_n) \end{pmatrix} P^{-1} = 0 , \]
-    since all eigenvalues $\lambda_i$ are roots of $p_A$. In other words, the function
-    \[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
-    is zero on the set of diagonalizable complex matrices, which is \tref{TO:dense}{dense} in $\textup{Mat}_{n \times n}(\CC)$. Hence by continuity of $\varphi$, we must have $\varphi(A) = 0$ for all $A \in \textup{Mat}_{n \times n}(\CC)$.
+    \begin{proof}
+        For \tref{diagonalization}{diagonalizable} matrices $A = PDP^{-1}$, with $D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}$, the proof is easy:
+        \[ p_A(A) = p_A(PDP^{-1}) = P p_A(D) P^{-1} = P \begin{pmatrix} p_A(\lambda_1) & & \\ & \ddots & \\ & & p_A(\lambda_n) \end{pmatrix} P^{-1} = 0 , \]
+        since all eigenvalues $\lambda_i$ are roots of $p_A$. In other words, the function
+        \[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
+        is zero on the set of diagonalizable complex matrices, which is \tref{TO:dense}{dense} in $\textup{Mat}_{n \times n}(\CC)$. Hence by continuity of $\varphi$, we must have $\varphi(A) = 0$ for all $A \in \textup{Mat}_{n \times n}(\CC)$.
+    \end{proof}
 \end{example}
 
 \begin{topic}{monomial-matrix}{monomial matrix}
@@ -429,4 +441,12 @@
     \[ x_1 = \frac{\det \begin{pmatrix} 6 & 2 \\ 8 & 4 \end{pmatrix}}{\det \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}} = \frac{8}{-2} = -4, \quad \textup{ and} \quad x_2 = \frac{\det \begin{pmatrix} 1 & 6 \\ 3 & 8 \end{pmatrix}}{\det \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}} = \frac{-10}{-2} = 5 . \]
     And indeed, now we find
     \[ Ax = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} -4 \\ 5 \end{pmatrix} = \begin{pmatrix} 6 \\ 8 \end{pmatrix} = b . \]
+\end{example}
+
+\begin{example}{cramer-rule}
+    Given an invertible $n \times n$ matrix $A$, Cramer's rule can be used to compute the inverse $A^{-1}$ as
+    \[ \left( A^{-1} \right)_{ij} = \frac{\det(A_{i, j})}{\det(A)} , \]
+    where $A_{i, j}$ denotes the matrix formed by replacing the $j$-th column of $A$ by the standard basis vector $e_j$. While this is an inefficient way to compute the inverse $A^{-1}$, it shows that the inversion map
+    \[ (-)^{-1} : \textup{GL}_n(k) \to \textup{GL}_n(k) \]
+    is algebraic and infinitely differentiable, since the determinant of a matrix can be expressed as a polynomial in its entries.
 \end{example}

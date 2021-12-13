@@ -49,7 +49,7 @@
 \end{topic}
 
 \begin{example}{schur-lemma}
-    \textbf{Proof}.
+    \begin{proof}
     \begin{enumerate}[(i)]
         \item For any vector $v \in V$ and $g \in G$ we have
         \[ A \rho(g) v = \rho'(g) A v . \]
@@ -58,6 +58,7 @@
         \[ A \rho(g) v = \rho(g) A v = \lambda \rho(g) v , \]
         so $\rho(g) v$ is again an eigenvector of $A$ with eigenvalue $\lambda$. This shows that the eigenspace of $A$ corresponding to $\lambda$ is invariant under $\rho$. Since $\rho$ is irreducible, this eigenspace must be $0$ or $V$, and since it contains $v$ already, it must be $V$. We conclude that $A = \lambda I$.
     \end{enumerate}
+    \end{proof}
 \end{example}
 
 \begin{topic}{clebsch-gordan-series}{Clebsch--Gordan series}
@@ -89,15 +90,17 @@
 \end{topic}
 
 \begin{example}{first-orthogonality-theorem}
-    \textbf{Proof}. Let $A : W \to V$ be an arbitrary linear map, and take
-    \[ B = \sum_{g \in G} \rho_1(g) A \rho_2(g^{-1}) . \]
-    Note that
-    \[ \rho_1(h) B = \sum_{g \in G} \rho_1(hg) A \rho_2(g^{-1}) = \sum_{g' \in G} \rho_1(g') A \rho_2(g'^{-1} h) = B \rho_2(h) . \]
-    If $\rho_1 \simeq \rho_2$, then \tref{schur-lemma}{Schur's first lemma} implies $B = \lambda I$ for some $\lambda \in \CC$, and if $\rho_1 \not\simeq \rho_2$, then \tref{schur-lemma}{Schur's second lemma} yields $B = 0$. Now taking $A_{\ell m} = \delta_{\ell r} \delta_{ms}$, in terms of some basis for $V$ and $W$, gives
-    \[ \sum_{g \in G} (\rho_1(g))_{ir} (\rho_2(g^{-1}))_{sj} = \left\{ \begin{array}{cl} \lambda_{rs} \delta_{ij} & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 . \end{array} \right. \]
-    Whenever $\rho_1 \simeq \rho_2$, we can set $i = j$ and sum over $i$ to obtain $|G| \delta_{rs} = \lambda_{rs} \dim_\CC(V)$. Substituting this into the above, setting $r = i$ and $s = j$ and summing over $i$ and $j$ now gives
-    \[ \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) = \left\{ \begin{array}{cl} |G| & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 , \end{array} \right. \]
-    as desired.
+    \begin{proof}
+        Let $A : W \to V$ be an arbitrary linear map, and take
+        \[ B = \sum_{g \in G} \rho_1(g) A \rho_2(g^{-1}) . \]
+        Note that
+        \[ \rho_1(h) B = \sum_{g \in G} \rho_1(hg) A \rho_2(g^{-1}) = \sum_{g' \in G} \rho_1(g') A \rho_2(g'^{-1} h) = B \rho_2(h) . \]
+        If $\rho_1 \simeq \rho_2$, then \tref{schur-lemma}{Schur's first lemma} implies $B = \lambda I$ for some $\lambda \in \CC$, and if $\rho_1 \not\simeq \rho_2$, then \tref{schur-lemma}{Schur's second lemma} yields $B = 0$. Now taking $A_{\ell m} = \delta_{\ell r} \delta_{ms}$, in terms of some basis for $V$ and $W$, gives
+        \[ \sum_{g \in G} (\rho_1(g))_{ir} (\rho_2(g^{-1}))_{sj} = \left\{ \begin{array}{cl} \lambda_{rs} \delta_{ij} & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 . \end{array} \right. \]
+        Whenever $\rho_1 \simeq \rho_2$, we can set $i = j$ and sum over $i$ to obtain $|G| \delta_{rs} = \lambda_{rs} \dim_\CC(V)$. Substituting this into the above, setting $r = i$ and $s = j$ and summing over $i$ and $j$ now gives
+        \[ \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) = \left\{ \begin{array}{cl} |G| & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 , \end{array} \right. \]
+        as desired.
+    \end{proof}
 \end{example}
 
 \begin{example}{first-orthogonality-theorem}

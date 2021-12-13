@@ -309,6 +309,7 @@ img.display-math-svg {
     margin-top: 32px;
     margin-bottom: 32px;
     scale: 1.33;
+    transition: filter 0.2s;
 }
 
 .error {
@@ -330,6 +331,7 @@ img.display-math-svg {
 }
 
 .example::before {
+    content: 'Example';
     display: block;
     text-align: center;
     font-weight: bold;
@@ -337,7 +339,7 @@ img.display-math-svg {
     text-decoration: underline;
     margin-bottom: 6px;
     color: var(--clr-text-main);
-    content: 'Example';
+    transition: color 0.2s;
 }
 
 .toggle-examples-button {
@@ -355,6 +357,11 @@ img.display-math-svg {
 #examples.hidden .toggle-examples-button::before {
     content: '(show examples)';
     cursor: pointer;
+}
+
+.proof::before {
+    content: 'Proof. ';
+    font-weight: bold;
 }
 
 /* loading animation */
@@ -420,12 +427,6 @@ body.dark #button-theme:hover {
 }
 
 /* body, input { transition: background-color 0.5s, color 0.5s; } */
-
-
-
-
-
-
 
 /* citations */
 

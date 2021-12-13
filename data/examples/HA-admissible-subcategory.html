@@ -1,0 +1,13 @@
+<div class="example">The following are equivalent.
+<ol type="(i)"><li> The full triangulated subcategory <span class="math inline">\(\mathcal{S} \subset \mathcal{T}\)</span> is right admissible.
+</li><li> For all <span class="math inline">\(X \in \mathcal{T}\)</span> there exists a distinguished triangle
+<span class="math display">\[ A \to X \to B \to A[1] \]</span>
+with <span class="math inline">\(A \in \mathcal{S}\)</span> and <span class="math inline">\(B \in {\mathcal{S}}^\perp\)</span>, the <a href="#HA:orthogonal-complement">orthogonal complement</a>.
+</li></ol>
+<b>Proof</b>. <span class="math inline">\((i \Rightarrow ii)\)</span> Let <span class="math inline">\(\pi : \mathcal{T} \to \mathcal{S}\)</span> be a right adjoint and take <span class="math inline">\(A = \pi(X)\)</span>. The transpose of <span class="math inline">\(\id_{\pi(X)}\)</span> under the adjunction is a morphism <span class="math inline">\(A \to X\)</span>, and fits into some exact triangle <span class="math inline">\(A \to X \to B \to A[1]\)</span>. Now for any <span class="math inline">\(D \in \mathcal{S}\)</span> we have
+<span class="math display">\[ \Hom_\mathcal{T}(D, A) = \Hom_{\mathcal{S}'}(D, \pi(X)) \simeq \Hom_\mathcal{T}(i(D), X) = \Hom_\mathcal{T}(D, X) , \]</span>
+so from the long exact sequence
+<span class="math display">\[ \cdots \to \Hom_\mathcal{T}(D, A) \to \Hom_\mathcal{T}(D, X) \to \Hom_\mathcal{T}(D, B) \to \Hom_\mathcal{T}(D, A[1]) \to \cdots \]</span>
+follows that <span class="math inline">\(\Hom_\mathcal{T}(D, B) = 0\)</span>, that is, <span class="math inline">\(B \in \mathcal{S}^\perp\)</span>.
+<span class="math inline">\((ii \Rightarrow i)\)</span> For each <span class="math inline">\(X \in \mathcal{T}\)</span>, choose an exact triangle <span class="math inline">\(A_X \to X \to B_X \to A_X[1]\)</span> as described. Define a functor <span class="math inline">\(\pi : \mathcal{T} \to \mathcal{S}\)</span> by <span class="math inline">\(\pi(X) = A_X\)</span>. For a morphism <span class="math inline">\(f : X \to Y\)</span>, note that <span class="math inline">\(\Hom_\mathcal{T}(A_X, A_Y) \simeq \Hom_\mathcal{T}(A_X, Y)\)</span> since <span class="math inline">\(B_Y \in \mathcal{S}^\perp\)</span> (again use the long exact sequence). Hence, there is a unique morphism <span class="math inline">\(f' : A_X \to A_Y\)</span> making the obvious square commute, and we set <span class="math inline">\(\pi(f) = f'\)</span>. One can check that this indeed gives a functor, and that <span class="math inline">\(\pi\)</span> is right adjoint to <span class="math inline">\(i\)</span>.
+</div>

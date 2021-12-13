@@ -45,12 +45,16 @@
 
 \begin{topic}{lie-theorems}{Lie's theorems}
     \textbf{Lie's theorems} are three theorems about the relation between \tref{lie-group}{Lie groups} and finite-dimensional \tref{AA:lie-algebra}{Lie algebras}.
-    \begin{enumerate}[I]
+    \begin{enumerate}[(I)]
         \item If $G$ and $H$ are locally isomorphic Lie groups, then their Lie algebras $\mathfrak{g}$ and $\mathfrak{h}$ are isomorphic.
         \item If $G$ and $H$ are Lie groups with Lie algebras $\mathfrak{g}$ and $\mathfrak{h}$, and $G$ is \tref{TO:simply-connected-space}{simply connected}, then any morphism of Lie algebras $f : \mathfrak{g} \to \mathfrak{h}$ lifts uniquely to a morphism of Lie groups $F : G \to H$, that is, $dF_e = f$.
         \item Every Lie algebra is isomorphic to the Lie algebra of a (simply connected) Lie group.
     \end{enumerate}
 \end{topic}
+
+\begin{example}{lie-theorems}
+    Theorem (II) does not work if $G$ is not simply connected. Namely, let $G = S^1$ and $H = \RR$ whose Lie algebras are $\mathfrak{g} = \mathfrak{h} = \RR$ with zero Lie bracket. The identity map $\mathfrak{g} \to \mathfrak{h}$ does not lift to a morphism of Lie groups $G \to H$, since no such morphism exists.
+\end{example}
 
 \begin{topic}{lie-algebra-cohomology}{Lie algebra cohomology}
     Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textit{left-invariant differential forms}, i.e. \tref{differential-form}{differential forms} $\omega \in \Omega^k(G)$ with $\omega_g = (L_{g^{-1}})^* \omega_e$ for all $g \in G$, where $L_g : G \to G$ denotes left multiplication $h \mapsto gh$, are completely determined by their value at the identity $e$. Hence there is a natural identification

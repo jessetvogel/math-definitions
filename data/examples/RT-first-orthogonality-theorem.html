@@ -1,4 +1,4 @@
-<div class="example"><b>Proof</b>. Let <span class="math inline">\(A : W \to V\)</span> be an arbitrary linear map, and take
+<div class="example"><div class="proof">Let <span class="math inline">\(A : W \to V\)</span> be an arbitrary linear map, and take
 <span class="math display">\[ B = \sum_{g \in G} \rho_1(g) A \rho_2(g^{-1}) . \]</span>
 Note that
 <span class="math display">\[ \rho_1(h) B = \sum_{g \in G} \rho_1(hg) A \rho_2(g^{-1}) = \sum_{g' \in G} \rho_1(g') A \rho_2(g'^{-1} h) = B \rho_2(h) . \]</span>
@@ -7,6 +7,7 @@ If <span class="math inline">\(\rho_1 \simeq \rho_2\)</span>, then <a href="#RT:
 Whenever <span class="math inline">\(\rho_1 \simeq \rho_2\)</span>, we can set <span class="math inline">\(i = j\)</span> and sum over <span class="math inline">\(i\)</span> to obtain <span class="math inline">\(|G| \delta_{rs} = \lambda_{rs} \dim_\CC(V)\)</span>. Substituting this into the above, setting <span class="math inline">\(r = i\)</span> and <span class="math inline">\(s = j\)</span> and summing over <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> now gives
 <span class="math display">\[ \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) = \left\{ \begin{array}{cl} |G| & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 , \end{array} \right. \]</span>
 as desired.
+</div>
 </div><div class="example">Define an inner product on the characters of <span class="math inline">\(G\)</span>,
 <span class="math display">\[ \langle \chi_1, \chi_2 \rangle = \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) . \]</span>
 The first orthogonality theorem now says that <span class="math inline">\(\langle \chi, \chi \rangle = 1\)</span> for any character <span class="math inline">\(\chi\)</span>, and that inequivalent characters are orthogonal. In particular, two irreducible representations <span class="math inline">\(\rho_1\)</span> and <span class="math inline">\(\rho_2\)</span> are equivalent if and only if their characters are equal. Namely, if <span class="math inline">\(\rho_1 \not\simeq \rho_2\)</span>, then <span class="math inline">\(\langle \chi_1, \chi_2 \rangle = 0\)</span>, and since <span class="math inline">\(\langle \chi_1, \chi_1 \rangle = 1\)</span>, we must have <span class="math inline">\(\chi_1 \ne \chi_2\)</span>.
