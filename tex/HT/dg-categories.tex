@@ -1,6 +1,6 @@
 \begin{topic}{dg-category}{dg category}
     A \textbf{differential graded (dg) category} $\mathcal{A}$ over a \tref{CA:ring}{commutative ring} $k$, is a \tref{CT:category}{category} \tref{CT:enriched-category}{enriched} over \tref{HA:chain-complex}{chain complexes} of $k$-modules. Concretely, morphisms between objects $A$ and $B$ of $\mathcal{A}$ form a chain complex,
-    \[ \Hom_\mathcal{A}(A, B) = \bigoplus_{n \in \ZZ} \Hom^n_\mathcal{A}(A, B) , \]
+    \[ \Hom_\mathcal{A}(A, B) = \bigoplus_{n \in \ZZ} \Hom_\mathcal{A}(A, B)^n , \]
     with differential $d : \Hom^n_\mathcal{A}(A, B) \to \Hom^{n + 1}_\mathcal{A}(A, B)$ satisfying $d^2 = 0$. Furthermore, composition of morphisms
     \[ \Hom_\mathcal{A}(A, B) \otimes_k \Hom_\mathcal{A}(B, C) \to \Hom_\mathcal{A}(A, C) \]
     must be a chain map.
@@ -56,3 +56,9 @@
     \[ \widehat{(-)} : \mathcal{A} \to \mathcal{M}\textbf{od}_\mathcal{A}, \quad x \mapsto \widehat{x} , \]
     which is \tref{CT:full-functor}{full} and \tref{CT:faithful-functor}{faithful}.
 \end{example}
+
+% \begin{topic}{quasi-functor}{quasi-functor}
+%     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{dg-category}{dg categories} over $k$. A \textbf{quasi-functor} from $\mathcal{A}$ to $\mathcal{B}$ is an $\mathcal{A}$-$\mathcal{B}$-bimodule $T$, i.e. a \tref{dg-module}{dg $\mathcal{A}^\textup{op} \otimes \mathcal{B}$-module}, such that the tensor functor
+%     \[ (-) \overset{\textup{L}}{\otimes_\mathcal{A}} : \textup{D}(\mathcal{A}) \to \textbf{D}(\mathcal{B}) \]
+%     maps representable $\mathcal{A}$-modules to representable $\mathcal{B}$-modules (up to isomorphism).
+% \end{topic}

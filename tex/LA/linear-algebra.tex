@@ -450,3 +450,27 @@
     \[ (-)^{-1} : \textup{GL}_n(k) \to \textup{GL}_n(k) \]
     is algebraic and infinitely differentiable, since the determinant of a matrix can be expressed as a polynomial in its entries.
 \end{example}
+
+\begin{topic}{cartan-matrix}{Cartan matrix}
+    A \textbf{generalized Cartan matrix} is a square matrix $A$ with integral entries $a_{ij} \in \ZZ$ such that
+    \[ a_{ii} = 2, \quad a_{ij} \le 0 \textup{ if } i \ne j, \quad a_{ij} = 0 \textup{ if and only if } a_{ji} = 0 . \]
+    A generalized Cartan matrix $A$ is \textbf{symmetrizable} if $A = DS$ for some diagonal matrix $D$ and symmetric matrix $S$. If, moreover, $D$ can be chosen with positive diagonal entries and $S$ \tref{definite-matrix}{positive definite}, then $A$ is called a \textbf{Cartan matrix}.
+\end{topic}
+
+% \begin{example}{cartan-matrix}
+%     The following matrices are Cartan.
+%     \[ \begin{pmatrix} 2 & -3 \\ -1 & 2 \end{pmatrix}, \quad \begin{pmatrix} 2 & -1 & 0 & 0 & 0 \\ -1 & 2 & -1 & 0 & 0 \\ 0 & -1 & 2 & -1 & -1 \\ 0 & 0 & -1 & 2 & 0 \\ 0 & 0 & -1 & 0 & 2 \end{pmatrix} . \]
+% \end{example}
+
+\begin{example}{cartan-matrix}
+    Any $2 \times 2$ Cartan matrix must have the form $A = \begin{pmatrix} 2 & -a \\ -b & 2 \end{pmatrix}$ with $a, b \ge 0$ and $\det(A) = 4 - ab > 0$. Therefore, the only $2 \times 2$ Cartan matrices are the matrices
+    \[ \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}, \quad \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}, \quad \begin{pmatrix} 2 & -1 \\ -2 & 2 \end{pmatrix}, \quad \begin{pmatrix} 2 & -1 \\ -3 & 2 \end{pmatrix} , \]
+    and their \tref{LA:matrix-transpose}{transposes}.
+\end{example}
+
+\begin{example}{cartan-matrix}
+    The Cartan matrix $A$ of a \tref{AA:simple-lie-algebra}{semisimple Lie algebra} $\mathfrak{g}$ is given by
+    \[ a_{ij} = 2 \frac{\langle r_i, r_j \rangle}{\langle r_i, r_i \rangle} , \]
+    where the $r_i$ is a set of simple roots of $\mathfrak{g}$. One can take
+    \[ D_{ij} = \frac{\delta_{ij}}{\langle r_i, r_i \rangle} \quad \textup{ and } \quad S_{ij} = 2 \langle r_i, r_j \rangle . \]
+\end{example}

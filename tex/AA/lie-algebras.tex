@@ -104,6 +104,22 @@
     \[ U(\mathfrak{sl}_2) = \CC \langle x, y, z \rangle / (zx - xz - 2x, zy - yz + 2y, xy - yz - z) . \]
 \end{example}
 
+\begin{example}{universal-enveloping-algebra}
+    The universal enveloping algebra $U(\mathfrak{g})$ naturally has the structure of a \tref{hopf-algebra}{Hopf algebra}, where comultiplication, counit and the antipode are given by
+    \[ \Delta(x) = x \otimes 1 + 1 \otimes x, \qquad \varepsilon(x) = 0 , \qquad S(x) = -x , \]
+    for all $x \in \mathfrak{g}$. Note that $\Delta : U(\mathfrak{g}) \to U(\mathfrak{g}) \otimes U(\mathfrak{g})$ is well-defined since
+    \[ \begin{aligned}
+        \Delta([x, y])
+            &= [x, y] \otimes 1 + 1 \otimes [x, y] \\
+            &= xy \otimes 1 - yx \otimes 1 + 1 \otimes xy - 1 \otimes yx \\
+            &= xy \otimes 1 - x \otimes y - y \otimes x + 1 \otimes xy - yx \otimes 1 + y \otimes x + x \otimes y - 1 \otimes yx \\
+            &= (x \otimes 1 + 1 \otimes x)(y \otimes 1 + 1 \otimes y) - (y \otimes 1 + 1 \otimes y)(x \otimes 1 + 1 \otimes x) \\
+            &= \Delta(x) \Delta(y) - \Delta(y) \Delta(x) \\
+            &= \Delta(xy - yx)
+    \end{aligned} \]
+    for all $x, y \in \mathfrak{g}$.
+\end{example}
+
 \begin{topic}{poisson-algebra}{Poisson algebra}
     A \textbf{Poisson algebra} is a commutative \tref{CA:algebra}{algebra} $A$ over a \tref{CA:field}{field} $k$, together with an operation $\{ \cdot, \cdot \} : A \otimes_k A \to A$, called the \textbf{Poisson bracket}, making $A$ into a \tref{lie-algebra}{Lie algebra} and satisfying the \textit{Leibniz rule} $\{ f, gh \} = \{ f, g \} h + g \{ f, h \}$. % $\{ a, - \} : A \to A$ is a \tref{CA:derivation}{$k$-derivation} for every $a \in A$.
 \end{topic}

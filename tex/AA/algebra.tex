@@ -134,7 +134,33 @@
 \end{example}
 
 \begin{example}{division-algebra}
-    The only finite-dimensional division algebra over an \tref{CA:algebraically-closed-field}{algebraically-closed-field} $k$ is $k$ itself. Namely, let $A$ be a finite-dimensional division algebra over $k$, and take any element $x \in A$. Since $A$ is finite-dimensional, the powers of $x$ must be linearly dependent, that is, there exists some relation
+    The only finite-dimensional division algebra over an \tref{CA:algebraically-closed-field}{algebraically closed field} $k$ is $k$ itself. Namely, let $A$ be a finite-dimensional division algebra over $k$, and take any element $x \in A$. Since $A$ is finite-dimensional, the powers of $x$ must be linearly dependent, that is, there exists some relation
     \[ f(x) = x^n + c_1 x^{n - 1} + \cdots + c_{n - 1} x + c_n = 0 \]
     for some $c_i \in k$. Since $k$ is algebraically closed, the polynomial $f$ factors into linear factors $f(x) = (x - \alpha_1) \cdots (x - \alpha_n)$ for some $\alpha_i \in k$. Assuming $f$ has minimal degree, it follows that $f(x) = x - \alpha_1$ and thus $x = \alpha_1 \in k$, so $A = k$.
 \end{example}
+
+\begin{topic}{koszul-algebra}{Koszul algebra}
+    A \textbf{Koszul algebra} $A$ over a \tref{CA:field}{field} $k$ is a \tref{CA:graded-ring}{graded} \tref{CA:algebra}{$k$-algebra}, such that the ground field $k$ has a linear minimal graded free resolution, that is, there exists an exact sequence
+    \[ \cdots \to A(-i)^{b_i} \to \cdots \to A(-2)^{b_2} \to A(-1)^{b_1} \to A \to k \to 0 , \]
+    for some $b_i \ge 0$.
+\end{topic}
+
+\begin{example}{koszul-algebra}
+    \begin{itemize}
+        \item The polynomial ring $R = k[x_1, \ldots, x_n]$ is a Koszul algebra over $k$, as a desired resolution is given by the \tref{UN:koszul-complex}{Koszul complex}
+        \[ 0 \to R(-n) \to \cdots \to R(-i)^{\binom{n}{i}} \to \cdots \to R(-1)^n \to R \to k \to 0 . \]
+        \item The ring $R = k[x, y]/(xy)$ is a Koszul algebra over $k$, even though a resolution of $k$
+        \[ \cdots \to R^2 \xrightarrow{\begin{pmatrix} y & 0 \\ 0 & x \end{pmatrix}} R^2 \xrightarrow{\begin{pmatrix} x & 0 \\ 0 & y \end{pmatrix}} R^2 \xrightarrow{\begin{pmatrix} y & 0 \\ 0 & x \end{pmatrix}} R^2 \xrightarrow{\begin{pmatrix} x & y \end{pmatrix}} R \to k \to 0 \]
+        has infinite length.
+        \item The ring $R = k[x] / (x^3)$ is not a Koszul algebra over $k$. Namely, when trying to construct a resolution, we obtain
+        \[ R \xrightarrow{x^2 \cdot} R \xrightarrow{x \cdot} R \to k \to 0 , \]
+        but $x^2$ is not a linear term.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{kac-moody-algebra}{Kac--Moody algebra}
+    Let $A = (a_{ij})$ be an $n \times n$ \tref{LA:cartan-matrix}{generalized Cartan matrix}. The \textbf{Kac--Moody algebra} of $A$ is the \tref{lie-algebra}{Lie algebra} $\mathfrak{g}(A)$ over $\CC$, defined by generators $H_i, X_i, Y_i$ for $i = 1, \ldots, n$ and relations
+    \[ [H_i, H_j] = 0, \quad [H_i, X_j] = a_{ij} X_j, \quad [H_i, Y_j] = -a_{ij} Y_j, \quad [X_i, Y_j] = \delta_{ij} H_i , \textup{ for all } i, j \]
+    \[ \textup{ and } \left(\textup{ad}_{X_i}\right)^{1 - a_{ij}}(X_j) = 0, \quad \left(\textup{ad}_{Y_i}\right)^{1 - a_{ij}}(Y_j) = 0, \textup{ for } i \ne j , \]
+    where $\textup{ad}_X(Y) = [X, Y]$ denotes the \tref{DG:adjoint-representation}{adjoint representation}.
+\end{topic}

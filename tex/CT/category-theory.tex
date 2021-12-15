@@ -774,3 +774,15 @@
         \end{proof}
     \end{itemize}
 \end{example}
+
+\begin{topic}{complete-category}{(co)complete category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{complete} if all \tref{small-category}{small} \tref{limit}{limits} exist in $\mathcal{C}$.
+    
+    Dually, a category $\mathcal{C}$ is \textbf{cocomplete} if all small colimits exist in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{continuous-functor}{(co)continuous functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{continuous} if it preserves all small \tref{limit}{limits} in $\mathcal{C}$, that is, if for every functor $G : \mathcal{I} \to \mathcal{C}$ with $\mathcal{I}$ a \tref{small-category}{small category}, there is an isomorphism
+    \[ F(\lim G) \simeq \lim(F \circ G) . \]
+    Dually, a functor $F : \mathcal{C} \to \mathcal{D}$ is \textbf{cocontinuous} if it preserves all small colimits in $\mathcal{C}$.
+\end{topic}

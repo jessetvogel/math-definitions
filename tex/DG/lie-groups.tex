@@ -78,3 +78,9 @@
 \begin{example}{weyl-group-lie-group}
     Let $G = \textup{GL}_n(\RR)$ and $T$ the maximal torus consisting of diagonal matrices. Then $N(T)$ is the subgroup of \tref{LA:monomial-matrix}{monomial matrices}, and $Z(T) = T$ is again the subgroup of diagonal matrices. Hence, the Weyl group $W = N(T)/Z(T)$ is the \tref{GT:symmetric-group}{symmetric group} $S_n$.
 \end{example}
+
+\begin{topic}{poisson-lie-group}{Poisson--Lie group}
+    A \textbf{Poisson--Lie group} is a \tref{lie-group}{Lie group} with a \tref{poisson-manifold}{Poisson structure} $\{ \cdot, \cdot \}$, such that multiplication $\mu : G \times G \to G$ is a \tref{poisson-map}{Poisson map}, where $G \times G$ is given the product Poisson structure. Explicitly, it is required that
+    \[ \{ f_1, f_2 \}(g_1 g_2) = \{ f_1 \circ L_{g_1}, f_2 \circ L_{g_1} \}(g_2) + \{ f_1 \circ R_{g_2}, f_2 \circ R_{g_2} \}(g) \]
+    for all $f_1, f_2 \in C^\infty(G)$ and $g_1, g_2 \in G$.
+\end{topic}

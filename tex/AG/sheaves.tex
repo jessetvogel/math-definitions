@@ -23,9 +23,11 @@
 \end{topic}
 
 \begin{topic}{constant-sheaf}{constant sheaf}
-    Let $X$ be a \tref{TO:topological-space}{topological space}, and $A$ an \tref{GT:abelian-group}{abelian group}. The \textbf{constant sheaf} $\underline{A}$ on $X$ determined by $A$ is the sheaf given by
+    Let $X$ be a \tref{TO:topological-space}{topological space}, and $A$ an \tref{GT:abelian-group}{abelian group}. The \textbf{constant sheaf} $\underline{A}$ on $X$ determined by $A$ is the \tref{sheaf}{sheaf} given by
     \[ \underline{A}(U) = \{ \textup{locally constant functions } U \to A \} , \]
-    and the usual restriction maps. Note that for every connected open set $U$ we have $\underline{A}(U) \simeq A$, hence the name `constant sheaf'.
+    and the usual restriction maps. Note that for every \tref{TO:connected-space}{connected} open set $U$ we have $\underline{A}(U) \simeq A$, hence the name `constant sheaf'.
+    
+    A sheaf $\mathcal{F}$ on $X$ is \textbf{locally constant} if every point has an open neighborhood $U$ such that $\mathcal{F}|_U$ is isomorphic to a \textbf{constant sheaf}.
 \end{topic}
 
 \begin{topic}{stalk}{stalk}
@@ -186,3 +188,7 @@
     which gives rise to a long exact sequence
     \[ \cdots \to H_A^i(X, \mathcal{F}) \to H^i(X, \mathcal{F}) \to H^i(U, \mathcal{F}) \to H_A^{i + 1}(X, \mathcal{F}) \to \cdots \]
 \end{example}
+
+\begin{topic}{local-system}{local system}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. A \textbf{local system} (of abelian groups, modules, ...) on $X$ is a \tref{constant-sheaf}{locally constant sheaf} (of abelian groups, modules, ...) $\mathcal{L}$ on $X$.
+\end{topic}
