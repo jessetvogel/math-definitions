@@ -81,6 +81,21 @@
 
 \begin{topic}{poisson-lie-group}{Poisson--Lie group}
     A \textbf{Poisson--Lie group} is a \tref{lie-group}{Lie group} with a \tref{poisson-manifold}{Poisson structure} $\{ \cdot, \cdot \}$, such that multiplication $\mu : G \times G \to G$ is a \tref{poisson-map}{Poisson map}, where $G \times G$ is given the product Poisson structure. Explicitly, it is required that
-    \[ \{ f_1, f_2 \}(g_1 g_2) = \{ f_1 \circ L_{g_1}, f_2 \circ L_{g_1} \}(g_2) + \{ f_1 \circ R_{g_2}, f_2 \circ R_{g_2} \}(g) \]
+    \[ \{ f_1, f_2 \}(g_1 g_2) = \{ f_1 \circ L_{g_1}, f_2 \circ L_{g_1} \}(g_2) + \{ f_1 \circ R_{g_2}, f_2 \circ R_{g_2} \}(g_1) \]
     for all $f_1, f_2 \in C^\infty(G)$ and $g_1, g_2 \in G$.
 \end{topic}
+
+\begin{example}{poisson-lie-group}
+    Let $\mathfrak{g}$ be a finite-dimensional real \tref{AA:lie-algebra}{Lie algebra}, and consider the dual $\mathfrak{g}^*$ as a vector space. Identifying the tangent space of $\mathfrak{g}^*$ with $\mathfrak{g}^*$ itself, the differential of a smooth function $f$ on $\mathfrak{g}^*$ can be seen as map $df : \mathfrak{g}^* \to (\mathfrak{g}^*)^* \simeq \mathfrak{g}$. Endowing $\mathfrak{g}^*$ with the Poisson bracket
+    \[ \{ f_1, f_2 \}(\xi) = \xi([df_1(\xi), df_2(\xi)]), \quad \textup{ for } \xi \in \mathfrak{g}^* , \]
+    gives $\mathfrak{g}^*$, as an abelian Lie group under addition, the structure of a Poisson--Lie group.
+    
+    Explicitly, if $x_1, \ldots, x_n$ is a basis for $\mathfrak{g}$, we can regard $x_i$ as (global) coordinates on $\mathfrak{g}^*$.
+    \[ \begin{aligned}
+        \{ f_1, f_2 \}(\xi)
+            &= \sum_{i, j} \xi([ x_i, x_j]) \frac{\partial f_1}{\partial x_i}(\xi) \frac{\partial f_2}{\partial x_j} (\xi) \\
+            &= \sum_{i, j, k} c_{ij}^k \xi(x_k) \frac{\partial f_1}{\partial x_i}(\xi) \frac{\partial f_2}{\partial x_j} (\xi) ,
+    \end{aligned} \]
+    where the $c_{ij}^k$ denote the structure constants
+    \[ [x_i, x_j] = \sum_k c_{ij}^k x_k . \]
+\end{example}

@@ -67,6 +67,20 @@
     The antipode corresponds to group inversion.
 \end{example}
 
+\begin{topic}{group-like-element}{group-like element}
+    Let $A$ be a \tref{hopf-algebra}{Hopf algebra}. An element $a \in A$ is \textbf{group-like} if
+    \[ \Delta(a) = a \otimes a , \]
+    where $\Delta : A \to A \otimes A$ denotes the comultiplication map.
+\end{topic}
+
+\begin{example}{group-like-element}
+    If $A = \mathcal{O}_G(G)$ for some \tref{AG:algebraic-group}{algebraic group} $G$, then a group-like element $a \in A$ corresponds to a group morphism
+    \[ \chi : G \to \mathbb{G}_m = \Spec(k[t, t^{-1}]), \quad t \mapsto a , \]
+    known as a \textit{character}, and vice-versa, any such character corresponds to a group-like element $a = \chi^\#(t) \in A$.
+    
+    For example, for $G = \textup{GL}_n(k)$ the group of invertible matrices, the determinant $\det \in \mathcal{O}_G(G)$ is a group-like element, since $\det(AB) = \det(A) \det(B)$ for all $A, B \in \textup{GL}_n(k)$.
+\end{example}
+
 \begin{topic}{frobenius-algebra}{Frobenius algebra}
     A \textbf{Frobenius algebra} over a field $k$ is a $k$-algebra $A$ equipped with a bilinear form $\beta : A \otimes_k A \to k$, called the \textit{Frobenius pairing}, satisfying
     \begin{itemize}

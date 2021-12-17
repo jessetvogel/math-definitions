@@ -6,20 +6,11 @@
 
 # ---- Theory ----
 
-DG: Poisson--Lie group (Example: g^* with { f1, f2 }(\xi) = \xi([df1, df2]). Explicitly, given by structure constants)
-
-AA: Manin triple (of Lie algebras ?)
-
-AA: group-like element of Hopf algebra = element a such that \Delta(a) = a \otimes a (Example: determinant for A = O_G(G) with G = GL_n. In fact, for A = O_G(G), group-like elements are precisely characters G -> G_m)
-
-TO: local system: example in case path-connected, rho : pi_1(X, x) \to Aut(L))
-
-DG?: Goldman symplectic structure
-
-CT: (co)continuous functor
-
 Fix chain complexes HA/AT
 Fix separate (non-)commutative ring theory
+
+AA: Manin triple (of Lie algebras) (EXAMPLE: correspondence: Manin triple <=> Lie bialgebra )
+DG?: Goldman symplectic structure
 
 AG: Luna slice theorem (Theorem 14.78 of JS Milne)
 
@@ -116,9 +107,6 @@ NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Cor
 NT?: Hasse principle
 NT: Dirichlet unit theorem
 
-# Homological Algebra
-HA: example of a semi-orthogonal decomposition (derived category of some modules?)
-
 # Algebra
 AA?: Dynkin diagrams
 AA: Primitive ideal / Primitive spectrum (C*-algebra)
@@ -138,7 +126,6 @@ DG: Floer homology
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
 DG: Some examples for the (ricci/scalar)curvature/geodesics stuff
-DG: Ricci identity
 DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 DG: orbifold
 DG: Finsler manifold

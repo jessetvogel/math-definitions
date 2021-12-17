@@ -16,8 +16,14 @@
     Let $0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0$ be a short exact sequence in $\mathcal{A}$. There is a natural morphism $h : C \to A[1]$ in $\textbf{D}(\mathcal{A})$ given by the following maps of complexes:
     \[ \begin{tikzcd} \cdots \arrow{r} & 0 \arrow{r} & C \arrow{r} & \cdots & C \arrow{dd}{h} \\ \cdots \arrow{r} & A \arrow{u} \arrow[swap]{d}{\id} \arrow{r}{f} & B \arrow{d} \arrow[swap]{u}{g} \arrow{r} & \cdots & \\ \cdots \arrow{r} & A \arrow{r} & 0 \arrow{r} & \cdots & A[1] , \end{tikzcd} \]
     since the upper map of complexes is a quasi-isomorphism. This quasi-isomorphism also immediately shows that
-    \[ \begin{tikzcd}[column sep = 0.5em] A \arrow{rr}{f} & & B \arrow{dl}{g} \\ & C \arrow{ul}{h} & \end{tikzcd} \]
+    \[ A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{\pi} A[1] \]
     is an exact triangle in $\textbf{D}(\mathcal{A})$.
+    
+    Moreover, this shows explicitly that $\textup{Ext}_\mathcal{A}^1(C, A) \simeq \Hom_{\textbf{D}(\mathcal{A})}(C, A[1])$. In the converse direction, any map $h : C \to A[1]$ can be written as a roof
+    \[ \begin{tikzcd} \cdots \arrow{r} & 0 \arrow{r} & C \arrow{r} & \cdots \\ \cdots \arrow{r} & B_0 \arrow{u} \arrow{d} \arrow{r} & B_1 \arrow{d} \arrow{u} \arrow{r} & \cdots \\ \cdots \arrow{r} & A \arrow{r} & 0 \arrow{r} & \cdots , \end{tikzcd} \]
+    where the top map is a quasi-isomorphism. Then one can form the extension by pushout 
+    \[ 0 \to A \to A \oplus_{B_0} B_1 \to C \to 0 . \]
+    This construction can be generalized to show that $\textup{Ext}_{\mathcal{A}}^n(C, A) \simeq \Hom_{\textbf{D}(\mathcal{A})}(C, A[n])$ for any $n$.
 \end{example}
 
 % \begin{topic}{Grothendieck--Verdier-duality}{Grothendieck--Verdier duality}

@@ -1,6 +1,11 @@
 <div class="example">Let <span class="math inline">\(0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0\)</span> be a short exact sequence in <span class="math inline">\(\mathcal{A}\)</span>. There is a natural morphism <span class="math inline">\(h : C \to A[1]\)</span> in <span class="math inline">\(\textbf{D}(\mathcal{A})\)</span> given by the following maps of complexes:
 <img class="display-math-svg" src="data/svg/df61788deab1f82b5dd625d3dc6671073b828b43.svg" alt />
 since the upper map of complexes is a quasi-isomorphism. This quasi-isomorphism also immediately shows that
-<img class="display-math-svg" src="data/svg/bfeca12377ed947e6c77a375afe1eaf7d16bf4b0.svg" alt />
-is an exact triangle in <span class="math inline">\(\textbf{D}(\mathcal{A})\)</span>.
+<span class="math display">\[ A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{\pi} A[1] \]</span>
+is an exact triangle in <span class="math inline">\(\textbf{D}(\mathcal{A})\)</span>.<br/>
+Moreover, this shows explicitly that <span class="math inline">\(\textup{Ext}_\mathcal{A}^1(C, A) \simeq \Hom_{\textbf{D}(\mathcal{A})}(C, A[1])\)</span>. In the converse direction, any map <span class="math inline">\(h : C \to A[1]\)</span> can be written as a roof
+<img class="display-math-svg" src="data/svg/8db0d526eaf88657e58b59ef6f12b96fe8f597ee.svg" alt />
+where the top map is a quasi-isomorphism. Then one can form the extension by pushout 
+<span class="math display">\[ 0 \to A \to A \oplus_{B_0} B_1 \to C \to 0 . \]</span>
+This construction can be generalized to show that <span class="math inline">\(\textup{Ext}_{\mathcal{A}}^n(C, A) \simeq \Hom_{\textbf{D}(\mathcal{A})}(C, A[n])\)</span> for any <span class="math inline">\(n\)</span>.
 </div>

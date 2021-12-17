@@ -149,3 +149,31 @@
     \[ B : \mathfrak{g} \times \mathfrak{g} \to k, \quad B(x, y) = \textup{tr}(\textup{ad}_{\mathfrak{g}}(x) \circ \textup{ad}_{\mathfrak{g}}(y)) \]
     where $\text{ad}_\mathfrak{g} : \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$ is the \tref{DG:adjoint-representation}{adjoint representation} of $\mathfrak{g}$.
 \end{topic}
+
+\begin{topic}{cartan-criterion}{Cartan's criterion}
+    Let $\mathfrak{g} \subset \mathfrak{gl}(V)$ be a \tref{lie-algebra}{Lie subalgebra} of endomorphisms of a finite-dimensional \tref{LA:vector-space}{vector space} $V$ over a field of characteristic zero. \textbf{Cartan's criterion} states that $\mathfrak{g}$ is \tref{solvable-lie-algebra}{solvable} if and only if $\tr(ab) = 0$ for all $a \in \mathfrak{g}$ and $b \in [\mathfrak{g}, \mathfrak{g}]$.
+\end{topic}
+
+\begin{topic}{engel-theorem}{Engel's theorem}
+    Let $\mathfrak{g}$ be a finite-dimensional \tref{lie-algebra}{Lie algebra}. \textbf{Engel's theorem} states that $\mathfrak{g}$ is \tref{nilpotent-lie-algebra}{nilpotent} if and only if for each $g \in \mathfrak{g}$, the \tref{DG:adjoint-representation}{adjoint map} $\textup{ad}_g : \mathfrak{g} \to \mathfrak{g}$ given by $\textup{ad}_g(h) = [g, h]$ is \tref{CA:nilpotent-element}{nilpotent}.
+\end{topic}
+
+% \begin{example}{engel-theorem}
+%     \begin{proof}
+%         Clearly, if $\mathfrak{g}$ is nilpotent, then $\textup{ad}_X = [X, -]$ must be nilpotent for all $X \in \mathfrak{g}$.
+        
+%         For the converse, we prove more generally that for any Lie algebra representation $\rho : \mathfrak{g} \to \mathfrak{gl}(V)$ where every $X \in \mathfrak{g}$ is nilpotent and $V$ has positive dimension, there exists a non-zero vector $v \in V$ such that $X(v) = 0$ for all $X \in \mathfrak{g}$. We prove this by induction on $\dim \mathfrak{g}$, where the case $\mathfrak{g} = 0$ is trivial, so we can assume that $\mathfrak{g} \ne 0$.
+        
+%         Since $\mathfrak{g}$ is finite-dimensional, there exists a maximal proper subalgebra $\mathfrak{h} \subset \mathfrak{g}$. For any $X \in \mathfrak{h}$, the adjoint action $\textup{ad}_X$ induces a map $\mathfrak{g}/\mathfrak{h} \to \mathfrak{g}/\mathfrak{h}$, which is well-defined as $\mathfrak{h}$ is a subalgebra. Any $X \in \mathfrak{h}$ is nilpotent, also $\textup{ad}_X$ is nilpotent, so from the induction hypothesis, applied to $\mathfrak{h} \subset \mathfrak{gl}(\mathfrak{g}/\mathfrak{h})$, follows that there exists some $Z \in \mathfrak{g}$ such that $\textup{ad}_X(Z) = [X, Z] \subset \mathfrak{h}$ for all $X \in \mathfrak{h}$. In particular, maximality of $\mathfrak{h}$ implies that $\mathfrak{g} = \mathfrak{h} \oplus \langle Z \rangle$.
+        
+%         Now consider $W = \{ v \in V : X(v) = 0 \textup{ for all } X \in \mathfrak{h} \}$. It is non-empty by the induction hypothesis applied to $\mathfrak{h} \subset \mathfrak{gl}(V)$, and it is stabilized by $\mathfrak{g}$ since for any $Y \in \mathfrak{g}$ we have $X(Y(v)) = [X, Y](v) - Y(X(v)) = 0$ for all $X \in \mathfrak{h}$ and $v \in W$, so $Y(v) \in W$ as well. Take any non-zero $v \in W$, and note that $w := Z^k(v) \ne 0 = Z^{k + 1}(v)$ for some $k$, since $Z$ is nilpotent. Then $w$ is the vector we are looking for, since $X(w) = 0$ for all $X \in \mathfrak{g} = \mathfrak{h} \oplus \langle Z \rangle$ by construction.
+%     \end{proof}
+% \end{example}
+
+\begin{topic}{lie-theorem}{Lie's theorem}
+    Let $\mathfrak{g}$ be a \tref{solvable-lie-algebra}{solvable} \tref{lie-algebra}{Lie algebra} over an \tref{CA:algebraically-closed-field}{algebraically closed} field of characteristic zero, and $\rho : \mathfrak{g} \to \mathfrak{gl}(V)$ a finite-dimensional representation. Then \textbf{Lie's theorem} states that there exists a sequence of $\rho(\mathfrak{g})$-invariant subspaces
+    \[ V = V_0 \supset V_1 \supset \cdots \supset V_n = 0 \]
+    such that $\dim (V/V_i) = i$.
+    
+    That is, there exists a basis for $V$ such that $\rho(\mathfrak{g})$ is represented by upper triangular matrices.
+\end{topic}

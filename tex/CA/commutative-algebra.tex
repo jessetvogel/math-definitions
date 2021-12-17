@@ -1004,3 +1004,16 @@
     \[ eRe = \left\{ \begin{pmatrix} a & b & 0 \\ c & d & 0 \\ 0 & 0 & 0 \end{pmatrix} \right\} \]
     with $e$ as multiplicative identity.
 \end{example}
+
+\begin{topic}{characteristic}{characteristic}
+    The \textbf{characteristic} of a \tref{ring}{ring} $R$ is the integer $\textup{char}(R) \in \ZZ$ such that
+    \[ \ker(\ZZ \to R) = \textup{char}(R) \ZZ . \]
+\end{topic}
+
+\begin{example}{characteristic}
+    \begin{itemize}
+        \item The characteristic of $\ZZ, \QQ, \RR, \CC$ is zero.
+        \item The characteristic of $\FF_{p^n}$ is $p$.
+        \item The characteristic of a \tref{field}{field} is always zero or a prime number. Namely, if $\textup{char}(R) = ab$ for non-zero $a, b \in \ZZ$, then $a$ and $b$ are \tref{zero-divisor}{zero-divisors} in $R$.
+    \end{itemize}
+\end{example}

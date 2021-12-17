@@ -221,6 +221,16 @@
     \end{itemize}
 \end{topic}
 
+\begin{example}{five-lemma}
+    \begin{proof}
+        \begin{itemize}
+            \item Take any $\gamma \in \ker c$. Then $dh(\gamma) = h'c(\gamma) = 0$, so $h(\gamma) = 0$ by injectivity of $d$, and thus we can write $\gamma = g(\beta)$ for some $\beta \in B$. Now, $g'b(\beta) = cg(\beta) = c(\gamma) = 0$, so $b(\beta) \in \ker g' = \im f'$, and thus we can write $b(\beta) = f'(\alpha')$ for some $\alpha' \in A'$. Since $a$ is surjective, we have $\alpha' = a(\alpha)$ for some $\alpha \in A$. Now $b(f(\alpha)) = f'a(\alpha) = f(\alpha') = b(\beta)$, so $f(\alpha) = \beta$ by injectivity of $b$. Therefore, $\gamma = gf(\alpha) = 0$, and thus $c$ is injective.
+            \item The second statement follows from the first by duality.
+            \item The third statement follows from the first and the second.
+        \end{itemize}
+    \end{proof}
+\end{example}
+
 \begin{topic}{snake-lemma}{snake lemma}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and consider the following commutative diagram.
     \[ \begin{tikzcd} & A \arrow{d}{a} \arrow{r}{f} & B \arrow{d}{b} \arrow{r}{g} & C \arrow{d}{c} \arrow{r} & 0 \\ 0 \arrow{r} & A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \end{tikzcd} \]
@@ -333,14 +343,16 @@
     \[ \xi : 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
     \[ \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to B \to 0 \]
     the Yoneda cup product is given by
-    \[ \xi \smile \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to E_0 \to \cdots \to A \to 0 \]
+    \[ \xi \smile \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
     in $\text{Ext}^{m + n}(A, C)$.
 \end{topic}
 
 \begin{example}{yoneda-product}
-    For $n = 0$ and $m = 1$ we have that the product of $f : A \to B$ (in $\text{Ext}^0(A, B) = \Hom(A, B)$) and $\eta : 0 \to C \to F_0 \to B \to 0$ (in $\text{Ext}^1(A, B)$) is
+    For $n = 0$ and $m = 1$, we have that the product of $f : A \to B$ in $\text{Ext}^0(A, B) = \Hom(A, B)$ and $\eta : 0 \to C \to F_0 \to B \to 0$ in $\text{Ext}^1(B, C)$ is the \textit{pullback}
     \[ 0 \to C \to F_0 \oplus_B A \to A \to 0 . \]
-    It is not hard to verify this sequence is indeed exact.
+    Similarly, for $n = 1$ and $m = 0$, the product of $0 \to B \to E_0 \to A \to 0$ in $\text{Ext}^1(A, B)$ and $g : B \to C$ in $\text{Ext}^0(B, C) = \Hom(B, C)$ is the \textit{pushout}
+    \[ 0 \to C \to C \oplus_B E_0 \to A \to 0 . \]
+    It is not hard to verify these sequences are indeed exact. 
 \end{example}
 
 \begin{topic}{homological-dimension}{(global) homological dimension}
@@ -465,8 +477,24 @@
 \end{example}
 
 \begin{example}{group-cohomology}
-    Alternatively, group cohomology can be described by
-    \[ H^n(G, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) . \]
+    Alternatively, group cohomology can be described in terms of \tref{ext-functors}{Ext functors},
+    \[ H^n(G, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) , \]
+    which might make sense since $H^0(G, M) = M^G = \Hom_{\ZZ[G]}(\ZZ, M)$.
+    
+    To compute these Ext groups, we take a free resolution of $\ZZ$ as a $\ZZ[G]$-module,
+    \[ \cdots \xrightarrow{d_3} F_2 \xrightarrow{d_2} F_1 \xrightarrow{d_1} F_0 \xrightarrow{d_0} \ZZ \to 0 , \]
+    with $F_n = \ZZ[G^{n + 1}]$ and differentials given by
+    \[ d_n : F_n \to F_{n - 1}, \quad (g_0, \ldots, g_n) \mapsto \sum_{i = 0}^{n} (-1)^i (g_0, \ldots, \widehat{g}_i, \ldots, g_n) . \]
+    Applying $\Hom_{\ZZ[G]}(-, M)$ now gives the (co)complex
+    \[ \cdots \xleftarrow{\partial^{n + 1}} \Hom_{\ZZ[G]}(F_{n + 1}, M) \xleftarrow{\partial^n} \Hom_{\ZZ[G]}(F_n, M) \xleftarrow{\partial^{n - 1}} \cdots \xleftarrow{\partial^0} \Hom_{\ZZ[G]}(F_0, M) \leftarrow 0 \]
+    with differentials
+    \[ (\partial^n \varphi)(g_0, \ldots, g_{n + 1}) = \sum_{i = 0}^{n + 1} (-1)^i \varphi(g_0, \ldots, \widehat{g}_i, \ldots, g_{n + 1}) . \]
+    Indeed, this complex is isomorphic to $C^\bdot(G, M)$ via the isomorphisms
+    \[ \Psi_n : \Hom_{\ZZ[G]}(F_n, M) \xrightarrow{\sim} C^n(G, M), \quad \Psi_n(\varphi)(g_1, \ldots, g_n) = \varphi(1, g_1, g_1 g_2, g_1 g_2 g_3, \ldots, g_1 \cdots g_n ) , \]
+    whose inverses are given by
+    \[ \Phi_n : C^n(G, M) \xrightarrow{\sim} \Hom_{\ZZ[G]}(F_n, M), \quad \Phi_n(f)(g_0, \ldots, g_n) = g_0 f(g_0^{-1} g_1, g_1^{-1} g_2, \ldots, g_{n - 1}^{-1} g_n) . \]
+    In particular the cohomology groups agree, and thus group cohomology is given by
+    \[ H^n(G, M) \simeq \textup{R}^i \Hom_{\ZZ[G]}(\ZZ, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) . \]
 \end{example}
 
 \begin{topic}{contractible-chain-complex}{contractible chain complex}

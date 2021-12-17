@@ -57,16 +57,18 @@
         \[ A \to X \to B \to A[1] \]
         with $A \in \mathcal{S}$ and $B \in {\mathcal{S}}^\perp$, the \tref{orthogonal-complement}{orthogonal complement}.
     \end{enumerate}
-    \textbf{Proof}. $(i \Rightarrow ii)$ Let $\pi : \mathcal{T} \to \mathcal{S}$ be a right adjoint and take $A = \pi(X)$. The transpose of $\id_{\pi(X)}$ under the adjunction is a morphism $A \to X$, and fits into some exact triangle $A \to X \to B \to A[1]$. Now for any $D \in \mathcal{S}$ we have
-    \[ \Hom_\mathcal{T}(D, A) = \Hom_{\mathcal{S}'}(D, \pi(X)) \simeq \Hom_\mathcal{T}(i(D), X) = \Hom_\mathcal{T}(D, X) , \]
-    so from the long exact sequence
-    \[ \cdots \to \Hom_\mathcal{T}(D, A) \to \Hom_\mathcal{T}(D, X) \to \Hom_\mathcal{T}(D, B) \to \Hom_\mathcal{T}(D, A[1]) \to \cdots \]
-    follows that $\Hom_\mathcal{T}(D, B) = 0$, that is, $B \in \mathcal{S}^\perp$.
-    $(ii \Rightarrow i)$ For each $X \in \mathcal{T}$, choose an exact triangle $A_X \to X \to B_X \to A_X[1]$ as described. Define a functor $\pi : \mathcal{T} \to \mathcal{S}$ by $\pi(X) = A_X$. For a morphism $f : X \to Y$, note that $\Hom_\mathcal{T}(A_X, A_Y) \simeq \Hom_\mathcal{T}(A_X, Y)$ since $B_Y \in \mathcal{S}^\perp$ (again use the long exact sequence). Hence, there is a unique morphism $f' : A_X \to A_Y$ making the obvious square commute, and we set $\pi(f) = f'$. One can check that this indeed gives a functor, and that $\pi$ is right adjoint to $i$.
+    \begin{proof}
+        $(i \Rightarrow ii)$ Let $\pi : \mathcal{T} \to \mathcal{S}$ be a right adjoint and take $A = \pi(X)$. The transpose of $\id_{\pi(X)}$ under the adjunction is a morphism $A \to X$, and fits into some exact triangle $A \to X \to B \to A[1]$. Now for any $D \in \mathcal{S}$ we have
+        \[ \Hom_\mathcal{T}(D, A) = \Hom_{\mathcal{S}'}(D, \pi(X)) \simeq \Hom_\mathcal{T}(i(D), X) = \Hom_\mathcal{T}(D, X) , \]
+        so from the long exact sequence
+        \[ \cdots \to \Hom_\mathcal{T}(D, A) \to \Hom_\mathcal{T}(D, X) \to \Hom_\mathcal{T}(D, B) \to \Hom_\mathcal{T}(D, A[1]) \to \cdots \]
+        follows that $\Hom_\mathcal{T}(D, B) = 0$, that is, $B \in \mathcal{S}^\perp$.
+        $(ii \Rightarrow i)$ For each $X \in \mathcal{T}$, choose an exact triangle $A_X \to X \to B_X \to A_X[1]$ as described. Define a functor $\pi : \mathcal{T} \to \mathcal{S}$ by $\pi(X) = A_X$. For a morphism $f : X \to Y$, note that $\Hom_\mathcal{T}(A_X, A_Y) \simeq \Hom_\mathcal{T}(A_X, Y)$ since $B_Y \in \mathcal{S}^\perp$ (again use the long exact sequence). Hence, there is a unique morphism $f' : A_X \to A_Y$ making the obvious square commute, and we set $\pi(f) = f'$. One can check that this indeed gives a functor, and that $\pi$ is right adjoint to $i$.
+    \end{proof}
 \end{example}
 
 \begin{topic}{orthogonal-complement}{orthogonal complement}
-    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. The (right) \textbf{orthogonal complement} of a subcategory $\mathcal{S} \subset \mathcal{T}$ is the full subcategory $\mathcal{S}^\perp$ of all objects $A \in \mathcal{T}$ such that $\Hom(B, A) = 0$ for all $B \in \mathcal{S}$.
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. The (right) \textbf{orthogonal complement} of a subcategory $\mathcal{S} \subset \mathcal{T}$ is the full subcategory $\mathcal{S}^\perp$ of all objects $A \in \mathcal{T}$ such that $\Hom_\mathcal{T}(B, A) = 0$ for all $B \in \mathcal{S}$.
 \end{topic}
 
 \begin{topic}{spanning-class}{spanning class}
@@ -138,6 +140,15 @@
     which is universal among all functors $\mathcal{T} \to \mathcal{D}$ which send objects of $\mathcal{S}$ to objects isomorphic to zero.
     \[ \begin{tikzcd} \mathcal{T} \arrow{r}{Q} \arrow{rd} & \mathcal{T} / \mathcal{S} \arrow[dashed]{d} \\ & \mathcal{D} \end{tikzcd} \]
 \end{topic}
+
+\begin{example}{verdier-quotient}
+    Let $\mathcal{S} \subset \mathcal{T}$ be a \tref{admissible-subcategory}{right admissible subcategory}. We will show that the quotient $\mathcal{T}/\mathcal{S}$ is equivalent to the \tref{orthogonal-complement}{orthogonal complement} $S^\perp$. Since $\mathcal{S}$ is right admissible, any object $X$ of $\mathcal{T}$ fits in an exact triangle
+    \[ \pi(X) \to X \to B_X \to \pi(X)[1] , \]
+    where $\pi : \mathcal{T} \to \mathcal{S}$ denotes a \tref{CT:adjunction}{right adjoint} to the inclusion $i : \mathcal{S} \to \mathcal{T}$, and $B_X$ lies in $\mathcal{S}^\perp$.
+    
+    Now consider the functor
+    \[ Q : \mathcal{T} \to S^\perp , \]
+\end{example}
 
 \begin{topic}{tensor-triangulated-category}{tensor triangulated category}
     A \textbf{tensor triangulated category} is a \tref{triangulated-category}{triangulated category} $\mathcal{T}$ with a \tref{CT:symmetric-monoidal-category}{symmetric monoidal structure} $\otimes : \mathcal{T} \times \mathcal{T} \to \mathcal{T}$ such that $X \otimes (-)$ and $(-) \otimes X$ are \tref{exact-functor-triangulated}{exact functors} for all $X$ in $\mathcal{T}$.
