@@ -534,3 +534,15 @@
         \item $\mathcal{A}$ has a \textit{generator}, that is, there exists an object $G$ in $\mathcal{A}$ such that the \tref{CT:functor}{functor} $\Hom_\mathcal{A}(G, -) : \mathcal{A} \to \textbf{Set}$ is \tref{CT:faithful-functor}{faithful}.
     \end{itemize}
 \end{topic}
+
+\begin{topic}{effaceable-functor}{effaceable functor}
+    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. Then $F$ is \textbf{effaceable} if for every object $A$ of $\mathcal{A}$ there exists a \tref{CT:monomorphism}{monomorphism} $m : A \to A'$ such that $F(m) = 0$.
+\end{topic}
+
+\begin{example}{effaceable-functor}
+    If $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}, then $F$ is effaceable if and only if $F(I) = 0$ for all \tref{injective-object}{injective objects} $I$ of $\mathcal{A}$.
+    \begin{proof}
+        $(\Leftarrow)$ As $\mathcal{A}$ has enough injectives, for any $A$ of $\mathcal{A}$, there exists a monomorphism $m : A \to I$ with $I$ injective. Since $F(I) = 0$, also $F(m) = 0$.
+        $(\Rightarrow)$ Let $I$ be an injective object of $\mathcal{A}$. Since $F$ is effaceable, there exists a monomorphism $m : I \to J$, and by injectivity of $I$, there exists a map $h : J \to I$ such that $hm = \id_I$. Now $F(\id_I) = F(h) \circ F(m) = F(h) \circ 0 = 0$, so $F(I) = 0$.
+    \end{proof}
+\end{example}

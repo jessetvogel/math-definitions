@@ -6,8 +6,23 @@
 
 # ---- Theory ----
 
-Fix chain complexes HA/AT
+?? : A-infinity algebra (example: loop space (https://justcategories.wordpress.com/2015/08/14/the-structure-of-a-infinity-algebras/)
+?? : En-algebra (https://www.math.ias.edu/~lurie/282ynotes/LectureXXII-En.pdf) (loop space as example for n = 1, and \Omega^n for E_n) (Lurie Examples 5, 8)
+??: Factorization homology (https://julietcooke.net/CookeThesis.pdf)
+
 Fix separate (non-)commutative ring theory
+
+AG: Kummer sequence
+
+CT: weighted (co)limit
+CT: Ind-completion / pro-completion
+AT: cellular homology
+
+AA: dual Hopf algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
+
+AA: Levi decomposition
+AA: Chevelley's theorem
+AA: semisimple Lie algebra: equivalent conditions
 
 AA: Manin triple (of Lie algebras) (EXAMPLE: correspondence: Manin triple <=> Lie bialgebra )
 DG?: Goldman symplectic structure
@@ -41,7 +56,7 @@ CA: Dedekind domain (Example: give equivalent definitions / proof)
 
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 
-DG: parallizable manifold example: any Lie group is parallizable, the 2-sphere S^2 is not
+??: bar complex as simplicial complex
 
 - Rationally connected
 
@@ -108,7 +123,6 @@ NT?: Hasse principle
 NT: Dirichlet unit theorem
 
 # Algebra
-AA?: Dynkin diagrams
 AA: Primitive ideal / Primitive spectrum (C*-algebra)
 
 # Homotopy theory
@@ -144,6 +158,7 @@ FA: Toeplitz algebra
 FA: Inequalities for FA (see Lp spaces)
 
 # Noncmomutative deformations??
+- Quantized universal enveloping algebras
 - Quantum groups: SL2(C) as example!
     - (Quantum) Yang-Baxter equation
 - Mirror symmetry ??? What is this all about ??

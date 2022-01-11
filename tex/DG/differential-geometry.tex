@@ -187,6 +187,15 @@
     A \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{parallelizable} if its \tref{tangent-bundle}{tangent bundle} $TM$ is trivial, that is, $TM$ is \tref{diffeomorphism}{diffeomorphic} to $M \times \RR^n$. A choice of trivialization is called a \textit{framing} of $M$.
 \end{topic}
 
+\begin{example}{parallelizable-manifold}
+    \begin{itemize}
+        \item Any \tref{lie-group}{Lie group} $G$ is parallelizable: any basis $v_1, \ldots, v_n$ for $T_e G$ gives a bundle isomorphism
+        \[ \Phi : G \times \RR^n \to TG, \quad (g, (x_1, \ldots, x_n)) \mapsto \left(g, (L_g)_* \sum_{i = 1}^{n} x_i v_i \right) , \]
+        where $L_g : G \to G$ denotes left multiplication $h \mapsto gh$.
+        \item For any $n \ge 1$, the $2n$-sphere $S^{2n}$ is not parallelizable by the \tref{hairy-ball-theorem}{hairy ball theorem}.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{inverse-function-theorem}{inverse function theorem}
     The \textbf{inverse function theorem} states that if $f : M \to N$ is a \tref{smooth-map}{smooth map} between \tref{smooth-manifold}{smooth manifolds}, whose derivative $df_p : T_p M \to T_{f(p)} N$ at some point $p \in M$ is an isomorphism, then $f$ is a \tref{diffeomorphism}{local diffeomorphism} at $p$.
 \end{topic}
@@ -564,7 +573,7 @@
     \[ 0 \to \Omega^0(M) \xrightarrow{d} \Omega^1(M) \xrightarrow{d} \Omega^2(M) \xrightarrow{d} \cdots \]
     where $\Omega^k(M)$ denotes the space of \tref{differential-form}{differential $k$-forms}, and $d$ the \tref{exterior-derivative}{exterior derivative}.
     
-    The \textbf{de Rham cohomology groups} $H_\text{dR}^k(M)$ are the \tref{AT:homology-group}{cohomology groups} of $\Omega^\bdot(M)$.
+    The \textbf{de Rham cohomology groups} $H_\text{dR}^k(M)$ are the \tref{HA:homology-object}{cohomology groups} of $\Omega^\bdot(M)$.
 \end{topic}
 
 \begin{topic}{harmonic-form}{harmonic form}
@@ -855,3 +864,15 @@
     Identifying $S^3 \simeq \{ (z_0, z_1) \in \CC^2 : |z_0|^2 + |z_1|^2 = 1 \}$ and $S^2 \simeq \CC P^2$, the Hopf fibration is given by
     \[ S^3 \to S^2, \quad (z_0, z_1) \mapsto (z_0 : z_1) . \]
 \end{topic}
+
+\begin{topic}{hairy-ball-theorem}{hairy ball theorem}
+    The \textbf{hairy ball theorem} states that no non-vanishing \tref{vector-field}{vector field} exists on the $2$-sphere $S^2$. More generally, no non-vanishing vector field exists on $S^{2n}$ for any $n \ge 1$.
+\end{topic}
+
+\begin{example}{hairy-ball-theorem}
+    \begin{proof}
+        Take $S^{2n} = \{ x \in \RR^{2n + 1} : |x|^{2n} = 1 \}$, and suppose that there exists a non-vanishing vector field $v$ on $S^{2n}$. Viewing $v(x) \in T_x S^{2n} \subset \RR^{2n + 1}$, we have $v(x) \perp x$, and after rescaling we can assume $v(x)$ has unit length. Now consider the homotopy
+        \[ H : S^{2n} \times [0, 1] \to S^{2n}, \quad (x, t) \mapsto \cos(t) x + \sin(t) v(x) , \]
+        and note that $H(-, 0) = \id_{S^{2n}}$, while $H(-, 1) = -\id_{S^{2n}}$. However, since $\id_{S^{2n}}$ has degree $1$ while the antipodal map $-\id_{S^{2n}}$ has degree $-1$, no such homotopy can exist, and thus no such vector field $v$ can exist.
+    \end{proof}
+\end{example}
