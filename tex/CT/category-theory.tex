@@ -689,7 +689,7 @@
 
 \begin{topic}{pro-representable-functor}{pro-representable functor}
     A \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is \textbf{pro-representable} if there is a \tref{natural-transformation}{natural} isomorphism
-    \[ \mapsto \varinjlim_{i \in I} \Hom_\mathcal{C}(X_i, -) \simeq F , \]
+    \[ \varinjlim_{i \in I} \Hom_\mathcal{C}(X_i, -) \simeq F , \]
     for some \tref{direct-limit}{direct system} $(X_i, f_{ij})$.
 \end{topic}
 
@@ -747,8 +747,10 @@
     The Karoubi envelope has the property that every idempotent morphisms \tref{idempotent-morphism}{splits}, and is universal with this property.
 \end{topic}
 
-\begin{topic}{filtered-limit}{filtered (co)limit}
+\begin{topic}{filtered-limit}{(co)filtered (co)limit}
     A \textbf{filtered (co)limit} is a \tref{limit}{(co)limit} of a \tref{functor}{functor} $F : \mathcal{I} \to \mathcal{C}$, where $\mathcal{I}$ is a \tref{filtered-category}{filtered category}.
+    
+    A \textbf{cofiltered (co)limit} is a (co)limit of a functor $F : \mathcal{I} \to \mathcal{C}$, where $\mathcal{I}$ is a cofiltered category.
 \end{topic}
 
 \begin{topic}{compact-object}{compact object}
@@ -785,4 +787,34 @@
     A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{continuous} if it preserves all small \tref{limit}{limits} in $\mathcal{C}$, that is, if for every functor $G : \mathcal{I} \to \mathcal{C}$ with $\mathcal{I}$ a \tref{small-category}{small category}, there is an isomorphism
     \[ F(\lim G) \simeq \lim(F \circ G) . \]
     Dually, a functor $F : \mathcal{C} \to \mathcal{D}$ is \textbf{cocontinuous} if it preserves all small colimits in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{ind-completion}{ind-completion}
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{ind-completion} of $\mathcal{C}$ is the category $\textup{Ind}(\mathcal{C})$ whose
+    \begin{itemize}
+        \item objects are \tref{functor}{functors} $F : \mathcal{I} \to \mathcal{C}$, with $\mathcal{I}$ a \tref{small-category}{small} \tref{filtered-category}{filtered category},
+        \item morphisms from $F : \mathcal{I} \to \mathcal{C}$ to $G : \mathcal{J} \to \mathcal{C}$ are given by
+        \[ \Hom_{\textup{Ind}(\mathcal{C})}(F, G) = \lim_{I \in \mathcal{I}} \colim_{J \in \mathcal{J}} \Hom_\mathcal{C}(F(I), G(J)) . \]
+    \end{itemize}
+    The category $\textup{Ind}(\mathcal{C})$ is thought of as adjoining to $\mathcal{C}$ all formal \tref{filtered-limit}{filtered colimits}. In particular,
+    \begin{itemize}
+        \item the embedding $\mathcal{C} \to \textup{Ind}(\mathcal{C})$ that sends an object $C$ to the corresponding diagram $\textbf{1} \to \mathcal{C}$ is \tref{full-functor}{fully} \tref{faithful-functor}{faithful},
+        \item every diagram $F : \mathcal{I} \to \mathcal{C}$ is the \tref{limit}{colimit} of itself, under the above embedding,
+        \item the objects of $\mathcal{C}$ are \tref{compact-object}{compact} in $\textup{Ind}(\mathcal{C})$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{pro-completion}{pro-completion}
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{pro-completion} of $\mathcal{C}$ is the category $\textup{Pro}(\mathcal{C})$ whose
+    \begin{itemize}
+        \item objects are \tref{functor}{functors} $F : \mathcal{I} \to \mathcal{C}$, with $\mathcal{I}$ a \tref{small-category}{small} \tref{filtered-category}{cofiltered category},
+        \item morphisms from $F : \mathcal{I} \to \mathcal{C}$ to $G : \mathcal{J} \to \mathcal{C}$ are given by
+        \[ \Hom_{\textup{Pro}(\mathcal{C})}(F, G) = \lim_{J \in \mathcal{J}} \colim_{I \in \mathcal{I}} \Hom_\mathcal{C}(F(I), G(J)) . \]
+    \end{itemize}
+    The category $\textup{Pro}(\mathcal{C})$ is thought of as adjoining to $\mathcal{C}$ all formal \tref{filtered-limit}{cofiltered limits}. In particular,
+    \begin{itemize}
+        \item the embedding $\mathcal{C} \to \textup{Pro}(\mathcal{C})$ that sends an object $C$ to the corresponding diagram $\textbf{1} \to \mathcal{C}$ is \tref{full-functor}{fully} \tref{faithful-functor}{faithful},
+        \item every diagram $F : \mathcal{I} \to \mathcal{C}$ is the \tref{limit}{limit} of itself, under the above embedding,
+        \item the objects of $\mathcal{C}$ are \tref{compact-object}{compact} in $\textup{Pro}(\mathcal{C})$.
+    \end{itemize}
 \end{topic}

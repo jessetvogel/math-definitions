@@ -428,7 +428,7 @@
 \end{example}
 
 \begin{topic}{hilbert-series}{Hilbert series}
-    Let $S = \bigoplus_{i \ge 0} S_i$ be a finitely generated graded commutative algebra over a field $k$, with $S_0 = k$. The \textbf{Hilbert series} of $S$ is defined as
+    Let $S = \bigoplus_{i \ge 0} S_i$ be a \tref{finitely-generated-algebra}{finitely generated} \tref{graded-ring}{graded} commutative algebra over a field $k$, with $S_0 = k$. The \textbf{Hilbert series} of $S$ is defined as
     \[ \text{HS}_S(t) = \sum_{i = 0}^{\infty} \dim_k S_i \cdot t^i . \]
 \end{topic}
 
@@ -563,9 +563,7 @@
 \begin{topic}{graded-ring}{graded ring}
     A \textbf{graded ring} is a \tref{ring}{ring} $R$ that is decomposed as a direct sum
     \[ R = \bigoplus_{i \ge 0} R_i \]
-    of additive groups, such that
-    \[ R_i R_j \subset R_{i + j} \]
-    for all $i, j \ge 0$.
+    of additive groups, such that $R_i R_j \subset R_{i + j}$ for all $i, j \ge 0$.
 \end{topic}
 
 \begin{example}{graded-ring}

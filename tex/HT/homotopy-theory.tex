@@ -222,3 +222,30 @@
     \end{itemize}
     If $X$ is cofibrant and $Y$ is fibrant, then being left homotopic is equivalent to being right homotopic.
 \end{topic}
+
+\begin{topic}{en-algebra}{En-algebra}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{CT:symmetric-monoidal-category}{symmetric monoidal} \tref{CT:infinity-category}{$\infty$-category}, and $n \ge 0$ an integer. An \textbf{$E_n$-algebra} $\mathcal{E}$ of $\mathcal{C}$ consists of
+    \begin{itemize}
+        \item an object $\mathcal{E}(U) \in \mathcal{C}$ for each open set $U \subset \RR^n$ homeomorphic to a disk,
+        \item for every embedding $U_1 \sqcup \cdots \sqcup U_m \subset V$ of disjoint disks into another disk, a multiplication map
+        \[ \mu : \bigotimes_{i = 1}^{m} \mathcal{E}(U_i) \to \mathcal{E}(V) . \]
+    \end{itemize}
+    It is required that the multiplication maps $\mu$ are compatible with composition, and that $\mu$ is an equivalence for $m = 1$.
+\end{topic}
+
+\begin{example}{en-algebra}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and $\Omega_x X = \{ p : [0, 1] \to X : p(0) = p(1) = x \}$ its \tref{AT:loop-space}{loop space} with respect to some basepoint $x \in X$. One can concatenate paths $p, q : [0, 1] \to X$ as
+    \[ (p \star q)(t) = \left\{ \begin{array}{cl}
+         p(2t) & 0 \le t \le \tfrac{1}{2} , \\
+         q(2t - 1) & \tfrac{1}{2} \le t \le 1 ,
+    \end{array} \right. \]
+    but this operation is not strictly associative, since loops $(p \star q) \star r$ and $p \star (q \star r)$ differ by their parametrization. However, concatenation is associative `up to coherent homotopy', and this can be made precise by viewing the loop space $\Omega_x X$ as an $E_1$-algebra.
+    
+    Let $\mathcal{C}$ the $\infty$-category of spaces. To every disk $U \subset \RR^1$ assign the space
+    \[ \mathcal{E}(U) = \textup{Map}((U^+, \textup{pt}), (X, x)) , \]
+    where $U^+$ denotes the one-point compactification of $U$. In particular, $U$ is homeomorphic to $S^1$, so $\mathcal{E}(U)$ is (non-canonically) homeomorphic to $\Omega_x X$. Furthermore, an embedding of disjoint disks $U_1 \sqcup \cdots \sqcup U_m \subset V$ induces a `collapse map' $V^+ \to U_1^+ \vee \cdots \vee U_m^+$ to the \tref{TO:wedge-sum}{wedge sum}, which yields a multiplication map
+    \[ \mu : \mathcal{E}(U_1) \times \cdots \mathcal{E}(U_m) \to \mathcal{E}(V) . \]
+    This makes $\mathcal{E}$ into an $E_1$-algebra.
+    
+    Note that the original concatenation $\star$ corresponds to the multiplication map $\mu$ for the embedding $(0, \tfrac{1}{2}) \sqcup (\tfrac{1}{2}, 1) \subset (0, 1)$.
+\end{example}

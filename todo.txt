@@ -6,17 +6,15 @@
 
 # ---- Theory ----
 
-?? : A-infinity algebra (example: loop space (https://justcategories.wordpress.com/2015/08/14/the-structure-of-a-infinity-algebras/)
-?? : En-algebra (https://www.math.ias.edu/~lurie/282ynotes/LectureXXII-En.pdf) (loop space as example for n = 1, and \Omega^n for E_n) (Lurie Examples 5, 8)
+AA: theorem of highest weight
+
 ??: Factorization homology (https://julietcooke.net/CookeThesis.pdf)
 
 Fix separate (non-)commutative ring theory
 
-AG: Kummer sequence
+?? : Yang--Baxter equation
 
-CT: weighted (co)limit
-CT: Ind-completion / pro-completion
-AT: cellular homology
+AG: Kummer sequence
 
 AA: dual Hopf algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
 
@@ -161,6 +159,7 @@ FA: Inequalities for FA (see Lp spaces)
 - Quantized universal enveloping algebras
 - Quantum groups: SL2(C) as example!
     - (Quantum) Yang-Baxter equation
+    - Reflection equation algebra from R-matrix
 - Mirror symmetry ??? What is this all about ??
     - Kontsevich Homological Mirror Symmetry
 - S-equivalence

@@ -112,3 +112,16 @@
         \item For any category $\mathcal{C}$, a monoid in the category of endofunctors of $\mathcal{C}$, $(\Hom_\textbf{Cat}(\mathcal{C}, \mathcal{C}), \circ, \id_\mathcal{C})$, is a \tref{monad}{monad} on $\mathcal{C}$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{weighted-limit}{weighted (co)limit}
+    Let $\mathcal{V}$ be a \tref{monoidal-category}{monoidal category}, and let $F : \mathcal{I} \to \mathcal{C}$ be a \tref{functor}{functor} with $\mathcal{C}$ a category \tref{enriched-category}{enriced} in $\mathcal{V}$. A \textbf{weighted limit} for $F$ with respect to a \textit{weight functor} $W : \mathcal{I} \to \mathcal{V}$ is an object ${\lim}^W F$ in $\mathcal{C}$ represented by
+    \[ \Hom_\mathcal{C}(C, {\lim}^W F) \simeq \Hom_{\mathcal{V}^\mathcal{I}}(W, \Hom_\mathcal{C}(C, F(-))) . \]
+    A \textbf{weighted colimit} for $F$ with respect to $W : \mathcal{I}^\textup{op} \to \mathcal{V}$ is an object ${\colim}_W F$ in $\mathcal{C}$ represented by
+    \[ \Hom_\mathcal{C}({\colim}_W F, C) \simeq \Hom_{\mathcal{V}^{\mathcal{I}^\textup{op}}}(W, \Hom_\mathcal{C}(F(-), C)) . \]
+\end{topic}
+
+\begin{example}{weighted-limit}
+    Note that an ordinary \tref{limit}{limit} of a functor $F : \mathcal{I} \to \mathcal{C}$, if it exists, can be computed via the \tref{yoneda-embedding}{Yoneda embedding} on the level of presheaves:
+    \[ \begin{aligned} \Hom_\mathcal{C}(C, \lim F) &\simeq \lim (\Hom_\mathcal{C}(C, F(-))) \\ &\simeq \Hom_\textbf{Set}(\textup{pt}, \lim (\Hom_\mathcal{C}(C, F(-)))) \\ &\simeq \Hom_{\textbf{Set}^\mathcal{I}}(\Delta_{\textup{pt}}, \Hom_\mathcal{C}(C, F(-))) . \end{aligned} \]
+    In particular, the weighted limit reduces to the ordinary limit when $W : \mathcal{I} \to \textbf{Set}$ is the constant functor $\Delta_\textup{pt}$.
+\end{example}

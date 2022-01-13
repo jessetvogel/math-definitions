@@ -1,0 +1,10 @@
+Let <span class="math inline">\(\mathcal{C}\)</span> be a <a href="#CT:category">category</a>. The <b>ind-completion</b> of <span class="math inline">\(\mathcal{C}\)</span> is the category <span class="math inline">\(\textup{Ind}(\mathcal{C})\)</span> whose
+<ul><li> objects are <a href="#CT:functor">functors</a> <span class="math inline">\(F : \mathcal{I} \to \mathcal{C}\)</span>, with <span class="math inline">\(\mathcal{I}\)</span> a <a href="#CT:small-category">small</a> <a href="#CT:filtered-category">filtered category</a>,
+</li><li> morphisms from <span class="math inline">\(F : \mathcal{I} \to \mathcal{C}\)</span> to <span class="math inline">\(G : \mathcal{J} \to \mathcal{C}\)</span> are given by
+<span class="math display">\[ \Hom_{\textup{Ind}(\mathcal{C})}(F, G) = \lim_{I \in \mathcal{I}} \colim_{J \in \mathcal{J}} \Hom_\mathcal{C}(F(I), G(J)) . \]</span>
+</li></ul>
+The category <span class="math inline">\(\textup{Ind}(\mathcal{C})\)</span> is thought of as adjoining to <span class="math inline">\(\mathcal{C}\)</span> all formal <a href="#CT:filtered-limit">filtered colimits</a>. In particular,
+<ul><li> the embedding <span class="math inline">\(\mathcal{C} \to \textup{Ind}(\mathcal{C})\)</span> that sends an object <span class="math inline">\(C\)</span> to the corresponding diagram <span class="math inline">\(\textbf{1} \to \mathcal{C}\)</span> is <a href="#CT:full-functor">fully</a> <a href="#CT:faithful-functor">faithful</a>,
+</li><li> every diagram <span class="math inline">\(F : \mathcal{I} \to \mathcal{C}\)</span> is the <a href="#CT:limit">colimit</a> of itself, under the above embedding,
+</li><li> the objects of <span class="math inline">\(\mathcal{C}\)</span> are <a href="#CT:compact-object">compact</a> in <span class="math inline">\(\textup{Ind}(\mathcal{C})\)</span>.
+</li></ul>

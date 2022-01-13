@@ -57,7 +57,7 @@
 \end{example}
 
 \begin{topic}{braided-monoidal-category}{braided monoidal category}
-    A \textbf{braided monoidal category} is a \tref{symmetric-monoidal-category}{symmetric monoidal category} $(\mathcal{C}, \tau)$ without the condition that $\tau_{Y, X} \circ \tau_{X, Y} = \id_{X \otimes Y}$.
+    A \textbf{braided monoidal category} is a \tref{symmetric-monoidal-category}{symmetric monoidal category} $(\mathcal{C}, \otimes, \textbf{1}, \tau)$ without the condition that $\tau_{Y, X} \circ \tau_{X, Y} = \id_{X \otimes Y}$.
     % \[ \gamma_{X, Y} : X \otimes Y \to Y \otimes X \]
     % such that the diagrams
     % \[ \begin{tikzcd}
@@ -87,7 +87,7 @@
 \end{topic}
 
 \begin{topic}{rigid-monoidal-category}{rigid monoidal category}
-    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. An object $X$ of $\mathcal{C}$ is \textbf{left rigid} if there exists an object $Y$ and morphisms $\eta_X : \textbf{1} \to X \otimes Y$ and $\varepsilon_X : Y \otimes X \to \textbf{1}$ such that the compositions
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. An object $X$ of $\mathcal{C}$ is \textbf{left rigid} if there exists a (dual) object $Y$ and morphisms $\eta_X : \textbf{1} \to X \otimes Y$ and $\varepsilon_X : Y \otimes X \to \textbf{1}$ such that the compositions
     \[ X \xrightarrow{\eta_X \otimes \id} (X \otimes Y) \otimes X \xrightarrow{\alpha_{X, Y, X}^{-1}} X \otimes (Y \otimes X) \xrightarrow{\id \otimes \varepsilon_X} X \]
     and
     \[ Y \xrightarrow{\eta_X \otimes \id} Y \otimes (X \otimes Y) \xrightarrow{\alpha_{Y, X, Y}} (Y \otimes X) \otimes Y \xrightarrow{\varepsilon_X \otimes \id} Y \]
@@ -117,4 +117,14 @@
 
 \begin{topic}{closed-monoidal-category}{closed monoidal category}
     A \tref{symmetric-monoidal-category}{symmetric} \tref{monoidal-category}{monoidal category} $(\mathcal{C}, \otimes, \textbf{1})$ is \textbf{closed} if it has an \tref{internal-hom}{internal hom}.
+\end{topic}
+
+\begin{topic}{ribbon-category}{ribbon category}
+    A \textbf{ribbon category} is a \tref{rigid-monoidal-category}{rigid} \tref{braided-monoidal-category}{braided monoidal category} $(\mathcal{C}, \otimes, \textbf{1}, \tau)$ together with a collection of isomorphisms $\theta_X : X \to X$, called a \textit{twist}, satisfying
+    \begin{itemize}
+        \item (\textit{unit twist}) $\theta_\textbf{1} = \id_\textbf{1}$,
+        \item (\textit{braided compatible}) $\theta_{X \otimes Y} = \tau_{Y, X} \tau_{X, Y} (\theta_X \otimes \theta_Y)$ for all objects $X, Y$ of $\mathcal{C}$,
+        \item (\textit{dual compatible}) $\theta_{X^*} = \theta_X^*$ for all objects $X$ of $\mathcal{C}$ with left dual $X^*$, where
+        \[ \theta_X^* = (\varepsilon_X \otimes \id_{X^*}) (\id_{X^*} \otimes \theta_X \otimes \id_{X^*}) (\id_{X^*} \otimes \eta_X) . \]
+    \end{itemize}
 \end{topic}

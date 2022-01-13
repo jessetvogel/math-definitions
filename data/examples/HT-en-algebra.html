@@ -1,0 +1,13 @@
+<div class="example">Let <span class="math inline">\(X\)</span> be a <a href="#TO:topological-space">topological space</a> and <span class="math inline">\(\Omega_x X = \{ p : [0, 1] \to X : p(0) = p(1) = x \}\)</span> its <a href="#AT:loop-space">loop space</a> with respect to some basepoint <span class="math inline">\(x \in X\)</span>. One can concatenate paths <span class="math inline">\(p, q : [0, 1] \to X\)</span> as
+<span class="math display">\[ (p \star q)(t) = \left\{ \begin{array}{cl}
+         p(2t) & 0 \le t \le \tfrac{1}{2} , \\
+         q(2t - 1) & \tfrac{1}{2} \le t \le 1 ,
+    \end{array} \right. \]</span>
+but this operation is not strictly associative, since loops <span class="math inline">\((p \star q) \star r\)</span> and <span class="math inline">\(p \star (q \star r)\)</span> differ by their parametrization. However, concatenation is associative ‘up to coherent homotopy’, and this can be made precise by viewing the loop space <span class="math inline">\(\Omega_x X\)</span> as an <span class="math inline">\(E_1\)</span>-algebra.<br/>
+Let <span class="math inline">\(\mathcal{C}\)</span> the <span class="math inline">\(\infty\)</span>-category of spaces. To every disk <span class="math inline">\(U \subset \RR^1\)</span> assign the space
+<span class="math display">\[ \mathcal{E}(U) = \textup{Map}((U^+, \textup{pt}), (X, x)) , \]</span>
+where <span class="math inline">\(U^+\)</span> denotes the one-point compactification of <span class="math inline">\(U\)</span>. In particular, <span class="math inline">\(U\)</span> is homeomorphic to <span class="math inline">\(S^1\)</span>, so <span class="math inline">\(\mathcal{E}(U)\)</span> is (non-canonically) homeomorphic to <span class="math inline">\(\Omega_x X\)</span>. Furthermore, an embedding of disjoint disks <span class="math inline">\(U_1 \sqcup \cdots \sqcup U_m \subset V\)</span> induces a ‘collapse map’ <span class="math inline">\(V^+ \to U_1^+ \vee \cdots \vee U_m^+\)</span> to the <a href="#TO:wedge-sum">wedge sum</a>, which yields a multiplication map
+<span class="math display">\[ \mu : \mathcal{E}(U_1) \times \cdots \mathcal{E}(U_m) \to \mathcal{E}(V) . \]</span>
+This makes <span class="math inline">\(\mathcal{E}\)</span> into an <span class="math inline">\(E_1\)</span>-algebra.<br/>
+Note that the original concatenation <span class="math inline">\(\star\)</span> corresponds to the multiplication map <span class="math inline">\(\mu\)</span> for the embedding <span class="math inline">\((0, \tfrac{1}{2}) \sqcup (\tfrac{1}{2}, 1) \subset (0, 1)\)</span>.
+</div>

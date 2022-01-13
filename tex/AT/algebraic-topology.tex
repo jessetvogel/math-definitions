@@ -468,3 +468,42 @@
         \item $P(X \wedge Y) = P(X) + P(Y)$ - 1.
     \end{itemize}
 \end{example}
+
+\begin{topic}{cellular-homology}{cellular homology}
+    Let $X$ be a \tref{cw-complex}{CW-complex}, and write $X_n$ for the $n$-skeleton, $J_n$ for the indexing set of $n$-cells, and $f_n^i : \partial D^n \to X_{n - 1}$ for the attaching map of cell $i \in J_n$. The \textbf{cellular complex} $\tilde{C}_\bdot(X; A)$ of $X$ with coefficients in an \tref{GT:abelian-group}{abelian group} $A$ is given by the \tref{relative-homology}{relative homology groups}
+    \[ \tilde{C}_n(X; A) = H_n(X_n, X_{n - 1}; A) , \]
+    with differentials $\tilde{\partial}_n : \tilde{C}_n(X; A) \to \tilde{C}_{n - 1}(X; A)$ given by the connecting homomorphism of the long exact sequence of the triple $X_{n - 2} \subset X_{n - 1} \subset X_n$. The \textbf{cellular homology} of $X$ with coefficients in $A$ is then given
+    \[ H_n(X; A) = H_n(\tilde{C}_\bdot(X; A)) . \]
+    More practically, the cellular complex can be expressed as
+    \[ \tilde{C}_n(X; A) \simeq A[J_n] \quad \textup{ with } \quad \tilde{\partial}_n(e_n^i) = \sum_{j \in J_{n - 1}} \deg(\chi_n^{ij}) e_{n - 1}^j , \]
+    where $e_n^i$ denotes the generator corresponding to the $n$-cell $i \in J_n$, and $\chi_n^{ij} : S^{n - 1} \to S^{n - 1}$ denotes the composition
+    \[ S^{n - 1} \simeq \partial e_n^i \xrightarrow{f_n^i} X_{n - 1} \xrightarrow{q} X_{n - 1} / (X_{n - 1} \setminus e_{n - 1}^j) \simeq S^{n - 1} . \]
+\end{topic}
+
+\begin{example}{cellular-homology}
+    The torus $\mathbb{T}^2 = \RR^2 / \ZZ^2$ can be realized as a CW-complex with one $0$-cell $p$, two $1$-cells $v$ and $w$, and one $2$-cell $u$.
+    \[ \begin{tikzpicture}[scale=2.0]
+        \draw (0, 0) -- (1, 0) -- (1, 1) -- (0, 1) -- (0, 0);
+        \draw[black,fill=black] (0,0) circle (.2ex);
+        \draw[black,fill=black] (0,1) circle (.2ex);
+        \draw[black,fill=black] (1,0) circle (.2ex);
+        \draw[black,fill=black] (1,1) circle (.2ex);
+        \node at (-0.1, -0.1) {$p$};
+        \node at (-0.1, 1.1) {$p$};
+        \node at (1.1, -0.1) {$p$};
+        \node at (1.1, 1.1) {$p$};
+        \node at (-0.1, 0.5) {$v$};
+        \node at (1.1, 0.5) {$v$};
+        \node at (0.5, -0.1) {$w$};
+        \node at (0.5, 1.1) {$w$};
+        \node at (0.5, 0.5) {$u$};
+        \draw[-{Latex}] (0.5,0) -- +(0.1,0);
+        \draw[-{Latex}] (0.5,1) -- +(0.1,0);
+        \draw[-{Latex}] (0,0.5) -- +(0,0.1);
+        \draw[-{Latex}] (1,0.5) -- +(0,0.1);
+    \end{tikzpicture} \]
+    Hence, the cellular complex $\tilde{C}_\bdot(\mathbb{T}^2; \ZZ)$ has the form
+    \[ 0 \to \ZZ \cdot e_2^u \xrightarrow{\tilde{\partial}_2} \ZZ \cdot e_1^v \oplus \ZZ \cdot e_1^w \xrightarrow{\tilde{\partial}_1} \ZZ \cdot e_0^p \to 0 . \]
+    Since the $1$-cells $v$ and $w$ begin and end at the same point, we have $\tilde{\partial}_1(v) = \tilde{\partial}_1(w) = e_0^p - e_0^p = 0$. To compute $\tilde{\partial}_2(e_2^u)$, note that the attaching map $f_2^u$ runs through $v$, then $w$, then backwards through $v$ and backwards through $w$. Hence, $\tilde{\partial}_2(e_2^u) = 0$ as well. In conclusion,
+    \[ H_n(\mathbb{T}^2; \ZZ) = \left\{ \begin{array}{cl} \ZZ & \textup{ if } n = 0, 2 , \\ \ZZ \oplus \ZZ & \textup{ if } n = 1 , \\ 0 & \textup{ otherwise.}  \end{array} \right. \]
+\end{example}
