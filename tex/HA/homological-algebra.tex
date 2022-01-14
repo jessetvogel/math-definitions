@@ -326,12 +326,13 @@
     The \textbf{Jordan--Hölder theorem} states that if an object $A$ has two composition series
     \[ 0 = A_0 \subsetneq A_1 \subsetneq \cdots \subsetneq A_n = A \qquad \text{and} \qquad 0 = B_0 \subsetneq B_1 \subsetneq \cdots \subsetneq B_m = A , \]
     then $m = n$ and the composition factors $A_i/A_{i - 1}$ are isomorphic to $B_i/B_{i - 1}$ up to permutation.
-    
-    To prove this, let $j$ be the smallest index such that $A_1 \subset B_j$. Then the map $A_1 \to B_j/B_{j - 1}$ must be an isomorphism. Namely, it is surjective as its image is non-zero (since $A_1 \nsubseteq B_{j - 1}$) and $B_j/B_{j - 1}$ is simple. Furthermore, it is injective since its kernel is a proper subobject of $A_1$, and thus zero since $A_1$ is simple. Now, the quotient $A/A_1 = A_n/A_1 = B_m/A_1$ has the two filtrations
-    \[ 0 \subsetneq A_2/A_1 \subsetneq A_3/A_1 \subsetneq \cdots \subsetneq A_n/A_1 \]
-    and
-    \[ 0 \subsetneq (B_1 + A_1)/A_1 \subsetneq \cdots \subsetneq (B_{j - 1} + A_1)/A_1 = B_j/A_1 \subsetneq B_{j + 1}/A_1 \subsetneq \cdots \subsetneq B_m/A_1 \]
-    and the result follows from induction.
+    \begin{proof}
+        Let $j$ be the smallest index such that $A_1 \subset B_j$. Then the map $A_1 \to B_j/B_{j - 1}$ must be an isomorphism. Namely, it is surjective as its image is non-zero (since $A_1 \nsubseteq B_{j - 1}$) and $B_j/B_{j - 1}$ is simple. Furthermore, it is injective since its kernel is a proper subobject of $A_1$, and thus zero since $A_1$ is simple. Now, the quotient $A/A_1 = A_n/A_1 = B_m/A_1$ has the two filtrations
+        \[ 0 \subsetneq A_2/A_1 \subsetneq A_3/A_1 \subsetneq \cdots \subsetneq A_n/A_1 \]
+        and
+        \[ 0 \subsetneq (B_1 + A_1)/A_1 \subsetneq \cdots \subsetneq (B_{j - 1} + A_1)/A_1 = B_j/A_1 \subsetneq B_{j + 1}/A_1 \subsetneq \cdots \subsetneq B_m/A_1 \]
+        and the result follows from induction.    
+    \end{proof}
 \end{example}
 
 \begin{topic}{yoneda-product}{Yoneda product}
@@ -545,4 +546,40 @@
         $(\Leftarrow)$ As $\mathcal{A}$ has enough injectives, for any $A$ of $\mathcal{A}$, there exists a monomorphism $m : A \to I$ with $I$ injective. Since $F(I) = 0$, also $F(m) = 0$.
         $(\Rightarrow)$ Let $I$ be an injective object of $\mathcal{A}$. Since $F$ is effaceable, there exists a monomorphism $m : I \to J$, and by injectivity of $I$, there exists a map $h : J \to I$ such that $hm = \id_I$. Now $F(\id_I) = F(h) \circ F(m) = F(h) \circ 0 = 0$, so $F(I) = 0$.
     \end{proof}
+\end{example}
+
+\begin{topic}{finite-abelian-category}{(locally) finite abelian category}
+    Let $k$ be a \tref{CA:field}{field}, and let $\mathcal{A}$ be a \tref{linear-category}{$k$-linear category}. Then $\mathcal{A}$ is \textbf{locally finite} if
+    \begin{itemize}
+        \item the vector space $\Hom_\mathcal{A}(A, B)$ is finite-dimensional for all objects $A$ and $B$ of $\mathcal{A}$,
+        \item every object of $\mathcal{A}$ has finite \tref{composition-series}{length}.
+    \end{itemize}
+    If moreover
+    \begin{itemize}
+        \item $\mathcal{A}$ contains finitely many \tref{simple-object}{simple objects} (up to isomorphism),
+    \end{itemize}
+    then $\mathcal{A}$ is \textbf{finite}.
+\end{topic}
+
+\begin{example}{finite-abelian-category}
+    A theorem by Deligne states that for every finite abelian category $\mathcal{A}$ over $k$, there is a finite-dimensional $k$-algebra $A$ and a $k$-linear \tref{CT:equivalence-of-categories}{equivalence of categories}
+    \[ \mathcal{A} \simeq A\textup{-}\textbf{Mod}_\textup{fd} , \]
+    between $\mathcal{A}$ and the category of $A$-modules which are finite-dimensional as vector spaces over $k$. Such $A$ is uniquely determined up to \tref{CA:morita-equivalence}{Morita equivalence}.
+\end{example}
+
+\begin{topic}{simple-object}{(semi)simple object}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An object $A$ of $\mathcal{A}$ is \textbf{simple} if it is non-zero and its only subobjects are $0$ and itself. An object of $\mathcal{A}$ is \textbf{semisimple} if it is a direct sum of simple objects.
+\end{topic}
+
+\begin{topic}{deligne-tensor-product}{Deligne tensor product}
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{finite-abelian-category}{finite} \tref{abelian-category}{abelian categories} over a field $k$. The \textbf{Deligne tensor product} of $\mathcal{A}$ and $\mathcal{B}$ is a finite abelian category $\mathcal{A} \boxtimes \mathcal{B}$ together with a bifunctor $\boxtimes : \mathcal{A} \times \mathcal{B} \to \mathcal{A} \boxtimes \mathcal{B}$ that is \tref{exact-functor}{right exact} in both variables, which is universal in the sense that for every bifunctor $F : \mathcal{A} \times \mathcal{B} \to \mathcal{C}$ which is right exact in both variables, there exists a unique right exact functor $G : \mathcal{A} \boxtimes \mathcal{B} \to \mathcal{C}$ and a unique \tref{CT:natural-transformation}{natural} isomorphism that $F \simeq G \circ \boxtimes$.
+    \[ \begin{tikzcd}
+        \mathcal{A} \times \mathcal{B} \arrow{r}{\boxtimes} \arrow[swap]{dr}{F} & \mathcal{A} \boxtimes \mathcal{B} \arrow[dashed]{d}{G} \\
+        & \mathcal{C}
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{deligne-tensor-product}
+    Let $A$ and $B$ be two finite-dimensional algebras over $k$, and write $A\textup{-}\textbf{Mod}_\textup{fd}$ for the finite abelian category of $A$-modules which are finite-dimensional as vector spaces over $k$. Then
+    \[ A\textup{-}\textbf{Mod}_\textup{fd} \boxtimes A\textup{-}\textbf{Mod}_\textup{fd} \simeq (A \otimes_k B)\textup{-}\textbf{Mod}_\textup{fd} . \]
 \end{example}

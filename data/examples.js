@@ -242,6 +242,8 @@ const examples = [
   "HA:group-cohomology",
   "HA:contractible-chain-complex",
   "HA:effaceable-functor",
+  "HA:finite-abelian-category",
+  "HA:deligne-tensor-product",
   "HA:derived-category",
   "HA:fourier-mukai-transform",
   "HA:serre-functor",
