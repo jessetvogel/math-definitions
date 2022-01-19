@@ -48,7 +48,7 @@
 \end{example}
 
 \begin{topic}{bialgebra}{bialgebra}
-    A \textbf{bialgebra} over a \tref{CA:field}{field} $k$ is an \tref{CA:algebra}{algebra} $A$ over $k$ together with morphisms of $k$-algebras $\Delta : A \to A \otimes A$ (the \textit{comultiplication}) and $\varepsilon : A \to k$ (the \textit{counit}), satisfying
+    A \textbf{bialgebra} over a \tref{field}{field} $k$ is an \tref{algebra}{algebra} $A$ over $k$ together with morphisms of $k$-algebras $\Delta : A \to A \otimes A$ (the \textit{comultiplication}) and $\varepsilon : A \to k$ (the \textit{counit}), satisfying
     \begin{itemize}
         \item (\textit{coassociativity}) $(\Delta \otimes \id) \circ \Delta = (\id \otimes \Delta) \circ \Delta$,
         \item (\textit{counit}) $(\varepsilon \otimes \id) \circ \Delta = \id = (\id \otimes \varepsilon) \otimes \Delta$.
@@ -56,13 +56,13 @@
 \end{topic}
 
 \begin{topic}{hopf-algebra}{Hopf algebra}
-    A \textbf{Hopf algebra} over a \tref{CA:field}{field} $k$ is a \tref{bialgebra}{bialgebra} $A$ over $k$ together with a $k$-linear map $S : A \to A$ (the \textit{antipode}), such that the diagram
+    A \textbf{Hopf algebra} over a \tref{field}{field} $k$ is a \tref{bialgebra}{bialgebra} $A$ over $k$ together with a $k$-linear map $S : A \to A$ (the \textit{antipode}), such that the diagram
     \[ \begin{tikzcd}[column sep=1em, row sep=2em] & A \otimes A \arrow{rr}{S \otimes \id} && A \otimes A \arrow{dr}{\mu} & \\ A \arrow{rr}{\varepsilon} \arrow{ur}{\Delta} \arrow[swap]{dr}{\Delta} && k \arrow{rr}{\eta} && A \\ & A \otimes A \arrow[swap]{rr}{\id \otimes S} && A \otimes A \arrow[swap]{ur}{\mu} &  \end{tikzcd} \]
     commutes, where $\mu$ denotes the multiplication, $\Delta$ the comultiplication, $\eta$ the unit, and $\varepsilon$ the counit of the algebra.
 \end{topic}
 
 \begin{example}{hopf-algebra}
-    The category of commutative \tref{CA:finitely-generated-algebra}{finitely generated} Hopf algebras over $k$ is \tref{CT:equivalence-of-categories}{equivalent} to the category of \tref{AG:affine-scheme}{affine} \tref{AG:algebraic-group}{algebraic groups} over $k$, via the functors
+    The category of commutative \tref{finitely-generated-algebra}{finitely generated} Hopf algebras over $k$ is \tref{CT:equivalence-of-categories}{equivalent} to the category of \tref{AG:affine-scheme}{affine} \tref{AG:algebraic-group}{algebraic groups} over $k$, via the functors
     \[ A \mapsto \Spec A, \quad \text{and} \quad G \mapsto \Gamma(G, \mathcal{O}_G) . \]
     The antipode corresponds to group inversion.
 \end{example}
@@ -121,13 +121,13 @@
 \end{example}
 
 \begin{topic}{augmentation}{augmentation}
-    An \textbf{augmentation} of an \tref{CA:algebra}{algebra} over a field $k$, is a morphism of $k$-algebras $\varepsilon : A \to k$.
+    An \textbf{augmentation} of an \tref{algebra}{algebra} over a field $k$, is a morphism of $k$-algebras $\varepsilon : A \to k$.
 \end{topic}
 
 \begin{topic}{weyl-algebra}{Weyl algebra}
     Let $(V, \omega)$ be a \tref{LA:symplectic-vector-space}{symplectic vector space}. The \textbf{Weyl algebra} of $V$ is the quotient
     \[ W(V) = T(V) / (v \otimes w - w \otimes v - \omega(v, w) : v, w \in V) , \]
-    of the \tref{CA:tensor-algebra}{tensor algebra} $T(V)$ by the given ideal.
+    of the \tref{tensor-algebra}{tensor algebra} $T(V)$ by the given ideal.
 \end{topic}
 
 \begin{example}{weyl-algebra}
@@ -137,24 +137,24 @@
 \end{example}
 
 \begin{topic}{division-algebra}{division algebra}
-    Let $k$ be a \tref{CA:field}{field}. An \tref{CA:algebra}{algebra} $A$ over $k$ is a \textbf{division algebra} if for every non-zero $a \in A$ there exists an inverse element $b \in A$ satisfying $ab = ba = 1$.
+    Let $k$ be a \tref{field}{field}. An \tref{algebra}{algebra} $A$ over $k$ is a \textbf{division algebra} if for every non-zero $a \in A$ there exists an inverse element $b \in A$ satisfying $ab = ba = 1$.
 \end{topic}
 
 \begin{example}{division-algebra}
     \begin{itemize}
-        \item Any \tref{CA:field-extension}{field extension} $\ell / k$ is a division algebra over $k$.
+        \item Any \tref{field-extension}{field extension} $\ell / k$ is a division algebra over $k$.
         \item The \tref{quaternion-algebra}{quaternions} are a (non-commutative) division algebra over $\RR$.
     \end{itemize}
 \end{example}
 
 \begin{example}{division-algebra}
-    The only finite-dimensional division algebra over an \tref{CA:algebraically-closed-field}{algebraically closed field} $k$ is $k$ itself. Namely, let $A$ be a finite-dimensional division algebra over $k$, and take any element $x \in A$. Since $A$ is finite-dimensional, the powers of $x$ must be linearly dependent, that is, there exists some relation
+    The only finite-dimensional division algebra over an \tref{algebraically-closed-field}{algebraically closed field} $k$ is $k$ itself. Namely, let $A$ be a finite-dimensional division algebra over $k$, and take any element $x \in A$. Since $A$ is finite-dimensional, the powers of $x$ must be linearly dependent, that is, there exists some relation
     \[ f(x) = x^n + c_1 x^{n - 1} + \cdots + c_{n - 1} x + c_n = 0 \]
     for some $c_i \in k$. Since $k$ is algebraically closed, the polynomial $f$ factors into linear factors $f(x) = (x - \alpha_1) \cdots (x - \alpha_n)$ for some $\alpha_i \in k$. Assuming $f$ has minimal degree, it follows that $f(x) = x - \alpha_1$ and thus $x = \alpha_1 \in k$, so $A = k$.
 \end{example}
 
 \begin{topic}{koszul-algebra}{Koszul algebra}
-    A \textbf{Koszul algebra} $A$ over a \tref{CA:field}{field} $k$ is a \tref{CA:graded-ring}{graded} \tref{CA:algebra}{$k$-algebra}, such that the ground field $k$ has a linear minimal graded free resolution, that is, there exists an exact sequence
+    A \textbf{Koszul algebra} $A$ over a \tref{field}{field} $k$ is a \tref{graded-ring}{graded} \tref{algebra}{$k$-algebra}, such that the ground field $k$ has a linear minimal graded free resolution, that is, there exists an exact sequence
     \[ \cdots \to A(-i)^{b_i} \to \cdots \to A(-2)^{b_2} \to A(-1)^{b_1} \to A \to k \to 0 , \]
     for some $b_i \ge 0$.
 \end{topic}
@@ -177,4 +177,58 @@
     \[ [H_i, H_j] = 0, \quad [H_i, X_j] = a_{ij} X_j, \quad [H_i, Y_j] = -a_{ij} Y_j, \quad [X_i, Y_j] = \delta_{ij} H_i , \textup{ for all } i, j \]
     \[ \textup{ and } \left(\textup{ad}_{X_i}\right)^{1 - a_{ij}}(X_j) = 0, \quad \left(\textup{ad}_{Y_i}\right)^{1 - a_{ij}}(Y_j) = 0, \textup{ for } i \ne j , \]
     where $\textup{ad}_X(Y) = [X, Y]$ denotes the \tref{DG:adjoint-representation}{adjoint representation}.
+\end{topic}
+
+\begin{topic}{hochschild-homology}{Hochschild (co)homology}
+    Let $k$ be a \tref{field}{field}, $A$ an $k$-algebra, and $M$ a \tref{bimodule}{bimodule} over $A$. Let $C_n(A, M) := M \otimes A^{\otimes n}$, and define boundary maps $d_{n, i} : C_n(A, M) \to C_{n - 1}(A, M)$ for $0 \le i \le n$ by
+    \[ d_{n, i}(m \otimes a_1 \otimes \cdots \otimes a_n) = \left\{ \begin{array}{cl}
+        m a_1 \otimes a_2 \otimes \cdots \otimes a_n & \textup{ if } i = 0, \\
+         m \otimes a_1 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n & \textup{ if } 1 < i < n , \\
+        a_n m \otimes a_1 \otimes \cdots \otimes a_{n - 1} & \textup{ if } i = n .
+    \end{array} \right. \]
+    Then $C_n(A, M)$ with differential $d_n = \sum_{i = 0}^{n} = (-1)^i d_{n, i}$ is a \tref{HA:chain-complex}{chain complex} called the \textbf{Hochschild complex}.
+    \[ \cdots \xrightarrow{d} M \otimes A^{\otimes n} \xrightarrow{d} M \otimes A^{\otimes n - 1} \xrightarrow{d} \cdots \xrightarrow{d} M \otimes A \xrightarrow{d} M \to 0 \]
+    The corresponding \tref{HA:homology-object}{homology} $HH_i(A, M)$ is called the \textbf{Hochschild homology} of $A$ with coefficients in $M$.
+    
+    Similarly, \textbf{Hochschild cohomology} is defined by from the cocomplex
+    \[ 0 \to M \xrightarrow{\partial} \Hom_k(A, M) \xrightarrow{\partial} \cdots \xrightarrow{\partial} \Hom_k(A^{\otimes n}, M) \xrightarrow{\partial} \Hom_k(A^{\otimes n + 1}, M) \xrightarrow{\partial} \cdots \]
+    where $\partial^n = \sum_{i = 0}^n (-1)^i \partial^{n, i}$ is given by
+    \[ (\partial^{n, i} f)(a_1 \otimes \cdots \otimes a_n) = \left\{ \begin{array}{cl}
+        a_1 f(a_2 \otimes \cdots \otimes a_n)  & \textup{ if } i = 0, \\
+         f(a_1 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n) & \textup{ if } 1 < i < n, \\
+        f(a_1 \otimes \cdots \otimes a_{n - 1}) a_n & \textup{ if } i = n .
+    \end{array} \right. \]
+    The corresponding cohomology $HH^n(A, M)$ is the \textbf{Hochschild cohomology} of $A$ with coefficients in $M$.
+\end{topic}
+
+\begin{example}{hochschild-homology}
+    Note that $\ker \partial^1$ consists of all $f : A \to M$ for which $\partial f$, given by $(a \otimes b) \mapsto a f(b) - f(ab) + f(a) b$, is zero, that is, $f$ is a \tref{derivation}{$k$-derivation}. Furthermore, $\im \partial^0$ consists of all $f$ such that $f(a) = ma - am$, which are known as \textit{inner derivations}. Therefore, $HH^1(A, M) = \{ \text{derivations} \} / \{ \text{inner derivations} \}$.
+\end{example}
+
+\begin{example}{hochschild-homology}
+    The Hochschild (co)homology can be expressed in terms of \tref{HA:tor-functors}{Tor} (\tref{HA:ext-functors}{Ext}) as
+    \[ HH_i(A, M) \simeq \text{Tor}_i^{A^\textup{e}}(A, M) \quad \text{and} \quad HH^i(A, M) \simeq \text{Ext}^i_{A^\textup{e}}(A, M) , \]
+    where $A^\textup{e}$ denotes the \tref{enveloping-algebra}{enveloping algebra} of $A$. Indeed, one can resolving $A$ by free (left) $A^\textup{e}$-modules using the \tref{standard-complex}{bar resolution}. Then, tensoring with $M$ over $A^\textup{e}$ gives a complex isomorphic to the Hochschild complex: in degree $n$ we have an isomorphism
+    \[ M \otimes_{A^\textup{e}} A^{\otimes n + 2} \to M \otimes A^{\otimes n}, \quad m \otimes a_0 \otimes \cdots \otimes a_{n + 1} \mapsto a_0 m a_{n + 1} \otimes a_1 \otimes \cdots \otimes a_n . \]
+    Taking homology gives the result. Similarly for the cohomology complex: in degree $n$ we have an isomorphism
+    \[ \Hom_{A^\textup{e}}(A^{\otimes n + 2}, M) \to \Hom_k(A^{\otimes n}, M), \quad f \mapsto (a_1 \otimes \cdots \otimes a_n \mapsto f(1 \otimes a_1 \otimes \cdots \otimes a_n \otimes 1)) . \]
+\end{example}
+
+% \begin{example}{hochschild-homology}
+%     Using the \tref{UN:koszul-complex}{Koszul complex}, one can compute the Hochschild homology for the polynomial ring $R = k[x_1, \ldots, x_n]$:
+%     \[ HH_i(R) \simeq HH^i(R) \simeq \left\{ \begin{array}{cl} \bigwedge^i R^n & \text{for } 0 \le i \le n \\ 0 & \text{for } i > n . \end{array} \right. \]
+% \end{example}
+
+\begin{example}{hochschild-homology}
+    The (first order) deformations of a ring $A$ up to trivial deformations are parametrized by $HH^2(A)$. Namely, any deformed multiplication $a \star b := ab + \varepsilon f(a, b)$ with $f : A \otimes A \to A$ and $\varepsilon^2 = 0$ is associative if and only if $(a \star b) \star c = a \star (b \star c)$ for all $a, b, c \in A$. This translates to
+    \[ a f(b, c) - f(ab, c) + f(a, bc) - f(a, b) c = 0 , \]
+    that is, $\partial f = 0$. If $f$ is a trivial deformation, then there exists some $k[\varepsilon]$-linear automorphism $\phi$ of $A[\varepsilon]$ such that $\phi(a_1 + \varepsilon a_2) \phi(b_1 + \varepsilon b_2) = \phi((a_1 + \varepsilon a_2) \star (b_1 + \varepsilon b_2))$. Expanding gives $f(a, b) = a \phi_1(b) - \phi(ab) + \phi(a) b = (\partial^1 \phi)(a, b)$ for all $a, b \in A$, that is, $f \in \im \partial$.
+\end{example}
+
+\begin{topic}{enveloping-algebra}{enveloping algebra}
+    Let $k$ be a \tref{ring}{commutative ring}. The \textbf{enveloping algebra} of a \tref{algebra}{$k$-algebra} $A$ is the algebra $A \otimes_k A^\textup{op}$, where $A^\textup{op}$ denotes the \tref{opposite-ring}{opposite} algebra.
+\end{topic}
+
+\begin{topic}{opposite-ring}{opposite ring}
+    The \textbf{opposite ring} of a \tref{ring}{ring} $A$ is the ring $A^\textup{op}$ whose underlying additive group is the same as $A$, but with multiplication given by $a \cdot b = ba$.
 \end{topic}

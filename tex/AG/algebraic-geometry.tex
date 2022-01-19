@@ -4,15 +4,15 @@
     
     A morphism of ringed spaces from $(X, \mathcal{O}_X)$ to $(Y, \mathcal{O}_Y)$ is a pair $(f, f^\#)$ of a continuous map $f : X \to Y$ and a map $f^\# : \mathcal{O}_Y \to f_* \mathcal{O}_X$ of sheaves of rings on $Y$.
     
-    A ringed space $(X, \mathcal{O}_X)$ is a \textbf{locally ringed space} if for each point $x \in X$, the \tref{stalk}{stalk} $\mathcal{O}_{X,x}$ is a \tref{CA:local-ring}{local ring}.
+    A ringed space $(X, \mathcal{O}_X)$ is a \textbf{locally ringed space} if for each point $x \in X$, the \tref{stalk}{stalk} $\mathcal{O}_{X,x}$ is a \tref{AA:local-ring}{local ring}.
     
     A morphism of locally ringed spaces is a morphism $(f, f^\#)$ of ringed spaces such that for each point $x \in X$ the induced map of local rings $f^\#_x : \mathcal{O}_{Y, f(x)} \to \mathcal{O}_{X, x}$ is a \textit{local morphism}, i.e. the pre-image of the maximal ideal of $\mathcal{O}_{X, x}$ is the maximal ideal of $\mathcal{O}_{Y, f(x)}$.
 \end{topic}
 
 \begin{topic}{spectrum}{spectrum}
-    Let $R$ be a \tref{CA:ring}{commutative ring}. The \textbf{spectrum} of $R$ is the \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ defined as follows.
+    Let $R$ be a \tref{AA:ring}{commutative ring}. The \textbf{spectrum} of $R$ is the \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ defined as follows.
     \begin{itemize}
-        \item The topological space $X$ is the set of \tref{CA:prime-ideal}{prime ideals} of $R$, whose closed sets are given precisely by the sets $V(I) = \{ \textup{prime ideals } \mathfrak{p} \text{ with } \mathfrak{p} \supset I \}$ for all ideals $I$ of $R$.
+        \item The topological space $X$ is the set of \tref{AA:prime-ideal}{prime ideals} of $R$, whose closed sets are given precisely by the sets $V(I) = \{ \textup{prime ideals } \mathfrak{p} \text{ with } \mathfrak{p} \supset I \}$ for all ideals $I$ of $R$.
         
         \item The \tref{sheaf}{sheaf} of rings $\mathcal{O}_X$ is given as follows. For each open set $U \subset X$, $\mathcal{O}_X(U)$ is the set of functions $s : U \to \sqcup_{\mathfrak{p} \in U} R_\mathfrak{p}$ with $s(\mathfrak{p}) \in R_\mathfrak{p}$ for each $\mathfrak{p} \in U$, such that $s$ is locally a quotient of elements of $R$. This means that for each $\mathfrak{p} \in U$, there is a neighborhood $V \subset U$ of $\mathfrak{p}$, and elements $a, f \in R$ such that for each $\mathfrak{q} \in V$, $f \not\in \mathfrak{q}$ and $s(\mathfrak{q}) = a/f$ in $A_\mathfrak{q}$. The sets $\mathcal{O}_X(U)$ are indeed rings.
     \end{itemize}
@@ -37,29 +37,29 @@
 
 % Scheme properties
 \begin{topic}{reduced-scheme}{reduced scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{reduced} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ has no \tref{CA:nilpotent-element}{nilpotent} elements.
+    A \tref{scheme}{scheme} $X$ is \textbf{reduced} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ has no \tref{AA:nilpotent-element}{nilpotent} elements.
     
     Equivalently, this is the case if all stalks $\mathcal{O}_{X, x}$ have no nilpotent elements.
 \end{topic}
 
 \begin{topic}{integral-scheme}{integral scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{integral} if it is non-empty and for every non-empty open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ is a \tref{CA:domain}{domain}.
+    A \tref{scheme}{scheme} $X$ is \textbf{integral} if it is non-empty and for every non-empty open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ is a \tref{AA:domain}{domain}.
     
     Equivalently, this is the case if $X$ is \tref{reduced-scheme}{reduced} and \tref{TO:irreducible}{irreducible}.
 \end{topic}
 
 \begin{topic}{noetherian-scheme}{(locally) noetherian scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{locally noetherian} if it can be covered by open affine subsets $\Spec A_i$, where each $A_i$ is a \tref{CA:noetherian-ring}{noetherian ring}. It is \textbf{noetherian} if it is locally noetherian and \tref{quasi-compact-scheme}{quasi-compact}.
+    A \tref{scheme}{scheme} $X$ is \textbf{locally noetherian} if it can be covered by open affine subsets $\Spec A_i$, where each $A_i$ is a \tref{AA:noetherian-ring}{noetherian ring}. It is \textbf{noetherian} if it is locally noetherian and \tref{quasi-compact-scheme}{quasi-compact}.
 \end{topic}
 
 \begin{topic}{finite-type}{(locally) of finite type}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite type at $x \in X$} if there exist affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{CA:finite-type}{finitely generated} $B$-algebra (via the induced map $B \to A$).
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite type at $x \in X$} if there exist affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finite-type}{finitely generated} $B$-algebra (via the induced map $B \to A$).
     
     The morphism $f$ is \textbf{locally of finite type} if it is of finite type at each $x \in X$, and it is \textbf{of finite type} if it is locally of finite type and \tref{quasi-compact-scheme}{quasi-compact}.
 \end{topic}
 
 \begin{topic}{finite-presentation}{(locally) of finite presentation}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite presentation at $x \in X$} if there exists affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{CA:finite-presentation}{finitely presented} $B$-algebra (via the induced map $B \to A$).
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite presentation at $x \in X$} if there exists affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finite-presentation}{finitely presented} $B$-algebra (via the induced map $B \to A$).
     
     The morphism $f$ is \textbf{locally of finite presentation} if it is of finite presentation at each $x \in X$, and it is \textbf{of finite presentation} if it is locally of finite presentation, \tref{quasi-compact-scheme}{quasi-compact}, and \tref{separated-morphism}{quasi-separated}.
 \end{topic}
@@ -114,7 +114,7 @@
 \end{example}
 
 \begin{topic}{normal-scheme}{normal scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{normal} if all of its local rings $\mathcal{O}_{X,x}$ are \tref{CA:integral-closure}{integrally closed} \tref{CA:domain}{domains}.
+    A \tref{scheme}{scheme} $X$ is \textbf{normal} if all of its local rings $\mathcal{O}_{X,x}$ are \tref{AA:integral-closure}{integrally closed} \tref{AA:domain}{domains}.
     % Every scheme can be `normalized'.
 \end{topic}
 
@@ -180,7 +180,7 @@
 \end{topic}
 
 \begin{topic}{regular-scheme}{regular scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{regular} if it is \tref{noetherian-scheme}{locally noetherian} and all of its stalks are \tref{CA:regular-ring}{regular local rings}.
+    A \tref{scheme}{scheme} $X$ is \textbf{regular} if it is \tref{noetherian-scheme}{locally noetherian} and all of its stalks are \tref{AA:regular-ring}{regular local rings}.
 \end{topic}
 
 \begin{topic}{variety}{variety}
@@ -192,7 +192,7 @@
 \end{topic}
 
 \begin{topic}{geometrically-regular}{geometrically regular}
-    Let $X$ be a \tref{noetherian-scheme}{locally noetherian} \tref{scheme}{scheme} over a field $k$. Then $X$ is \textbf{geometrically regular at $x \in X$} over $k$ if for every finitely generated field extension $k \subset k'$ and any $x' \in X_{k'}$ lying over $x$, the local ring $\mathcal{O}_{X_{k'}, x'}$ is \tref{CA:regular-ring}{regular}.
+    Let $X$ be a \tref{noetherian-scheme}{locally noetherian} \tref{scheme}{scheme} over a field $k$. Then $X$ is \textbf{geometrically regular at $x \in X$} over $k$ if for every finitely generated field extension $k \subset k'$ and any $x' \in X_{k'}$ lying over $x$, the local ring $\mathcal{O}_{X_{k'}, x'}$ is \tref{AA:regular-ring}{regular}.
     
     The scheme $X$ is \textbf{geometrically regular} over $k$ if $X$ it is so at all points $x \in X$.
 \end{topic}
@@ -214,7 +214,7 @@
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{unramified} if
     \begin{itemize}
         \item it is \tref{finite-presentation}{locally of finite presentation},
-        \item the residue field $k(x)$ is a \tref{CA:separable-field-extension}{separable algebraic extension} of $k(f(x))$, for all $x \in X$,
+        \item the residue field $k(x)$ is a \tref{AA:separable-field-extension}{separable algebraic extension} of $k(f(x))$, for all $x \in X$,
         \item $f^\#(\mathfrak{m}_{f(x)}) \mathcal{O}_{X, x} = \mathfrak{m}_x$ for all $x \in X$.
     \end{itemize}
 \end{topic}
@@ -258,7 +258,7 @@
 \end{example}
 
 \begin{topic}{flat-morphism}{flat morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{flat} if for every $x \in X$, the local ring $\mathcal{O}_{X, x}$ is \tref{CA:flat-module}{flat} as an $\mathcal{O}_{Y, f(x)}$-module.
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{flat} if for every $x \in X$, the local ring $\mathcal{O}_{X, x}$ is \tref{AA:flat-module}{flat} as an $\mathcal{O}_{Y, f(x)}$-module.
 \end{topic}
 
 \begin{example}{flat-morphism}
@@ -345,7 +345,7 @@
 \begin{topic}{geometric-point}{geometric point}
     A \textbf{geometric point} of a \tref{scheme}{scheme} $X$ defined over a field $k$ is a morphism
     \[ \Spec \overline{k} \to X , \]
-    where $\overline{k}$ denotes an \tref{CA:algebraic-closure}{algebraic closure} of $k$.
+    where $\overline{k}$ denotes an \tref{AA:algebraic-closure}{algebraic closure} of $k$.
 \end{topic}
 
 \begin{topic}{fppf-covering}{fppf covering}
@@ -432,7 +432,7 @@
 \end{topic}
 
 \begin{topic}{syntomic-morphism}{syntomic morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{syntomic at $x \in X$} if there exists an affine open neighborhood $U = \Spec A \subset X$ of $x$ and an affine open $V = \Spec B$ with $f(U) \subset V$ such that the induced ring morphism $B \to A$ is \textit{syntomic}, i.e. of \tref{CA:finite-presentation}{finite presentation}, makes $A$ into a \tref{CA:flat-module}{flat} \tref{CA:module}{$B$-module}, and all the fiber rings $A \otimes_B k(\mathfrak{p})$ are local complete intersections.
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{syntomic at $x \in X$} if there exists an affine open neighborhood $U = \Spec A \subset X$ of $x$ and an affine open $V = \Spec B$ with $f(U) \subset V$ such that the induced ring morphism $B \to A$ is \textit{syntomic}, i.e. of \tref{AA:finite-presentation}{finite presentation}, makes $A$ into a \tref{AA:flat-module}{flat} \tref{AA:module}{$B$-module}, and all the fiber rings $A \otimes_B k(\mathfrak{p})$ are local complete intersections.
     
     The morphism $f$ is \textbf{syntomic} if it is syntomic at all points $x \in X$.
 \end{topic}
@@ -444,7 +444,7 @@
 \end{topic}
 
 \begin{example}{galois-cover}
-    Let $\ell / k$ be a \tref{CA:galois-extension}{Galois extension} with \tref{CA:galois-group}{Galois group} $G = \text{Gal}(\ell/k)$. Then there is an isomorphism
+    Let $\ell / k$ be a \tref{AA:galois-extension}{Galois extension} with \tref{AA:galois-group}{Galois group} $G = \text{Gal}(\ell/k)$. Then there is an isomorphism
     \[ \ell \otimes_k \ell \to \prod_{\sigma \in G} \ell, \quad a \otimes b \mapsto (a \sigma(b))_{\sigma \in G} \]
     which shows that
     \[ G \times \Spec(\ell) \to \Spec(\ell) \times_{\Spec(k)} \Spec(\ell) \]
@@ -504,11 +504,11 @@
 \end{topic}
 
 \begin{topic}{locally-factorial-scheme}{locally factorial scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{locally factorial} if all its local rings $\mathcal{O}_{X,x}$ are \tref{CA:unique-factorization-domain}{unique factorization domains}.
+    A \tref{scheme}{scheme} $X$ is \textbf{locally factorial} if all its local rings $\mathcal{O}_{X,x}$ are \tref{AA:unique-factorization-domain}{unique factorization domains}.
 \end{topic}
 
 \begin{topic}{weil-divisor}{Weil divisor}
-    Let $X$ be a \tref{noetherian-scheme}{noetherian} \tref{integral-scheme}{integral} \tref{separated-morphism}{separated} \tref{scheme}{scheme}, where every local ring $\mathcal{O}_{X,x}$ of dimension one is \tref{CA:regular-ring}{regular}.
+    Let $X$ be a \tref{noetherian-scheme}{noetherian} \tref{integral-scheme}{integral} \tref{separated-morphism}{separated} \tref{scheme}{scheme}, where every local ring $\mathcal{O}_{X,x}$ of dimension one is \tref{AA:regular-ring}{regular}.
     
     A \textbf{prime divisor} on $X$ is a \tref{closed-immersion}{closed} integral subscheme $Y$ of codimension one. A \textbf{Weil divisor} on $X$ is an element of the \tref{GT:free-group}{free abelian group} $\text{Div } X$ generated by the prime divisors.
     
@@ -564,7 +564,7 @@
 % \end{topic}
 
 \begin{topic}{severi-brauer-variety}{Severi--Brauer variety}
-    A \textbf{Severi--Brauer variety} is a \tref{variety}{variety} $X$ over a field $k$, such that $\overline{X} = X \times_k \overline{k}$ is isomorphic to $\PP^n_{\overline{k}}$ for some \tref{CA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$.
+    A \textbf{Severi--Brauer variety} is a \tref{variety}{variety} $X$ over a field $k$, such that $\overline{X} = X \times_k \overline{k}$ is isomorphic to $\PP^n_{\overline{k}}$ for some \tref{AA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$.
 \end{topic}
 
 \begin{example}{severi-brauer-variety}
@@ -572,7 +572,7 @@
 \end{example}
 
 \begin{example}{severi-brauer-variety}
-    Any \tref{CA:central-simple-algebra}{central simple algebra} (CSA) over a field $k$ gives rise to a Severi--Brauer variety over $k$. Namely, let $A$ be a CSA over $k$ of dimension $n^2$, and let $\textup{SB}(A) \subset \textup{Gr}(n, A)$ be the set of $n$-dimensional \tref{CA:ideal}{right ideals} of $A$. Since the property of being an ideal can be described by polynomial equations, $\textup{SB}(A)$ defines a closed subvariety of $\textup{Gr}(n, n^2)$.
+    Any \tref{AA:central-simple-algebra}{central simple algebra} (CSA) over a field $k$ gives rise to a Severi--Brauer variety over $k$. Namely, let $A$ be a CSA over $k$ of dimension $n^2$, and let $\textup{SB}(A) \subset \textup{Gr}(n, A)$ be the set of $n$-dimensional \tref{AA:ideal}{right ideals} of $A$. Since the property of being an ideal can be described by polynomial equations, $\textup{SB}(A)$ defines a closed subvariety of $\textup{Gr}(n, n^2)$.
     
     For $A = \textup{Mat}_{n \times n}(k)$, the $n$-dimensional right ideals are precisely of the form
     \[ I = \left\{ \begin{pmatrix} a_1 v & a_2 v & \cdots & a_n v \end{pmatrix} : a_i \in k \right\} \]
@@ -627,7 +627,7 @@
 \end{topic}
 
 \begin{topic}{algebraic-torus}{algebraic torus}
-    An \textbf{algebraic torus} $T$ over a field $k$ is an \tref{algebraic-group}{algebraic group} which, over an \tref{CA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$, is isomorphic to a finite product of copies of $\mathbb{G}_m = \Spec \overline{k}[t, t^{-1}]$, that is
+    An \textbf{algebraic torus} $T$ over a field $k$ is an \tref{algebraic-group}{algebraic group} which, over an \tref{AA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$, is isomorphic to a finite product of copies of $\mathbb{G}_m = \Spec \overline{k}[t, t^{-1}]$, that is
     \[ T \times_k \overline{k} \simeq \Spec \overline{k}[t_1, t_1^{-1}, \ldots, t_r, t_r^{-1}] , \]
     where $r$ is called the \textit{rank} of the algebraic torus $T$.
 \end{topic}
@@ -730,14 +730,14 @@
 \end{example}
 
 \begin{topic}{sheaf-differentials}{sheaf of differentials}
-    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}. Covering $X$ and $Y$ by affine opens $V = \Spec A \subset Y$ and $U = \Spec B \subset X$ such that $f(U) \subset V$, consider the sheaf $\widetilde{\Omega_{B/A}}$ on $U$, the sheaf \tref{sheaf-associated-to-module}{associated} to the module \tref{CA:derivation}{$\Omega_{B/A}$}. Gluing these sheaves together gives $\Omega_{X/Y}$, the \textbf{relative sheaf of differentials}.
+    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}. Covering $X$ and $Y$ by affine opens $V = \Spec A \subset Y$ and $U = \Spec B \subset X$ such that $f(U) \subset V$, consider the sheaf $\widetilde{\Omega_{B/A}}$ on $U$, the sheaf \tref{sheaf-associated-to-module}{associated} to the module \tref{AA:derivation}{$\Omega_{B/A}$}. Gluing these sheaves together gives $\Omega_{X/Y}$, the \textbf{relative sheaf of differentials}.
     
     Alternatively, consider the diagonal morphism $\Delta_{X/Y} : X \to X \times_Y X$, and view $X \xrightarrow{\sim{}} \Delta(X)$ as a \tref{closed-immersion}{closed subscheme} of an open subset $W$ of $X \times_Y X$, with corresponding sheaf of ideals $\mathcal{I}$. Then
     \[ \Omega_{X/Y} = \Delta_{X/Y}^*(\mathcal{I}/\mathcal{I}^2) . \]
 \end{topic}
 
 \begin{example}{sheaf-differentials}
-    Let $f : X \to Y$ be locally of finite type. If $f$ is \tref{unramified-morphism}{unramified} then $\Omega_{X/Y} = 0$. Namely, since $\Omega_{X/Y}$ behaves well with respect to base change, this can be checked locally, that is, we can assume $Y = \Spec B$ and $X = \Spec A$ with $A \to B$ a local homomorphism of local rings. Using \tref{CA:nakayamas-lemma}{Nakayama's lemma} this reduces to the case where $A$ and $B$ are fields. Being unramified means that $A \subset B$ is a \tref{CA:separable-field-extension}{separable field extension}, and then it is clear that $\Omega_{B/A} = 0$.
+    Let $f : X \to Y$ be locally of finite type. If $f$ is \tref{unramified-morphism}{unramified} then $\Omega_{X/Y} = 0$. Namely, since $\Omega_{X/Y}$ behaves well with respect to base change, this can be checked locally, that is, we can assume $Y = \Spec B$ and $X = \Spec A$ with $A \to B$ a local homomorphism of local rings. Using \tref{AA:nakayamas-lemma}{Nakayama's lemma} this reduces to the case where $A$ and $B$ are fields. Being unramified means that $A \subset B$ is a \tref{AA:separable-field-extension}{separable field extension}, and then it is clear that $\Omega_{B/A} = 0$.
     
     Conversely, if $\Omega_{X/Y} = 0$ then $f$ is unramified.
 \end{example}
@@ -915,7 +915,7 @@
 \end{topic}
 
 \begin{topic}{excellent-scheme}{(quasi-)excellent scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{(quasi-)excellent} if it has an affine open cover by schemes $\Spec R_i$ with $R_i$ an \tref{CA:excellent-ring}{(quasi-)excellent} ring.
+    A \tref{scheme}{scheme} $X$ is \textbf{(quasi-)excellent} if it has an affine open cover by schemes $\Spec R_i$ with $R_i$ an \tref{AA:excellent-ring}{(quasi-)excellent} ring.
 \end{topic}
 
 \begin{topic}{genus-degree-formula}{genus-degree formula}
@@ -957,7 +957,7 @@
 \end{topic}
 
 \begin{topic}{lie-kolchin-theorem}{Lie--Kolchin theorem}
-    The \textbf{Lie--Kolchin theorem} states that any \tref{GT:solvable-group}{solvable}, \tref{smooth-morphism}{smooth}, \tref{TO:connected-space}{connected} \tref{algebraic-group}{algebraic group} $G$ over an \tref{CA:algebraically-closed-field}{algebraically closed field} $k$ is \tref{triangularizable-algebraic-group}{triangularizable}.
+    The \textbf{Lie--Kolchin theorem} states that any \tref{GT:solvable-group}{solvable}, \tref{smooth-morphism}{smooth}, \tref{TO:connected-space}{connected} \tref{algebraic-group}{algebraic group} $G$ over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$ is \tref{triangularizable-algebraic-group}{triangularizable}.
 \end{topic}
 
 \begin{example}{lie-kolchin-theorem}
@@ -1053,3 +1053,9 @@
         \item The group $\ZZ/2\ZZ$ is not special, as the morphism $\Spec k[x, x^{-1}] \to \Spec k[y, y^{-1}]$ given by $y = x^2$ is a principal $\ZZ/2\ZZ$-bundle, which is not locally trivial in the Zariski topology.
     \end{itemize}
 \end{example}
+
+\begin{topic}{kummer-sequence}{Kummer sequence}
+    The \textbf{Kummer sequence} is the short exact sequence of \tref{algebraic-group}{algebraic groups}
+    \[ 0 \to \mu_n \xrightarrow{i} \mathbb{G}_m \xrightarrow{(-)^n} \mathbb{G}_m \to 0 , \]
+    where $\mathbb{G}_m = \ZZ[x^{\pm 1}]$ is the multiplicative group, and $\mu_n = \ZZ[x] / (x^n - 1)$ the group of units of order $n$.
+\end{topic}

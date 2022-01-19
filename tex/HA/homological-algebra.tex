@@ -17,7 +17,7 @@
 \end{topic}
 
 \begin{example}{abelian-category}
-    For a \tref{CA:ring}{ring} $R$, the category of left (or right) \tref{CA:module}{$R$-modules} is an abelian category.
+    For a \tref{AA:ring}{ring} $R$, the category of left (or right) \tref{AA:module}{$R$-modules} is an abelian category.
     
     In particular, the category of abelian groups (that is, $\ZZ$-modules) $\textbf{Ab}$ is an abelian category.
 \end{example}
@@ -203,7 +203,7 @@
 
 \begin{example}{acyclic-object}
     \begin{itemize}
-        \item Given a \tref{CA:ring}{commutative ring} $R$, the objects which are acyclic with respect to all functors $(-) \otimes_R M$, are the \tref{CA:flat-module}{flat modules} over $R$.
+        \item Given a \tref{AA:ring}{commutative ring} $R$, the objects which are acyclic with respect to all functors $(-) \otimes_R M$, are the \tref{AA:flat-module}{flat modules} over $R$.
         \item The objects which are acyclic with respect to all functors $\Hom_\mathcal{A}(A, -)$, are the \tref{injective-object}{injective objects}. Moreover, an injective object is acyclic with respect to any left exact functor $F$.
         \item The objects which are acyclic with respect to all functors $\Hom_\mathcal{A}(-, A)$, are the \tref{projective-object}{projective objects}. Moreover, a projective object is acyclic with respect to any right exact functor $F$.
     \end{itemize}
@@ -303,7 +303,7 @@
 \end{example}
 
 \begin{topic}{tor-functors}{Tor functors}
-    For a commutative \tref{CA:ring}{ring} $R$ and an $R$-module $B$, the \tref{CA:tensor-product}{tensor product} gives a functor
+    For a commutative \tref{AA:ring}{ring} $R$ and an $R$-module $B$, the \tref{AA:tensor-product}{tensor product} gives a functor
     \[ (-) \otimes_R B : R\textbf{-Mod} \to R\textbf{-Mod} \]
     which is \tref{exact-functor}{right exact}, so it has \tref{left-derived-functors}{left derived functors}, which are known as the \textbf{Tor functors}
     \[ \text{Tor}^R_i(A, B) = A \overset{\text{L}_i}{\otimes} B . \]
@@ -365,7 +365,7 @@
 \end{topic}
 
 \begin{example}{homological-dimension}
-    By \tref{CA:hilbert-syzygy-theorem}{Hilbert's syzygy theorem}, any $k[x_1, \ldots, x_n]$-module has a projective resolution of length $\le n$. Since this upper bound is attained for the \tref{UN:koszul-complex}{Koszul complex}, the global homological dimension of $k[x_1, \ldots, x_n]\text{-}\textbf{Mod}$ is $n$.
+    By \tref{AA:hilbert-syzygy-theorem}{Hilbert's syzygy theorem}, any $k[x_1, \ldots, x_n]$-module has a projective resolution of length $\le n$. Since this upper bound is attained for the \tref{UN:koszul-complex}{Koszul complex}, the global homological dimension of $k[x_1, \ldots, x_n]\text{-}\textbf{Mod}$ is $n$.
 \end{example}
 
 \begin{example}{homological-dimension}
@@ -430,7 +430,7 @@
 \begin{example}{enough-injectives}
     \begin{itemize}
         \item The category $\textbf{Ab}$ of \tref{GT:abelian-group}{abelian groups} has enough injectives.
-        \item For each \tref{CA:ring}{ring} $R$, the category of (left) \tref{CA:module}{$R$-modules} has enough injectives.
+        \item For each \tref{AA:ring}{ring} $R$, the category of (left) \tref{AA:module}{$R$-modules} has enough injectives.
         \item The category of \tref{AG:sheaf}{sheaves} on a topological space $X$ has enough injectives.
     \end{itemize}
 \end{example}
@@ -522,7 +522,7 @@
 \end{topic}
 
 \begin{topic}{linear-category}{linear category}
-    Let $k$ be a \tref{CA:ring}{commutative ring}. A \textbf{linear category} $\mathcal{A}$ is a \tref{CT:category}{category} \tref{CT:enriched-category}{enriched} over the category of \tref{CA:module}{$k$-modules}. Concretely, all morphism sets are $k$-modules, and composition
+    Let $k$ be a \tref{AA:ring}{commutative ring}. A \textbf{linear category} $\mathcal{A}$ is a \tref{CT:category}{category} \tref{CT:enriched-category}{enriched} over the category of \tref{AA:module}{$k$-modules}. Concretely, all morphism sets are $k$-modules, and composition
     \[ \Hom_\mathcal{A}(A, B) \times \Hom_\mathcal{A}(B, C) \to \Hom_\mathcal{A}(A, C) \]
     is $k$-bilinear.
 \end{topic}
@@ -549,7 +549,7 @@
 \end{example}
 
 \begin{topic}{finite-abelian-category}{(locally) finite abelian category}
-    Let $k$ be a \tref{CA:field}{field}, and let $\mathcal{A}$ be a \tref{linear-category}{$k$-linear category}. Then $\mathcal{A}$ is \textbf{locally finite} if
+    Let $k$ be a \tref{AA:field}{field}, and let $\mathcal{A}$ be a \tref{linear-category}{$k$-linear category}. Then $\mathcal{A}$ is \textbf{locally finite} if
     \begin{itemize}
         \item the vector space $\Hom_\mathcal{A}(A, B)$ is finite-dimensional for all objects $A$ and $B$ of $\mathcal{A}$,
         \item every object of $\mathcal{A}$ has finite \tref{composition-series}{length}.
@@ -564,7 +564,7 @@
 \begin{example}{finite-abelian-category}
     A theorem by Deligne states that for every finite abelian category $\mathcal{A}$ over $k$, there is a finite-dimensional $k$-algebra $A$ and a $k$-linear \tref{CT:equivalence-of-categories}{equivalence of categories}
     \[ \mathcal{A} \simeq A\textup{-}\textbf{Mod}_\textup{fd} , \]
-    between $\mathcal{A}$ and the category of $A$-modules which are finite-dimensional as vector spaces over $k$. Such $A$ is uniquely determined up to \tref{CA:morita-equivalence}{Morita equivalence}.
+    between $\mathcal{A}$ and the category of $A$-modules which are finite-dimensional as vector spaces over $k$. Such $A$ is uniquely determined up to \tref{AA:morita-equivalence}{Morita equivalence}.
 \end{example}
 
 \begin{topic}{simple-object}{(semi)simple object}
@@ -582,4 +582,5 @@
 \begin{example}{deligne-tensor-product}
     Let $A$ and $B$ be two finite-dimensional algebras over $k$, and write $A\textup{-}\textbf{Mod}_\textup{fd}$ for the finite abelian category of $A$-modules which are finite-dimensional as vector spaces over $k$. Then
     \[ A\textup{-}\textbf{Mod}_\textup{fd} \boxtimes A\textup{-}\textbf{Mod}_\textup{fd} \simeq (A \otimes_k B)\textup{-}\textbf{Mod}_\textup{fd} . \]
+    In fact, this is the prototype example since every finite abelian category is equivalent to $A\textup{-}\textbf{Mod}_\textup{fd}$ for some finite-dimensional $k$-algebra $A$.
 \end{example}

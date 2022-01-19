@@ -17,7 +17,7 @@
 \end{example}
 
 \begin{example}{monoidal-category}
-    Let $R$ be a \tref{CA:ring}{commutative ring}, then the category $R\text{-Mod}$ (resp. $R\text{-Alg}$) with the tensor product $\otimes_R$ and $R$ as unital object is a monoidal category. Also $R\text{-Mod}$ (resp. $R\text{-Alg}$) with $\oplus$ as tensor product and $0$ as unital object is a monoidal category.
+    Let $R$ be a \tref{AA:ring}{commutative ring}, then the category $R\text{-Mod}$ (resp. $R\text{-Alg}$) with the tensor product $\otimes_R$ and $R$ as unital object is a monoidal category. Also $R\text{-Mod}$ (resp. $R\text{-Alg}$) with $\oplus$ as tensor product and $0$ as unital object is a monoidal category.
 \end{example}
 
 \begin{example}{monoidal-category}
@@ -128,3 +128,15 @@
         \[ \theta_X^* = (\varepsilon_X \otimes \id_{X^*}) (\id_{X^*} \otimes \theta_X \otimes \id_{X^*}) (\id_{X^*} \otimes \eta_X) . \]
     \end{itemize}
 \end{topic}
+
+\begin{example}{ribbon-category}
+    Let $A$ be a \tref{AA:hopf-algebra}{Hopf algebra} over a field $k$ with a \tref{AA:universal-r-matrix}{universal $R$-matrix} $R$. The category of (left) $A$-modules, finite-dimensional over $k$, has a monoidal structure:
+    \begin{itemize}
+        \item The tensor product of $A$-modules $V$ and $W$ is given by $V \otimes_k W$, where $a \cdot (v \otimes w) = \Delta(a) \cdot (v, w)$, and the unit is the one-dimensional vector space $\textbf{1} = k$ with $a \cdot \lambda = \varepsilon(a) \lambda$. This being a monoidal category follows from $A$ being a \tref{AA:bialgebra}{bialgebra}.
+        \item A braiding is given by $c_{V, W}^R(v \otimes w) = \tau_{V, W}(R (v \otimes w))$.
+        \item The dual of an $A$-module $V$ is the \tref{LA:dual-vector-space}{dual vector space} $V^*$ with $(a \cdot \varphi)(v) = \varphi(S^{-1}(a) \cdot v)$. There are morphisms $\eta_V : k \to V \otimes_k V^*$ and $\varepsilon_V : V^* \otimes_k V \to k$ given by $\eta_V(1) = \sum_i v_i \otimes v^i$ and $\varepsilon(\varphi \otimes v) = \varphi(v)$. 
+        \item For any central invertible element $\theta \in A$ satisfying $\varepsilon(\theta) = 1$, $S(\theta) = \theta$ and $\Delta(\theta) = (R_{21} R)^{-1} (\theta \otimes \theta)$, the collection of maps
+        \[ \theta_V : V \to V, \quad v \mapsto \theta^{-1} \cdot v \]
+        defines a twist, which is compatible with the brading and duals. Conversely, any twist defines such an element $\theta = \theta_A(1)^{-1}$.
+    \end{itemize}
+\end{example}

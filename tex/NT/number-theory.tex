@@ -1,5 +1,5 @@
 \begin{topic}{number-field}{number field/ring}
-    A \textbf{number field} is a finite \tref{CA:field-extension}{field extension} of the field of rational numbers $\QQ$, and a \textbf{number ring} is a subring of a number field.
+    A \textbf{number field} is a finite \tref{AA:field-extension}{field extension} of the field of rational numbers $\QQ$, and a \textbf{number ring} is a subring of a number field.
 \end{topic}
 
 \begin{topic}{diophantine-equation}{Diophantine equation}
@@ -17,14 +17,14 @@
 \end{topic}
 
 \begin{topic}{picard-group}{Picard group}
-    Let $R$ be a \tref{CA:domain}{domain} with \tref{CA:field-of-fractions}{field of fractions} $K$. Let $\mathcal{I}(R)$ be the set of \tref{CA:invertible-ideal}{invertible ideals} of $R$, which forms a group under multiplication. The set of principal \tref{CA:fractional-ideal}{fractional ideals} forms a subgroup $\mathcal{P}(R) \subset \mathcal{I}(R)$, isomorphic to $K^* / R^*$. The \textbf{Picard group} of $R$ is the quotient
+    Let $R$ be a \tref{AA:domain}{domain} with \tref{AA:field-of-fractions}{field of fractions} $K$. Let $\mathcal{I}(R)$ be the set of \tref{AA:invertible-ideal}{invertible ideals} of $R$, which forms a group under multiplication. The set of principal \tref{AA:fractional-ideal}{fractional ideals} forms a subgroup $\mathcal{P}(R) \subset \mathcal{I}(R)$, isomorphic to $K^* / R^*$. The \textbf{Picard group} of $R$ is the quotient
     \[ \text{Pic}(R) = \mathcal{I}(R) / \mathcal{P}(R) . \]
     It fits in the exact sequence
     \[ 0 \to R^* \to K^* \to \mathcal{I}(R) \to \text{Pic}(R) \to 0 . \]
 \end{topic}
 
 \begin{topic}{order}{order}
-    A \tref{number-field}{number ring} whose additive group is finitely generated is called an \textbf{order} in its \tref{CA:field-of-fractions}{field of fractions}.
+    A \tref{number-field}{number ring} whose additive group is finitely generated is called an \textbf{order} in its \tref{AA:field-of-fractions}{field of fractions}.
     
     As number rings do not have additive torsion elements, every order is free of finite rank over $\ZZ$. The rank of an order $R$ in $K = Q(R)$ is bounded by $n = [ K : \QQ ]$, and as $R \otimes_\ZZ \QQ = K$ it has to equal $n$. Thus,
     \[ R = \ZZ \cdot \omega_1 \oplus \ZZ \cdot \omega_2 \oplus \cdots \oplus \ZZ \cdot \omega_n \]
@@ -45,13 +45,13 @@
 \end{topic}
 
 \begin{topic}{ring-of-integers}{ring of integers}
-    The \textbf{ring of integers} of a \tref{number-field}{number field} $K$ is the \tref{CA:integral-closure}{integral closure} of $\ZZ$ in $K$, often denoted as $\mathcal{O}_K$. % It is the smallest Dedekind domain with field of fractions $K$.
+    The \textbf{ring of integers} of a \tref{number-field}{number field} $K$ is the \tref{AA:integral-closure}{integral closure} of $\ZZ$ in $K$, often denoted as $\mathcal{O}_K$. % It is the smallest Dedekind domain with field of fractions $K$.
 \end{topic}
 
 \begin{topic}{bezout-identity}{Bézout's identity}
     \textbf{Bézout's identity} states that for any integers $a, b$ with greatest common divisor $d$, there exists integers $x, y$ such that $ax + by = d$.
     
-    This statement also works for \tref{CA:principal-ideal-domain}{PID's}: $(a) + (b) = (\gcd(a, b))$.
+    This statement also works for \tref{AA:principal-ideal-domain}{PID's}: $(a) + (b) = (\gcd(a, b))$.
 \end{topic}
 
 \begin{topic}{p-adic-numbers}{p-adic numbers}
@@ -59,11 +59,11 @@
     \[ \ZZ_p = \varprojlim_{n \ge 1} \ZZ / p^n \ZZ . \]
     That is, a $p$-adic integer is a sequence $(a_n)_{n \ge 1}$ such that $a_n \in \ZZ / p^n \ZZ$ and $a_m \equiv a_n \mod p^m$ for $m \le n$.
     
-    The ring of $p$-adic rationals $\QQ_p$ is defined as the \tref{CA:field-of-fractions}{field of fractions} of $\ZZ_p$.
+    The ring of $p$-adic rationals $\QQ_p$ is defined as the \tref{AA:field-of-fractions}{field of fractions} of $\ZZ_p$.
 \end{topic}
 
 \begin{topic}{valuation}{valuation}
-    A \textbf{valuation} on a \tref{CA:field}{field} $K$ is a function $\phi : K \to \RR_{\ge 0}$ satisfying
+    A \textbf{valuation} on a \tref{AA:field}{field} $K$ is a function $\phi : K \to \RR_{\ge 0}$ satisfying
     \begin{itemize}
         \item $\phi(x) = 0$ if and only if $x = 0$,
         \item $\phi(xy) = \phi(x) \phi(y)$ for $x, y \in K$,
@@ -86,7 +86,7 @@
 \end{example}
 
 \begin{example}{valuation}
-    For an \tref{CA:irreducible-element}{irreducible} polynomial $P$ in the polynomial ring $F[X]$ over an arbitrary field $F$, we have the number $\text{ord}_P(f) \in \ZZ_{\ge 0}$ of factors $P$ occurring in the factorization of a non-zero polynomial $f \in F[X]$, which is well-defined as $F[X]$ is a \tref{CA:unique-factorization-domain}{unique factorization domain}. It yields the valuation on the field of fractions $F(X)$,
+    For an \tref{AA:irreducible-element}{irreducible} polynomial $P$ in the polynomial ring $F[X]$ over an arbitrary field $F$, we have the number $\text{ord}_P(f) \in \ZZ_{\ge 0}$ of factors $P$ occurring in the factorization of a non-zero polynomial $f \in F[X]$, which is well-defined as $F[X]$ is a \tref{AA:unique-factorization-domain}{unique factorization domain}. It yields the valuation on the field of fractions $F(X)$,
     \[ \phi_P : F(X) \to \RR_{\ge 0}, \quad f \mapsto c^{\text{ord}_P(f)} ,  \]
     for some fixed $c \in (0, 1)$. From
     \[ \text{ord}_P(f + g) \ge \min \{ \text{ord}_P(f), \text{ord}_P(g) \} \]
@@ -98,7 +98,7 @@
 \end{example}
 
 \begin{topic}{archimedean-valuation}{(non-)archimedean valuation}
-    A \tref{valuation}{valuation} $\phi$ on a \tref{CA:field}{field} $K$ is called \textbf{non-archimedean} if its norm $\norm{\phi}$ equals $1$. Otherwise, the valuation is called \textbf{archimedean}.
+    A \tref{valuation}{valuation} $\phi$ on a \tref{AA:field}{field} $K$ is called \textbf{non-archimedean} if its norm $\norm{\phi}$ equals $1$. Otherwise, the valuation is called \textbf{archimedean}.
 \end{topic}
 
 \begin{example}{archimedean-valuation}
@@ -116,7 +116,7 @@
 \end{example}
 
 \begin{topic}{place}{place}
-    Two \tref{valuation}{valuations} $\phi$ and $\psi$ on a \tref{CA:field}{field} $K$ are said to be \textit{equivalent} if $\phi = \psi^r$ for some constant $r > 0$. A \textbf{place} of $K$ is an equivalence class of non-trivial valuations on $K$.
+    Two \tref{valuation}{valuations} $\phi$ and $\psi$ on a \tref{AA:field}{field} $K$ are said to be \textit{equivalent} if $\phi = \psi^r$ for some constant $r > 0$. A \textbf{place} of $K$ is an equivalence class of non-trivial valuations on $K$.
     
     Places are also known as \textbf{prime divisors}, or simply \textbf{primes}, of $K$. Places corresponding to \tref{archimedean-valuation}{archimedian} (resp. non-archimedean) valuations are called \textbf{infinite primes} (resp. \textbf{finite primes}). This terminology comes from the fact that finite primes on a \tref{number-field}{number field} $K$ precisely correspond to the non-zero prime ideals $\mathfrak{p}$ of the \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$, and infinite primes on $K$ correspond to embeddings $\sigma : K \to \CC$, up to complex conjugation.
 \end{topic}
@@ -126,7 +126,7 @@
 % \end{topic}
 
 \begin{topic}{hensel-lifting-lemma}{Hensel's lifting lemma}
-    \textbf{Hensel's lifting lemma} states the following: let $K$ be a \tref{CA:field}{field}, complete with respect to a \tref{archimedean-valuation}{non-archimedean} \tref{valuation}{valuation}, and $A$ the valuation ring of $K$. Suppose that $f \in A[X]$ is a polynomial that factors over the residue class field $k = A / \mathfrak{m}$ as
+    \textbf{Hensel's lifting lemma} states the following: let $K$ be a \tref{AA:field}{field}, complete with respect to a \tref{archimedean-valuation}{non-archimedean} \tref{valuation}{valuation}, and $A$ the valuation ring of $K$. Suppose that $f \in A[X]$ is a polynomial that factors over the residue class field $k = A / \mathfrak{m}$ as
     \[ \overline{f} = \overline{g} \cdot \overline{h} \in k[X] \]
     with $\overline{g}, \overline{h} \in k[X]$ non-zero and coprime. Then there exists a factorization $f = g \cdot h$ in $A[X]$ such that $\deg(g) = \deg(\overline{g})$ and $g, h$ have reduction $\overline{g}, \overline{h}$ in $k[X]$.
 \end{topic}
@@ -141,7 +141,7 @@
 \end{example}
 
 \begin{topic}{discriminant}{discriminant}
-    Let $f \in R[X]$ be a polynomial over some \tref{CA:domain}{domain} $R$. Then $f$ can be written as
+    Let $f \in R[X]$ be a polynomial over some \tref{AA:domain}{domain} $R$. Then $f$ can be written as
     \[ f = a \prod_{i = 1}^n (X - \alpha_i) \]
     in some sufficiently large extension $R' \supset R$ of domains, with $\alpha_i \in R'$ and $a \in R$. The \textbf{discriminant} of $f$ is defined as
     \[ \Delta(f) = a^{2n - 2} \prod_{1 \le i < j \le n} (\alpha_i - \alpha_j)^2 \in R . \]
@@ -172,9 +172,9 @@
 
 \begin{example}{abel-ruffini-theorem}
     \begin{proof}
-        Let $f \in k[x]$ be a polynomial over a field $k$, and let $\ell/k$ be a \tref{CA:splitting-field}{splitting field} of $f$. Then in particular $\ell/k$ is a \tref{CA:galois-extension}{Galois extension}. Now if $f$ is solvable by radicals, then we can write
+        Let $f \in k[x]$ be a polynomial over a field $k$, and let $\ell/k$ be a \tref{AA:splitting-field}{splitting field} of $f$. Then in particular $\ell/k$ is a \tref{AA:galois-extension}{Galois extension}. Now if $f$ is solvable by radicals, then we can write
         \[ k = \ell_0 \subset \ell_1 \subset \ell_2 \subset \cdots \subset \ell_m = \ell , \]
-        where each $\ell_{i + 1}/\ell_i$ is a simple radical extension, that is, $\ell_{i + 1} = \ell_i(\sqrt[n_i]{\alpha_i})$ for some $n_i \in \NN$ and $\alpha_i \in \ell_i$. This implies the Galois groups $\textup{Gal}(\ell_{i + 1}/\ell_i) \simeq \ZZ/n_i\ZZ$ are all \tref{GT:cyclic-group}{cyclic}, and via the \tref{CA:galois-correspondence}{Galois correspondence} we obtain
+        where each $\ell_{i + 1}/\ell_i$ is a simple radical extension, that is, $\ell_{i + 1} = \ell_i(\sqrt[n_i]{\alpha_i})$ for some $n_i \in \NN$ and $\alpha_i \in \ell_i$. This implies the Galois groups $\textup{Gal}(\ell_{i + 1}/\ell_i) \simeq \ZZ/n_i\ZZ$ are all \tref{GT:cyclic-group}{cyclic}, and via the \tref{AA:galois-correspondence}{Galois correspondence} we obtain
         \[ \textup{Gal}(\ell/k) = \textup{Gal}(\ell/\ell_0) \supset \textup{Gal}(\ell/\ell_1) \supset \cdots \supset \textup{Gal}(\ell/\ell) = \{ 1 \} . \]
         Since each quotient $\textup{Gal}(\ell/\ell_i) / \textup{Gal}(\ell/\ell_{i + 1}) \simeq \textup{Gal}(\ell_{i + 1}/\ell)$ is cyclic, it follows that $\textup{Gal}(\ell/k)$ is a \tref{GT:solvable-group}{solvable group}.
         
@@ -183,6 +183,6 @@
 \end{example}
 
 \begin{topic}{multiplier-ring}{multiplier ring}
-    Let $R$ be a \tref{CA:domain}{domain}, $K$ its \tref{CA:field-of-fractions}{field of fractions}, and $I$ a \tref{CA:fractional-ideal}{fractional ideal} of $R$. The \textbf{multiplier ring} of $I$ is the subring of $K$ given by
+    Let $R$ be a \tref{AA:domain}{domain}, $K$ its \tref{AA:field-of-fractions}{field of fractions}, and $I$ a \tref{AA:fractional-ideal}{fractional ideal} of $R$. The \textbf{multiplier ring} of $I$ is the subring of $K$ given by
     \[ r(I) = \{ x \in K : x I \subset I \} . \]
 \end{topic}

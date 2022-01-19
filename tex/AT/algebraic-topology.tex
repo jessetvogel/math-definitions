@@ -57,7 +57,7 @@
 \begin{example}{singular-homology}
     \begin{itemize}
         \item The homology groups of the $n$-sphere $S^n$, with $n \ge 1$, is given by
-        \[ H^i(S^n; \ZZ) = \left\{ \begin{array}{cl} \ZZ & \textup{ if } i = 0 \textup{ or } i = n , \\ 0 & \textup{ otherwise}. \end{array} \right. \]
+        \[ H_i(S^n; \ZZ) = \left\{ \begin{array}{cl} \ZZ & \textup{ if } i = 0 \textup{ or } i = n , \\ 0 & \textup{ otherwise}. \end{array} \right. \]
     \end{itemize}
 \end{example}
 
@@ -113,7 +113,7 @@
 \end{example}
 
 \begin{topic}{cup-product}{cup product}
-    The \textbf{cup product} is a product on the \tref{singular-homology}{singular cohomology} of a \tref{TO:topological-space}{topological space} $X$. Given a commutative \tref{CA:ring}{ring} $R$, it is the product
+    The \textbf{cup product} is a product on the \tref{singular-homology}{singular cohomology} of a \tref{TO:topological-space}{topological space} $X$. Given a commutative \tref{AA:ring}{ring} $R$, it is the product
     \[ (-) \smile (-) : C^p(X; R) \times C^q(X; R) \to C^{p + q}(X; R) \]
     given by
     \[ (f \smile g)(\sigma) = f(\sigma \circ i_p^\text{front}) \cdot g(\sigma \circ i_q^\text{back}) \]
@@ -133,7 +133,7 @@
 \end{topic}
 
 \begin{topic}{cap-product}{cap product}
-    Let $X$ be a \tref{TO:topological-space}{topological space}. Given a commutative \tref{CA:ring}{ring} $R$, the \textbf{cap product} is the following bilinear map on \tref{singular-homology}{singular (co)homology}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. Given a commutative \tref{AA:ring}{ring} $R$, the \textbf{cap product} is the following bilinear map on \tref{singular-homology}{singular (co)homology}
     \[ (-) \frown (-) : C^q(X; R) \times C_{p + q}(X; R) \to C_p(X; R) \]
     induced by sending $f : \mathcal{S}(X)_q \to R$ and $\sigma \in \mathcal{S}(X)_{p + q}$ to
     \[ f \frown \sigma = (-1)^{pq} f(\sigma \circ i_q^\text{back}) \cdot (\sigma \circ i_p^\text{front})  \]
@@ -506,4 +506,16 @@
     \[ 0 \to \ZZ \cdot e_2^u \xrightarrow{\tilde{\partial}_2} \ZZ \cdot e_1^v \oplus \ZZ \cdot e_1^w \xrightarrow{\tilde{\partial}_1} \ZZ \cdot e_0^p \to 0 . \]
     Since the $1$-cells $v$ and $w$ begin and end at the same point, we have $\tilde{\partial}_1(v) = \tilde{\partial}_1(w) = e_0^p - e_0^p = 0$. To compute $\tilde{\partial}_2(e_2^u)$, note that the attaching map $f_2^u$ runs through $v$, then $w$, then backwards through $v$ and backwards through $w$. Hence, $\tilde{\partial}_2(e_2^u) = 0$ as well. In conclusion,
     \[ H_n(\mathbb{T}^2; \ZZ) = \left\{ \begin{array}{cl} \ZZ & \textup{ if } n = 0, 2 , \\ \ZZ \oplus \ZZ & \textup{ if } n = 1 , \\ 0 & \textup{ otherwise.}  \end{array} \right. \]
+\end{example}
+
+\begin{topic}{factorization-homology}{factorization homology}
+    Let $\textbf{Mfld}_n^\textup{fr}$ be the \tref{CT:symmetric-monoidal-category}{symmetric monoidal} \tref{CT:infinity-category}{$\infty$-category} of \tref{DG:parallelizable-manifold}{framed manifolds} under the disjoint union operator, whose $1$-morphisms are given by \tref{DG:embedding}{embeddings}, whose $2$-morphisms are given by \tref{TO:isotopy}{isotopies}, etc. Let $\textbf{Disk}_n$ be the \tref{CT:full-subcategory}{full subcategory} of $\textbf{Mfld}_n^\textup{fr}$ consisting of disjoint unions of $n$-disks. An \tref{HT:en-algebra}{$E_n$-algebra} $\mathcal{E}$ of a symmetric monoidal $\infty$-category $\mathcal{C}$ can be regarded as a functor $\mathcal{E} : \textbf{Disk}_n \to \mathcal{C}$, and the \textbf{factorization homology} with coefficients in $\mathcal{E}$ is defined as the \tref{CT:kan-extension}{left Kan extension} of $\mathcal{E}$ along the inclusion $i : \textbf{Disk}_n \to \textbf{Mfld}_n^\textup{fr}$, also denoted by $\int_{(-)} \mathcal{E}$.
+    \[ \begin{tikzcd} \textbf{Disk}_n \arrow[swap]{d}{i} \arrow{r}{\mathcal{E}} & \mathcal{C} \\ \textbf{Mfld}_n^\textup{fr} \arrow[dashed, swap]{ur}{\int_(-) \mathcal{E}} \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{factorization-homology}
+    \begin{itemize}
+        \item Let $A$ be an \tref{GT:abelian-group}{abelian group} and $M$ a smooth manifold, then $\int_M A \simeq H_\bdot(M; A)$, the \tref{AT:singular-homology}{singular homology} of $A$ with coefficients in $A$.
+        \item Let $A$ be an associative algebra, then $\int_{S^1} A \simeq HH_\bdot(A)$, the \tref{AA:hochschild-homology}{Hochschild homology} of $A$.
+    \end{itemize}    
 \end{example}

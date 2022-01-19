@@ -116,8 +116,16 @@
 \end{topic}
 
 \begin{topic}{equivalence-of-categories}{equivalence of categories}
-    A \tref{functor}{functor} $F : \mathcal{C} \Rightarrow \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \Rightarrow \mathcal{C}$ and \tref{natural-transformation}{natural isomorphisms} $\mu : F \Rightarrow G$ and $\nu : G \Rightarrow F$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \to \mathcal{C}$ and \tref{natural-transformation}{natural isomorphisms} $\mu : \id_\mathcal{C} \Rightarrow GF$ and $\nu : \id_\mathcal{D} \Rightarrow FG$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
 \end{topic}
+
+\begin{example}{equivalence-of-categories}
+    A functor $F : \mathcal{C} \to \mathcal{D}$ is an equivalence of categories if and only if it is \tref{full-functor}{fully} \tref{faithful-functor}{faithful} and \tref{essentially-surjective-functor}{essentially surjective}.
+    \begin{proof}
+        $(\Rightarrow)$ For any morphism $f : X \to Y$ in $\mathcal{C}$, we have $GF(f) = \mu_Y \circ f \circ \mu_X^{-1}$, which shows that $\Hom_\mathcal{C}(X, Y) \xrightarrow{GF} \Hom_\mathcal{C}(GFX, GFY)$ is a bijection. Since this map factors through $\Hom_\mathcal{D}(FX, FY)$, we must have that $F$ is fully faithful. Furthermore, any object $D$ of $\mathcal{D}$ is isomorphic to $FG(D)$ via $\nu_D$, so $F$ is essentially surjective.
+        $(\Leftarrow)$ For any object $D$ of $\mathcal{D}$, there exists an object $C$ of $\mathcal{C}$ and an isomorphism $D \simeq F(C)$. Put $G(D) = C$ and call the isomorphism $\nu_D$. For any morphism $f : A \to B$ in $\mathcal{D}$, we have the induced morphism $\nu_B \circ f \circ \nu_A^{-1} : FG(A) \to FG(B)$, and since $F$ is fully faithful, there exists a unique $g : G(A) \to G(B)$ with $F(g) = \nu_B \circ f \circ \nu_A^{-1}$. Put $G(f) = g$. Now clearly, $\nu_B \circ f = FG(f) \circ \nu_A$, so $\nu : \id_\mathcal{D} \Rightarrow FG$ is a natural isomorphism. To construct $\mu : \id_\mathcal{C} \Rightarrow GF$, take any $h : X \to Y$ in $\mathcal{C}$, and consider the isomorphism $\nu_{F(X)} : F(X) \xrightarrow{\sim} FGF(X)$. As $F$ is fully faithful, there exists a unique isomorphism $\mu_X : X \xrightarrow{\sim} GF(X)$ such that $F(\mu_X) = \nu_{F(X)}$. Now, since $F(\mu_Y) F(h) = FGF(h) F(\mu_X)$ by naturality of $\mu$, and $F$ is fully faithful, we have $\mu_Y \circ h = GF(h) \circ \mu_X$, so $\mu : \id_\mathcal{C} \Rightarrow GF$ is a natural isomorphism.
+    \end{proof}
+\end{example}
 
 \begin{topic}{essentially-surjective-functor}{essentially surjective functor}
     A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{essentially surjective} if each object in $\mathcal{D}$ is isomorphic to $F(X)$ for some $X$ in $\mathcal{C}$.
@@ -239,7 +247,7 @@
 \end{topic}
 
 \begin{example}{localization}
-    A \tref{CA:ring}{ring} $R$ can be considered as an \tref{HA:additive-category}{additive category} $\mathcal{R}$ with one object $\bdot$ via $R = \text{End}_\mathcal{R}(\bdot)$: multiplication is given by composition. Let $S$ is a multiplicatively closed subset of $R$ containing $1$. If $R$ is commutative, or more generally if $S$ is in the center of $R$, then the \tref{CA:localization}{localization} $S^{-1} R$ can be defined, which corresponds precisely to the localization $\mathcal{R}\left[\frac{1}{S}\right]$.
+    A \tref{AA:ring}{ring} $R$ can be considered as an \tref{HA:additive-category}{additive category} $\mathcal{R}$ with one object $\bdot$ via $R = \text{End}_\mathcal{R}(\bdot)$: multiplication is given by composition. Let $S$ is a multiplicatively closed subset of $R$ containing $1$. If $R$ is commutative, or more generally if $S$ is in the center of $R$, then the \tref{localization}{localization} $S^{-1} R$ can be defined, which corresponds precisely to the localization $\mathcal{R}\left[\frac{1}{S}\right]$.
 \end{example}
 
 \begin{topic}{limit}{(co)limit}

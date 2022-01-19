@@ -24,6 +24,7 @@ window.MathJax = {
             FF: "\\mathbb{F}",
             textup: ["\\text{#1}", 1],
             im: "\\operatorname{im}",
+            colim: "\\operatorname{colim}",
             coker: "\\operatorname{coker}",
             tr: "\\operatorname{tr}",
             bdot: "\\bullet",
