@@ -516,6 +516,7 @@
 \begin{example}{factorization-homology}
     \begin{itemize}
         \item Let $A$ be an \tref{GT:abelian-group}{abelian group} and $M$ a smooth manifold, then $\int_M A \simeq H_\bdot(M; A)$, the \tref{AT:singular-homology}{singular homology} of $A$ with coefficients in $A$.
-        \item Let $A$ be an associative algebra, then $\int_{S^1} A \simeq HH_\bdot(A)$, the \tref{AA:hochschild-homology}{Hochschild homology} of $A$.
+        \item Let $A$ be an associative algebra, then $\int_{S^1} A \simeq HH_\bdot(A)$, the \tref{AA:hochschild-homology}{Hochschild homology} of $A$. Indeed, from $S^1 = D^1 \sqcup_{D^1 \times S^0} D^1$ follows that
+        \[ \int_{S^1} A \simeq \int_{D^1} A \mathbin{\mathop{\overset{\textup{L}}{\otimes}}\limits_{\int_{D^1 \times S^0} A}} \int_{D^1} A \simeq A \mathbin{\mathop{\overset{\textup{L}}{\otimes}}\limits_{A \otimes A^\textup{op}}} A \simeq \textup{Tor}^{A^\textup{e}}_*(A, A) \simeq HH_\bdot(A) . \]
     \end{itemize}    
 \end{example}

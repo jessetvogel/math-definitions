@@ -31,9 +31,11 @@
 % \end{topic}
 
 \begin{topic}{perfect-complex}{perfect complex}
-    Let $R$ be a \tref{AA:ring}{commutative ring} and let $\textbf{D}(\textbf{Mod}_R)$ be the \tref{derived-category}{derived category} of $R$-modules. A complex in $\textbf{D}(\textbf{Mod}_R)$ is \textbf{perfect} if it is \tref{quasi-isomorphism}{quasi-isomorphic} to a bounded complex of \tref{AA:finitely-generated-module}{finitely generated} \tref{AA:projective-module}{projective} $R$-modules.
+    Let $R$ be a \tref{AA:ring}{commutative ring}. A \tref{chain-complex}{chain complex} of \tref{AA:module}{$R$-modules} is \textbf{perfect} if it is \tref{quasi-isomorphism}{quasi-isomorphic} to a bounded chain complex of \tref{AA:finitely-generated-module}{finitely generated} \tref{AA:projective-module}{projective} $R$-modules.
     
-    An $R$-module is \textbf{perfect module} if it is perfect when seen as a complex concentrated at degree zero.
+    An $R$-module is \textbf{perfect module} if it is perfect when seen as a chain complex concentrated at degree zero.
+    
+    A chain complex of \tref{AG:coherent-sheaf}{quasi-coherent sheaves} $\mathcal{F}$ over a \tref{AG:scheme}{scheme} $X$ is \textbf{perfect} if the (derived) pullback $\textup{L} f^* \mathcal{F}$ is perfect for all commutative rings $R$ and morphisms $f : \Spec(R) \to X$.
 \end{topic}
 
 \begin{topic}{fourier-mukai-transform}{Fourier--Mukai transform}

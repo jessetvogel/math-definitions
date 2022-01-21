@@ -67,6 +67,8 @@ const examples = [
   "AA:radical-lie-algebra",
   "AA:dynkin-diagram",
   "AA:lie-algebra-representation",
+  "AA:verma-module",
+  "AA:casimir-element",
   "AA:projective-module",
   "AA:flat-module",
   "AA:bimodule",

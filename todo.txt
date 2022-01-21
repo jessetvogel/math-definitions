@@ -3,13 +3,14 @@
 -- Homepage
 -- PDF front cover
 -- Go through document and fix missing tref's
+-- Support \begin{align*?} ... \end{align*?}
 
 # ---- Theory ----
 
-CA: torsionless implies torsion-free, but not conversely. Take QQ as ZZ-module, then Hom(QQ, ZZ) = 0 (https://mathoverflow.net/questions/11908/torsion-free-and-torsionless-abelian-groups)
+DG: adjoint bundle (associated  bundle of adjoint representation)
 
-AA: Verma module (Lie algebra)
-AA: Casimir element
+AA: two-sided bar construction
+HA: triangulated enhancement
 
 AA: theorem of highest weight
 
@@ -23,6 +24,7 @@ AA: Manin triple (of Lie algebras) (EXAMPLE: correspondence: Manin triple <=> Li
 DG?: Goldman symplectic structure
 
 AG: Luna slice theorem (Theorem 14.78 of JS Milne)
+AG: Etale fundamental group
 
 HA: Verdier quotient by full triangulated (left/right) admissible subcategory gives orthogonal complement (proof??)
 HA: exceptional sequence example: any line bundle in D^b(X) for X connected smooth projective. Hom(L, L) = k, and Ext^(i > 0)(L, L) = 0, since $L$ locally free! ??
@@ -124,10 +126,16 @@ HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]
 HT: stable infinity category [Definition 1.1.1.9]
 HT: Spectra!
 
+# Derived Algebraic Geometry
+DAG: derived ring
+DAG: derived scheme / stack
+
 // HT: sifted simplicial set ?
 
 # Abstract algebra
 AA: move some commutative algebra which isn't commutative to AA ??
+
+HT: L-infinity algebra
 
 # Differential Geometry
 DG: Floer homology

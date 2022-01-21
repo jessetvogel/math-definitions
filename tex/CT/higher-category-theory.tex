@@ -77,6 +77,27 @@
     The standard simplicial set $\Delta^n = \Hom_\Delta(-, [n])$ can be seen as the nerve of $[n]$.
 \end{example}
 
+\begin{example}{nerve}
+    Consider a \tref{GT:group}{group} $G$ as a category with one object. Note that any $f \in N_n(G)$ can be described by the images $f(k - 1 \le k) \in G$ for $1 \le k \le n$, so that $N_n(G) \simeq G^n$. Hence, the nerve $N_\bdot(G)$ is the simplicial set
+    \[ \cdots G \times G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \rightrightarrows * \]
+    with face and degeneracy maps given by
+    \[ d_{n, i} : G^n \to G^{n - 1}, \quad (g_1, \ldots, g_n) \mapsto \left\{ \begin{array}{cl}
+        (g_2, \ldots, g_n) & \textup{ for } i = 0, \\
+        (g_1, \ldots, g_{i + 1} g_i, \ldots, g_n) & \textup{ for } 0 < i < n, \\
+        (g_1, \ldots, g_{n - 1}) & \textup{ for } i = n,
+    \end{array} \right. \]
+    \[ s_{n, i} : G^n \to G^{n + 1}, \quad (g_1, \ldots, g_n) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n) \quad \textup{ for } 0 \le i \le n . \]
+    More generally, a group $G$ acting on a set $X$ can be viewed as a category $[X/G]$ whose objects are points of $X$, and a morphism $x \to gx$ for every $x \in X$ and $g \in G$. Similar to the above, we have $N_n([X/G]) \simeq G^n \times X$, so the nerve $N_\bdot([X/G])$ is the simplicial set
+    \[ \cdots G \times G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times X \rightrightarrows X \]
+    with face and degeneracy maps given by
+    \[ d_{n, i} : G^n \times X \to G^{n - 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto \left\{ \begin{array}{cl}
+        (g_2, \ldots, g_n, x) & \textup{ for } i = 0, \\
+        (g_1, \ldots, g_{i + 1} g_i, \ldots, g_n, x) & \textup{ for } 0 < i < n, \\
+        (g_1, \ldots, g_{n - 1}, g_n x) & \textup{ for } i = n,
+    \end{array} \right. \]
+    \[ s_{n, i} : G^n \times X \to G^{n + 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n, x) \quad \textup{ for } 0 \le i \le n . \]
+\end{example}
+
 \begin{topic}{infinity-category}{infinity category}
     An \textbf{$\infty$-category} is a \tref{simplicial-object}{simplicial set} $\mathcal{C}$ such that every map of simplicial sets $\Lambda^n_i \to \mathcal{C}$ with $0 < i < n$ can be extended to a map $\Delta^n \to \mathcal{C}$.
     \[ \begin{tikzcd} \Lambda^n_i \arrow{r} \arrow{d} & \mathcal{C} \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]

@@ -180,14 +180,14 @@
 \end{topic}
 
 \begin{topic}{hochschild-homology}{Hochschild (co)homology}
-    Let $k$ be a \tref{field}{field}, $A$ an $k$-algebra, and $M$ a \tref{bimodule}{bimodule} over $A$. Let $C_n(A, M) := M \otimes A^{\otimes n}$, and define boundary maps $d_{n, i} : C_n(A, M) \to C_{n - 1}(A, M)$ for $0 \le i \le n$ by
+    Let $k$ be a \tref{field}{field}, $A$ an \tref{algebra}{$k$-algebra}, and $M$ a \tref{bimodule}{bimodule} over $A$. Let $C_n(A, M) := M \otimes A^{\otimes n}$, and define boundary maps $d_{n, i} : C_n(A, M) \to C_{n - 1}(A, M)$ for $0 \le i \le n$ by
     \[ d_{n, i}(m \otimes a_1 \otimes \cdots \otimes a_n) = \left\{ \begin{array}{cl}
         m a_1 \otimes a_2 \otimes \cdots \otimes a_n & \textup{ if } i = 0, \\
          m \otimes a_1 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n & \textup{ if } 1 < i < n , \\
         a_n m \otimes a_1 \otimes \cdots \otimes a_{n - 1} & \textup{ if } i = n .
     \end{array} \right. \]
     Then $C_n(A, M)$ with differential $d_n = \sum_{i = 0}^{n} = (-1)^i d_{n, i}$ is a \tref{HA:chain-complex}{chain complex} called the \textbf{Hochschild complex}.
-    \[ \cdots \xrightarrow{d} M \otimes A^{\otimes n} \xrightarrow{d} M \otimes A^{\otimes n - 1} \xrightarrow{d} \cdots \xrightarrow{d} M \otimes A \xrightarrow{d} M \to 0 \]
+    \[ \cdots \xrightarrow{d_{n + 1}} M \otimes A^{\otimes n} \xrightarrow{d_n} M \otimes A^{\otimes n - 1} \xrightarrow{d_{n - 1}} \cdots \xrightarrow{d_2} M \otimes A \xrightarrow{d_1} M \to 0 \]
     The corresponding \tref{HA:homology-object}{homology} $HH_i(A, M)$ is called the \textbf{Hochschild homology} of $A$ with coefficients in $M$.
     
     Similarly, \textbf{Hochschild cohomology} is defined by from the cocomplex
