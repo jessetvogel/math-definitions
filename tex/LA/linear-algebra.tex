@@ -15,8 +15,8 @@
     \end{itemize}
 \end{topic}
 
-\begin{topic}{vector-subspace}{vector subspace}
-    Let $V$ be a \tref{vector-space}{vector space} over a field $k$. A \textbf{subspace} of $V$ is a subset $W \subset V$ which is closed under addition and scalar multiplication: $w_1 + w_2 \in W$ for all $w_1, w_2 \in W$ and $\lambda w \in W$ for all $w \in W$ and $\lambda \in k$.
+\begin{topic}{linear-subspace}{linear subspace}
+    Let $V$ be a \tref{vector-space}{vector space} over a field $k$. A \textbf{linear subspace} of $V$ is a subset $W \subset V$ which is closed under addition and scalar multiplication: $w_1 + w_2 \in W$ for all $w_1, w_2 \in W$ and $\lambda w \in W$ for all $w \in W$ and $\lambda \in k$.
 \end{topic}
 
 \begin{topic}{linearly-independent}{linearly independent}
@@ -26,7 +26,7 @@
 \end{topic}
 
 \begin{topic}{span}{span}
-    Let $V$ be a \tref{vector-space}{vector space}, and $S \subset V$ a subset. The \textbf{span} of $S$ is the \tref{vector-subspace}{subspace} of all linear combinations of vectors in $S$.
+    Let $V$ be a \tref{vector-space}{vector space}, and $S \subset V$ a subset. The \textbf{span} of $S$ is the \tref{linear-subspace}{subspace} of all linear combinations of vectors in $S$.
     \[ \textup{span}(S) = \left\{ \sum_{i = 1}^{n} a_i v_i \textup{ for any } v_i \in S \textup{ and } a_i \in k \right\} \]
 \end{topic}
 
@@ -191,7 +191,7 @@
 \end{example}
 
 \begin{topic}{grassmannian}{Grassmannian}
-    Given a \tref{LA:vector-space}{vector space} $V$, and $r \ge 0$, the \textbf{Grassmannian} $\textup{Gr}(r, V)$ is a space that parametrizes all $r$-dimensional \tref{LA:vector-subspace}{linear subspaces} of $V$.
+    Given a \tref{LA:vector-space}{vector space} $V$, and $r \ge 0$, the \textbf{Grassmannian} $\textup{Gr}(r, V)$ is a space that parametrizes all $r$-dimensional \tref{linear-subspace}{linear subspaces} of $V$.
 \end{topic}
 
 \begin{example}{grassmannian}
@@ -464,4 +464,18 @@
     \[ a_{ij} = 2 \frac{\langle r_i, r_j \rangle}{\langle r_i, r_i \rangle} , \]
     where the $r_i$ is a set of simple roots of $\mathfrak{g}$. One can take
     \[ D_{ij} = \frac{\delta_{ij}}{\langle r_i, r_i \rangle} \quad \textup{ and } \quad S_{ij} = 2 \langle r_i, r_j \rangle . \]
+\end{example}
+
+\begin{topic}{complementary-subspaces}{complementary subspaces}
+    Let $V$ be a \tref{vector-space}{vector space}. Two \tref{linear-subspace}{subspaces} $U_1, U_2 \subset V$ are \textbf{complementary} in $V$ if $U_1 \cap U_2 = \{ 0 \}$ and $U_1 + U_2 = V$.
+\end{topic}
+
+\begin{example}{complementary-subspaces}
+    Let $V = \textup{Map}(\RR, \RR)$ be the space of continuous functions from $\RR$ to $\RR$, and let
+    \[ \begin{aligned}
+        U_+ &= \{ f : \RR \to \RR \;|\; f(-x) = f(x) \textup{ for all } x \in \RR \}, \\
+        U_- &= \{ f : \RR \to \RR \;|\; f(-x) = -f(x) \textup{ for all } x \in \RR \}
+    \end{aligned} \]
+    be the subspaces of even and odd functions, respectively. Then $U_+ \cap U_- = \{ 0 \}$ since for any $f \in U_+ \cap U_-$ we have $f(x) = f(-x) = -f(x)$ for all $x \in \RR$. Furthermore, $V = U_+ + U_-$ since for any $f : \RR \to \RR$ we have
+    \[ f(x) = \underbrace{\frac{f(x) + f(-x)}{2}}_{\in U_+} + \underbrace{\frac{f(x) - f(-x)}{2}}_{\in U_-} . \]
 \end{example}

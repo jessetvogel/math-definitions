@@ -24,13 +24,13 @@
 %     \[ H^i(C^\bullet) = \ker d^i / \im d^{i - 1} . \]
 % \end{topic}
 
-\begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}
-    Let
-    \[ 0 \rightarrow C' \xrightarrow{i} C \xrightarrow{p} \overline{C} \rightarrow 0 \]
-    be a short exact sequence of \tref{HA:chain-complex}{chain complexes}. Then there is an induced long exact sequence
-    \[ \cdots \rightarrow H_n(C') \xrightarrow{i_*} H_n(C) \xrightarrow{p_*} H_n(\overline{C}) \xrightarrow{\delta} H_{n - 1}(C') \rightarrow \cdots , \]
-    where $\delta$ is called the \textit{connecting homomorphism}: for any $\alpha = [ p(c) ] \in H_n(\overline{C})$ with $c \in C_n$, we have $\delta(\alpha) = [ d_n(c) ] \in H_{n - 1}(C')$.
-\end{topic}
+% \begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}
+%     Let
+%     \[ 0 \rightarrow C' \xrightarrow{i} C \xrightarrow{p} \overline{C} \rightarrow 0 \]
+%     be a short exact sequence of \tref{HA:chain-complex}{chain complexes}. Then there is an induced long exact sequence
+%     \[ \cdots \rightarrow H_n(C') \xrightarrow{i_*} H_n(C) \xrightarrow{p_*} H_n(\overline{C}) \xrightarrow{\delta} H_{n - 1}(C') \rightarrow \cdots , \]
+%     where $\delta$ is called the \textit{connecting homomorphism}: for any $\alpha = [ p(c) ] \in H_n(\overline{C})$ with $c \in C_n$, we have $\delta(\alpha) = [ d_n(c) ] \in H_{n - 1}(C')$.
+% \end{topic}
 
 \begin{topic}{singular-homology}{singular (co)homology}
     Let $X$ be a \tref{TO:topological-space}{topological space} and $A$ an \tref{GT:abelian-group}{abelian group}. A \textbf{singular $n$-simplex} in $X$ is a \tref{TO:continuous-map}{continuous map}
@@ -66,7 +66,7 @@
     \[ \pi_1(X, x_0) = \{ \text{continuous } f : [0, 1] \to X : f(0) = x_0 = f(1) \} / \sim{} , \]
     where $f \sim{} g$ if the paths are homotopic.
     
-    The group multiplication is given by concatenating paths, and inversion is given by inverting paths. In general, the fundamental group is not abelian.
+    It is a \tref{GT:group}{group}, whose multiplication is given by concatenating of paths, and inversion is given by inverting paths. Generally, the fundamental group is not abelian.
 \end{topic}
 
 \begin{topic}{relative-homology}{relative homology}

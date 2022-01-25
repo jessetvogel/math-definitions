@@ -74,6 +74,15 @@
 \end{topic}
 
 \begin{example}{nerve}
+    Concretely, $N_n(\mathcal{C})$ is the set of all composable sequences of morphisms
+    \[ C_0 \xrightarrow{f_1} C_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} C_n \]
+    of length $n$ in $\mathcal{C}$. Applying the face map $d_{n, i}$ to this sequence gives
+    \[ C_0 \xrightarrow{f_1} \cdots \xrightarrow{f_{i - 1}} C_{i - 1} \xrightarrow{f_{i + 1} \circ f_i} \cdots C_{i + 1} \xrightarrow{f_{i + 2}} \cdots \xrightarrow{f_n} C_n , \]
+    while the degeneracy map $s_{n, i}$ maps it to
+    \[ C_0 \xrightarrow{f_1} \cdots \xrightarrow{f_i} C_i \xrightarrow{\id} C_i \xrightarrow{f_{i + 1}} \cdots \xrightarrow{f_n} C_n . \]
+\end{example}
+
+\begin{example}{nerve}
     The standard simplicial set $\Delta^n = \Hom_\Delta(-, [n])$ can be seen as the nerve of $[n]$.
 \end{example}
 
@@ -101,9 +110,11 @@
 \begin{topic}{infinity-category}{infinity category}
     An \textbf{$\infty$-category} is a \tref{simplicial-object}{simplicial set} $\mathcal{C}$ such that every map of simplicial sets $\Lambda^n_i \to \mathcal{C}$ with $0 < i < n$ can be extended to a map $\Delta^n \to \mathcal{C}$.
     \[ \begin{tikzcd} \Lambda^n_i \arrow{r} \arrow{d} & \mathcal{C} \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]
-    One thinks of the vertices $\mathcal{C}_0$ as the objects, the edges $\mathcal{C}_1$ as the arrows ($\id_x = s_0(x)$ and $d_0(f) = \text{cod}(f)$ and $d_1(f) = \text{dom}(f)$), the triangles $\mathcal{C}_2$ as a specified homotopy from $g \circ f$ to $h$, etc.
+    One thinks of the vertices $\mathcal{C}_0$ as the objects, the edges $\mathcal{C}_1$ as the $1$-morphisms (with $\id_x = s_0(x)$ and $d_0(f) = \text{cod}(f)$ and $d_1(f) = \text{dom}(f)$), the triangles $\mathcal{C}_2$ as a $2$-morphism from $g \circ f$ to $h$, etc.
     
     A \textit{functor} between $\infty$-categories is a map of simplicial sets.
+    
+    An \textbf{$(\infty, r)$-category} is an $\infty$-category for which all $k$-morphisms with $k > r$ are invertible.
 \end{topic}
 
 \begin{example}{infinity-category}

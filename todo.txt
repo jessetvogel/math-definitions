@@ -1,99 +1,56 @@
-# ---- System & Website ----
+ ---- System & Website ----
 
 -- Homepage
 -- PDF front cover
 -- Go through document and fix missing tref's
 -- Support \begin{align*?} ... \end{align*?}
 
-# ---- Theory ----
+ ---- Theory ----
 
-DG: adjoint bundle (associated  bundle of adjoint representation)
-
+-- Algebra
 AA: two-sided bar construction
-HA: triangulated enhancement
-
-AA: theorem of highest weight
-
+AA: theorem of highest weight (weights, dominant, integral elements)
 AA: dual Hopf algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
-
 AA: Levi decomposition
 AA: Chevelley's theorem
 AA: semisimple Lie algebra: equivalent conditions
+AA: Manin triple (example: correspondence: f.d. Manin triple <=> f.d. Lie bialgebra)
+AA: Morita equivalence equivalent to M_n(R) = M_m(S) for some n, m ?
+AA: Dedekind domain (Example: give equivalent definitions / proof)
+AA: bar complex as simplicial complex
+AA: root system Lie algebra (Examples: sl_2 and sl_3)
+AA: Weyl group Lie algebra
+AA: Primitive ideal / Primitive spectrum (C*-algebra)
 
-AA: Manin triple (of Lie algebras) (EXAMPLE: correspondence: Manin triple <=> Lie bialgebra )
-DG?: Goldman symplectic structure
-
-AG: Luna slice theorem (Theorem 14.78 of JS Milne)
-AG: Etale fundamental group
-
+-- Homological Algebra
+HA: triangulated enhancement
 HA: Verdier quotient by full triangulated (left/right) admissible subcategory gives orthogonal complement (proof??)
 HA: exceptional sequence example: any line bundle in D^b(X) for X connected smooth projective. Hom(L, L) = k, and Ext^(i > 0)(L, L) = 0, since $L$ locally free! ??
 HA: (Semiorthogonal decomposition for projective bundles)
-
-AG: Brauer group of field parametrizes CSA's / (Morita) equivalence
-    - Brauer group of RR is ZZ/2ZZ = { RR, HH }, Brauer group finite field / algebraically closed field is trivial (https://www.math.leidenuniv.nl/scripties/AbtienJavanpeykarBach.pdf)
-
-CA: Morita equivalence equivalent to M_n(R) = M_m(S) for some n, m ?
-
-HT: triangulated enhancement
-HT: quasi-functor
-HT/HA: homotopically injective / homotopically projective
-HT: DG quotient (lifts the Verdier quotient)
-HT: derived Morita equivalence (still a bit hard...)
-
-CA: projective module iff locally free
-
-HT: Bivariant theory (as in DAG seminar)
-
 HA: (Grothendieck) derivator (example: Quillen Model structures D = HO(M), then X \mapsto Ho(Fun(X^op, M))) (Appendix A of https://math.mit.edu/~tabuada/BuenosAires.pdf)
 
+-- Differential Geometry
+DG?: Goldman symplectic structure
+DG: Atiyah--Singer theorem
+DG: Floer homology
+DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
+DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
+DG: Some examples for the (ricci/scalar)curvature/geodesics stuff
+DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
+DG: orbifold
+DG: Finsler manifold
+
+-- Algebraic Geometry
+AG: Luna slice theorem (Theorem 14.78 of JS Milne)
+AG: Etale fundamental group
+AG: Serre intersection formula
+AG: Brauer group of field parametrizes CSA's / (Morita) equivalence
+    - Brauer group of RR is ZZ/2ZZ = { RR, HH }, Brauer group finite field / algebraically closed field is trivial (https://www.math.leidenuniv.nl/scripties/AbtienJavanpeykarBach.pdf)
 AG: (counter)examples to all types of properties of morphisms.
-
-CA: Dedekind domain (Example: give equivalent definitions / proof)
-
-NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
-
-??: bar complex as simplicial complex
-
-- Rationally connected
-
-- Examples Borel subgroups:
+AG: Examples Borel subgroups:
     - relation Borel subgroups to flag varieties
     - All are conjugate (over algebraically closed field k)
-
-- Atiyah--Singer theorem
-- Bott periodicity
-- Thom isomorphism (Thom class)
-
-- AA: root system (Lie algebra) { lambda : g^lambda != 0}, et al (Examples: sl_2 and sl_3)
-- AA: Weyl group Lie algebra
-- AA: Cartan's criterion (https://en.wikipedia.org/wiki/Cartan%27s_criterion)
-
-- Modular form
-- (infinity, k)-category
-- Nerve example: "concretely this means" (p.9 of HTT of Lurie) + Can recover C from its nerve: [...]
-- Dold-Kan examples
-
-- Simplicial homotopy groups
-- Borel construction (EG x X / G) : Example BG = classifying space
-- Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
-- Proofs of theorems
-
-- Grothendieck--Verdier duality
-
-# Other
-LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
-??: von Neumann algebra
-UN: classifying space -- vague?
-
-# Measure Theory
-# MT: Measure Theory, sigma algebra, Borel algebra, etc. (see lectures notes from RuG, Henk de Snoo) some integrability theorems
-
-# Commutative algebra
--- CA: power structures on rings, (ring of) Witt vectors (over finite field gives p-adics)
-
-# Algebraic Geometry
-# AG: parabolic vector bundle
+AG: parabolic vector bundle
 AG: Kodaira dimension
 AG: blowup / blowdown
 AG: étale fundamental group(oid)
@@ -102,7 +59,47 @@ AG: hyperelliptic curve
 AG: Narasimhan--Seshadri theorem
 AG: D-affine variety
 
-# Number Theory
+-- Homotopy Theory
+HT: triangulated enhancement
+HT: quasi-functor
+HT/HA: homotopically injective / homotopically projective
+HT: DG quotient (lifts the Verdier quotient)
+HT: derived Morita equivalence (still a bit hard...)
+HT: Bivariant theory (as in DAG seminar)
+HT: Dold-Kan examples
+HT: Simplicial homotopy groups
+HT: L-infinity algebra
+HT: stable infinity category [Definition 1.1.1.9]
+HT: Spectra!
+
+-- Topology
+TO: Borel construction (EG x X / G) : Example BG = classifying space
+
+-- Functional Analysis
+FA: von Neumann algebra
+
+-- Order Theory ?
+LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
+
+-- Measure Theory
+MT: Measure Theory, sigma algebra, Borel algebra, etc. (see lectures notes from RuG, Henk de Snoo) some integrability theorems
+
+-- Derived Algebraic Geometry
+DAG: derived ring
+DAG: derived scheme / stack
+
+-- Algebraic Topology
+AT: Euler characteristic
+AT: Gysin sequence
+AT: Bockstein sequence
+AT/TO: equivariant cohomology (note that it is just the cohomology of the quotient stack [X/G])
+
+# Functional Analysis
+FA: Fréchet topology (any Banach space, any Schwartz space) / Frechet space
+FA: Toeplitz algebra
+FA: Inequalities for FA (see Lp spaces)
+
+-- Number Theory
 NT: ring of integers
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
@@ -117,56 +114,18 @@ NT: artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 NT?: Hasse principle
 NT: Dirichlet unit theorem
+NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 
-# Algebra
-AA: Primitive ideal / Primitive spectrum (C*-algebra)
-
-# Homotopy theory
-HT: (co)fiber [Definition 1.1.1.6. of Higher Algebra]
-HT: stable infinity category [Definition 1.1.1.9]
-HT: Spectra!
-
-# Derived Algebraic Geometry
-DAG: derived ring
-DAG: derived scheme / stack
-
-// HT: sifted simplicial set ?
-
-# Abstract algebra
-AA: move some commutative algebra which isn't commutative to AA ??
-
-HT: L-infinity algebra
-
-# Differential Geometry
-DG: Floer homology
-DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
-DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
-DG: Some examples for the (ricci/scalar)curvature/geodesics stuff
-DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
-DG: orbifold
-DG: Finsler manifold
-
-?AT: Euler characteristic
-AT: Gysin sequence
-AT: Bockstein sequence
-
-AT/TO: equivariant cohomology ? Homotopy quotients
-
-RT: weights, dominant, integral elements
-
-# Functional Analysis
-FA: Fréchet topology (any Banach space, any Schwartz space) / Frechet space
-FA: Toeplitz algebra
-FA: Inequalities for FA (see Lp spaces)
-
-# Noncmomutative deformations??
-- Quantized universal enveloping algebras
+-- Uncategorized
+- Bott periodicity
+- Thom isomorphism (Thom class)
+- Modular form
+- Proofs of theorems
+- Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
+- Grothendieck--Verdier duality
 - Quantum groups: SL2(C) as example!
-    - (Quantum) Yang-Baxter equation
     - Reflection equation algebra from R-matrix
 - Mirror symmetry ??? What is this all about ??
     - Kontsevich Homological Mirror Symmetry
 - S-equivalence
 - Path-ordered exponential
-
-AA: Lie algebra structure constants c_{ij}^k. Relations they satsify

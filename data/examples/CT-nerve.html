@@ -1,4 +1,10 @@
-<div class="example">The standard simplicial set <span class="math inline">\(\Delta^n = \Hom_\Delta(-, [n])\)</span> can be seen as the nerve of <span class="math inline">\([n]\)</span>.
+<div class="example">Concretely, <span class="math inline">\(N_n(\mathcal{C})\)</span> is the set of all composable sequences of morphisms
+<span class="math display">\[ C_0 \xrightarrow{f_1} C_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} C_n \]</span>
+of length <span class="math inline">\(n\)</span> in <span class="math inline">\(\mathcal{C}\)</span>. Applying the face map <span class="math inline">\(d_{n, i}\)</span> to this sequence gives
+<span class="math display">\[ C_0 \xrightarrow{f_1} \cdots \xrightarrow{f_{i - 1}} C_{i - 1} \xrightarrow{f_{i + 1} \circ f_i} \cdots C_{i + 1} \xrightarrow{f_{i + 2}} \cdots \xrightarrow{f_n} C_n , \]</span>
+while the degeneracy map <span class="math inline">\(s_{n, i}\)</span> maps it to
+<span class="math display">\[ C_0 \xrightarrow{f_1} \cdots \xrightarrow{f_i} C_i \xrightarrow{\id} C_i \xrightarrow{f_{i + 1}} \cdots \xrightarrow{f_n} C_n . \]</span>
+</div><div class="example">The standard simplicial set <span class="math inline">\(\Delta^n = \Hom_\Delta(-, [n])\)</span> can be seen as the nerve of <span class="math inline">\([n]\)</span>.
 </div><div class="example">Consider a <a href="#GT:group">group</a> <span class="math inline">\(G\)</span> as a category with one object. Note that any <span class="math inline">\(f \in N_n(G)\)</span> can be described by the images <span class="math inline">\(f(k - 1 \le k) \in G\)</span> for <span class="math inline">\(1 \le k \le n\)</span>, so that <span class="math inline">\(N_n(G) \simeq G^n\)</span>. Hence, the nerve <span class="math inline">\(N_\bdot(G)\)</span> is the simplicial set
 <span class="math display">\[ \cdots G \times G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \rightrightarrows * \]</span>
 with face and degeneracy maps given by

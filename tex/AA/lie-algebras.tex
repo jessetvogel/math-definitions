@@ -29,6 +29,14 @@
     For any \tref{ring}{ring} $A$ over a field $k$ (in particular matrix rings), the commutator bracket $[x, y] = xy - yx$ makes $A$ into a Lie algebra.
 \end{example}
 
+\begin{example}{lie-algebra}
+    Let $e_1, \ldots, e_n$ be a basis of the underlying vector space of a Lie algebra $\mathfrak{g}$. The Lie bracket can be described by coefficients $c_{ij}^\ell \in k$, called the \textbf{structure constants}, such that $[e_i, e_j] = \sum_{\ell = 1}^{n} c_{ij}^\ell e_\ell$. These coefficients satisfy the following relations:
+    \begin{itemize}
+        \item (\textit{alternatively}) $c_{ij}^k + c_{ji}^k = 0$,
+        \item (\textit{Jacobi identity}) $\sum_{m = 1}^{n} c_{ij}^m c_{m k}^\ell + c_{j k}^m c_{m i}^\ell + c_{k i}^m c_{m j}^\ell = 0$.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{lie-algebra-ideal}{Lie algebra ideal}
     An \textbf{ideal} of a \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ is a subalgebra $\mathfrak{h} \subset \mathfrak{g}$ such that $[X, H] \in \mathfrak{h}$ for all $X \in \mathfrak{g}$ and $H \in \mathfrak{h}$.
 \end{topic}
@@ -460,3 +468,7 @@
     \[ \frac{1}{4} XY + \frac{1}{4} YX + \frac{1}{8} H^2 \in U(\mathfrak{sl}_2(\CC)) . \]
     Since $\Omega$ is central, it acts by a scalar on every representation of $\mathfrak{g}$. In this case, for a representation $V$ of highest weight $m$, the Casimir element $\Omega$ acts by the scalar $\frac{1}{8} m(m + 2)$.
 \end{example}
+
+\begin{topic}{manin-triple}{Manin triple}
+    A \textbf{Manin triple} $(\mathfrak{g}, \mathfrak{g}^+, \mathfrak{g}^-)$ consists of a \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ with a non-degenerate invariant symmetric bilinear form $\langle \cdot, \cdot \rangle$ on $\mathfrak{g}$, together with two isotropic \tref{LA:complementary-subspaces}{complementary subspaces} $\mathfrak{g}^+, \mathfrak{g}^- \subset \mathfrak{g}$.
+\end{topic}

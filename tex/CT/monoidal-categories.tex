@@ -1,9 +1,9 @@
 \begin{topic}{monoidal-category}{monoidal category}
     A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $\textbf{1}$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
     \[ \begin{aligned}
-        \alpha : - \otimes (- \otimes -) &\Rightarrow (- \otimes -) \otimes - \qquad \text{(associator)} \\
-        \lambda : \textbf{1} \otimes - &\Rightarrow \id_{\mathcal{C}} \qquad \text{(left unitor)} \\
-        \rho : - \otimes \textbf{1} &\Rightarrow \id_{\mathcal{C}} \qquad \text{(right unitor)}
+        \textup{(associator)} &\quad \alpha : - \otimes (- \otimes -) \Rightarrow (- \otimes -) \otimes - \qquad  \\
+        \textup{(left unitor)} &\quad \lambda : \textbf{1} \otimes - \Rightarrow \id_{\mathcal{C}} \\
+        \textup{(right unitor)} &\quad \rho : - \otimes \textbf{1} \Rightarrow \id_{\mathcal{C}}
     \end{aligned} \]
     such that the triangle
     \[ \begin{tikzcd}[row sep=0em] (X \otimes \textbf{1}) \otimes Y \arrow{rr}{\alpha_{X,\textbf{1},Y}} \arrow[swap]{rd}{\rho_X \otimes \id_Y} & & X \otimes (\textbf{1} \otimes Y) \arrow{ld}{\id_X \otimes \lambda_Y} \\ & X \otimes Y & \end{tikzcd} \]
@@ -140,3 +140,12 @@
         defines a twist, which is compatible with the brading and duals. Conversely, any twist defines such an element $\theta = \theta_A(1)^{-1}$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{module-category}{module category}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. A \textbf{(left) module category} over $\mathcal{C}$ is a category $\mathcal{M}$ together with a \tref{functor}{functor} $\boxtimes : \mathcal{C} \times \mathcal{M} \to \mathcal{M}$ and \tref{natural-transformation}{natural} isomorphisms
+    \[ \begin{aligned}
+        \textup{(associator)}& \quad \alpha : - \boxtimes (- \boxtimes -) \Rightarrow (- \otimes -) \boxtimes - \\
+        \textup{(unitor)}& \quad \lambda : \textbf{1} \boxtimes - \Rightarrow \id_\mathcal{M}
+    \end{aligned} \]
+    which are compatible with the associator and left and right unitor of $\mathcal{C}$.
+\end{topic}

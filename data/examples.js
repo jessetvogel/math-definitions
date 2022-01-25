@@ -292,6 +292,7 @@ const examples = [
   "LA:permutation-matrix",
   "LA:cramer-rule",
   "LA:cartan-matrix",
+  "LA:complementary-subspaces",
   "LA:symplectic-vector-space",
   "MT:measure",
   "NT:valuation",
