@@ -253,3 +253,48 @@
 \begin{example}{en-algebra}
     Suppose that $\mathcal{C}$ is an ordinary category, i.e. all $k$-morphisms for $k \ge 2$ are trivial, and let $\mathcal{E}$ be an $E_n$-algebra in $\mathcal{C}$. Note that for $n \ge 2$, all embeddings $(D^n)^{\sqcup k} \to D^n$ are isotopic, so all corresponding maps $\mathcal{E}^{\otimes k} \to \mathcal{E}$ are equal. This shows that $\mathcal{E}$ is precisely given by a commutative algebra in $\mathcal{C}$. For $n = 1$, all embeddings $(D^1)^{\sqcup k} \to D^1$ are isotopic up to a permutation of the factors. This shows that an $E_1$-algebra $\mathcal{E}$ in $\mathcal{C}$ is precisely an associative algebra in $\mathcal{C}$.
 \end{example}
+
+\begin{topic}{simplicial-homotopy-group}{simplicial homotopy group}
+    Let $X$ be a \tref{kan-complex}{Kan complex}.
+    % The \textbf{$0$th simplicial homotopy group} of $X$ is the set of equivalence classes of vertices $x \in X_0$, where $x \sim{} y$ if there exists some $e \in X_1$ such that $x = d_0(e)$ and $y = d_1(e)$.
+    % \[ \pi_0(X) = X_0 / X_1 \]
+    For $x \in X_0$ and $n \ge 0$, the \textbf{$n$th simplicial homotopy group} of $X$ at $x$, denoted $\pi_n(X, x)$, is the set of equivalence classes of maps $\alpha : \Delta^n \to X$ sending the boundary $\partial \Delta^n$ to $x$,
+    \[ \begin{tikzcd} \partial \Delta^n \arrow{d} \arrow{r} & \Delta^0 \arrow{d}{x} \\ \Delta^n \arrow{r}{\alpha} & X \end{tikzcd} \]
+    where two maps $\alpha, \beta : \Delta^n$ are equivalent if there exists a simplicial homotopy $\eta : \Delta^n \times \Delta^1 \to X$ which fixes the boundary:
+    \[ \begin{tikzcd} \Delta^n \arrow[swap]{d}{\iota_0} \arrow[bend left=20]{dr}{\alpha} & \\ \Delta^n \times \Delta^1 \arrow{r}{\eta} & X \\ \Delta^n \arrow{u}{\iota_1} \arrow[swap, bend right=20]{ru}{\beta} \end{tikzcd} \quad \textup{ and } \quad \begin{tikzcd} \partial \Delta^n \times \Delta^1 \arrow{d} \arrow{r} & \Delta^0 \arrow{d}{x} \\ \Delta^n \times \Delta^1 \arrow{r}{\eta} & X \end{tikzcd} \]
+    For $n \ge 1$, the sets $\pi_n(X, x)$ come equipped with the following \tref{GT:group}{group} structure. For any $f, g : \Delta^n \to X$, consider the map $\Lambda^{n + 1}_n \to X$, where the $i$th face of $\Lambda^{n + 1}_n$ is mapped to
+    \[ v_i = \left\{ \begin{array}{cl}
+        s_0 \circ \cdots \circ s_0 (x) & \textup{ for } 0 \le i \le n - 2, \\
+        f & \textup{ for } i = n - 1, \\
+        g & \textup{ for } i = n + 1.
+    \end{array} \right. \]
+    Since $X$ is a Kan complex, this map extends to some $\theta : \Delta^{n + 1} \to X$, and the group structure on $\pi_n(X, x)$ is given by
+    \[ [f] \cdot [g] = [d_n(\theta)] . \]
+    The \textbf{simplicial homotopy groups} of any \tref{CT:simplicial-object}{simplicial set} are given by the simplicial homotopy groups of its Kan fibrant replacement.
+\end{topic}
+
+\begin{topic}{l-infinity-algebra}{L-infinity algebra}
+    An \textbf{$L_\infty$-algebra} is \tref{AA:graded-module}{graded} \tref{LA:vector-space}{vector space} $\mathfrak{g} = \bigoplus_{i \in \ZZ} \mathfrak{g}_i$ together with, for each $n \ge 1$, a linear map
+    \[ l_n = [-, -, \cdots, -]_n : \mathfrak{g}^{\otimes n} \to \mathfrak{g} \]
+    of degree $n - 2$, called the \textit{$n$-ary bracket}, satisfying
+    \begin{itemize}
+        \item (\textit{graded skew-symmetry}) for all homogeneous $v_1, \ldots, v_n \in \mathfrak{g}$ and \tref{GT:symmetric-group}{permutations} $\sigma \in S_n$,
+        \[ l_n(v_{\sigma(1)}, \ldots, v_{\sigma(n)}) = \chi(\sigma, v_1, \ldots, v_n) l_n(v_1, \ldots, v_n) , \]
+        where $\chi(\sigma, v_1, \ldots, v_n) \in \{ \pm 1 \}$ is the product of the \tref{GT:permutation-sign}{sign} of $\sigma$ with a factor of $(-1)^{\deg(v_i) \deg(v_j)}$ for each interchange of neighbors $(\ldots, v_i, v_j, \ldots)$ to $(\ldots, v_j, v_i, \ldots)$ in the decomposition of $\sigma$ as a sequence of swapping neighbor pairs.
+        \item (\textit{generalized Jacobi identity}) for all homogeneous $v_1, \ldots, v_n \in \mathfrak{g}$,
+        \[ \sum_{i + j = n + 1} \sum_{\sigma} \chi(\sigma, v_1, \ldots, v_n) (-1)^{i(j - 1)} l_j(l_i(v_{\sigma(1)}, \ldots, v_{\sigma(i)}), v_{\sigma(i + 1)}, \ldots, v_{\sigma(n)}) = 0 , \]
+        where $\sigma$ runs over the set of \tref{GT:shuffle}{$(i, j - 1)$-unshuffles}.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{l-infinity-algebra}
+    For $n = 1$, the generalized Jacobi identity states that the map $d = l_1 : \mathfrak{g} \to \mathfrak{g}$, of degree $-1$, satisfies
+    \[ d^2 = 0 , \]
+    making $\mathfrak{g}$ into a \tref{HA:chain-complex}{chain complex}. For $n = 2$, the condition states that
+    \[ d[v_1, v_2] = [dv_1, v_2] + (-1)^{\deg(v_1)} [v_1, dv_2] , \]
+    for homogeneous $v_1, v_2 \in \mathfrak{g}$, making $d$ a derivation for the bracket $[-, -]$.
+    
+    If $l_n = 0$ for all $n \ge 2$, then the generalized Jacobi identity for $n = 3$ translates to the graded Jacobi identity
+    \[ [v_1, [v_2, v_3] = [[v_1, v_2], v_3] + (-1)^{\deg(v_1) \deg(v_2)} [v_2, [v_1, v_3]] , \]
+    for all homogeneous $v_1, v_2, v_3 \in \mathfrak{g}$. In particular, such an $L_\infty$-algebra is equivalent to a \tref{AA:dg-lie-algebra}{differential graded Lie algebra}.
+\end{example}

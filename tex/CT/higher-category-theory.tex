@@ -21,19 +21,12 @@
 \end{topic}
 
 \begin{example}{enriched-category}
-    For $\mathcal{A} = \textbf{Set}$ the category of sets, with monoidal structure given by the cartesian product, an $\mathcal{A}$-enriched category is the same as an ordinary \tref{category}{category}.
-\end{example}
-
-\begin{example}{enriched-category}
-    For $\mathcal{A} = \textbf{Cat}$ the category of (small) categories, with monoidal structure given by the product of categories, an $\mathcal{A}$-enriched category is the same as a 2-category.
-\end{example}
-
-\begin{example}{enriched-category}
-    For $\mathcal{A} = \textbf{Ab}$ the category of abelian groups, with monoidal structure given by the product of groups, an $\mathcal{A}$-enriched category is the same as a \textit{preadditive category}.
-\end{example}
-
-\begin{example}{enriched-category}
-    For $\mathcal{A} = \textbf{Vect}_k$ the category of vector spaces over a field $k$, with monoidal structure given by the tensor product over $k$, an $\mathcal{A}$-enriched category is also known as a \textit{$k$-linear category}.
+    \begin{itemize}
+        \item For $\mathcal{A} = \textbf{Set}$ the category of sets, with monoidal structure given by the cartesian product, an $\mathcal{A}$-enriched category is the same as an ordinary \tref{category}{category}.
+        \item For $\mathcal{A} = \textbf{Cat}$ the category of (small) categories, with monoidal structure given by the product of categories, an $\mathcal{A}$-enriched category is the same as a 2-category.
+        \item For $\mathcal{A} = \textbf{Ab}$ the category of abelian groups, with monoidal structure given by the product of groups, an $\mathcal{A}$-enriched category is the same as a \textit{preadditive category}.
+        \item For $\mathcal{A} = \textbf{Vect}_k$ the category of vector spaces over a field $k$, with monoidal structure given by the tensor product over $k$, an $\mathcal{A}$-enriched category is also known as a \textit{$k$-linear category}.
+    \end{itemize}
 \end{example}
 
 % Simplicial objects and infinity categories
@@ -61,7 +54,7 @@
 
 \begin{example}{simplicial-object}
     The \textit{standard simplicial set} $\Delta^n$ is given by $\Hom_\Delta(-, [n])$. By the \tref{yoneda-lemma}{Yoneda lemma}, we can identify
-    \[ X_n = X([n]) \simeq \Hom(\Delta^n, X) . \]
+    \[ X_n = X([n]) \simeq \Hom_{\textbf{Set}_\Delta}(\Delta^n, X) . \]
 \end{example}
 
 \begin{topic}{nerve}{nerve}

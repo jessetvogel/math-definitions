@@ -1059,3 +1059,15 @@
     \[ 0 \to \mu_n \xrightarrow{i} \mathbb{G}_m \xrightarrow{(-)^n} \mathbb{G}_m \to 0 , \]
     where $\mathbb{G}_m = \ZZ[x^{\pm 1}]$ is the multiplicative group, and $\mu_n = \ZZ[x] / (x^n - 1)$ the group of units of order $n$.
 \end{topic}
+
+\begin{topic}{zeta-function}{zeta function}
+    Let $X$ be a \tref{projective-variety}{projective variety} over a finite field $\FF_q$. The \textbf{zeta function} of $X$ is given by
+    \[ Z(X, t) = \exp \left( \sum_{n = 1}^{\infty} |X(\FF_{q^n})| \frac{t^n}{n} \right) \in \QQ \llbracket t \rrbracket . \]
+\end{topic}
+
+\begin{example}{zeta-function}
+    For $X = \PP^m$, we have $|X(\FF_{q^n})| = \sum_{j = 0}^{m} q^{jn}$ for all $n$, so
+    \[ Z(\PP^m, t) = \exp \left( \sum_{n = 1}^{\infty} \sum_{j = 0}^{m} \frac{q^{jn} t^n}{n} \right) = \prod_{j = 0}^{m} \frac{1}{(1 - q^j t)} . \]
+    In particular,
+    \[ Z(\star, t) = \frac{1}{1 - t} \quad \textup{ and } \quad Z(\PP^1, t) = \frac{1}{(1 - t)(1 - qt)} . \]
+\end{example}

@@ -105,14 +105,20 @@
 \end{topic}
 
 \begin{example}{internal-hom}
-    In the monoidal category $(\textbf{Set}, \times, \{ \star \})$, an internal hom is given by
-    \[ [A, B] = \Hom_\textbf{Set}(A, B) . \]
-    Indeed, for any set $X$ there is an adjunction $(-) \otimes X \dashv [X, -]$ since we have a natural bijection
-    \[ \begin{array}{ccc}
-        \Hom_\textbf{Set}(A \times X, B) & \simeq & \Hom_\textbf{Set}(A, [X, B]) \\
-        f & \mapsto & (a \mapsto f(a, -)) \\
-        ((a, x) \mapsto g(a)(x)) & \mapsfrom & g
-    \end{array} \]
+    \begin{itemize}
+        \item In the monoidal category $(\textbf{Set}, \times, \{ \star \})$, an internal hom is given by
+        \[ [A, B] = \Hom_\textbf{Set}(A, B) . \]
+        Indeed, for any set $X$ there is an adjunction $(-) \otimes X \dashv {[X, -]}$ since we have a natural bijection
+        \[ \begin{array}{ccc}
+            \Hom_\textbf{Set}(A \times X, B) & \simeq & \Hom_\textbf{Set}(A, [X, B]) \\
+            f & \mapsto & (a \mapsto f(a, -)) \\
+            ((a, x) \mapsto g(a)(x)) & \mapsfrom & g
+        \end{array} \]
+        \item Let $G$ be a \tref{GT:group}{group} and let $\mathcal{C} = \textbf{Rep}_k(G)$ be the monoidal category of representations of $G$ (over a field $k$), with tensor product $\otimes_k$. An internal hom in $\mathcal{C}$ is given by
+        \[ [V, W] = \Hom_{k}(V, W) , \]
+        which follows from the natural bijection
+        \[ \Hom_\mathcal{C}(U \otimes_k V, W) \simeq \Hom_\mathcal{C}(U, V^* \otimes_k W) \simeq \Hom_\mathcal{C}(U, \Hom_k(V, W)) . \]
+    \end{itemize}
 \end{example}
 
 \begin{topic}{closed-monoidal-category}{closed monoidal category}

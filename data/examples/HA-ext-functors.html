@@ -1,4 +1,8 @@
-<div class="example">For <span class="math inline">\(n > 0\)</span>, elements of the Ext group <span class="math inline">\(\text{Ext}^n(A, B)\)</span> correspond to extensions
+<div class="example">Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(\ZZ\)</span>-module and <span class="math inline">\(m > 0\)</span> an integer. From the free resolution of <span class="math inline">\(\ZZ/m\ZZ\)</span>,
+<span class="math display">\[ 0 \to \ZZ \xrightarrow{\cdot m} \ZZ \to \ZZ / m \ZZ \to 0 , \]</span>
+follows that
+<span class="math display">\[ \textup{Ext}^n_\ZZ(\ZZ/m\ZZ, A) = \left\{ \begin{array}{cl} \{ a \in A : ma = 0 \} & \textup{ for } n = 0 , \\ A/mA & \textup{ for } n = 1 . \end{array} \right. \]</span>
+</div><div class="example">For <span class="math inline">\(n > 0\)</span>, elements of the Ext group <span class="math inline">\(\text{Ext}^n(A, B)\)</span> correspond to extensions
 <span class="math display">\[ 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 . \]</span>
 Consider the case <span class="math inline">\(n = 1\)</span>. Let <span class="math inline">\(P^\bdot \to A\)</span> (call the differential maps <span class="math inline">\(\pi_i\)</span>) be a projective resolution of <span class="math inline">\(A\)</span>, so that <span class="math inline">\(\text{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))\)</span>. This is the group of maps <span class="math inline">\(g : P^1 \to B\)</span> such that <span class="math inline">\(g \circ \pi_2 = 0\)</span>, modulo all maps of the form <span class="math inline">\(f \circ \pi_0\)</span> for <span class="math inline">\(f : A \to B\)</span>. Now we can construct the pushout
 <span class="math display">\[ E_0 = P^0 \oplus B / \{ \pi_1(q) = g(q) \text{ for } q \in P^1 \} . \]</span>

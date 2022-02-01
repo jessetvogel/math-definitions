@@ -1,0 +1,10 @@
+An <b><span class="math inline">\(L_\infty\)</span>-algebra</b> is <a href="#AA:graded-module">graded</a> <a href="#LA:vector-space">vector space</a> <span class="math inline">\(\mathfrak{g} = \bigoplus_{i \in \ZZ} \mathfrak{g}_i\)</span> together with, for each <span class="math inline">\(n \ge 1\)</span>, a linear map
+<span class="math display">\[ l_n = [-, -, \cdots, -]_n : \mathfrak{g}^{\otimes n} \to \mathfrak{g} \]</span>
+of degree <span class="math inline">\(n - 2\)</span>, called the <i><span class="math inline">\(n\)</span>-ary bracket</i>, satisfying
+<ul><li> (<i>graded skew-symmetry</i>) for all homogeneous <span class="math inline">\(v_1, \ldots, v_n \in \mathfrak{g}\)</span> and <a href="#GT:symmetric-group">permutations</a> <span class="math inline">\(\sigma \in S_n\)</span>,
+<span class="math display">\[ l_n(v_{\sigma(1)}, \ldots, v_{\sigma(n)}) = \chi(\sigma, v_1, \ldots, v_n) l_n(v_1, \ldots, v_n) , \]</span>
+where <span class="math inline">\(\chi(\sigma, v_1, \ldots, v_n) \in \{ \pm 1 \}\)</span> is the product of the <a href="#GT:permutation-sign">sign</a> of <span class="math inline">\(\sigma\)</span> with a factor of <span class="math inline">\((-1)^{\deg(v_i) \deg(v_j)}\)</span> for each interchange of neighbors <span class="math inline">\((\ldots, v_i, v_j, \ldots)\)</span> to <span class="math inline">\((\ldots, v_j, v_i, \ldots)\)</span> in the decomposition of <span class="math inline">\(\sigma\)</span> as a sequence of swapping neighbor pairs.
+</li><li> (<i>generalized Jacobi identity</i>) for all homogeneous <span class="math inline">\(v_1, \ldots, v_n \in \mathfrak{g}\)</span>,
+<span class="math display">\[ \sum_{i + j = n + 1} \sum_{\sigma} \chi(\sigma, v_1, \ldots, v_n) (-1)^{i(j - 1)} l_j(l_i(v_{\sigma(1)}, \ldots, v_{\sigma(i)}), v_{\sigma(i + 1)}, \ldots, v_{\sigma(n)}) = 0 , \]</span>
+where <span class="math inline">\(\sigma\)</span> runs over the set of <a href="#GT:shuffle"><span class="math inline">\((i, j - 1)\)</span>-unshuffles</a>.
+</li></ul>

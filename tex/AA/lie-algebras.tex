@@ -155,6 +155,13 @@
     is non-empty. The \textbf{root system} of $\mathfrak{g}$ (relative to $\mathfrak{h}$) is the set $\Phi$ of all roots. In particular, $\Phi$ is a \tref{LA:root-system}{root system} in $\mathfrak{h}^*$.
 \end{topic}
 
+\begin{example}{root-system-lie-algebra}
+    \begin{itemize}
+        \item The root system $\mathfrak{sl}_2(\CC)$ consists of two elements $\{ -\alpha, \alpha \}$.
+        \item The root system $\mathfrak{sl}_3(\CC)$ consists of six elements $\{ \pm \alpha, \pm \beta, \pm (\alpha + \beta) \}$.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{killing-form}{Killing form}
     Let $\mathfrak{g}$ be a \tref{lie-algebra}{Lie algebra} of finite dimension over a field $k$. The \textbf{Killing form} of $\mathfrak{g}$ is the symmetric bilinear form
     \[ \kappa_\mathfrak{g} : \mathfrak{g} \times \mathfrak{g} \to k, \quad \kappa_\mathfrak{g}(x, y) = \textup{tr}(\textup{ad}_{\mathfrak{g}}(x) \circ \textup{ad}_{\mathfrak{g}}(y)) \]
@@ -472,3 +479,59 @@
 \begin{topic}{manin-triple}{Manin triple}
     A \textbf{Manin triple} $(\mathfrak{g}, \mathfrak{g}^+, \mathfrak{g}^-)$ consists of a \tref{lie-algebra}{Lie algebra} $\mathfrak{g}$ with a non-degenerate invariant symmetric bilinear form $\langle \cdot, \cdot \rangle$ on $\mathfrak{g}$, together with two isotropic \tref{LA:complementary-subspaces}{complementary subspaces} $\mathfrak{g}^+, \mathfrak{g}^- \subset \mathfrak{g}$.
 \end{topic}
+
+\begin{topic}{theorem-highest-weight}{theorem of the highest weight}
+    Let $\mathfrak{g}$ be a complex \tref{semisimple-lie-algebra}{semisimple Lie algebra}, with \tref{cartan-subalgebra}{Cartan subalgebra} $\mathfrak{h}$, \tref{root-system-lie-algebra}{root system} $\Phi$, and a choice of positive roots $\Phi^+$. An element $\lambda \in \mathfrak{h}^*$ is \textbf{integral} if $2 \frac{(\lambda, \alpha)}{(\alpha, \alpha)}$ is an integer for all $\alpha \in \Phi$, and called \textbf{dominant} if $(\lambda, \alpha) \ge 0$ for all $\alpha \in \Phi^+$. Furthermore, an element $\mu \in \mathfrak{h}^*$ is \textbf{higher} than an element $\lambda \in \mathfrak{h}^*$ if $\mu - \lambda$ can be expressed as a linear combination of positive roots with non-negative real coefficients. Finally, a weight of a representation of $\mathfrak{g}$ is called a \textbf{highest weight} if it is higher than every other weight of of that representation.
+    
+    The \textbf{theorem of the highest weight} states that
+    \begin{enumerate}[(i)]
+        \item Every irreducible, finite-dimensional \tref{lie-algebra-representation}{representation} of $\mathfrak{g}$ has a highest weight, which is dominant and integral.
+        \item Two irreducible, finite-dimensional representations of $\mathfrak{g}$ with the same highest weight are isomorphic.
+        \item For every dominant integral element $\mu \in \mathfrak{h}^*$, there exists an irreducible, finite-dimensional representation of $\mathfrak{g}$ with highest weight $\mu$.
+    \end{enumerate}
+\end{topic}
+
+\begin{topic}{pbw-theorem}{Poincaré--Birkhoff--Witt theorem}
+    Let $\mathfrak{g}$ be a finite-dimensional \tref{lie-algebra}{Lie algebra} with \tref{LA:basis}{basis} $X_1, \ldots, X_n$. The \textbf{Poincaré--Birkhoff--Witt theorem} states that the elements
+    \[ X_1^{k_1} X_2^{k_2} \cdots X_n^{k_n}, \qquad \textup{ with } k_i \ge 0 ,  \]
+    form a basis of the \tref{universal-enveloping-algebra}{universal enveloping algebra} $U(\mathfrak{g})$.
+\end{topic}
+
+\begin{topic}{dg-lie-algebra}{differential graded Lie algebra}
+    A \textbf{differential graded Lie algebra (dgla)} over a \tref{field}{field} $k$ is a \tref{HA:chain-complex}{chain complex} $(\mathfrak{g}_\bdot, d)$ of $k$-modules with a bilinear map $[\cdot, \cdot] : \mathfrak{g}_p \otimes \mathfrak{g}_q \to \mathfrak{g}_{p + q}$ satisfying
+    \begin{itemize}
+        \item (\textit{graded derivation}) $d[x, y] = [dx, y] + (-1)^p [x, dy]$ for all $x \in \mathfrak{g}_p$ and $y \in \mathfrak{g}_q$,
+        \item (\textit{graded skew-symmetry}) $[x, y] = -(-1)^{pq} [y, x]$ for all $x \in \mathfrak{g}_p$ and $y \in \mathfrak{g}_q$,
+        \item (\textit{graded Jacobi identity}) $[x, [y, z]] = [[x, y], z] + (-1)^{pq} [y, [x, z]]$ for all $x \in \mathfrak{g}_p$, $y \in \mathfrak{g}_q$, and $z \in \mathfrak{g}_r$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{dg-lie-algebra}
+    Any \tref{dg-algebra}{differential graded algebra} $(A_\bdot, d)$ has the structure of a differential graded Lie algebra with bracket
+    \[ [\cdot, \cdot] : A_p \otimes A_q \to A_{p + q}, \quad [x, y] = xy - (-1)^{pq} yx, \quad x \in A_p, y \in A_q . \]
+    % This yields a (forgetful) functor $\textbf{Alg}^\textup{dg}_k \to \textbf{Lie}^\textup{dg}_k$, which has a \tref{CT:adjunction}{left adjoint} $U : \textbf{Lie}^\textup{dg}_k \to \textbf{Alg}^\textup{dg}_k$, which assigns to every dgla $\mathfrak{g}_\bdot$ its \textit{universal enveloping algebra} 
+    % \[ U(\mathfrak{g}_\bdot) = \bigoplus_{n \ge 0} \mathfrak{g}_\bdot^{\otimes n} / I(\mathfrak{g}_\bdot) , \]
+    % where $I(\mathfrak{g}_\bdot)$ is the two-sided ideal generated by all expressions of the form
+    % \[ (x \otimes y) - (-1)^{pq} (y \otimes x) - [x, y], \quad x \in \mathfrak{g}_p, y \in \mathfrak{g}_q . \]
+\end{example}
+
+\begin{topic}{maurer-cartan-equation}{Maurer--Cartan equation}
+    Let $(\mathfrak{g}_\bdot, d, [-, -])$ be a \tref{dg-lie-algebra}{differential graded Lie algebra}. The \textbf{Maurer--Cartan equation} in $\mathfrak{g}_\bdot$ is the equation
+    \[ da + \frac{1}{2} [a, a] = 0, \quad a \in \mathfrak{g}_{-1} . \]
+    A \textbf{Maurer--Cartan element} of $\mathfrak{g}_\bdot$ is an element $a \in \mathfrak{g}_{-1}$ satisfying the Maurer--Cartan equation.
+\end{topic}
+
+\begin{example}{maurer-cartan-equation}
+    Let $(V, \partial)$ be a \tref{HA:chain-complex}{chain complex} of $k$-modules, and let $A$ be a \tref{local-ring}{local} \tref{artin-ring}{artin ring} over $k$ with maximal ideal $\mathfrak{m}$. A \textit{deformation} of $V$ over $A$ is a chain complex
+    \[ \cdots \xrightarrow{\partial^A_{n + 1}} V_n \otimes_k A \xrightarrow{\partial^A_n} V_{n - 1} \otimes_k A \xrightarrow{\partial^A_{n - 1}} \cdots \]
+    which reduces to $(V, \partial)$ modulo $\mathfrak{m}$. The claim is that the deformation theory is controlled by the dgla $\Hom_\bdot(V, V) \otimes_k \mathfrak{m}$, where $\Hom_\bdot(V, V)$ is given by
+    \[ \Hom_i(V, V) = \prod_{n \in \ZZ} \Hom(V_n, V_{n + i}) , \]
+    with differential and Lie bracket given by
+    \[ \begin{aligned}
+        d : \Hom_i(V, V) \to \Hom_{i - 1}(V, V), &\qquad df = \partial \circ f - (-1)^{\deg(f)} f \circ \partial , \\
+        [ \cdot, \cdot ] : \Hom_i(V, V) \otimes \Hom_j(V, V) \to \Hom_{i + j}(V, V), &\qquad [f, g] = f \circ g - (-1)^{\deg(f) \deg(g)} g \circ f .
+    \end{aligned} \]
+    Indeed, from the decomposition $A = k \oplus \mathfrak{m}$ as vector spaces, we can write $\partial^A = \partial + \xi$ for some $\xi \in \Hom_{-1}(V, V) \otimes_k \mathfrak{m}$. Now, in order for $(V \otimes_k A, \partial_A)$ to be a chain complex, we must have $(\partial^A)^2 = (\partial + \xi)^2 = \partial^2 + \partial \xi + \xi \partial + \xi^2 = 0$, so
+    \[ d \xi + \frac{1}{2} [\xi, \xi] = 0 , \]
+    that is, $\xi$ must satisfy the Maurer--Cartan equation.
+\end{example}

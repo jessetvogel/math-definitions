@@ -292,6 +292,13 @@
 \end{topic}
 
 \begin{example}{ext-functors}
+    Let $A$ be a $\ZZ$-module and $m > 0$ an integer. From the free resolution of $\ZZ/m\ZZ$,
+    \[ 0 \to \ZZ \xrightarrow{\cdot m} \ZZ \to \ZZ / m \ZZ \to 0 , \]
+    follows that
+    \[ \textup{Ext}^n_\ZZ(\ZZ/m\ZZ, A) = \left\{ \begin{array}{cl} \{ a \in A : ma = 0 \} & \textup{ for } n = 0 , \\ A/mA & \textup{ for } n = 1 . \end{array} \right. \]
+\end{example}
+
+\begin{example}{ext-functors}
     For $n > 0$, elements of the Ext group $\text{Ext}^n(A, B)$ correspond to extensions
     \[ 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 . \]
     Consider the case $n = 1$. Let $P^\bdot \to A$ (call the differential maps $\pi_i$) be a projective resolution of $A$, so that $\text{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))$. This is the group of maps $g : P^1 \to B$ such that $g \circ \pi_2 = 0$, modulo all maps of the form $f \circ \pi_0$ for $f : A \to B$. Now we can construct the pushout
@@ -308,6 +315,13 @@
     which is \tref{exact-functor}{right exact}, so it has \tref{left-derived-functors}{left derived functors}, which are known as the \textbf{Tor functors}
     \[ \text{Tor}^R_i(A, B) = A \overset{\text{L}_i}{\otimes} B . \]
 \end{topic}
+
+\begin{example}{tor-functors}
+    Let $A$ be a $\ZZ$-module and $m > 0$ an integer. From the free resolution of $\ZZ/m\ZZ$,
+    \[ 0 \to \ZZ \xrightarrow{\cdot m} \ZZ \to \ZZ / m \ZZ \to 0 , \]
+    follows that
+    \[ \textup{Tor}_n^\ZZ(\ZZ/m\ZZ, A) = \left\{ \begin{array}{cl} A/mA & \textup{ for } n = 0 , \\ \{ a \in A : ma = 0 \} & \textup{ for } n = 1 . \end{array} \right. \]
+\end{example}
 
 \begin{topic}{mapping-complex}{mapping complex}
     Let $C_\bdot$ and $D_\bdot$ be \tref{chain-complex}{chain complexes} with values in an \tref{additive-category}{additive category} $\mathcal{A}$. The \textbf{mapping complex} associated to $C_\bdot$ and $D_\bdot$ is the chain complex $[C, D] _\bdot$ given by
@@ -581,6 +595,10 @@
 
 \begin{example}{deligne-tensor-product}
     Let $A$ and $B$ be two finite-dimensional algebras over $k$, and write $A\textup{-}\textbf{Mod}_\textup{fd}$ for the finite abelian category of $A$-modules which are finite-dimensional as vector spaces over $k$. Then
-    \[ A\textup{-}\textbf{Mod}_\textup{fd} \boxtimes A\textup{-}\textbf{Mod}_\textup{fd} \simeq (A \otimes_k B)\textup{-}\textbf{Mod}_\textup{fd} . \]
+    \[ A\textup{-}\textbf{Mod}_\textup{fd} \boxtimes B\textup{-}\textbf{Mod}_\textup{fd} \simeq (A \otimes_k B)\textup{-}\textbf{Mod}_\textup{fd} . \]
+    Indeed, we can construct $G$ as follows: for any finite-dimensional $(A \otimes_k B)$-module $M$, take a presentation
+    \[ (A \otimes_k B)^{\oplus n_1} \to (A \otimes_k B)^{\oplus n_0} \to M \to 0 , \]
+    and put $G(M) = \coker\left( F(A, B)^{\oplus n_1} \to F(A, B)^{\oplus n_0} \right)$. This is well-defined by right exactness of $F$, and it is easy to see that $G$ is right exact and that $F \simeq G \circ \boxtimes$.
+    
     In fact, this is the prototype example since every finite abelian category is equivalent to $A\textup{-}\textbf{Mod}_\textup{fd}$ for some finite-dimensional $k$-algebra $A$.
 \end{example}

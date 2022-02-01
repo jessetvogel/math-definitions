@@ -1,0 +1,13 @@
+<div class="example">Let <span class="math inline">\((V, \partial)\)</span> be a <a href="#HA:chain-complex">chain complex</a> of <span class="math inline">\(k\)</span>-modules, and let <span class="math inline">\(A\)</span> be a <a href="#AA:local-ring">local</a> <a href="#AA:artin-ring">artin ring</a> over <span class="math inline">\(k\)</span> with maximal ideal <span class="math inline">\(\mathfrak{m}\)</span>. A <i>deformation</i> of <span class="math inline">\(V\)</span> over <span class="math inline">\(A\)</span> is a chain complex
+<span class="math display">\[ \cdots \xrightarrow{\partial^A_{n + 1}} V_n \otimes_k A \xrightarrow{\partial^A_n} V_{n - 1} \otimes_k A \xrightarrow{\partial^A_{n - 1}} \cdots \]</span>
+which reduces to <span class="math inline">\((V, \partial)\)</span> modulo <span class="math inline">\(\mathfrak{m}\)</span>. The claim is that the deformation theory is controlled by the dgla <span class="math inline">\(\Hom_\bdot(V, V) \otimes_k \mathfrak{m}\)</span>, where <span class="math inline">\(\Hom_\bdot(V, V)\)</span> is given by
+<span class="math display">\[ \Hom_i(V, V) = \prod_{n \in \ZZ} \Hom(V_n, V_{n + i}) , \]</span>
+with differential and Lie bracket given by
+<span class="math display">\[ \begin{aligned}
+        d : \Hom_i(V, V) \to \Hom_{i - 1}(V, V), &\qquad df = \partial \circ f - (-1)^{\deg(f)} f \circ \partial , \\
+        [ \cdot, \cdot ] : \Hom_i(V, V) \otimes \Hom_j(V, V) \to \Hom_{i + j}(V, V), &\qquad [f, g] = f \circ g - (-1)^{\deg(f) \deg(g)} g \circ f .
+    \end{aligned} \]</span>
+Indeed, from the decomposition <span class="math inline">\(A = k \oplus \mathfrak{m}\)</span> as vector spaces, we can write <span class="math inline">\(\partial^A = \partial + \xi\)</span> for some <span class="math inline">\(\xi \in \Hom_{-1}(V, V) \otimes_k \mathfrak{m}\)</span>. Now, in order for <span class="math inline">\((V \otimes_k A, \partial_A)\)</span> to be a chain complex, we must have <span class="math inline">\((\partial^A)^2 = (\partial + \xi)^2 = \partial^2 + \partial \xi + \xi \partial + \xi^2 = 0\)</span>, so
+<span class="math display">\[ d \xi + \frac{1}{2} [\xi, \xi] = 0 , \]</span>
+that is, <span class="math inline">\(\xi\)</span> must satisfy the Maurer–Cartan equation.
+</div>

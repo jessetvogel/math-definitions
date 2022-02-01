@@ -16,6 +16,14 @@
     A \textbf{smooth structure} on a \tref{topological-manifold}{topological manifold} $M$ is a \tref{atlas}{maximal smooth atlas} for $M$.
 \end{topic}
 
+\begin{example}{smooth-structure}
+    A topological manifold can have multiple different smooth structures. Namely, consider the (open) disk $M = \{ x \in \RR^n : |x| < 1 \}$ as a topological manifold, and define a family of homeomorphisms
+    \[ \varphi_k : M \to M, \quad \varphi_k(x) = |x|^{k - 1} x . \]
+    Then for every $k \ge 1$, the chart $(M, \varphi_k)$ defines a smooth structure on $M$. However, these charts are not smoothly compatible since
+    \[ \varphi_\ell \circ \varphi_k^{-1} (x) = |x|^{\ell/k - 1} x \]
+    is not smooth at the origin for $\ell < k$.
+\end{example}
+
 \begin{topic}{smooth-manifold}{smooth manifold}
     A \textbf{smooth manifold} is \tref{topological-manifold}{topological manifold} $M$ together with a \tref{smooth-structure}{smooth structure} on $M$.
 \end{topic}

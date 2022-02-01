@@ -47,7 +47,9 @@
 \end{topic}
 
 \begin{topic}{isomorphism}{isomorphism}
-    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is an \textbf{isomorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$ and $gf = \id_X$. We call $g$ the \textbf{inverse} of $f$ and write $g = f^{-1}$. If it exists, it is unique.
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is an \textbf{isomorphism} if there exists a morphism $g : Y \to X$ such that $fg = \id_Y$ and $gf = \id_X$. The morphism $g$ is called the \textbf{inverse} of $f$ and denoted $g = f^{-1}$. If it exists, it is unique.
+    
+    If an isomorphism between objects $X$ and $Y$ exists, the objects are called \textbf{isomorphic}.
 \end{topic}
 
 \begin{topic}{terminal-object}{terminal object}
@@ -276,7 +278,7 @@
     \end{itemize}
 \end{topic}
 
-\begin{topic}{small-category}{small category}
+\begin{topic}{small-category}{(locally) small category}
     A \tref{category}{category} $\mathcal{C}$ is \textbf{small} if its objects and morphisms form a set.
     
     A category $\mathcal{C}$ is \textbf{locally small} if for all objects $X, Y$, the hom-class $\Hom(X, Y)$ is a set.
@@ -304,20 +306,20 @@
     A \textbf{pointed category} is a \tref{category}{category} with a \tref{zero-object}{zero object}.
 \end{topic}
 
-\begin{topic}{fiber}{(co)fiber}
-    Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{terminal-object}{terminal object} $1$. A \textbf{fiber} of a morphism $f : X \to Y$ in $\mathcal{C}$ is a \tref{pullback}{pullback diagram}
-    \[ \begin{tikzcd}
-        X \times_Y 1 \arrow{r} \arrow{d} & X \arrow{d}{f} \\ 1 \arrow{r} & Y .
-    \end{tikzcd} \]
-    Dually, a \textbf{cofiber} of $f$ is a \tref{pushout}{pushout diagram}
-    \[ \begin{tikzcd}
-        X \arrow{r}{f} \arrow{d} & Y \arrow{d} \\ 1 \arrow{r} & Y \amalg_X 1 .
-    \end{tikzcd} \]
-\end{topic}
+% \begin{topic}{fiber}{(co)fiber}
+%     Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{terminal-object}{terminal object} $1$. A \textbf{fiber} of a morphism $f : X \to Y$ in $\mathcal{C}$ is a \tref{pullback}{pullback diagram}
+%     \[ \begin{tikzcd}
+%         X \times_Y 1 \arrow{r} \arrow{d} & X \arrow{d}{f} \\ 1 \arrow{r} & Y .
+%     \end{tikzcd} \]
+%     Dually, a \textbf{cofiber} of $f$ is a \tref{pushout}{pushout diagram}
+%     \[ \begin{tikzcd}
+%         X \arrow{r}{f} \arrow{d} & Y \arrow{d} \\ 1 \arrow{r} & Y \amalg_X 1 .
+%     \end{tikzcd} \]
+% \end{topic}
 
-\begin{example}{fiber}
-    If $\mathcal{C}$ is an \tref{HA:additive-category}{additive category}, fibers are the same as kernels, and cofibers are the same as cokernels.
-\end{example}
+% \begin{example}{fiber}
+%     If $\mathcal{C}$ is an \tref{HA:additive-category}{additive category}, fibers are the same as kernels, and cofibers are the same as cokernels.
+% \end{example}
 
 \begin{topic}{slice-category}{slice category}
     Given a \tref{category}{category} $\mathcal{C}$ over an object $X$, the \textbf{slice category} $\mathcal{C}/X$ is the category whose
@@ -502,16 +504,16 @@
 
 \begin{example}{kleisli-category}
     Taking inspiration from functional programming (e.g. Haskell), let $\mathcal{C} = \texttt{Type}$ be the category of types, and $T : \mathcal{C} \to \mathcal{C}$ the endofunctor sending a type $\alpha$ to \texttt{[$\alpha$]}, the type of lists with elements in $\alpha$. Given a function $f : \alpha \to \beta$, the function $Tf : \texttt{[}\alpha\texttt{]} \to \texttt{[}\beta\texttt{]}$ works element-wise.
-    Multiplication $\mu$ is given by concatenation of lists, and $\eta$ sends an object $x$ of type $\alpha$ to the singleton list $[x]$.
+    Multiplication $\mu$ is given by concatenation of lists, and $\eta$ sends an object $x$ of type $\alpha$ to the singleton list $\texttt{[}x\texttt{]}$.
     
     Possible morphisms in $\mathcal{C}_T$ are
     \[ \begin{aligned}
         \texttt{primes} &: \texttt{Int} \to \texttt{[Int]}, \quad n \mapsto \texttt{[}p : p \textup{ is a prime factor of } n\texttt{]} \\
-        \texttt{is\_even} &: \texttt{Int} \to \texttt{[Int]}, \quad n \mapsto \left\{ \begin{array}{cl}
+        \texttt{even} &: \texttt{Int} \to \texttt{[Int]}, \quad n \mapsto \left\{ \begin{array}{cl}
          \texttt{[$n$]} & \text{if $n$ is even,} \\
          \texttt{[]} & \text{otherwise.} \end{array} \right.
     \end{aligned} \]
-    In this way, the composition $\texttt{is\_even} \circ_T \texttt{primes}$ maps a number $n$ to the list of its even prime factors.
+    In this way, the composition $\texttt{even} \circ_T \texttt{primes}$ maps a number $n$ to the list of its even prime factors.
     
     More generally, Kleisli categories appear in Haskell as a way to encode monads.
 \end{example}
@@ -584,7 +586,9 @@
 \end{topic}
 
 \begin{example}{kan-extension}
-    \tref{limit}{Limits} (and colimits) can be expressed in terms of Kan extensions. The limit of a functor $\mathcal{F} : \mathcal{C} \to \mathcal{D}$ is the same as $\textup{Ran}_K F$, where $K : \mathcal{C} \to 1$ is the (unique) functor from $\mathcal{C}$ to $1$, the category with one object and one morphism. Similarly, the colimit $\textup{colim } F$ is the same as $\textup{Lan}_K F$.
+    \tref{limit}{Limits} (and colimits) can be expressed in terms of Kan extensions. The limit of a functor $F : \mathcal{C} \to \mathcal{D}$ is the same as $\textup{Ran}_K F$, where $K : \mathcal{C} \to \textbf{1}$ is the (unique) functor from $\mathcal{C}$ to $\textbf{1}$, the category with one object and one morphism. Similarly, the colimit $\textup{colim } F$ is the same as $\textup{Lan}_K F$.
+    
+    Conversely, whereas the limit functor $\lim : \mathcal{D}^\mathcal{C} \to \mathcal{D}$ (resp. colimit functor) is \tref{adjunction}{right adjoint} (resp. left adjoint) to the diagonal functor $\Delta : \mathcal{D} \to \mathcal{D}^\mathcal{C}$, the right Kan extension $\textup{Ran}_K : \mathcal{D}^\mathcal{C} \to \mathcal{D}^\mathcal{E}$ (resp. left Kan extension) is right adjoint (resp. left adjoint) to the precomposition functor $(-) \circ K : \mathcal{D}^\mathcal{E} \to \mathcal{D}^\mathcal{C}$.
 \end{example}
 
 \begin{topic}{regular-category}{regular category}
@@ -594,15 +598,19 @@
         \item for every pullback diagram
         \[ \begin{tikzcd} Z \arrow[swap]{d}{p_1} \arrow{r}{p_0} & X \arrow{d}{f} \\ X \arrow{r}{f} & Y \end{tikzcd} \]
         the \tref{coequalizer}{coequalizer} of $p_0$ and $p_1$ exists,
-        \item \tref{regular-epimorphism}{regular morphisms} are stable under pullback.
+        \item \tref{regular-epimorphism}{regular epimorphisms} are stable under pullback.
     \end{itemize}
 \end{topic}
 
 \begin{example}{regular-category}
-    The categories \textbf{Set} and \textbf{Ring} are regular.
-    
-    The category \textbf{Top} is not regular! It satisfies the first two conditions, but not the third.
-    % TODO: explain why
+    \begin{itemize}
+        \item The categories \textbf{Set} and \textbf{Ring} are regular.
+        \item The category \textbf{Top} is not regular: it satisfies the first two conditions, but not the third. Namely, consider the topological spaces $X = \{ a, b, c, d \}$, $Y = \{ x, y, z \}$ and $Z = \{ \ell, m, n \}$ with topologies $\{ \varnothing, \{ a, b \}, X \}$, $\{ \varnothing, Y \}$, and $\{ \varnothing, \{ \ell, m \}, Z \}$, respectively. Consider the diagram
+        \[ \begin{tikzcd} X \times_Z Y \arrow{r}{\pi_Z} \arrow{d}{\pi_X} & X \arrow{d}{f} \\ Z \arrow{r}{g} & Y \end{tikzcd} \]
+        with
+        \[ f(a) = x, \quad f(b) = f(c) = y, \quad f(d) = z, \quad g(\ell) = x, \quad g(m) = g(n) = z . \]
+        The map $f$ is a quotient map, but since the pullback $X \times_Z Y = \{ (a, \ell), (d, m), (d, n) \}$ has topology $\{ \varnothing, \{ (a, \ell) \}, \{ (a, \ell), (d, m) \} , X \times_Y Z \}$, the projection $\pi_X$ is not a quotient map: $\pi_X^{-1}(\{ \ell \}) = \{ (a, \ell) \}$ is open, but $\{ \ell \}$ is not.
+    \end{itemize}
 \end{example}
 
 \begin{example}{regular-category}
@@ -847,4 +855,41 @@
         \item $G$ is \tref{conservative-functor}{conservative},
         \item every parallel pair of morphisms $f, g : X \to Y$ in $\mathcal{D}$, which under $G$ has a \tref{split-coequalizer}{split coequalizers} in $\mathcal{C}$, has a coequalizer in $\mathcal{D}$, and $G$ preserves those coequalizers.
     \end{itemize}
+\end{topic}
+
+\begin{topic}{skeleton}{skeleton}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{skeleton} of $\mathcal{C}$ is an \tref{equivalence-of-categories}{equivalent} category $\mathcal{D}$ in which no two objects are \tref{isomorphism}{isomorphic}. 
+\end{topic}
+
+\begin{example}{skeleton}
+    \begin{itemize}
+        \item Let $k$ be a field. Since \tref{LA:vector-space}{vector spaces} over $k$ are classified by their dimension, a skeleton of the category $\textbf{Vect}_k$ is given by the \tref{full-subcategory}{full subcategory} of the objects $k^{\alpha}$, with $\alpha$ a cardinal number.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{admissible-category}{admissible category}
+    A \tref{small-category}{locally small category} $\mathcal{C}$ is \textbf{$\kappa$-accessible}, for a regular cardinal $\kappa$, if
+    \begin{itemize}
+        \item $\mathcal{C}$ has \tref{filtered-limit}{$\kappa$-filtered colimits},
+        \item there exists a set of \tref{compact-object}{$\kappa$-compact objects} that generates $\mathcal{C}$ under $\kappa$-filtered colimits.
+    \end{itemize}
+    The category $\mathcal{C}$ is \textbf{accessible} if it is $\kappa$-accessible for some $\kappa$.
+\end{topic}
+
+\begin{topic}{presentable-category}{presentable category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{locally presentable} if
+    \begin{itemize}
+        \item it is \tref{small-category}{locally small},
+        \item it has all smalll \tref{limit}{colimits},
+        \item there exists a set $S$ of \tref{compact-object}{$\kappa$-compact objects} of $\mathcal{C}$ that generates $\mathcal{C}$ under \tref{filtered-limit}{$\kappa$-filtered colimits}, for some regular cardinal $\kappa$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{presentable-category}
+    The category $\textbf{Ab}$ of \tref{GT:abelian-group}{abelian groups} is \textit{large}: the objects (even up to isomorphism) form a proper class. However, it is determined by the smaller category of $\textbf{Ab}_\textup{fg}$ of finitely generated abelian groups, that is, $\textbf{Ab}$ is the \tref{ind-completion}{Ind-completion} of $\textbf{Ab}_\textup{fg}$. This is another way of saying that $\textbf{Ab}$ is locally presentable.
+\end{example}
+
+\begin{topic}{adjoint-functor-theorem}{adjoint functor theorem}
+    Let $\mathcal{D}$ be a \tref{small-category}{locally small} and \tref{complete-category}{complete} \tref{category}{category}. The \textbf{adjoint functor theorem} states that a \tref{functor}{functor} $G : \mathcal{D} \to \mathcal{C}$ has a \tref{adjunction}{left adjoint} if and only if it preserves all \tref{limit}{limits} and satisfies the \textit{solution set condition}:
+    for every object $C$ of $\mathcal{C}$, there exist objects $D_i$ in $\mathcal{D}$ and morphisms $f_i : C \to G(D_i)$ in $\mathcal{C}$, indexed by a set $I$, such that every morphism $h : C \to G(D)$ factors as $h = G(t) \circ f_i$ for some $t : D_i \to D$.
 \end{topic}

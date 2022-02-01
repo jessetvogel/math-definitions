@@ -7,19 +7,17 @@
 
  ---- Theory ----
 
+-- Category Theory
+
 -- Algebra
 AA: two-sided bar construction
-AA: theorem of highest weight (weights, dominant, integral elements)
 AA: dual Hopf algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
 AA: Levi decomposition
-AA: Chevelley's theorem
 AA: semisimple Lie algebra: equivalent conditions
 AA: Manin triple (example: correspondence: f.d. Manin triple <=> f.d. Lie bialgebra)
 AA: Morita equivalence equivalent to M_n(R) = M_m(S) for some n, m ?
 AA: Dedekind domain (Example: give equivalent definitions / proof)
 AA: bar complex as simplicial complex
-AA: root system Lie algebra (Examples: sl_2 and sl_3)
-AA: Weyl group Lie algebra
 AA: Primitive ideal / Primitive spectrum (C*-algebra)
 
 -- Homological Algebra
@@ -36,7 +34,6 @@ DG: Floer homology
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
 DG: Some examples for the (ricci/scalar)curvature/geodesics stuff
-DG: Example Smooth structure: example of a topological manifold having multiple smooth structures
 DG: orbifold
 DG: Finsler manifold
 
@@ -67,9 +64,8 @@ HT: DG quotient (lifts the Verdier quotient)
 HT: derived Morita equivalence (still a bit hard...)
 HT: Bivariant theory (as in DAG seminar)
 HT: Dold-Kan examples
-HT: Simplicial homotopy groups
 HT: L-infinity algebra
-HT: stable infinity category [Definition 1.1.1.9]
+HT: stable infinity category [Definition 1.1.1.9 of Higher Algebra]
 HT: Spectra!
 
 -- Topology
