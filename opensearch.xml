@@ -1,0 +1,8 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Math Definitions</ShortName>
+  <Description> A collection of mathematical definitions.</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://jessetvogel.nl/math-definitions/favicon.png</Image>
+  <Url type="text/html" template="https://jessetvogel.nl/math-definitions/?q={searchTerms}"/>
+  <moz:SearchForm>https://jessetvogel.nl/math-definitions/</moz:SearchForm>
+</OpenSearchDescription>
