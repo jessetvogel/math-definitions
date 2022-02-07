@@ -298,3 +298,15 @@
     \[ [v_1, [v_2, v_3] = [[v_1, v_2], v_3] + (-1)^{\deg(v_1) \deg(v_2)} [v_2, [v_1, v_3]] , \]
     for all homogeneous $v_1, v_2, v_3 \in \mathfrak{g}$. In particular, such an $L_\infty$-algebra is equivalent to a \tref{AA:dg-lie-algebra}{differential graded Lie algebra}.
 \end{example}
+
+\begin{topic}{stable-infinity-category}{stable infinity category}
+    An \tref{CT:infinity-category}{$\infty$-category} $\mathcal{C}$ is \textbf{stable} if
+    \begin{itemize}
+        \item there exists a \tref{CT:zero-object}{zero object} $0$ in $\mathcal{C}$,
+        \item every morphism $f : X \to Y$ in $\mathcal{C}$ has a \textit{fiber} and \textit{cofiber}, that is, a pullback and pushout diagram
+        \[ \begin{tikzcd} W \arrow{r} \arrow{d} & X \arrow{d}{f} \\ 0 \arrow{r} & Y \end{tikzcd} \quad \textup{ and } \quad \begin{tikzcd} X \arrow{r}{f} \arrow{d} & Y \arrow{d} \\ 0 \arrow{r} & Z \end{tikzcd} \]
+        \item Every diagram in $\mathcal{C}$ of the form
+        \[ \begin{tikzcd} X \arrow{r} \arrow{d} & Y \arrow{d} \\ 0 \arrow{r} & Z \end{tikzcd} \]
+        is a pullback diagram if and only if it is a pushout diagram.
+    \end{itemize}
+\end{topic}

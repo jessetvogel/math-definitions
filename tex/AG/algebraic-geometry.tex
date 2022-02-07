@@ -202,7 +202,7 @@
     \begin{itemize}
         \item it is \tref{finite-presentation}{locally of finite presentation},
         \item it is \tref{flat-morphism}{flat},
-        \item all the fibers $X_y$ are \tref{geometrically-regular}{geometrically-regular} over the residue field $k(y)$.
+        \item all the fibers $X_y$ are \tref{geometrically-regular}{geometrically regular} over the residue field $k(y)$.
     \end{itemize}
 \end{topic}
 
@@ -1060,14 +1060,87 @@
     where $\mathbb{G}_m = \ZZ[x^{\pm 1}]$ is the multiplicative group, and $\mu_n = \ZZ[x] / (x^n - 1)$ the group of units of order $n$.
 \end{topic}
 
-\begin{topic}{zeta-function}{zeta function}
-    Let $X$ be a \tref{projective-variety}{projective variety} over a finite field $\FF_q$. The \textbf{zeta function} of $X$ is given by
+\begin{topic}{hasse-weil-zeta-function}{Hasse--Weil zeta function}
+    Let $X$ be a \tref{variety}{variety} over a finite field $\FF_q$. The \textbf{Hasse--Weil zeta function} of $X$ is given by
     \[ Z(X, t) = \exp \left( \sum_{n = 1}^{\infty} |X(\FF_{q^n})| \frac{t^n}{n} \right) \in \QQ \llbracket t \rrbracket . \]
 \end{topic}
 
-\begin{example}{zeta-function}
+\begin{example}{hasse-weil-zeta-function}
     For $X = \PP^m$, we have $|X(\FF_{q^n})| = \sum_{j = 0}^{m} q^{jn}$ for all $n$, so
     \[ Z(\PP^m, t) = \exp \left( \sum_{n = 1}^{\infty} \sum_{j = 0}^{m} \frac{q^{jn} t^n}{n} \right) = \prod_{j = 0}^{m} \frac{1}{(1 - q^j t)} . \]
     In particular,
     \[ Z(\star, t) = \frac{1}{1 - t} \quad \textup{ and } \quad Z(\PP^1, t) = \frac{1}{(1 - t)(1 - qt)} . \]
 \end{example}
+
+\begin{example}{hasse-weil-zeta-function}
+    The Hasse--Weil zeta function has many different expressions. For $r \ge 1$, let $a_r$ be the number of closed points of $X$ of degree $r$. Then,
+    \[ \begin{aligned}
+        Z(X, t)
+            &= \exp \left( \sum_{n \ge 1} \frac{|X(\FF_{q^n})|}{n} t^n \right) \\
+            &= \exp \left( \sum_{n \ge 1} \sum_{r | n} \frac{r \cdot a_r}{n} t^n \right) \\
+            &= \exp \left( \sum_{r \ge 1} a_r \sum_{\ell \ge 1} \frac{t^{\ell r}}{\ell} \right) \\
+            &= \exp \left( \sum_{r \ge 1} - a_r \log (1 - t^r) \right) \\
+            &= \prod_{r \ge 1} (1 - t^r)^{-a_r} \\
+            &= \prod_{x \in X_{\textup{cl}}} (1 + t^{\deg(x)} + t^{2 \deg(x)} + \cdots) \\
+            &= \sum_{\alpha} t^{\deg(\alpha)} ,
+    \end{aligned}\]
+    where $\alpha$ runs over the set of effective $0$-cycles on $X$.
+\end{example}
+
+\begin{topic}{kapranov-zeta-function}{Kapranov zeta function}
+    Let $X$ be a \tref{projective-variety}{quasi-projective variety} over a field $k$. The \textbf{Kapranov zeta function} of $X$ is given by
+    \[ Z(X, t) = \sum_{n \ge 0} [\textup{Sym}^n X] t^n \in 1 + t \cdot \textup{K}(\textbf{Var}/k) \llbracket t \rrbracket , \]
+    where $\textup{Sym}^n X$ denotes the symmetric product of $X$, that is, the \tref{affine-git-quotient}{GIT quotient} $X^n \sslash S_n$, and $\textup{K}(\textbf{Var}/k)$ denotes the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}.
+    
+    For any ring morphism $\mu : \textup{K}(\textbf{Var}/k) \to R$, the \textbf{motivic zeta function} of $X$ is given by
+    \[ Z(X, t) = \sum_{n \ge 0} \mu([\textup{Sym}^n X]) t^n \in 1 + t \cdot R \llbracket t \rrbracket . \]
+\end{topic}
+
+\begin{example}{kapranov-zeta-function}
+    For any closed subvariety $Y \subset X$ with complement $U$, we can identify
+    \[ \begin{aligned}
+        [\textup{Syn}^n X]
+            &= [X^n \sslash S_n] \\
+            &= \sum_{i + j = n} [S_n \cdot (Y^i \times U^j) \sslash S_n] \\
+            &= \sum_{i + j = n} [Y^i \sslash S_i \times U^j \sslash S_j] \\
+            &= \sum_{i + j = n} [ \textup{Sym}^i Y] \cdot [ \textup{Sym}^j U ] ,
+    \end{aligned} \]
+    and hence
+    \[ Z(X, t) = \sum_{n \ge 0} [\textup{Sym}^n X] t^n = \sum_{\substack{n \ge 0 \\ i + j = n}} [\textup{Sym}^i Y] \cdot [\textup{Sym}^j U] t^n = Z(Y, t) \cdot Z(U, t) . \]
+    This relation allows to extend the definition of $Z(X, t)$ to all varieties $X$, and, moreover, it gives a group morphism
+    \[ Z(-, t) : \textup{K}(\textbf{Var}/k) \to 1 + t \cdot \textup{K}(\textbf{Var}/k) \llbracket t \rrbracket , \]
+    with the multiplicative group structure on the right.
+\end{example}
+
+\begin{example}{kapranov-zeta-function}
+    For $k = \FF_q$ and $\mu : X \mapsto X(\FF_q)$ the point-counting function, the motivic zeta function reduces to the \tref{hasse-weil-zeta-function}{Hasse--Weil zeta function}. Namely, the $\FF_q$-points of $\textup{Sym}^n X)$ can be identified with $0$-cycles of degree $n$ on $X$, and the Hasse--Weil zeta function can be expressed as
+    \[ Z(X, t) = \sum_{\alpha} t^{\deg(\alpha)} , \]
+    where $\alpha$ runs over the set of effective $0$-cycles on $X$.
+\end{example}
+
+\begin{example}{kapranov-zeta-function}
+    Let $\mathbb{L} = [\AA^1] \in \textup{K}(\textbf{Var}/k)$ be the class of the affine line. Then,
+    \[ Z(\PP^n, t) = \prod_{i = 0}^{n} \frac{1}{1 - \mathbb{L}^i t} . \]
+\end{example}
+
+\begin{topic}{luna-slice-theorem}{Luna slice theorem}
+    Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group}, acting on an \tref{affine-variety}{affine variety} $X$, over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$ of characteristic zero. Let $x \in X(k)$ be a smooth point, with \tref{GT:stabilizer}{stabilizer} $G_x$, whose \tref{GT:orbit}{orbit} $O_x$ is closed. Then \textbf{Luna's slice theorem} states that there exists a smooth affine subvariety $Y \subset X$ containing $x$, invariant under $G_x$, such that
+    \begin{enumerate}[(i)]
+        \item the \tref{tangent-sheaf}{tangent space} at $x$ decomposes as $\mathcal{T}_{X, x} = \mathcal{T}_{Y, x} \oplus \mathcal{T}_{O_x, x}$,
+        \item the $G$-equivariant map
+        \[ \psi : G \times_{G_x} Y \to X, \quad (g, y) \mapsto g \cdot y , \]
+        is \tref{etale-morphism}{étale}, and its image $U$ is open in $X$,
+        \item the map
+        \[ Y/G_x \simeq (G \times_{G_x} Y) / G \xrightarrow{\psi / G} U / G \]
+        is étale at $[x]$,
+        \item the maps $\psi$ and $G \times_{G_x} Y \to (G \times_{G_x} Y) / G \to Y / G_x$ induce an isomorphism
+        \[ G \times_{G_x} Y \simeq U \times_{U/G} (Y/G_x) . \]
+    \end{enumerate}
+    The subvariety $Y$ is called an \textit{étale slice} at $x$.
+\end{topic}
+
+\begin{topic}{weighted-projective-space}{weighted-projective-space}
+    Let $k$ be a \tref{AA:ring}{commutative ring}. A \textbf{weighted projective space} over $k$ is the \tref{projective-variety}{projective variety}
+    \[ \PP_k(a_0, \ldots, a_n) = \textup{Proj}(k[x_0, \ldots, x_n]) , \]
+    with $\deg(x_i) = a_i$, for integers $a_i \in \ZZ$.
+\end{topic}

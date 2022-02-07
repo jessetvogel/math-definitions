@@ -1,9 +1,13 @@
-Let <span class="math inline">\(R\)</span> be a <a href="#AA:ring">commutative ring</a>. An <b><span class="math inline">\(R\)</span>-module</b> is an abelian group <span class="math inline">\(M\)</span> with an action of <span class="math inline">\(R\)</span>, that is a map
-<span class="math display">\[ R \times M \to M, \qquad (a, m) \mapsto a \cdot m, \]</span>
+Let <span class="math inline">\(R\)</span> be a <a href="#AA:ring">ring</a>. A <b>left <span class="math inline">\(R\)</span>-module</b> is an <a href="#GT:abelian-group">abelian group</a> <span class="math inline">\(M\)</span> with a left action of <span class="math inline">\(R\)</span>, that is, a map
+<span class="math display">\[ R \times M \to M, \qquad (r, m) \mapsto r \cdot m, \]</span>
 satisfying
-<ul><li> <span class="math inline">\(a \cdot (m + m') = a \cdot m + a \cdot m'\)</span>,
-</li><li> <span class="math inline">\((a + b) \cdot m = a \cdot m + b \cdot m\)</span>,
-</li><li> <span class="math inline">\(a \cdot (bm) = (ab) \cdot m\)</span>,
+<ul><li> <span class="math inline">\(r \cdot (m + m') = r \cdot m + r \cdot m'\)</span>,
+</li><li> <span class="math inline">\((r + s) \cdot m = r \cdot m + s \cdot m\)</span>,
+</li><li> <span class="math inline">\(r \cdot (s \cdot m) = (rs) \cdot m\)</span>,
 </li><li> <span class="math inline">\(1 \cdot m = m\)</span>,
 </li></ul>
-for all <span class="math inline">\(a, b \in R\)</span> and <span class="math inline">\(m, m' \in M\)</span>.
+for all <span class="math inline">\(r, s \in R\)</span> and <span class="math inline">\(m, m' \in M\)</span>.<br/>
+Similarly, a <b>right <span class="math inline">\(R\)</span>-module</b> is an abelian group <span class="math inline">\(M\)</span> with a right action of <span class="math inline">\(R\)</span>,
+<span class="math display">\[ M \times R \to M, \qquad (m, r) \mapsto m \cdot r , \]</span>
+satisfying the above conditions in reverse.<br/>
+When <span class="math inline">\(R\)</span> is commutative, left and right <span class="math inline">\(R\)</span>-modules coincide, and are simply called <b><span class="math inline">\(R\)</span>-modules</b>.

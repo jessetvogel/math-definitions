@@ -1,0 +1,17 @@
+<div class="example">For <span class="math inline">\(X = \PP^m\)</span>, we have <span class="math inline">\(|X(\FF_{q^n})| = \sum_{j = 0}^{m} q^{jn}\)</span> for all <span class="math inline">\(n\)</span>, so
+<span class="math display">\[ Z(\PP^m, t) = \exp \left( \sum_{n = 1}^{\infty} \sum_{j = 0}^{m} \frac{q^{jn} t^n}{n} \right) = \prod_{j = 0}^{m} \frac{1}{(1 - q^j t)} . \]</span>
+In particular,
+<span class="math display">\[ Z(\star, t) = \frac{1}{1 - t} \quad \textup{ and } \quad Z(\PP^1, t) = \frac{1}{(1 - t)(1 - qt)} . \]</span>
+</div><div class="example">The Hasse–Weil zeta function has many different expressions. For <span class="math inline">\(r \ge 1\)</span>, let <span class="math inline">\(a_r\)</span> be the number of closed points of <span class="math inline">\(X\)</span> of degree <span class="math inline">\(r\)</span>. Then,
+<span class="math display">\[ \begin{aligned}
+        Z(X, t)
+            &= \exp \left( \sum_{n \ge 1} \frac{|X(\FF_{q^n})|}{n} t^n \right) \\
+            &= \exp \left( \sum_{n \ge 1} \sum_{r | n} \frac{r \cdot a_r}{n} t^n \right) \\
+            &= \exp \left( \sum_{r \ge 1} a_r \sum_{\ell \ge 1} \frac{t^{\ell r}}{\ell} \right) \\
+            &= \exp \left( \sum_{r \ge 1} - a_r \log (1 - t^r) \right) \\
+            &= \prod_{r \ge 1} (1 - t^r)^{-a_r} \\
+            &= \prod_{x \in X_{\textup{cl}}} (1 + t^{\deg(x)} + t^{2 \deg(x)} + \cdots) \\
+            &= \sum_{\alpha} t^{\deg(\alpha)} ,
+    \end{aligned}\]</span>
+where <span class="math inline">\(\alpha\)</span> runs over the set of effective <span class="math inline">\(0\)</span>-cycles on <span class="math inline">\(X\)</span>.
+</div>

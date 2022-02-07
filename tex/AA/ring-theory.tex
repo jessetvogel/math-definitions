@@ -70,12 +70,13 @@
 \end{example}
 
 \begin{topic}{ideal}{ideal}
-    Let $R$ be a \tref{ring}{ring}. An \textbf{ideal} of $R$ is a subset $I \subset R$ such that
+    Let $R$ be a \tref{ring}{ring}. A subgroup under addition $I \subset R$ is called a
     \begin{itemize}
-        \item $I$ is a subgroup of $R$ under addition,
-        \item (\textit{left-ideal}) $ra \in I$  for all $r \in R$ and $a \in I$,
-        \item (\textit{right-ideal}) $ar \in I$ for all $r \in R$ and $a \in I$.
+        \item \textbf{left ideal} if $ra \in I$  for all $r \in R$ and $a \in I$,
+        \item \textbf{right ideal} if $ar \in I$ for all $r \in R$ and $a \in I$,
+        \item \textbf{two-sided ideal} if $I$ is both a left and right ideal.
     \end{itemize}
+    When $R$ is commutative, these notions coincide, and $I$ is simply called an \textbf{ideal}.
 \end{topic}
 
 \begin{topic}{principal-ideal}{principal ideal}
@@ -966,7 +967,7 @@
 
 \begin{example}{corner-ring}
     Let $R = \textup{Mat}_{3 \times 3}(k)$ and $e = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$. The associated corner is
-    \[ eRe = \left\{ \begin{pmatrix} a & b & 0 \\ c & d & 0 \\ 0 & 0 & 0 \end{pmatrix} \right\} \]
+    \[ eRe = \left\{ \begin{pmatrix} a & b & 0 \\ c & d & 0 \\ 0 & 0 & 0 \end{pmatrix} \right\} \simeq \textup{Mat}_{2 \times 2}(k) , \]
     with $e$ as multiplicative identity.
 \end{example}
 
@@ -987,3 +988,20 @@
     A \tref{ring}{ring} $R$ is \textbf{coherent} if it is a \tref{coherent-module}{coherent module} over itself. That is, if every \tref{finitely-generated-module}{finitely generated} \tref{ideal}{ideal} $I \subset R$ is \tref{finitely-presented-module}{finitely presented}.
 \end{topic}
 
+\begin{topic}{symmetric-polynomial}{symmetric polynomial}
+    Let $R$ be a \tref{ring}{commutative ring}. A polynomial $f \in R[x_1, \ldots, x_n]$ is \textbf{symmetric} if it is invariant under any \tref{GT:symmetric-group}{permutation} of the variables, that is,
+    \[ f(x_{\sigma(1)}, \ldots, x_{\sigma(n)}) = f(x_1, \ldots, x_n) \quad \textup{ for all } \sigma \in S_n . \]
+    For any $0 \le k \le n$, the \textbf{$k$th elementary symmetric polynomial} is given by
+    \[ e_k = \sum_{1 \le i_1 < \ldots < i_k \le n} x_{i_1} \cdots x_{i_k} . \]
+    The \textbf{fundamental theorem of symmetric polynomials} states that any symmetric polynomial $f \in R[x_1, \ldots, x_n]$ can be written uniquely as a polynomial in the elementary symmetric polynomials $e_k$. In other words, there is an isomorphism $R[x_1, \ldots, x_n]^{S_n} \simeq R[e_1, \ldots, e_n]$.
+\end{topic}
+
+\begin{example}{symmetric-polynomial}
+    The elementary symmetric polynomials appear (up to sign) as the coefficients of the polynomial
+    \[ F = \sum_{i = 1}^{n} (T - x_i) = \sum_{k = 0}^{n} (-1)^k e_k (x_1, \ldots, x_n) T^{n - k} \in R[x_1, \ldots, x_n][T]  .\]
+    Now let $f = \sum_{k = 0}^{n} a_k T^k \in R[T]$ be a monic polynomial over a field $k$. Over some \tref{splitting-field}{splitting field} $\ell/k$, one may write $f = \prod_{i = 1}^{n} (T - \alpha_i)$, where $\alpha_i \in \ell$ are the zeros of $f$. In particular, from the above we find
+    \[ f = \sum_{k = 0}^{n} (-1)^k e_k(\alpha_1, \ldots, \alpha_n) T^{n - k} , \]
+    that is, the coefficients of $f$ are given by $a_i = (-1)^{n - i} e_{n - i}(\alpha_1, \ldots, \alpha_n)$. Hence, by the fundamental theorem of symmetric polynomials, any symmetric function of the roots $\alpha_i$ can be written as a function of the coefficients of $f$. For example,
+    \[ \sum_{i = 1}^{n} \alpha_i = - a_{n - 1} \quad \textup{ and } \quad \prod_{i = 1}^{n} \alpha_i = (-1)^n a_0 . \]
+    As another example, the \tref{NT:discriminant}{discriminant} $\Delta(f) = \prod_{1 \le i < j \le n} (\alpha_i - \alpha_j)$ of $f$ is symmetric, so it can be expressed in terms of the coefficients of $f$.
+\end{example}

@@ -11,7 +11,7 @@
 
 -- Algebra
 AA: two-sided bar construction
-AA: dual Hopf algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
+AA: dual (Hopf) algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
 AA: Levi decomposition
 AA: semisimple Lie algebra: equivalent conditions
 AA: Manin triple (example: correspondence: f.d. Manin triple <=> f.d. Lie bialgebra)
@@ -38,7 +38,6 @@ DG: orbifold
 DG: Finsler manifold
 
 -- Algebraic Geometry
-AG: Luna slice theorem (Theorem 14.78 of JS Milne)
 AG: Etale fundamental group
 AG: Serre intersection formula
 AG: Brauer group of field parametrizes CSA's / (Morita) equivalence
@@ -55,6 +54,8 @@ AG: normal crossings divisor
 AG: hyperelliptic curve
 AG: Narasimhan--Seshadri theorem
 AG: D-affine variety
+AG: Proj construction
+AG: k-univariant / uniruled ?
 
 -- Homotopy Theory
 HT: triangulated enhancement
@@ -64,8 +65,6 @@ HT: DG quotient (lifts the Verdier quotient)
 HT: derived Morita equivalence (still a bit hard...)
 HT: Bivariant theory (as in DAG seminar)
 HT: Dold-Kan examples
-HT: L-infinity algebra
-HT: stable infinity category [Definition 1.1.1.9 of Higher Algebra]
 HT: Spectra!
 
 -- Topology

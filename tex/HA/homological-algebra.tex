@@ -602,3 +602,21 @@
     
     In fact, this is the prototype example since every finite abelian category is equivalent to $A\textup{-}\textbf{Mod}_\textup{fd}$ for some finite-dimensional $k$-algebra $A$.
 \end{example}
+
+\begin{topic}{double-complex}{double-complex}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{double complex} $A_{\bdot, \bdot}$ in $\mathcal{A}$ is a sequence of objects $A_{i, j}$ in $\mathcal{A}$, for $i, j \in \ZZ$, together with horizontal and vertical morphisms $d^h_{i, j} : A_{i, j} \to A_{i - 1, j}$ and $d^v_{i, j} : A_{i, j} \to A_{i, j - 1}$, satisfying
+    \[ (d^h)^2 = (d^v)^2 = d^h d^v - d^v d^h = 0 . \]
+    \[ \begin{tikzcd}
+        & \vdots \arrow{d} & \vdots \arrow{d} & \\
+        \cdots \arrow{r} & A_{i, j} \arrow{r}{d^h_{i, j}} \arrow[swap]{d}{d^v_{i, j}} & A_{i - 1, j} \arrow{r} \arrow{d}{d^v_{i - 1, j}} & \cdots \\
+        \cdots \arrow{r} & A_{i, j - 1} \arrow[swap]{r}{d^h_{i, j - 1}} \arrow{d} & A_{i - 1, j} \arrow{r} \arrow{d} & \cdots \\
+         & \vdots & \vdots & 
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{total-complex}{total complex}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $(A_{\bdot, \bdot}, d^h, d^v)$ a \tref{double-complex}{double complex} in $\mathcal{A}$. The \textbf{total complex} of $A_{\bdot, \bdot}$ is the \tref{chain-complex}{chain complex} $(A_\bdot, d)$ with
+    \[ A_n = \bigoplus_{i + j = n} A_{i, j} \]
+    and
+    \[ d_n = \bigoplus_{i + j = n} d^v_{i, j} + (-1)^j d^h_{i, j} : A_n \to A_{n - 1} . \]
+\end{topic}

@@ -99,3 +99,19 @@
     where the $c_{ij}^k$ denote the structure constants
     \[ [x_i, x_j] = \sum_k c_{ij}^k x_k . \]
 \end{example}
+
+\begin{topic}{lie-groupoid}{Lie groupoid}
+    A \textbf{Lie groupoid} is a \tref{CT:groupoid}{groupoid} $X_1 \rightrightarrows X_0$, whose sets of objects $X_0$ and arrows $X_1$ are \tref{smooth-manifold}{smooth manifolds}, such that
+    \begin{itemize}
+        \item inversion $(-)^{-1} : X_1 \to X_1$, composition $\circ : X_1 \times_{X_0} X_1 \to X_1$ and the identity map $\id_{(-)} : X_0 \to X_1$, are all \tref{smooth-map}{smooth},
+        \item the source and target maps $s, t : X_1 \to X_0$ are smooth surjective \tref{submersion}{submersions}.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{lie-groupoid}
+    \begin{itemize}
+        \item A Lie groupoid $G \rightrightarrows *$ with one object is the same as a \tref{lie-group}{Lie group}.
+        \item Given a Lie group $G$ acting on a smooth manifold $M$, the \textit{action groupoid} is the Lie groupoid $G \times M \rightrightarrows M$, where $\operatorname{dom}(g, x) = x$ and $\operatorname{cod}(g, x) = g \cdot x$.
+        \item The \textbf{banal groupoid} associated to a submersion $X_0 \to Y$, is the Lie groupoid $X_1 \rightrightarrows X_0$ with $X_1 = X_0 \times_Y X_0$. The source and target maps define an equivalence relation $X_1 \xrightarrow{(s, t)} X_0 \times X_0$.
+    \end{itemize}
+\end{example}
