@@ -1,0 +1,16 @@
+Let <span class="math inline">\(M\)</span> be a <a href="#AG:smooth-morphism">smooth</a> <a href="#AG:projective-variety">projective variety</a> over a field <span class="math inline">\(k\)</span>, and <span class="math inline">\(\mathcal{A} = \textup{Coh}(M)\)</span> the <a href="#HA:abelian-category">abelian category</a> of <a href="#AG:coherent-sheaf">coherent sheaves</a> on <span class="math inline">\(M\)</span>. Let <span class="math inline">\(\mathcal{M}^{(n)}\)</span> denote the moduli <a href="#AG:stack">stack</a> of <span class="math inline">\(n\)</span>-flags of coherent sheaves on <span class="math inline">\(M\)</span>. That is, for a scheme <span class="math inline">\(S\)</span>, the <span class="math inline">\(S\)</span>-objects of <span class="math inline">\(\mathcal{M}^{(n)}\)</span> are chains of monomorphisms of coherent sheaves on <span class="math inline">\(S \times M\)</span> of the form
+<span class="math display">\[ 0 \to E_0 \hookrightarrow E_1 \hookrightarrow \cdots \hookrightarrow E_n = E , \]</span>
+such that each <span class="math inline">\(E_i/E_{i - 1}\)</span> is <span class="math inline">\(S\)</span>-flat, so in particular each <span class="math inline">\(E_i\)</span> is <span class="math inline">\(S\)</span>-flat. For such chains <span class="math inline">\((E_i)_i\)</span> and <span class="math inline">\((F_i)_i\)</span> over schemes <span class="math inline">\(S\)</span> and <span class="math inline">\(T\)</span>, respectively, a morphism over <span class="math inline">\(f : T \to S\)</span> is a family of isomorphisms
+<span class="math display">\[ \theta_i : f^*(E_i) \xrightarrow{\sim} F_i \]</span>
+such that each diagram
+<img class="display-math-svg" src="data/svg/a9dc49d1b36e429af64e0a1e9870bd1b895a8ee8.svg" alt />
+commutes.
+There are morphisms of stacks
+<span class="math display">\[ \begin{aligned}
+        a_i &: \mathcal{M}^{(n)} \to \mathcal{M}^{(1)}, \quad (E_i)_i \mapsto E_i/E_{i - 1} \quad \textup{ for } 1 \le i \le n , \\
+        b &: \mathcal{M}^{(n)} \to \mathcal{M}^{(1)}, \quad (E_i)_i \mapsto E_n .
+    \end{aligned} \]</span>
+The <b>motivic Hall algebra</b> of <span class="math inline">\(\mathcal{A}\)</span> is the <span class="math inline">\(\textup{K}(\textup{St}/k)\)</span>-algebra given by the Grothendieck group of stacks over <span class="math inline">\(\mathcal{M}\)</span>,
+<span class="math display">\[ \textup{H}(\mathcal{A}) = \textup{K}(\textup{St}/\mathcal{M}) , \]</span>
+where multiplication given by
+<span class="math display">\[ m = b_* \circ (a_1, a_2)^* : \textup{H}(\mathcal{A}) \otimes \textup{H}(\mathcal{A}) \to \textup{H}(\mathcal{A}) . \]</span>

@@ -664,9 +664,52 @@
     A \textbf{toric variety} is a \tref{variety}{variety} $X$ containing an \tref{algebraic-torus}{algebraic torus} $T$ as an open dense subset, such that the action of $T$ on itself (by translation) extends to the whole of $X$.
 \end{topic}
 
-% \begin{example}{toric-variety}
-%     % Toric variety from a fan
-% \end{example}
+\begin{example}{toric-variety}
+    One way to construct toric varieties is using \tref{LA:fan}{fans}. Let $N \simeq \ZZ^n$ be a finitely generated free abelian group, and let $\Delta$ be a fan in $N_\RR = N \otimes_\ZZ \RR$. For every cone $\sigma \in \Delta$, consider the \tref{AA:monoid}{commutative monoid} $S_\sigma = \sigma^\vee \cap M$, where $\sigma^\vee$ is denotes the \tref{LA:dual-cone}{dual cone}, and $M = \Hom_\ZZ(N, \ZZ)$. Furthermore, let $k$ be a commutative ring, and write $U_\sigma = \Spec(k[S_\sigma])$.
+    
+    Now for every face $\tau \subset \sigma$, there exists some $u \in \sigma^\vee$ such that $\tau = \sigma \cap u^\perp$, and hence $S_\tau = S_\sigma + \ZZ_{\ge 0} \cdot (-u)$. So, the natural map $k[S_\sigma] \to k[S_\tau]$ is a \tref{AA:localization}{localization} given by inverting $u$, which induces a \tref{principal-open-subset}{principal open subset} $\Spec(k[S_\tau]) \to \Spec(k[S_\sigma])$.
+    
+    One constructs a toric variety $X(\Delta)$ from $\Delta$ by taking all $U_\sigma$, and gluing $U_{\sigma_1}$ and $U_{\sigma_2}$ along $U_\tau$ whenever $\tau = \sigma_1 \cap \sigma_2$ is a face of both cones $\sigma_1, \sigma_2 \in \Delta$.
+    
+    As an example, take $N = \ZZ^2$ and $\Delta$ the fan as described by the picture below.
+    \[ \begin{tikzpicture}
+        \begin{scope}
+            % Axes
+            \draw (-2, 0) -- (2, 0);
+            \draw (0, -2) -- (0, 2);
+            % Faces
+            \fill[fill=gray!50, opacity=0.5] (-2, -2) -- (2, -2) -- (2, 2) -- (-2, 2);
+            % Liens
+            \draw[thick] (0, 0) -- (2, 0);
+            \draw[thick] (0, 0) -- (0, 2);
+            \draw[thick] (0, 0) -- (-2, -2);
+            % Nodes
+            \node at (1, 1) {$\sigma_1$};
+            \node at (-1.25, 0.5) {$\sigma_2$};
+            \node at (0.5, -1.25) {$\sigma_3$};
+        \end{scope}
+        \begin{scope}[shift={(5, 0)}]
+            % Axes
+            \draw (-2, 0) -- (2, 0);
+            \draw (0, -2) -- (0, 2);
+            % Faces
+            \fill[fill=gray!50, opacity=0.5] (0, 0) -- (2, 0) -- (2, 2) -- (0, 2);
+            \fill[fill=gray!50, opacity=0.5] (0, 0) -- (-2, 0) -- (-2, 2);
+            \fill[fill=gray!50, opacity=0.5] (0, 0) -- (0, -2) -- (2, -2);
+            % Liens
+            \draw[thick] (-2, 0) -- (2, 0);
+            \draw[thick] (0, -2) -- (0, 2);
+            \draw[thick] (-2, 2) -- (2, -2);
+            % Nodes
+            \node at (1, 1) {$\sigma_1^\vee$};
+            \node at (-1.25, 0.5) {$\sigma_2^\vee$};
+            \node at (0.5, -1.25) {$\sigma_3^\vee$};
+        \end{scope}
+    \end{tikzpicture} \]
+    One computes
+    \[ U_{\sigma_1} = \Spec(k[x, y]), \quad U_{\sigma_2} = \Spec(k[x^{-1}, yx^{-1}]), \quad U_{\sigma_3} = \Spec(k[y^{-1}, xy^{-1}]) , \]
+    and gluing gives $X(\Delta) \simeq \PP_k^2$.    
+\end{example}
 
 \begin{example}{toric-variety}
     Projective space $\PP^n$ is a toric variety, since the torus
@@ -1113,7 +1156,7 @@
 \end{example}
 
 \begin{example}{kapranov-zeta-function}
-    For $k = \FF_q$ and $\mu : X \mapsto X(\FF_q)$ the point-counting function, the motivic zeta function reduces to the \tref{hasse-weil-zeta-function}{Hasse--Weil zeta function}. Namely, the $\FF_q$-points of $\textup{Sym}^n X)$ can be identified with $0$-cycles of degree $n$ on $X$, and the Hasse--Weil zeta function can be expressed as
+    For $k = \FF_q$ and $\mu : X \mapsto X(\FF_q)$ the point-counting function, the motivic zeta function reduces to the \tref{hasse-weil-zeta-function}{Hasse--Weil zeta function}. Namely, the $\FF_q$-points of $\textup{Sym}^n X$ can be identified with $0$-cycles of degree $n$ on $X$, and the Hasse--Weil zeta function can be expressed as
     \[ Z(X, t) = \sum_{\alpha} t^{\deg(\alpha)} , \]
     where $\alpha$ runs over the set of effective $0$-cycles on $X$.
 \end{example}
@@ -1143,4 +1186,15 @@
     Let $k$ be a \tref{AA:ring}{commutative ring}. A \textbf{weighted projective space} over $k$ is the \tref{projective-variety}{projective variety}
     \[ \PP_k(a_0, \ldots, a_n) = \textup{Proj}(k[x_0, \ldots, x_n]) , \]
     with $\deg(x_i) = a_i$, for integers $a_i \in \ZZ$.
+\end{topic}
+
+\begin{topic}{moduli-space}{moduli space}
+    Let $F : \textbf{Sch}^\textup{op} \to \textbf{Set}$ be a \tref{CT:functor}{functor}.
+    
+    A scheme $M$ is a \textbf{fine moduli space} for $F$ if $M$ \tref{CT:representable-functor}{represents} $F$, that is, there is a \tref{CT:natural-transformation}{natural} isomorphism
+    \[ F \simeq \Hom_\textbf{Sch}(-, M) . \]
+    
+    A scheme $M$ is a \textbf{coarse moduli space} for $F$ if there exists a natural transformation
+    \[ \tau : F \Rightarrow \Hom_\textbf{Sch}(-, M) , \]
+    which is universal among all such natural transformations.
 \end{topic}

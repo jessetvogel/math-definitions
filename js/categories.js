@@ -7,6 +7,7 @@ const categories = {
     "DG": "Differential Geometry",
     "DT": "Deformation Theory",
     "FA": "Functional Analysis",
+    "GM": "General",
     "GT": "Group Theory",
     "HA": "Homological Algebra",
     "HT": "Homotopy Theory",

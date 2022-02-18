@@ -620,3 +620,10 @@
     and
     \[ d_n = \bigoplus_{i + j = n} d^v_{i, j} + (-1)^j d^h_{i, j} : A_n \to A_{n - 1} . \]
 \end{topic}
+
+\begin{topic}{kunneth-formula}{Künneth formula}
+    Let $C_\bdot$ and $D_\bdot$ be \tref{chain-complex}{chain complexes} of $k$-modules, for some \tref{AA:ring}{commutative ring} $k$. If for all $n \in \ZZ$, the $k$-modules $C_n$, $D_n$, $\ker(d_n^C)$ and $\ker(d_n^D)$ are all \tref{AA:flat-module}{flat}, there is a \tref{exact-sequence}{short exact sequence}
+    \[ 0 \to \bigoplus_{p + q = n} H_p(C_\bdot) \otimes H_q(D_\bdot) \to H_n(C_\bdot \otimes D_\bdot) \to \bigoplus_{p + q = n - 1} \textup{Tor}_1^k(H_p(C_\bdot), H_q(D_\bdot)) \to 0 , \]
+    known as the \textbf{Künneth formula}. In particular, if $H_n(C_\bdot)$ or $H_n(D_\bdot)$ are \tref{AA:projective-module}{projective} $k$-modules for all $n$, there is an isomorphism
+    \[ \bigoplus_{p + q = n} H_p(C_\bdot) \otimes H_q(D_\bdot) \simeq H_n(C_\bdot \otimes D_\bdot) . \]
+\end{topic}

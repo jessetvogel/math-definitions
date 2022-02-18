@@ -68,10 +68,16 @@
 \end{topic}
 
 \begin{topic}{projective-representation}{projective representation}
-    A \textbf{projective representation} of a \tref{GT:group}{group} on a \tref{LA:vector-space}{vector space} $V$ over a field $k$ is a \tref{GT:group-homomorphism}{group homomorphism}
+    A \textbf{projective representation} of a \tref{GT:group}{group} $G$ on a \tref{LA:vector-space}{vector space} $V$ over a field $k$ is a \tref{GT:group-homomorphism}{group homomorphism}
     \[ \rho : G \to \textup{PGL}(V) , \]
-    where $\textup{PGL}(V) = \textup{GL}(V) / k^*$ is the \textit{projective linear group} of $V$.
+    where $\textup{PGL}(V) = \textup{GL}(V) / k^*$ is the \tref{LA:projective-linear-group}{projective linear group} of $V$.
 \end{topic}
+
+\begin{example}{projective-representation}
+    The universal (double) cover of the \tref{LA:orthogonal-group}{special orthogonal group} $\textup{SO}(3)$ is the \tref{LA:unitary-group}{special unitary group} $\textup{SU}(2)$. Hence, any representation $\rho : \textup{SU}(2) \to \textup{GL}(V)$ descends to a projective representation $\pi : \textup{SO}(3) \to \textup{PGL}(V)$, which can be lifted to an honest representation if and only if the dimension of $V$ is odd. For example, the standard representation $\textup{SU}(2) \to \textup{GL}(\CC^2)$ induces a projective representation
+    \[ \textup{SO}(3) \to \textup{PGL}(\CC^2) \]
+    which cannot be lifted to an honest representation.
+\end{example}
 
 % \begin{example}{projective-representation}
 %     Any representation $\rho : G \to \textup{GL}(V)$ can be composed with $\textup{GL}(V) \to \textup{PGL}(V)$ to give a projective representation, but the converse is not true. Consider $G = \textup{SO}(3)$ and $\rho : G \to \textup{PGL}_2(\CC)$ induced by

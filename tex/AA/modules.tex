@@ -56,10 +56,14 @@
 \end{topic}
 
 \begin{example}{flat-module}
-    Any \tref{free-module}{free module} $\bigoplus_{i \in I} R$ is flat over $R$, because if $M \to N$ is injective, then so is $\bigoplus_{i \in I} M \to \bigoplus_{i \in I} N$.
-    In particular, $k$-vector spaces are flat over $k$.
-    
-    More generally, since direct summands of flat modules are again flat, it follows that \tref{projective-module}{projective modules} are flat, since a projective module is a direct summand of a free module.
+    \begin{itemize}
+        \item Any \tref{free-module}{free module} $\bigoplus_{i \in I} R$ is flat over $R$, because if $M \to N$ is injective, then so is $\bigoplus_{i \in I} M \to \bigoplus_{i \in I} N$.
+        \item In particular, $k$-vector spaces are flat over $k$.
+        \item More generally, since direct summands of flat modules are again flat, it follows that \tref{projective-module}{projective modules} are flat, since a projective module is a direct summand of a free module.
+        \item Using \tref{HA:tor-functors}{Tor functors}, an $R$-module $M$ is flat if and only if $\textup{Tor}_1(M, N) = 0$ for all $R$-modules $N$. Hence, any extension of flat modules is exact. Namely, if $0 \to M' \to M \to M'' \to 0$ is a short exact sequence of modules with $M'$ and $M''$ flat, then from the long exact sequence
+        \[ \cdots \to \textup{Tor}_1(M', N) \to \textup{Tor}_1(M, N) \to \textup{Tor}_1(M'', N) \to \cdots \]
+        follows that $M$ is flat as well.
+    \end{itemize}
 \end{example}
 
 \begin{example}{flat-module}
@@ -116,6 +120,18 @@
     \[ M_0 \subsetneq M_1 \subsetneq \cdots \subsetneq M_n = M . \]
     It may be infinite.
 \end{topic}
+
+\begin{example}{length-module}
+    Given a short exact sequence of $R$-modules
+    \[ 0 \to L \xrightarrow{f} M \xrightarrow{g} N \to 0 , \]
+    we have $\textup{length}_R(M) = \textup{length}_R(L) + \textup{length}_R(N)$. Namely, given two chains of submodules
+    \[ L_0 \subsetneq L_1 \subsetneq \cdots \subsetneq L_\ell = L \quad \textup{ and } \quad N_0 \subsetneq N_1 \subsetneq \cdots \subsetneq N_n = N , \]
+    we can construct a chain of submodules
+    \[ f(L_0) \subsetneq f(L_1) \subsetneq \cdots \subsetneq f(L_\ell) \subset g^{-1}(N_0) \subsetneq g^{-1}(N_1) \subsetneq \cdots \subsetneq g^{-1}(N_n) = M , \]
+    which shows that $\textup{length}_R(M) \ge \textup{length}_R(L) + \textup{length}_R(N)$. Conversely, from a chain of submodules
+    \[ M_0 \subsetneq M_1 \subsetneq \cdots \subsetneq M_m = M , \]
+    we can construct chains of submodules $L_i = M_i \cap L$ and $N_i = \im(M_i \to N)$. Note that if $L_i = L_{i + 1}$ and $N_i = N_{i + 1}$ for some $i$, then $M_i = M_{i + 1}$ as well. Hence, we must have $\textup{length}_R(M) \le \textup{length}_R(L) + \textup{length}_R(N)$.
+\end{example}
 
 \begin{topic}{depth-module}{depth of a module}
     Let $R$ be a \tref{ring}{commutative ring}, $I \subset R$ an \tref{ideal}{ideal} and $M$ a finitely generated \tref{module}{$R$-module} such that $IM \subsetneq M$. Then the $I$-depth of $M$ is defined as

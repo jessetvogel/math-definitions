@@ -1,0 +1,11 @@
+<div class="example"><ul><li> The generating function of the constant sequence <span class="math inline">\(1, 1, 1, \ldots\)</span> is
+<span class="math display">\[ \sum_{n = 0}^{\infty} t^n = \frac{1}{1 - t} . \]</span>
+</li><li> The generating function of the linear sequence <span class="math inline">\(0, 1, 2, 3, \ldots\)</span> is
+<span class="math display">\[ \sum_{n = 0}^{\infty} n t^{n} = t \cdot \frac{d}{dt} \sum_{n = 0}^{\infty} t^{n} = t \cdot \frac{d}{dt} \left( \frac{1}{1 - t} \right) = \frac{t}{(1 - t)^2} . \]</span>
+</li><li> The generating function of 
+</li></ul>
+</div><div class="example">Assuming <span class="math inline">\(R\)</span> has <a href="#AA:characteristic">characteristic</a> zero, the sequence can be obtained from the generating function <span class="math inline">\(F \in R \llbracket t \rrbracket\)</span> as follows. Writing
+<span class="math display">\[ F = \sum_{n = 0}^{\infty} a_n t^n = a_0 + a_1 t + a_2 t^2 + \cdots , \]</span>
+we obtain the coefficients <span class="math inline">\(a_n\)</span> from the <span class="math inline">\(n\)</span>-th derivatives of <span class="math inline">\(F\)</span> as
+<span class="math display">\[ a_n = \frac{F^{(n)}(0)}{n!} . \]</span>
+</div>

@@ -135,7 +135,7 @@ header {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 512px;
+    width: 600px;
     max-width: 100%;
     height: 40px;
 }
@@ -187,6 +187,9 @@ header {
 
 #auto-complete-list span.topic {
     color: var(--clr-autocomplete-topic-default);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #auto-complete-list span.topic b {
@@ -199,6 +202,10 @@ header {
 
 #auto-complete-list span.category, #result-category {
     color: var(--clr-category);
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #auto-complete-list span.category::before, #result-category::before {

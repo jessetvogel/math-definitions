@@ -5,11 +5,15 @@
 -- Go through document and fix missing tref's
 -- Support \begin{align*?} ... \end{align*?}
 
- ---- Theory ----
+---- Theory ----
+
+-- General Mathematics
+GM: Newton polygon
 
 -- Category Theory
 
 -- Algebra
+AA: reflection equation algebra / construct quantum group (as O_q(G))
 AA: two-sided bar construction
 AA: dual (Hopf) algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
 AA: Levi decomposition
@@ -19,8 +23,10 @@ AA: Morita equivalence equivalent to M_n(R) = M_m(S) for some n, m ?
 AA: Dedekind domain (Example: give equivalent definitions / proof)
 AA: bar complex as simplicial complex
 AA: Primitive ideal / Primitive spectrum (C*-algebra)
+AA: witt vectors
 
 -- Homological Algebra
+HA: split up Dold-Kan into Moore chain complex / normalized chain complex
 HA: triangulated enhancement
 HA: Verdier quotient by full triangulated (left/right) admissible subcategory gives orthogonal complement (proof??)
 HA: exceptional sequence example: any line bundle in D^b(X) for X connected smooth projective. Hom(L, L) = k, and Ext^(i > 0)(L, L) = 0, since $L$ locally free! ??
@@ -33,11 +39,15 @@ DG: Atiyah--Singer theorem
 DG: Floer homology
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
-DG: Some examples for the (ricci/scalar)curvature/geodesics stuff
 DG: orbifold
 DG: Finsler manifold
+DG: Atiyah-Bott symplectic form
+DG: Yang--Mills equations (preferably with some physics examples (EM U(1)))
+DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
+AG: GIT fan
+AG: formal spectrum
 AG: Etale fundamental group
 AG: Serre intersection formula
 AG: Brauer group of field parametrizes CSA's / (Morita) equivalence
@@ -56,6 +66,7 @@ AG: Narasimhan--Seshadri theorem
 AG: D-affine variety
 AG: Proj construction
 AG: k-univariant / uniruled ?
+AG: non-ablian Hodge theorem (https://www.ma.imperial.ac.uk/~jbm18/introductiontohiggsbundles.pdf)
 
 -- Homotopy Theory
 HT: triangulated enhancement
@@ -68,9 +79,11 @@ HT: Dold-Kan examples
 HT: Spectra!
 
 -- Topology
+TO: filter (example: neighborhoods)
 TO: Borel construction (EG x X / G) : Example BG = classifying space
 
 -- Functional Analysis
+FA: unitalization
 FA: von Neumann algebra
 
 -- Order Theory ?
@@ -84,15 +97,18 @@ DAG: derived ring
 DAG: derived scheme / stack
 
 -- Algebraic Topology
-AT: Euler characteristic
+AT: Freudenthal suspension theorem
+AT: Euler characteristic (also one in HA)
 AT: Gysin sequence
 AT: Bockstein sequence
 AT/TO: equivariant cohomology (note that it is just the cohomology of the quotient stack [X/G])
 
-# Functional Analysis
+-- Functional Analysis
 FA: Fréchet topology (any Banach space, any Schwartz space) / Frechet space
 FA: Toeplitz algebra
 FA: Inequalities for FA (see Lp spaces)
+
+-- Linear algebra
 
 -- Number Theory
 NT: ring of integers
@@ -112,7 +128,7 @@ NT: Dirichlet unit theorem
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 
 -- Uncategorized
-- Bott periodicity
+- Bott periodicity ("defining K_i(A) as the K_0(suspension^i A), the long exact sequence collapses to a hexagon")
 - Thom isomorphism (Thom class)
 - Modular form
 - Proofs of theorems

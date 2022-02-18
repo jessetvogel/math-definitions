@@ -342,6 +342,16 @@
     \[ {\Gamma^k}_{ij} = \frac{1}{2} g^{k \ell} \left(\frac{\partial g_{\ell i}}{\partial x^j} + \frac{\partial g_{\ell j}}{\partial x^i} - \frac{\partial g_{ij}}{\partial x^\ell} \right) . \]
 \end{topic}
 
+\begin{example}{christoffel-symbols}
+    Consider the upper-plane Poincaré model
+    \[ \mathbb{H}^2 = \{ (x, y) \in \RR^2 \;|\; y > 0 \}  \]
+    with metric $g(x, y) = (dx^2 + dy^2) / y^2$. Then a straightforward computation shows that
+    \[ \begin{array}{cccc}
+        \Gamma_{xx}^x = 0, & \Gamma_{xx}^y = 1/y, & \Gamma_{xy}^x = -1/y, & \Gamma_{xy}^y = 0, \\
+        \Gamma_{yx}^x = -1/y, & \Gamma_{yx}^y = 0, & \Gamma_{yy}^x = 0, & \Gamma_{yy}^y = -1/y .
+    \end{array} \]
+\end{example}
+
 \begin{topic}{parallel-transport}{parallel transport}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}, and $E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with \tref{connection}{connection} $\nabla$. A section $s : M \to E$ is called \textbf{parallel} if $\nabla s = 0$.
     
@@ -411,8 +421,6 @@
     \[ \frac{d^2 x^k}{d t^2} + {\Gamma^k}_{ij} \frac{dx^i}{dt} \frac{dx^j}{dt} = 0 , \]
     where ${\Gamma^k}_{ij}$ denote the \tref{christoffel-symbols}{Christoffel symbols}.
 \end{example}
-
-% ---
 
 \begin{topic}{de-rham-isomorphism}{de Rham isomorphism}
     The \textbf{de Rham isomorphism} is the isomorphism given by
@@ -507,7 +515,7 @@
 \end{topic}
 
 \begin{topic}{higgs-bundle}{Higgs bundle}
-    Let $M$ be a complex manifold. A \textbf{Higgs bundle} on $M$ is a holomorphic vector bundle $E$ on $M$ together with a section $\phi \in \Omega^1(M; \text{End}(E))$, called the \textbf{Higgs field}, satisfying $\phi \wedge \phi = 0$.
+    Let $M$ be a \tref{complex-manifold}{complex manifold}. A \textbf{Higgs bundle} on $M$ is a holomorphic \tref{vector-bundle}{vector bundle} $E$ on $M$ together with a section $\phi \in \Omega^1(M; \text{End}(E))$, called the \textbf{Higgs field}, satisfying $\phi \wedge \phi = 0$.
 \end{topic}
 
 \begin{topic}{frame-bundle}{(tangent) frame bundle}
@@ -552,7 +560,7 @@
 \end{topic}
 
 \begin{topic}{riemann-surface}{Riemann surface}
-    A \textbf{Riemann surface} is a \tref{TO:connected-space}{connected} complex manifold of complex dimension one.
+    A \textbf{Riemann surface} is a \tref{TO:connected-space}{connected} \tref{complex-manifold}{complex manifold} of complex dimension one.
 \end{topic}
 
 \begin{topic}{volume-form}{volume form}
@@ -679,7 +687,7 @@
 \end{topic}
 
 \begin{topic}{dolbeault-operators}{Dolbeault operators}
-    Let $M$ be a complex manifold. The space $\Omega^{p, q}(M)$ of $(p, q)$-forms is defined by
+    Let $M$ be a \tref{complex-manifold}{complex manifold}. The space $\Omega^{p, q}(M)$ of $(p, q)$-forms is defined by
     \[ \Omega_X^{p, q} = \underbrace{\Omega^{1,0}(M) \wedge \cdots \wedge \Omega^{1,0}(M)}_{\text{$p$ times}} \;\; \wedge \;\; \underbrace{\Omega^{0,1}(M) \wedge \cdots \wedge \Omega^{0,1}(M)}_{\text{$q$ times}} , \]
     where
     \[ \Omega^{1,0}(M) = \left\{ \textstyle\sum_{i = 1}^{n} f_i dz^i \right\} \quad \textup{and} \quad \Omega^{0,1}(M) = \left\{ \textstyle\sum_{i = 1}^{n} g_i d \overline{z}^i \right\} , \]
@@ -894,3 +902,18 @@
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}, $G$ a \tref{lie-group}{Lie group}, and $P \to M$ a \tref{TO:principal-bundle}{principal $G$-bundle} over $M$. The \textbf{adjoint bundle} of $P$ is the \tref{TO:associated-bundle}{associated bundle} to $P$ of the \tref{adjoint-representation}{adjoint representation} $\textup{Ad} : G \to \mathfrak{g}$.
     \[ P \times_G \mathfrak{g} \to M . \]
 \end{topic}
+
+\begin{topic}{einstein-manifold}{Einstein manifold}
+    An \textbf{Einstein manifold} is a \tref{riemannian-manifold}{Riemannian manifold} $(M, g)$ whose \tref{ricci-curvature}{Ricci curvature} is proportional to the metric $g$, that is,
+    \[ \textup{Ric} = kg , \]
+    for some constant $k$.
+\end{topic}
+
+\begin{example}{einstein-manifold}
+    In general relativity, Einstein's equation with a cosmological constant $\Lambda$ is given by
+    \[ \textup{Ric} - \frac{1}{2} g R + g \Lambda = \kappa T ,
+    \]
+    where $R$ is the \tref{scalar-curvature}{scalar curvature}, $T$ the stress-energy tensor, and $\kappa = \frac{8 \pi G}{c^4}$ the gravitational constant. In particular, in a vacuum we obtain $T = 0$ and
+    \[ \textup{Ric} = \frac{2 \Lambda}{\dim(M) - 2} g . \]
+    Hence, the vacuum solutions of Einstein's equation are Einstein manifolds.
+\end{example}

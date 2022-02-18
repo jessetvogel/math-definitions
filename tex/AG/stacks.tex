@@ -11,5 +11,24 @@
 \end{topic}
 
 \begin{topic}{quotient-stack}{quotient stack}
-    If $G$ is an \tref{algebraic-group}{algebraic group} acting on a \tref{scheme}{scheme} $S$, the \textbf{quotient stack} $[S/G]$ is defined as the \tref{category}{category} over $\textbf{Sch}$ whose objects over $T$ are principal $G$-bundles $P \to T$, with a $G$-equivariant morphism $P \to S$. Its morphisms are $G$-equivariant isomorphisms which are compatible with the morphisms to $S$.
+    If $G$ is an \tref{algebraic-group}{algebraic group} acting on a \tref{scheme}{scheme} $S$, the \textbf{quotient stack} $[S/G]$ is defined as the \tref{CT:category}{category} over $\textbf{Sch}$ whose objects over $T$ are principal $G$-bundles $P \to T$, with a $G$-equivariant morphism $P \to S$. Its morphisms are $G$-equivariant isomorphisms which are compatible with the morphisms to $S$.
+\end{topic}
+
+\begin{topic}{motivic-hall-algebra}{motivic Hall algebra}
+    Let $M$ be a \tref{smooth-morphism}{smooth} \tref{projective-variety}{projective variety} over a field $k$, and $\mathcal{A} = \textup{Coh}(M)$ the \tref{HA:abelian-category}{abelian category} of \tref{coherent-sheaf}{coherent sheaves} on $M$. Let $\mathcal{M}^{(n)}$ denote the moduli \tref{stack}{stack} of $n$-flags of coherent sheaves on $M$. That is, for a scheme $S$, the $S$-objects of $\mathcal{M}^{(n)}$ are chains of monomorphisms of coherent sheaves on $S \times M$ of the form
+    \[ 0 \to E_0 \hookrightarrow E_1 \hookrightarrow \cdots \hookrightarrow E_n = E , \]
+    such that each $E_i/E_{i - 1}$ is $S$-flat, so in particular each $E_i$ is $S$-flat. For such chains $(E_i)_i$ and $(F_i)_i$ over schemes $S$ and $T$, respectively, a morphism over $f : T \to S$ is a family of isomorphisms
+    \[ \theta_i : f^*(E_i) \xrightarrow{\sim} F_i \]
+    such that each diagram
+    \[ \begin{tikzcd} f^*(E_i) \arrow[swap]{d}{\theta_i} \arrow{r} & f^*(E_{i + 1}) \arrow{d}{\theta_{i + 1}} \\ F_i \arrow{r} & F_{i + 1} \end{tikzcd} \]
+    commutes.
+    There are morphisms of stacks
+    \[ \begin{aligned}
+        a_i &: \mathcal{M}^{(n)} \to \mathcal{M}^{(1)}, \quad (E_i)_i \mapsto E_i/E_{i - 1} \quad \textup{ for } 1 \le i \le n , \\
+        b &: \mathcal{M}^{(n)} \to \mathcal{M}^{(1)}, \quad (E_i)_i \mapsto E_n .
+    \end{aligned} \]
+    The \textbf{motivic Hall algebra} of $\mathcal{A}$ is the $\textup{K}(\textup{St}/k)$-algebra given by the Grothendieck group of stacks over $\mathcal{M}$,
+    \[ \textup{H}(\mathcal{A}) = \textup{K}(\textup{St}/\mathcal{M}) , \]
+    where multiplication given by
+    \[ m = b_* \circ (a_1, a_2)^* : \textup{H}(\mathcal{A}) \otimes \textup{H}(\mathcal{A}) \to \textup{H}(\mathcal{A}) . \]
 \end{topic}

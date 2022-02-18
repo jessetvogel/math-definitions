@@ -408,14 +408,6 @@
     A pointed \tref{TO:topological-space}{topological space} $X$ with basepoint $x_0$ is \textbf{well-pointed} if the inclusion $\{ x_0 \} \to X$ is a \tref{cofibration}{cofibration}.
 \end{topic}
 
-\begin{topic}{spectrum}{spectrum}
-    A \textbf{spectrum} is a sequence of pointed \tref{TO:topological-space}{topological spaces} $E = (E_n)_{n \ge 0}$ equipped with \tref{weak-homotopy-equivalence}{weak homotopy equivalences} $E_n \xrightarrow{\sim} \Omega E_{n + 1}$, where $\Omega E_{n + 1}$ denotes the \tref{loop-space}{loop space} of $E_{n + 1}$.
-\end{topic}
-
-\begin{example}{spectrum}
-    For a fixed \tref{GT:abelian-group}{abelian group} $G$, the sequence $E_n = K(G, n)$ of \tref{eilenberg-maclane-space}{Eilenberg--MacLane spaces} defines a spectrum.
-\end{example}
-
 \begin{topic}{hurewicz-homomorphism}{Hurewicz homomorphism}
     Let $X$ be a pointed \tref{TO:topological-space}{topological space}, $n \ge 1$ an integer, and $\iota_n \in H_n(S^n) \simeq \ZZ$ a generator. Then the \textbf{Hurewicz homomorphism} is the \tref{GT:group-homomorphism}{group homomorphism}
     \[ \pi_n(X) \to H_n(X), \quad [f] \mapsto f_* \iota_n . \]
@@ -519,4 +511,20 @@
         \item Let $A$ be an associative algebra, then $\int_{S^1} A \simeq HH_\bdot(A)$, the \tref{AA:hochschild-homology}{Hochschild homology} of $A$. Indeed, from $S^1 = D^1 \sqcup_{D^1 \times S^0} D^1$ follows that
         \[ \int_{S^1} A \simeq \int_{D^1} A \mathbin{\mathop{\overset{\textup{L}}{\otimes}}\limits_{\int_{D^1 \times S^0} A}} \int_{D^1} A \simeq A \mathbin{\mathop{\overset{\textup{L}}{\otimes}}\limits_{A \otimes A^\textup{op}}} A \simeq \textup{Tor}^{A^\textup{e}}_*(A, A) \simeq HH_\bdot(A) . \]
     \end{itemize}    
+\end{example}
+
+\begin{topic}{spectrum}{spectrum}
+    A \textbf{spectrum} is a sequence $E = (E_n)_{n \ge 0}$ of pointed spaces (sometimes taken to be \tref{cw-complex}{CW-complexes}), together with maps $\Sigma E_n \to E_{n + 1}$, where $\Sigma$ denotes the \tref{TO:suspension}{reduced suspension}.
+\end{topic}
+
+% \begin{topic}{spectrum}{spectrum}
+%     A \textbf{spectrum} is a sequence of pointed \tref{TO:topological-space}{topological spaces} $E = (E_n)_{n \ge 0}$ equipped with \tref{weak-homotopy-equivalence}{weak homotopy equivalences} $E_n \xrightarrow{\sim} \Omega E_{n + 1}$, where $\Omega E_{n + 1}$ denotes the \tref{loop-space}{loop space} of $E_{n + 1}$.
+% \end{topic}
+
+\begin{example}{spectrum}
+    \begin{itemize}
+        \item For any pointed topological space $X$, its \textit{suspension spectrum} $\Sigma^\infty X$ is the spectrum where $(\Sigma^\infty X)_n = \Sigma^n X$ is the $n$-fold reduced suspension of $X$, together with the identity maps
+        \[ \Sigma \Sigma^n X \to \Sigma^{n + 1} X . \]
+        \item For a fixed \tref{GT:abelian-group}{abelian group} $G$, the sequence $E_n = K(G, n)$ of \tref{eilenberg-maclane-space}{Eilenberg--MacLane spaces} defines a spectrum.
+    \end{itemize}
 \end{example}

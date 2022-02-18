@@ -1,5 +1,5 @@
 \begin{topic}{ring}{ring}
-    A \textbf{ring} is an abelian group $R$ with an operation called multiplication and an element $1 \in R$ satisfying
+    A \textbf{ring} is an \tref{GT:abelian-group}{abelian group} $R$ with an operation called multiplication and an element $1 \in R$ satisfying
     \begin{itemize}
         \item (\textit{associativity}) $a(bc) = (ab)c$,
         \item (\textit{distributivity}) $a(b + c) = ab + ac$ and $(a + b)c = ac + bc$,
@@ -459,7 +459,7 @@
 \end{example}
 
 \begin{topic}{hilbert-polynomial}{Hilbert polynomial}
-    Let $S = \bigoplus_{i \ge 0} S_i$ be a finitely generated graded commutative algebra over a field $k$, with $S_0 = k$. The Hilbert function
+    Let $S = \bigoplus_{i \ge 0} S_i$ be a \tref{finitely-generated-algebra}{finitely generated} graded commutative \tref{algebra}{algebra} over a \tref{field}{field} $k$, with $S_0 = k$. The \textit{Hilbert function}
     \[ i \mapsto \dim_k S_i \]
     becomes polynomial for large enough values of $i$, and the resulting polynomial is called the \textbf{Hilbert polynomial} $\text{HP}_S(i)$ of $S$.
 \end{topic}
@@ -480,8 +480,8 @@
     A \tref{ring}{commutative ring} $R$ is called \textbf{absolutely flat} if every $R$-module is \tref{flat-module}{flat}.
 \end{topic}
 
-\begin{topic}{standard-smooth}{standard smooth}
-    Let $A$ be \tref{ring}{commutative ring}, and $B = A[x_1, \ldots, x_n] / (f_1, \ldots, f_c)$ a finitely presented $A$-algebra. Then $B$ is a \textbf{standard smooth} over $A$ if the determinant
+\begin{topic}{standard-smooth-algebra}{standard smooth algebra}
+    Let $A$ be \tref{ring}{commutative ring}, and $B = A[x_1, \ldots, x_n] / (f_1, \ldots, f_c)$ a \tref{finitely-presented-algebra}{finitely presented $A$-algebra}. Then $B$ is a \textbf{standard smooth} over $A$ if the determinant
     \[ \det \begin{pmatrix}
         \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_c} \\
         \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_c} \\ 
@@ -491,7 +491,7 @@
     maps to an invertible element in $B$. Note that this definition is dependent on the presentation of $B$.
 \end{topic}
 
-\begin{example}{standard-smooth}
+\begin{example}{standard-smooth-algebra}
     Take $A = k$ a field and $B = k[x, y] / (xy)$. Then $\partial (xy) / \partial x = y$ which is not invertible in $B$, so $k[x, y] / (xy)$ is not standard smooth over $k$.
     
     Taking $C = k[x, y] / (xy - 1)$, we see that $\partial (xy - 1) / \partial x = y$, which is invertible in $C$. Hence $k[x, y] / (xy - 1)$ is standard smooth over $k$.
@@ -677,7 +677,7 @@
 \end{topic}
 
 \begin{topic}{associated-graded-ring}{associated graded ring}
-    The \textbf{associated graded ring} of a \tref{ring}{commutative-ring} $R$ and an \tref{ideal}{ideal} $\mathfrak{a}$ is the \tref{graded-ring}{graded ring}
+    The \textbf{associated graded ring} of a \tref{ring}{commutative ring} $R$ and an \tref{ideal}{ideal} $\mathfrak{a}$ is the \tref{graded-ring}{graded ring}
     \[ G_\mathfrak{a}(R) = \bigoplus_{n = 0}^{\infty} \mathfrak{a}^n / \mathfrak{a}^{n + 1} . \]
 \end{topic}
 
@@ -1005,3 +1005,51 @@
     \[ \sum_{i = 1}^{n} \alpha_i = - a_{n - 1} \quad \textup{ and } \quad \prod_{i = 1}^{n} \alpha_i = (-1)^n a_0 . \]
     As another example, the \tref{NT:discriminant}{discriminant} $\Delta(f) = \prod_{1 \le i < j \le n} (\alpha_i - \alpha_j)$ of $f$ is symmetric, so it can be expressed in terms of the coefficients of $f$.
 \end{example}
+
+\begin{topic}{ore-extension}{Ore extension}
+    Let $R$ be a \tref{ring}{ring}. Given an endomorphism $\sigma : R \to R$, a \textit{$\sigma$-derivation} is a group morphism $\delta : R \to R$ satisfying
+    \[ \delta(rs) = \delta(r) s + \sigma(r) \delta(s) , \quad \textup { for all } r, s \in R . \]
+    The \textbf{Ore extension} $R[x; \sigma, \delta]$ is the (noncommutative) ring $R[x]$, whose multiplication is determined by
+    \[ xr = \sigma(r) x + \delta(r), \quad \textup{ for all } r \in R . \]
+\end{topic}
+
+\begin{example}{ore-extension}
+    Let $R$ be the polynomial ring $k[x]$, with $\sigma : R \to R$ given by $x \mapsto qx$ for some $q \in k$, and $\delta = 0$. Then, the Ore extension $R[y; \sigma, \delta]$ is the quotient of the free algebra $k \langle x, y \rangle$ by the relation $yx - qxy = 0$, also known as the \textit{quantum plane}
+    \[ k \langle x, y \rangle / (yx - qxy) . \]
+\end{example}
+
+\begin{example}{ore-extension}
+    Let $R$ be the polynomial ring $k[x]$, with $\sigma : R \to R$ the identity, and $\delta : R \to R$ given by $f \mapsto \frac{\partial f}{\partial x}$. Then, the Ore extension $R[p; \sigma, \delta]$ is the quotient of the free algebra $k \langle x, p \rangle$ by the relation $xp - px + 1 = 0$,
+    \[ k \langle x, y \rangle / (xp - px + 1) . \]
+    that is, a \tref{weyl-algebra}{Weyl algebra}.
+\end{example}
+
+\begin{topic}{divided-power-structure}{divided power structure}
+    Let $R$ be a \tref{ring}{commutative ring} and $I \subset R$ an \tref{ideal}{ideal}. A \textbf{divided power structure} on $I$ is a sequence of maps $\delta_n : I \to A$ for $n \ge 0$, satisfying
+    \begin{itemize}
+        \item $\delta_0(x) = 1$ and $\delta_1(x) = x$ and $\delta_n(x) \in I$ for all $x \in I$ and $n > 0$,
+        \item $\delta_n(x + y) = \sum_{i = 0}^{n} \delta_{n - i}(x) \delta_i(y)$ for all $x, y \in I$,
+        \item $\delta_n(a x) = a^n \delta_n(x)$ for all $a \in R$ and $x \in I$,
+        \item $\delta_m(x) \delta_n(x) = \frac{(m + n)!}{m! n!} \delta_{m + n}(x)$ for all $x \in I$ and $m, n \ge 0$,
+        \item $\delta_n(\delta_m(x)) = \frac{(mn)!}{(m!)^n n!} \delta_{mn}(x)$ for all $x \in I$ and $m > 0$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{divided-power-structure}
+    \begin{itemize}
+        \item For an $\QQ$-algebra $A$, every ideal $I$ has a unique divided power structure with $\delta_n(x) = \frac{x^n}{n!}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{lambda-structure}{lambda structure}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{$\lambda$-structure} on $R$ is a sequence of maps $\lambda^n : R \to R$ for $n \ge 0$, satisfying
+    \begin{itemize}
+        \item $\lambda^0(r) = 1$ for all $r \in R$,
+        \item $\lambda^1(r) = r$ for all $r \in R$,
+        \item $\lambda^n(1) = 0$ for all $n > 1$,
+        \item $\lambda^{n}(rs) = \sum_{k = 0}^{n} \lambda^k(r) \lambda^{n - k}(s)$ for all $r, s \in R$,
+        \item $\lambda^n(rs) = P_n(\lambda^1(r), \ldots, \lambda^n(r), \lambda^1(s), \ldots,  \lambda^n(s))$ for all $r, s \in R$,
+        \item $\lambda^m(\lambda^n(r)) = P_{m, n}(\lambda^1(r), \ldots, \lambda^{mn}(r))$ for all $r \in R$,
+    \end{itemize}
+    where $P_n$ and $P_{m, n}$ are certain universal polynomials with integer coefficients.
+\end{topic}
