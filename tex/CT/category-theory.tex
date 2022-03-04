@@ -53,11 +53,11 @@
 \end{topic}
 
 \begin{topic}{terminal-object}{terminal object}
-    An object $X$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{terminal} if for any object $Y$ there is exactly one morphism $Y \to X$. Any two terminal objects are isomorphic.
+    An object $1$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{terminal} if for any object $X$ there is exactly one morphism $X \to 1$. Any two terminal objects are isomorphic.
 \end{topic}
 
 \begin{topic}{initial-object}{initial object}
-    An object $X$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{initial} if for any object $Y$ there is exactly one morphism $X \to Y$. Any two initial objects are isomorphic.
+    An object $0$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{initial} if for any object $X$ there is exactly one morphism $0 \to X$. Any two initial objects are isomorphic.
 \end{topic}
 
 \begin{topic}{full-functor}{full functor}
@@ -893,3 +893,13 @@
     Let $\mathcal{D}$ be a \tref{small-category}{locally small} and \tref{complete-category}{complete} \tref{category}{category}. The \textbf{adjoint functor theorem} states that a \tref{functor}{functor} $G : \mathcal{D} \to \mathcal{C}$ has a \tref{adjunction}{left adjoint} if and only if it preserves all \tref{limit}{limits} and satisfies the \textit{solution set condition}:
     for every object $C$ of $\mathcal{C}$, there exist objects $D_i$ in $\mathcal{D}$ and morphisms $f_i : C \to G(D_i)$ in $\mathcal{C}$, indexed by a set $I$, such that every morphism $h : C \to G(D)$ factors as $h = G(t) \circ f_i$ for some $t : D_i \to D$.
 \end{topic}
+
+\begin{topic}{natural-numbers-object}{natural numbers object}
+    Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{terminal-object}{terminal object} $1$. A \textbf{natural numbers object} in $\mathcal{C}$ is a triple $(N, 0, S)$, where $N$ is an object of $\mathcal{C}$ and $1 \xrightarrow{0} N$ and $N \xrightarrow{S} N$ morphisms, such that for any other such triple $(N', 0', S')$, there is a unique map $\phi : N \to N'$ for which
+    \[ \begin{tikzcd} 1 \arrow{r}{0} \arrow[swap]{rd}{0'} & N \arrow{d}{\phi} \arrow{r}{S} & N' \arrow{d}{\phi} \\ & N' \arrow{r}{S'} & N' \end{tikzcd} \]
+    commutes.
+\end{topic}
+
+\begin{example}{natural-numbers-object}
+    For $\mathcal{C} = \textbf{Set}$, the triple $(\NN, 0, S)$ with $S(n) = n + 1$ is a natural numbers object. Indeed, for any other triple $(N', 0', S')$, the map $\phi : \NN \to N'$ is uniquely determined by $\phi(n) = (S')^n(0')$.
+\end{example}

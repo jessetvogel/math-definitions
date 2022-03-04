@@ -917,3 +917,24 @@
     \[ \textup{Ric} = \frac{2 \Lambda}{\dim(M) - 2} g . \]
     Hence, the vacuum solutions of Einstein's equation are Einstein manifolds.
 \end{example}
+
+\begin{topic}{yang-mills-theory}{Yang--Mills theory}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{pseudo-Riemannian manifold}, $G$ a \tref{lie-group}{Lie group} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$, and $\pi : P \to M$ a \tref{TO:principal-bundle}{principal $G$-bundle} on $M$.
+    
+    A \tref{connection}{connection} $\nabla$ on $P$ is a \textbf{Yang--Mills field} if the \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(P \times_G \mathfrak{g})$, a $2$-form with values in the \tref{adjoint-bundle}{adjoint bundle}, satisfies the \textbf{Yang--Mills equations}
+    \[ \nabla F_\nabla = 0 \quad \textup{ and } \quad \star \nabla \star F = J , \]
+    where $J \in \Omega^1(P \times_G \mathfrak{g})$ is a \textit{current}, and $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}. Note that the first equation is the \tref{bianchi-identity}{Bianchi identity}, which is always satisfied.
+\end{topic}
+
+% \begin{example}{yang-mills-theory}
+%     Let $M = \RR^4$ with the Minkowski metric $\eta = (-1, 1, 1, 1)$, and take $G = U(1)$ with $\mathfrak{g} = i\RR$, and $P = G \times M$. A connection $\nabla$ can be written as
+%     \[ \nabla = d + A \]
+%     with $A \in \Omega^1(\mathfrak{g} \times M) \simeq \Omega^1(M)$.
+    
+%     Since $U(1)$ is abelian, we get
+%     \[ F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu . \]
+    
+%     The Yang--Mills equation reduce to
+    
+%     Also known as \textit{Maxwell's equations}.
+% \end{example}

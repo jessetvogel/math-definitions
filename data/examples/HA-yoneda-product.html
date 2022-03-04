@@ -3,4 +3,8 @@
 Similarly, for <span class="math inline">\(n = 1\)</span> and <span class="math inline">\(m = 0\)</span>, the product of <span class="math inline">\(0 \to B \to E_0 \to A \to 0\)</span> in <span class="math inline">\(\text{Ext}^1(A, B)\)</span> and <span class="math inline">\(g : B \to C\)</span> in <span class="math inline">\(\text{Ext}^0(B, C) = \Hom(B, C)\)</span> is the <i>pushout</i>
 <span class="math display">\[ 0 \to C \to C \oplus_B E_0 \to A \to 0 . \]</span>
 It is not hard to verify these sequences are indeed exact. 
+</div><div class="example">In terms of the <a href="#HA:derived-category">derived category</a> <span class="math inline">\(\textbf{D}(\mathcal{A})\)</span>, the Yoneda product can easily be described. From the isomorphism
+<span class="math display">\[ \textup{Ext}^i_\mathcal{A}(A, B) \simeq \Hom_{\textbf{D}(\mathcal{A})}(A, B[i]), \]</span>
+we find that the Yoneda product is simply given by composition in the derived category
+<span class="math display">\[ \Hom_{\textbf{D}(\mathcal{A})}(B, C[i]) \otimes \Hom_{\textbf{D}(\mathcal{A})}(A, B[j]) \to \Hom_{\textbf{D}(\mathcal{A})}(A, C[i + j]), \quad f \otimes g \mapsto f[j] \circ g . \]</span>
 </div>

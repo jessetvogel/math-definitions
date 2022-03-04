@@ -1,9 +1,9 @@
-The <b>Yoneda product</b> is the pairing between <a href="#HA:ext-functors">Ext groups</a>
-<span class="math display">\[ \text{Ext}^n(A, B) \otimes \text{Ext}^m(B, C) \to \text{Ext}^{m + n}(A, C) \]</span>
-induced by <span class="math inline">\(\Hom(A, B) \otimes \Hom(B, C) \to \Hom(A, C)\)</span>, <span class="math inline">\(f \otimes g \mapsto g \circ f\)</span>.<br/>
-Explicitly, given two extensions
+Let <span class="math inline">\(\mathcal{A}\)</span> be an <a href="#HA:abelian-category">abelian category</a> with <a href="#HA:enough-injectives">enough injectives</a>. The <b>Yoneda product</b> is the pairing between <a href="#HA:ext-functors">Ext groups</a>
+<span class="math display">\[ \text{Ext}_\mathcal{A}^m(B, C) \otimes \text{Ext}_\mathcal{A}^n(A, B) \to \text{Ext}_\mathcal{A}^{m + n}(A, C) \]</span>
+induced by <span class="math inline">\(\Hom_\mathcal{A}(B, C) \otimes \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{A}(A, C)\)</span>, <span class="math inline">\(f \otimes g \mapsto f \circ g\)</span>.<br/>
+In terms of extensions
 <span class="math display">\[ \xi : 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]</span>
 <span class="math display">\[ \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to B \to 0 \]</span>
 the Yoneda cup product is given by
 <span class="math display">\[ \xi \smile \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]</span>
-in <span class="math inline">\(\text{Ext}^{m + n}(A, C)\)</span>.
+in <span class="math inline">\(\text{Ext}_\mathcal{A}^{m + n}(A, C)\)</span>.

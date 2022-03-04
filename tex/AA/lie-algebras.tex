@@ -535,3 +535,27 @@
     \[ d \xi + \frac{1}{2} [\xi, \xi] = 0 , \]
     that is, $\xi$ must satisfy the Maurer--Cartan equation.
 \end{example}
+
+\begin{example}{maurer-cartan-equation}
+    Let $A$ be a commutative $k$-algebra, and consider the notion of a \textit{star product} on $A \llbracket \hbar \rrbracket$, that is, an associative product on $A \llbracket \hbar \rrbracket$ such that $a \star b \equiv ab \mod \hbar$. The claim is that star products are controlled by the \tref{hochschild-homology}{Hochschild cohomology} of $A$.
+    
+    Let us write $a \star b = ab + \sum_{k \ge 1} \hbar^k C_k(a, b)$, where $C_k$ are bilinear maps. By straightforward rewriting, the associativity condition
+    \[ (a \star b) \star c = a \star (b \star c) \]
+    in order $k$ is equivalent to
+    \[ \partial C_k = \sum_{\substack{r + s = k \\ r, s > 0}} C_r(C_s(a, b), c) - C_r(a, C_s(b, c)) , \]
+    for all $a, b, c \in A$.
+    
+    Now, define a dgla based on the (shifted) Hochschild cohomology
+    \[ \mathcal{C} = \bigoplus_{i \ge -1} \mathcal{C}^i, \quad \mathcal{C}^i = \Hom_k(A^{\otimes i + 1}, A) , \]
+    with differential $df = (-1)^{i + 1} \partial f$ for $f \in \mathcal{C}^i$ ($\partial$ being the Hochschild-differential), whose product is given by
+    \[ (f \circ g)(a_1, \ldots, a_{i + j - 1}) = \sum_{k = 1}^{i} (-1)^{j(k - 1)} f(a_1, \ldots, a_{k - 1}, g(a_k, \ldots, a_{k + j}), \ldots, a_{i + j - 1}) , \] for all $f \in \mathcal{C}^i$ and $g \in \mathcal{C}^j$, and whose bracket is given by the \textit{Gerstenhaber bracket}
+    \[ [f, g] = f \circ g - (-1)^{ij} g \circ f \]
+    for all $f \in \mathcal{C}^i$ and $g \in \mathcal{C}^j$.
+    Then, for any $C = \sum_{k \ge 1} \hbar^k C_k \in \hbar \mathcal{C}^1 \llbracket \hbar \rrbracket$, we obtain
+    \[ dC = \sum_{k \ge 1} \hbar \partial C_k \]
+    and
+    \[ \frac{1}{2} [C, C] = \frac{1}{2} \left[ \sum_{k \ge 0} \hbar C_k, \sum_{k \ge 0} \hbar C_k \right] = \sum_{\substack{r + s = k \\ r, s > 0}} \hbar^k C_r(C_s(a, b), c) - C_r(a, C_s(b, c)) . \]
+    Therefore, $C$ is a solution to the Maurer--Cartan equation
+    \[ dC + \frac{1}{2}[C, C] = 0 \]
+    precisely if $a \star b = ab + \sum_{k \ge 1} \hbar^k C_k(a, b)$ is an associative star product.
+\end{example}

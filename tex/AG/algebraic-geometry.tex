@@ -661,7 +661,7 @@
 \end{topic}
 
 \begin{topic}{toric-variety}{toric variety}
-    A \textbf{toric variety} is a \tref{variety}{variety} $X$ containing an \tref{algebraic-torus}{algebraic torus} $T$ as an open dense subset, such that the action of $T$ on itself (by translation) extends to the whole of $X$.
+    A \textbf{toric variety} is a \tref{variety}{variety} $X$ together with an embedding of an \tref{algebraic-torus}{algebraic torus} $T \simeq \mathbb{G}_m^n$ into $X$ as an open dense subset, such that the action of $T$ on itself (by translation) extends to the whole of $X$.
 \end{topic}
 
 \begin{example}{toric-variety}
@@ -719,13 +719,13 @@
 \end{example}
 
 \begin{topic}{formal-completion}{formal completion}
-    Let $X$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $Y \subset X$ a \tref{closed-immersion}{closed subscheme}, defined by a \tref{sheaf-of-ideals}{sheaf of ideals} $\mathcal{I}$. The \textbf{formal completion} of $X$ along $Y$, denoted $(\hat{X}, \mathcal{O}_{\hat{X}})$, is the \tref{ringed-space}{locally ringed space} whose topological space $\hat{X}$ is $Y$, and $\mathcal{O}_{\hat{X}}$ is the \tref{CT:inverse-limit}{inverse limit} $\varprojlim_n \mathcal{O}_X / \mathcal{I}^n$.
+    Let $X$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $Y \subset X$ a \tref{closed-immersion}{closed subscheme}, defined by a \tref{sheaf-of-ideals}{sheaf of ideals} $\mathcal{I}$. The \textbf{formal completion} of $X$ along $Y$, denoted $(\hat{X}, \mathcal{O}_{\hat{X}})$, is the \tref{ringed-space}{locally ringed space} whose topological space $\hat{X}$ is the topological space of $Y$, and $\mathcal{O}_{\hat{X}}$ is the \tref{CT:inverse-limit}{inverse limit} $\varprojlim_n \mathcal{O}_X / \mathcal{I}^n$.
     
     When $X = \Spec R$ is an \tref{affine-scheme}{affine scheme} and $I \subset R$ an ideal, the formal completion is also known as the \textbf{formal spectrum} of $R$ along $I$, denoted $\text{Spf}(R)$.
 \end{topic}
 
 \begin{topic}{noetherian-formal-scheme}{noetherian formal scheme}
-    A \textbf{noetherian formal scheme} is a \tref{ringed-space}{locally ringed space} $(\mathfrak{X}, \mathcal{O}_\mathfrak{X})$, which has a finite open cover $\{ \mathfrak{U}_i \}$ such that for each $i$, the pair $(\mathfrak{U}_i, \mathcal{O}_\mathfrak{X}|_{\mathfrak{U}_i})$ is isomorphic to the \tref{formal-completion}{formal completion} of some noetherian scheme $X$ along a closed subscheme $Y \subset X$.
+    A \textbf{noetherian formal scheme} is a \tref{ringed-space}{locally ringed space} $(\mathfrak{X}, \mathcal{O}_\mathfrak{X})$, which has a finite open cover $\{ \mathfrak{U}_i \}$ such that for each $i$, the pair $(\mathfrak{U}_i, \mathcal{O}_\mathfrak{X}|_{\mathfrak{U}_i})$ is isomorphic to the \tref{formal-completion}{formal completion} of some \tref{noetherian-scheme}{noetherian scheme} $X$ along a closed subscheme $Y \subset X$.
 \end{topic}
 
 \begin{topic}{algebraic-space}{algebraic space}
@@ -950,12 +950,22 @@
 \end{example}
 
 \begin{topic}{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}
-    Let $S$ be a \tref{variety}{variety} over a field $k$. The \textbf{Grothendieck ring of varieties} over $S$, denoted $\text{K}(\textbf{Var}/S)$, is defined as the quotient of the \tref{GT:free-group}{free abelian group} on the isomorphism classes of varieties over $S$, by relations of the form
+    Let $S$ be a \tref{variety}{variety} over a field $k$. The \textbf{Grothendieck ring of varieties} over $S$, denoted $\textup{K}(\textbf{Var}/S)$, is defined as the quotient of the \tref{GT:free-group}{free abelian group} on the isomorphism classes of varieties over $S$, by relations of the form
     \[ [X] = [Z] + [U] , \]
     where $Z \subset X$ is a closed subvariety and $U = X \backslash Z$ its open complement. Multiplication is defined by
     \[ [X] \cdot [Y] = [(X \times_S Y)_\text{red}] \]
     and extended linearly.
 \end{topic}
+
+\begin{example}{grothendieck-ring-of-varieties}
+    Consider the variety $\textup{SL}_2 = \Spec k[a, b, c, d] / (ad - bc - 1)$ over a field $k$. Its class in $\textup{K}(\textbf{Var}/k)$ is given by
+    \[ \begin{array}{ccccc}
+        [\textup{SL}_2] & = & [\{ (a, b, c, d) \in \AA^4_k \;|\; a = 0, \; bc = -1 \}] & + & [\{ (a, b, c, d) \in \AA^4_k \;|\; a \ne 0, \; d = (1 + bc) / a \}] \\
+            & = & \mathbb{L} (\mathbb{L} - 1) & + & \mathbb{L}^2 (\mathbb{L} - 1) \\
+            & = & \mathbb{L}^3 - \mathbb{L} , &
+    \end{array} \]
+    where $\mathbb{L} = [\AA^1_k]$.
+\end{example}
 
 \begin{topic}{excellent-scheme}{(quasi-)excellent scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{(quasi-)excellent} if it has an affine open cover by schemes $\Spec R_i$ with $R_i$ an \tref{AA:excellent-ring}{(quasi-)excellent} ring.
@@ -1198,3 +1208,51 @@
     \[ \tau : F \Rightarrow \Hom_\textbf{Sch}(-, M) , \]
     which is universal among all such natural transformations.
 \end{topic}
+
+\begin{topic}{valuative-criterion}{valuative criterion}
+    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes} over a scheme $S$, and assume $f$ is \tref{finite-type}{of finite type} and \tref{separated-morphism}{quasi-separated}. The \textbf{valuative criterion} states that $f$ is \tref{proper-morphism}{proper} if and only if for every diagram
+    \[ \begin{tikzcd}
+        \Spec K \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec R \arrow[dashed]{ur} \arrow{r} & Y
+    \end{tikzcd} \]
+    where $R$ is a \tref{AA:valuation-ring}{valuation ring} and $K$ its \tref{AA:field-of-fractions}{field of fractions}, there exists a unique morphism $\Spec R \to X$ making the diagram commute. If $Y$ is \tref{noetherian-scheme}{locally noetherian}, it suffices to check the criterion for \tref{AA:discrete-valuation-ring}{discrete valuation rings} $R$.
+    
+    More precisely, the existence of the dashed arrow corresponds to $f$ being \tref{TO:universally-closed}{universally closed}, and the uniqueness corresponds to $f$ being \tref{separated-morphism}{separated}.
+\end{topic}
+
+\begin{example}{valuative-criterion}
+    The valuative criterion for properness can be used to show that the morphism $f : \AA^1_k \to \Spec k$ is not proper. Namely, take $R = k[t]_{(t)}$ with $K = k(t)$. Considering the diagram with $\AA^1_k \to \Spec K$ given by $k[x] \to k(t)$, $x \mapsto 1/t$, there does not exist a map $k[x] \to k[t]_{(t)}$ completing the diagram.
+\end{example}
+
+\begin{example}{valuative-criterion}
+    The valuative criterion for properness can be used to show that the morphism $f : \PP^n \to \Spec \ZZ$ is proper. It can be assumed that $R$ is a discrete valuation ring. A morphism $\Spec K \to \PP^n$ can be expressed in terms of homogeneous coordinates $(a_0 : a_1 : \ldots : a_n)$, with $a_i \in K$ not all zero. Let $a_\textup{min} = \min \{ a_i : 1 \le i \le n, a_i \ne 0 \}$ with respect to the valuation of $R$. Then the $R$-point of $\PP^n$ we are looking for is given by
+    \[ \left( \frac{a_0}{a_\textup{min}} : \frac{a_1}{a_\textup{min}} : \ldots : \frac{a_n}{a_\textup{min}} \right) . \]
+    Indeed, we have $\frac{a_i}{a_\textup{min}} \in R$ since the valuation is positive, and the coordinates do not vanish simultaneously, since in particular $\frac{a_\textup{min}}{a_\textup{min}} = 1$.
+    
+    Moreover, since being proper is stable under base change, this shows $\PP^n_X \to X$ is proper for all base schemes $X$.
+\end{example}
+
+\begin{topic}{git-fan}{GIT fan}
+    Let $G$ be a \tref{reductive-algebraic-group}{reductive algebraic group} acting on a \tref{normal-scheme}{normal} \tref{projective-variety}{projective variety}. In the context of \tref{projective-git-quotient}{GIT quotients}, there is no canonical choice of \tref{equivariant-sheaf}{$G$-linearized} \tref{invertible-sheaf}{invertible sheaf} $\mathcal{L}$ on $X$, and different choices yield different quotients. The GIT fan describes these variations.
+    
+    Let $\textup{NS}^G(X)$ be the \textit{$G$-Néron--Severi group}, $\textup{NS}^G(X)_\RR = \textup{NS}^G(X) \otimes \RR$, and $\textup{NS}^G(X)_\RR^+$ the convex cone generated by \tref{ample-invertible-sheaf}{ample} $G$-linearized invertible sheaves, and
+    \[ C^G(X) = \{ \ell \in \textup{NS}^G(X)_\RR^+ \;|\; X^\textup{ss}(\ell) \ne \varnothing \} \subset \textup{NS}^G(X)_\RR^+ \]
+    the cone of \textit{effective points}.
+    
+    Then, for all $\ell \in C^G(X)$, the subsets
+    \[ C(\ell) = \{ \ell' \in C^G(X) \;|\; X^\textup{ss}(\ell') = X^\textup{ss}(\ell) \} \]
+    are closed convex \tref{LA:polyhedral-cone}{rational polyhedral cones} in $C^G(X)$, and together they form a \tref{LA:fan}{fan} covering $C^G(X)$. This fan is called the \textbf{GIT fan} for the action of $G$ on $X$.
+\end{topic}
+
+\begin{topic}{relative-spectrum}{relative spectrum}
+    Let $S$ be a \tref{scheme}{scheme} and $\mathcal{A}$ a \tref{coherent-sheaf}{quasi-coherent} \tref{O-algebra}{sheaf of $\mathcal{O}_S$-algebras}. For any cover of $S$ by affine opens $\{ U_i \}$, the natural maps $\mathcal{O}_S(U_i) \to \mathcal{A}(U_i)$ induce morphisms $\pi_i : \Spec(\mathcal{A}(U_i)) \to U_i$, which glue together to a scheme
+    \[ \pi : \underline{\Spec}_S(\mathcal{A}) \to S , \]
+    called the \textbf{relative spectrum} of $\mathcal{A}$.
+\end{topic}
+
+\begin{topic}{spreading-out}{spreading-out}
+    Let $X$ be a \tref{variety}{variety} over $\CC$. A \textbf{spreading-out} of $X$ is a separated scheme $\tilde{X}$ over a \tref{AA:finitely-generated-algebra}{finitely generated $\ZZ$-algebra} $R$ with an embedding $R \to \CC$, such that $X \simeq \tilde{X} \times_R \CC$.
+\end{topic}
+
+\begin{example}{spreading-out}
+    Let $X \subset \AA^n_\CC$ be defined by polynomials $f_1, \ldots, f_r \in \CC[x_1, \ldots, x_n]$. Writing $f_i = \sum_{j, k} a_{ijk} x_j^k$, we see that a spreading out $\tilde{X}$ can be defined over $R = \ZZ[a_{ijk}]$ by the same polynomials $f_i$, from which it is clear that $X \simeq \tilde{X} \times_R \CC$.
+\end{example}

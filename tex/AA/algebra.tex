@@ -245,3 +245,15 @@
     \[ A \simeq R[x_1, \ldots, x_n] / (f_1, \ldots, f_k) \]
     for some $n, k \ge 0$ and $f_1, \ldots, f_k \in R[x_1, \ldots, x_n]$.
 \end{topic}
+
+\begin{topic}{gerstenhaber-algebra}{Gerstenhaber algebra}
+    A \textbf{Gerstenhaber algebra} is a \tref{graded-ring}{graded} \tref{algebra}{$k$-algebra} $A = \bigoplus_{n \in \ZZ} A^n$, equipped with a bilinear map $[-, -] : A \times A \to A$ of degree $-1$, such that
+    \begin{itemize}
+        \item (\textit{graded commutative}) $ab = (-1)^{\deg(a) \deg(b)} ba$ for all homogeneous $a, b \in A$,
+        \item (\textit{graded skew-symmetric}) $[a, b] = -(-1)^{(\deg(a) - 1)(\deg(b) - 1)} [b, a]$ for all homogeneous $a, b \in A$,
+        % \item (automatic?) $[a, a] = 0$ for all homogeneous $a \in A$ of odd degree,
+        % \item (automatic?) $[[a, a], a] = 0$ for all homogeneous $a \in A$ of even degree,
+        \item (\textit{graded Jacobi identity}) $[a, [b, c]] = [[a, b], c] + (-1)^{(\deg(a) - 1)(\deg(b) - 1)} [b, [a, c]]$ for all homogeneous $a, b, c \in A$,
+        \item (\textit{graded Poisson identity}) $[a, bc] = [a, b]c + (-1)^{(\deg(a) - 1) \deg(b)} b [a, c]$ for all homogeneous $a, b, c \in A$.
+    \end{itemize}
+\end{topic}

@@ -7,8 +7,12 @@
 
 ---- Theory ----
 
+Riemann--Hilbert correspondence
+Haar measure (examples: finite groups and U(1))
+
 -- General Mathematics
 GM: Newton polygon
+GM: Cantor's theorem
 
 -- Category Theory
 
@@ -16,7 +20,7 @@ GM: Newton polygon
 AA: reflection equation algebra / construct quantum group (as O_q(G))
 AA: two-sided bar construction
 AA: dual (Hopf) algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
-AA: Levi decomposition
+AA: Levi decomposition (Levi theorem, Levi subalgebra, https://link.springer.com/content/pdf/10.1007/978-3-642-74334-4_6.pdf)
 AA: semisimple Lie algebra: equivalent conditions
 AA: Manin triple (example: correspondence: f.d. Manin triple <=> f.d. Lie bialgebra)
 AA: Morita equivalence equivalent to M_n(R) = M_m(S) for some n, m ?
@@ -42,12 +46,11 @@ DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
 DG: orbifold
 DG: Finsler manifold
 DG: Atiyah-Bott symplectic form
-DG: Yang--Mills equations (preferably with some physics examples (EM U(1)))
+DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
-AG: GIT fan
-AG: formal spectrum
+AG: natural log structure on toric varieties
 AG: Etale fundamental group
 AG: Serre intersection formula
 AG: Brauer group of field parametrizes CSA's / (Morita) equivalence
@@ -128,7 +131,6 @@ NT: Dirichlet unit theorem
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 
 -- Uncategorized
-- Bott periodicity ("defining K_i(A) as the K_0(suspension^i A), the long exact sequence collapses to a hexagon")
 - Thom isomorphism (Thom class)
 - Modular form
 - Proofs of theorems

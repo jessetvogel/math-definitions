@@ -10,4 +10,23 @@ with differential and Lie bracket given by
 Indeed, from the decomposition <span class="math inline">\(A = k \oplus \mathfrak{m}\)</span> as vector spaces, we can write <span class="math inline">\(\partial^A = \partial + \xi\)</span> for some <span class="math inline">\(\xi \in \Hom_{-1}(V, V) \otimes_k \mathfrak{m}\)</span>. Now, in order for <span class="math inline">\((V \otimes_k A, \partial_A)\)</span> to be a chain complex, we must have <span class="math inline">\((\partial^A)^2 = (\partial + \xi)^2 = \partial^2 + \partial \xi + \xi \partial + \xi^2 = 0\)</span>, so
 <span class="math display">\[ d \xi + \frac{1}{2} [\xi, \xi] = 0 , \]</span>
 that is, <span class="math inline">\(\xi\)</span> must satisfy the Maurer–Cartan equation.
+</div><div class="example">Let <span class="math inline">\(A\)</span> be a commutative <span class="math inline">\(k\)</span>-algebra, and consider the notion of a <i>star product</i> on <span class="math inline">\(A \llbracket \hbar \rrbracket\)</span>, that is, an associative product on <span class="math inline">\(A \llbracket \hbar \rrbracket\)</span> such that <span class="math inline">\(a \star b \equiv ab \mod \hbar\)</span>. The claim is that star products are controlled by the <a href="#AA:hochschild-homology">Hochschild cohomology</a> of <span class="math inline">\(A\)</span>.<br/>
+Let us write <span class="math inline">\(a \star b = ab + \sum_{k \ge 1} \hbar^k C_k(a, b)\)</span>, where <span class="math inline">\(C_k\)</span> are bilinear maps. By straightforward rewriting, the associativity condition
+<span class="math display">\[ (a \star b) \star c = a \star (b \star c) \]</span>
+in order <span class="math inline">\(k\)</span> is equivalent to
+<span class="math display">\[ \partial C_k = \sum_{\substack{r + s = k \\ r, s > 0}} C_r(C_s(a, b), c) - C_r(a, C_s(b, c)) , \]</span>
+for all <span class="math inline">\(a, b, c \in A\)</span>.<br/>
+Now, define a dgla based on the (shifted) Hochschild cohomology
+<span class="math display">\[ \mathcal{C} = \bigoplus_{i \ge -1} \mathcal{C}^i, \quad \mathcal{C}^i = \Hom_k(A^{\otimes i + 1}, A) , \]</span>
+with differential <span class="math inline">\(df = (-1)^{i + 1} \partial f\)</span> for <span class="math inline">\(f \in \mathcal{C}^i\)</span> (<span class="math inline">\(\partial\)</span> being the Hochschild-differential), whose product is given by
+<span class="math display">\[ (f \circ g)(a_1, \ldots, a_{i + j - 1}) = \sum_{k = 1}^{i} (-1)^{j(k - 1)} f(a_1, \ldots, a_{k - 1}, g(a_k, \ldots, a_{k + j}), \ldots, a_{i + j - 1}) , \]</span> for all <span class="math inline">\(f \in \mathcal{C}^i\)</span> and <span class="math inline">\(g \in \mathcal{C}^j\)</span>, and whose bracket is given by the <i>Gerstenhaber bracket</i>
+<span class="math display">\[ [f, g] = f \circ g - (-1)^{ij} g \circ f \]</span>
+for all <span class="math inline">\(f \in \mathcal{C}^i\)</span> and <span class="math inline">\(g \in \mathcal{C}^j\)</span>.
+Then, for any <span class="math inline">\(C = \sum_{k \ge 1} \hbar^k C_k \in \hbar \mathcal{C}^1 \llbracket \hbar \rrbracket\)</span>, we obtain
+<span class="math display">\[ dC = \sum_{k \ge 1} \hbar \partial C_k \]</span>
+and
+<span class="math display">\[ \frac{1}{2} [C, C] = \frac{1}{2} \left[ \sum_{k \ge 0} \hbar C_k, \sum_{k \ge 0} \hbar C_k \right] = \sum_{\substack{r + s = k \\ r, s > 0}} \hbar^k C_r(C_s(a, b), c) - C_r(a, C_s(b, c)) . \]</span>
+Therefore, <span class="math inline">\(C\)</span> is a solution to the Maurer–Cartan equation
+<span class="math display">\[ dC + \frac{1}{2}[C, C] = 0 \]</span>
+precisely if <span class="math inline">\(a \star b = ab + \sum_{k \ge 1} \hbar^k C_k(a, b)\)</span> is an associative star product.
 </div>

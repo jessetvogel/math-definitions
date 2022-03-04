@@ -16,7 +16,7 @@
     A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ over $\CC$ is \textbf{unitary} if $\rho(g)$ is unitary for all $g \in G$, that is $\rho(g)^\dagger \rho(g) = \rho(g) \rho(g)^\dagger = \id_V$.
 \end{topic}
 
-\begin{topic}{character}{character}
+\begin{topic}{character-representation}{character-representation}
     The \textbf{character} of a \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is the function
     \[ \chi_\rho : G \to k, \quad g \mapsto \textup{tr}(\rho(g)) . \]
     Note that $\chi_\rho$ is constant on conjugacy classes.
@@ -90,7 +90,7 @@
 \end{topic}
 
 \begin{topic}{first-orthogonality-theorem}{first orthogonality theorem}
-    Let $G$ be a finite \tref{GT:group}{group} and let $\rho_1 : G \to \textup{GL}(V)$ and $\rho_2 : G \to \textup{GL}(W)$ be two \tref{irreducible-representation}{irreducible representations} over $\CC$ with corresponding \tref{character}{characters} $\chi_1$ and $\chi_2$. Then the \textbf{first orthogonality theorem} states that
+    Let $G$ be a finite \tref{GT:group}{group} and let $\rho_1 : G \to \textup{GL}(V)$ and $\rho_2 : G \to \textup{GL}(W)$ be two \tref{irreducible-representation}{irreducible representations} over $\CC$ with corresponding \tref{character-representation}{characters} $\chi_1$ and $\chi_2$. Then the \textbf{first orthogonality theorem} states that
     \[ \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \overline{\chi_2(g)} = \left\{ \begin{array}{cl} 1 & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 , \end{array} \right. \]
     where $\simeq$ denotes \tref{equivalent-representations}{equivalence}.
 \end{topic}
@@ -114,3 +114,9 @@
     \[ \langle \chi_1, \chi_2 \rangle = \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) . \]
     The first orthogonality theorem now says that $\langle \chi, \chi \rangle = 1$ for any character $\chi$, and that inequivalent characters are orthogonal. In particular, two irreducible representations $\rho_1$ and $\rho_2$ are equivalent if and only if their characters are equal. Namely, if $\rho_1 \not\simeq \rho_2$, then $\langle \chi_1, \chi_2 \rangle = 0$, and since $\langle \chi_1, \chi_1 \rangle = 1$, we must have $\chi_1 \ne \chi_2$.
 \end{example}
+
+\begin{topic}{character-group}{character group}
+    Let $G$ be a \tref{GT:group}{group}, and $k$ a ground field. A \textbf{character} of a $G$ is a group homomorphism $\chi : G \to k^\times$, and the \textbf{character group} of $G$ is set of characters
+    \[ \Hom(G, k^\times) , \]
+    whose group structure is given by $(\chi_1 \chi_2)(g) = \chi_1(g) \chi_2(g)$.
+\end{topic}

@@ -485,3 +485,22 @@
     \[ \textup{PGL}_n(k) = \textup{GL}_n(k) / k^* , \]
     where $\textup{GL}_n(k)$ denotes the \tref{general-linear-group}{general linear group}, and $k^*$ the subgroup of all non-zero scalar matrices.
 \end{topic}
+
+\begin{topic}{perron-frobenius-theorem}{Perron--Frobenius theorem}
+    Let $A$ be an $n \times n$ matrix whose entries are positive real numbers. The \textbf{Perron--Frobenius theorem} states that
+    \begin{enumerate}[(i)]
+        \item $A$ has a positive real \tref{eigenvalue}{eigenvalue} $r$, called the \textit{Perron--Frobenius eigenvalue}, such that $r > |\lambda|$ for any other (possibly complex) eigenvalue $\lambda$ of $A$,
+        \item the \tref{algebraic-geometric-multiplicity}{algebraic multiplicity} of $r$ is $1$,
+        \item there exists an eigenvector $v = (v_1, \ldots, v_n)$ of $A$ with eigenvalue $r$ such that all components $v_i$ are positive.
+    \end{enumerate}
+\end{topic}
+
+\begin{topic}{spectral-radius}{spectral radius}
+    Let $A$ be an $n \times n$ real or complex matrix with eigenvalues $\lambda_1, \ldots, \lambda_n \in \CC$. The \textbf{spectral radius} of $A$ is 
+    \[ \rho(A) = \max \{ |\lambda_1|, \ldots, |\lambda_n| \} . \]
+\end{topic}
+
+\begin{topic}{steinitz-exchange-lemma}{Steinitz exchange lemma}
+    Let $V$ be a \tref{vector-space}{vector space} over a field $k$, and $S \subset V$ a subset. Then \textbf{Steinitz exchange lemma} states that, if $v \in \textup{span}(S)$ with $v \not\in \textup{span}(S \setminus \{ w \})$ for some $w \in S$, then
+    \[ \textup{span}(S) = \textup{span}((S \setminus \{ w \}) \cup \{ v \}) . \]
+\end{topic}

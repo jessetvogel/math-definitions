@@ -350,16 +350,16 @@
 \end{example}
 
 \begin{topic}{yoneda-product}{Yoneda product}
-    The \textbf{Yoneda product} is the pairing between \tref{ext-functors}{Ext groups}
-    \[ \text{Ext}^n(A, B) \otimes \text{Ext}^m(B, C) \to \text{Ext}^{m + n}(A, C) \]
-    induced by $\Hom(A, B) \otimes \Hom(B, C) \to \Hom(A, C)$, $f \otimes g \mapsto g \circ f$.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} with \tref{enough-injectives}{enough injectives}. The \textbf{Yoneda product} is the pairing between \tref{ext-functors}{Ext groups}
+    \[ \text{Ext}_\mathcal{A}^m(B, C) \otimes \text{Ext}_\mathcal{A}^n(A, B) \to \text{Ext}_\mathcal{A}^{m + n}(A, C) \]
+    induced by $\Hom_\mathcal{A}(B, C) \otimes \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{A}(A, C)$, $f \otimes g \mapsto f \circ g$.
     
-    Explicitly, given two extensions
+    In terms of extensions
     \[ \xi : 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
     \[ \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to B \to 0 \]
     the Yoneda cup product is given by
     \[ \xi \smile \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
-    in $\text{Ext}^{m + n}(A, C)$.
+    in $\text{Ext}_\mathcal{A}^{m + n}(A, C)$.
 \end{topic}
 
 \begin{example}{yoneda-product}
@@ -368,6 +368,13 @@
     Similarly, for $n = 1$ and $m = 0$, the product of $0 \to B \to E_0 \to A \to 0$ in $\text{Ext}^1(A, B)$ and $g : B \to C$ in $\text{Ext}^0(B, C) = \Hom(B, C)$ is the \textit{pushout}
     \[ 0 \to C \to C \oplus_B E_0 \to A \to 0 . \]
     It is not hard to verify these sequences are indeed exact. 
+\end{example}
+
+\begin{example}{yoneda-product}
+    In terms of the \tref{derived-category}{derived category} $\textbf{D}(\mathcal{A})$, the Yoneda product can easily be described. From the isomorphism
+    \[ \textup{Ext}^i_\mathcal{A}(A, B) \simeq \Hom_{\textbf{D}(\mathcal{A})}(A, B[i]), \]
+    we find that the Yoneda product is simply given by composition in the derived category
+    \[ \Hom_{\textbf{D}(\mathcal{A})}(B, C[i]) \otimes \Hom_{\textbf{D}(\mathcal{A})}(A, B[j]) \to \Hom_{\textbf{D}(\mathcal{A})}(A, C[i + j]), \quad f \otimes g \mapsto f[j] \circ g . \]
 \end{example}
 
 \begin{topic}{homological-dimension}{(global) homological dimension}
