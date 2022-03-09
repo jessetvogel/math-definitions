@@ -528,3 +528,17 @@
         \item For a fixed \tref{GT:abelian-group}{abelian group} $G$, the sequence $E_n = K(G, n)$ of \tref{eilenberg-maclane-space}{Eilenberg--MacLane spaces} defines a spectrum.
     \end{itemize}
 \end{example}
+
+\begin{topic}{euler-characteristic}{Euler characteristic}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. The \textbf{Euler characteristic} of $X$ is alternating sum of its \tref{betti-number}{Betti numbers},
+    \[ \chi(X) = \sum_{n \ge 0} (-1)^n \dim_\QQ H_n(X; \QQ) , \]
+    provided the sum is finite.
+\end{topic}
+
+\begin{example}{euler-characteristic}
+    \begin{itemize}
+        \item Since $H_i(S^n; \QQ)$ is non-trivial only for $i = 0$ and $i = n$, we find
+        \[ \chi(S^n) = \dim_\QQ H_0(S^n; \QQ) + (-1)^n \dim_\QQ H_n(S^n; \QQ) = 1 + (-1)^n = \left\{ \begin{array}{cl} 0 & \textup{ if $n$ odd}, \\ 2 & \textup{ if $n$ even}. \end{array} \right. \]
+        \item From the relation $\chi(X \times Y) = \chi(X) \chi(Y)$ follows that $\chi(\mathbb{T}^n) = 0$ for all tori $\mathbb{T}^n = (S^1)^n$.
+    \end{itemize}
+\end{example}

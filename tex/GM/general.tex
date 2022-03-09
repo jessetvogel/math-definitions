@@ -21,7 +21,7 @@
         \[ \sum_{n = 0}^{\infty} t^n = \frac{1}{1 - t} . \]
         \item The generating function of the linear sequence $0, 1, 2, 3, \ldots$ is
         \[ \sum_{n = 0}^{\infty} n t^{n} = t \cdot \frac{d}{dt} \sum_{n = 0}^{\infty} t^{n} = t \cdot \frac{d}{dt} \left( \frac{1}{1 - t} \right) = \frac{t}{(1 - t)^2} . \]
-        \item The generating function of 
+        % \item The generating function of 
     \end{itemize}
 \end{example}
 
@@ -50,3 +50,47 @@
         \mu(6) = 1, & \mu(7) = -1, & \mu(8) = 0, & \mu(9) = 0, & \mu(10) = 1, \ldots
     \end{array} \]
 \end{example}
+
+\begin{topic}{cantor-theorem}{Cantor's theorem}
+    \textbf{Cantor's theorem} states that the cardinality of a set $A$ is always strictly smaller than the cardinality of its power set $\mathcal{P}(A)$.
+\end{topic}
+
+\begin{example}{cantor-theorem}
+    \begin{proof}
+        The cardinality of $A$ is at most the cardinality of $\mathcal{P}(A)$ since $x \mapsto \{ x \}$ is an injection $A \to \mathcal{P}(A)$.
+        Conversely, suppose that there exists a surjective function $f : A \to \mathcal{P}(A)$, and let $B = \{ x \in A \;|\; x \not\in f(x) \}$. Then by surjectivity of $f$ there exists some $y \in A$ such that $f(y) = B$. But then $y \in B$ if and only if $y \not\in f(y) = B$, which is a contradiction. Therefore, the cardinality of $A$ is strictly smaller than that of $\mathcal{P}(A)$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{schur-function}{Schur function}
+    Let $n$ be a positive integer. Write $a_\alpha = \det(x_i^{\alpha_j})_{i, j = 1}^{n}$ for any sequence $\alpha = (\alpha_1, \ldots, \alpha_n)$. For any partition $\lambda = (\lambda_1, \ldots, \lambda_n)$ of length at most $n$, the \textbf{Schur polynomial} of $\lambda$ is the \tref{AA:symmetric-polynomial}{polynomial}
+    \[ s_\lambda = a_{\lambda + \delta} / a_\delta \in \ZZ[x_1, \ldots, x_n] , \]
+    where $\delta = (n - 1, n - 2, \ldots, 1, 0)$.
+    
+    In passing from $n$ to $n + 1$, it can be seen that $s_\lambda(x_1, x_2, \ldots, x_n, 0) = s_\lambda(x_1, x_2, \ldots, x_n)$. Hence, there is a uniquely defined element
+    \[ s_\lambda \in \Lambda := \bigoplus_{r \ge 0} \Lambda^r , \quad \textup{ where  } \Lambda^r = \varprojlim_n \ZZ[x_1, \ldots, x_n]_{(r)}^{S_n} , \]
+    called the \textbf{Schur function} of $\lambda$.
+\end{topic}
+
+\begin{example}{schur-function}
+    For $n = 3$, we have
+    \begin{itemize}
+        \item $s_{(0, 0, 0)} = 1$,
+        \item $s_{(1, 0, 0)} = x_1 + x_2 + x_3$,
+        \item $s_{(1, 1, 0)} = x_1 x_2 + x_1 x_3 + x_2 x_3$,
+        \item $s_{(1, 1, 1)} = x_1 x_2 x_3$,
+        \item $s_{(2, 0, 0)} = x_1^2 + x_1 x_2 + x_1 x_3 + x_2^2 + x_2 x_3 + x_3^2$,
+        \item $s_{(2, 1, 0)} = (x_1 + x_2) (x_1 + x_3) (x_2 + x_3)$.
+    \end{itemize}
+    For any $n \ge 1$ and $\lambda = (1, 0, 0, \ldots)$, we have $s_\lambda = \sum_{i = 1}^{n} x_i$, so we obtain the Schur function $s_\lambda = \sum_{i = 1}^{\infty} x_i \in \Lambda$.
+\end{example}
+
+% \begin{topic}{macdonald-polynomials}{Macdonald polynomials}
+%     Let $q$ and $t$ be two parameters.
+    
+%     The \textbf{Macdonald polynomials} are a family of polynomials $P_\lambda(q, t)$ uniquely determined by the conditions
+%     \[ P_\lambda(q, t) = m_\lambda + \sum_{\mu < \lambda} m_\mu \]
+%     \[ \langle P_\lambda, P_\mu \rangle_{q, t} = 0 \quad \textup{ for } \lambda \ne \mu . \]
+%     where
+%     \[ \langle p_\lambda, p_\mu \rangle = \delta_{\lambda \mu} z_\lambda \prod_{i = 1}^{\ell(\lambda)} \frac{1 - q^{\lambda_i}}{1 - t^{\lambda_i}} . \]
+% \end{topic}

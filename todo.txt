@@ -7,12 +7,13 @@
 
 ---- Theory ----
 
+Jack functions / Hall--Littlewood / Macdonald polynomials / Hall inner product
+
 Riemann--Hilbert correspondence
-Haar measure (examples: finite groups and U(1))
+Fourier transform (abelian group)
 
 -- General Mathematics
 GM: Newton polygon
-GM: Cantor's theorem
 
 -- Category Theory
 
@@ -32,7 +33,6 @@ AA: witt vectors
 -- Homological Algebra
 HA: split up Dold-Kan into Moore chain complex / normalized chain complex
 HA: triangulated enhancement
-HA: Verdier quotient by full triangulated (left/right) admissible subcategory gives orthogonal complement (proof??)
 HA: exceptional sequence example: any line bundle in D^b(X) for X connected smooth projective. Hom(L, L) = k, and Ext^(i > 0)(L, L) = 0, since $L$ locally free! ??
 HA: (Semiorthogonal decomposition for projective bundles)
 HA: (Grothendieck) derivator (example: Quillen Model structures D = HO(M), then X \mapsto Ho(Fun(X^op, M))) (Appendix A of https://math.mit.edu/~tabuada/BuenosAires.pdf)
@@ -43,15 +43,15 @@ DG: Atiyah--Singer theorem
 DG: Floer homology
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
-DG: orbifold
 DG: Finsler manifold
 DG: Atiyah-Bott symplectic form
 DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
+AG: resolution of singularities / nonsingular variety
 AG: natural log structure on toric varieties
-AG: Etale fundamental group
+AG: Étale fundamental group
 AG: Serre intersection formula
 AG: Brauer group of field parametrizes CSA's / (Morita) equivalence
     - Brauer group of RR is ZZ/2ZZ = { RR, HH }, Brauer group finite field / algebraically closed field is trivial (https://www.math.leidenuniv.nl/scripties/AbtienJavanpeykarBach.pdf)
@@ -61,7 +61,6 @@ AG: Examples Borel subgroups:
     - All are conjugate (over algebraically closed field k)
 AG: parabolic vector bundle
 AG: Kodaira dimension
-AG: blowup / blowdown
 AG: étale fundamental group(oid)
 AG: normal crossings divisor
 AG: hyperelliptic curve
@@ -82,7 +81,6 @@ HT: Dold-Kan examples
 HT: Spectra!
 
 -- Topology
-TO: filter (example: neighborhoods)
 TO: Borel construction (EG x X / G) : Example BG = classifying space
 
 -- Functional Analysis
@@ -101,7 +99,6 @@ DAG: derived scheme / stack
 
 -- Algebraic Topology
 AT: Freudenthal suspension theorem
-AT: Euler characteristic (also one in HA)
 AT: Gysin sequence
 AT: Bockstein sequence
 AT/TO: equivariant cohomology (note that it is just the cohomology of the quotient stack [X/G])

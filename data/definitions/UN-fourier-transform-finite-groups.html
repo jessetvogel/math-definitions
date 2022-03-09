@@ -1,0 +1,7 @@
+Let <span class="math inline">\(G\)</span> be a finite <a href="#GT:group">group</a> and <span class="math inline">\(\widehat{G}\)</span> the set of <a href="#RT:character-representation">characters</a> of <a href="#RT:irreducible-representation">irreducible representations</a> of <span class="math inline">\(G\)</span>. Let <span class="math inline">\(C(G)\)</span> be the <span class="math inline">\(\CC\)</span>-vector space of functions <span class="math inline">\(f : G \to \CC\)</span> which are constant on conjugacy classes, and <span class="math inline">\(C(\widehat{G})\)</span> the <span class="math inline">\(\CC\)</span>-vector space of functions on <span class="math inline">\(\widehat{G}\)</span>.<br/>
+The <b>Fourier transform</b> on <span class="math inline">\(G\)</span> is given by
+<span class="math display">\[ \mathcal{F} : C(G) \to C(\widehat{G}), \quad \mathcal{F}(f)(\chi) = \sum_{g \in G} f(g) \frac{\chi(g)}{\chi(1)} , \]</span>
+and the <b>inverse Fourier transform</b> by
+<span class="math display">\[ \widehat{\mathcal{F}} : C(\widehat{G}) \to C(G), \quad \widehat{\mathcal{F}}(F)(g) = \sum_{\chi \in \widehat{G}} F(\chi) \chi(1) \overline{\chi(g)} . \]</span>
+These operations are inverse to each other in the sense that
+<span class="math display">\[ \widehat{\mathcal{F}} \circ \mathcal{F} = |G| \cdot \id_{C(G)} \quad \textup{ and } \quad \mathcal{F} \circ \widehat{\mathcal{F}} = |G| \cdot \id_{C(\widehat{G})} \]</span>

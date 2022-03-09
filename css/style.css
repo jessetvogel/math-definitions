@@ -82,7 +82,7 @@ body.dark {
     --clr-link: #2a74a6;
     --clr-loading-icon: rgba(255, 255, 255, 0.75);;
     --clr-background-input: #242424;
-    --clr-background-example: #242424;
+    --clr-background-example: rgba(255, 255, 255, 0.05);
     --clr-background-highlight: rgba(255, 255, 255, 0.08);
     --clr-background-tooltip: #323232;
     --clr-list-marker: rgba(255, 255, 255, 0.5);
@@ -330,7 +330,7 @@ img.display-math-svg {
     background-color: var(--clr-background-example);
     box-shadow: 0px 0px 5px var(--clr-shadow);
     font-size: 16px;
-    transition: background-color 0.2s;
+    transition: background-color 0.5s;
 }
 
 #examples.hidden .example {

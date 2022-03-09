@@ -224,6 +224,8 @@
 
 \begin{topic}{riemannian-manifold}{Riemannian manifold}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Riemannian metric} on $M$ is a smooth symmetric \tref{tensor-field}{$(0, 2)$-tensor field} $g$ that is positive definite at each point $p \in M$. The pair $(M, g)$ is called a \textbf{Riemannian manifold}.
+    
+    A \textbf{pseudo-Riemannian metric} on $M$ is a smooth symmetric $(0, 2)$-tensor field $g$ that is nondegenerate at each point $p \in M$. The pair $(M, g)$ is called a \textbf{pseudo-Riemannian manifold}.
 \end{topic}
 
 \begin{topic}{complex-manifold}{(almost) complex manifold}
@@ -938,3 +940,19 @@
     
 %     Also known as \textit{Maxwell's equations}.
 % \end{example}
+
+\begin{topic}{orbifold}{orbifold}
+    Let $X_1 \rightrightarrows X_0$ be a \tref{lie-algebroid}{Lie algebroid}. It is called \textit{étale} if the source and target maps $s, t : X_1 \to X_0$ are \tref{diffeomorphism}{local diffeomorphisms}, and called \textit{proper} if the map $X_1 \xrightarrow{(s, t)} X_0 \times X_0$ is \tref{TO:proper-map}{proper}. An \textbf{orbifold} is a proper étale Lie algebroid.
+\end{topic}
+
+\begin{example}{orbifold}
+    Consider the real line $\RR$ with an action of $G = \ZZ/2\ZZ$ given by $x \mapsto -x$. The quotient can be described by the orbifold $\RR \sqcup \RR \rightrightarrows \RR$, with source and target maps given by
+    \[ s : \RR \sqcup \RR \xrightarrow{(x, x)} \RR, \qquad t  : \RR \sqcup \RR \xrightarrow{(x, -x)} \RR . \]
+    Indeed, it is easy to verify that this Lie groupoid is proper and étale.
+    
+    More generally, if a finite group $G$ acts on a manifold $M$, the quotient can be described by the orbifold $G \times M \rightrightarrows M$, with source and target maps given by
+    \[ \begin{aligned}
+        s &: G \times M \to M, \quad (g, x) \mapsto x , \\
+        t &: G \times M \to M, \quad (g, x) \mapsto g \cdot x .
+    \end{aligned} \]
+\end{example}

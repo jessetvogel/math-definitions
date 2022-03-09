@@ -43,9 +43,9 @@
     % because any $v \in H_\CC$ lies in $F^p \backslash F^{p + 1}$ for some unique $p$, and since $F^{p + 1} \oplus \overline{F^{k - p}} = H_\CC$, we have $v \in F^p \cap \overline{F^{k - p}}$. It is clear that $\overline{H^{p, q}} = H^{q, p}$.
 \end{topic}
 
-\begin{topic}{hodge-polynomial}{Hodge polynomial}
+\begin{topic}{hodge-polynomial}{(mixed) Hodge polynomial}
     The \textbf{Hodge polynomial} of a \tref{pure-hodge-structure}{pure Hodge structure} $H$ is the polynomial,
-    \[ P_\text{hodge}(H) = \sum_{p, q \in \ZZ} h^{p, q}(H) u^p v^q , \]
+    \[ P_\textup{hodge}(H) = \sum_{p, q \in \ZZ} h^{p, q}(H) u^p v^q , \]
     where $h^{p, q}(H) = \dim_\CC H^{p, q}$ denote the hodge numbers.
 \end{topic}
 
@@ -88,3 +88,42 @@
     \[ q_Q(d) = \langle d, d \rangle_Q = \sum_{i \in Q_0} d_i^2 - \sum_{(\alpha : i \to j) \in Q_1} d_i d_j \]
     for any $d = (d_i)_{i \in Q_0}$, where $\langle \cdot, \cdot \rangle_Q$ denotes the \tref{euler-form}{Euler form} of $Q$.
 \end{topic}
+
+\begin{topic}{pontryagin-dual}{Pontryagin dual}
+    Let $G$ be a \tref{TO:locally-compact-space}{locally compact} \tref{TO:topological-group}{topological} \tref{GT:abelian-group}{abelian group}. The \textbf{Pontryagin dual} of $G$, denoted $\widehat{G}$, is the group of \tref{TO:continuous-map}{continuous} \tref{GT:group-homomorphism}{group morphisms} from $G$ to the circle group $S^1$, that is,
+    \[ \widehat{G} = \Hom_\textbf{TopGrp}(G, S^1) , \]
+    equipped with the \tref{TO:mapping-space}{compact-open topology}.
+\end{topic}
+
+\begin{example}{pontryagin-dual}
+    \begin{itemize}
+        \item The Pontryagin dual of $\ZZ$ is $S^1$, and vice versa.
+        \item The Pontryagin dual of $\RR$ is $\RR$ itself.
+        \item The Pontryagin dual of $\ZZ/n\ZZ$ is $\ZZ/n\ZZ$ itself.
+    \end{itemize}
+\end{example}
+
+\begin{example}{pontryagin-dual}
+    The \textit{Pontryagin duality theorem} states there is a canonical isomorphism between locally compact abelian topological groups
+    \[ G \xrightarrow{\sim} \widehat{\widehat{G}}, \quad g \mapsto (\chi \mapsto \chi(g)) . \]
+\end{example}
+
+\begin{topic}{fourier-transform-finite-groups}{Fourier transform finite groups}
+    Let $G$ be a finite \tref{GT:group}{group} and $\widehat{G}$ the set of \tref{RT:character-representation}{characters} of \tref{RT:irreducible-representation}{irreducible representations} of $G$. Let $C(G)$ be the $\CC$-vector space of functions $f : G \to \CC$ which are constant on conjugacy classes, and $C(\widehat{G})$ the $\CC$-vector space of functions on $\widehat{G}$.
+    
+    The \textbf{Fourier transform} on $G$ is given by
+    \[ \mathcal{F} : C(G) \to C(\widehat{G}), \quad \mathcal{F}(f)(\chi) = \sum_{g \in G} f(g) \frac{\chi(g)}{\chi(1)} , \]
+    and the \textbf{inverse Fourier transform} by
+    \[ \widehat{\mathcal{F}} : C(\widehat{G}) \to C(G), \quad \widehat{\mathcal{F}}(F)(g) = \sum_{\chi \in \widehat{G}} F(\chi) \chi(1) \overline{\chi(g)} . \]
+    These operations are inverse to each other in the sense that
+    \[ \widehat{\mathcal{F}} \circ \mathcal{F} = |G| \cdot \id_{C(G)} \quad \textup{ and } \quad \mathcal{F} \circ \widehat{\mathcal{F}} = |G| \cdot \id_{C(\widehat{G})} \]
+\end{topic}
+
+\begin{example}{fourier-transform-finite-groups}
+    The \textit{convolution} of two functions $f_1, f_2 \in C(G)$ is defined by
+    \[ (f_1 * f_2)(g) = \sum_{xy = g} f_1(x) f_2(y) , \]
+    and pointwise multiplication of $F_1, F_2 \in C(\widehat{G})$ by
+    \[ (F_1 \cdot F_2)(\chi) = F_1(\chi) F_2(\chi) . \]
+    It can be verified that
+    \[ \mathcal{F}(f_1 * f_2) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2) \quad \textup{ and } \quad \widehat{\mathcal{F}}(F_1 \cdot F_2) \cdot |G| = \widehat{\mathcal{F}}(F_1) * \widehat{\mathcal{F}}(F_2) . \]
+\end{example}

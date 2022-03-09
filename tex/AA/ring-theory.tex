@@ -180,6 +180,13 @@
     % \[ (a_g)_{g \in G} \cdot (b_g)_{g \in G} = \left(\sum_{h \in G} a_h b_{h^{-1}g}\right)_{g \in G} \]
 \end{topic}
 
+\begin{example}{group-ring}
+    \begin{itemize}
+        \item For $G = \ZZ$, we have $R[G] \simeq R[x, x^{-1}]$.
+        \item For $G = \ZZ/n\ZZ$ with $n \ge 1$, we have $R[G] \simeq R[x] / (x^n - 1)$.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{augmentation-ideal}{augmentation ideal}
     The \textbf{augmentation ideal} of a \tref{group-ring}{group ring} $R[G]$ is the \tref{ideal}{(two-sided) ideal}
     \[ A = \ker\left( \varepsilon : R[G] \to G, \quad \sum_i r_i g_i \mapsto \sum_i r_i  \right) = (g - g' : g, g' \in G). \]
@@ -1054,4 +1061,9 @@
         \item $\lambda^m(\lambda^n(r)) = P_{m, n}(\lambda^1(r), \ldots, \lambda^{mn}(r))$ for all $r \in R$,
     \end{itemize}
     where $P_n$ and $P_{m, n}$ are certain universal polynomials with integer coefficients.
+\end{topic}
+
+\begin{topic}{conductor}{conductor}
+    Let $A$ be and $B$ be \tref{ring}{commutative rings} with $A \subset B$. The \textbf{conductor} of $A$ in $B$ is the \tref{ideal}{ideal}
+    \[ \mathfrak{f}(B/A) = \textup{Ann}_A(B/A) = \{ a \in A \;|\; a B \subset A \} . \]
 \end{topic}

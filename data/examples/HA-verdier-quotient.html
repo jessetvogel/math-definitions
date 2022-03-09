@@ -1,6 +1,10 @@
 <div class="example">Let <span class="math inline">\(\mathcal{S} \subset \mathcal{T}\)</span> be a <a href="#HA:admissible-subcategory">right admissible subcategory</a>. We will show that the quotient <span class="math inline">\(\mathcal{T}/\mathcal{S}\)</span> is equivalent to the <a href="#HA:orthogonal-complement">orthogonal complement</a> <span class="math inline">\(S^\perp\)</span>. Since <span class="math inline">\(\mathcal{S}\)</span> is right admissible, any object <span class="math inline">\(X\)</span> of <span class="math inline">\(\mathcal{T}\)</span> fits in an exact triangle
-<span class="math display">\[ \pi(X) \to X \to B_X \to \pi(X)[1] , \]</span>
-where <span class="math inline">\(\pi : \mathcal{T} \to \mathcal{S}\)</span> denotes a <a href="#CT:adjunction">right adjoint</a> to the inclusion <span class="math inline">\(i : \mathcal{S} \to \mathcal{T}\)</span>, and <span class="math inline">\(B_X\)</span> lies in <span class="math inline">\(\mathcal{S}^\perp\)</span>.<br/>
-Now consider the functor
+<span class="math display">\[ \pi(X) \to X \to Q(X) \to \pi(X)[1] , \]</span>
+where <span class="math inline">\(\pi : \mathcal{T} \to \mathcal{S}\)</span> denotes a <a href="#CT:adjunction">right adjoint</a> to the inclusion <span class="math inline">\(i : \mathcal{S} \to \mathcal{T}\)</span>, and <span class="math inline">\(Q(X)\)</span> lies in <span class="math inline">\(\mathcal{S}^\perp\)</span>. Moreover, for any morphism <span class="math inline">\(f : X \to Y\)</span> we obtain an exact sequence
+<span class="math display">\[ 0 = \Hom(\pi(X)[1], Q(Y)) \to \Hom(Q(X), Q(Y)) \to \Hom(X, Q(Y)) \to \Hom(\pi(X), Q(Y)) = 0 \]</span>
+which shows there is a unique morphism <span class="math inline">\(Q(f) : Q(X) \to Q(Y)\)</span> making the natural square commute.
+Now by uniqueness of <span class="math inline">\(Q(f)\)</span>, we obtain a functor
 <span class="math display">\[ Q : \mathcal{T} \to S^\perp , \]</span>
+which is easily seen to be additive and exact.<br/>
+Universality is easily verified: any other additive and exact <span class="math inline">\(F : \mathcal{T} \to \mathcal{D}\)</span> that sends objects of <span class="math inline">\(\mathcal{S}\)</span> to zero, yields <span class="math inline">\(\mathcal{S}^\perp \to \mathcal{D}\)</span> by the restricting <span class="math inline">\(F\)</span> to <span class="math inline">\(S^\perp\)</span>. And indeed, applying <span class="math inline">\(F\)</span> to the above exact triangle gives <span class="math inline">\(F(X) \simeq F(Q(X))\)</span>.
 </div>

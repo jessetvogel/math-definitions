@@ -141,14 +141,18 @@
     \[ \begin{tikzcd} \mathcal{T} \arrow{r}{Q} \arrow{rd} & \mathcal{T} / \mathcal{S} \arrow[dashed]{d} \\ & \mathcal{D} \end{tikzcd} \]
 \end{topic}
 
-% \begin{example}{verdier-quotient}
-%     Let $\mathcal{S} \subset \mathcal{T}$ be a \tref{admissible-subcategory}{right admissible subcategory}. We will show that the quotient $\mathcal{T}/\mathcal{S}$ is equivalent to the \tref{orthogonal-complement}{orthogonal complement} $S^\perp$. Since $\mathcal{S}$ is right admissible, any object $X$ of $\mathcal{T}$ fits in an exact triangle
-%     \[ \pi(X) \to X \to B_X \to \pi(X)[1] , \]
-%     where $\pi : \mathcal{T} \to \mathcal{S}$ denotes a \tref{CT:adjunction}{right adjoint} to the inclusion $i : \mathcal{S} \to \mathcal{T}$, and $B_X$ lies in $\mathcal{S}^\perp$.
+\begin{example}{verdier-quotient}
+    Let $\mathcal{S} \subset \mathcal{T}$ be a \tref{admissible-subcategory}{right admissible subcategory}. We will show that the quotient $\mathcal{T}/\mathcal{S}$ is equivalent to the \tref{orthogonal-complement}{orthogonal complement} $S^\perp$. Since $\mathcal{S}$ is right admissible, any object $X$ of $\mathcal{T}$ fits in an exact triangle
+    \[ \pi(X) \to X \to Q(X) \to \pi(X)[1] , \]
+    where $\pi : \mathcal{T} \to \mathcal{S}$ denotes a \tref{CT:adjunction}{right adjoint} to the inclusion $i : \mathcal{S} \to \mathcal{T}$, and $Q(X)$ lies in $\mathcal{S}^\perp$. Moreover, for any morphism $f : X \to Y$ we obtain an exact sequence
+    \[ 0 = \Hom(\pi(X)[1], Q(Y)) \to \Hom(Q(X), Q(Y)) \to \Hom(X, Q(Y)) \to \Hom(\pi(X), Q(Y)) = 0 \]
+    which shows there is a unique morphism $Q(f) : Q(X) \to Q(Y)$ making the natural square commute.
+    Now by uniqueness of $Q(f)$, we obtain a functor
+    \[ Q : \mathcal{T} \to S^\perp , \]
+    which is easily seen to be additive and exact.
     
-%     Now consider the functor
-%     \[ Q : \mathcal{T} \to S^\perp , \]
-% \end{example}
+    Universality is easily verified: any other additive and exact $F : \mathcal{T} \to \mathcal{D}$ that sends objects of $\mathcal{S}$ to zero, yields $\mathcal{S}^\perp \to \mathcal{D}$ by the restricting $F$ to $S^\perp$. And indeed, applying $F$ to the above exact triangle gives $F(X) \simeq F(Q(X))$.
+\end{example}
 
 \begin{topic}{tensor-triangulated-category}{tensor triangulated category}
     A \textbf{tensor triangulated category} is a \tref{triangulated-category}{triangulated category} $\mathcal{T}$ with a \tref{CT:symmetric-monoidal-category}{symmetric monoidal structure} $\otimes : \mathcal{T} \times \mathcal{T} \to \mathcal{T}$ such that $X \otimes (-)$ and $(-) \otimes X$ are \tref{exact-functor-triangulated}{exact functors} for all $X$ in $\mathcal{T}$.

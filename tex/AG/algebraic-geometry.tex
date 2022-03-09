@@ -411,6 +411,8 @@
     A \textbf{birational map} between (\tref{TO:irreducible}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is a \tref{rational-map}{rational map} $f : X \dashrightarrow Y$ which has a rational inverse. That is, there exists a rational map $g : Y \dashrightarrow X$ such that $gf = \id_X$ and $fg = \id_Y$ as rational maps.
     
     If there is a birational map from $X$ to $Y$, then $X$ and $Y$ are called \textbf{birationally equivalent}, or simply \textbf{birational}.
+    
+    A \textbf{birational morphism} is a morphism of varieties which has a rational inverse.
 \end{topic}
 
 \begin{example}{birational-map}
@@ -1256,3 +1258,44 @@
 \begin{example}{spreading-out}
     Let $X \subset \AA^n_\CC$ be defined by polynomials $f_1, \ldots, f_r \in \CC[x_1, \ldots, x_n]$. Writing $f_i = \sum_{j, k} a_{ijk} x_j^k$, we see that a spreading out $\tilde{X}$ can be defined over $R = \ZZ[a_{ijk}]$ by the same polynomials $f_i$, from which it is clear that $X \simeq \tilde{X} \times_R \CC$.
 \end{example}
+
+% \begin{topic}{mixed-hodge-polynomial}{mixed Hodge polynomial}
+%     Let $X$ be a complex \tref{variety}{variety}. Deligne showed the \tref{AT:cohomology-compact-support}{compactly supported cohomology groups} $H_c^k(X; \QQ)$ naturally carry a \tref{UN:mixed-hodge-structure}{mixed Hodge structure}. The \textbf{mixed Hodge polynomial} of $X$ is the polynomial
+%     \[ H_c(X) = \sum_{p, q, k} h_c^{k; p, q}(X) u^p v^q t^k \in \ZZ[u, v, t] . \]
+% \end{topic}
+
+\begin{topic}{blowup}{blowup}
+    Let $X \subset \AA^n_k$ be an \tref{affine-variety}{affine variety}, and $Z \subset X$ a closed subvariety given by the vanishing locus of $f_1, \ldots, f_r \in \mathcal{O}_X(X)$. Writing
+    \[ f : (X \setminus Z) \to \PP^{r - 1}, \quad x \mapsto (f_1(x) : \cdots : f_r(x)) , \]
+    the \textbf{blowup} of $X$ at $Z$ is the closure of the graph $\Gamma_f \subset X \times \PP^{r - 1}$,
+    \[ \pi : \textup{Bl}_Z(X) := \overline{\Gamma_f} \to X . \]
+\end{topic}
+
+\begin{example}{blowup}
+    \begin{itemize}
+        \item Consider the cusp $C$ in the affine plane given by $y^2 - x^3 = 0$. Blowing up at the origin $(0, 0)$, i.e. the ideal $(x, y)$, gives
+        \[ \textup{Bl}_{(0, 0)}(C) = \{ ((x, y), (u : v)) \in C \times \PP^1 : xv = uy \} . \]
+        We can cover this blowup by two affine charts
+        \[ U_x = \{ \tilde{y}^2 - x = 0, \; y = \tilde{y} x \}, \qquad U_y = \{ y - \tilde{x}^3 = 0, \; x = \tilde{x} y \} \]
+        with the obvious transition maps and projection maps to $C$.
+        
+        \item Consider \textit{Whitney's umbrella} $W = \{ x^2 - y^2 z = 0 \} \subset \AA^3_k$. The blowup of $W$ in the origin $(0, 0, 0)$ can be described by the charts
+        \[ \begin{aligned}
+            U_x = \{ 1 - x \tilde{y}^2 \tilde{z}, \; y = \tilde{y} x, \; z = \tilde{z} x \} , \\
+            U_y = \{ \tilde{x}^2 - y \tilde{z}, \; x = \tilde{x} y, \; z = \tilde{z} y \} , \\
+            U_z = \{ \tilde{x}^2 - \tilde{y}^2 z, \; x = \tilde{x} z, \; y = \tilde{y} z \}
+        \end{aligned} \]
+        In particular, in $U_z$ we find the same singularity as in $W$. However, blowing up in the $z$-axis gives
+        \[ U_x = \{ 1 - \tilde{y}^2 z, \; y = \tilde{y} x \}, \qquad U_y = \{ \tilde{x}^2 - z, \; x = \tilde{x} y \} . \]
+    \end{itemize}
+\end{example}
+
+\begin{topic}{resolution-of-singularities}{resolution of singularities}
+    Let $X$ be a \tref{variety}{variety}. A \textbf{resolution of singularities} of $X$ is a \tref{proper-morphism}{proper} \tref{birational-map}{birational morphism} $\widetilde{X} \to X$, where $\widetilde{X}$ is a \tref{nonsingular-variety}{nonsingular variety}.
+\end{topic}
+
+\begin{topic}{nonsingular-variety}{nonsingular variety}
+    A \tref{variety}{variety} $X$ over a field $k$ is \textbf{nonsingular at a point $x \in X$} if the local ring $\mathcal{O}_{X, x}$ is \tref{AA:regular-ring}{regular}. The variety $X$ is \textbf{nonsingular} if it is nonsingular at all points $x \in X$.
+    
+    Equivalently, $X$ is nonsingular if and only if the structure morphism $X \to \Spec k$ is \tref{smooth-morphism}{smooth}.
+\end{topic}
