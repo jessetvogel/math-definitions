@@ -208,3 +208,19 @@
 \begin{topic}{coherent-module}{coherent module}
     A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{coherent} if it is \tref{finitely-generated-module}{finitely generated} and every finitely generated submodule of $M$ is \tref{finitely-presented-module}{finitely presented}.
 \end{topic}
+
+\begin{topic}{dual-module}{dual module}
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an \tref{module}{$R$-module}. The \textbf{dual} of $M$ is the $R$-module
+    \[ M^* = \Hom_R(M, R) , \]
+    whose $R$-module structure is given by $(r \cdot f)(m) = r \cdot f(m)$ for all $r \in R$, $f \in M^*$ and $m \in M$.
+\end{topic}
+
+\begin{topic}{lazard-theorem}{Lazard's theorem}
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an \tref{module}{$R$-module}. Then \textbf{Lazard's theorem} states that $M$ is \tref{flat-module}{flat} if and only if it is the \tref{CT:direct-limit}{direct limit} of \tref{free-module}{free} $R$-modules of finite rank.
+\end{topic}
+
+\begin{example}{lazard-theorem}
+    The condition `directed' is necessary, since the colimit of the diagram
+    \[ \ZZ \xleftarrow{\cdot 2} \ZZ \xrightarrow{\cdot 2} \ZZ \]
+    is $\ZZ^3 / ((1, 0, -2), (1, -2, 0))$, which has torsion (e.g. $(1, -1, -1)$), so is not flat.
+\end{example}

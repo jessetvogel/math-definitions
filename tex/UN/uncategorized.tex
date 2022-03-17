@@ -127,3 +127,23 @@
     It can be verified that
     \[ \mathcal{F}(f_1 * f_2) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2) \quad \textup{ and } \quad \widehat{\mathcal{F}}(F_1 \cdot F_2) \cdot |G| = \widehat{\mathcal{F}}(F_1) * \widehat{\mathcal{F}}(F_2) . \]
 \end{example}
+
+\begin{topic}{operad}{operad}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{CT:symmetric-monoidal-category}{symmetric} \tref{CT:monoidal-category}{monoidal category}. A \textbf{non-symmetric operad} in $\mathcal{C}$ consists of
+    \begin{itemize}
+        \item (\textit{$n$-ary operations}) an object $\mathcal{O}(n)$ for each integer $n \ge 0$
+        \item (\textit{unit}) a morphism $e : \textbf{1} \to \mathcal{O}(1)$,
+        \item (\textit{composition}) for all $n \ge 0$ and $k_1, \ldots, k_n \ge 0$,
+        \[ \circ : \mathcal{O}(n) \otimes \mathcal{O}(k_1) \otimes \cdots \otimes \mathcal{O}(k_n) \to \mathcal{O}(k_1 + \cdots + k_n) , \]
+    \end{itemize}
+    satisfying
+    \begin{itemize}
+        \item (\textit{unit}) $e \circ \theta = \theta = \theta \circ (e \otimes \cdots \otimes e)$ for all $\theta \in \mathcal{O}(n)$,
+        \item (\textit{associativity}) $\theta \circ (\theta_1 \circ (\theta_{1,1} \otimes \cdots \otimes \theta_{1,k_1}) \otimes \cdots \otimes \theta_n \circ (\theta_{n,1} \otimes \cdots \otimes \theta_{n,k_n}))$ $= (\theta \circ (\theta_1 \otimes \cdots \otimes \theta_n)) \circ (\theta_{1, 1} \otimes \cdots \otimes \theta_{1,k_1} \otimes \cdots \otimes \theta_{n,1} \otimes \cdots \otimes \theta_{n,k_n})$.
+    \end{itemize}
+    A \textbf{symmetric operad}, or just \textbf{operad}, consists of the above, together with an action of \tref{GT:symmetric-group}{$S_n$} on $\mathcal{O}(n)$, for each $n \ge 0$, such that
+    \begin{itemize}
+        \item (\textit{equivariance 1}) $\sigma(\theta) \circ (\theta_{\sigma(1)} \otimes \cdots \otimes \theta_{\sigma(n)}) = \sigma'(\theta \circ (\theta_1 \otimes \cdots \otimes \theta_n))$, for all $\sigma \in S_n$, where $\sigma' \in S_{k_1 + \cdots + k_n}$ acts on $\{ 1, 2, \ldots, k_1 + \cdots + k_n \}$ by permuting the blocks of size $k_1, k_2, \ldots, k_n$.
+        \item (\textit{equivariance 2}) $\theta \circ (\sigma_1(\theta_1) \otimes \cdots \otimes \sigma_n(\theta_n)) = (\sigma_1, \ldots, \sigma_n)(\theta \circ (\theta_1 \otimes \cdots \otimes \theta_n))$ for all $\sigma_i \in S_{k_i}$.
+    \end{itemize}
+\end{topic}

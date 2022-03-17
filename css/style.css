@@ -1,61 +1,61 @@
 @font-face {
-    font-family: 'Computer-Modern';
-    src: url('../fonts/cmunrm.ttf');
+    font-family: "Computer-Modern";
+    src: url("../fonts/cmunrm.ttf");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Computer-Modern';
-    src: url('../fonts/cmunbx.ttf');
+    font-family: "Computer-Modern";
+    src: url("../fonts/cmunbx.ttf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Computer-Modern';
-    src: url('../fonts/cmunti.ttf');
+    font-family: "Computer-Modern";
+    src: url("../fonts/cmunti.ttf");
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Computer-Modern';
-    src: url('../fonts/cmunbi.ttf');
+    font-family: "Computer-Modern";
+    src: url("../fonts/cmunbi.ttf");
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Palatino-Linotype';
-    src: url('../fonts/pala.ttf');
+    font-family: "Palatino-Linotype";
+    src: url("../fonts/pala.ttf");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Palatino-Linotype';
-    src: url('../fonts/palab.ttf');
+    font-family: "Palatino-Linotype";
+    src: url("../fonts/palab.ttf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Palatino-Linotype';
-    src: url('../fonts/palai.ttf');
+    font-family: "Palatino-Linotype";
+    src: url("../fonts/palai.ttf");
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Palatino-Linotype';
-    src: url('../fonts/palabi.ttf');
+    font-family: "Palatino-Linotype";
+    src: url("../fonts/palabi.ttf");
     font-weight: bold;
     font-style: italic;
 }
 
 body {
-    --font-family: 'Palatino-Linotype', serif;
+    --font-family: "Palatino-Linotype", serif;
     --clr-background-body: #fbfaf5;
     --clr-text-main: rgba(0, 0, 0, 0.8);
     --clr-shadow: rgba(0, 0, 0, 0.12);
@@ -72,15 +72,15 @@ body {
 }
 
 body.dark {
-    --font-family: 'Palatino-Linotype', serif;
-    --clr-background-body: #1A1918;
+    --font-family: "Palatino-Linotype", serif;
+    --clr-background-body: #1a1918;
     --clr-text-main: rgba(255, 255, 255, 0.75);
     --clr-shadow: rgba(0, 0, 0, 0.12);
-    --clr-autocomplete-topic-default: rgba(255, 255, 255, 0.60);
+    --clr-autocomplete-topic-default: rgba(255, 255, 255, 0.6);
     --clr-autocomplete-topic-highlight: rgba(255, 255, 255, 0.87);
     --clr-category: #328421;
     --clr-link: #2a74a6;
-    --clr-loading-icon: rgba(255, 255, 255, 0.75);;
+    --clr-loading-icon: rgba(255, 255, 255, 0.75);
     --clr-background-input: #242424;
     --clr-background-example: rgba(255, 255, 255, 0.05);
     --clr-background-highlight: rgba(255, 255, 255, 0.08);
@@ -101,14 +101,15 @@ body.dark #content b {
 .no-select {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-html, body {
+html,
+body {
     padding: 0px;
     margin: 0px;
 }
@@ -200,7 +201,8 @@ header {
     display: none;
 }
 
-#auto-complete-list span.category, #result-category {
+#auto-complete-list span.category,
+#result-category {
     color: var(--clr-category);
     flex-shrink: 0;
     white-space: nowrap;
@@ -208,12 +210,14 @@ header {
     text-overflow: ellipsis;
 }
 
-#auto-complete-list span.category::before, #result-category::before {
-    content: '(';
+#auto-complete-list span.category::before,
+#result-category::before {
+    content: "(";
 }
 
-#auto-complete-list span.category::after, #result-category::after {
-    content: ')';
+#auto-complete-list span.category::after,
+#result-category::after {
+    content: ")";
 }
 
 #result-category {
@@ -224,8 +228,8 @@ header {
     line-height: 40px;
 }
 
-
-#auto-complete-list > div.focus, #auto-complete-list > div:hover {
+#auto-complete-list > div.focus,
+#auto-complete-list > div:hover {
     background-color: var(--clr-background-highlight);
 }
 
@@ -247,7 +251,8 @@ ul {
     list-style-type: square;
 }
 
-ol, ul {
+ol,
+ul {
     padding-left: 20px;
 }
 
@@ -255,12 +260,14 @@ li {
     margin: 12px 0px;
 }
 
-ol[type="(i)"], ol[type="(1)"] {
+ol[type="(i)"],
+ol[type="(1)"] {
     counter-reset: list;
     padding-left: 32px;
 }
 
-ol[type="(i)"] > li, ol[type="(1)"] > li {
+ol[type="(i)"] > li,
+ol[type="(1)"] > li {
     counter-increment: list;
 }
 
@@ -279,6 +286,19 @@ li::marker {
 
 span.math.inline {
     display: contents;
+    font-size: 15px;
+}
+
+.example span.math.inline {
+    font-size: 14px;
+}
+
+span.math.display {
+    font-size: 15px;
+}
+
+.example span.math.display {
+    font-size: 14px;
 }
 
 a {
@@ -293,7 +313,7 @@ a:focus {
 }
 
 a:focus::before {
-    content: '';
+    content: "";
     display: inline-block;
     position: absolute;
     width: 100%;
@@ -338,7 +358,7 @@ img.display-math-svg {
 }
 
 .example::before {
-    content: 'Example';
+    content: "Example";
     display: block;
     text-align: center;
     font-weight: bold;
@@ -357,17 +377,17 @@ img.display-math-svg {
 }
 
 .toggle-examples-button::before {
-    content: '(hide examples)';
+    content: "(hide examples)";
     cursor: pointer;
 }
 
 #examples.hidden .toggle-examples-button::before {
-    content: '(show examples)';
+    content: "(show examples)";
     cursor: pointer;
 }
 
 .proof::before {
-    content: 'Proof. ';
+    content: "Proof. ";
     font-weight: bold;
 }
 
@@ -376,7 +396,7 @@ img.display-math-svg {
     width: 64px;
     height: 64px;
     border-radius: 32px;
-    opacity: 0.0;
+    opacity: 0;
     background-color: var(--clr-loading-icon);
     animation: loading 0.8s infinite;
     animation-delay: 0.2s; /* if loading takes less than 0.2s, no animation is needed */
@@ -387,14 +407,26 @@ img.display-math-svg {
 }
 
 @keyframes loading {
-    0% { transform: scale(0.0); opacity: 1.0 }
-    100% { transform: scale(1.0); opacity: 0.0; }
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
 }
 
 @keyframes glowing {
-    0% { text-shadow: 0px 0px 1px rgba(255, 255, 255, 0);  }
-    50% { text-shadow: 0px 0px 3px aliceblue; }
-    100% { text-shadow: 0px 0px 1px aliceblue;  }
+    0% {
+        text-shadow: 0px 0px 1px rgba(255, 255, 255, 0);
+    }
+    50% {
+        text-shadow: 0px 0px 3px aliceblue;
+    }
+    100% {
+        text-shadow: 0px 0px 1px aliceblue;
+    }
 }
 
 /* theme */
@@ -409,15 +441,15 @@ img.display-math-svg {
     opacity: 0.25;
     cursor: pointer;
     transition: opacity 0.2s;
-    background-image: url('../img/moon.png');
+    background-image: url("../img/moon.png");
     background-position: center;
     background-size: cover;
 }
 
 body.dark #button-theme {
-    background-image: url('../img/sun.png');
+    background-image: url("../img/sun.png");
     animation: rotating 10s infinite linear;
-    animation-play-state: paused;    
+    animation-play-state: paused;
 }
 
 #button-theme:hover {
@@ -429,8 +461,12 @@ body.dark #button-theme:hover {
 }
 
 @keyframes rotating {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* body, input { transition: background-color 0.5s, color 0.5s; } */
@@ -442,7 +478,7 @@ body.dark #button-theme:hover {
 }
 
 .cite::before {
-    content: '[?]';
+    content: "[?]";
     font-size: 14px;
     vertical-align: super;
     color: var(--clr-autocomplete-topic-default);
@@ -460,7 +496,7 @@ body.dark #button-theme:hover {
 }
 
 .cite > span::after {
-    content: '';
+    content: "";
     box-shadow: 3px 3px 5px var(--clr-shadow);
     background-color: var(--clr-background-tooltip);
     position: absolute;
@@ -471,8 +507,9 @@ body.dark #button-theme:hover {
     transform: rotate(45deg);
 }
 
-.cite > span::before { /* just as a bounding box for the :hover */
-    content: '';
+.cite > span::before {
+    /* just as a bounding box for the :hover */
+    content: "";
     position: absolute;
     top: 16px;
     right: 16px;

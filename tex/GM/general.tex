@@ -1,5 +1,5 @@
 \begin{topic}{young-diagram}{Young diagram}
-    Given a partition $\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_k)$ of a non-negative integer $n \ge 0$, a \textbf{Young diagram} of shape $\lambda$ is a collection of $n$ boxes, arranged in left-aligned rows, such that row $i$ has $\lambda_i$ boxes. For example, a Young diagram of shape $(5, 3, 2)$ is given by:
+    Given a \tref{integer-partition}{partition} $\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_k)$ of a non-negative integer $n \ge 0$, a \textbf{Young diagram} of shape $\lambda$ is a collection of $n$ boxes, arranged in left-aligned rows, such that row $i$ has $\lambda_i$ boxes. For example, a Young diagram of shape $(5, 3, 2)$ is given by:
     \[ \begin{tikzpicture}
         \begin{scope}[scale=0.5]
             \draw (0, 3) -- (5, 3); \draw (0, 2) -- (5, 2); \draw (0, 1) -- (3, 1); \draw (0, 0) -- (2, 0); \draw (0, 3) -- (0, 0); \draw (1, 3) -- (1, 0); \draw (2, 3) -- (2, 0); \draw (3, 3) -- (3, 1); \draw (4, 3) -- (4, 2); \draw (5, 3) -- (5, 2);
@@ -94,3 +94,42 @@
 %     where
 %     \[ \langle p_\lambda, p_\mu \rangle = \delta_{\lambda \mu} z_\lambda \prod_{i = 1}^{\ell(\lambda)} \frac{1 - q^{\lambda_i}}{1 - t^{\lambda_i}} . \]
 % \end{topic}
+
+\begin{topic}{hall-inner-product}{Hall inner product}
+    Let $\Lambda$ be the ring of symmetric polynomials in infinitely many variables. For any \tref{GM:integer-partition}{partition} $\lambda = (\lambda_1, \ldots, \lambda_n)$, let $m_\lambda \in \Lambda$ and $h_\lambda \in \Lambda$ denote the \tref{AA:symmetric-polynomial}{monomial and homogeneous symmetric polynomials} in infinitely many variables, respectively. It can be shown that both $\{ m_\lambda \}$ and $\{ h_\lambda \}$ form a $\ZZ$-basis of $\Lambda$.
+    
+    The \textbf{Hall inner product} is the symmetric bilinear map given by
+    \[ \langle \cdot, \cdot \rangle : \Lambda \times \Lambda \to \Lambda, \qquad \langle m_\lambda, h_\mu \rangle = \delta_{\lambda \mu} . \]
+\end{topic}
+
+\begin{example}{hall-inner-product}
+    The \tref{schur-function}{Schur functions} $\{ s_\lambda \}$ also form a $\ZZ$-basis for $\Lambda$, and moreover, an orthogonal $\ZZ$-basis:
+    \[ \langle s_\lambda, s_\mu \rangle = \delta_{\lambda \mu} \quad \textup{ for all } \lambda, \mu . \]
+\end{example}
+
+\begin{topic}{binomial-theorem}{binomial theorem}
+    Let $R$ be a \tref{AA:ring}{commutative ring $R$}. The \textbf{binomial theorem} states that
+    \[ (x + y)^n = \sum_{k = 0}^{n} \binom{n}{k} x^{n - k} y^k \]
+    for all $x, y \in R$ and any integer $n \ge 0$.
+\end{topic}
+
+\begin{topic}{integer-partition}{integer partition}
+    Let $n$ be a non-negative integer. A \textbf{partition} of $n$ is a sequence of integers
+    \[ \lambda = (\lambda_1, \lambda_2, \ldots) , \]
+    such that $\lambda_1 \ge \lambda_2 \ge \cdots \ge 0$, and
+    \[ n = \lambda_1 + \lambda_2 + \cdots . \]
+    In particular, $\lambda_i = 0$ for $i \gg 0$.
+\end{topic}
+
+\begin{example}{integer-partition}
+    There are $7$ partitions of $5$:
+    \begin{itemize}
+        \item $5 = 1 + 1 + 1 + 1 + 1$,
+        \item $5 = 2 + 1 + 1 + 1$,
+        \item $5 = 2 + 2 + 1$,
+        \item $5 = 3 + 1 + 1$,
+        \item $5 = 3 + 2$,
+        \item $5 = 4 + 1$,
+        \item $5 = 5$.
+    \end{itemize}
+\end{example}

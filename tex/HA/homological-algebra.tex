@@ -260,6 +260,64 @@
     \[ E_r^{p, q} \Rightarrow E^{p + q} . \]
 \end{topic}
 
+\begin{example}{spectral-sequence}
+    Let $C^{\bdot, \bdot}$ be a \tref{double-complex}{double complex} with total complex $C^\bdot$, over an abelian category $\mathcal{A}$. It is a theorem that there exists the \textit{double complex spectral sequence}
+    \[ E_0^{p, q} = C^{p, q} \Rightarrow H^{p + q}(C^\bdot) , \]
+    and by symmetry also $E_0^{p, q} = C^{q, p} \Rightarrow H^{p + q}(C^\bdot)$. These spectral sequences can be used to prove the \tref{snake-lemma}{Snake lemma}. Consider the diagram
+    \[ \begin{tikzcd}
+        0 \arrow{r} & A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \arrow{r} & 0 \\
+        0 \arrow{r} & A \arrow{r}{f} \arrow{u}{a} & B \arrow{r}{g} \arrow{u}{b} & C \arrow{r} \arrow{u}{c} & 0
+    \end{tikzcd} \]
+    whose rows are exact, as a double complex $C^{\bdot, \bdot}$. The second spectral sequence gives
+    \[ E_0^{p, q} = \quad \begin{tikzcd}[row sep=0.5em, column sep=0.1em]
+        0 & 0 \\
+        C \arrow{u} & C' \arrow{u} \\
+        B \arrow{u} & B' \arrow{u} \\
+        A \arrow{u} & A' \arrow{u} \\
+        0 \arrow{u} & 0 \arrow{u}
+    \end{tikzcd} \begin{tikzpicture}[overlay,remember picture]
+        \draw[-latex] (-1.3, -1.6) -- (-1.3, 1.65);
+        \draw[-latex] (-1.3, -1.6) -- (0, -1.6);
+        \node at (0.2, -1.6) {$p$};
+        \node at (-1.5, 1.7) {$q$};
+    \end{tikzpicture} \]
+    so $E_1^{p, q} = 0$ for all $p, q$. In particular, this shows that $H^n(C^\bdot) = 0$ for all $n$.
+    
+    The second spectral sequence gives
+    \[ \begin{array}{c}
+        E_0^{p, q} = \quad \begin{tikzcd}[row sep=0.5em, column sep=0.1em]
+            0 & A' & B' & C' & 0 \\
+            0 & A \arrow{u} & B \arrow{u} & C \arrow{u} & 0
+        \end{tikzcd} \begin{tikzpicture}[overlay,remember picture]
+            \draw[-latex] (-3.1, -0.6) -- (-3.1, 0.65);
+            \draw[-latex] (-3.1, -0.6) -- (0, -0.6);
+            \node at (0.2, -0.6) {$p$};
+            \node at (-3.3, 0.7) {$q$};
+        \end{tikzpicture} \\ \; \\
+        E_1^{p, q} = \quad \begin{tikzcd}[row sep=0.5em, column sep=0.5em]
+            0 \arrow{r} & \coker a \arrow{r} & \coker b \arrow{r} & \coker c \arrow{r} & 0 \\
+            0 \arrow{r} & \ker a \arrow{r} & \ker b \arrow{r} & \ker c \arrow{r} & 0
+        \end{tikzcd} \begin{tikzpicture}[overlay,remember picture]
+            \draw[-latex] (-5.6, -0.6) -- (-5.6, 0.65);
+            \draw[-latex] (-5.6, -0.6) -- (0, -0.6);
+            \node at (0.2, -0.6) {$p$};
+            \node at (-5.85, 0.7) {$q$};
+        \end{tikzpicture} \\ \; \\
+        E_2^{p, q} = \quad \begin{tikzcd}[row sep=0.5em, column sep=0.5em]
+            0 & \ker(\coker a \to \coker b) \arrow{rrd} & 0 & 0 \\
+            0 & 0 & 0 & \ker c / \ker b
+        \end{tikzcd} \begin{tikzpicture}[overlay,remember picture]
+            \draw[-latex] (-7.0, -0.6) -- (-7.0, 0.65);
+            \draw[-latex] (-7.0, -0.6) -- (0, -0.6);
+            \node at (0.2, -0.6) {$p$};
+            \node at (-7.25, 0.7) {$q$};
+        \end{tikzpicture}
+    \end{array} \]
+    Since this page must also converge to zero, the map $\delta : \ker(\coker a \to \coker b) \to \ker c / \ker b$ must be an isomorphism, and its inverse can be used to define the connecting homomorphism $d : \ker c \to \coker a$ making
+    \[ 0 \to \ker a \rightarrow \ker b \rightarrow \ker c \xrightarrow{d} \coker a \rightarrow \coker b \rightarrow \coker c \to 0 \]
+    exact.
+\end{example}
+
 \begin{topic}{serre-subcategory}{Serre subcategory}
     A non-empty \tref{CT:full-subcategory}{full subcategory} $\mathcal{B}$ of an \tref{abelian-category}{abelian category} $\mathcal{A}$ is a \textbf{Serre subcategory} if for any exact sequence in $\mathcal{A}$,
     \[ 0 \to A \to B \to C \to 0 , \]
@@ -610,7 +668,7 @@
     In fact, this is the prototype example since every finite abelian category is equivalent to $A\textup{-}\textbf{Mod}_\textup{fd}$ for some finite-dimensional $k$-algebra $A$.
 \end{example}
 
-\begin{topic}{double-complex}{double-complex}
+\begin{topic}{double-complex}{double complex}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{double complex} $A_{\bdot, \bdot}$ in $\mathcal{A}$ is a sequence of objects $A_{i, j}$ in $\mathcal{A}$, for $i, j \in \ZZ$, together with horizontal and vertical morphisms $d^h_{i, j} : A_{i, j} \to A_{i - 1, j}$ and $d^v_{i, j} : A_{i, j} \to A_{i, j - 1}$, satisfying
     \[ (d^h)^2 = (d^v)^2 = d^h d^v - d^v d^h = 0 . \]
     \[ \begin{tikzcd}

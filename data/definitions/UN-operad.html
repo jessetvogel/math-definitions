@@ -1,0 +1,14 @@
+Let <span class="math inline">\((\mathcal{C}, \otimes, \textbf{1})\)</span> be a <a href="#CT:symmetric-monoidal-category">symmetric</a> <a href="#CT:monoidal-category">monoidal category</a>. A <b>non-symmetric operad</b> in <span class="math inline">\(\mathcal{C}\)</span> consists of
+<ul><li> (<i><span class="math inline">\(n\)</span>-ary operations</i>) an object <span class="math inline">\(\mathcal{O}(n)\)</span> for each integer <span class="math inline">\(n \ge 0\)</span>
+</li><li> (<i>unit</i>) a morphism <span class="math inline">\(e : \textbf{1} \to \mathcal{O}(1)\)</span>,
+</li><li> (<i>composition</i>) for all <span class="math inline">\(n \ge 0\)</span> and <span class="math inline">\(k_1, \ldots, k_n \ge 0\)</span>,
+<span class="math display">\[ \circ : \mathcal{O}(n) \otimes \mathcal{O}(k_1) \otimes \cdots \otimes \mathcal{O}(k_n) \to \mathcal{O}(k_1 + \cdots + k_n) , \]</span>
+</li></ul>
+satisfying
+<ul><li> (<i>unit</i>) <span class="math inline">\(e \circ \theta = \theta = \theta \circ (e \otimes \cdots \otimes e)\)</span> for all <span class="math inline">\(\theta \in \mathcal{O}(n)\)</span>,
+</li><li> (<i>associativity</i>) <span class="math inline">\(\theta \circ (\theta_1 \circ (\theta_{1,1} \otimes \cdots \otimes \theta_{1,k_1}) \otimes \cdots \otimes \theta_n \circ (\theta_{n,1} \otimes \cdots \otimes \theta_{n,k_n}))\)</span> <span class="math inline">\(= (\theta \circ (\theta_1 \otimes \cdots \otimes \theta_n)) \circ (\theta_{1, 1} \otimes \cdots \otimes \theta_{1,k_1} \otimes \cdots \otimes \theta_{n,1} \otimes \cdots \otimes \theta_{n,k_n})\)</span>.
+</li></ul>
+A <b>symmetric operad</b>, or just <b>operad</b>, consists of the above, together with an action of <a href="#GT:symmetric-group"><span class="math inline">\(S_n\)</span></a> on <span class="math inline">\(\mathcal{O}(n)\)</span>, for each <span class="math inline">\(n \ge 0\)</span>, such that
+<ul><li> (<i>equivariance 1</i>) <span class="math inline">\(\sigma(\theta) \circ (\theta_{\sigma(1)} \otimes \cdots \otimes \theta_{\sigma(n)}) = \sigma'(\theta \circ (\theta_1 \otimes \cdots \otimes \theta_n))\)</span>, for all <span class="math inline">\(\sigma \in S_n\)</span>, where <span class="math inline">\(\sigma' \in S_{k_1 + \cdots + k_n}\)</span> acts on <span class="math inline">\(\{ 1, 2, \ldots, k_1 + \cdots + k_n \}\)</span> by permuting the blocks of size <span class="math inline">\(k_1, k_2, \ldots, k_n\)</span>.
+</li><li> (<i>equivariance 2</i>) <span class="math inline">\(\theta \circ (\sigma_1(\theta_1) \otimes \cdots \otimes \sigma_n(\theta_n)) = (\sigma_1, \ldots, \sigma_n)(\theta \circ (\theta_1 \otimes \cdots \otimes \theta_n))\)</span> for all <span class="math inline">\(\sigma_i \in S_{k_i}\)</span>.
+</li></ul>

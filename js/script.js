@@ -4,6 +4,8 @@ function init() {
     initTheme();
 }
 
+window.onload = init;
+
 function loadTopic(id) {
     const content = document.getElementById('content');
 
@@ -309,8 +311,7 @@ function setTheme(dark) {
 
 function typeset(elem) {
     // Typeset math
-    if (MathJax && MathJax.typeset)
-        MathJax.typeset([elem]);
+    renderMathInElement(elem, KaTeXOptions);
 
     // Make sure the svg images have correct margin
     function setImageMargin(img) {

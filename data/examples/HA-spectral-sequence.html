@@ -1,0 +1,13 @@
+<div class="example">Let <span class="math inline">\(C^{\bdot, \bdot}\)</span> be a <a href="#HA:double-complex">double complex</a> with total complex <span class="math inline">\(C^\bdot\)</span>, over an abelian category <span class="math inline">\(\mathcal{A}\)</span>. It is a theorem that there exists the <i>double complex spectral sequence</i>
+<span class="math display">\[ E_0^{p, q} = C^{p, q} \Rightarrow H^{p + q}(C^\bdot) , \]</span>
+and by symmetry also <span class="math inline">\(E_0^{p, q} = C^{q, p} \Rightarrow H^{p + q}(C^\bdot)\)</span>. These spectral sequences can be used to prove the <a href="#HA:snake-lemma">Snake lemma</a>. Consider the diagram
+<img class="display-math-svg" src="data/svg/27758fc0e22be34eb1b97c0881406f117cc8f2c2.svg" alt />
+whose rows are exact, as a double complex <span class="math inline">\(C^{\bdot, \bdot}\)</span>. The second spectral sequence gives
+<img class="display-math-svg" src="data/svg/83bbc7f9f9c7b4f47d79843fb6a9e6f78cec5f86.svg" alt />
+so <span class="math inline">\(E_1^{p, q} = 0\)</span> for all <span class="math inline">\(p, q\)</span>. In particular, this shows that <span class="math inline">\(H^n(C^\bdot) = 0\)</span> for all <span class="math inline">\(n\)</span>.<br/>
+The second spectral sequence gives
+<img class="display-math-svg" src="data/svg/b16d72d98b6797dd3f1e0e6543208ec4384d7737.svg" alt />
+Since this page must also converge to zero, the map <span class="math inline">\(\delta : \ker(\coker a \to \coker b) \to \ker c / \ker b\)</span> must be an isomorphism, and its inverse can be used to define the connecting homomorphism <span class="math inline">\(d : \ker c \to \coker a\)</span> making
+<span class="math display">\[ 0 \to \ker a \rightarrow \ker b \rightarrow \ker c \xrightarrow{d} \coker a \rightarrow \coker b \rightarrow \coker c \to 0 \]</span>
+exact.
+</div>

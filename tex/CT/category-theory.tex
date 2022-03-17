@@ -903,3 +903,16 @@
 \begin{example}{natural-numbers-object}
     For $\mathcal{C} = \textbf{Set}$, the triple $(\NN, 0, S)$ with $S(n) = n + 1$ is a natural numbers object. Indeed, for any other triple $(N', 0', S')$, the map $\phi : \NN \to N'$ is uniquely determined by $\phi(n) = (S')^n(0')$.
 \end{example}
+
+\begin{topic}{connected-category}{connected category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{connected} if it contains at least one object, and for every two objects $X$ and $Y$ in $\mathcal{C}$, there exists a zigzag of morphisms
+    \[ X \rightarrow Z_1 \leftarrow Z_2 \rightarrow \cdots \leftarrow Z_n \rightarrow Y \]
+    connecting $X$ and $Y$.
+\end{topic}
+
+\begin{example}{connected-category}
+    \begin{itemize}
+        \item Any category with an \tref{initial-object}{initial} or \tref{terminal-object}{terminal object} is connected.
+        \item The discrete category $\textbf{n}$ with $n$ objects is not connected for any $n \ge 0$.
+    \end{itemize}
+\end{example}

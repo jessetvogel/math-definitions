@@ -17,7 +17,7 @@
 \end{topic}
 
 \begin{topic}{character-representation}{character representation}
-    The \textbf{character} of a \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is the function
+    The \textbf{character} of a finite-dimensional \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is the function
     \[ \chi_\rho : G \to k, \quad g \mapsto \textup{tr}(\rho(g)) . \]
     Note that $\chi_\rho$ is constant on conjugacy classes.
 \end{topic}
@@ -119,4 +119,10 @@
     Let $G$ be a \tref{GT:group}{group}, and $k$ a ground field. A \textbf{character} of a $G$ is a group homomorphism $\chi : G \to k^\times$, and the \textbf{character group} of $G$ is set of characters
     \[ \Hom(G, k^\times) , \]
     whose group structure is given by $(\chi_1 \chi_2)(g) = \chi_1(g) \chi_2(g)$.
+\end{topic}
+
+\begin{topic}{regular-representation}{regular representation}
+    Let $G$ be a \tref{GT:group}{group}, and let $C(G)$ denote the $\CC$-vector space of complex-valued functions on $G$. The \textbf{regular representation} of $G$ is the \tref{representation}{representation}
+    \[ \rho : G \to \textup{GL}(C(G)) , \]
+    given by $(\rho(g) \cdot f)(x) = f(g^{-1} x)$ for all $f \in C(G)$ and $g, x \in G$.
 \end{topic}

@@ -157,3 +157,30 @@
 \begin{topic}{tensor-triangulated-category}{tensor triangulated category}
     A \textbf{tensor triangulated category} is a \tref{triangulated-category}{triangulated category} $\mathcal{T}$ with a \tref{CT:symmetric-monoidal-category}{symmetric monoidal structure} $\otimes : \mathcal{T} \times \mathcal{T} \to \mathcal{T}$ such that $X \otimes (-)$ and $(-) \otimes X$ are \tref{exact-functor-triangulated}{exact functors} for all $X$ in $\mathcal{T}$.
 \end{topic}
+
+\begin{topic}{t-structure}{t-structure}
+    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A \textbf{t-structure} on $\mathcal{D}$ is a pair $(\mathcal{D}_{\ge 0}, \mathcal{D}_{\le 0})$ of \tref{CT:full-subcategory}{full subcategories}, stable under isomorphisms, such that
+    \begin{itemize}
+        \item $\mathcal{D}_{\ge 0}[1] \subset \mathcal{D}_{\ge 0}$ and $\mathcal{D}_{\le 0}[-1] \subset \mathcal{D}_{\le 0}$,
+        \item $\Hom_\mathcal{D}(X, Y[-1]) = 0$ for all $X \in \mathcal{D}_{\ge 0}$ and $Y \in \mathcal{D}_{\le 0}$,
+        \item for all $Y \in \mathcal{D}$, there exists a distinguished triangle
+        \[ X \to Y \to Z \to X[1] \]
+        with $X \in \mathcal{D}_{\ge 0}$ and $Z \in \mathcal{D}_{\le 0}[-1]$.
+    \end{itemize}
+    One writes $\mathcal{D}_{\ge n} = \mathcal{D}_{\ge 0}[n]$ and $\mathcal{D}_{\le n} = \mathcal{D}_{\le 0}[n]$ for all $n \in \ZZ$.
+    
+    The \textbf{heart} of the t-structure is the full subcategory $\mathcal{D}^\heartsuit = \mathcal{D}_{\ge 0} \cap \mathcal{D}_{\le 0}$.
+\end{topic}
+
+\begin{example}{t-structure}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $\textbf{D}(\mathcal{A})$ its \tref{derived-category}{derived category}. The natural t-structure on $\textbf{D}(\mathcal{A})$ is given by the pair
+    \[ \begin{aligned}
+        \textbf{D}(\mathcal{A})_{\ge 0} &= \{ A_\bdot \in \textbf{D}(\mathcal{A}) \;|\; H_i(A_\bdot) = 0 \textup{ for all } i < 0 \} , \\
+        \textbf{D}(\mathcal{A})_{\le 0} &= \{ A_\bdot \in \textbf{D}(\mathcal{A}) \;|\; H_i(A_\bdot) = 0 \textup{ for all } i > 0 \} .
+    \end{aligned} \]
+    Indeed, the first condition is trivial, and the second condition holds since $\textup{Ext}_\mathcal{A}^{-1}(A, B) = 0$ for all $A, B$. Finally, for any complex $A_\bdot$, there is a distinguished triangle given by
+    \[ A_{\ge 0} \to A_\bdot \to A_{\le -1} \to A_{\ge 0}[1] \]
+    where $A_{\ge 0}$ and $A_{\le -1}$ denote the truncations of $A^\bdot$.
+    
+    Furthermore, the heart $\textbf{D}(\mathcal{A})^\heartsuit = \{ A_\bdot \in \textbf{D}(\mathcal{A}) \;|\; H_i(A_\bdot) = 0 \textup{ for all } i \ne 0 \}$ is equivalent to $\mathcal{A}$ via the functor $H_0$.
+\end{example}

@@ -998,8 +998,19 @@
 \begin{topic}{symmetric-polynomial}{symmetric polynomial}
     Let $R$ be a \tref{ring}{commutative ring}. A polynomial $f \in R[x_1, \ldots, x_n]$ is \textbf{symmetric} if it is invariant under any \tref{GT:symmetric-group}{permutation} of the variables, that is,
     \[ f(x_{\sigma(1)}, \ldots, x_{\sigma(n)}) = f(x_1, \ldots, x_n) \quad \textup{ for all } \sigma \in S_n . \]
-    For any $0 \le k \le n$, the \textbf{$k$th elementary symmetric polynomial} is given by
-    \[ e_k = \sum_{1 \le i_1 < \ldots < i_k \le n} x_{i_1} \cdots x_{i_k} . \]
+    \begin{itemize}
+        \item For any $0 \le k \le n$, the \textbf{$k$th elementary symmetric polynomial} is given by
+        \[ e_k = \sum_{1 \le i_1 < \ldots < i_k \le n} x_{i_1} \cdots x_{i_k} . \]
+        \item For any \tref{GM:integer-partition}{partition} $\lambda = (\lambda_1, \ldots, \lambda_n)$, the \textbf{monomial symmetric polynomial} of $\lambda$ is given by
+        \[ m_\lambda = \sum_{\mu} x_1^{\mu_1} \cdots x_n^{\mu_n} , \]
+        where $\mu$ ranges over all distinct permutations of $\lambda$.
+        \item For any partition $\lambda = (\lambda_1, \ldots, \lambda_r)$, the \textbf{homogeneous symmetric polynomial} of $\lambda$ is given by
+        \[ h_\lambda = h_{\lambda_1} \cdots h_{\lambda_r} , \]
+        where $h_k$ is the sum of all monomials of degree $k$.
+        \item For any partition $\lambda = (\lambda_1, \ldots, \lambda_r)$, the \textbf{power symmetric polynomial} of $\lambda$ is given by
+        \[ p_\lambda = p_{\lambda_1} \cdots p_{\lambda_r} , \]
+        where $p_k = m_{(k)}$ is the sum of all $k$-th powers.
+    \end{itemize}
     The \textbf{fundamental theorem of symmetric polynomials} states that any symmetric polynomial $f \in R[x_1, \ldots, x_n]$ can be written uniquely as a polynomial in the elementary symmetric polynomials $e_k$. In other words, there is an isomorphism $R[x_1, \ldots, x_n]^{S_n} \simeq R[e_1, \ldots, e_n]$.
 \end{topic}
 

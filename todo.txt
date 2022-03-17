@@ -7,15 +7,16 @@
 
 ---- Theory ----
 
-Jack functions / Hall--Littlewood / Macdonald polynomials / Hall inner product
+-- Higher Algebra
+Spectra
 
+Jack functions / Hall--Littlewood / Macdonald polynomials
 Riemann--Hilbert correspondence
 Fourier transform (abelian group)
 
--- General Mathematics
-GM: Newton polygon
-
 -- Category Theory
+
+(directed set)
 
 -- Algebra
 AA: reflection equation algebra / construct quantum group (as O_q(G))
@@ -49,7 +50,6 @@ DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
-AG: resolution of singularities / nonsingular variety
 AG: natural log structure on toric varieties
 AG: Étale fundamental group
 AG: Serre intersection formula
@@ -128,7 +128,6 @@ NT: Dirichlet unit theorem
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 
 -- Uncategorized
-- Thom isomorphism (Thom class)
 - Modular form
 - Proofs of theorems
 - Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
