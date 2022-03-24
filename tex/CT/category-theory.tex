@@ -752,6 +752,22 @@
     An endomorphism $e : X \to X$ in $\mathcal{C}$ is \textbf{split idempotent} if there exist morphisms $f : X \to Y$ and $g : Y \to X$ such that $f \circ g = \id_Y$ and $g \circ f = e$.
 \end{topic}
 
+\begin{example}{idempotent-morphism}
+    \begin{itemize}
+        \item Let $R$ be a \tref{AA:ring}{commutative ring}, $e \in R$ an \tref{AA:idempotent-element}{idempotent element}, and $M$ an \tref{AA:module}{$R$-module}. Then $e$ induces an idempotent module morphism $e : M \to M$ by scalar multiplication by $e$. This idempotent morphism always splits with
+        \[ \begin{aligned}
+            f : M \to eM, \quad m \mapsto e \cdot m , \\
+            g : eM \to M, \quad m \mapsto m .
+        \end{aligned} \]
+        \item Let $X$ be a \tref{TO:topological-space}{topological space}, and $e : X \to X$ an idempotent morphism. Then $e$ splits with
+        \[ \begin{aligned}
+            f : X \to \im(e), \quad x \mapsto e(x) , \\
+            g : \im(e) \to X, \quad x \mapsto x .
+        \end{aligned} \]
+        \item Again, let $R$ be a commutative ring and $e \in R$ a (non-trivial) idempotent element. Viewing $R$ as a category with one object, its elements as arrows, and composition given by multiplication, the idempotent morphism $e$ does not split. Namely, in this case splitting amounts to elements $f, g \in R$ such that $f \cdot g = 1$ and $g \cdot f = e$, which is impossible.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{karoubi-envelope}{Karoubi envelope}
     Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Karoubi envelope} (or \textbf{idempotent completion}) of $\mathcal{C}$ is the category defined as follows.
     \begin{itemize}

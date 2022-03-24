@@ -7,8 +7,11 @@
 
 ---- Theory ----
 
+Root system Lie algebra (inner product from Killing form)
+hyperalgebra (https://ncatlab.org/nlab/show/hyperalgebra)
+
 -- Higher Algebra
-Spectra
+Spectrum object
 
 Jack functions / Hall--Littlewood / Macdonald polynomials
 Riemann--Hilbert correspondence
@@ -50,6 +53,7 @@ DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
+AG: on Lang's theorem (algebraic groups) (Lang map) (proof in http://people.mpim-bonn.mpg.de/geordie/Rouquier.pdf)
 AG: natural log structure on toric varieties
 AG: Étale fundamental group
 AG: Serre intersection formula

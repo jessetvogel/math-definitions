@@ -66,7 +66,7 @@
     A subset $A$ of a \tref{topological-space}{topological space} $X$ is \textbf{dense} if its \tref{closure}{closure} $\overline{A}$ equals $X$.
 \end{topic}
 
-\begin{topic}{specialization}{specialization}
+\begin{topic}{specialization}{specialization / generalization}
     Let $X$ be a \tref{topological-space}{topological space}. If $x, y \in X$ then we say $y$ is a \textbf{specialization} of $x$, (sometimes that $x$ is a \textbf{generalization} of $y$) if $y \in \overline{\{ x \}}$, i.e. $y$ lies in the \tref{closure}{closure} of $x$. This is denoted as $x \leadsto y$.
     
     A subset $T \subset X$ is said to be \textbf{stable under specialization} if for all $x \in T$ and every specialization $x \leadsto y$ we have $y \in T$.
@@ -82,7 +82,7 @@
     A continuous map $f : X \to Y$ is \textbf{universally closed} if for all $g : Z \to Y$ the pullback $X \times_Y Z \to Z$ is \tref{closed-map}{closed}.
 \end{topic}
 
-\begin{topic}{irreducible}{irreducible}
+\begin{topic}{irreducible-space}{(ir)reducible space}
     A \tref{topological-space}{topological space} $X$ is \textbf{reducible} if it can be written as a union $X = Z_1 \cup Z_2$ of two closed proper subsets $Z_1, Z_2 \subsetneq X$. Otherwise, $X$ is \textbf{irreducible}.
 \end{topic}
 
@@ -427,3 +427,7 @@
     \[ H(x, t) = (1 - t) x - t (1 - x) . \]
     However, no isotopy from $f$ to $g$ can exist, since for any homotopy from $f$ to $g$ the endpoints must cross for some $t$.
 \end{example}
+
+\begin{topic}{sober-space}{sober space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{sober} if for every \tref{irreducible-space}{irreducible} $Y \subset X$, there exists a unique point $y \in Y$, called the \textit{generic point} of $Y$, such that $Y = \overline{\{ y \}}$.
+\end{topic}

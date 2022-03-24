@@ -542,3 +542,15 @@
         \item From the relation $\chi(X \times Y) = \chi(X) \chi(Y)$ follows that $\chi(\mathbb{T}^n) = 0$ for all tori $\mathbb{T}^n = (S^1)^n$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{brouwer-fixed-point-theorem}{Brouwer fixed point theorem}
+    Let $f : D^n \to D^n$ be a \tref{TO:continuous-map}{continuous map} where $D^n = \{ x \in \RR^n \;|\; \norm{x} \le 1 \}$ is the $n$-disk. Then \textbf{Brouwer's fixed point theorem} states that there exists some $x \in D^n$ with $f(x) = x$.
+\end{topic}
+
+\begin{example}{brouwer-fixed-point-theorem}
+    \begin{proof}
+        Suppose for a contradiction that $f(x) \ne x$ for all $x \in D^n$. Then there exists a unique line from $f(x)$ to $x$, and we let $r(x) \in \partial D^n$ be the point where this line intersects the boundary of $D^n$ (closer to $x$ than to $f(x)$). The resulting map $r : D^n \to \partial D^n$ can be shown to be continuous, and since clearly $r(x) = x$ for all $x \in \partial D^n$, the map $r$ is a \tref{CT:retraction}{retraction} of the inclusion $i : \partial D^n \to D^n$, that is, $r \circ i = \id_{\partial D^n}$. Looking at \tref{singular-homology}{singular homology} $H_{n - 1}(-; \ZZ)$, we find that the composition
+        \[ H_{n - 1}(\partial D^n; \ZZ) \xrightarrow{i_*} H_{n - 1}(D^n; \ZZ) \xrightarrow{r_*} H_{n - 1}(\partial D^n; \ZZ) , \]
+        must equal the identity. However, $H_{n - 1}(\partial D^n; \ZZ) = H_{n - 1}(S^{n - 1}; \ZZ) \simeq \ZZ$ and $H_{n - 1}(D^n; \ZZ) = 0$, and clearly the identity $\id : \ZZ \to \ZZ$ cannot factor through $0$, so we have a contradiction.
+    \end{proof}
+\end{example}

@@ -45,7 +45,7 @@
 \begin{topic}{integral-scheme}{integral scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{integral} if it is non-empty and for every non-empty open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ is a \tref{AA:domain}{domain}.
     
-    Equivalently, this is the case if $X$ is \tref{reduced-scheme}{reduced} and \tref{TO:irreducible}{irreducible}.
+    Equivalently, this is the case if $X$ is \tref{reduced-scheme}{reduced} and \tref{TO:irreducible-space}{irreducible}.
 \end{topic}
 
 \begin{topic}{noetherian-scheme}{(locally) noetherian scheme}
@@ -53,9 +53,9 @@
 \end{topic}
 
 \begin{topic}{finite-type}{(locally) of finite type}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite type at $x \in X$} if there exist affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finite-type}{finitely generated} $B$-algebra (via the induced map $B \to A$).
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite type at $x \in X$} if there exist affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finitely-generated-algebra}{finitely generated} $B$-algebra (via the induced map $B \to A$).
     
-    The morphism $f$ is \textbf{locally of finite type} if it is of finite type at each $x \in X$, and it is \textbf{of finite type} if it is locally of finite type and \tref{quasi-compact-scheme}{quasi-compact}.
+    The morphism $f$ is \textbf{locally of finite type} if it is of finite type at each $x \in X$, and it is \textbf{of finite type} if it is locally of finite type and \tref{quasi-compact-morphism}{quasi-compact}.
 \end{topic}
 
 \begin{topic}{finite-presentation}{(locally) of finite presentation}
@@ -65,12 +65,18 @@
 \end{topic}
 
 \begin{topic}{finite-morphism}{finite morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{finite} if there exists a covering of $Y$ by open affine subsets $V_i = \Spec B_i$, such that for each $i$, $f^{-1}(V_i)$ is affine, equal to $\Spec A_i$, where $A_i$ is a $B_i$-algebra which is a finitely generated $B_i$-module.
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{finite} if there exists a covering of $Y$ by open affine subsets $V_i = \Spec B_i$, such that for each $i$, $f^{-1}(V_i)$ is affine, equal to $\Spec A_i$, where $A_i$ is a $B_i$-algebra which is a \tref{AA:finitely-generated-module}{finitely generated} $B_i$-module.
 \end{topic}
 
 \begin{topic}{quasi-finite-morphism}{quasi-finite morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-finite} if it is of \tref{finite-type}{finite type}, and every point $x \in X$ is isolated in its fiber $f^{-1}(f(x))$, i.e. every fiber is a discrete finite set.
 \end{topic}
+
+\begin{example}{quasi-finite-morphism}
+    Every \tref{finite-morphism}{finite morphism} is quasi-finite, but the converse is not true. Namely, consider the immersion
+    \[ i : \Spec \ZZ[\tfrac{1}{2}] \to \Spec \ZZ . \]
+    Since $i$ is an open immersion, all fibers either consist of a single point or are empty. Furthermore, $i$ is of finite type as $\ZZ[\tfrac{1}{2}]$ is a finitely generated $\ZZ$-algebra, and $i$ is quasi-compact since the source and target are affine, hence $i$ is quasi-finite. However, $i$ is not finite since $\ZZ[\tfrac{1}{2}]$ is not finitely generated as a $\ZZ$-module.
+\end{example}
 
 \begin{topic}{open-immersion}{open immersion}
     An \textbf{open immersion} is a morphism $i : U \to X$ of \tref{scheme}{schemes} which induces an isomorphism of $U$ with an open subscheme of $X$.
@@ -404,11 +410,11 @@
 \end{topic}
 
 \begin{topic}{rational-map}{rational map}
-    A \textbf{rational map} $f : X \dashrightarrow Y$ between (\tref{TO:irreducible}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is an equivalence class of pairs $(U, f_U)$, where $U \subset X$ open and non-empty, $f_U : U \to Y$ a morphism, and where two pairs $(U, f_U)$ and $(V, f_V)$ are equivalent if their restriction to $U \cap V$ coincides.
+    A \textbf{rational map} $f : X \dashrightarrow Y$ between (\tref{TO:irreducible-space}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is an equivalence class of pairs $(U, f_U)$, where $U \subset X$ open and non-empty, $f_U : U \to Y$ a morphism, and where two pairs $(U, f_U)$ and $(V, f_V)$ are equivalent if their restriction to $U \cap V$ coincides.
 \end{topic}
 
 \begin{topic}{birational-map}{birational map}
-    A \textbf{birational map} between (\tref{TO:irreducible}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is a \tref{rational-map}{rational map} $f : X \dashrightarrow Y$ which has a rational inverse. That is, there exists a rational map $g : Y \dashrightarrow X$ such that $gf = \id_X$ and $fg = \id_Y$ as rational maps.
+    A \textbf{birational map} between (\tref{TO:irreducible-space}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is a \tref{rational-map}{rational map} $f : X \dashrightarrow Y$ which has a rational inverse. That is, there exists a rational map $g : Y \dashrightarrow X$ such that $gf = \id_X$ and $fg = \id_Y$ as rational maps.
     
     If there is a birational map from $X$ to $Y$, then $X$ and $Y$ are called \textbf{birationally equivalent}, or simply \textbf{birational}.
     
@@ -527,38 +533,6 @@
     A \textbf{Cartier divisor} on a \tref{scheme}{scheme} $X$ is a global section of $K_X / \mathcal{O}_X^*$, where $K_X$ denotes the \tref{sheaf-rational-functions}{sheaf of rational functions}.
 \end{topic}
 
-\begin{topic}{algebraic-group}{algebraic group}
-    An \textbf{algebraic group} is a \tref{variety}{variety} $G$ which is also a \tref{GT:group}{group}, such that the multiplication map $G \times G \to G$ and the inversion map $G \to G$ are morphisms of varieties.
-\end{topic}
-
-\begin{example}{algebraic-group}
-    \begin{itemize}
-        \item Linear groups such as $\text{GL}_n(k)$ and $\text{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
-        \item Finite groups can be realized as a disjoint union of points.
-        \item Elliptic curves, or more generally \tref{abelian-variety}{abelian varieties}.
-    \end{itemize}
-\end{example}
-
-\begin{topic}{radical-algebraic-group}{radical algebraic group}
-    The \textbf{radical} of an \tref{algebraic-group}{algebraic group} is the identity component of its maximal \tref{GT:normal-subgroup}{normal} \tref{GT:solvable-group}{solvable} \tref{GT:subgroup}{subgroup}.
-\end{topic}
-
-\begin{topic}{reductive-algebraic-group}{(linearly) reductive algebraic group}
-    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{reductive} if its \tref{radical-algebraic-group}{radical} is a torus.
-    
-    The algebraic group $G$ is \textbf{linearly reductive} if every \tref{RT:representation}{representation} of $G$ is \tref{RT:irreducible-representation}{semisimple}.
-    
-    In characteristic zero, the two notions are equivalent.
-\end{topic}
-
-\begin{example}{reductive-algebraic-group}
-    \begin{itemize}
-        \item Any finite group is reductive.
-        \item The groups $\mathbb{G}_m, \text{GL}_n(\CC), \text{SL}_n(\CC)$ and $\text{PGL}_n(\CC)$ are all reductive. 
-        \item A group which is not reductive is $\mathbb{G}_a$. Namely, since it is solvable (it is abelian) its radical is $\mathbb{G}_a$, which is not a torus. Also, we see that it is not linearly reductive: take $V = k^2$ with $\mathbb{G}_a$ acting via $t \cdot (x, y) = (x + ty, y)$. Then $U := k \cdot (1, 0) \subset V$ is a sub-$k[\mathbb{G}_a]$-module, but $V \not\simeq U \oplus (V / U)$.
-    \end{itemize}
-\end{example}
-
 \begin{topic}{abelian-variety}{abelian variety}
     An \textbf{abelian variety} is a \tref{complete-variety}{complete} \tref{variety}{variety} $X$ over a field $k$ which is also an \tref{algebraic-group}{algebraic group}. That is, it comes with a group structure such that the multiplication map $X \times X \to X$ and the inversion map $X \to X$ are morphisms of varieties.
 \end{topic}
@@ -628,40 +602,6 @@
 
 \begin{topic}{neron-severi-group}{Néron--Severi group}
     The \textbf{Néron--Severi group} of a \tref{variety}{variety} $X$, denoted $\text{NS}(X)$, is the group of \tref{weil-divisor}{divisors} on $X$ modulo \tref{algebraic-equivalence}{algebraic equivalence}.
-\end{topic}
-
-\begin{topic}{algebraic-torus}{algebraic torus}
-    An \textbf{algebraic torus} $T$ over a field $k$ is an \tref{algebraic-group}{algebraic group} which, over an \tref{AA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$, is isomorphic to a finite product of copies of $\mathbb{G}_m = \Spec \overline{k}[t, t^{-1}]$, that is
-    \[ T \times_k \overline{k} \simeq \Spec \overline{k}[t_1, t_1^{-1}, \ldots, t_r, t_r^{-1}] , \]
-    where $r$ is called the \textit{rank} of the algebraic torus $T$.
-\end{topic}
-
-\begin{example}{algebraic-torus}
-    Over $k = \RR$, there are up to isomorphism two algebraic tori of rank one:
-    \begin{itemize}
-        \item the torus $\RR^* = \Spec \RR[t, t^{-1}]$,
-        \item the unitary group $U(1) = \Spec \RR[x, y] / (x^2 + y^2 - 1)$. Indeed we have
-        \[ U(1) \times_\RR \CC = \Spec \CC[x, y] / (x^2 + y^2 - 1) \simeq \Spec[z, z^{-1}] \]
-        via the isomorphism $z = x + iy$ and $z^{-1} = x - iy$.
-    \end{itemize}
-\end{example}
-
-\begin{topic}{borel-subgroup}{Borel subgroup}
-    A \textbf{Borel subgroup} of an \tref{algebraic-group}{algebraic group} $G$ is a maximal \tref{TO:connected-space}{connected} \tref{GT:solvable-group}{solvable} \tref{GT:subgroup}{subgroup} of $G$.
-\end{topic}
-
-\begin{example}{borel-subgroup}
-    For $G = \text{GL}_n(k)$, the subgroup of invertible upper triangular matrices is a Borel subgroup.
-\end{example}
-
-% \begin{example}{borel-subgroup}
-%     When the ground field $k$ is algebraically closed, all Borel subgroups are conjugate.
-% \end{example}
-
-\begin{topic}{parabolic-subgroup}{parabolic subgroup}
-    A \textbf{parabolic subgroup} of an \tref{algebraic-group}{algebraic group} $G$ is a \tref{GT:subgroup}{subgroup} $P \subset G$ containing a \tref{borel-subgroup}{Borel subgroup}.
-    
-    Equivalently, a subgroup $P \subset G$ is parabolic if the quotient space $G/P$ is a \tref{complete-variety}{complete variety}.
 \end{topic}
 
 \begin{topic}{toric-variety}{toric variety}
@@ -852,7 +792,7 @@
 \end{topic}
 
 \begin{topic}{nef-line-bundle}{nef line bundle}
-    A \tref{invertible-sheaf}{line bundle} $\mathcal{L}$ on a \tref{scheme}{scheme} $X$, \tref{proper-morphism}{proper} over a field $k$, is \textbf{nef} (\textit{numerically effective}) if $\deg \mathcal{L}|_C \ge 0$ for every (\tref{closed-immersion}{closed} \tref{TO:irreducible}{irreducible}) \tref{algebraic-curve}{curve} $C$ in $X$.
+    A \tref{invertible-sheaf}{line bundle} $\mathcal{L}$ on a \tref{scheme}{scheme} $X$, \tref{proper-morphism}{proper} over a field $k$, is \textbf{nef} (\textit{numerically effective}) if $\deg \mathcal{L}|_C \ge 0$ for every (\tref{closed-immersion}{closed} \tref{TO:irreducible-space}{irreducible}) \tref{algebraic-curve}{curve} $C$ in $X$.
 \end{topic}
 
 \begin{topic}{riemann-roch-theorem}{Riemann--Roch theorem}
@@ -1013,67 +953,6 @@
     \[ \textup{Br}(X) = H^2_\textup{ét}(X, \mathbb{G}_m) . \]
 \end{topic}
 
-\begin{topic}{lie-kolchin-theorem}{Lie--Kolchin theorem}
-    The \textbf{Lie--Kolchin theorem} states that any \tref{GT:solvable-group}{solvable}, \tref{smooth-morphism}{smooth}, \tref{TO:connected-space}{connected} \tref{algebraic-group}{algebraic group} $G$ over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$ is \tref{triangularizable-algebraic-group}{triangularizable}.
-\end{topic}
-
-\begin{example}{lie-kolchin-theorem}
-    The conditions in the above theorem are all necessary:
-    \begin{itemize}
-        \item (\textit{connected}) The algebraic group $G = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \right\} \simeq \ZZ/2\ZZ$ is smooth and solvable, but not connected. Also $G$ is not triangularizable, since for the natural representation of $G$ on $k^2$, the two matrices have no common eigenvector.
-        \item (\textit{smooth}) Let $k$ be an (algebraically closed) field of characteristic $2$, and let $G \subset \textup{SL}_2$ be the algebraic group given by
-        \[ G(R) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \textup{Mat}_{2 \times 2}(R) : a^2 = d^2 = 1 \textup{ and } b^2 = c^2 = 0 \right\} . \]
-        Then $G$ is connected (topologically it is a point) but not smooth, and the exact sequence
-        \[ 1 \to \mu_2 \xrightarrow{a \mapsto \left(\begin{smallmatrix} a & 0 \\ 0 & a \end{smallmatrix}\right)} G \xrightarrow{\left(\begin{smallmatrix} a & b \\ c & d \end{smallmatrix}\right) \mapsto (ab, cd)} \alpha_2 \times \alpha_2 \to 1 \]
-        shows that $G$ is solvable. However, $G$ is not triangularizable since the natural action of $G$ on $k^2$ does not fix any line.
-        \item (\textit{solvable}) Any triangularizable group is solvable.
-        \item (\textit{algebraically closed}) Let $k = \RR$ and consider the algebraic group $G$ given by
-        \[ G(R) = \left\{ \begin{pmatrix} a & -b \\ b & a \end{pmatrix} \in \textup{Mat}_{2 \times 2}(R) : a^2 + b^2 = 1 \right\} . \]
-        Then $G$ is solvable (since it is abelian), connected and smooth. However it is not triangularizable since it does not have eigenvectors when acting naturally on $\RR^2$.
-    \end{itemize}
-\end{example}
-
-\begin{topic}{triangularizable-algebraic-group}{triangularizable algebraic group}
-    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{triangularizable} if every non-zero representation of $G$ has a one-dimensional subrepresentation.
-\end{topic}
-
-\begin{example}{triangularizable-algebraic-group}
-    The algebraic group $\mathbb{T}_n$ of upper triangular $n \times n$ matrices,
-    \[ \mathbb{T}_n = \left\{ \begin{pmatrix} * & * & \cdots & * \\ 0 & * & \cdots & * \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & * \end{pmatrix} \right\} , \]
-    is triangularizable, as well as any subgroup of $\mathbb{T}_n$.
-\end{example}
-
-\begin{example}{triangularizable-algebraic-group}
-    Triangularizable groups can be characterized in a number of ways. The following are all equivalent.
-    \begin{enumerate}[(i)]
-        \item $G$ is triangularizable.
-        \item For every representation $(V, \rho)$ of $G$, there exists a basis of $V$ for which $\rho(G) \subset \mathbb{T}_n$, with $n = \dim V$.
-        \item $G$ is isomorphic to an algebraic subgroup of $\mathbb{T}_n$ for some $n$.
-        \item There exists a \tref{GT:normal-subgroup}{normal} \tref{unipotent-algebraic-group}{unipotent} algebraic subgroup $U$ of $G$ such that $G/U$ is diagonalizable.
-    \end{enumerate}
-    \begin{proof}
-        $(i \Rightarrow ii)$ Proof by induction on $n = \dim V$, where the case $n = 0$ is trivial. For $n > 0$, pick $e_1 \in V$ such that $\langle e_1 \rangle$ is a subrepresentation of $V$. The induction hypothesis on $V / \langle e_1 \rangle$ gives a basis $\overline{e}_2, \ldots, \overline{e}_n$ for $V / \langle e_1 \rangle$ such that $G$ acts via $\mathbb{T}_{n - 1}$. Lifting each $\overline{e}_i$ to some $e_i \in V$ gives a basis $e_1, \ldots, e_n$ of $V$ such that $G$ acts via $\mathbb{T}_n$.
-        
-        $(ii \Rightarrow iii)$ Apply $(ii)$ to a faithful finite-dimensional representation of $G$.
-        
-        $(iii \Rightarrow iv)$ Embed $G \subset \mathbb{T}_n$ and let $U = G \cap \mathbb{U}_n$. Then $U \subset G$ is normal and unipotent since $\mathbb{U}_n \subset \mathbb{T}_n$ is. Now $G/U$ injects into $\mathbb{T}_n/\mathbb{U}_n \simeq \mathbb{G}_m^n$, and a subgroup of a diagonalizable group is diagonalizable.
-        
-        $(iv \Rightarrow i)$ Take some $U \subset G$ as in $(iv)$ and a representation $(V, r)$ of $G$. Since $U$ is unipotent, we have $V^U \ne 0$, and since $U$ is normal in $G$, we have that $V^U$ is stable under $G$. Namely, for any $v \in V^U$ with $n \in U(k)$ and $g \in G(k)$ we find that
-        \[ r(n) r(g) v = r(ng) v = r(gn') v = r(g) r(n') v = r(g) v , \]
-        with $n' = g^{-1} n g \in U(k)$, so $r(g) v \in V^U$ as well. Hence $G/U$, which is diagonalizable, acts on $V^U$, so $V^U \ne 0$ is the sum of $1$-dimensional subrepresentations. In particular, there exists a one-dimensional subrepresentation of $V$.
-    \end{proof}
-\end{example}
-
-\begin{topic}{unipotent-algebraic-group}{unipotent algebraic group}
-    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{unipotent} if every non-zero representation of $G$ has a non-zero fixed vector.
-\end{topic}
-
-\begin{example}{unipotent-algebraic-group}
-    The algebraic group $\mathbb{U}_n$ of upper triangular $n \times n$ matrices with ones on the diagonal,
-    \[ \mathbb{U}_n = \left\{ \begin{pmatrix} 1 & * & * & \cdots & * \\ 0 & 1 & * & \cdots & * \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix} \right\} , \]
-    is unipotent, as well as any subgroup of $\mathbb{U}_n$.
-\end{example}
-
 \begin{topic}{rationally-connected-variety}{rationally connected variety}
     A \textbf{rationally connected variety} is a \tref{projective-variety}{projective variety} $X$ over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$ such that through every two points passes the image of a morphism $\gamma : \PP^1_k \to X$.
 \end{topic}
@@ -1097,24 +976,6 @@
     Consider the morphism $f : \PP^1_k \to \Spec k$ and a point $x : \Spec k \to \PP^1_k$. Note that $f \circ x = \id$ and $x \circ f$ is idempotent, and write $p$ for the transposed graph of $x \circ f$. Then $(\PP^1_k, p)$ is isomorphic to $\textbf{1}$ via $x$ and $f$. Moreover, $(\PP^1_k, \Gamma_{\id}^t)$ decomposes as $(\PP^1_k, p) \oplus (\PP^1_k, p^t)$, and $\mathbb{L} = (\PP^1_k, p^t)$ is called the \textit{Lefschetz motive}.
     
     The category of \textbf{pure Chow motives} $\textup{Chow}(k)$ is obtained by adjoining a formal inverse $\mathbb{L}^{-1}$ to $\textup{Chow}^\textup{eff}(k)$.
-\end{topic}
-
-\begin{topic}{special-algebraic-group}{special algebraic group}
-    A linear \tref{algebraic-group}{algebraic group} $G \subset \textup{GL}_n$ is \textbf{special} if every \tref{TO:principal-bundle}{principal $G$-bundle} is locally trivial in the Zariski topology.
-\end{topic}
-
-\begin{example}{special-algebraic-group}
-    \begin{itemize}
-        \item The groups $\mathbb{G}_m, \mathbb{G}_a, \textup{GL}_n, \textup{SL}_n, \textup{Sp}_{2n}$ are special algebraic groups.
-        \item Any extension of special algebraic groups is special. In particular, the groups of upper triangular matrices $\mathbb{T}_n$ are special as they can be obtained via extensions from $\mathbb{G}_m$ and $\mathbb{G}_a$.
-        \item The group $\ZZ/2\ZZ$ is not special, as the morphism $\Spec k[x, x^{-1}] \to \Spec k[y, y^{-1}]$ given by $y = x^2$ is a principal $\ZZ/2\ZZ$-bundle, which is not locally trivial in the Zariski topology.
-    \end{itemize}
-\end{example}
-
-\begin{topic}{kummer-sequence}{Kummer sequence}
-    The \textbf{Kummer sequence} is the short exact sequence of \tref{algebraic-group}{algebraic groups}
-    \[ 0 \to \mu_n \xrightarrow{i} \mathbb{G}_m \xrightarrow{(-)^n} \mathbb{G}_m \to 0 , \]
-    where $\mathbb{G}_m = \ZZ[x^{\pm 1}]$ is the multiplicative group, and $\mu_n = \ZZ[x] / (x^n - 1)$ the group of units of order $n$.
 \end{topic}
 
 \begin{topic}{hasse-weil-zeta-function}{Hasse--Weil zeta function}

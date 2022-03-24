@@ -310,3 +310,11 @@
         is a pullback diagram if and only if it is a pushout diagram.
     \end{itemize}
 \end{topic}
+
+\begin{topic}{brown-representability-theorem}{Brown's representability theorem}
+    Let $\mathcal{C}$ be the \tref{homotopy-category}{homotopy category} of \tref{TO:connected-space}{connected} pointed \tref{AT:cw-complex}{CW-complexes}, and $\textbf{Set}_*$ the category of pointed sets. Let $F : \mathcal{C}^\textup{op} \to \textbf{Set}_*$ be a \tref{CT:functor}{functor}. \textbf{Brown's representability theorem} states that $F$ is \tref{CT:representable-functor}{representable} if
+    \begin{enumerate}[(i)]
+        \item for any collection of objects $(X_i)_{i \in I}$ of $\mathcal{C}$, the natural map $F(\bigvee_{i \in I} X_i) \to \prod_{i \in I} F(X_i)$ is an isomorphism,
+        \item the natural map $F(Y \cup_X Z) \to F(Y) \times_{F(X)} F(Z)$ is a surjection for any two \tref{AT:cofibration}{cofibrations} $X \to Y$ and $X \to Z$ in $\mathcal{C}$.
+    \end{enumerate}
+\end{topic}

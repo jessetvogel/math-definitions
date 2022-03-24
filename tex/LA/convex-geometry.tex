@@ -146,3 +146,13 @@
         \end{scope}
     \end{tikzpicture} \]
 \end{example}
+
+\begin{topic}{pick-theorem}{Pick's theorem}
+    Let $P$ be a simple polygon in the plane whose vertices have integer coordinates. Let $i$ be the number of lattice points in the interior of $P$, and $b$ the number of lattice points on the boundary of $P$. Then \textbf{Pick's theorem} states that the area $A$ of $P$ is given by
+    \[ A = i + \frac{b}{2} - 1 . \]
+\end{topic}
+
+\begin{example}{pick-theorem}
+    Consider the triangle $\Delta$ with vertices $(0, 0)$, $(x, 0)$ and $(0, y)$. Clearly $A = \frac{1}{2} x y$, and it is not too hard to see that $b = x + y + \gcd(x, y)$. Therefore, the number of interior points of the triangle is
+    \[ i = 1 + \frac{1}{2}(xy - x - y - \gcd(x, y)) . \]
+\end{example}
