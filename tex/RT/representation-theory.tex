@@ -126,3 +126,77 @@
     \[ \rho : G \to \textup{GL}(C(G)) , \]
     given by $(\rho(g) \cdot f)(x) = f(g^{-1} x)$ for all $f \in C(G)$ and $g, x \in G$.
 \end{topic}
+
+\begin{example}{regular-representation}
+    Let $G$ be a finite group, with irreducible representations $\rho_1, \ldots, \rho_n$. Then the regular representation $\rho$ decomposes as
+    \[ \rho = \bigoplus_{i = 1}^{n} \rho_i^{\oplus \dim \rho_i} . \]
+    Namely, if we take the elements of $G$ as a basis for $C(G)$, all $\rho(g)$ are \tref{LA:permutation-matrix}{permutation matrices}. In particular, it is easy to see that $\chi(g) := \tr(\rho(g))$ equals the number of elements that are fixed by $g$. Hence, $\chi(1) = |G|$ and $\chi(g) = 0$ if $g \ne 1$. Using \tref{first-orthogonality-theorem}{character theory}, we find that
+    \[ \rho = \bigoplus_{i = 1}^{n} \rho_i^{\oplus a_i} \quad \textup{ with } \quad a_i = \langle \chi, \chi_i \rangle = \frac{1}{|G|} \sum_{g \in G} \chi(g) \overline{\chi_i(g)} = \chi_i(1) = \dim \rho_i . \]
+    In particular, we obtain
+    \[ |G| = \chi(1) = \sum_{i = 1}^{n} (\dim \rho_i)^2 . \]
+\end{example}
+
+\begin{topic}{tannaka-duality}{Tannaka duality}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{CT:rigid-monoidal-category}{rigid} \tref{HA:linear-category}{$k$-linear} \tref{CT:monoidal-category}{monoidal category}, such that $\textup{End}(\textbf{1}) = k$, and let $\omega : \mathcal{C} \to \textbf{Vect}_k$ be an \tref{HA:exact-functor}{exact} \tref{CT:faithful-functor}{faithful} $k$-linear \tref{CT:monoidal-functor}{monoidal} \tref{CT:functor}{functor}. Then \textbf{Tannaka duality} states that
+    \begin{enumerate}[(i)]
+        \item The group $\textup{Aut}^\otimes(\omega)$ of \tref{CT:natural-transformation}{natural automorphisms} of $\omega$ that preserve the monoidal structure, is naturally represented by an affine group scheme $G$.
+        \item The functor $\mathcal{C} \to \textup{Rep}_k(G)$, induced by $\omega$, from $\mathcal{C}$ to the category of finite-dimensional \tref{representation}{representations} of $G$ over $k$, is an \tref{CT:equivalence-of-categories}{equivalence of categories}.
+    \end{enumerate}
+    In particular, an affine group scheme is uniquely determined up to isomorphism by its category of finite-dimensional representations $\textup{Rep}_k(G)$ together with its forgetful functor $\textup{Rep}_k(G) \to \textbf{Vect}_k$.
+\end{topic}
+
+\begin{example}{tannaka-duality}
+    Let us prove that for a finite group $G$, the natural morphism
+    \[ T : G \to \textup{Aut}^\otimes(\omega), \quad T(g)_\rho = \rho(g) , \]
+    is an isomorphism.
+    
+    For notation, let $\tau : G \to \textup{GL}(k^G)$ be the \tref{regular-representation}{regular representation} of $G$, and for any $g \in G$, let $I_g \in k^G$ be the indicator function given by $I_g(g) = 1$ and $I_g(h) = 0$ for $h \ne g$. Note that $\tau(h)(I_g) = I_{hg}$.
+    
+    We first show that $T$ is injective. Suppose $g \in G$ is such that $T(g) = \id_\omega$, then in particular $T(g)_\tau = \id_{k^G}$, so that $I_1 = T(g)_\tau(I_1) = \tau(g)(I_1) = I_g$, and hence $g = 1$.
+    
+    To show $T$ is surjective, take any $\alpha \in \textup{Aut}^\otimes(\omega)$. Since $\alpha$ respects the tensor product, it commutes with the multiplication map $\mu : k^G \otimes k^G \to k^G$, implying $\alpha_\tau$ is a morphism of $k$-algebras. Composing with evaluation, also $\textup{ev}_1 \circ \alpha_\tau : k^G \to k$ is a morphism of $k$-algebras, and thus must be of the form $\textup{ev}_s$ for some unique $s \in G$. Now we claim that $\alpha_\tau = \tau(s^{-1})$. Namely, for any $f \in k^G$ and $t \in G$,
+    \[ \begin{aligned}
+        \alpha(f)(t)
+            &= \alpha \left( \sum_{g \in G} f(g) I_g \right) (t) \\
+            &= \sum_{g \in G} f(g) \alpha(I_g) (t) \\
+            &= \sum_{g \in G} f(g) I_{gt^{-1}}(s) \\
+            &= f(st) \\
+            &= \tau(s^{-1})(f)(t) ,
+    \end{aligned} \]
+    where $\alpha(I_g)(t) = I_{gt^{-1}}(s)$ using naturality of $\alpha$ and that the map $\gamma_t : k^G \to k^G$ given by $\gamma_t(f)(x) = f(xt)$ is a morphism of representations. Now surjectiveness of $T$ follows from the final claim: if $\alpha, \beta \in \textup{Aut}^\otimes(\omega)$ with $\alpha_\tau = \beta_\tau$, then $\alpha = \beta$. Indeed, for any other representation $\rho : G \to \textup{GL}(V)$ and $v \in V$, we can define
+    \[ \phi : k^G \to V, \quad f \mapsto \sum_{g \in G} f(g) \rho(g) v , \]
+    which is a morphism of representations. By naturality of $\alpha$ and $\beta$, we find that
+    \[ \alpha_\rho(v) = \alpha_\rho(\phi(I_1)) = \phi(\alpha_\tau(I_1)) = \phi(\beta_\tau(I_1)) = \beta_\rho(\phi(I_1)) = \beta_\rho(v) , \]
+    so $\alpha = \beta$. We apply this to $\beta = T(s^{-1})$.
+\end{example}
+
+\begin{example}{tannaka-duality}
+    Note that the group $G$ cannot be determined from the \tref{RT:representation-ring}{representation ring} along, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \;|\; \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
+    \[ \begin{tabular}{c|c|c|c|c}
+        1 & 1 & 1 & 1 & 1 \\ \hline
+        1 & 1 & 1 & -1 & -1 \\ \hline
+        1 & 1 & -1 & 1 & -1 \\ \hline
+        1 & 1 & -1 & -1 & 1 \\ \hline
+        2 & -2 & 0 & 0 & 0
+    \end{tabular} \]
+\end{example}
+
+\begin{topic}{maschke-theorem}{Maschke's theorem}
+    Let $G$ be a finite \tref{GT:group}{group}. \textbf{Maschke's theorem} states that every complex \tref{RT:representation}{representations} $\rho : G \to \textup{GL}(V)$ of $G$ with a subrepresentation $W \subset V$ splits. That is, there exists another subrepresentation $U \subset V$ such that $V = W \oplus U$.
+\end{topic}
+
+\begin{example}{maschke-theorem}
+    \begin{proof}
+        Since $G$ is finite, there exists an inner product on $V$ for which $\rho$ is unitary, i.e. $\rho(g)$ is \tref{LA:unitary-matrix}{unitary} for all $g \in G$. Let $U = W^\perp$ with respect to this inner product, then for any $u \in U$ and $w \in W$ and $g \in G$, we have
+        \[ \langle w, \rho(g) u \rangle = \langle \rho(g^{-1}) w, u \rangle = 0 \]
+        since $\rho(g^{-1}) w \in W$, so $\rho(g) u \in U$. Hence, $U \subset V$ is an invariant subspace as well. To obtain the desired inner product, one can take
+        \[ \langle u, v \rangle = \frac{1}{|G|} \sum_{g \in G} \langle \rho(g) u, \rho(g) v \rangle^\times , \]
+        for any inner product $\langle \cdot, \cdot \rangle^\times$ on $V$.
+    \end{proof}
+\end{example}
+
+\begin{example}{maschke-theorem}
+    If $G$ is infinite, representations of $G$ need not be fully reducible. Consider the following representation of $\ZZ$,
+    \[ \rho : \ZZ \to \textup{GL}_2(\CC), \quad n \mapsto \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix} . \]
+    Then $\CC \cdot (1, 0)$ is an invariant subrepresentation, but $\rho$ does not split.
+\end{example}

@@ -152,7 +152,9 @@
 \begin{topic}{root-system-lie-algebra}{root system Lie algebra}
     Let $\mathfrak{g}$ be a complex \tref{semisimple-lie-algebra}{semisimple} \tref{lie-algebra}{Lie algebra}, and $\mathfrak{h}$ a \tref{cartan-subalgebra}{Cartan subalgebra}. A \textbf{root} of $\mathfrak{g}$ (relative to $\mathfrak{h}$) is an element $\alpha \in \mathfrak{h}^*$ such that
     \[ \mathfrak{g}_\alpha = \{ x \in \mathfrak{g} : [h, x] = \alpha(h) x \textup{ for all } h \in \mathfrak{h} \} \]
-    is non-empty. The \textbf{root system} of $\mathfrak{g}$ (relative to $\mathfrak{h}$) is the set $\Phi$ of all roots. In particular, $\Phi$ is a \tref{LA:root-system}{root system} in $\mathfrak{h}^*$.
+    is non-empty. The \textbf{root system} of $\mathfrak{g}$ (relative to $\mathfrak{h}$) is the set $\Phi$ of all roots. In particular, $\Phi$ is a \tref{LA:root-system}{root system} in $\mathfrak{h}^*$. The inner product on $\mathfrak{h}^*$ is given by
+    \[ \langle \alpha, \beta \rangle = \kappa_\mathfrak{g}(t_\alpha, t_\beta) \]
+    for all $\alpha, \beta \in \Phi$, where $\kappa_\mathfrak{g}(t_\alpha, -)|_\mathfrak{h} = \alpha$ and $\kappa_\mathfrak{g}$ denotes the \tref{killing-form}{Killing form}.
 \end{topic}
 
 \begin{example}{root-system-lie-algebra}

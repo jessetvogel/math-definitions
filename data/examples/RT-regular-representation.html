@@ -1,0 +1,7 @@
+<div class="example">Let <span class="math inline">\(G\)</span> be a finite group, with irreducible representations <span class="math inline">\(\rho_1, \ldots, \rho_n\)</span>. Then the regular representation <span class="math inline">\(\rho\)</span> decomposes as
+<span class="math display">\[ \rho = \bigoplus_{i = 1}^{n} \rho_i^{\oplus \dim \rho_i} . \]</span>
+Namely, if we take the elements of <span class="math inline">\(G\)</span> as a basis for <span class="math inline">\(C(G)\)</span>, all <span class="math inline">\(\rho(g)\)</span> are <a href="#LA:permutation-matrix">permutation matrices</a>. In particular, it is easy to see that <span class="math inline">\(\chi(g) := \tr(\rho(g))\)</span> equals the number of elements that are fixed by <span class="math inline">\(g\)</span>. Hence, <span class="math inline">\(\chi(1) = |G|\)</span> and <span class="math inline">\(\chi(g) = 0\)</span> if <span class="math inline">\(g \ne 1\)</span>. Using <a href="#RT:first-orthogonality-theorem">character theory</a>, we find that
+<span class="math display">\[ \rho = \bigoplus_{i = 1}^{n} \rho_i^{\oplus a_i} \quad \textup{ with } \quad a_i = \langle \chi, \chi_i \rangle = \frac{1}{|G|} \sum_{g \in G} \chi(g) \overline{\chi_i(g)} = \chi_i(1) = \dim \rho_i . \]</span>
+In particular, we obtain
+<span class="math display">\[ |G| = \chi(1) = \sum_{i = 1}^{n} (\dim \rho_i)^2 . \]</span>
+</div>

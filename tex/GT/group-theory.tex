@@ -415,6 +415,16 @@
     Let $G$ be a \tref{group}{group}. The \textbf{Frattini subgroup} of $G$, denoted $\Phi(G)$, is the intersection of all proper maximal \tref{subgroup}{subgroups} of $G$.
 \end{topic}
 
+\begin{example}{frattini-subgroup}
+    Let $G = \ZZ/p^k \ZZ$ for some prime number $p$ and integer $k \ge 1$. Then all subgroups of $G$ are given by $\langle p^\ell \rangle$ for $0 \le \ell \le k$. Hence, the only proper maximal subgroup of $G$ is $\langle p^{k - 1} \rangle$, which is therefore also its Frattini subgroup.
+\end{example}
+
+\begin{example}{frattini-subgroup}
+    For any prime number $p$, consider the \textit{Prüfer $p$-group}
+    \[ \ZZ(p^\infty) = \{ z \in \CC \;|\; z^{p^n} = 1 \textup{ for some } n \in \ZZ_{\ge 1} \} . \]
+    As all subgroups of $\ZZ(p^\infty)$ are of the form $H_k = \{ \exp(2 \pi i \ell / p^k) \;:\; 0 \le \ell < p^k \}$ for some $k \ge 0$, there are no proper maximal subgroups in $\ZZ(p^\infty)$, and hence the Frattini subgroup of $\ZZ(p^\infty)$ is itself.
+\end{example}
+
 \begin{topic}{dicyclic-group}{dicyclic group}
     The \textbf{dicyclic group} $\textup{Dic}_n$ is the \tref{semidirect-product}{semidirect product} of the \tref{cyclic-group}{cyclic group} $C_2$ by the cyclic group $C_{2n}$, given by
     \[ \textup{Dic}_n = \langle a, x \;|\; a^{2n} = 1, \; x^2 = a^n, x^{-1} a x = a^{-1} \rangle . \]

@@ -7,8 +7,13 @@
 
 ---- Theory ----
 
-Root system Lie algebra (inner product from Killing form)
-hyperalgebra (https://ncatlab.org/nlab/show/hyperalgebra)
+Skein algebras
+
+-- Representation theory
+RT: Tannaka–Krein duality (https://concretenonsense.wordpress.com/2009/05/16/tannaka%E2%80%93krein-duality/)
+                          (https://mathoverflow.net/questions/11306/character-table-does-not-determine-group-vs-tannaka-duality)
+                          (https://mathoverflow.net/questions/500/finite-groups-with-the-same-character-table)
+                          (Appendix https://arxiv.org/pdf/math-ph/0602036.pdf)
 
 -- Higher Algebra
 Spectrum object
@@ -16,6 +21,9 @@ Spectrum object
 Jack functions / Hall--Littlewood / Macdonald polynomials
 Riemann--Hilbert correspondence
 Fourier transform (abelian group)
+
+-- General
+GM: graph (directed, weighted)
 
 -- Category Theory
 
@@ -53,6 +61,7 @@ DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
+AG: Kempf-Ness stratification
 AG: on Lang's theorem (algebraic groups) (Lang map) (proof in http://people.mpim-bonn.mpg.de/geordie/Rouquier.pdf)
 AG: natural log structure on toric varieties
 AG: Étale fundamental group
@@ -94,9 +103,6 @@ FA: von Neumann algebra
 -- Order Theory ?
 LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
 
--- Measure Theory
-MT: Measure Theory, sigma algebra, Borel algebra, etc. (see lectures notes from RuG, Henk de Snoo) some integrability theorems
-
 -- Derived Algebraic Geometry
 DAG: derived ring
 DAG: derived scheme / stack
@@ -115,7 +121,6 @@ FA: Inequalities for FA (see Lp spaces)
 -- Linear algebra
 
 -- Number Theory
-NT: ring of integers
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
 NT: inertia subgroup
