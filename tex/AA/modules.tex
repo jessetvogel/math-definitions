@@ -224,3 +224,16 @@
     \[ \ZZ \xleftarrow{\cdot 2} \ZZ \xrightarrow{\cdot 2} \ZZ \]
     is $\ZZ^3 / ((1, 0, -2), (1, -2, 0))$, which has torsion (e.g. $(1, -1, -1)$), so is not flat.
 \end{example}
+
+\begin{topic}{baers-criterion}{Baer's criterion}
+    Let $R$ be a \tref{ring}{commutative ring} and $Q$ an \tref{module}{$R$-module}. \textbf{Baer's criterion} states that $Q$ is \tref{injective-module}{injective} if and only if for every \tref{ideal}{ideal} $I \subset R$, regarded as $R$-module, and $R$-module morphisms $g : I \to Q$, there exists a unique extension $h : R \to Q$ along the inclusion $I \hookrightarrow R$.
+    \[ \begin{tikzcd} I \arrow[hook]{r} \arrow[swap]{d}{g} & R \arrow[dashed]{dl}{h} \\ Q \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{baers-criterion}
+    \begin{proof}
+        Let $i : M \to N$ and $f : M \to Q$ be $R$-module morphisms, with $i$ injective. Consider the partially ordered set of pairs $(M', f')$, with $M \subset M' \subset N$ and $f'$ extending $f$, where $(M', f') \le (M'', f'')$ if $M' \subset M''$ and $f''$ extends $f'$. By \tref{GM:zorns-lemma}{Zorn's lemma}, there exists a maximal element $(M', f')$. If $M' = N$, we are done, and otherwise there exists some $x \in N \setminus M'$. Consider the ideal $I = \{ r \in R \;|\; rx \in M' \}$ and define $g : I \to Q$ by $g(r) = f'(rx)$. Then by assumption $g$ extends to some $h : R \to Q$. Now let $M'' = M' + \langle x \rangle$ and define
+        \[ f'' : M'' \to Q, \quad y + rx \mapsto f'(y) + h(r) , \]
+        for all $y \in M'$ and $r \in R$. Then $f''$ extends $f'$, contradicting the maximality of $M'$.
+    \end{proof}
+\end{example}

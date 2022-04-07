@@ -1065,12 +1065,10 @@
 
 \begin{topic}{moduli-space}{moduli space}
     Let $F : \textbf{Sch}^\textup{op} \to \textbf{Set}$ be a \tref{CT:functor}{functor}.
-    
     A scheme $M$ is a \textbf{fine moduli space} for $F$ if $M$ \tref{CT:representable-functor}{represents} $F$, that is, there is a \tref{CT:natural-transformation}{natural} isomorphism
     \[ F \simeq \Hom_\textbf{Sch}(-, M) . \]
-    
     A scheme $M$ is a \textbf{coarse moduli space} for $F$ if there exists a natural transformation
-    \[ \tau : F \Rightarrow \Hom_\textbf{Sch}(-, M) , \]
+    \[ F \Rightarrow \Hom_\textbf{Sch}(-, M) , \]
     which is universal among all such natural transformations.
 \end{topic}
 
@@ -1162,3 +1160,12 @@
     
     Equivalently, $X$ is nonsingular if and only if the structure morphism $X \to \Spec k$ is \tref{smooth-morphism}{smooth}.
 \end{topic}
+
+\begin{topic}{chow-lemma}{Chow's lemma}
+    % Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $X$ a scheme \tref{proper-morphism}{proper} over $S$. Then \textbf{Chow's lemma} states that there exists a scheme $X'$ which is \tref{projective-morphism}{projective} over $S$, and a surjective morphism $f : X' \to X$ over $S$, which induces an isomorphism $f^{-1}(U) \simeq U$ for some \tref{TO:dense}{dense} open $U \subset X$.
+    Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $f : X \to S$ a \tref{separated-morphism}{separated morphism} of \tref{finite-type}{finite type}. Then \textbf{Chow's lemma} states that there exists a commutative diagram
+    \[ \begin{tikzcd}
+        X \arrow[swap]{dr}{f} & X' \arrow[swap]{l}{\pi} \arrow{r}{i} \arrow{d} & \PP^n_S \arrow{dl} \\ & S &
+    \end{tikzcd} \]
+    with $\pi : X' \to X$ \tref{proper-morphism}{proper} and surjective, $i : X' \to \PP^n_S$ an \tref{immersion}{immersion}, such that $\pi$ restricts to an isomorphism $\pi^{-1}(U) \simeq U$ for some \tref{TO:dense}{dense} open $U \subset X$.
+ \end{topic}

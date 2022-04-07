@@ -140,6 +140,18 @@
     Furthermore, $\mathcal{F}$ is \textbf{coherent} is each $M_i$ can be taken to be a \tref{AA:finitely-generated-module}{finitely generated} $R_i$-module.
 \end{topic}
 
+\begin{example}{coherent-sheaf}
+    Let $R$ be a \tref{AA:discrete-valuation-ring}{discrete valuation ring} and $X = \Spec(R) = \{ m, \eta \}$, with $m$ the closed point and $\eta$ the generic point. Then the \tref{sheaf-of-ideals}{sheaf of ideals} $\mathcal{I} \subset \mathcal{O}_X$ given by $\mathcal{I}(X) = 0$ and $\mathcal{I}(\{ \eta \}) = K$, where $K$ is the \tref{AA:field-of-fractions}{field of fractions} of $R$, is not quasi-coherent. Namely, the only open neighborhood of $m$ is $X$ itself, and $\mathcal{I}|_X = \mathcal{I}$ is not isomorphic to $\widetilde{\mathcal{I}(X)} = 0$.
+    
+    In particular, this shows that $\mathcal{I}$ does not define a closed subscheme of $X$. Indeed, the support of $\mathcal{I}$ is $\{ \eta \}$, which is not closed.
+\end{example}
+
+\begin{example}{coherent-sheaf}
+    Let $X = \Spec(\ZZ)$ and $Y = \bigsqcup_{i = 1}^{\infty} X = \Spec\left(\prod_{i = 1}^\infty \ZZ \right)$, with the obvious morphism $f : Y \to X$. Then $f_* \mathcal{O}_Y$ is not a quasi-coherent $\mathcal{O}_X$-module. Namely, if it were quasi-coherent, then in particular every $n \in \ZZ$ should induce a natural isomorphism
+    \[ \prod_{i = 1}^{\infty} \ZZ_n \simeq \left(\prod_{i = 1}^{\infty} \ZZ \right)_n . \]
+    However, the element $(1, 1/n, 1/n^2, 1/n^3, \ldots)$ does exist on the left-hand side, but not on the right-hand side for $n \ge 2$.
+\end{example}
+
 \begin{topic}{ideal-sheaf}{ideal sheaf}
     Let $i : Y \to X$ be a \tref{closed-immersion}{closed immersion} of \tref{scheme}{schemes}. The \textbf{ideal sheaf} $\mathcal{I}$ of $Y$ is the kernel of $i^\# : \mathcal{O}_X \to i_* \mathcal{O}_Y$. In particular, this is a \tref{sheaf-of-ideals}{sheaf of ideals} on $X$.
     \[ 0 \to \mathcal{I} \to \mathcal{O}_X \to i_* \mathcal{O}_Y \to 0 . \]

@@ -554,3 +554,13 @@
         must equal the identity. However, $H_{n - 1}(\partial D^n; \ZZ) = H_{n - 1}(S^{n - 1}; \ZZ) \simeq \ZZ$ and $H_{n - 1}(D^n; \ZZ) = 0$, and clearly the identity $\id : \ZZ \to \ZZ$ cannot factor through $0$, so we have a contradiction.
     \end{proof}
 \end{example}
+
+\begin{topic}{lefschetz-fixed-point-theorem}{Lefschetz fixed point theorem}
+    Let $X$ be a \tref{cw-complex}{finite CW-complex}, and $f : X \to X$ be a \tref{TO:continuous-map}{continuous map}. The \textbf{Lefschetz number} of $f$ is defined as
+    \[ \Lambda_f = \sum_{k \ge 0} (-1)^k \tr \left(f_* : H_k(X; \QQ) \to H_k(X; \QQ) \right) , \]
+    the alternating (finite) sum of traces of the maps induced by $f$ on the \tref{singular-homology}{singular homology} of $X$. \textbf{Lefschetz fixed point theorem} states that if $\Lambda_f \ne 0$, then there exists some $x \in X$ with $f(x) = x$.
+\end{topic}
+
+\begin{example}{lefschetz-fixed-point-theorem}
+    \tref{brouwer-fixed-point-theorem}{Brouwer's fixed point theorem} follows from Lefschetz fixed point theorem. Namely, let $f : D^n \to D^n$ be a continuous map. Note that $H_0(D^n; \QQ) = \QQ$ and $H_i(D^n; \QQ) = 0$ for all $i > 0$. Since $f_* : H_0(D^n; \QQ) \to H_0(D^n; \QQ)$ is the identity map, it follows that $\Lambda_f = 1 \ne 0$, so $f$ has a fixed point.
+\end{example}

@@ -114,16 +114,21 @@
 \begin{topic}{prime-ideal}{prime ideal}
     Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{prime} if $I \ne R$ and
     \[ ab \in I \implies a \in I \text{ or } b \in I . \]
-    Equivalently, $I \subset R$ is a prime ideal iff the quotient ring $R / I$ is a \tref{domain}{domain}.
+    Equivalently, $I \subset R$ is a prime ideal if and only if the quotient ring $R / I$ is a \tref{domain}{domain}.
 \end{topic}
 
 \begin{topic}{maximal-ideal}{maximal ideal}
     Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{maximal} if $I \ne R$ and if $I \subset J \subsetneq R$ implies $I = J$ for any other ideal $J \subset R$.
     
-    Equivalently, $I \subset R$ is a maximal ideal iff the quotient ring $R / I$ is a \tref{field}{field}.
+    Equivalently, $I \subset R$ is a maximal ideal if and only if the quotient ring $R / I$ is a \tref{field}{field}.
     
     Every maximal ideal is \tref{prime-ideal}{prime}.
 \end{topic}
+
+\begin{example}{maximal-ideal}
+    Every ideal $I \subsetneq R$ is contained in some maximal ideal $\mathfrak{m}$. Namely, consider the partially ordered set $P$ of ideals $J \subsetneq R$ containing $I$, ordered by inclusion. Then $P$ is non-empty as it contains $I$, and every chain $J_1 \subset J_2 \subset \ldots$ in $P$ has an upper bound $J = \cup_{i \ge 1} J_i$. Note that indeed $J$ is an ideal, and $J \ne R$ as $1 \not\in J$ because $1 \not\in J_i$ for all $i$.
+    Now from \tref{GM:zorns-lemma}{Zorn's lemma} it follows $P$ has a maximal element, which corresponds to a maximal ideal $\mathfrak{m}$ containing $I$.
+\end{example}
 
 \begin{topic}{irreducible-ideal}{irreducible ideal}
     Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{irreducible} if
@@ -271,7 +276,7 @@
 \end{topic}
 
 \begin{topic}{regular-ring}{regular (local) ring}
-    A \textbf{regular local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} ring such that the minimal number of generators of its maximal ideal is equal to its \tref{krull-dimension}{Krull dimension}. Equivalently, a local ring $R$ with maximal ideal $\mathfrak{m}$ and residue field $k = R / \mathfrak{m}$ is regular iff $\dim_k(\mathfrak{m} / \mathfrak{m}^2) = \dim R$.
+    A \textbf{regular local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} ring such that the minimal number of generators of its maximal ideal is equal to its \tref{krull-dimension}{Krull dimension}. Equivalently, a local ring $R$ with maximal ideal $\mathfrak{m}$ and residue field $k = R / \mathfrak{m}$ is regular if and only if $\dim_k(\mathfrak{m} / \mathfrak{m}^2) = \dim R$.
     
     A \textbf{regular ring} is a commutative noetherian ring, such that the \tref{localization}{localization} at every \tref{prime-ideal}{prime ideal} is a regular local ring.
 \end{topic}
@@ -309,7 +314,7 @@
 \begin{topic}{field-of-fractions}{field of fractions}
     The \textbf{field of fractions} of a \tref{domain}{domain} $R$ is the \tref{field}{field} given by
     \[ K = \left\{ (a, b) : a, b \in R, b \ne 0 \right\} / \sim{} \]
-    where $(a, b) \sim{} (c, d)$ iff $ad = bc$. Indeed $(a, b)$ represents the fraction $\frac{a}{b}$. Addition and multiplication are given by
+    where $(a, b) \sim{} (c, d)$ if and only if $ad = bc$. Indeed $(a, b)$ represents the fraction $\frac{a}{b}$. Addition and multiplication are given by
     \[ \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \quad \text{and} \quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} . \]
 \end{topic}
 
@@ -371,9 +376,20 @@
 \begin{topic}{invertible-ideal}{invertible ideal}
     Let $R$ be a \tref{domain}{domain} and $K$ its \tref{field-of-fractions}{field of fractions}. An $R$-submodule $M$ of $K$ is an \textbf{invertible ideal} if there exists a submodule $N$ of $K$ such that $MN = R$. This module $N$ is then unique and equal to
     \[ N = (R : M) := \{ x \in K : xM \subset R \} . \]
-    
     The invertible ideals form a group with respect to multiplication, whose unit element is $R = (1)$.
 \end{topic}
+
+\begin{topic}{quotient-ideal}{quotient ideal}
+    Let $R$ be a \tref{ring}{commutative ring}, and $I, J \subset R$ two \tref{ideal}{ideals}. Their \textbf{quotient ideal} is the ideal
+    \[ (I : J) = \{ x \in R \;|\; xJ \subset I \} . \]
+\end{topic}
+
+\begin{example}{quotient-ideal}
+    \begin{itemize}
+        \item In $\ZZ$, we have $((6) : (2)) = (3)$.
+        \item In $k[x, y]$, we have $((xy), (x)) = (y)$.
+    \end{itemize}
+\end{example}
 
 \begin{topic}{syzygy-module}{syzygy module}
     Let $g_1, g_2, \ldots, g_k$ be generators of \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$. The \textbf{syzygy module} is the $R$-module consisting of all relations between the generators, i.e. the kernel of

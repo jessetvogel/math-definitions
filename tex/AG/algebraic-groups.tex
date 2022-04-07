@@ -171,3 +171,15 @@
 \begin{example}{bruhat-decomposition}
     Let $G = \textup{GL}_n(\CC)$ with $B \subset G$ the subgroup of upper triangular matrices, $T \subset G$ the subgroup of diagonal matrices, and $W$ the \tref{GT:symmetric-group}{symmetric group} $S_n$. The Bruhat decomposition says that for any $A \in G$, we can write $A = U P V$ with $U, V \in B$ and $P$ a \tref{LA:permutation-matrix}{permutation matrix}. Rewriting as $P = U^{-1} A V^{-1}$, this says any invertible matrix $A$ can be brought into a permutation matrix via row and column operations, where we can only add row $i$ to row $j$ if $i > j$, and column $i$ to column $j$ if $i < j$.
 \end{example}
+
+\begin{topic}{langs-theorem}{Lang's theorem}
+    Let $G$ be an \tref{algebraic-group}{algebraic group} over a finite field $\FF_q$, and let $F : G \to G$ be the \tref{AA:frobenius-morphism}{Frobenius map}. The \textbf{Lang map} is the morphism
+    \[ L : G \to G, \quad g \mapsto g^{-1} F(g) , \]
+    and note that $\ker L = G^F$. \textbf{Lang's theorem} states that if $G$ is \tref{TO:connected-space}{connected}, then $L$ is surjective.
+\end{topic}
+
+\begin{example}{langs-theorem}
+    \begin{proof}
+        Note that $(dF)_1 = 0$ as $F(1) = 1$ and $q \ge 2$. Hence, $(dL)_1 = -1$ and in particular bijective. Therefore, the image $L(G)$ contains a (dense) open subset of $G$. Now, for any $x \in G$, let $L_x : G \to G$ be given by $g \mapsto g^{-1} x F(g)$. Then again, $(dL_x)_1$ is bijective, so $L_x(G)$ contains a (dense) open subset of $G$ as well. Therefore, $L(G) \cap L_x(G) \ne \varnothing$, so there exist $g, h \in G$ such that $g^{-1} F(g) = h^{-1} x F(h)$ and thus $x = hg^{-1} F(gh^{-1}) = L(gh^{-1})$, showing that $L$ is surjective.
+    \end{proof}
+\end{example}
