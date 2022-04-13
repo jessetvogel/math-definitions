@@ -160,13 +160,13 @@
     That is, $S$ is a \tref{finitely-generated-algebra}{finitely generated $R$-algebra}.
 \end{topic}
 
-\begin{topic}{finite-presentation}{finite presentation}
+\begin{topic}{finitely-presented-algebra}{finitely presented algebra}
     A \tref{ring-morphism}{ring morphism} $R \to S$ is said to be of \textbf{finite presentation} if $S$ is isomorphic to $R[x_1, \ldots, x_n] / (f_1, \ldots, f_m)$ for some integer $n$ and some $f_i \in R[x_1, \ldots, x_n]$.
     
     In this case, $S$ is also said to be a \textbf{finitely presented $R$-algebra}.
 \end{topic}
 
-\begin{example}{finite-presentation}
+\begin{example}{finitely-presented-algebra}
     Let $R = k[x_1, x_2, \ldots]$ and $S = R / (x_1^2, x_2^2, \ldots)$. Then the quotient map $R \to S$ is of \tref{finite-type}{finite type}, but not of finite presentation.
 \end{example}
 
@@ -515,9 +515,22 @@
 \end{topic}
 
 \begin{example}{standard-smooth-algebra}
-    Take $A = k$ a field and $B = k[x, y] / (xy)$. Then $\partial (xy) / \partial x = y$ which is not invertible in $B$, so $k[x, y] / (xy)$ is not standard smooth over $k$.
+    \begin{itemize}
+        \item Take $A = k$ a field and $B = k[x, y] / (xy)$. Then $\partial (xy) / \partial x = y$ which is not invertible in $B$, so $k[x, y] / (xy)$ is not standard smooth over $k$.
+        \item Taking $B = k[x, y] / (xy - 1)$, we see that $\partial (xy - 1) / \partial x = y$, which is invertible in $B$. Hence $k[x, y] / (xy - 1)$ is standard smooth over $k$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{standard-etale-algebra}{standard étale algebra}
+    Let $R$ be \tref{ring}{commutative ring}. A \textbf{standard étale algebra} over $R$ is an \tref{algebra}{$R$-algebra} of the form
+    \[ R[x]_g / (f) , \]
+    where $f, g \in R[x]$ with $f$ monic and the derivative $f'$ is invertible in the \tref{localization}{localization} $R[x]_g$.
+\end{topic}
+
+\begin{example}{standard-etale-algebra}
+    Let $k$ be a field, and $n \ge 1$ an integer with $n \nmid \operatorname{char}(k)$. Then $k[t^{\pm 1}, x] / (x^n - t)$ is a standard étale algebra over $k[t^{\pm 1}]$, with $f = x^n - t$ and $g = 1$ as in the definition. Indeed, $f' = n x^{n - 1}$ has inverse $\tfrac{1}{n} x t^{-1}$ in $k[t^{\pm 1}, x]$.
     
-    Taking $C = k[x, y] / (xy - 1)$, we see that $\partial (xy - 1) / \partial x = y$, which is invertible in $C$. Hence $k[x, y] / (xy - 1)$ is standard smooth over $k$.
+    However, the algebra $k[t, x] / (x^n - t)$ over $k[t]$ is not standard étale, with $f = x^n - t$ and $g = 1$ as in the definition. Indeed, the derivative $f' = n x^{n - 1}$ is not invertible in $k[t, x] / (x^n - t)$.
 \end{example}
 
 \begin{topic}{etale-algebra}{étale algebra}
@@ -827,6 +840,10 @@
 \begin{topic}{finitely-generated-algebra}{finitely generated algebra}
     Let $R$ be a \tref{ring}{commutative ring}. A \textbf{finitely generated algebra} over $R$ is an \tref{algebra}{$R$-algebra} isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some $n$.
 \end{topic}
+
+\begin{example}{finitely-generated-algebra}
+    The ring of rational numbers $\QQ$ is not finitely generated as a $\ZZ$-algebra. Namely, for any $q_1, \ldots, q_n \in \QQ$, the subring of $\QQ$ generated as a $\ZZ$-algebra by the $q_i$, can only contain denominators with prime factors that are also prime factors of the denominators of the $q_i$. But since there are infinitely many prime numbers, this subring cannot be the whole of $\QQ$.
+\end{example}
 
 \begin{topic}{catenary-ring}{(universally) catenary ring}
     A \tref{ring}{commutative ring} $R$ is \textbf{catenary} if for any \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ and $\mathfrak{q}$, any two strictly increasing chains of prime ideals

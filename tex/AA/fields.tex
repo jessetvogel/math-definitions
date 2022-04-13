@@ -148,7 +148,37 @@
     An \textbf{algebraic closure} of a \tref{field}{field} $k$ is a \tref{field-extension}{field extension} $\overline{k} \supset k$ such that $\overline{k}$ is \tref{algebraic-field-extension}{algebraic} over $k$ and $\overline{k}$ is \tref{algebraically-closed-field}{algebraically closed}.
 \end{topic}
 
-% \begin{topic}{primitive-element-theorem}{Primitive element theorem}
-%     The \textbf{primitive element theorem} states that every \tref{separable-field-extension}{separable field extension} $\ell/k$
-% \end{topic}
+\begin{topic}{primitive-element-theorem}{primitive element theorem}
+    Let $\ell/k$ be a finite \tref{separable-field-extension}{separable field extension}. The \textbf{primitive element theorem} states that there exists an element $\alpha \in \ell$, called a \textit{primitive element}, such that $\ell = k(\alpha)$.
+\end{topic}
 
+\begin{example}{primitive-element-theorem}
+    \begin{proof}
+        If $k$ is a finite field, the proof is not too hard, so we will assume $k$ is infinite. It suffices to show that if $\ell = k(\alpha, \beta)$, then $\ell = k(\theta)$ for some $\theta \in \ell$. Consider the \tref{minimal-polynomial}{minimal polynomials} of $\alpha$ and $\beta$ over $k$,
+        \[ f_k^\alpha(x) = \prod_{i = 1}^{m} (x - \alpha_i), \qquad f_k^\beta(x) = \prod_{j = 1}^{n} (x - \beta_j) , \]
+        where all $\alpha_i$ are distinct, and all $\beta_j$ are distinct, since $\ell/k$ is separable. Choose indices such that $\alpha_1 = \alpha$ and $\beta_1 = \beta$. Note that the equation $\alpha_i + \gamma \beta_j = \alpha + \gamma \beta$ has at most one solution $\gamma \in k$ for $1 \le i \le m$ and $2 \le j \le n$ as $\beta_j \ne \beta$. Hence, as $k$ is infinite, there exists some $\gamma \in k$ such that $\alpha_i + \gamma \beta_j \ne \alpha + \gamma \beta$ for all $1 \le i \le m$ and $2 \le j \le n$. Now let $\theta = \alpha + \gamma \beta$, write $\ell' = k(\theta)$, and let $g(x) = f_k^\alpha(\theta - fx) \in \ell'[x]$. Then $\ell = k(\alpha, \beta) = k(\theta, \beta) = \ell'(\beta)$, so it suffices to show that the minimal polynomial $f_{\ell'}^\beta(x)$ of $\beta$ over $\ell'$ has degree one.
+        
+        Clearly, the roots of $f_{\ell'}^\beta(x)$ must be a subset of $\{ \beta_1, \ldots, \beta_n \}$. Furthermore, since $g(\beta) = f_k^\alpha(\theta - \gamma \beta) = f_k^\alpha(\alpha) = 0$, the roots of $f_{\ell'}^\beta(x)$ are also a subset of the roots of $g(x)$. However, if for any $2 \le j \le n$ we would have $g(\beta_j) = f_k^\alpha(\theta - \gamma \beta_j) = 0$, then $\theta - \gamma \beta_j = \alpha_i$ for some $1 \le i \le n$, which contradicts our choice of $\gamma$. Therefore, $\beta_1 = \beta$ is the only root of $f_{\ell'}^\beta(x)$, and it follows that $\ell = \ell'(\beta) = \ell' = k(\theta)$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{cyclotomic-polynomial}{cyclotomic polynomial}
+    For any integer $n \ge 1$, the \textbf{$n$th cyclotomic polynomial} is the \tref{minimal-polynomial}{minimal polynomial} over $\QQ$ of any primitive $n$th root of unity. Explicitly, it is given by
+    \[ \Phi_n(x) = \prod_{\substack{1 \le k \le n \\ \gcd(k, n) = 1}} x - \exp(2 \pi i \tfrac{k}{n}) \in \ZZ[x] . \]
+\end{topic}
+
+\begin{example}{cyclotomic-polynomial}
+    For the first few values of $n$, the cyclotomic polynomials are given by
+    \[ \begin{aligned}
+        \Phi_1(x) &= x - 1 \\
+        \Phi_2(x) &= x + 1 \\
+        \Phi_3(x) &= x^2 + x + 1 \\
+        \Phi_4(x) &= x^2 + 1 \\
+        \Phi_5(x) &= x^4 + x^3 + x^2 + x + 1 \\
+        \Phi_6(x) &= x^2 - x + 1 \\
+        \Phi_7(x) &= x^6 + x^5 + x^4 + x^3 + x^2 + x + 1 \\
+        \Phi_8(x) &= x^4 + 1 \\
+        \Phi_9(x) &= x^6 + x^3 + 1 \\
+        \Phi_{10}(x) &= x^4 - x^3 + x^2 - x + 1 .
+    \end{aligned} \]
+\end{example}

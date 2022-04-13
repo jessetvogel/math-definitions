@@ -391,6 +391,18 @@ img.display-math-svg {
     font-weight: bold;
 }
 
+.proof {
+    position: relative;
+}
+
+.proof::after {
+    content: '◻';
+    display: block;
+    position: absolute;
+    right: 8px;
+    bottom: 0px;
+}
+
 /* loading animation */
 .loading {
     width: 64px;

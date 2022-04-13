@@ -33,6 +33,8 @@
         \item Any representation of $G = \textup{GL}_1(\CC) = \CC^*$ is a direct sum of $1$-dimensional representations of the form $\rho_n : \CC^* \to \CC^*, z \mapsto z^n$ for some character $n \in \ZZ$. Hence the representation ring of $G$ is $R_\CC(G) = \ZZ[t, t^{-1}]$, where $t$ corresponds to $\rho_1$.
         
         \item Any representation of the cyclic group $G = \ZZ/n\ZZ$ is a direct sum of $1$-dimensional representations which sends $1 \textup{ mod } n$ to an $n$-th root of unity. Hence the (complex) representation ring of $G$ is $R_\CC(G) = \ZZ[t]/(t^n - 1)$, where $t$ corresponds to the representation $1 \mapsto \zeta_n$, a primitive root of unity.
+        
+        \item The complex irreducible representations of a product of finite groups $G \times H$ are given by the tensor products $\rho \otimes \tau$, where $\rho$ and $\tau$ are irreducible representations of $G$ and $H$, respectively. Therefore, there is a natural isomorphism $\textup{Rep}_\CC(G) \otimes \textup{Rep}_\CC(H) \simeq \textup{Rep}_\CC(G \times H)$.
     \end{itemize}
 \end{example}
 
@@ -205,13 +207,13 @@
 \begin{example}{maschke-theorem}
     When $\operatorname{char}(k)$ is not coprime to $|G|$, the representation need not be fully reducible. Namely, take $G = \ZZ/p\ZZ$ with $k = \FF_p$ and consider the representation
     \[ \rho : G \to \textup{GL}(k^2), \quad x \mapsto \begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} . \]
-    It has a $1$-dimensional subrepresentation, $k \cdot (1, 0)$, but there is no invariant complement.
+    It has the $1$-dimensional subrepresentation $k \cdot (1, 0)$, but there is no invariant complement.
 \end{example}
 
 \begin{topic}{induced-representation}{induced representation}
     Let $G$ be a \tref{GT:group}{group}, $H \subset G$ a \tref{GT:subgroup}{subgroup}, and $\rho : H \to \textup{GL}(V)$ a \tref{representation}{representation} of $H$ over a field $k$. The \textbf{induced representation} of $V$ is the natural representation of $G$ on
     \[ \textup{Ind}_H^G (\rho) = k[G] \otimes_{k[H]} V , \]
-    where $k[G]$ denotes the \tref{AA:group-ring}{group ring} of $G$. Indeed, $V$, being a representation of $H$, is a $k[H]$-module, and $k[G]$ is naturally a $k[G]$-$k[H]$-\tref{AA:bimodule}{bimodule}.
+    where $k[G]$ denotes the \tref{AA:group-ring}{group ring} of $G$. Indeed, $V$, being a representation of $H$, is a left $k[H]$-module, and $k[G]$ is naturally a $k[G]$-$k[H]$-\tref{AA:bimodule}{bimodule}.
 \end{topic}
 
 \begin{example}{induced-representation}
@@ -289,3 +291,21 @@
 %         See page 59 of Linear Representations of Finite Groups by Serre.
 %     \end{proof}
 % \end{example}
+
+\begin{topic}{standard-representation}{standard representation}
+    For any $n \ge 1$ and $k$ a field with $n! \nmid \operatorname{char}(k)$, let $\rho : S_n \to \textup{GL}_n(k)$ be the \tref{representation}{representation} of the \tref{GT:symmetric-group}{symmetric group} $S_n$ which permutes the basis vectors. The \textbf{standard representation} of $S_n$ is the quotient of $\rho$ by the one-dimensional subrepresentation spanned by the sum of the basis vectors. Alternatively, the standard representation of $S_n$ is the subrepresentation of $\rho$ corresponding to the subspace of $k^n$ where the sum of coordinates is zero.
+    
+    The standard representation is \tref{irreducible-representation}{irreducible}.
+\end{topic}
+
+\begin{example}{standard-representation}
+    For $n = 3$, the standard representation $\rho : S_3 \to \textup{GL}_2(k)$ is given, in terms of the basis $\{ e_1 - e_2, e_2 - e_3 \}$ , by
+    \[ \begin{array}{ccc}
+        \rho(1) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, &
+        \rho(1 \; 2 \; 3) = \begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}, &
+        \rho(1 \; 3 \; 2) = \begin{pmatrix} -1 & 1 \\ -1 & 0 \end{pmatrix}, \\ & & \\
+        \rho(1 \; 2) = \begin{pmatrix} -1 & 1 \\ 0 & 1 \end{pmatrix}, &
+        \rho(1 \; 3) = \begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}, &
+        \rho(2 \; 3) = \begin{pmatrix} 1 & 0 \\ 1 & -1 \end{pmatrix} .
+    \end{array} \]
+\end{example}

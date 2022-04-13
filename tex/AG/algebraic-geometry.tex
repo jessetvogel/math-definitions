@@ -9,7 +9,7 @@
     A morphism of locally ringed spaces is a morphism $(f, f^\#)$ of ringed spaces such that for each point $x \in X$ the induced map of local rings $f^\#_x : \mathcal{O}_{Y, f(x)} \to \mathcal{O}_{X, x}$ is a \textit{local morphism}, i.e. the pre-image of the maximal ideal of $\mathcal{O}_{X, x}$ is the maximal ideal of $\mathcal{O}_{Y, f(x)}$.
 \end{topic}
 
-\begin{topic}{spectrum}{spectrum}
+\begin{topic}{spectrum-ring}{spectrum of a ring}
     Let $R$ be a \tref{AA:ring}{commutative ring}. The \textbf{spectrum} of $R$ is the \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ defined as follows.
     \begin{itemize}
         \item The topological space $X$ is the set of \tref{AA:prime-ideal}{prime ideals} of $R$, whose closed sets are given precisely by the sets $V(I) = \{ \textup{prime ideals } \mathfrak{p} \text{ with } \mathfrak{p} \supset I \}$ for all ideals $I$ of $R$.
@@ -19,8 +19,14 @@
     The spectrum of $R$ is denoted $\Spec R$.
 \end{topic}
 
+\begin{example}{spectrum-ring}
+    While $\mathcal{O}_X(D_f) = R_f$ is a localization for \tref{principal-open-subset}{principal opens} $D_f = \{ \mathfrak{p} \in \Spec R \;|\; f \not\in \mathfrak{p} \}$, generally for open $U$ the ring $\mathcal{O}_X(U)$ need not be a localization of $R$.
+    
+    Namely, let $k$ be a field and consider $R = k[x, y, z, w] / (xy - zw)$, and let $U = D_y \cup D_z$. The elements $w/y \in R_y = \mathcal{O}_X(D_y)$ and $x/z \in R_z = \mathcal{O}_X(D_z)$ are equal in the localization $R_{yz} = \mathcal{O}_X(D_{yz})$, so they glue to an element $f \in \mathcal{O}_X(U)$. However, if $f = g/h$ for some $g, h \in R$, then we must have $h \in (y, z)$, but then $h$ vanishes somewhere on $U$.
+\end{example}
+
 \begin{topic}{affine-scheme}{affine scheme}
-    An \textbf{affine scheme} is a \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ which is isomorphic to the \tref{spectrum}{spectrum} of some ring.
+    An \textbf{affine scheme} is a \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ which is isomorphic to the \tref{spectrum-ring}{spectrum} of some ring.
 \end{topic}
 
 \begin{topic}{scheme}{scheme}
@@ -59,7 +65,7 @@
 \end{topic}
 
 \begin{topic}{finite-presentation}{(locally) of finite presentation}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite presentation at $x \in X$} if there exists affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finite-presentation}{finitely presented} $B$-algebra (via the induced map $B \to A$).
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite presentation at $x \in X$} if there exists affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finitely-presented-algebra}{finitely presented} $B$-algebra (via the induced map $B \to A$).
     
     The morphism $f$ is \textbf{locally of finite presentation} if it is of finite presentation at each $x \in X$, and it is \textbf{of finite presentation} if it is locally of finite presentation, \tref{quasi-compact-scheme}{quasi-compact}, and \tref{separated-morphism}{quasi-separated}.
 \end{topic}
@@ -440,7 +446,7 @@
 \end{topic}
 
 \begin{topic}{syntomic-morphism}{syntomic morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{syntomic at $x \in X$} if there exists an affine open neighborhood $U = \Spec A \subset X$ of $x$ and an affine open $V = \Spec B$ with $f(U) \subset V$ such that the induced ring morphism $B \to A$ is \textit{syntomic}, i.e. of \tref{AA:finite-presentation}{finite presentation}, makes $A$ into a \tref{AA:flat-module}{flat} \tref{AA:module}{$B$-module}, and all the fiber rings $A \otimes_B k(\mathfrak{p})$ are local complete intersections.
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{syntomic at $x \in X$} if there exists an affine open neighborhood $U = \Spec A \subset X$ of $x$ and an affine open $V = \Spec B$ with $f(U) \subset V$ such that the induced ring morphism $B \to A$ is \textit{syntomic}, i.e. of \tref{AA:finitely-presented-algebra}{finite presentation}, makes $A$ into a \tref{AA:flat-module}{flat} \tref{AA:module}{$B$-module}, and all the fiber rings $A \otimes_B k(\mathfrak{p})$ are local complete intersections.
     
     The morphism $f$ is \textbf{syntomic} if it is syntomic at all points $x \in X$.
 \end{topic}
@@ -801,64 +807,6 @@
     where $g$ is the \tref{geometric-genus}{genus} of $C$ and $\chi(\mathcal{E})$ the \tref{euler-characteristic-sheaf}{Euler characteristic} of $\mathcal{E}$.
 \end{topic}
 
-\begin{topic}{categorical-quotient}{categorical quotient}
-    Let $G$ be a \tref{group-scheme}{group scheme} acting on a \tref{scheme}{scheme} $X$ via $\sigma : G \times X \to X$. A \textbf{categorical quotient} for the action is a morphism $\pi : X \to Y$ such that
-    \[ \begin{tikzcd} G \times_S X \arrow[shift left=0.25em]{r}{\sigma} \arrow[swap,shift right=0.25em]{r}{\pi_X} & X \arrow{r}{\pi} & Y \end{tikzcd} \]
-    is a coequalizer diagram. That is, the diagram commutes and for every $f : X \to Z$ with $f \circ \sigma = f \circ \pi_X$ there exists a unique $g : Y \to Z$ such that $f = g \circ \pi$. Note that a categorical quotient (if it exists) is unique up to unique isomorphism.
-\end{topic}
-
-\begin{topic}{geometric-quotient}{geometric quotient}
-    Let $G$ be a \tref{group-scheme}{group scheme} acting on a \tref{scheme}{scheme} $X$ via $\sigma : G \times X \to X$. A \textbf{geometric quotient} for the action is a morphism $\pi : X \to Y$ satisfying
-    \begin{enumerate}[(i)]
-        \item $\pi \circ \sigma = \pi \circ \pi_X$,
-        \item $\pi$ is surjective, and the image of $\Psi = (\sigma, \pi_X) : G \times X \to X \times X$ is $X \times_Y X$ (or equivalently, the geometric fibers of $\pi$ are precisely the orbits of the geometric points of $X$),
-        \item $\pi$ is \textit{submersive}, i.e. a subset $U \subset Y$ is open iff $\pi^{-1}(U) \subset X$ is open (i.e. $Y$ has a \tref{TO:quotient-topology}{quotient topology}),
-        \item the structure sheaf $\mathcal{O}_Y$ is the subsheaf of $\pi_* \mathcal{O}_X$ consisting of invariant functions, i.e. if $\alpha \in \pi_* \mathcal{O}_X(U) = \mathcal{O}_X(\pi^{-1}(U))$ then $\alpha \in \mathcal{O}_Y(U)$ if and only if
-        \[ \begin{tikzcd} G \times \pi^{-1}(U) \arrow{r}{\sigma} \arrow[swap]{d}{\pi_2} & \pi^{-1}(U) \arrow{d}{\alpha} \\ \pi^{-1}(U) \arrow{r}{\alpha} & \AA^1 \end{tikzcd} \]
-        commutes.
-    \end{enumerate}
-\end{topic}
-
-\begin{example}{geometric-quotient}
-    Let $X = \AA^n - \{ 0 \}$ and $G = \mathbb{G}_m$ act on $X$ by scaling the coordinates. Then the map $\pi : \AA^n - \{ 0 \} \to \PP^{n - 1}$ is a geometric quotient.
-    
-    If we instead take $X = \AA^n$ with $G = \mathbb{G}_m$ acting on $X$ by scaling the coordinates, then the map $\pi' : \AA^n \to \{ \star \}$ is a \tref{categorical-quotient}{categorical quotient}, but not a geometric quotient: the only geometric fiber of $\pi'$ is the whole of $X$, but this is not the orbit of any geometric point of $X$. To be more precise, the image of $\Psi : (g, x) \mapsto (g \cdot x, x)$ is not the whole of $\AA^n \times \AA^n$.
-\end{example}
-
-\begin{example}{geometric-quotient}
-    A geometric quotient $\pi : X \to Y$ is a categorical quotient. Namely, let $f : X \to Z$ be an $S$-morphism with $f \circ \sigma = f \circ p_2$. The goal is to construct a morphism $g : Y \to Z$ with $f = g \circ \pi$. Let $\{ V_i \}$ be an affine open covering of $Z$. Then $f^{-1}(V_i)$ is an invariant open subset of $X$ for each $i$, so by condition (ii), $f^{-1}(V_i) = \pi^{-1}(U_i)$ for \textit{some} subset $U_i \subset Y$. But then $U_i$ is open by (iii), and since $\pi$ is surjective, $\{ U_i \}$ is an open cover of $Y$. Now note that any morphism $g : Y \to Z$ with $f = g \circ \pi$ must satisfy $g(U_i) \subset V_i$. Hence it must be defined by a set of (compatible) morphisms $h_i : \mathcal{O}_Z(V_i) \to \mathcal{O}_Y(U_i)$ such that
-    \[ \begin{tikzcd} \mathcal{O}_Z(V_i) \arrow{r}{h_i} \arrow{d}{f^*} & \mathcal{O}_Y(U_i) \arrow{d}{\pi^*} \\ \mathcal{O}_X(f^{-1}(V_i)) \arrow[equal]{r} & \mathcal{O}_X(\pi^{-1}(U_i)) \end{tikzcd} \]
-    commutes. Since $\pi^*$ is injective by (iv), the $h_i$ are unique if they exist. Well, for any $\alpha \in \mathcal{O}_Z(V_i)$ we have that $\pi^*(\alpha)$ is an invariant element of $\mathcal{O}_X(\pi^{-1}(U_i))$ in the sense of (iv), hence it lies in the subring $\pi^*(\mathcal{O}_Y(U_i))$, so such $h_i$ exist.
-    It remains to check that the $h_i$ agree on overlaps, so that they indeed glue to the desired $g : Y \to Z$.
-\end{example}
-
-\begin{topic}{affine-git-quotient}{affine GIT quotient}
-    Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} acting on an \tref{affine-scheme}{affine scheme} $X = \Spec R$. Then there is a dual action of $G$ on $R$ given by $\widehat{\sigma} : R \to R \otimes \mathcal{O}_G(G)$, yielding the \textit{ring of invariants}
-    \[ R^G := \{ r \in R : \widehat{\sigma}(r) = r \otimes 1 \} . \]
-    The \textbf{affine GIT quotient} of $X$ by $G$ is the morphism
-    \[ \pi : X \to X \sslash G := \Spec\left(R^G\right) \]
-    induced by the inclusion $R^G \to R$.
-\end{topic}
-
-\begin{example}{affine-git-quotient}
-    \begin{itemize}
-        \item For $X = \Spec k[x]$ and $G = \ZZ/2\ZZ$ acting on $X$ by $x \mapsto -x$, we have $k[x]^{\ZZ/2\ZZ} = k[x^2]$, so the affine GIT quotient is $\Spec k[x] \to \Spec k[y]$ given by $y \mapsto x^2$.
-        \item For $X = \Spec k[\lambda, \lambda^{-1}, (\lambda \pm 1)^{-1}]$ and $G = \ZZ/2\ZZ$ acting on $X$ by $\lambda \mapsto -\lambda^{-1}$, we have $R^{\ZZ/2\ZZ} = k[\lambda + \lambda^{-1}, (\lambda + \lambda^{-1} \pm 2)^{-1}]$, so the affine GIT quotient is $\CC - \{ 0, \pm 1 \} \to \CC - \{ \pm 2 \}$ given by $\lambda \mapsto \lambda + \lambda^{-1}$.
-        \item For $X = \AA^n = \Spec k[x_1, \ldots, x_n]$ and $G = \mathbb{G}_m$ acting on $X$ by $x_i \mapsto x_i \otimes t$, we have $k[x]^{\mathbb{G}_m} = k$, so the affine GIT quotient is $\AA^n \to \Spec k$.
-    \end{itemize}
-\end{example}
-
-\begin{topic}{projective-git-quotient}{projective GIT quotient}
-    Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} acting on an \tref{algebraic-scheme}{algebraic scheme} $X$ over a field $k$, and let $\mathcal{L}$ be a \tref{equivariant-sheaf}{$G$-linearized} \tref{invertible-sheaf}{invertible sheaf} on $X$. The \textbf{projective GIT quotient} of $X$ by $G$ with respect to $\mathcal{L}$ is the morphism
-    \[ \pi : X^\text{ss}(\mathcal{L}) \to X \sslash_\mathcal{L} G := \text{Proj}\left(\bigoplus_{n \ge 0} H^0(X, \mathcal{L}^n)^G \right) , \]
-    where
-    \[ X^\text{ss}(\mathcal{L}) = \left\{ x \in X : \exists s \in H^0(X, \mathcal{L}^n)^G \text{ for some $n \ge 0$ such that $s(x) \ne 0$ and $X_s$ is affine} \right\} \]
-    denotes the \textit{semistable locus} of $X$. It is a uniform \tref{categorical-quotient}{categorical quotient}.
-    
-    Furthermore, there exists an open subset $U \subset X \sslash_\mathcal{L} G$ such that $\pi^{-1}(U)$ equals the set of \textit{stable points} \[ X^\text{s}(\mathcal{L}) = \left\{ x \in X : \begin{array}{c} \exists s \in H^0(X, \mathcal{L}^n)^G \text{ for some $n \ge 0$ such that $s(x) \ne 0$,} \\ \text{$X_s$ is affine and the action of $G$ on $X_s$ is closed} \end{array} \right\} \]
-    and the restriction $\pi|_{X^\text{s}(\mathcal{L})} : X^\text{s}(\mathcal{L}) \to U$ is a uniform \tref{geometric-quotient}{geometric quotient}.
-\end{topic}
-
 \begin{topic}{algebraic-scheme}{algebraic scheme}
     An \textbf{algebraic scheme} over a field $k$ is a \tref{scheme}{scheme} $X$ over $k$ such that the structure morphism $X \to \Spec k$ is \tref{finite-type}{of finite type}.
 \end{topic}
@@ -1169,3 +1117,18 @@
     \end{tikzcd} \]
     with $\pi : X' \to X$ \tref{proper-morphism}{proper} and surjective, $i : X' \to \PP^n_S$ an \tref{immersion}{immersion}, such that $\pi$ restricts to an isomorphism $\pi^{-1}(U) \simeq U$ for some \tref{TO:dense}{dense} open $U \subset X$.
  \end{topic}
+
+\begin{topic}{normal-crossings-divisor}{normal crossings divisor}
+    Let $X$ be a \tref{scheme}{scheme} over a base scheme $S$. A \textbf{normal crossings divisor} of $X$ is a \tref{closed-immersion}{closed subscheme} $D$ of $X$ such that for all $x \in X$, there exists an integer $n \ge 0$, a scheme $U/S$, an \tref{etale-morphism}{étale morphism} $f : U \to X$ with $x \in f(U)$, and an étale morphism $g : U \to \AA^n_S$, such that $f^* D = g^* Z$, where $Z = V(x_1 x_2 \cdots x_n) \subset \AA^n_S$ is the union of the coordinate hyperplanes.
+\end{topic}
+
+\begin{example}{normal-crossings-divisor}
+    Let $k$ be a field, $X = \AA^2_k$, and $D = \Spec k[x, y] / (y^2 - x^3 - x)$. Then $D$ is a normal crossings divisor of $X$. In particular, at the point given by the maximal ideal $(x, y)$, take $U = \Spec k[x, y, t, s] / (t^2 - (x + 1), s (x + 1) - 1)$ with $f : U \to X$ the obvious morphism and $g : U \to \AA^2_k = \Spec k[u, v]$ the morphism given by $u \mapsto y - xt$ and $v \mapsto y + xt$. Then
+    \[ \begin{aligned}
+        f^* D
+            &= \Spec k[x, y, t, s] / (t^2 - (x + 1), s(x + 1) - 1, y^2 - x^3 - x) \\
+            &= \Spec k[x, y, t, s] / (t^2 - (x + 1), s(x + 1) - 1, (y - xt)(y + xt)) \\
+            &= g^* Z ,
+    \end{aligned} \]
+    where we used that $y^2 - x^3 - x = y^2 - x^2 t^2 = (y - xt)(y + xt)$ over $U$.
+\end{example}

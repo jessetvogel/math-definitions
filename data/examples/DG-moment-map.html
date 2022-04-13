@@ -1,0 +1,10 @@
+<div class="example">Consider the <span class="math inline">\(2\)</span>-sphere <span class="math inline">\(S^2 = \{ x \in \RR^3 \;|\; \norm{x} = 1 \} \subset \RR^3\)</span>, with symplectic form <span class="math inline">\(\omega_x(v, w) = (v \times w) \cdot x\)</span>, where we view <span class="math inline">\(v, w \in T_x S^2\)</span> inside <span class="math inline">\(\RR^3\)</span>. The torus <span class="math inline">\(G = U(1)\)</span> acts on <span class="math inline">\(S^2\)</span> by rotation around the <span class="math inline">\(x_3\)</span>-axis, and this action is symplectic since the action is given by the flow of the Hamiltonian vector field <span class="math inline">\(X_H(x) = (-x_2, x_1, 0)\)</span> with <span class="math inline">\(H(x) = x_3\)</span>. Identifying <span class="math inline">\(\mathfrak{g} \simeq \RR \simeq \mathfrak{g}^*\)</span>, we find, up to a constant factor, that <span class="math inline">\(X_\xi(x) = \xi (-x_2, x_1, 0)\)</span> for <span class="math inline">\(\xi \in \RR\)</span>. Hence, by definition of <span class="math inline">\(\omega\)</span> we can compute
+<span class="math display">\[ \begin{aligned}
+        \omega_x(X_\xi(x), -)
+            &= (-x_1 x_3) dx_1 + (-x_2 x_3) dx_2 + (x_1^2 + x_2^2) dx_3 \\
+            &= x_3^2 dx_3 + (x_1^2 + x_2^2) dx_3 \\
+            &= (x_1^2 + x_2^2 + x_3^2) dx_3 \\
+            &= dx_3 .
+    \end{aligned} \]</span>
+Hence, we choose <span class="math inline">\(\mu(x) = x_3\)</span>, so that indeed <span class="math inline">\(d \langle \mu, \xi \rangle = \omega(X_\xi, -)\)</span> for all <span class="math inline">\(\xi \in \RR\)</span>. Moreover, since <span class="math inline">\(\textup{Ad}_G\)</span> is trivial and <span class="math inline">\(\mu\)</span> is invariant under <span class="math inline">\(G\)</span>, it follows that <span class="math inline">\(\mu\)</span> is <span class="math inline">\(G\)</span>-equivariant. Therefore, <span class="math inline">\(\mu\)</span> is a moment map for the action of <span class="math inline">\(U(1)\)</span> on <span class="math inline">\(S^2\)</span>.
+</div>
