@@ -66,7 +66,7 @@
 \end{topic}
 
 \begin{example}{reduced-ring}
-    The ring $\ZZ[x] / (x^2)$ is not reduced, since $x \text{ mod } (x^2)$ squares to $0$.
+    The ring $\ZZ[x] / (x^2)$ is not reduced, since $x \textup{ mod } (x^2)$ squares to $0$.
 \end{example}
 
 \begin{topic}{ideal}{ideal}
@@ -113,7 +113,7 @@
 
 \begin{topic}{prime-ideal}{prime ideal}
     Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{prime} if $I \ne R$ and
-    \[ ab \in I \implies a \in I \text{ or } b \in I . \]
+    \[ ab \in I \implies a \in I \textup{ or } b \in I . \]
     Equivalently, $I \subset R$ is a prime ideal if and only if the quotient ring $R / I$ is a \tref{domain}{domain}.
 \end{topic}
 
@@ -132,14 +132,14 @@
 
 \begin{topic}{irreducible-ideal}{irreducible ideal}
     Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{irreducible} if
-    \[ I = J_1 \cap J_2 \quad \implies \quad I = J_1 \text{ or } I = J_2 . \]
+    \[ I = J_1 \cap J_2 \quad \implies \quad I = J_1 \textup{ or } I = J_2 . \]
 \end{topic}
 
 \begin{topic}{quotient-ring}{quotient ring}
     Given a \tref{ring}{commutative ring} $R$ and \tref{ideal}{ideal} $I$, the \textbf{quotient ring} $R/I$ is the ring
     \[ R/I = \{ a + I : a \in R \} \]
     where addition and multiplication are given by
-    \[ (a + I) + (b + I) = (a + b) + I \quad \text{ and } \quad (a + I) (b + I) = (ab) + I . \]
+    \[ (a + I) + (b + I) = (a + b) + I \quad \textup{ and } \quad (a + I) (b + I) = (ab) + I . \]
     It has the universal property that each morphism of rings $f : R \to S$ with $f(I) = 0$ uniquely extends to a morphism $R/I \to S$.
     \[ \begin{tikzcd} R \arrow{r}{f} \arrow[swap]{d}{\pi} & S \\ R/I \arrow[dashed]{ur} & \end{tikzcd} \]
 \end{topic}
@@ -199,9 +199,9 @@
 
 \begin{topic}{chinese-remainder-theorem}{Chinese remainder theorem}
     Let $R$ be a \tref{ring}{commutative ring} and suppose $I, J$ are coprime ideals of $R$, i.e. $I + J = R$. Then the \textbf{Chinese remainder theorem} states that $I \cap J = I \cdot J$ and that there is an isomorphism of rings
-    \[ R / (I \cdot J) \xrightarrow{\sim} (R / I) \times (R/J), \qquad a \text{ mod } (I \cdot J) \mapsto (a \text{ mod } I, b \text{ mod } J) . \]
+    \[ R / (I \cdot J) \xrightarrow{\sim} (R / I) \times (R/J), \qquad a \textup{ mod } (I \cdot J) \mapsto (a \textup{ mod } I, b \textup{ mod } J) . \]
     In particular, when $R = \ZZ$ with $I = (n)$ and $J = (m)$ for $n, m$ relatively prime, there is
-    \[ \ZZ / nm \ZZ \simeq (\ZZ/n\ZZ) \times (\ZZ/m\ZZ), \qquad a \text{ mod } nm \mapsto (a \text{ mod } n, a \text{ mod } m) . \]
+    \[ \ZZ / nm \ZZ \simeq (\ZZ/n\ZZ) \times (\ZZ/m\ZZ), \qquad a \textup{ mod } nm \mapsto (a \textup{ mod } n, a \textup{ mod } m) . \]
 \end{topic}
 
 \begin{topic}{idempotent-element}{idempotent element}
@@ -247,7 +247,7 @@
 
 \begin{topic}{localization}{localization}
     Let $R$ be a \tref{ring}{commutative ring}, and $S \subset R$ a \textit{multiplicative set} (that is, $1 \in S$ and $xy \in S$ for all $x, y \in S$). Then the \textbf{localization} of $R$ w.r.t. $S$ is the ring
-    \[ S^{-1} R = R \times S / \sim{} \quad \text{ where } (r_1, s_1) \sim{} (r_2, s_2) \text{ if } t(r_1 s_2 - r_2 s_1) = 0 \text{ for some } t \in S . \]
+    \[ S^{-1} R = R \times S / \sim{} \quad \textup{ where } (r_1, s_1) \sim{} (r_2, s_2) \textup{ if } t(r_1 s_2 - r_2 s_1) = 0 \textup{ for some } t \in S . \]
 \end{topic}
 
 \begin{example}{localization}
@@ -298,7 +298,7 @@
 
 \begin{topic}{unique-factorization-domain}{unique factorization domain (UFD)}
     A \textbf{unique factorization domain} (UFD) is a \tref{domain}{domain} $R$ for which every non-zero $x \in R$ can be written as the product of a \tref{unit}{unit} and a finite number of \tref{irreducible-element}{irreducible} elements:
-    \[ a = u \cdot p_1 \cdot p_2 \cdot \cdots \cdot p_k \qquad u \in R^\times, \; k \ge 0, \; p_i \in R \text{ irreducible}. \]
+    \[ a = u \cdot p_1 \cdot p_2 \cdot \cdots \cdot p_k \qquad u \in R^\times, \; k \ge 0, \; p_i \in R \textup{ irreducible}. \]
 \end{topic}
 
 \begin{topic}{euclidean-ring}{Euclidean ring}
@@ -315,7 +315,7 @@
     The \textbf{field of fractions} of a \tref{domain}{domain} $R$ is the \tref{field}{field} given by
     \[ K = \left\{ (a, b) : a, b \in R, b \ne 0 \right\} / \sim{} \]
     where $(a, b) \sim{} (c, d)$ if and only if $ad = bc$. Indeed $(a, b)$ represents the fraction $\frac{a}{b}$. Addition and multiplication are given by
-    \[ \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \quad \text{and} \quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} . \]
+    \[ \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \quad \textup{and} \quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} . \]
 \end{topic}
 
 \begin{example}{field-of-fractions}
@@ -404,7 +404,7 @@
 
 % \begin{topic}{hilbert-nullstellensatz}{Hilbert's Nullstellensatz}
 %     \textbf{Hilbert's Nullstellensatz} states that there is a bijection
-%     \[ \left\{ \begin{array}{c} \text{radical ideals of} \\ k[x_1, \ldots, x_n] \end{array} \right\} \leftrightarrow \left\{ \begin{array}{c} \text{closed subsets} \\ \text{of $\AA^n$} \end{array} \right\} \]
+%     \[ \left\{ \begin{array}{c} \textup{radical ideals of} \\ k[x_1, \ldots, x_n] \end{array} \right\} \leftrightarrow \left\{ \begin{array}{c} \textup{closed subsets} \\ \textup{of $\AA^n$} \end{array} \right\} \]
 %     \[ I \mapsto Z(I) \]
 %     \[ I \mapsfrom Z(I) \]
 % \end{topic}
@@ -419,9 +419,9 @@
 
 \begin{topic}{primary-ideal}{primary ideal}
     Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $\mathfrak{q}$ of $R$ is \textbf{primary} if $\mathfrak{q} \ne R$ and if
-    \[ xy \in \mathfrak{q} \implies \text{ either } x \in \mathfrak{q} \text{ or } y^n \in \mathfrak{q} \text{ for some } n > 0 . \]
+    \[ xy \in \mathfrak{q} \implies \textup{ either } x \in \mathfrak{q} \textup{ or } y^n \in \mathfrak{q} \textup{ for some } n > 0 . \]
     In other words,
-    \[ \mathfrak{q} \text{ is primary } \iff A / \mathfrak{q} \ne 0 \text{ and every zero-divisor in } A / \mathfrak{q} \text{ is nilpotent} . \]
+    \[ \mathfrak{q} \textup{ is primary } \iff A / \mathfrak{q} \ne 0 \textup{ and every zero-divisor in } A / \mathfrak{q} \textup{ is nilpotent} . \]
 \end{topic}
 
 \begin{topic}{primary-decomposition}{primary decomposition}
@@ -432,21 +432,21 @@
 
 \begin{topic}{annihilator}{annihilator}
     Let $R$ be a \tref{ring}{commutative ring} and $M$ an $R$-module. The \textbf{annihilator} of $M$ is the subring
-    \[ \text{Ann}(M) = \{ x \in R : xM = 0 \} \]
+    \[ \textup{Ann}(M) = \{ x \in R : xM = 0 \} \]
 \end{topic}
 
 \begin{topic}{nilradical}{nilradical}
      The \textbf{nilradical} of a \tref{ring}{commutative ring} $R$ is the ideal of \tref{nilpotent-element}{nilpotent} elements
-     \[ \mathfrak{N}_R = \{ x \in R : x \text{ is nilpotent } \} . \]
+     \[ \mathfrak{N}_R = \{ x \in R : x \textup{ is nilpotent } \} . \]
      It is equal to the intersection of all prime ideals of $R$,
-     \[ \mathfrak{N}_R = \bigcap_{\mathfrak{p} \subset R \text{ prime}} \mathfrak{p} . \]
+     \[ \mathfrak{N}_R = \bigcap_{\mathfrak{p} \subset R \textup{ prime}} \mathfrak{p} . \]
 \end{topic}
 
 \begin{topic}{jacobson-radical}{Jacobson radical}
      The \textbf{Jacobson radical} of a \tref{ring}{commutative ring} $R$ is the ideal given by the intersection of all \tref{maximal-ideal}{maximal} ideals,
-     \[ \mathfrak{J}_R = \bigcap_{\mathfrak{m} \subset R \text{ maximal}} \mathfrak{m} . \]
+     \[ \mathfrak{J}_R = \bigcap_{\mathfrak{m} \subset R \textup{ maximal}} \mathfrak{m} . \]
      It can also be characterized by
-     \[ x \in \mathfrak{J}_R \iff 1 - xy \text{ is a unit for all } y \in R . \]
+     \[ x \in \mathfrak{J}_R \iff 1 - xy \textup{ is a unit for all } y \in R . \]
 \end{topic}
 
 \begin{topic}{regular-sequence}{regular sequence}
@@ -463,7 +463,7 @@
 
 \begin{example}{regular-sequence}
     Consider $R = k[x, y, z]$ and the sequence $(x, y(1 - x), z(1 - x))$. This sequence is regular since
-    \[ y(1 - x) = y \in k[x, y, z]/(x) = k[y, z] \quad \text{ and } \quad z(1 - x) = z \in k[x, y, z]/(x, y - xy) = k[z] \]
+    \[ y(1 - x) = y \in k[x, y, z]/(x) = k[y, z] \quad \textup{ and } \quad z(1 - x) = z \in k[x, y, z]/(x, y - xy) = k[z] \]
     are both non-zero-divisors.
     
     However, note that the order matters as $(y(1 - x), z(1 - x), x)$ is not a regular sequence. Namely, $z(1 - x) \cdot y = 0 \in k[x, y, z] / (y(1 - x))$ even though $y \ne 0$.
@@ -471,20 +471,20 @@
 
 \begin{topic}{hilbert-series}{Hilbert series}
     Let $S = \bigoplus_{i \ge 0} S_i$ be a \tref{finitely-generated-algebra}{finitely generated} \tref{graded-ring}{graded} commutative algebra over a field $k$, with $S_0 = k$. The \textbf{Hilbert series} of $S$ is defined as
-    \[ \text{HS}_S(t) = \sum_{i = 0}^{\infty} \dim_k S_i \cdot t^i . \]
+    \[ \textup{HS}_S(t) = \sum_{i = 0}^{\infty} \dim_k S_i \cdot t^i . \]
 \end{topic}
 
 \begin{example}{hilbert-series}
     Let $R = k[x_1, \ldots, x_n]$ and $I = (f)$ for some homogenous polynomial of degree $d$. Then we have an exact sequence (a free resolution)
     \[ 0 \to R(-d) \xrightarrow{\cdot f} R \to R / I \to 0 , \]
     which implies that
-    \[ \text{HS}_{R/I}(t) = \text{H}_R(t) - \text{HS}_{R(-d)}(t) = \text{HS}_R(t) (1 - t^d) = \frac{1 - t^d}{(1 - t)^n}. \]
+    \[ \textup{HS}_{R/I}(t) = \textup{H}_R(t) - \textup{HS}_{R(-d)}(t) = \textup{HS}_R(t) (1 - t^d) = \frac{1 - t^d}{(1 - t)^n}. \]
 \end{example}
 
 \begin{topic}{hilbert-polynomial}{Hilbert polynomial}
     Let $S = \bigoplus_{i \ge 0} S_i$ be a \tref{finitely-generated-algebra}{finitely generated} graded commutative \tref{algebra}{algebra} over a \tref{field}{field} $k$, with $S_0 = k$. The \textit{Hilbert function}
     \[ i \mapsto \dim_k S_i \]
-    becomes polynomial for large enough values of $i$, and the resulting polynomial is called the \textbf{Hilbert polynomial} $\text{HP}_S(i)$ of $S$.
+    becomes polynomial for large enough values of $i$, and the resulting polynomial is called the \textbf{Hilbert polynomial} $\textup{HP}_S(i)$ of $S$.
 \end{topic}
 
 \begin{example}{hilbert-polynomial}
@@ -492,11 +492,21 @@
     \[ \dim R_i = \binom{n - 1 + i}{i} = \frac{(n - 1 + i) \cdots (i + 1)}{(n - 1)!} , \]
     which is a polynomial in $i$ for every value of $n$. In particular,
     \[ \begin{aligned}
-        \text{HP}_{k[x]}(i) &= 1, \\
-        \text{HP}_{k[x, y]}(i) &= i + 1, \\
-        \text{HP}_{k[x, y, z]}(i) &= \tfrac{1}{2} (i + 1)(i + 2), \\
-        \text{HP}_{k[x, y, z, w]}(i) &= \tfrac{1}{6} (i + 1)(i + 2)(i + 3) .
+        \textup{HP}_{k[x]}(i) &= 1, \\
+        \textup{HP}_{k[x, y]}(i) &= i + 1, \\
+        \textup{HP}_{k[x, y, z]}(i) &= \tfrac{1}{2} (i + 1)(i + 2), \\
+        \textup{HP}_{k[x, y, z, w]}(i) &= \tfrac{1}{6} (i + 1)(i + 2)(i + 3) .
     \end{aligned} \]
+\end{example}
+
+\begin{example}{hilbert-polynomial}
+    Let $R = k[x, y, z] / (z^2 - xy)$. It is easy to see that
+    \[ \dim R_i = \left\{ \begin{array}{cl}
+        1 & \textup{ if } i = 0, \\
+        3 & \textup{ if } i = 1, \\
+        i + 1 & \textup{ otherwise}.
+    \end{array} \right. \]
+    Hence, $\textup{HP}_R(i) = i + 1$.
 \end{example}
 
 \begin{topic}{absolutely-flat-ring}{absolutely flat ring}
@@ -539,23 +549,23 @@
 
 \begin{topic}{fitting-ideal}{Fitting ideal}
     Let $R$ be a \tref{ring}{commutative ring} and $M$ an $R$-\tref{module}{module} generated by elements $m_1, \ldots, m_n \in M$, with relations
-    \[ a_{i1} m_1 + \cdots a_{in} m_n = 0 \text{ for } i = 1, 2, \ldots, \ell . \]
-    Then the \textbf{$i$-th Fitting ideal} $\text{Fitt}_i(M)$ of $M$ is generated by the minors (determinants of submatrices) of order $n - i$ of the matrix $a_{ij}$. It can be shown that this does not depend on the choice of generators or relations. One has the inclusions
-    \[ \text{Fitt}_0(M) \subset \text{Fitt}_1(M) \subset \text{Fitt}_2(M) \subset \cdots \]
-    Intuitively, the $i$-th fitting ideal (or actually the quotient $R / \text{Fitt}_i(M)$) measures the obstruction for $M$ to be generated by $i$ elements.
+    \[ a_{i1} m_1 + \cdots a_{in} m_n = 0 \textup{ for } i = 1, 2, \ldots, \ell . \]
+    Then the \textbf{$i$-th Fitting ideal} $\textup{Fitt}_i(M)$ of $M$ is generated by the minors (determinants of submatrices) of order $n - i$ of the matrix $a_{ij}$. It can be shown that this does not depend on the choice of generators or relations. One has the inclusions
+    \[ \textup{Fitt}_0(M) \subset \textup{Fitt}_1(M) \subset \textup{Fitt}_2(M) \subset \cdots \]
+    Intuitively, the $i$-th fitting ideal (or actually the quotient $R / \textup{Fitt}_i(M)$) measures the obstruction for $M$ to be generated by $i$ elements.
     
     Sometimes the \textbf{Fitting ideal} of $M$ is defined as the first non-zero fitting ideal.
 \end{topic}
 
 \begin{example}{fitting-ideal}
-    If $M$ is \tref{free-module}{free} of rank $n$, the matrix $a_{ij}$ will be of size $0 \times n$. Hence $\text{Fitt}_i(M) = 0$ for $i < n$ as there are no submatrices of size $n - i > 0$, and $\text{Fitt}_i(M) = R$ for $i \ge n$ as the determinant of a $0 \times 0$ matrix is one.
+    If $M$ is \tref{free-module}{free} of rank $n$, the matrix $a_{ij}$ will be of size $0 \times n$. Hence $\textup{Fitt}_i(M) = 0$ for $i < n$ as there are no submatrices of size $n - i > 0$, and $\textup{Fitt}_i(M) = R$ for $i \ge n$ as the determinant of a $0 \times 0$ matrix is one.
 \end{example}
 
 \begin{example}{fitting-ideal}
     Consider $M = \ZZ / p \ZZ \times \ZZ / p^2 \ZZ$ as $\ZZ$-module. It can be generated by $m_1 = (1, 0)$ and $m_2 = (0, 1)$ with relations $p m_1 = 0$ and $p^2 m_2 = 0$, so the corresponding matrix is
     \[ a_{ij} = \begin{pmatrix} p & 0 \\ 0 & p^2 \end{pmatrix} \]
     and thus
-    \[ \text{Fitt}_0(M) = (p^3), \quad \text{Fitt}_1(M) = (p, p^2) = (p) \quad \text{ and } \quad \text{Fitt}_{\ge 2}(M) = \ZZ . \]
+    \[ \textup{Fitt}_0(M) = (p^3), \quad \textup{Fitt}_1(M) = (p, p^2) = (p) \quad \textup{ and } \quad \textup{Fitt}_{\ge 2}(M) = \ZZ . \]
 \end{example}
 
 \begin{example}{fitting-ideal}
@@ -563,12 +573,12 @@
     \[ a_{ij} = \begin{pmatrix} \textbf{0}_{r \times r} & & &  \\  & d_1 & \\ & & \ddots & \\ & & & d_k \end{pmatrix} \]
     and thus
     \[ \begin{array}{rcl}
-         \text{Fitt}_{0 \le i \le r}(M) &=& (0) , \\
-        \text{Fitt}_{r + 1}(M) &=& (d_1 d_2\cdots d_k) , \\
-        \text{Fitt}_{r + 2}(M) &=& (d_1 d_2\cdots d_{k - 1}) , \\
+         \textup{Fitt}_{0 \le i \le r}(M) &=& (0) , \\
+        \textup{Fitt}_{r + 1}(M) &=& (d_1 d_2\cdots d_k) , \\
+        \textup{Fitt}_{r + 2}(M) &=& (d_1 d_2\cdots d_{k - 1}) , \\
         & \vdots & \\
-        \text{Fitt}_{r + k - 1}(M) &=& (d_1) , \\
-        \text{Fitt}_{\ge r + k}(M) &=& \ZZ .
+        \textup{Fitt}_{r + k - 1}(M) &=& (d_1) , \\
+        \textup{Fitt}_{\ge r + k}(M) &=& \ZZ .
     \end{array} \]
 \end{example}
 
@@ -576,7 +586,7 @@
     Consider the scheme $X = \Spec k[x_1, \ldots, x_n] / I$ with $I = (f_1, \ldots, f_k)$ for some polynomials $f_i$. The module of differentials
     \[ \Omega_{X/k} = \left(\bigoplus_{i = 1}^{n} k[x_1, \ldots, x_n] / I \cdot dx_i \right) / (df_1, df_2, \ldots, df_k) \]
     is generated by $dx_1, \ldots, dx_n$ and relations
-    \[ df_i = \sum_{j = 1}^{n} \frac{\partial f_i}{\partial x_j} dx_j = 0 \quad \text{ for } i = 1, 2, \ldots, k , \]
+    \[ df_i = \sum_{j = 1}^{n} \frac{\partial f_i}{\partial x_j} dx_j = 0 \quad \textup{ for } i = 1, 2, \ldots, k , \]
     so the corresponding matrix is the Jacobian matrix
     \[ J = \begin{pmatrix}
         \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\
@@ -584,15 +594,15 @@
         \vdots & \vdots & \ddots & \vdots \\
         \frac{\partial f_k}{\partial x_1} & \frac{\partial f_k}{\partial x_2} & \cdots & \frac{\partial f_k}{\partial x_n}
     \end{pmatrix} . \]
-    Now $X$ is smooth over $k$ if and only if $\Omega_{X/k}$ is locally free of rank $n = \dim X$, which is equivalent to the Fitting ideal $\text{Fitt}_{\dim X}(\Omega_{X/k})$ generating the unit ideal in the localization of each prime ideal of $k[x_1, \ldots, x_n] / I$, which is equivalent to the Fitting ideal $\text{Fitt}_{\dim X}(\Omega_{X/k})$ generating the unit ideal in $k[x_1, \ldots, x_n] / I$ itself.
+    Now $X$ is smooth over $k$ if and only if $\Omega_{X/k}$ is locally free of rank $n = \dim X$, which is equivalent to the Fitting ideal $\textup{Fitt}_{\dim X}(\Omega_{X/k})$ generating the unit ideal in the localization of each prime ideal of $k[x_1, \ldots, x_n] / I$, which is equivalent to the Fitting ideal $\textup{Fitt}_{\dim X}(\Omega_{X/k})$ generating the unit ideal in $k[x_1, \ldots, x_n] / I$ itself.
 \end{example}
 
 \begin{topic}{gcd}{greatest common divisor (GCD)}
-    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{greatest common divisor} of two elements $a, b \in R$ is an element $d \in R$ such that $d | a, b$ and for any other $d' \in R$ with $d' | a, b$ one has $d' | d$. It is denoted $d = \text{gcd}(a, b)$.
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{greatest common divisor} of two elements $a, b \in R$ is an element $d \in R$ such that $d | a, b$ and for any other $d' \in R$ with $d' | a, b$ one has $d' | d$. It is denoted $d = \textup{gcd}(a, b)$.
 \end{topic}
 
 \begin{topic}{lcm}{least common multiple (LCM)}
-    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{least common multiple} of two elements $a, b \in R$ is an element $m \in R$ such that $a, b | m$ and for any other $m' \in R$ with $a, b | m$ one has $m | m'$. It is denoted $m = \text{lcm}(a, b)$.
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{least common multiple} of two elements $a, b \in R$ is an element $m \in R$ such that $a, b | m$ and for any other $m' \in R$ with $a, b | m$ one has $m | m'$. It is denoted $m = \textup{lcm}(a, b)$.
 \end{topic}
 
 \begin{topic}{gcd-domain}{GCD domain}
@@ -623,7 +633,7 @@
 
 \begin{example}{graded-ring}
     The polynomial ring $R = k[x_1, \ldots, x_n]$ is a graded ring, with
-    \[ R_i = \{ f \in R : f \text{ is homogeneous of degree $i$} \} . \]
+    \[ R_i = \{ f \in R : f \textup{ is homogeneous of degree $i$} \} . \]
 \end{example}
 
 \begin{topic}{morita-equivalence}{Morita equivalence}
@@ -631,12 +641,12 @@
 \end{topic}
 
 \begin{example}{morita-equivalence}
-    Any ring $R$ is Morita equivalent to the ring $\text{M}_n(R)$ of $n \times n$ matrices with elements in $R$, for any $n > 0$. Indeed, take
-    \[ R\text{-Mod} \to \text{M}_n(R)\text{-Mod}, \quad M \to R^{n \times 1} \otimes_R M \simeq M^n , \]
-    where $\text{M}_n(R)$ acts on $M^n$ by matrix multiplication on the left. Inversely, take
-    \[ \text{M}_n(R)\text{-Mod} \to R\text{-Mod}, \quad N \to R^{1 \times n} \otimes_{\text{M}_n(R)} N . \]
+    Any ring $R$ is Morita equivalent to the ring $\textup{M}_n(R)$ of $n \times n$ matrices with elements in $R$, for any $n > 0$. Indeed, take
+    \[ R\textup{-Mod} \to \textup{M}_n(R)\textup{-Mod}, \quad M \to R^{n \times 1} \otimes_R M \simeq M^n , \]
+    where $\textup{M}_n(R)$ acts on $M^n$ by matrix multiplication on the left. Inversely, take
+    \[ \textup{M}_n(R)\textup{-Mod} \to R\textup{-Mod}, \quad N \to R^{1 \times n} \otimes_{\textup{M}_n(R)} N . \]
     Indeed these are inverse to each other since
-    \[ R^{1 \times n} \otimes_{\text{M}_n(R)} R^{n \times 1} \simeq R \quad \text{and} \quad R^{n \times 1} \otimes_R R^{1 \times n} \simeq \text{M}_n(R) . \]
+    \[ R^{1 \times n} \otimes_{\textup{M}_n(R)} R^{n \times 1} \simeq R \quad \textup{and} \quad R^{n \times 1} \otimes_R R^{1 \times n} \simeq \textup{M}_n(R) . \]
 \end{example}
 
 \begin{topic}{gorenstein-ring}{Gorenstein ring}
@@ -646,7 +656,7 @@
 \end{topic}
 
 \begin{topic}{cohen-macaulay}{Cohen--Macaulay}
-    A \tref{finitely-generated-module}{finitely generated} \tref{module}{module} $M$ over a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} \tref{ring}{ring} $R$ is \textbf{Cohen--Macaulay} if its \tref{depth-module}{depth} $\text{depth}_{\mathfrak{m}}(M)$ equals its \tref{krull-dimension}{dimension} $\dim_R(M) := \dim(R/\text{Ann}_R(M))$.
+    A \tref{finitely-generated-module}{finitely generated} \tref{module}{module} $M$ over a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} \tref{ring}{ring} $R$ is \textbf{Cohen--Macaulay} if its \tref{depth-module}{depth} $\textup{depth}_{\mathfrak{m}}(M)$ equals its \tref{krull-dimension}{dimension} $\dim_R(M) := \dim(R/\textup{Ann}_R(M))$.
     
     More generally, for a commutative noetherian ring $R$, a finitely generated $R$-module $M$ is \textbf{Cohen--Macaulay} if the localization $M_\mathfrak{m}$ is Cohen--Macaulay over $R_\mathfrak{m}$ for each maximal ideal $\mathfrak{m}$ of $R$.
     
@@ -674,7 +684,7 @@
 \end{topic}
 
 \begin{example}{algebra}
-    Let $k$ be a field, and $B = \text{Mat}_{n}(k)$ the ring of $n \times n$ matrices over $k$. Then $B$ is a $k$-algebra under the morphism $i : k \to B$ which sends $a \mapsto a \cdot I$.
+    Let $k$ be a field, and $B = \textup{Mat}_{n}(k)$ the ring of $n \times n$ matrices over $k$. Then $B$ is a $k$-algebra under the morphism $i : k \to B$ which sends $a \mapsto a \cdot I$.
 \end{example}
 
 \begin{topic}{derivation}{derivation}
@@ -684,17 +694,17 @@
         \item $d(bb') = bdb' + b'db$ for all $b, b' \in B$,
         \item $da = 0$ for all $a \in A$.
     \end{itemize}
-    The set of $A$-derivations $d : B \to M$ is often denoted $\text{Der}_A(B, M)$.
+    The set of $A$-derivations $d : B \to M$ is often denoted $\textup{Der}_A(B, M)$.
     
     An $A$-derivation $d : B \to M$ is \textbf{universal} if for any other $A$-derivation $d' : B \to N$ there exists a unique $B$-module morphism $\phi : M \to N$ such that $d' = \phi \circ d$. In this case one often writes $M = \Omega_{B/A}$.
 \end{topic}
 
 \begin{example}{derivation}
     Let $\mu : B \otimes_A B \to B$ be the multiplication map $b_1 \otimes b_2 \mapsto b_1 b_2$, and let $I = \ker \mu$. Consider $B \otimes_A B$ as a $B$-module by multiplication on the left, that is $b \cdot (b_1 \otimes b_2) = (bb_1 \otimes b_2)$, then $I/I^2$ inherits the structure of a $B$-module, and the map
-    \[ d : B \to I/I^2, \quad b \mapsto 1 \otimes b - b \otimes 1 (\text{mod } I^2) \]
+    \[ d : B \to I/I^2, \quad b \mapsto 1 \otimes b - b \otimes 1 (\textup{mod } I^2) \]
     is a universal $A$-derivation. This can be seen as follows.
     
-    First note that $I$ is generated as an $B$-module by elements of the form $1 \otimes b - b \otimes 1$ with $b \in B$. Namely, for any $x \in I$ we have $\mu(x) = 0$ so $x \equiv \mu(x) \otimes 1 \text{ mod } (1 \otimes b - b \otimes 1 : b \in B) = 0$, and the other inclusion is obvious. In other words, $d$ is surjective.
+    First note that $I$ is generated as an $B$-module by elements of the form $1 \otimes b - b \otimes 1$ with $b \in B$. Namely, for any $x \in I$ we have $\mu(x) = 0$ so $x \equiv \mu(x) \otimes 1 \textup{ mod } (1 \otimes b - b \otimes 1 : b \in B) = 0$, and the other inclusion is obvious. In other words, $d$ is surjective.
     
     Now for any other $A$-derivation $d' : B \to M$ we can (and must) define $\phi : I/I^2 \to M$ by putting $\phi(d(b)) = d' b$ and extending $B$-linearly. Indeed this is well-defined as any element of $I^2$ is a sum of elements of the form $xy$ with $x, y \in I$, and writing $x = \sum_i (1 \otimes b_i - b_i \otimes 1)$ and $y = \sum_j (1 \otimes b'_j - b'_j \otimes 1)$ we find that
     \[ xy = \sum_{i,j} (1 \otimes b_i b'_j - b_i b'_j \otimes 1) - b_i (1 \otimes b'_j - b'_j \otimes 1) - b'_j (1 \otimes b_i - b_i \otimes 1) , \]
@@ -721,7 +731,7 @@
     Let $R$ be a \tref{ring}{commutative ring} and $M$ an \tref{module}{$R$-module}. Each \tref{ideal}{ideal} $\mathfrak{a} \subset R$ determines a \tref{TO:topological-space}{topology} on $M$ called the \textbf{$\mathfrak{a}$-adic topology}: a subset $U \subset M$ is \textit{open} if and only if for each $x \in U$ there exists a positive integer $n$ such that $x + \mathfrak{a}^n M \subset U$.
     
     The \textbf{completion} of $M$ with respect to $\mathfrak{a}$ is the \tref{CT:inverse-limit}{inverse limit}
-    \[ \widehat{M} = \varprojlim_{n \ge 1} M / \mathfrak{a}^n M = \left\{ (x_n)_{n \ge 1} \in \prod_{n \ge 1} M / \mathfrak{a}^n M : x_m = x_n \text{ mod } \mathfrak{a}^n M \text{ for } m \le n \right\} \]
+    \[ \widehat{M} = \varprojlim_{n \ge 1} M / \mathfrak{a}^n M = \left\{ (x_n)_{n \ge 1} \in \prod_{n \ge 1} M / \mathfrak{a}^n M : x_m = x_n \textup{ mod } \mathfrak{a}^n M \textup{ for } m \le n \right\} \]
     with the \tref{TO:subspace-topology}{subspace} \tref{TO:product-topology}{product topology}.
     
     When $R = M$, the completion $\widehat{R}$ has a ring structure and is called the \textbf{completion} of $R$, with repsect to $\mathfrak{a}$.
@@ -733,7 +743,7 @@
 \end{example}
 
 \begin{topic}{azumaya-algebra}{Azumaya algebra}
-    An \textbf{Azumaya algebra} over a \tref{ring}{commutative ring} $R$ is an $R$-algebra $A$ that is \tref{finitely-generated-module}{finitely generated} \tref{faithful-module}{faithful} and \tref{projective-module}{projective} as an $R$-module, such that $A \otimes_R A^\text{op}$ is isomorphic to $\text{End}_R(A)$ via the map $a \otimes b \mapsto (x \mapsto axb)$.
+    An \textbf{Azumaya algebra} over a \tref{ring}{commutative ring} $R$ is an $R$-algebra $A$ that is \tref{finitely-generated-module}{finitely generated} \tref{faithful-module}{faithful} and \tref{projective-module}{projective} as an $R$-module, such that $A \otimes_R A^\textup{op}$ is isomorphic to $\textup{End}_R(A)$ via the map $a \otimes b \mapsto (x \mapsto axb)$.
 \end{topic}
 
 \begin{example}{azumaya-algebra}

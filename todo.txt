@@ -52,6 +52,8 @@ DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
+AG: Jacobian variety
+AG: Abel--Jacobi theorem
 AG: Kempf-Ness stratification
 AG: natural log structure on toric varieties
 AG: Étale fundamental group

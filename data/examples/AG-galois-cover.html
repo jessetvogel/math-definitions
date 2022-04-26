@@ -1,12 +1,12 @@
-<div class="example">Let <span class="math inline">\(\ell / k\)</span> be a <a href="#AA:galois-extension">Galois extension</a> with <a href="#AA:galois-group">Galois group</a> <span class="math inline">\(G = \text{Gal}(\ell/k)\)</span>. Then there is an isomorphism
+<div class="example">Let <span class="math inline">\(\ell / k\)</span> be a <a href="#AA:galois-extension">Galois extension</a> with <a href="#AA:galois-group">Galois group</a> <span class="math inline">\(G = \textup{Gal}(\ell/k)\)</span>. Then there is an isomorphism
 <span class="math display">\[ \ell \otimes_k \ell \to \prod_{\sigma \in G} \ell, \quad a \otimes b \mapsto (a \sigma(b))_{\sigma \in G} \]</span>
 which shows that
 <span class="math display">\[ G \times \Spec(\ell) \to \Spec(\ell) \times_{\Spec(k)} \Spec(\ell) \]</span>
 is an isomorphism, and thus <span class="math inline">\(\Spec(\ell) \to \Spec(k)\)</span> is a Galois cover.
-</div><div class="example">Let <span class="math inline">\(n \ge 1\)</span> and let <span class="math inline">\(k\)</span> be a field containing a primitive <span class="math inline">\(n\)</span>-th root unity <span class="math inline">\(\zeta_n \in k\)</span>. Consider <span class="math inline">\(f : X \to S\)</span> with <span class="math inline">\(X = S = k^*\)</span> given by <span class="math inline">\(x \mapsto x^n\)</span>. Then we see that
-<span class="math display">\[ X \times_S X = \{ (x, y) \in (k^*)^2 : x^n = y^n \} \]</span>
+</div><div class="example">Let <span class="math inline">\(n \ge 1\)</span> and let <span class="math inline">\(k\)</span> be a field containing a primitive <span class="math inline">\(n\)</span>-th root unity <span class="math inline">\(\zeta_n \in k\)</span>. Consider <span class="math inline">\(f : X \to S\)</span> with <span class="math inline">\(X = S = \GG_m = \Spec k[x, x^{-1}]\)</span> given by <span class="math inline">\(x \mapsto x^n\)</span>. Then we see that
+<span class="math display">\[ X \times_S X = \{ (x, y) \in \GG_m^2 : x^n = y^n \} \]</span>
 decomposes as the disjoint union
-<span class="math display">\[ (\ZZ/n\ZZ) \times k^* \simeq X \times_S X, \quad (k, x) \mapsto (x, \zeta_n^k x) , \]</span>
+<span class="math display">\[ (\ZZ/n\ZZ) \times \GG_m \simeq X \times_S X, \quad (k, x) \mapsto (x, \zeta_n^k x) , \]</span>
 and thus <span class="math inline">\(f\)</span> is a Galois cover.
 </div><div class="example">Let <span class="math inline">\(E\)</span> be an elliptic curve over <span class="math inline">\(k\)</span>, and <span class="math inline">\(n\)</span> an integer invertible in <span class="math inline">\(k\)</span>. Consider the map <span class="math inline">\([n] : E \to E\)</span> given by multiplication by <span class="math inline">\(n\)</span>. We have an isomorphism
 <span class="math display">\[ E \times_E E = \{ (x, y) \in E^2 : nx = ny \} \xrightarrow{\sim} \ker [n] \times E \]</span>
