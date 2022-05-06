@@ -7,6 +7,11 @@
 
 ---- Theory ----
 
+AG: Picard group Spec(domain) (https://people.math.rochester.edu/faculty/doug/otherpapers/Kbook.pdf)
+AA: Levi decomposition (Levi theorem, Levi subalgebra, https://link.springer.com/content/pdf/10.1007/978-3-642-74334-4_6.pdf) (example: parabolic subgroup of GL_n)
+AG: GAGA (equivalence of categories)
+TO: projective bundle
+
 Skein algebras
 
 -- Higher Algebra
@@ -23,11 +28,9 @@ AA: Shapiro's lemma (https://en.wikipedia.org/wiki/Shapiro%27s_lemma, examples t
 AA: reflection equation algebra / construct quantum group (as O_q(G))
 AA: two-sided bar construction
 AA: dual (Hopf) algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
-AA: Levi decomposition (Levi theorem, Levi subalgebra, https://link.springer.com/content/pdf/10.1007/978-3-642-74334-4_6.pdf)
 AA: semisimple Lie algebra: equivalent conditions
 AA: Manin triple (example: correspondence: f.d. Manin triple <=> f.d. Lie bialgebra)
-AA: Morita equivalence equivalent to M_n(R) = M_m(S) for some n, m ?
-AA: Dedekind domain (Example: give equivalent definitions / proof)
+AA: Dedekind domain (Example: give equivalent definitions proof)
 AA: bar complex as simplicial complex
 AA: Primitive ideal / Primitive spectrum (C*-algebra)
 AA: witt vectors
@@ -40,6 +43,7 @@ HA: (Semiorthogonal decomposition for projective bundles)
 HA: (Grothendieck) derivator (example: Quillen Model structures D = HO(M), then X \mapsto Ho(Fun(X^op, M))) (Appendix A of https://math.mit.edu/~tabuada/BuenosAires.pdf)
 
 -- Differential Geometry
+DG: Hermitian manifold
 DG: moment polytope (da Silva, Chapter 27)
 DG?: Goldman symplectic structure
 DG: Atiyah--Singer theorem

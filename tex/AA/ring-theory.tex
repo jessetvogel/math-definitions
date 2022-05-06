@@ -370,7 +370,7 @@
 \end{example}
 
 \begin{topic}{fractional-ideal}{fractional ideal}
-    Let $R$ be a \tref{domain}{domain} and $K$ its \tref{field-of-fractions}{field of fractions}. An $R$-submodule $M$ of $K$ is a \textbf{fractional ideal} of $R$ if $xM \subset R$ for some $x \ne 0$ in $R$.
+    Let $R$ be a \tref{domain}{domain} and $K$ its \tref{field-of-fractions}{field of fractions}. A \textbf{fractional ideal} of $R$ is an $R$-submodule $M$ of $K$ such that $xM \subset R$ for some non-zero $x \in R$.
 \end{topic}
 
 \begin{topic}{invertible-ideal}{invertible ideal}
@@ -390,6 +390,12 @@
         \item In $k[x, y]$, we have $((xy), (x)) = (y)$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{divisorial-ideal}{divisorial ideal}
+    Let $R$ be a \tref{domain}{domain}. A \textbf{divisorial ideal} of $R$ is a \tref{fractional-ideal}{fractional ideal} $I$ of $R$ such that
+    \[ I = (R : (R : I)) , \]
+    where $(I : J) = \{ x \in K \;|\; xJ \subset I \}$.
+\end{topic}
 
 \begin{topic}{syzygy-module}{syzygy module}
     Let $g_1, g_2, \ldots, g_k$ be generators of \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$. The \textbf{syzygy module} is the $R$-module consisting of all relations between the generators, i.e. the kernel of
@@ -716,7 +722,7 @@
     \[ \Omega_{B/A} = \bigoplus_{i = 1}^{n} B \cdot dx_i . \]
 \end{example}
 
-\begin{topic}{height-ideal}{height ideal}
+\begin{topic}{height-prime-ideal}{height prime ideal}
     The \textbf{height} of a \tref{prime-ideal}{prime ideal} $\mathfrak{p}$ in a \tref{ring}{commutative-ring} $R$ is the supremum of lengths of chains of prime ideals, where a chain
     \[ \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n = \mathfrak{p} \]
     has length $n$.
@@ -845,6 +851,20 @@
 
 \begin{example}{integrally-closed-domain}
     The ring $R = \ZZ[\sqrt{5}]$ is not integrally closed as it does not contain the integral element $\tfrac{1}{2} \sqrt{5} + \tfrac{1}{2} \in \QQ(\sqrt{5})$, which satisfies $x^2 - x - 1 = 0$.
+\end{example}
+
+\begin{example}{integrally-closed-domain}
+    Any \tref{valuation-ring}{valuation ring} $R$ is integrally closed. Namely, suppose $x \in K$ is integral over $R$ and satisfies $x^n + a_{n - 1} x^{n - 1} + \cdots + a_0 = 0$. Either $x \in R$, and we are done, or $x^{-1} \in R$ and we multiply the equation by $x^{-n + 1}$ to obtain
+    \[ -x = a_{n - 1} + a_{n - 2} x^{-1} + \cdots + a_0 x^{-n + 1} , \]
+    which shows $x \in R$.
+\end{example}
+
+\begin{example}{integrally-closed-domain}
+    A domain $R$ is integrally closed if and only if the \tref{localization}{localizations} $R_\mathfrak{p}$ are integrally closed for all \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ of $R$. Namely, if $R$ is integrally closed and $S \subset R$ is a multiplicative set, and $x \in K$ is integral over $S^{-1} R$, then
+    \[ x^n + \frac{a_{n - 1}}{s_{n - 1}} x^{n - 1} + \cdots + \frac{a_0}{s_0} = 0 \]
+    for some $a_i \in R$ and $s_i \in S$. Multiplying this equation by $s^n$, where $s = s_0 s_1 \cdots s_{n - 1}$, we find
+    \[ (sx)^n + \frac{a_{n - 1} s}{s_{n - 1}} (sx)^{n - 1} + \cdots + \frac{a_0 s^n}{s_0} = 0 , \]
+    and clearly $\frac{a_i s^{n - i}}{s_i} \in R$ for all $i = 1, \ldots, n - 1$. Since $R$ is integrally closed, we have $sx \in R$ and thus $x \in S^{-1} R$, so $S^{-1} R$ is integrally closed. Conversely, if all localizations $R_\mathfrak{p}$ are integrally closed, and $x \in K$ is integral over $R$, then in particular $x$ is integral over all $R_\mathfrak{p}$, implying $x \in \bigcap_{\mathfrak{p}} R_\mathfrak{p} = R$.
 \end{example}
 
 \begin{topic}{finitely-generated-algebra}{finitely generated algebra}
@@ -1125,3 +1145,38 @@
     Let $A$ be and $B$ be \tref{ring}{commutative rings} with $A \subset B$. The \textbf{conductor} of $A$ in $B$ is the \tref{ideal}{ideal}
     \[ \mathfrak{f}(B/A) = \textup{Ann}_A(B/A) = \{ a \in A \;|\; a B \subset A \} . \]
 \end{topic}
+
+\begin{topic}{seminormal-ring}{seminormal ring}
+    A \tref{reduced-ring}{reduced} \tref{ring}{commutative ring} $R$ is \textbf{seminormal} if for all $x, y \in R$ with $x^3 = y^2$ there exists a $z \in R$ such that $x = z^2$ and $y = z^3$.
+\end{topic}
+
+\begin{topic}{krull-domain}{Krull domain}
+    Let $R$ be a \tref{domain}{domain} and denote by $P$ the set of \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ of $R$ of \tref{height-prime-ideal}{height} $1$. Then $R$ is a \textbf{Krull domain} if
+    \begin{enumerate}[(i)]
+        \item the \tref{localization}{localization} $R_\mathfrak{p}$ is a \tref{discrete-valuation-ring}{discrete valuation ring} for all $\mathfrak{p} \in P$,
+        \item $R = \bigcap_{\mathfrak{p} \in P} R_\mathfrak{p}$, where the intersection is taken in the \tref{field-of-fractions}{field of fractions} of $R$,
+        \item every non-zero $r \in R$ is contained in finitely many $\mathfrak{p} \in P$.
+    \end{enumerate}
+\end{topic}
+
+\begin{example}{krull-domain}
+    Any \tref{unique-factorization-domain}{unique factorization domain} is a Krull domain.
+\end{example}
+
+\begin{topic}{picard-group}{Picard group}
+    Let $R$ be a \tref{domain}{domain} with \tref{field-of-fractions}{field of fractions} $K$. Let $\mathcal{I}(R)$ be the set of \tref{invertible-ideal}{invertible ideals} of $R$, which forms a group under multiplication. The set of principal \tref{fractional-ideal}{fractional ideals} forms a subgroup $\mathcal{P}(R) \subset \mathcal{I}(R)$, isomorphic to $K^* / R^*$. The \textbf{Picard group} of $R$ is the quotient
+    \[ \text{Pic}(R) = \mathcal{I}(R) / \mathcal{P}(R) . \]
+    It fits in the exact sequence
+    \[ 0 \to R^* \to K^* \to \mathcal{I}(R) \to \text{Pic}(R) \to 0 . \]
+\end{topic}
+
+\begin{topic}{von-neumann-regular-ring}{von Neumann regular ring}
+    A \tref{ring}{ring} $R$ is \textbf{von Neumann regular} if for every element $x \in R$ there exists an element $y \in R$ such that $x = xyx$.
+\end{topic}
+
+\begin{example}{von-neumann-regular-ring}
+    \begin{itemize}
+        \item Every \tref{field}{field} and every \tref{division-ring}{division ring} is von Neumann regular.
+        \item For any $k$ be a field, the matrix rings $R = \textup{Mat}_n(k)$ are von Neumann regular. Namely, any $A \in \textup{Mat}_n(k)$ of rank $r$ can be written as $A = U \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} V$ using Gaussian elimination, with $U$ and $V$ invertible. Now, $A = AXA$ for $X = V^{-1} U^{-1}$.
+    \end{itemize}
+\end{example}

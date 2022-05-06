@@ -259,3 +259,12 @@
     \[ X \sslash_{\mathcal{L}} G \to \Spec\left( R^G \right) \]
     to the affine GIT quotient.
 \end{example}
+
+\begin{topic}{no-name-lemma}{no-name lemma}
+    Let $k$ be an \tref{AA:algebraically-closed-field}{algebraically closed field}, and $G$ a linear \tref{algebraic-group}{algebraic group} over $k$. Let $X$ be a \tref{variety}{variety} over $k$, with a $G$-action which is \textit{generically free}, i.e. there exists an open dense $U \subset X$ such that the stabilizer of any point $x \in U$ is trivial. Let $\pi : V \to X$ be a vector bundle of rank $r$, with a $G$-action on $V$ such that $\pi$ is $G$-equivariant and the action of any $g \in G$ restricts to a linear map $\pi^{-1}(x) \to \pi^{-1}(g \cdot x)$ for all $x \in X$. Then the \textbf{no-name lemma} states that there exists a $G$-equivariant \tref{birational-map}{birational map} $\phi : V \dashrightarrow X \times \AA^r_k$, where $G$ acts trivially on $\AA^r_k$, such that
+    \[ \begin{tikzcd}
+        V \arrow[dashed]{rr}{\phi} \arrow[swap]{rd}{\pi} && X \times \AA^r_k \arrow{dl}{\pi_X} \\
+        & X &
+    \end{tikzcd} \]
+    commutes.
+\end{topic}

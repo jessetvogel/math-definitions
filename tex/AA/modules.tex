@@ -237,3 +237,13 @@
         for all $y \in M'$ and $r \in R$. Then $f''$ extends $f'$, contradicting the maximality of $M'$.
     \end{proof}
 \end{example}
+
+\begin{topic}{stably-free-module}{stably free module}
+    Let $R$ be a \tref{ring}{ring}. An $R$-module $M$ is \textbf{stably free} if $P \bigoplus R^m \simeq R^n$ for some $m$ and $n$.
+\end{topic}
+
+\begin{example}{stably-free-module}
+    Clearly any \tref{free-module}{free module} is stably free, but the converse is not true. Namely, let $R = \RR[x, y, z] / (x^2 + y^2 + z^2 - 1)$ and consider the morphism
+    \[ \sigma : R^3 \to R, \quad (a, b, c) \mapsto ax + by + cz . \]
+    As $\sigma$ is surjective, we have $R^3 = \ker(\sigma) \oplus R$ so that $P = \ker(\sigma)$ is stably free. However, note that geometrically any element $(a, b, c) \in P$ defines a vector field $X = a \partial_x + b \partial_y + c \partial_z$ on the $2$-sphere $S^2$. So if $P$ were free, there would exist a basis of $P$, which would yield two vector fields $X$ and $Y$ that are linear independent at every point of $S^2$. However, this is impossible by the \tref{DG:hairy-ball-theorem}{hairy ball theorem}, so $P$ cannot be free.
+\end{example}

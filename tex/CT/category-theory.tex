@@ -220,7 +220,7 @@
     Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{Grothendieck topology} on $\mathcal{C}$ consists of a family $\text{Cov}(C)$ of \tref{sieve}{sieves} on $C$ for every object $C$ of $\mathcal{C}$, called \textit{covering sieves}, such that
     \begin{itemize}
         \item the maximal sieve $\text{mac}(C) = \{ \text{all } f : C' \to C \}$ is in $\text{Cov}(C)$,
-        \item if $R \in \text{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) \in \text{Cov}(C')$,
+        \item if $R \in \text{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) = \{ g : C'' \to C' \;|\; fg \in R \} \in \text{Cov}(C')$,
         \item if $R$ is any sieve on $C$ and $S$ is a covering sieve on $C$, such that for every $f : C' \to C$ from $S$ we have $f^*(R) \in \text{Cov}(C')$, then $R \in \text{Cov}(C)$.
     \end{itemize}
 \end{topic}
@@ -234,7 +234,7 @@
 \end{topic}
 
 \begin{topic}{sheaf}{sheaf}
-    A presheaf $\mathcal{F} : \mathcal{C}^\text{op} \to \textbf{Set}$ on a \tref{site}{site} $\mathcal{C}$ is a \textbf{sheaf} if for every covering sieve $\{ U_i \to U \}_{i \in I}$, the diagram
+    A \tref{presheaf}{presheaf} $\mathcal{F} : \mathcal{C}^\text{op} \to \textbf{Set}$ on a \tref{site}{site} $\mathcal{C}$ is a \textbf{sheaf} if for every covering sieve $\{ U_i \to U \}_{i \in I}$, the diagram
     \[ \mathcal{F}(U) \to \prod_{i \in I} \mathcal{F}(U_i) \rightrightarrows \prod_{i, j \in I} \mathcal{F}(U_i \times_U U_j) \]
     is an \tref{equalizer}{equalizer}.
 \end{topic}
@@ -932,3 +932,7 @@
         \item The discrete category $\textbf{n}$ with $n$ objects is not connected for any $n \ge 0$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{wide-subcategory}{wide subcategory}
+    A \textbf{wide subcategory} of a \tref{category}{category} $\mathcal{C}$ is a subcategory of $\mathcal{C}$ containing all the objects of $\mathcal{C}$.
+\end{topic}

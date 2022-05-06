@@ -277,6 +277,11 @@
     \[ \rho : G \to \textup{GL}\left( \bigoplus_{x \in X} k \right), \quad \rho(g)\left( (a_x)_{x \in X} \right) = \left( a_{g^{-1} \cdot x} \right)_{x \in X} . \]
 \end{topic}
 
+\begin{example}{permutation-representation}
+    Note that $\rho(g)$ is a \tref{LA:permutation-matrix}{permutation matrix} for any $g \in G$, and hence the \tref{LA:trace}{trace} of $\rho(g)$ is equal to the number of elements $x \in X$ that are fixed by $g$. In particular, the \tref{character-representation}{character} of $\rho$ is given by
+    \[ \chi(g) = |\{ x \in X \;|\; g \cdot x = x \}| . \]
+\end{example}
+
 \begin{topic}{mackey-irreducibility-condition}{Mackey's irreducibility condition}
     Let $G$ be a finite \tref{GT:group}{group}, $H \subset G$ a \tref{GT:subgroup}{subgroup}, and $\rho : H \to \textup{GL}(V)$ a complex \tref{representation}{representation} of $H$. \textbf{Mackey's irreducibility condition} states that the \tref{induced-representation}{induced representation} $\textup{Ind}_H^G(\rho)$ is \tref{irreducible-representation}{irreducible} if and only if $\rho$ is irreducible and for all $s \in G \setminus H$ the two representations
     \[ \begin{aligned}
@@ -308,4 +313,16 @@
         \rho(1 \; 3) = \begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}, &
         \rho(2 \; 3) = \begin{pmatrix} 1 & 0 \\ 1 & -1 \end{pmatrix} .
     \end{array} \]
+\end{example}
+
+\begin{topic}{jacquet-module}{Jacquet module}
+    Let $G$ be a \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ a \tref{representation}{representation}. The \textbf{Jacquet module} of $V$ is the subspace of invariants
+    \[ V^G = \{ v \in V \;|\; \rho(g) v = v \textup{ for all } g \in G \} \subset V . \]
+\end{topic}
+
+\begin{example}{jacquet-module}
+    Consider a \tref{GT:semidirect-product}{semidirect product} $G = N \rtimes H$, and representations $\rho : G \to \textup{GL}(U)$ and $\tau : H \to \textup{GL}(V)$. The representation $\tau$ can be extended to $\tau' : G \to \textup{GL}(V)$ by setting $\tau'(nh) = \tau(h)$ for all $n \in N$ and $h \in H$. Also, since $N \subset G$ is normal, we have that $U^N$ is naturally an $H$-representation. Now we have a natural bijection
+    \[ \Hom_G(U, V) \simeq \Hom_H(U^N, V) , \]
+    since any $H$-equivariant morphism $\phi : U \to V$ is $G$-equivariant if and only if $\phi(U/U^N) = 0$. In particular, this gives an \tref{CT:adjunction}{adjunction}
+    \[ (-)^N \dashv (-)' \quad \textup{ where } \quad (-)^N : \textbf{Rep}_k(G) \to \textbf{Rep}_k(H), \quad (-)' : \textbf{Rep}_k(H) \to \textbf{Rep}_k(G) . \]
 \end{example}

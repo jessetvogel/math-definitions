@@ -305,6 +305,10 @@
     Indeed this is a homomorphism since multiplying transition functions corresponds to the tensor product of the corresponding invertible sheaves.
 \end{example}
 
+% \begin{example}{picard-group}
+%     Let $X = \Spec(R)$ for a \tref{domain}{domain} $R$. Then [...]
+% \end{example}
+
 \begin{topic}{picard-functor}{Picard functor}
     Let $f : X \to S$ be a \tref{scheme}{scheme} over $S$. The \textbf{absolute Picard functor} is the functor that assigns to any $T \to S$ the \tref{picard-group}{Picard group} $\textup{Pic}(X \times_S T)$,
     \[ \textup{Pic}_X : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \textup{Pic}(X \times_S T) . \]
@@ -1140,4 +1144,10 @@
 \begin{topic}{hasse-weil-bound}{Hasse--Weil bound}
     Let $C$ be a \tref{nonsingular-variety}{smooth} \tref{projective-variety}{projective} \tref{algebraic-curve}{curve} over a finite field $\FF_q$ of \tref{geometric-genus}{genus} $g$. The \textbf{Hasse--Weil bound} states that
     \[ | \#C(\FF_q) - q - 1 | \le 2 g \sqrt{q} . \]
+\end{topic}
+
+\begin{topic}{analytification}{analytification}
+    Let $X$ be a \tref{nonsingular-variety}{nonsingular} \tref{variety}{variety} over $\CC$. 
+    The set of complex points $X(\CC)$ naturally has a \tref{TO:topological-space}{topology}, such that for any affine open $U \subset X$ the topology on $U(\CC) \subset \CC^n$ is given by the \tref{TO:subspace-topology}{subspace topology} of the Euclidean topology on $\CC^n$. These charts give $X(\CC)$ the structure of a \tref{DG:complex-manifold}{complex manifold} $X^\textup{an}$, called the \textbf{analytification} of $X$. Moreover, a morphism of nonsingular complex varieties $f : X \to Y$ induces a holomorphic map $f^\textup{an} : X^\textup{an} \to Y^\textup{an}$, and this construction yields the \textit{analytification functor}
+    \[ (-)^\textup{an} : \textbf{SmVar}_\CC \to \textbf{Mfld}_\CC . \]
 \end{topic}
