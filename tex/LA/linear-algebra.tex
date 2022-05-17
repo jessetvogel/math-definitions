@@ -22,7 +22,7 @@
 \begin{topic}{linearly-independent}{linearly independent}
     Let $V$ be a \tref{vector-space}{vector space}. A set of vectors $S \subset V$ is said to be \textbf{linearly independent} if for any relation
     \[ \sum_{i = 1}^{n} a_i v_i = 0, \qquad \textup{with $v_i \in S$ distinct and $a_i \in k$,} \]
-    one has $a_i = 0$.
+    it follows that $a_1 = \ldots = a_n = 0$.
 \end{topic}
 
 \begin{topic}{span}{span}
@@ -151,7 +151,7 @@
 \end{example}
 
 \begin{topic}{diagonalization}{diagonalization}
-    A \textbf{diagonalization} of an $n \times n$ matrix $A$ consists of an invertible matrix $C$ and a diagonal matrix $D$ such that
+    A \textbf{diagonalization} of an $n \times n$ matrix $A$ consists of an \tref{invertible-matrix}{invertible matrix} $C$ and a diagonal matrix $D$ such that
     \[ D = C A C^{-1} . \]
     If such a diagonalization exists, $A$ is said to be \textbf{diagonalizable}.
 \end{topic}
@@ -513,4 +513,57 @@
 \begin{topic}{rank-nullity-theorem}{rank--nullity theorem}
     Let $T : V \to W$ be a \tref{linear-map}{linear map} between \tref{vector-space}{vector spaces}. The \textbf{rank--nullity theorem} states that
     \[ \dim V = \dim (\im T) + \dim (\ker T) . \]
+\end{topic}
+
+\begin{topic}{defective-matrix}{defective matrix}
+    An $n \times n$ matrix $A$ is \textbf{defective} if it has an \tref{eigenvalue}{eigenvalue} whose \tref{algebraic-geometric-multiplicity}{geometric multiplicity} is less than its \tref{algebraic-geometric-multiplicity}{algebraic multiplicity}.
+\end{topic}
+
+\begin{example}{defective-matrix}
+    The matrix
+    \[ \begin{pmatrix} 3 & 1 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 2 \end{pmatrix} \]
+    is defective, since the eigenvalue $3$ has geometric multiplicity $1$ but algebraic multiplicity $2$.
+\end{example}
+
+\begin{topic}{row-echelon-form}{(reduced) row echelon form}
+    An $m \times n$ matrix $A$ is said to be in \textbf{row echelon form} if
+    \begin{itemize}
+        \item the zero rows of $A$ are below the nonzero rows of $A$, and
+        \item the \textit{pivot} of each nonzero row, i.e. its first nonzero entry, is farther to the right than the pivots of the rows above.
+    \end{itemize}
+    The matrix $A$ is said to be in \textbf{reduced row echelon form} if in addition
+    \begin{itemize}
+        \item the pivot of each nonzero row is equal to $1$,
+        \item the pivot of each nonzero row is the only nonzero entry in its column.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{row-echelon-form}
+    Consider the matrices
+    \[ A = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix}, \quad
+       B = \begin{pmatrix} 0 & 3 & 0 & 7 \\ 0 & 0 & 5 & 8 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \quad
+       C = \begin{pmatrix} 0 & 1 & 0 & 3 \\ 0 & 0 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{pmatrix} . \]
+    The matrices $B$ and $C$ are in row echelon form, and only $C$ is in reduced row echelon form. Matrix $A$ is not in row echelon form.
+\end{example}
+
+\begin{topic}{hessenberg-matrix}{Hessenberg matrix}
+    An \textbf{upper Hessenberg matrix} is an $n \times n$ matrix $A = (a_{ij})$ such that $a_{ij} = 0$ for $i > j + 1$.
+    
+    A \textbf{lower Hessenberg matrix} is an $n \times n$ matrix $A = (a_{ij})$ such that $a_{ij} = 0$ for $j > i + 1$.
+\end{topic}
+
+\begin{example}{hessenberg-matrix}
+    The matrices
+    \[ \begin{pmatrix} 2 & 3 & 5 & 7 \\ 11 & 13 & 17 & 19 \\ 0 & 23 & 29 & 31 \\ 0 & 0 & 37 & 41 \end{pmatrix} \quad \textup { and } \begin{pmatrix} 1 & 1 & 0 & 0 \\ 2 & 3 & 5 & 0 \\ 8 & 13 & 21 & 34 \\ 55 & 89 & 144 & 233 \end{pmatrix} \]
+    are upper Hessenberg and lower Hessenberg, respectively.
+\end{example}
+
+\begin{topic}{singular-value-decomposition}{singular value decomposition}
+    Let $A$ be a real or complex $m \times n$ matrix. A \textbf{singular value decomposition} of $A$ is a factorization $A = U \sigma V^*$, where $U$ is an $m \times m$ \tref{unitary-matrix}{unitary} matrix, $V$ an $n \times n$ unitary matrix, and $\Sigma$ a diagonal $m \times n$ matrix. The diagonal entries $\sigma_i = \Sigma_{ii}$ are uniquely determined, and called the \textbf{singular values} of $A$.
+    
+    If $A$ is a real matrix, $U$ and $V$ can be chosen to be real \tref{orthogonal-matrix}{orthogonal} matrices.
+\end{topic}
+
+\begin{topic}{lu-decomposition}{LU decomposition}
+    Let $A$ be an $n \times n$ matrix. An \textbf{LU decomposition} of $A$ is a factorization $A = LU$, where $L$ is a lower triangular matrix and $U$ an upper triangular matrix.
 \end{topic}

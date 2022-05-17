@@ -41,11 +41,19 @@
 \begin{example}{algebraic-torus}
     Over $k = \RR$, there are up to isomorphism two algebraic tori of rank one:
     \begin{itemize}
-        \item the torus $\RR^* = \Spec \RR[t, t^{-1}]$,
+        \item the torus $\GG_m = \Spec \RR[t, t^{-1}]$,
         \item the unitary group $U(1) = \Spec \RR[x, y] / (x^2 + y^2 - 1)$. Indeed we have
-        \[ U(1) \times_\RR \CC = \Spec \CC[x, y] / (x^2 + y^2 - 1) \simeq \Spec[z, z^{-1}] \]
+        \[ U(1) \times_\RR \CC = \Spec \CC[x, y] / (x^2 + y^2 - 1) \simeq \Spec \CC[z, z^{-1}] \]
         via the isomorphism $z = x + iy$ and $z^{-1} = x - iy$.
     \end{itemize}
+\end{example}
+
+\begin{example}{algebraic-torus}
+    There is an \tref{CT:equivalence-of-categories}{equivalence of categories} between the category of algebraic tori over $k$ and the (opposite) category of $\textup{Gal}(\overline{k}/k)$-lattices, that is, $\textup{Gal}(\overline{k}/k)$-modules which are free abelian groups of finite rank. The equivalence is given by the functors
+    \[ \begin{aligned}
+        \textbf{AlgTor}_k \to \left(\textup{Gal}(\overline{k}/k)\textbf{-Lat}\right)^\textup{op}, & \quad T \mapsto X^*(T) = \Hom_{\textbf{AlgGrp}}(\overline{T}, \GG_m) , \\
+        \left(\textup{Gal}(\overline{k}/k)\textbf{-Lat}\right)^\textup{op} \to \textbf{AlgTor}_k, & \quad M \mapsto \Spec(\overline{k}[M])^{\textup{Gal}(\overline{k}/k)} .
+    \end{aligned} \]
 \end{example}
 
 \begin{topic}{borel-subgroup}{Borel subgroup}
@@ -268,3 +276,19 @@
     \end{tikzcd} \]
     commutes.
 \end{topic}
+
+\begin{topic}{kostant-rosenlicht-theorem}{Kostant--Rosenlicht theorem}
+    Let $G$ be a \tref{unipotent-algebraic-group}{unipotent algebraic group} acting on an affine \tref{variety}{variety}. The \textbf{Kostant--Rosenlicht theorem} states that every orbit in $X$ is closed.
+\end{topic}
+
+\begin{example}{kostant-rosenlicht-theorem}
+    \begin{proof}
+        Let $O$ be an orbit of $G$ in $X$. Replacing $X$ with the closure of $O$, we may assume that $O$ is dense in $X$. The closed complement $Z = X \setminus O$ is not equal to $X$ as $O \ne \varnothing$, so the ideal $I(Z)$ in $\mathcal{O}_X(X)$ is nonzero. As $Z$ is stable under $G$, so is the ideal $I(Z)$, and because $G$ is unipotent, there exists a nonzero $f \in I(Z)^G$. Because $f$ is fixed by $G$, it is constant on $O$, and by continuity also on $X$. Hence, $I(Z)$ contains a nonzero constant, so $Z$ is empty, and it follows that $O = X$ is closed.
+    \end{proof}
+\end{example}
+
+\begin{example}{kostant-rosenlicht-theorem}
+    Consider the unipotent group $\mathbb{U}_2(k) = \left\{ \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} \;:\; a \in k \right\}$ acting on the affine plane $\AA^2_k$ via
+    \[ \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x + ay \\ y \end{pmatrix} . \]
+    Then the orbits are given by the points $(x, 0)$ for $x \in k$ and the lines $L_y = \{ (x, y) \;:\; x \in k \}$ for $y \ne 0$, all of which are indeed closed.
+\end{example}

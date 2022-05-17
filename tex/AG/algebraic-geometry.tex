@@ -305,9 +305,20 @@
     Indeed this is a homomorphism since multiplying transition functions corresponds to the tensor product of the corresponding invertible sheaves.
 \end{example}
 
-% \begin{example}{picard-group}
-%     Let $X = \Spec(R)$ for a \tref{domain}{domain} $R$. Then [...]
-% \end{example}
+\begin{example}{picard-group}
+    For a \tref{AA:domain}{domain} $R$, the Picard group $\textup{Pic}(X)$ of $X = \Spec(R)$ is isomorphic to the \tref{AA:picard-group}{Picard group} $\textup{Pic}(R)$ of $R$.
+    
+    Namely, suppose $I$ is an invertible ideal with inverse $J$, that is $IJ = R$. Then $\sum_{i = 1}^{n} x_i y_i = 1$ for some $x_i \in I$ and $y_i \in J$, which induces $R$-module maps
+    \[ \begin{aligned}
+        f &: R^n \to I, \quad (r_i)_{i = 1}^{n} \mapsto \sum_{i = 1}^{n} r_i x_i , \\
+        g &: I \to R^n, \quad x \mapsto (x y_i)_{i = 1}^{n} .
+    \end{aligned} \]
+    Since the composition $I \xrightarrow{g} R^n \xrightarrow{f} I$ is the identity, we find that $R^n \simeq I \oplus \ker(f)$, which shows that $I$ is a finitely generated projective $R$-module, that is, a line bundle over $X$. In particular, any principal fractional ideal $I = fR$, with $f \in K^*$, is isomorphic to $R$ as an $R$-module, so the associated line bundle is trivial.
+    
+    This defines a map $\varphi : \textup{Pic}(R) \to \textup{Pic}(X)$. To see why this is a group homomorphism, let $I$ and $J$ be invertible ideals. Since $I$ is projective, the functor $I \otimes_R (-)$ is exact, so the map $I \otimes_R J \to I \otimes_R F \simeq F$, given by $\sum_{i = 1}^{n} x_i \otimes y_i \mapsto \sum_{i = 1}^{n} x_i y_i$, is an injection. Hence, $I \otimes_R J$ is isomorphic to its image $IJ \subset F$.
+    
+    Injectivity of $\varphi$ follows because any invertible ideal $I$ isomorphic to $R$ as $R$-modules must be of the form $I = fR$ for some $f \in K^*$, and hence is principal. Surjectivity of $\varphi$ is shown as follows. Let $L$ be a line bundle over $X$, i.e. a finitely generated projective $R$-module of rank $1$. As $L$ is projective, the functor $L \otimes_R (-)$ is exact, which yields an inclusion $L = L \otimes_R R \subset L \otimes_R K \simeq K$. Since $L$ is finitely generated, the image of $L$ inside $K$ is a fractional ideal $I$. To show it is invertible, let $J$ be the fractional ideal corresponding to the dual bundle $L^\vee = \Hom_R(L, R)$. Then, $R \simeq L \otimes_R L^\vee \simeq I \otimes_R J \simeq IJ$, so $IJ = fR$ for some $f \in K^*$, and hence $I (f^{-1} J) = R$, so $I$ is indeed invertible.
+\end{example}
 
 \begin{topic}{picard-functor}{Picard functor}
     Let $f : X \to S$ be a \tref{scheme}{scheme} over $S$. The \textbf{absolute Picard functor} is the functor that assigns to any $T \to S$ the \tref{picard-group}{Picard group} $\textup{Pic}(X \times_S T)$,

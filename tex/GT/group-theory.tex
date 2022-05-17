@@ -509,3 +509,23 @@
     \[ \varphi(2 [S_3 / \langle (1, 2) \rangle] + [S_3 / \langle (1, 2, 3) \rangle]) = \varphi([S_3] + 2 [S_3 / S_3]) , \]
     and for general $G$, the image of $\varphi$ only contains rational representations.
 \end{example}
+
+\begin{topic}{orbit-stabilizer-theorem}{orbit-stabilizer theorem}
+    Let $G$ be a \tref{group}{group} \tref{group-action}{acting} on a set $X$. The \textbf{orbit-stabilizer theorem} states that for any $x \in X$, the map
+    \[ G/G_x \to Gx , \quad g G_x \mapsto g \cdot x , \]
+    from the set of \tref{coset}{cosets} of the \tref{stabilizer}{stabilizer} $G_x$, to the \tref{orbit}{orbit} $Gx$ of $x$, is a bijection.
+\end{topic}
+
+\begin{topic}{lagrange-theorem}{Lagrange's theorem}
+    Let $G$ be a \tref{group}{group} and $H \subset G$ a \tref{subgroup}{subgroup}. \textbf{Lagrange's theorem} states that
+    \[ |G| = [G : H] \cdot |H| , \]
+    where $[G : H]$ denotes the \tref{index-subgroup}{index} of $H$ in $G$.
+\end{topic}
+
+\begin{example}{lagrange-theorem}
+    \begin{proof}
+        The \tref{coset}{left cosets} of $H$ form a partition of $G$. Namely, if two cosets $g_1 H$ and $g_2 H$ intersect, that is, $g_1 h_1 = g_2 h_2$ for some $h_1, h_2 \in H$, then $g_1 H = g_2 H$ as $g_1 h = g_2 h_2 h_1^{-1} h \in g_2 H$ and $g_2 h = g_1 h_1 h_2^{-1} h \in g_1 H$ for any $h \in H$. Furthermore, all cosets $gH$ are in bijection with $H$ via $H \to gH, h \mapsto g h$ with inverse $x \mapsto g^{-1} x$. Therefore, after choosing a set $A$ of representatives for the cosets, we obtain a bijection of sets
+        \[ A \times H \to G, \quad (g, h) \mapsto gh , \]
+        with $|A| = [G : H]$, which proves the theorem.
+    \end{proof}
+\end{example}

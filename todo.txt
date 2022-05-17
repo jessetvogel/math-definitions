@@ -7,10 +7,10 @@
 
 ---- Theory ----
 
-AG: Picard group Spec(domain) (https://people.math.rochester.edu/faculty/doug/otherpapers/Kbook.pdf)
 AA: Levi decomposition (Levi theorem, Levi subalgebra, https://link.springer.com/content/pdf/10.1007/978-3-642-74334-4_6.pdf) (example: parabolic subgroup of GL_n)
 AG: GAGA (equivalence of categories)
 TO: projective bundle
+AG: universal torsor (for smooth projective varieties?)
 
 Skein algebras
 

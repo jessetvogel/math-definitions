@@ -726,7 +726,7 @@
     Since $\overline{\partial}^2 = 0$, one can form the \tref{HA:chain-complex}{complex} $(\Omega^{p, \bdot}(M), \overline{\partial})$, and the corresponding \tref{HA:homology-object}{cohomology group} $H^{p, q}(M, \CC)$ is called the \textbf{$(p, q)$-th Dolbeault cohomology group}.
 \end{topic}
 
-\begin{topic}{frobenius-theorem}{Frobeniuw theorem}
+\begin{topic}{frobenius-theorem}{Frobenius theorem}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. \textbf{Frobenius theorem} states there is a one-to-one correspondence between \tref{foliation}{foliations} on $M$ and \tref{involutive-distribution}{involutive distributions} $\mathcal{D} \subset TM$. In particular, a foliation $\mathcal{F}$ corresponds to the involutive distribution $\mathcal{D} = T \mathcal{F}$, where $T_x \mathcal{F} = T_x L$ for any $x \in M$ with $L$ the leaf through $x$.
 \end{topic}
 
@@ -955,4 +955,26 @@
         s &: G \times M \to M, \quad (g, x) \mapsto x , \\
         t &: G \times M \to M, \quad (g, x) \mapsto g \cdot x .
     \end{aligned} \]
+\end{example}
+
+\begin{topic}{orbifold-euler-characteristic}{orbifold Euler characteristic}
+    Let $M$ be a \tref{TO:compact-space}{compact} \tref{smooth-manifold}{smooth manifold}, and $G$ a finite \tref{GT:group}{group} acting on $M$. The \textbf{orbifold Euler characteristic} of the \tref{orbifold}{orbifold} $M/G$ is
+    \[ \chi^\textup{orb}(M/G) = \frac{1}{|G|} \sum_{\substack{g, h \in G \\ \textup{s.t. } gh = hg}} \chi(M^{g, h}) , \]
+    where $M^{g, h}$ denotes the submanifold of points fixed by both $g$ and $h$, and $\chi$ denotes the ordinary \tref{AT:euler-characteristic}{Euler characteristic}.
+\end{topic}
+
+\begin{example}{orbifold-euler-characteristic}
+    \begin{itemize}
+        \item If $G$ acts \tref{GT:free-group-action}{freely} on $M$, then the only non-zero term in the sum is for $(g, h) = (1, 1)$, so $\chi^\textup{orb}(M/G) = \chi(M) / |G|$.
+        \item Let $G = \ZZ/n\ZZ$ act on the projective line $\PP^1(\CC)$ via $(a \mod n) \cdot (x : y) = (\zeta_n^a x : y)$, where $\zeta_n$ is a primitive $n$th root of unity. Then $\chi(\PP^1(\CC)^{g, h}) = \chi(\PP^1(\CC)) = 2$ for $(g, h) = (1, 1)$ and $\chi(\PP^1(\CC)^{g, h}) = \chi(\{ (0 : 1), (1 : 0) \}) = 2$ for $(g, h) \ne (1, 1)$ as well. Hence, $\chi^\textup{orb}(\PP^1(\CC) / (\ZZ/n\ZZ)) = \frac{1}{n} \left(1 \cdot 2 + (n^2 - 1) \cdot \right) = 2n$.
+        \item Let $G$ act on a point $\star$. Then $\chi(\star^{g, h}) = 1$ for all $g, h \in G$, so
+        \[ \begin{aligned}
+            \chi^\textup{orb}(\star / G)
+                &= \frac{1}{|G|} \sum_{\substack{g, h \in G \\ \textup{s.t. } gh = hg}} 1 \\
+                &= \sum_{g \in G} \frac{|G_g|}{|G|} \\
+                &= \sum_{g \in G} \frac{1}{|C_g|} \\
+                &= \# \textup{conjugacy classes of $G$} ,
+        \end{aligned} \]
+        where $G_g$ denotes the \tref{GT:centralizer}{centralizer} of $G$, and $C_g$ the conjugacy class of $g$, and we used the \tref{GT:orbit-stabilizer-theorem}{orbit-stabilizer theorem}.
+    \end{itemize}
 \end{example}

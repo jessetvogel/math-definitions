@@ -152,3 +152,14 @@
 \begin{example}{filter}
     Let $X$ be a \tref{TO:topological-space}{topological space}, and $x \in X$ a point. The \textit{neighborhood filter} of $x$, denoted $\mathcal{N}_x$, is the filter consisting of all \tref{TO:neighborhood}{neighborhoods} of $x$. It is a filter on the set of all subsets of $X$, partially ordered by inclusion.
 \end{example}
+
+\begin{topic}{fermat-little-theorem}{Fermat's little theorem}
+    Let $p$ be a prime number and $a$ an integer. \textbf{Fermat's little theorem} states that
+    \[ a^p \equiv a \mod p . \]
+\end{topic}
+
+\begin{example}{fermat-little-theorem}
+    \begin{proof}
+        For $a \equiv 0 \mod p$ the proof is trivial. Otherwise, the order of $a \mod p \in (\ZZ/p\ZZ)^*$ divides the order of the group, which is $p - 1$, so it follows that $a^{p - 1} \equiv 1 \mod p$, and hence $a^p \equiv a \mod p$.
+    \end{proof}
+\end{example}

@@ -431,3 +431,9 @@
 \begin{topic}{sober-space}{sober space}
     A \tref{topological-space}{topological space} $X$ is \textbf{sober} if for every \tref{irreducible-space}{irreducible} $Y \subset X$, there exists a unique point $y \in Y$, called the \textit{generic point} of $Y$, such that $Y = \overline{\{ y \}}$.
 \end{topic}
+
+\begin{topic}{pullback-topology}{pullback topology}
+    Let $X$ be a \tref{topological-space}{topological space} and $f : Y \to X$ a map of sets. The \textbf{pullback topology} on $Y$ induced by $f$ is the topology on $Y$ given by
+    \[ \mathcal{T}_Y = \{ f^{-1}(U) \;:\; U \subset X \textup{ open} \} . \]
+    It is the \tref{coarser}{coarsest} topology on $Y$ for which $f$ is continuous.
+\end{topic}

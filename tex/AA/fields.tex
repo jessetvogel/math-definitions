@@ -99,7 +99,7 @@
 \begin{topic}{separable-closure}{separable closure}
     The \textbf{separable closure} of an \tref{algebraic-field-extension}{algebraic field extension} $\ell/k$ is the intermediate field $k \subset m \subset \ell$ of elements $\alpha \in \ell$ whose \tref{minimal-polynomial}{minimal polynomial} over $k$ is \tref{separable-polynomial}{separable}.
     
-    The \textbf{separable closure} of a field $k$ is the separable closure of $k$ in an \tref{algebraic-closure}{algebraic closure} of $k$.
+    A \textbf{separable closure} of a field $k$ is the separable closure of $k$ in an \tref{algebraic-closure}{algebraic closure} of $k$.
 \end{topic}
 
 \begin{topic}{separable-degree}{(in)separable degree}
@@ -181,4 +181,21 @@
         \Phi_9(x) &= x^6 + x^3 + 1 \\
         \Phi_{10}(x) &= x^4 - x^3 + x^2 - x + 1 .
     \end{aligned} \]
+\end{example}
+
+\begin{topic}{zariski-lemma}{Zariski's lemma}
+    Let $\ell/k$ be a \tref{field-extension}{field extension} such that $\ell$ is a \tref{finitely-generated-algebra}{finitely generated $k$-algebra}. Then \textbf{Zariski's lemma} states that $\ell/k$ is a finite field extension.
+\end{topic}
+
+\begin{example}{zariski-lemma}
+    \begin{proof}
+        By \tref{noether-normalization-lemma}{Noether's normalization lemma}, there exists an injective morphism
+        \[ \alpha : k[x_1, \ldots, x_n] \to \ell \]
+        such that $\ell$ is a \tref{finitely-generated-module}{finitely generated} $k[x_1, \ldots, x_n]$-module. In particular, $\ell$ is \tref{integral-closure}{integral} over $k[x_1, \ldots, x_n]$. Note that we are done if $n = 0$, so suppose for a contradiction that $n > 0$.
+        Since $\ell$ is integral over $k[x_1, \ldots, x_n]$, there exists an integer $m \ge 0$ and elements $a_1, \ldots, a_{m - 1} \in k[x_1, \ldots, x_n]$ such that
+        \[ \alpha(x_1)^{-m} + \sum_{i = 0}^{m - 1} \alpha(a_i) \alpha(x_1)^{-i} = 0 . \]
+        Multiplying this equation by $\alpha(x_1)^m$ gives
+        \[ 1 + \sum_{i = 0}^{m - 1} \alpha(a_i) \alpha(x_1)^{m - i} = \alpha\left(1 + x_1 \sum_{i = 0}^{m - 1} a_i x_1^{m - i - 1} \right) = 0 , \]
+        and since $\alpha$ is injective, it follows that $x_1$ is invertible in $k[x_1, \ldots, x_n]$, a contradiction! Hence, $n = 0$.
+    \end{proof}
 \end{example}
