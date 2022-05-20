@@ -162,6 +162,8 @@ function updateAutoComplete(e) {
     if (val == '')
         return;
 
+    autoCompleteList.innerHTML = '<label class="loading" style="display: block;"></label>';
+
     const items = [];
     for (const id in topics) {
         const match = searchMatch(id, val);
@@ -173,6 +175,8 @@ function updateAutoComplete(e) {
         item.addEventListener('mousedown', function (e) { gotoTopic(id); });
         items.push([match[0], topic, item]);
     }
+
+    autoCompleteList.innerHTML = '';
 
     if (items.length == 0) {
         const item = document.createElement('div');

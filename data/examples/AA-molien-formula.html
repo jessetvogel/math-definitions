@@ -1,0 +1,7 @@
+<div class="example"><div class="proof">Write <span class="math inline">\(S = \textup{Sym}(V)\)</span>. The <i>Reynolds operator</i> <span class="math inline">\(R^G : S \to S\)</span> given by <span class="math inline">\(f \mapsto \frac{1}{|G|} \sum_{g \in G} g \cdot f\)</span> projects <span class="math inline">\(S_d\)</span> onto <span class="math inline">\(S^G_d\)</span> for each <span class="math inline">\(d \ge 0\)</span>, so
+<span class="math display">\[ \dim_\CC(S_d) = \tr_{S_d}(R^G) = \frac{1}{|G|} \sum_{g \in G} \tr_{S_d}(g) . \]</span>
+Now fix <span class="math inline">\(g \in G\)</span>, and let <span class="math inline">\(\lambda_1, \ldots, \lambda_n\)</span> be the eigenvalues of <span class="math inline">\(\rho(g)\)</span>. Then the eigenvalues of <span class="math inline">\(g\)</span> acting on <span class="math inline">\(S_d\)</span> are given by <span class="math inline">\(\mu_\alpha = \prod_{i = 1}^{n} \lambda_i^{\alpha_i}\)</span> for each <span class="math inline">\(\alpha \in \NN^n\)</span> with <span class="math inline">\(\alpha_1 + \ldots + \alpha_n = d\)</span>. Now it follows that
+<span class="math display">\[ \sum_{d \ge 0} \tr_{S_d}(g) \cdot t^d = \sum_{\alpha} \prod_{i = 1}^{n} (\lambda_i t)^{\alpha_i} = \prod_{i = 1}^{n} \sum_{j \ge 0} (\lambda_i t)^j = \prod_{i = 1}^{n} \frac{1}{1 - \lambda_i t} = \frac{1}{\det(1 - gt)} . \]</span>
+Combined with the above equation, the result follows.
+</div>
+</div>

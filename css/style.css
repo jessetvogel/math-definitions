@@ -414,8 +414,8 @@ img.display-math-svg {
     animation-delay: 0.2s; /* if loading takes less than 0.2s, no animation is needed */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 @keyframes loading {

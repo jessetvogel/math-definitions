@@ -173,7 +173,7 @@
 \end{example}
 
 \begin{example}{tannaka-duality}
-    Note that the group $G$ cannot be determined from the \tref{RT:representation-ring}{representation ring} along, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \;|\; \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
+    Note that the group $G$ cannot be determined from the \tref{RT:representation-ring}{representation ring} along, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
     \[ \begin{tabular}{c|c|c|c|c}
         1 & 1 & 1 & 1 & 1 \\ \hline
         1 & 1 & 1 & -1 & -1 \\ \hline
@@ -279,7 +279,7 @@
 
 \begin{example}{permutation-representation}
     Note that $\rho(g)$ is a \tref{LA:permutation-matrix}{permutation matrix} for any $g \in G$, and hence the \tref{LA:trace}{trace} of $\rho(g)$ is equal to the number of elements $x \in X$ that are fixed by $g$. In particular, the \tref{character-representation}{character} of $\rho$ is given by
-    \[ \chi(g) = |\{ x \in X \;|\; g \cdot x = x \}| . \]
+    \[ \chi(g) = |\{ x \in X \mid g \cdot x = x \}| . \]
 \end{example}
 
 \begin{topic}{mackey-irreducibility-condition}{Mackey's irreducibility condition}
@@ -317,7 +317,7 @@
 
 \begin{topic}{jacquet-module}{Jacquet module}
     Let $G$ be a \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ a \tref{representation}{representation}. The \textbf{Jacquet module} of $V$ is the subspace of invariants
-    \[ V^G = \{ v \in V \;|\; \rho(g) v = v \textup{ for all } g \in G \} \subset V . \]
+    \[ V^G = \{ v \in V \mid \rho(g) v = v \textup{ for all } g \in G \} \subset V . \]
 \end{topic}
 
 \begin{example}{jacquet-module}

@@ -225,7 +225,7 @@
 
 \begin{topic}{affine-git-quotient}{affine GIT quotient}
     Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} acting on an \tref{affine-scheme}{affine scheme} $X = \Spec R$. Then there is a dual action of $G$ on $R$ given by $\widehat{\sigma} : R \to R \otimes \mathcal{O}_G(G)$, yielding the \textit{ring of invariants}
-    \[ R^G := \{ r \in R : \widehat{\sigma}(r) = r \otimes 1 \} . \]
+    \[ R^G := \{ r \in R \mid \widehat{\sigma}(r) = r \otimes 1 \} . \]
     The \textbf{affine GIT quotient} of $X$ by $G$ is the morphism
     \[ \pi : X \to X \sslash G := \Spec\left(R^G\right) \]
     induced by the inclusion $R^G \to R$.
@@ -234,7 +234,7 @@
 \begin{example}{affine-git-quotient}
     \begin{itemize}
         \item For $X = \Spec k[x]$ and $G = \ZZ/2\ZZ$ acting on $X$ by $x \mapsto -x$, we have $k[x]^{\ZZ/2\ZZ} = k[x^2]$, so the affine GIT quotient is $\Spec k[x] \to \Spec k[y]$ given by $y \mapsto x^2$.
-        \item For $X = \Spec k[\lambda, \lambda^{-1}, (\lambda \pm 1)^{-1}]$ and $G = \ZZ/2\ZZ$ acting on $X$ by $\lambda \mapsto -\lambda^{-1}$, we have $R^{\ZZ/2\ZZ} = k[\lambda + \lambda^{-1}, (\lambda + \lambda^{-1} \pm 2)^{-1}]$, so the affine GIT quotient is $\CC - \{ 0, \pm 1 \} \to \CC - \{ \pm 2 \}$ given by $\lambda \mapsto \lambda + \lambda^{-1}$.
+        \item For $X = \Spec k[\lambda, \lambda^{-1}, (\lambda \pm 1)^{-1}]$ and $G = \ZZ/2\ZZ$ acting on $X$ by $\lambda \mapsto -\lambda^{-1}$, we have $R^{\ZZ/2\ZZ} = k[\lambda + \lambda^{-1}, (\lambda + \lambda^{-1} \pm 2)^{-1}]$, so the affine GIT quotient is $\CC \setminus \{ 0, \pm 1 \} \to \CC \setminus \{ \pm 2 \}$ given by $\lambda \mapsto \lambda + \lambda^{-1}$.
         \item For $X = \AA^n = \Spec k[x_1, \ldots, x_n]$ and $G = \mathbb{G}_m$ acting on $X$ by $x_i \mapsto x_i \otimes t$, we have $k[x]^{\mathbb{G}_m} = k$, so the affine GIT quotient is $\AA^n \to \Spec k$.
     \end{itemize}
 \end{example}
@@ -291,4 +291,23 @@
     Consider the unipotent group $\mathbb{U}_2(k) = \left\{ \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} \;:\; a \in k \right\}$ acting on the affine plane $\AA^2_k$ via
     \[ \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x + ay \\ y \end{pmatrix} . \]
     Then the orbits are given by the points $(x, 0)$ for $x \in k$ and the lines $L_y = \{ (x, y) \;:\; x \in k \}$ for $y \ne 0$, all of which are indeed closed.
+\end{example}
+
+\begin{topic}{luna-stratification}{Luna stratification}
+    Let $G$ be a \tref{reductive-algebraic-group}{reductive algebraic group} over an algebraically closed field $k$, acting on an \tref{affine-scheme}{affine} \tref{variety}{variety} $X$, and let $\pi : X \to X \sslash G = \Spec(\mathcal{O}_X(X)^G)$ be the \tref{affine-git-quotient}{GIT quotient}.
+    Every fiber $\pi^{-1}(p)$, for $p \in X \sslash G$, has a unique closed orbit, so choose $x_p \in \pi^{-1}(p)$ such that this closed orbit equals $G \cdot x_p$. For any conjugacy class $(H)$ of reductive subgroups $H \subset G$, let 
+    \[ (X \sslash G)_{(H)} = \{ p \in X \sslash G \mid \textup{Stab}(x_p) \in (H) \} , \]
+    which is independent of the choice of the $x_p$. The \textbf{Luna stratification} of $X \sslash G$ is the stratification
+    \[ X \sslash G = \bigsqcup_{(H)} (X \sslash G)_{(H)} . \]
+\end{topic}
+
+\begin{example}{luna-stratification}
+    Let $G = \textup{SL}_2(\CC)$, and consider $G$ acting on itself by conjugation. The GIT quotient is given by the trace map
+    \[ \pi : G \to G \sslash G \simeq \AA^1, \quad A \mapsto \tr(A) . \]
+    The fiber $\pi^{-1}(2)$ consists of the orbits of $I = \left(\begin{smallmatrix} 1 & 0 \\ 0 & 1 \end{smallmatrix}\right)$ and $J = \left(\begin{smallmatrix} 1 & 1 \\ 0 & 1 \end{smallmatrix} \right)$, so the unique closed orbit of $\pi^{-1}(2)$ is $\left\{ I \right\}$, as the closure of $G \cdot J$ contains $\lim_{a \to 0} \left(\begin{smallmatrix} 1 & a \\ 0 & 1 \end{smallmatrix}\right) = I \not\in G \cdot J$. Similarly, the unique closed orbit of the fiber $\pi^{-1}(-2)$ is $\left\{ -I \right\}$. In both cases, the corresponding stabilizer is equal to $G$.
+    
+    For $t \ne \pm 2$, the fiber $\pi^{-1}(t)$ is precisely the orbit of $\left(\begin{smallmatrix} \lambda & 0 \\ 0 & \lambda^{-1} \end{smallmatrix}\right)$, with $\lambda \in \CC \setminus \{ 0, \pm 1 \}$ such that $\lambda + \lambda^{-1} = t$, and the corresponding conjugacy class of stabilizers is $(D)$, where $D \subset G$ is the subgroup of diagonal matrices.
+    
+    Therefore, the Luna stratification of $G \sslash G \simeq \AA^1$ is given by
+    \[ \AA^1 = (G \sslash G)_{(G)} \sqcup (G \sslash G)_{(D)}  = \{ \pm 2 \} \sqcup (\AA^1 \setminus \{ \pm 2 \}) . \]
 \end{example}

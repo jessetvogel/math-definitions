@@ -58,7 +58,7 @@
 \begin{example}{cantor-theorem}
     \begin{proof}
         The cardinality of $A$ is at most the cardinality of $\mathcal{P}(A)$ since $x \mapsto \{ x \}$ is an injection $A \to \mathcal{P}(A)$.
-        Conversely, suppose that there exists a surjective function $f : A \to \mathcal{P}(A)$, and let $B = \{ x \in A \;|\; x \not\in f(x) \}$. Then by surjectivity of $f$ there exists some $y \in A$ such that $f(y) = B$. But then $y \in B$ if and only if $y \not\in f(y) = B$, which is a contradiction. Therefore, the cardinality of $A$ is strictly smaller than that of $\mathcal{P}(A)$.
+        Conversely, suppose that there exists a surjective function $f : A \to \mathcal{P}(A)$, and let $B = \{ x \in A \mid x \not\in f(x) \}$. Then by surjectivity of $f$ there exists some $y \in A$ such that $f(y) = B$. But then $y \in B$ if and only if $y \not\in f(y) = B$, which is a contradiction. Therefore, the cardinality of $A$ is strictly smaller than that of $\mathcal{P}(A)$.
     \end{proof}
 \end{example}
 
@@ -114,7 +114,7 @@
 \end{topic}
 
 \begin{topic}{integer-partition}{integer partition}
-    Let $n$ be a non-negative integer. A \textbf{partition} of $n$ is a sequence of integers
+    A \textbf{partition} of a non-negative integer $n$ is a sequence of integers
     \[ \lambda = (\lambda_1, \lambda_2, \ldots) , \]
     such that $\lambda_1 \ge \lambda_2 \ge \cdots \ge 0$, and
     \[ n = \lambda_1 + \lambda_2 + \cdots . \]

@@ -232,7 +232,7 @@
 
 \begin{example}{baers-criterion}
     \begin{proof}
-        Let $i : M \to N$ and $f : M \to Q$ be $R$-module morphisms, with $i$ injective. Consider the partially ordered set of pairs $(M', f')$, with $M \subset M' \subset N$ and $f'$ extending $f$, where $(M', f') \le (M'', f'')$ if $M' \subset M''$ and $f''$ extends $f'$. By \tref{GM:zorns-lemma}{Zorn's lemma}, there exists a maximal element $(M', f')$. If $M' = N$, we are done, and otherwise there exists some $x \in N \setminus M'$. Consider the ideal $I = \{ r \in R \;|\; rx \in M' \}$ and define $g : I \to Q$ by $g(r) = f'(rx)$. Then by assumption $g$ extends to some $h : R \to Q$. Now let $M'' = M' + \langle x \rangle$ and define
+        Let $i : M \to N$ and $f : M \to Q$ be $R$-module morphisms, with $i$ injective. Consider the partially ordered set of pairs $(M', f')$, with $M \subset M' \subset N$ and $f'$ extending $f$, where $(M', f') \le (M'', f'')$ if $M' \subset M''$ and $f''$ extends $f'$. By \tref{GM:zorns-lemma}{Zorn's lemma}, there exists a maximal element $(M', f')$. If $M' = N$, we are done, and otherwise there exists some $x \in N \setminus M'$. Consider the ideal $I = \{ r \in R \mid rx \in M' \}$ and define $g : I \to Q$ by $g(r) = f'(rx)$. Then by assumption $g$ extends to some $h : R \to Q$. Now let $M'' = M' + \langle x \rangle$ and define
         \[ f'' : M'' \to Q, \quad y + rx \mapsto f'(y) + h(r) , \]
         for all $y \in M'$ and $r \in R$. Then $f''$ extends $f'$, contradicting the maximality of $M'$.
     \end{proof}

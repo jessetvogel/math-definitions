@@ -502,7 +502,7 @@
 
 \begin{topic}{factorization-homology}{factorization homology}
     Let $\textbf{Mfld}_n^\textup{fr}$ be the \tref{CT:symmetric-monoidal-category}{symmetric monoidal} \tref{CT:infinity-category}{$\infty$-category} of \tref{DG:parallelizable-manifold}{framed manifolds} under the disjoint union operator, whose $1$-morphisms are given by \tref{DG:embedding}{embeddings}, whose $2$-morphisms are given by \tref{TO:isotopy}{isotopies}, etc. Let $\textbf{Disk}_n$ be the \tref{CT:full-subcategory}{full subcategory} of $\textbf{Mfld}_n^\textup{fr}$ consisting of disjoint unions of $n$-disks. An \tref{HT:en-algebra}{$E_n$-algebra} $\mathcal{E}$ of a symmetric monoidal $\infty$-category $\mathcal{C}$ can be regarded as a functor $\mathcal{E} : \textbf{Disk}_n \to \mathcal{C}$, and the \textbf{factorization homology} with coefficients in $\mathcal{E}$ is defined as the \tref{CT:kan-extension}{left Kan extension} of $\mathcal{E}$ along the inclusion $i : \textbf{Disk}_n \to \textbf{Mfld}_n^\textup{fr}$, also denoted by $\int_{(-)} \mathcal{E}$.
-    \[ \begin{tikzcd} \textbf{Disk}_n \arrow[swap]{d}{i} \arrow{r}{\mathcal{E}} & \mathcal{C} \\ \textbf{Mfld}_n^\textup{fr} \arrow[dashed, swap]{ur}{\int_(-) \mathcal{E}} \end{tikzcd} \]
+    \[ \begin{tikzcd} \textbf{Disk}_n \arrow[swap]{d}{i} \arrow{r}{\mathcal{E}} & \mathcal{C} \\ \textbf{Mfld}_n^\textup{fr} \arrow[dashed, swap]{ur}{\int_{(-)} \mathcal{E}} \end{tikzcd} \]
 \end{topic}
 
 \begin{example}{factorization-homology}
@@ -544,7 +544,7 @@
 \end{example}
 
 \begin{topic}{brouwer-fixed-point-theorem}{Brouwer fixed point theorem}
-    Let $f : D^n \to D^n$ be a \tref{TO:continuous-map}{continuous map} where $D^n = \{ x \in \RR^n \;|\; \norm{x} \le 1 \}$ is the $n$-disk. Then \textbf{Brouwer's fixed point theorem} states that there exists some $x \in D^n$ with $f(x) = x$.
+    Let $f : D^n \to D^n$ be a \tref{TO:continuous-map}{continuous map} where $D^n = \{ x \in \RR^n \mid \norm{x} \le 1 \}$ is the $n$-disk. Then \textbf{Brouwer's fixed point theorem} states that there exists some $x \in D^n$ with $f(x) = x$.
 \end{topic}
 
 \begin{example}{brouwer-fixed-point-theorem}

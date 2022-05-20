@@ -220,7 +220,7 @@
     Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{Grothendieck topology} on $\mathcal{C}$ consists of a family $\text{Cov}(C)$ of \tref{sieve}{sieves} on $C$ for every object $C$ of $\mathcal{C}$, called \textit{covering sieves}, such that
     \begin{itemize}
         \item the maximal sieve $\text{mac}(C) = \{ \text{all } f : C' \to C \}$ is in $\text{Cov}(C)$,
-        \item if $R \in \text{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) = \{ g : C'' \to C' \;|\; fg \in R \} \in \text{Cov}(C')$,
+        \item if $R \in \text{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) = \{ g : C'' \to C' \mid fg \in R \} \in \text{Cov}(C')$,
         \item if $R$ is any sieve on $C$ and $S$ is a covering sieve on $C$, such that for every $f : C' \to C$ from $S$ we have $f^*(R) \in \text{Cov}(C')$, then $R \in \text{Cov}(C)$.
     \end{itemize}
 \end{topic}
@@ -351,11 +351,10 @@
 \end{topic}
 
 \begin{example}{comma-category}
-    When $F = \id_\mathcal{C}$ and $G : \textbf{1} \to \mathcal{C}$, given by $G(\star) = X$, the comma category $F \downarrow G$ is the same the \tref{slice-category}{slice category} $\mathcal{C}/X$.
-\end{example}
-
-\begin{example}{comma-category}
-    When $F = G = \id_\mathcal{C}$, the comma category $F \downarrow G$ is the same the \tref{arrow-category}{arrow category} $\mathcal{C}^\rightarrow$.
+    \begin{itemize}
+        \item When $F = \id_\mathcal{C}$ and $G : \textbf{1} \to \mathcal{C}$, given by $G(\star) = X$, the comma category $F \downarrow G$ is the same the \tref{slice-category}{slice category} $\mathcal{C}/X$.
+        \item When $F = G = \id_\mathcal{C}$, the comma category $F \downarrow G$ is the same the \tref{arrow-category}{arrow category} $\mathcal{C}^\rightarrow$.
+    \end{itemize}
 \end{example}
 
 \begin{topic}{inverse-limit}{inverse limit}
@@ -430,7 +429,7 @@
     
     To show this, we need to consider the map
     \[ \begin{aligned}
-        \varphi : \{ g : Z \to Y \} &\to \{ (h : Z \to X, j : F(Z) \to F(Y)) \;|\; F(h) = F(f) \circ j \} \\
+        \varphi : \{ g : Z \to Y \} &\to \{ (h : Z \to X, j : F(Z) \to F(Y)) \mid F(h) = F(f) \circ j \} \\
         g \mapsto (f \circ g, F(g)) .
     \end{aligned} \]
     Note that the map $\varphi$ is always injective since $F$ is \tref{CT:faithful-functor}{faithful}. Now suppose that $Y$ has the pullback topology, and let $h : Z \to X$ be a continuous map and $j : F(Z) \to F(Y)$ a map of sets such that $F(h) = F(f) \circ j$. Every open $V \subset Y$ can be written as $V = f^{-1}(U)$ for some open $U \subset X$, so $j^{-1}(V) = j^{-1}(f^{-1}(U)) = h^{-1}(U)$ is open as $h$ is continuous. Hence, $j$ is continuous and thus $\varphi$ is surjective.
