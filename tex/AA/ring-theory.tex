@@ -101,6 +101,12 @@
     A non-zero \tref{ring}{commutative ring} $R$ is called a \textbf{field} if all non-zero elements are units, that is, for all non-zero $a \in R$ there exists a $b \in R$ such that $ab = 1$. 
 \end{topic}
 
+\begin{example}{field}
+    Every finite field has $p^n$ elements for some prime $p$ and integer $n \ge 1$, and conversely there exists, up to isomorphism, a unique finite field with $p^n$ elements.
+    Namely, let $k$ be a field of $q$ elements. The \tref{prime-field}{prime field} of $k$ must be $\FF_p$ for some prime $p$, so $k$ is a finite-dimensional $\FF_p$-vector space, and hence $q = p^n$ for some $n \ge 1$. Note that $a^q - a = 0$ for all $a \in k$ since the units $k^*$ form a multiplicative group of order $q - 1$, so the polynomial $X^q - X$ factors as $\prod_{a \in k} (X - a)$ in $k$. In particular, $k$ is a \tref{splitting-field}{splitting field} of $X^q - X$ over $\FF_p$. The uniqueness claim now follows from the uniqueness of splitting fields.
+    To show that for every $q = p^n$ there exists a field with $q$ elements, let $k$ be a splitting field of $X^q - X$ over $\FF_p$, and write $X^q - X = \prod_{i = 1}^{q} (X - \alpha_i)$ with $\alpha_i \in k$. Note that the derivative of $X^q - X$, which is $qX^{q - 1} - 1 = -1$, has no roots, so $X^q - X$ has no double roots, and hence the set $A = \{ \alpha_1, \ldots, \alpha_q \}$ has $q$ elements. Note that $0, \pm 1 \in A$ and $(\alpha_i + \alpha_j)^q = \alpha_i + \alpha_j$ and $(\alpha_i \alpha_j)^q = \alpha_i \alpha_j$ for all $i, j$, so $A$ is a subfield of $k$, and thus $k = \FF_p(\alpha_1, \ldots, \alpha_q) = A$ has $q$ elements, which proves the existence claim.
+\end{example}
+
 \begin{topic}{coprime-ideals}{coprime ideals}
     Two \tref{ideal}{ideals} $I, J$ of a \tref{ring}{commutative ring} $R$ are \textbf{coprime} if $I + J = R$.
 \end{topic}
@@ -1042,13 +1048,13 @@
 \end{example}
 
 \begin{topic}{characteristic}{characteristic}
-    The \textbf{characteristic} of a \tref{ring}{ring} $R$ is the integer $\textup{char}(R) \in \ZZ$ such that
+    The \textbf{characteristic} of a \tref{ring}{ring} $R$ is the non-negative integer $\textup{char}(R) \in \ZZ$ such that
     \[ \ker(\ZZ \to R) = \textup{char}(R) \ZZ . \]
 \end{topic}
 
 \begin{example}{characteristic}
     \begin{itemize}
-        \item The characteristic of $\ZZ, \QQ, \RR, \CC$ is zero.
+        \item The characteristic of $\ZZ, \QQ, \RR$ and $\CC$ is zero.
         \item The characteristic of $\FF_{p^n}$ is $p$.
         \item The characteristic of a \tref{field}{field} is always zero or a prime number. Namely, if $\textup{char}(R) = ab$ for non-zero $a, b \in \ZZ$, then $a$ and $b$ are \tref{zero-divisor}{zero-divisors} in $R$.
     \end{itemize}

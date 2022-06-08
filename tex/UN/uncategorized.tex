@@ -120,10 +120,15 @@
 \end{topic}
 
 \begin{example}{fourier-transform-finite-groups}
-    The \textit{convolution} of two functions $f_1, f_2 \in C(G)$ is defined by
+    The \textit{convolution} of two functions $f_1, f_2 \in C(G)$ is given by
     \[ (f_1 * f_2)(g) = \sum_{xy = g} f_1(x) f_2(y) , \]
     and pointwise multiplication of $F_1, F_2 \in C(\widehat{G})$ by
     \[ (F_1 \cdot F_2)(\chi) = F_1(\chi) F_2(\chi) . \]
-    It can be verified that
-    \[ \mathcal{F}(f_1 * f_2) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2) \quad \textup{ and } \quad \widehat{\mathcal{F}}(F_1 \cdot F_2) \cdot |G| = \widehat{\mathcal{F}}(F_1) * \widehat{\mathcal{F}}(F_2) . \]
+    It can be verified that $\mathcal{F}(f_1 * f_2) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2)$. Namely, the
+    \[ \sum_{g \in G} \sum_{xy = g} f_1(x) f_2(y) \frac{\rho(g)}{\chi(1)} = \sum_{x, y \in G} f_1(x) f_2(y) \frac{\rho(xy)}{\chi(1)} = \frac{1}{\chi(1)} \left( \sum_{x \in G} f_1(x) \rho(x) \right) \left( \sum_{y \in G} f_2(y) \rho(y) \right) . \]
+    By Schur's lemma, both factors are scalar matrices, so the trace of this quantity equals
+    \[ \left( \sum_{x \in G} f_1(x) \frac{\chi(x)}{\chi(1)} \right) \left( \sum_{y \in G} f_2(y) \frac{\chi(y)}{\chi(1)} \right) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2) . \]
+    
+    
+    % \quad \textup{ and } \quad \widehat{\mathcal{F}}(F_1 \cdot F_2) \cdot |G| = \widehat{\mathcal{F}}(F_1) * \widehat{\mathcal{F}}(F_2) . \]
 \end{example}

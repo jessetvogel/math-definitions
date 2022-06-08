@@ -242,6 +242,10 @@
     A Hermitian matrix $A$ always has real eigenvalues. Namely, if $Av = \lambda v$, then
     \[ \lambda \norm{v} = v^H A v = v^H A^H v = (A v)^H v = \overline{\lambda} v^H v = \overline{\lambda} \norm{v} , \]
     which shows $\lambda$ is real.
+    
+    Moreover, if $\lambda$ and $\mu$ are distinct eigenvalues, with respective eigenvectors $v$ and $w$, then $v$ and $w$ are orthogonal. Namely,
+    \[ \mu \langle v^H, w \rangle = \langle v^H, A w \rangle = \langle v^H A^H, w \rangle = \lambda \rangle v^H, w \rangle , \]
+    which shows $\langle v^H, w \rangle = 0$ as $\lambda - \mu \ne 0$.
 \end{example}
 
 \begin{topic}{pin-group}{pin group}
@@ -567,3 +571,17 @@
 \begin{topic}{lu-decomposition}{LU decomposition}
     Let $A$ be an $n \times n$ matrix. An \textbf{LU decomposition} of $A$ is a factorization $A = LU$, where $L$ is a lower triangular matrix and $U$ an upper triangular matrix.
 \end{topic}
+
+\begin{topic}{gram-matrix}{Gram matrix}
+    Let $(V, \langle \cdot, \cdot \rangle)$ be an \tref{FA:inner-product}{inner product space}. The \textbf{Gram matrix} of a list of vectors $v_1, \ldots, v_n \in V$ is the \tref{hermitian-matrix}{Hermitian} matrix
+    \[ G_{ij} = \begin{pmatrix}
+        \langle v_1, v_1 \rangle & \langle v_1, v_2 \rangle & \cdots & \langle v_1, v_n \rangle \\
+        \langle v_2, v_1 \rangle & \langle v_2, v_2 \rangle & \cdots & \langle v_2, v_n \rangle \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \langle v_n, v_1 \rangle & \langle v_n, v_2 \rangle & \cdots & \langle v_n, v_n \rangle
+    \end{pmatrix} . \]
+\end{topic}
+
+\begin{example}{gram-matrix}
+    The Gram matrix corresponding to an orthogonal set of vectors is the identity matrix.
+\end{example}

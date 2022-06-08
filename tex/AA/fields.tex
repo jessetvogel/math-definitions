@@ -199,3 +199,20 @@
         and since $\alpha$ is injective, it follows that $x_1$ is invertible in $k[x_1, \ldots, x_n]$, a contradiction! Hence, $n = 0$.
     \end{proof}
 \end{example}
+
+\begin{topic}{kummer-extension}{Kummer extension}
+    A \tref{field-extension}{field extension} $\ell/k$ is a \textbf{Kummer extension} if for some integer $n \ge 2$,
+    \begin{itemize}
+        \item $k$ contains $n$ distinct roots of unity,
+        \item $\ell/k$ is a \tref{galois-extension}{Galois extension} with an \tref{GT:abelian-group}{abelian} \tref{galois-group}{Galois group} of \tref{GT:exponent-group}{exponent} $n$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{transcendence-degree}{transcendence degree}
+    The \textbf{transcendence degree} of a \tref{field-extension}{field extension} $\ell/k$ is given by
+    \[ \textup{trdeg}_k(\ell) = \sup \{\, n \in \NN \mid \textup{exists } a_1, \ldots, a_n \in \ell \textup{ algebraically independent over } k \,\} . \]
+\end{topic}
+
+\begin{example}{transcendence-degree}
+    The field extension $k(x_1, \ldots, x_n) / k$ has transcendence degree $n$.
+\end{example}

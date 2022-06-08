@@ -1,13 +1,14 @@
 \begin{topic}{young-diagram}{Young diagram}
-    Given a \tref{integer-partition}{partition} $\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_k)$ of a non-negative integer $n \ge 0$, a \textbf{Young diagram} of shape $\lambda$ is a collection of $n$ boxes, arranged in left-aligned rows, such that row $i$ has $\lambda_i$ boxes. For example, a Young diagram of shape $(5, 3, 2)$ is given by:
+    Given a \tref{integer-partition}{partition} $\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_k)$ of a non-negative integer $n$, a \textbf{Young diagram} of shape $\lambda$ is a collection of $n$ boxes, arranged in left-aligned rows, such that row $i$ has $\lambda_i$ boxes. For example, a Young diagram of shape $(5, 3, 2)$ is given by:
     \[ \begin{tikzpicture}
         \begin{scope}[scale=0.5]
             \draw (0, 3) -- (5, 3); \draw (0, 2) -- (5, 2); \draw (0, 1) -- (3, 1); \draw (0, 0) -- (2, 0); \draw (0, 3) -- (0, 0); \draw (1, 3) -- (1, 0); \draw (2, 3) -- (2, 0); \draw (3, 3) -- (3, 1); \draw (4, 3) -- (4, 2); \draw (5, 3) -- (5, 2);
         \end{scope}
     \end{tikzpicture} \]
-    The \textit{arm length} of a box $s$, denoted $a_\lambda(s)$, is the number of boxes to the right of $s$. The \textit{leg length} of $s$, denoted $l_\lambda(s)$, is the number of boxes below $s$.
+    The \textit{arm length} of a box $s$, denoted $a_\lambda(s)$, is the number of boxes to the right of $s$. The \textit{leg length} of $s$, denoted $l_\lambda(s)$, is the number of boxes below $s$. The \textit{hook length} $s$ is $a_\lambda(s) + l_\lambda(s) + 1$.
     
-    A \textbf{Young tableau} is obtained from a Young diagram by filling in the boxes with numbers. A Young tableau is \textbf{standard} if the entries in each row and each column are increasing.
+    A \textbf{Young tableau} on a Young diagram is a numbering of the boxes by the integers $1, 2, \ldots, n$.
+    % A Young tableau is \textbf{standard} if the entries in each row and each column are increasing.
 \end{topic}
 
 \begin{topic}{generating-function}{generating function}
@@ -114,11 +115,7 @@
 \end{topic}
 
 \begin{topic}{integer-partition}{integer partition}
-    A \textbf{partition} of a non-negative integer $n$ is a sequence of integers
-    \[ \lambda = (\lambda_1, \lambda_2, \ldots) , \]
-    such that $\lambda_1 \ge \lambda_2 \ge \cdots \ge 0$, and
-    \[ n = \lambda_1 + \lambda_2 + \cdots . \]
-    In particular, $\lambda_i = 0$ for $i \gg 0$.
+    A \textbf{partition} of a non-negative integer $n$ is a tuple of integers $\lambda = (\lambda_1, \ldots, \lambda_k)$ such that $\lambda_1 + \cdots + \lambda_k = n$ and $\lambda_1 \ge \cdots \ge \lambda_k \ge 0$.
 \end{topic}
 
 \begin{example}{integer-partition}
@@ -132,6 +129,24 @@
         \item $5 = 4 + 1$,
         \item $5 = 5$.
     \end{itemize}
+\end{example}
+
+\begin{topic}{conjugate-partition}{conjugate partition}
+    Given a \tref{integer-partition}{partition} $\lambda = (\lambda_1, \ldots, \lambda_k)$ of a non-negative integer $n$, the \textbf{conjugate partition} $\lambda' = (\lambda'_1, \ldots, \lambda'_\ell)$ to $\lambda$ is given by
+    \[ \lambda'_i = | \{ 1 \le j \le k \mid \lambda_j \ge i \} | \]
+    for $1 \le i \le \ell$, where $\ell = \lambda_1$.
+\end{topic}
+
+\begin{example}{conjugate-partition}
+    The conjugate partition to $\lambda = (5, 3, 2)$ is $\lambda' = (3, 3, 2, 1, 1)$. Note that the \tref{young-diagram}{Young diagram} corresponding to a conjugate partition $\lambda'$ is the transpose of the Young diagram corresponding to $\lambda$.
+    \[ \begin{tikzpicture}
+        \begin{scope}[scale=0.5]
+            \draw (0, 3) -- (5, 3); \draw (0, 2) -- (5, 2); \draw (0, 1) -- (3, 1); \draw (0, 0) -- (2, 0); \draw (0, 3) -- (0, 0); \draw (1, 3) -- (1, 0); \draw (2, 3) -- (2, 0); \draw (3, 3) -- (3, 1); \draw (4, 3) -- (4, 2); \draw (5, 3) -- (5, 2);
+        \end{scope}
+        \begin{scope}[scale=0.5, shift={(8, -1)}]
+            \draw (0, 5) -- (3, 5); \draw (0, 4) -- (3, 4); \draw (0, 3) -- (3, 3); \draw (0, 2) -- (2, 2); \draw (0, 1) -- (1, 1); \draw (0, 0) -- (1, 0); \draw (0, 0) -- (0, 5); \draw (1, 0) -- (1, 5); \draw (2, 2) -- (2, 5); \draw (3, 3) -- (3, 5);
+        \end{scope}
+    \end{tikzpicture}\]
 \end{example}
 
 \begin{topic}{zorns-lemma}{Zorn's lemma}

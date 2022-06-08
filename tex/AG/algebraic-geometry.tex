@@ -143,6 +143,10 @@
     \[ \AA_k^1 \to C, \quad t \mapsto (t^2, t^3) . \]
 \end{example}
 
+\begin{example}{normal-scheme}
+    Let $k$ be a field with $\operatorname{char}(k) \ne 2$, and consider $X = \Spec k[x, y, z] / (z^2 - xy)$. To show $X$ is a normal scheme, we will prove the ring $R = k[x, y, z] / (z^2 - xy)$ is an integrally closed domain. First of all, $R$ is a domain because $z^2 - xy$ is irreducible in $k[x, y, z]$. Note that $K$, the field of fractions of $R$, is a field extension of $k(x, y)$ of degree $2$. Take any element $f = \alpha + \beta z \in K$, with $\alpha, \beta \in k(x, y)$, and assume $f$ is integral over $R$. If the minimal polynomial of $f$ over $R$ is linear, then $f \in R$ and we are done. Otherwise, note that $f$ satisfies $f^2 - 2 \alpha f + (\alpha - \beta^2 xy) = 0$, so that $X^2 - 2 \alpha X + (\alpha^2 - \beta^2 xy)$ must be the minimal polynomial of $f$ over $R$, and hence the coefficients $-2 \alpha$ and $\alpha^2 - \beta^2 xy$ lie in $R$. Since $2$ is invertible in $R$, it follows that $\alpha \in R$ and $\beta^2 xy \in R$. As $xy$ is squarefree, we must have $\beta \in R$, so $f = \alpha + \beta z \in R$, and we conclude that $R$ is integrally closed.
+\end{example}
+
 \begin{topic}{separated-scheme}{(quasi-)separated scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{separated} if the morphism $X \to \Spec \ZZ$ is \tref{separated-morphism}{separated}.
     
@@ -1084,7 +1088,7 @@
 \end{topic}
 
 \begin{example}{spreading-out}
-    Let $X \subset \AA^n_\CC$ be defined by polynomials $f_1, \ldots, f_r \in \CC[x_1, \ldots, x_n]$. Writing $f_i = \sum_{j, k} a_{ijk} x_j^k$, we see that a spreading out $\tilde{X}$ can be defined over $R = \ZZ[a_{ijk}]$ by the same polynomials $f_i$, from which it is clear that $X \simeq \tilde{X} \times_R \CC$.
+    Let $X \subset \AA^n_\CC$ be an affine variety defined by polynomials $f_1, \ldots, f_r \in \CC[x_1, \ldots, x_n]$. Writing $f_i = \sum_{j, k} a_{ijk} x_j^k$, we see that a spreading-out $\tilde{X}$ can be defined over $R = \ZZ[a_{ijk}]$ by the same polynomials $f_i$, from which it is clear that $X \simeq \tilde{X} \times_R \CC$.
 \end{example}
 
 % \begin{topic}{mixed-hodge-polynomial}{mixed Hodge polynomial}
@@ -1162,3 +1166,53 @@
     The set of complex points $X(\CC)$ naturally has a \tref{TO:topological-space}{topology}, such that for any affine open $U \subset X$ the topology on $U(\CC) \subset \CC^n$ is given by the \tref{TO:subspace-topology}{subspace topology} of the Euclidean topology on $\CC^n$. These charts give $X(\CC)$ the structure of a \tref{DG:complex-manifold}{complex manifold} $X^\textup{an}$, called the \textbf{analytification} of $X$. Moreover, a morphism of nonsingular complex varieties $f : X \to Y$ induces a holomorphic map $f^\textup{an} : X^\textup{an} \to Y^\textup{an}$, and this construction yields the \textit{analytification functor}
     \[ (-)^\textup{an} : \textbf{SmVar}_\CC \to \textbf{Mfld}_\CC . \]
 \end{topic}
+
+\begin{topic}{etale-fundamental-group}{étale fundamental group}
+    Let $X$ be a \tref{scheme}{scheme} over a field $k$, and let $\overline{x} \to X$ be a \tref{geometric-point}{geometric point} of $X$. Let $\textbf{FÉt}/X$ be the category of \tref{finite-morphism}{finite} \tref{etale-morphism}{étale morphisms} $\pi : Y \to X$ over $X$. The functor
+    \[ F : \textbf{FÉt}/X \to \textbf{Set}, \quad Y \mapsto \Hom_X(\overline{x}, Y) \]
+    is \tref{CT:pro-representable-functor}{pro-representable}, meaning there exists a \tref{CT:direct-limit}{direct system} $\tilde{X} = (X_i)_{i \in I}$ in $\textbf{FÉt}/X$ such that $F(Y) = \varinjlim_{i \in I} \Hom_X(X_i, Y)$ functorially in $Y$. Moreover, each $X_i$ can be chosen \tref{galois-cover}{Galois} over $X$, so that the order of $\textup{Aut}_X(X_i)$ equal the degree of $X_i$ over $X$.
+    
+    The \textbf{étale fundamental group} of $X$ at $\overline{x}$ is the \tref{TO:topological-group}{topological group} given by the \tref{CT:inverse-limit}{inverse limit}
+    \[ \pi_1(X, \overline{x}) = \varprojlim_{i \in I} \textup{Aut}_X(X_i) , \]
+    with the natural topology as an inverse limit of finite discrete groups.
+\end{topic}
+
+\begin{example}{etale-fundamental-group}
+    Let $X = \AA^1_k \setminus \{ 0 \}$ over a field $k$, and take $\overline{x} = 1$. A direct system pro-representing $F$ is given by
+    \[ \pi_n : X_n = \AA^1_k \setminus \{ 0 \} \to X, \quad x \mapsto x^n , \]
+    for each integer $n \ge 1$, with a morphism $X_m \to X_n$, $x \mapsto x^{m/n}$ whenever $n$ divides $m$. Note that $\textup{Aut}_X(X_n) \simeq \ZZ/n\ZZ$, where $k \mod n$ corresponds to the automorphism $X_n \to X_n$ given by $x \mapsto \zeta_n^k x$. The étale fundamental group of $X$ at $\overline{x}$ is now
+    \[ \pi_1(X, \overline{x}) = \varprojlim_{n \ge 1} \ZZ/n\ZZ = \hat{\ZZ} , \]
+    the \tref{GT:profinite-group}{profinite completion} of $\ZZ$.
+\end{example}
+
+\begin{topic}{l-adic-cohomology}{l-adic cohomology}
+    Let $X$ be a \tref{scheme}{scheme} over a field $k$, and $\ell$ a prime number different from the \tref{AA:characteristic}{characteristic} of $k$. The \textbf{$\ell$-adic cohomology} of $X$ is given by the \tref{CT:inverse-limit}{inverse limit}
+    \[ H^i(X, \ZZ_\ell) = \varprojlim_{n \in \NN} H^i(X, \ZZ/\ell^n \ZZ) \]
+    and
+    \[ H^i(X, \QQ_\ell) = H^i(X, \ZZ_\ell) \otimes_{\ZZ_\ell} \QQ_\ell , \]
+    where $\ZZ_\ell$ denotes the \tref{NT:p-adic-numbers}{$\ell$-adic integers} and $\QQ_\ell$ its \tref{AA:field-of-fractions}{field of fractions}.
+\end{topic}
+
+\begin{topic}{grothendieck-trace-formula}{Grothendieck trace formula}
+    Let $X$ be a \tref{variety}{variety} over a finite field $\FF_q$, and let $\overline{X} = X \times_{\FF_q} \overline{\FF}_q$ for an \tref{AA:algebraic-closure}{algebraic closure} $\overline{\FF}_q$ of $\FF_q$. Let $F : \overline{X} \to \overline{X}$ be the morphism induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $\overline{\FF}_q \to \overline{\FF}_q$ given by $x \mapsto x^q$. The \textbf{Grothendieck trace formula} states that
+    \[ \# X(\FF_q) = \sum_{i = 0}^{2 \dim X} \tr(F, H^i_c(\overline{X}, \QQ_\ell)) , \]
+    where $F$ naturally acts on the (compactly supported) \tref{l-adic-cohomology}{$\ell$-adic cohomology} of $\overline{X}$.
+\end{topic}
+
+\begin{example}{grothendieck-trace-formula}
+    Consider $X = \PP^1$ over $\FF_q$. Then
+    \[ H^i(\overline{X}, \QQ_\ell) = \left\{ \begin{array}{cl}
+        \QQ_\ell & \textup{ if } i = 0, \\
+        0 & \textup{ if } i = 1, \\
+        \QQ_\ell(-1) & \textup{ if } i = 2, \\
+    \end{array} \right. \]
+    and
+    \[ \tr(F, H^i(\overline{X}, \QQ_\ell)) = \left\{ \begin{array}{cl}
+        1 & \textup{ if } i = 0, \\
+        0 & \textup{ if } i = 1, \\
+        q & \textup{ if } i = 2, \\
+    \end{array} \right. \]
+    so the Grothendieck trace formula yields
+    \[ \# \PP^1(\FF_q) = 1 + q , \]
+    as expected.
+\end{example}

@@ -31,19 +31,19 @@
 
 \begin{topic}{kernel}{kernel}
     Let $f : G \to H$ be a \tref{group-homomorphism}{group homomorphism}. The \textbf{kernel} of $f$, denoted $\ker f$, is defined as
-    \[ \ker f = \{ x \in G : f(x) = 0 \} . \]
+    \[ \ker f = \{ x \in G \mid f(x) = 0 \} . \]
     It is a \tref{normal-subgroup}{normal} \tref{subgroup}{subgroup} of $G$.
 \end{topic}
 
 \begin{topic}{group-center}{group center}
     The \textbf{center} of a \tref{group}{group} $G$ is the subgroup
-    \[ Z(G) = \{ x \in G : xy = yx \text{ for all } y \in G \} . \]
+    \[ Z(G) = \{ x \in G \mid xy = yx \text{ for all } y \in G \} . \]
 \end{topic}
 
 \begin{topic}{symmetric-group}{symmetric group}
-    Let $\Sigma$ be a set. The \textbf{symmetric group} on $\Sigma$ is the \tref{group}{group} $S_\Sigma$ of all bijections $\Sigma \to \Sigma$. The group law is given by composition, and the unit is the identity map.
+    Let $\Sigma$ be a set. The \textbf{symmetric group} on $\Sigma$ is the \tref{group}{group} $S_\Sigma$ of all bijections $\Sigma \to \Sigma$, where multiplication is given by composition, and the unit is given by the identity map $\id_\Sigma$.
     
-    When $\Sigma = \{ 1, 2, \ldots, n \}$ for some integer $n \ge 1$, one writes $S_n$ for the symmetry group. Its elements are called \textbf{permutations}.
+    Given an integer $n \ge 1$, one writes $S_n$ for the symmetric group on the set $\Sigma = \{ 1, 2, \ldots, n \}$. Elements of $S_n$ are called \textbf{permutations}.
 \end{topic}
 
 \begin{topic}{cayleys-theorem}{Cayley's theorem}
@@ -108,12 +108,12 @@
 
 \begin{topic}{torsion-subgroup}{torsion subgroup}
     The \textbf{torsion subgroup} of a \tref{group}{group} $G$ is the subgroup of elements of finite \tref{order}{order}.
-    \[ G_{\text{tor}} = \{ x \in G : \text{ord}(x) < \infty \} \]
+    \[ G_{\text{tor}} = \{ x \in G \mid \text{ord}(x) < \infty \} \]
 \end{topic}
 
 \begin{topic}{normalizer}{normalizer}
     Let $H$ be a \tref{subgroup}{subgroup} of a \tref{group}{group} $G$. The \textbf{normalizer} of $H$ is the subgroup
-    \[ N_H = \{ x \in G : x H x^{-1} = H \} . \]
+    \[ N_H = \{ x \in G \mid x H x^{-1} = H \} . \]
 \end{topic}
 
 \begin{topic}{group-action}{group action}
@@ -144,17 +144,17 @@
 
 \begin{topic}{centralizer}{centralizer}
     Let $G$ be a \tref{group}{group}. The \textbf{centralizer} of an element $g \in G$ is the subgroup
-    \[ G_g = \{ h \in G : h g h^{-1} = g \} . \]
+    \[ G_g = \{ h \in G \mid h g h^{-1} = g \} . \]
 \end{topic}
 
 \begin{topic}{stabilizer}{stabilizer}
     Let $G$ be a \tref{group}{group} \tref{group-action}{acting} on a set $X$. Then the \textbf{stabilizer} of $x \in X$ is the \tref{subgroup}{subgroup}
-    \[ G_x = \{ g \in G : g \cdot x = x \} . \]
+    \[ G_x = \{ g \in G \mid g \cdot x = x \} . \]
 \end{topic}
 
 \begin{topic}{orbit}{orbit}
     Let $G$ be a \tref{group}{group} \tref{group-action}{acting} on a set $X$. The \textbf{orbit} of an element $x \in X$ is the set
-    \[ Gx = \{ g \cdot x : g \in G \} \subset X . \]
+    \[ Gx = \{ g \cdot x \mid g \in G \} \subset X . \]
 \end{topic}
 
 \begin{topic}{solvable-group}{solvable group}
@@ -193,7 +193,7 @@
 
 \begin{topic}{dihedral-group}{dihedral group}
     The \textbf{dihedral group} $D_n$ is the group of symmetries of the regular $n$-gon in the plane. Its \tref{order}{order} is $2n$, and it has a presentation
-    \[ D_n = \langle \rho, \sigma : \rho^n = 1, \sigma^2 = 1, \sigma \rho \sigma^{-1} = \rho^{-1} \rangle , \]
+    \[ D_n = \langle \rho, \sigma \mid \rho^n = 1, \sigma^2 = 1, \sigma \rho \sigma^{-1} = \rho^{-1} \rangle , \]
     where $\rho$ corresponds to a rotation of $2 \pi / n$ and $\sigma$ corresponds to a reflection.
 \end{topic}
 
@@ -264,7 +264,7 @@
 \begin{example}{torsion-group}
     Every finite group is a torsion group.
     
-    Every abelian group $A$ has a torsion subgroup $T = \{ a \in A : a^n = 1 \text{ for some } n \ge 1 \}$.
+    Every abelian group $A$ has a torsion subgroup $T = \{ a \in A \mid a^n = 1 \text{ for some } n \ge 1 \}$.
 \end{example}
 
 \begin{topic}{central-series}{central series}
@@ -282,7 +282,7 @@
 \begin{topic}{upper-central-series}{upper central series}
     The \textbf{upper central series} of a \tref{group}{group} $G$ is the ascending series of subgroups
     \[ \{ e \} = Z_0 \subset Z_1 \subset \cdots \]
-    where $Z_{i + 1} = \{ z \in G : [g, z] \in Z_i \text{ for all } g \in G \}$. That is, it is the largest subgroup such that $[G, Z_{i + 1}] \subset Z_i$.
+    where $Z_{i + 1} = \{ z \in G \mid [g, z] \in Z_i \text{ for all } g \in G \}$. That is, it is the largest subgroup such that $[G, Z_{i + 1}] \subset Z_i$.
 \end{topic}
 
 \begin{topic}{derived-series}{derived series}
@@ -309,12 +309,12 @@
 
 \begin{topic}{modular-group}{modular group}
     The \textbf{modular group} is the \tref{group}{group}
-    \[ \textup{PSL}_2(\ZZ) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} : ad - bc = 1 \right\} / \{ \pm 1 \} \]
+    \[ \textup{PSL}_2(\ZZ) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \mid ad - bc = 1 \right\} / \{ \pm 1 \} \]
     of $2 \times 2$ matrices with integer coefficients and determinant $1$, where any matrix $A$ is identified with $-A$.
 \end{topic}
 
 \begin{example}{modular-group}
-    Let $\mathcal{H} = \{ z \in \CC : \operatorname{im}(z) > 0 \}$ be the upper half-plane. The modular group acts on $\mathcal{H}$ via
+    Let $\mathcal{H} = \{ z \in \CC \mid \operatorname{im}(z) > 0 \}$ be the upper half-plane. The modular group acts on $\mathcal{H}$ via
     \[ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \cdot z = \frac{az + b}{cz + d} . \]
     Note that this gives a well-defined (left) \tref{group-action}{action}.
 \end{example}
@@ -361,11 +361,11 @@
 \begin{example}{sylow-theorem}
     \begin{proof}
     \begin{itemize}
-        \item Let $N$ be the number of Sylow $p$-groups in $G$. Consider the set $\mathcal{P}$ of all subsets of $G$ with $p^n$ elements, and for any $V \in \mathcal{P}$ write $G_V = \{ x \in G : xV = V \}$. Partition $\mathcal{P} = \mathcal{P}_1 \sqcup \mathcal{P}_2$ with $\mathcal{P}_1 = \{ V \in \mathcal{P} : |G_V| = p^n \}$ and $\mathcal{P}_2 = \{ V \in \mathcal{P} : |G_V| \ne p^n \}$.
+        \item Let $N$ be the number of Sylow $p$-groups in $G$. Consider the set $\mathcal{P}$ of all subsets of $G$ with $p^n$ elements, and for any $V \in \mathcal{P}$ write $G_V = \{ x \in G \mid xV = V \}$. Partition $\mathcal{P} = \mathcal{P}_1 \sqcup \mathcal{P}_2$ with $\mathcal{P}_1 = \{ V \in \mathcal{P} \mid |G_V| = p^n \}$ and $\mathcal{P}_2 = \{ V \in \mathcal{P} \mid |G_V| \ne p^n \}$.
     
         Note that for any Sylow $p$-group $H$ and $g \in G$, the (right) coset $Hg$ lies in $\mathcal{P}_1$ since $G_{Hg} = H$ has $p^n$ elements. Conversely, for any $V \in \mathcal{P}_1$, we have that $G_V$ is a Sylow $p$-group, and $V = G_V v$ for any $v \in V$. Hence, $\mathcal{P}_1$ consists precisely of the (right) cosets of the Sylow $p$-groups, and thus $|\mathcal{P}_1| = N m$.
     
-        Now take any $V \in \mathcal{P}_2$, and note that it can be written as a disjoint union of sets of the form $G_V v$ with $v \in V$. Therefore $|G_V|$ divides $|V| = p^n$, and since $|G_V| \ne p^n$, it follows that $|G_V| = p^k$ for some $k < n$. Also note that $xV \in \mathcal{P}_2$ for any $x \in G$, because $G_{xV} = \{ g \in G : gxV = xV \} = \{ g \in G : x^{-1} g x V = V \} = x G_V x^{-1}$, so $|G_{xV}| = |G_V| \ne p^n$. Now, $xV = yV$ for some $x, y \in G$ iff $y^{-1} x V = V$ iff $y^{-1} x \in G_V$ iff $x G_V = y G_V$, so there are $[G : G_V]$ distinct sets of the form $xV$ in $\mathcal{P}_2$. As $[G : G_V] = p^n m / p^k \equiv 0 \mod p$, we obtain $|\mathcal{P}_2| \equiv 0 \mod p$.
+        Now take any $V \in \mathcal{P}_2$, and note that it can be written as a disjoint union of sets of the form $G_V v$ with $v \in V$. Therefore $|G_V|$ divides $|V| = p^n$, and since $|G_V| \ne p^n$, it follows that $|G_V| = p^k$ for some $k < n$. Also note that $xV \in \mathcal{P}_2$ for any $x \in G$, because $G_{xV} = \{ g \in G \mid gxV = xV \} = \{ g \in G \mid x^{-1} g x V = V \} = x G_V x^{-1}$, so $|G_{xV}| = |G_V| \ne p^n$. Now, $xV = yV$ for some $x, y \in G$ iff $y^{-1} x V = V$ iff $y^{-1} x \in G_V$ iff $x G_V = y G_V$, so there are $[G : G_V]$ distinct sets of the form $xV$ in $\mathcal{P}_2$. As $[G : G_V] = p^n m / p^k \equiv 0 \mod p$, we obtain $|\mathcal{P}_2| \equiv 0 \mod p$.
     
         Summarizing, we have
         \[ |\mathcal{P}| = \binom{p^n m}{p^n} = |\mathcal{P}_1| + |\mathcal{P}_2| \equiv Nm + 0 \mod p , \]
@@ -373,11 +373,11 @@
         \[ N \mod p = (m \mod p)^{-1} \cdot \binom{p^n m}{p^n} \mod p . \]
         This shows that $N \mod p$ only depends on $p, n$ and $m$ and not on the actual group $G$. In particular, we can take $G = \ZZ/p^n \ZZ \times \ZZ/m\ZZ$ for which it is known that $N = 1 \equiv 1 \mod p$.
     
-        \item Let $H$ and $H'$ be two Sylow $p$-groups in $G$. Partition the (left) cosets of $H$ as $\mathcal{H}_1 \sqcup \mathcal{H}_2$, where $\mathcal{H}_1$ contains all $gH$ with $hgH = gH$ for all $h \in H'$, and $\mathcal{H}_2$ contains all other cosets of $H$. For any coset $gH \in \mathcal{H}_2$ we have that $H'' = \{ h \in H' : hgH = gH \}$ is a proper subgroup of $H'$, so $p | [H' : H'']$. Note that all sets $hgH$ with $h \in H'$ are contained in $\mathcal{H}_2$, and for any $h_1, h_2 \in H'$ we have that $h_1 g H = h_2 g H$ iff $h_2^{-1} h_1 g H = g H$ iff $h_2^{-1} h_1 \in H''$ iff $h_1 H'' = h_2 H''$. So there are $[H' : H'']$ distinct such sets $hgH$ with $h \in H'$. This partitions $\mathcal{H}_2$ into disjoint subsets, each having a multiple of $p$ elements, since $p | [H' : H'']$. Therefore, $|\mathcal{H}_2| \equiv 0 \mod p$, and we find that
+        \item Let $H$ and $H'$ be two Sylow $p$-groups in $G$. Partition the (left) cosets of $H$ as $\mathcal{H}_1 \sqcup \mathcal{H}_2$, where $\mathcal{H}_1$ contains all $gH$ with $hgH = gH$ for all $h \in H'$, and $\mathcal{H}_2$ contains all other cosets of $H$. For any coset $gH \in \mathcal{H}_2$ we have that $H'' = \{ h \in H' \mid hgH = gH \}$ is a proper subgroup of $H'$, so $p | [H' : H'']$. Note that all sets $hgH$ with $h \in H'$ are contained in $\mathcal{H}_2$, and for any $h_1, h_2 \in H'$ we have that $h_1 g H = h_2 g H$ iff $h_2^{-1} h_1 g H = g H$ iff $h_2^{-1} h_1 \in H''$ iff $h_1 H'' = h_2 H''$. So there are $[H' : H'']$ distinct such sets $hgH$ with $h \in H'$. This partitions $\mathcal{H}_2$ into disjoint subsets, each having a multiple of $p$ elements, since $p | [H' : H'']$. Therefore, $|\mathcal{H}_2| \equiv 0 \mod p$, and we find that
         \[ m = |\mathcal{H}_1| + |\mathcal{H}_2| \equiv |\mathcal{H}_1| \mod p , \]
         so in particular $\mathcal{H}_1$ is non-empty. Hence there exists some coset $gH$ such that $hgH = gH$ for all $h \in H'$, from which we find that $g^{-1}hg \in H$ for all $h \in H'$, and thus $H' = gHg^{-1}$.
         
-        \item Take any Sylow $p$-group $H$ in $G$. There are $N$ such, and all are of the form $gHg^{-1}$ for some $g \in G$. Let $N_H = \{ g \in G : gHg^{-1} = H \}$ be the \tref{normalizer}{normalizer} of $H$, and choose $g_i \in G$ such that $G = \sqcup_i g_i N_H$. Then the Sylow $p$-groups are precisely the $g_i H g_i^{-1}$, and these are pairwise distinct. Hence $N = [G : N_H]$, and we find that
+        \item Take any Sylow $p$-group $H$ in $G$. There are $N$ such, and all are of the form $gHg^{-1}$ for some $g \in G$. Let $N_H = \{ g \in G \mid gHg^{-1} = H \}$ be the \tref{normalizer}{normalizer} of $H$, and choose $g_i \in G$ such that $G = \sqcup_i g_i N_H$. Then the Sylow $p$-groups are precisely the $g_i H g_i^{-1}$, and these are pairwise distinct. Hence $N = [G : N_H]$, and we find that
         \[ N = [G : N_H] = |G| / |N_H| = |G| / [N_H : H] / |H| , \]
         which divides $|G| / |H| = m$.
     \end{itemize}

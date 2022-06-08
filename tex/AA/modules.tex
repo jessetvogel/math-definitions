@@ -247,3 +247,18 @@
     \[ \sigma : R^3 \to R, \quad (a, b, c) \mapsto ax + by + cz . \]
     As $\sigma$ is surjective, we have $R^3 = \ker(\sigma) \oplus R$ so that $P = \ker(\sigma)$ is stably free. However, note that geometrically any element $(a, b, c) \in P$ defines a vector field $X = a \partial_x + b \partial_y + c \partial_z$ on the $2$-sphere $S^2$. So if $P$ were free, there would exist a basis of $P$, which would yield two vector fields $X$ and $Y$ that are linear independent at every point of $S^2$. However, this is impossible by the \tref{DG:hairy-ball-theorem}{hairy ball theorem}, so $P$ cannot be free.
 \end{example}
+
+\begin{topic}{schur-functor}{Schur functor}
+    Let $k \supset \QQ$ be a \tref{ring}{commutative ring}. Note that for any \tref{module}{$k$-module} $M$, the \tref{GT:symmetric-group}{symmetric group} $S_n$ acts naturally on the $n$-fold \tref{tensor-product}{tensor product} $M^{\otimes n}$ by permuting the factors, turning it into a $k[S_n]$-module. Now, for any \tref{GM:integer-partition}{partition} $\lambda$ of an integer $n \ge 0$, the \textbf{Schur functor} corresponding to $\lambda$ is the \tref{CT:functor}{functor}
+    \[ \mathbb{S}_\lambda : k\textup{-}\textbf{Mod} \to k\textup{-}\textbf{Mod}, \quad M \mapsto V_\lambda \otimes_{\QQ[S_n]} M^{\otimes n} , \]
+    where $V_\lambda$ is the \tref{RT:irreducible-representation}{irreducible} \tref{RT:representation}{representation} of $S_n$ corresponding to $\lambda$.
+\end{topic}
+
+\begin{example}{schur-functor}
+    \begin{itemize}
+        \item The partition $\lambda = (n)$, corresponding to the trivial representation of $S_n$, yields the Schur functor
+        \[ \mathbb{S}_{(n)}(M) = \operatorname{Sym}^n M . \]
+        \item The partition $\lambda = (1, \ldots, 1)$, corresponding to the \tref{RT:alternating-representation}{alternating representation} of $S_n$, yields the Schur functor
+        \[ \mathbb{S}_{(1, \ldots, 1)}(M) = \wedge^n M . \]
+    \end{itemize}    
+\end{example}

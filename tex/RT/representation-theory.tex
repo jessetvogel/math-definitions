@@ -174,13 +174,13 @@
 
 \begin{example}{tannaka-duality}
     Note that the group $G$ cannot be determined from the \tref{RT:representation-ring}{representation ring} along, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
-    \[ \begin{tabular}{c|c|c|c|c}
+    \[ \begin{array}{c|c|c|c|c}
         1 & 1 & 1 & 1 & 1 \\ \hline
         1 & 1 & 1 & -1 & -1 \\ \hline
         1 & 1 & -1 & 1 & -1 \\ \hline
         1 & 1 & -1 & -1 & 1 \\ \hline
         2 & -2 & 0 & 0 & 0
-    \end{tabular} \]
+    \end{array} \]
     The difference between the groups is reflected in the fact that $\textbf{Rep}_k(D_4)$ and $\textbf{Rep}_k(Q_8)$ are not isomorphic as monoidal categories.
 \end{example}
 
@@ -315,6 +315,12 @@
     \end{array} \]
 \end{example}
 
+\begin{topic}{alternating-representation}{alternating representation}
+    The \textbf{alternating representation} of the \tref{GT:symmetric-group}{symmetric group} $S_n$ is the $1$-dimensional \tref{representation}{representation}
+    \[ S_n \to \textup{GL}_1(k), \quad \sigma \mapsto \operatorname{sign}(\sigma), \]
+    where $\operatorname{sign}(\sigma)$ denotes the \tref{GT:permutation-sign}{sign} of $\sigma$.
+\end{topic}
+
 \begin{topic}{jacquet-module}{Jacquet module}
     Let $G$ be a \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ a \tref{representation}{representation}. The \textbf{Jacquet module} of $V$ is the subspace of invariants
     \[ V^G = \{ v \in V \mid \rho(g) v = v \textup{ for all } g \in G \} \subset V . \]
@@ -325,4 +331,83 @@
     \[ \Hom_G(U, V) \simeq \Hom_H(U^N, V) , \]
     since any $H$-equivariant morphism $\phi : U \to V$ is $G$-equivariant if and only if $\phi(U/U^N) = 0$. In particular, this gives an \tref{CT:adjunction}{adjunction}
     \[ (-)^N \dashv (-)' \quad \textup{ where } \quad (-)^N : \textbf{Rep}_k(G) \to \textbf{Rep}_k(H), \quad (-)' : \textbf{Rep}_k(H) \to \textbf{Rep}_k(G) . \]
+\end{example}
+
+\begin{topic}{witten-zeta-function}{Witten zeta function}
+    Let $G$ be a \tref{TO:compact-space}{compact} \tref{DG:lie-group}{Lie group} with \tref{AA:semisimple-lie-algebra}{semisimple} \tref{AA:lie-algebra}{Lie algebra}. The \textbf{Witten zeta function} of $G$ is given by
+    \[ \zeta_G(s) = \sum_{\rho} \dim_\CC (\rho)^{-s} , \]
+    where the sum runs over the unitary irreducible representations of $G$.
+\end{topic}
+
+\begin{example}{witten-zeta-function}
+    \begin{itemize}
+        \item The irreducible representations of $\textup{SU}(2)$ are indexed by a non-negative integer $m$ and have dimension $m + 1$, so the Witten zeta function of $\textup{SU}(2)$ is $\zeta_{SU(2)}(s) = \sum_{m \ge 0} (m + 1)^{-s}$, which coincides with the Riemann zeta function.
+        \item The zeta function of $\textup{SU}(3)$ is given by $\zeta_{\textup{SU}(3)}(s) = \sum_{x = 1}^{\infty} \sum_{y = 1}^{\infty} \frac{1}{(xy(x + y) / 2)^s}$.
+        % \item When $G$ is connected and simply-connected, \tref{DG:lie-theorems}{Lie's theorems} give a correspondence between the representations of $G$ and those of its Lie algebra $\mathfrak{g}$. These can be expressed in terms of the \tref{AA:root-system-lie-algebra}{root system} $\Phi$ of $\mathfrak{g}$, and it can be shown that
+        % \[ \zeta_G(s) = \sum_{m_1, \ldots, m_r > 0} \prod_{\alpha \in \Phi^+} \langle \alpha^\vee, m_1 \lambda_1 + \ldots + m_r \lambda_r \rangle^{-s} , \]
+        % where $r$ is the rank of $\mathfrak{g}$ and $\Phi^+$ a choice of positive roots.
+        \item The finite group $G = S_3$ has two irreducible representation of degree $1$, and one of degree $2$, so $\zeta_{S_3}(s) = 2 + 2^{-s}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{pseudoreal-representation}{(pseudo)real representation}
+    Let $G$ be a \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ a complex \tref{representation}{representation}. The representation $\rho$ is called
+    \begin{itemize}
+        \item \textbf{real} if $\rho = \tau \otimes_\RR \CC$ for some real representation $\tau : G \to \textup{GL}(U)$,
+        \item \textbf{pseudoreal} if it is not real, but $\rho$ is isomorphic to its complex conjugate $\overline{\rho} : G \to \textup{GL}(\overline{V})$,
+        \item \textit{complex} if it is neither real nor pseudoreal.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{pseudoreal-representation}
+    \begin{itemize}
+        \item All representations of the \tref{GT:symmetric-group}{symmetric groups} $S_n$ are real.
+        \item The $2$-dimensional irreducible representation of $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$, given by
+        \[ \rho(\overline{e}) = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}, \quad \rho(i) = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}, \quad \rho(j) = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad \rho(k) = \begin{pmatrix} 0 & -i \\ -i & 0 \end{pmatrix} , \]
+        is pseudoreal. Namely, $A \rho(g) A^{-1} = \overline{\rho}(g)$ for $A = \left(\begin{smallmatrix} 0 & -1 \\ 1 & 0 \end{smallmatrix}\right)$, but $\rho$ is not real: if we have $A = \left(\begin{smallmatrix} a & b \\ c & d \end{smallmatrix}\right) \in \textup{SL}_2(\CC)$ such that $\rho'(g) = A \rho(g) A^{-1}$ is real, then
+        \[ \rho'(i) = A \rho(i) A^{-1} = i \begin{pmatrix} ad + bc & -2ab \\ 2cd & -(ad + bc) \end{pmatrix} \textup{ and } \rho'(j) = A \rho(j) A^{-1} = \begin{pmatrix} ad + bc & -a^2 - b^2 \\ c^2 + d^2 & -(ad + bc) \end{pmatrix} , \]
+        which implies $ad + bc = 0$, hence $ad = -bc = \tfrac{1}{2}$. Furthermore, from $\rho'(i)$ we see that $ab, cd \in i \RR^*$. But now,
+        \[ \begin{pmatrix} 0 & (2ab)^2 (c^2 + d^2) \\ (2cd)^2 (a^2 + b^2) & 0 \end{pmatrix} = \rho'(i) \rho'(j) \rho'(i)^{-1} = - \rho'(j) = \begin{pmatrix} 0 & a^2 + b^2 \\ -(c^2 + d^2) & 0 \end{pmatrix} . \]
+        As $(2ab)^2, (2cd)^2 < 0$, comparing the top right entries tell us $a^2 + b^2$ and $c^2 + d^2$ have opposite signs, while the bottom left entries tell us they have equal sign, contradiction.
+    \end{itemize}
+    % \item Every pseudoreal representation is \tref{quaternionic-representation}{quaternionic}.
+\end{example}
+
+% \begin{topic}{quaternionic-representation}{quaternionic representation}
+%     https://en.wikipedia.org/wiki/Quaternionic_representation
+% \end{topic}
+
+% \begin{example}{quaternionic-representation}
+    % Quaternionic representation of Q_8: https://math.ou.edu/~kmartin/repthy/lecRCQ.pdf
+% \end{example}
+
+\begin{topic}{frobenius-schur-indicator}{Frobenius--Schur indicator}
+    Let $G$ be a finite \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ an \tref{irreducible-representation}{irreducible representation} with \tref{character-representation}{character} $\chi$. The \textbf{Frobenius--Schur indicator} of $\rho$ is
+    \[ \frac{1}{|G|} \sum_{g \in G} \chi(g^2) . \]
+    The Frobenius--Schur indicator is equal to $1$, $0$ or $-1$, corresponding to $\rho$ being \tref{pseudoreal-representation}{real}, complex or pseudoreal, respectively.
+\end{topic}
+
+\begin{example}{frobenius-schur-indicator}
+    Consider $G = \ZZ/n\ZZ$ with the $1$-dimensional representation $\rho(k \mod n) = \zeta_n^k$. Its Frobenius--Schur indicator is
+    \[ \frac{1}{n} \left(1 + \zeta_n + \cdots + \zeta_n^{n - 1} \right) = 0 , \]
+    so $\rho$ is complex.
+\end{example}
+
+\begin{example}{frobenius-schur-indicator}
+    Let $G$ be a group of odd order $n$. Then $2 \mod n$ is invertible in $(\ZZ/n\ZZ)^*$, so $\{ g^2 : g \in G \}$ is precisely $G$. Hence, the Frobenius--Schur indicator of any irreducible representation $\rho$ is
+    \[ \frac{1}{|G|} \sum_{g \in G} \chi(g^2) = \frac{1}{|G|} \sum_{g \in G} \chi(g) = \left\{ \begin{array}{cl} 1 & \textup{ if $\rho$ is trivial} , \\ 0 & \textup{ otherwise} . \end{array} \right. \]
+\end{example}
+
+\begin{topic}{frobenius-formula}{Frobenius formula}
+    Let $\chi_\lambda$ be a complex \tref{character-representation}{character} of the \tref{GT:symmetric-group}{symmetric group} $S_n$ corresponding to a \tref{GM:integer-partition}{partition} $\lambda = (\lambda_1, \ldots, \lambda_k)$ of $n \ge 1$. Let $C_i$ be the conjugacy class of permutations of cycle type $i = (i_1, i_2, \ldots, i_n)$, that is, those permutations that have $i_1$ $1$-cycles, $i_2$ $2$-cycles, ..., and $i_n$ $n$-cycles. The \textbf{Frobenius formula} states that $\chi_\lambda(C_i)$ equals the coefficient of $x_1^{\ell_1} \cdots x_k^{\ell_k}$ in
+    \[ \prod_{1 \le i < j \le k} (x_i - x_j) \prod_{j = 1}^{n} (x_1^j + \cdots + x_k^j)^{i_j} , \]
+    where $\ell_j = \lambda_j + k - j$.
+\end{topic}
+
+\begin{example}{frobenius-formula}
+    \begin{itemize}
+        \item For $\lambda = (n)$, corresponding to the trivial representation, we have $\ell_1 = n$. Note that $1 \cdot \prod_{j = 1}^{n} (x_1^j)^{i_j} = x_1^n$ as $\sum_{j = 1}^{n} j \cdot i_j = n$, so $\chi_\lambda(C_i) = 1$ as expected.
+        \item For $\lambda = (n - 1, 1)$, corresponding to the \tref{standard-representation}{standard representation}, we have $\ell_1 = n$ and $\ell_2 = 1$. The coefficient of $x_1^n x_2$ in $(x_1 - x_2) \prod_{j = 1}^{n} (x_1^j + x_2^j)^{i_j}$ is $i_1 - 1$, so $\chi_\lambda(C_i) = i_1 - 1$. % This makes sense, since it is one less than the number of elements fixed by any $g \in C_i$.
+        \item For $\lambda = (1, 1, \ldots, 1)$, corresponding to the \tref{alternating-representation}{alternating representation}, we have $\ell_j = n + 1 - j$. The coefficient of $x_1^{\ell_1} \cdots x_n^{\ell_n}$ in $\prod_{1 \le i < j \le n} (x_i - x_j) \prod_{j = 1}^{n} (x_1^j + \cdots x_n^j)^{i_j}$ should be $(-1)^{(i_2 + i_4 + \cdots)}$ as $\chi_\lambda(C_i) = (-1)^{(i_2 + i_4 + \cdots)}$.
+    \end{itemize}
 \end{example}
