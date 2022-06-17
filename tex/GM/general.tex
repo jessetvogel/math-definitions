@@ -155,19 +155,6 @@
     has an upper bound in $P$. Then \textbf{Zorn's lemma} states that $P$ contains at least one maximal element.
 \end{topic}
 
-\begin{topic}{filter}{filter}
-    Let $(P, \le)$ be a partially ordered set. A \textbf{filter} on $P$ is a subset $F \subset P$ such that
-    \begin{itemize}
-        \item (\textit{non-empty}) $F$ is non-empty,
-        \item (\textit{downward directed}) for every $x, y \in F$ there exists some $z \in F$ with $z \le x$ and $z \le y$,
-        \item (\textit{upward-closed}) for all $x \in F$ and $y \in P$ with $x \le y$, also $y \in F$.
-    \end{itemize}
-\end{topic}
-
-\begin{example}{filter}
-    Let $X$ be a \tref{TO:topological-space}{topological space}, and $x \in X$ a point. The \textit{neighborhood filter} of $x$, denoted $\mathcal{N}_x$, is the filter consisting of all \tref{TO:neighborhood}{neighborhoods} of $x$. It is a filter on the set of all subsets of $X$, partially ordered by inclusion.
-\end{example}
-
 \begin{topic}{fermat-little-theorem}{Fermat's little theorem}
     Let $p$ be a prime number and $a$ an integer. \textbf{Fermat's little theorem} states that
     \[ a^p \equiv a \mod p . \]

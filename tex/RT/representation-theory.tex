@@ -411,3 +411,13 @@
         \item For $\lambda = (1, 1, \ldots, 1)$, corresponding to the \tref{alternating-representation}{alternating representation}, we have $\ell_j = n + 1 - j$. The coefficient of $x_1^{\ell_1} \cdots x_n^{\ell_n}$ in $\prod_{1 \le i < j \le n} (x_i - x_j) \prod_{j = 1}^{n} (x_1^j + \cdots x_n^j)^{i_j}$ should be $(-1)^{(i_2 + i_4 + \cdots)}$ as $\chi_\lambda(C_i) = (-1)^{(i_2 + i_4 + \cdots)}$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{permutation-module}{permutation module}
+    Let $G$ be a finite \tref{GT:group}{group}. A \tref{AA:module}{$\ZZ[G]$-module} $M$ is a \textbf{permutation module} if $M$ is \tref{GT:free-group}{free} as an abelian group and has a $\ZZ$-basis permuted by $G$.
+\end{topic}
+
+\begin{example}{permutation-module}
+    For any subgroup $H \subset G$, the $\ZZ[G]$-module $\ZZ[G/H]$, where $G$ acts by permuting the cosets, is a permutation module. Moreover, any permutation module $M$ can be written as a direct sum
+    \[ \bigoplus_{i \in I} \ZZ[G/H_i] , \]
+    for some subgroups $H_i \subset G$.
+\end{example}

@@ -1,0 +1,14 @@
+\begin{topic}{inner-product}{inner product}
+    An \textbf{inner product} on a \tref{LA:vector-space}{vector space} $V$ over $k = \RR$ or $\CC$ is a map $\langle \cdot, \cdot \rangle : V \times V \to k$ satisfying
+    \begin{itemize}
+        \item (\textit{linearity}) $\langle \alpha x + \beta y, z \rangle = \alpha \langle x, z \rangle + \beta \langle y, z \rangle$ for all scalars $\alpha$ and $x, y, z \in V$,
+        \item \textit{(conjugate symmetry)} $\langle x, y \rangle = \overline{\langle y, x \rangle}$ for all $x, y \in V$,
+        \item (\textit{positive definiteness}) $\langle x, x \rangle > 0$ for all $x \ne 0$ in $V$.
+    \end{itemize}
+    A vector space together with an inner product is called an \textbf{inner product space}.
+\end{topic}
+
+\begin{topic}{cauchy-schwarz-inequality}{Cauchy--Schwarz inequality}
+    The \textbf{Cauchy--Schwarz inequality} states that for any vectors $v, w$ in an \tref{inner-product}{inner-product-space},
+    \[ \langle v, w \rangle^2 \le \langle v, v \rangle \cdot \langle w, w \rangle . \]
+\end{topic}

@@ -7,14 +7,12 @@
 
 ---- Theory ----
 
-AA: Specht module
 AA: Levi decomposition (Levi theorem, Levi subalgebra, https://link.springer.com/content/pdf/10.1007/978-3-642-74334-4_6.pdf) (example: parabolic subgroup of GL_n)
 AG: GAGA (equivalence of categories)
 TO: projective bundle
 AG: universal torsor (for smooth projective varieties?)
 AG: Lang's theorem => H^1_ét(Spec FF_q, G) = 0 for G connected, so any G-bundle on Spec FF_q is trivial
 AA: Weyl dimension/character formula (Lie algebras)
-
 Skein algebras
 
 -- Higher Algebra
@@ -44,7 +42,7 @@ HA: triangulated enhancement
 HA: exceptional sequence example: any line bundle in D^b(X) for X connected smooth projective. Hom(L, L) = k, and Ext^(i > 0)(L, L) = 0, since $L$ locally free! ??
 HA: (Semiorthogonal decomposition for projective bundles)
 HA: (Grothendieck) derivator (example: Quillen Model structures D = HO(M), then X \mapsto Ho(Fun(X^op, M))) (Appendix A of https://math.mit.edu/~tabuada/BuenosAires.pdf)
-HA: Grothendieck's six operations
+HA: Grothendieck's six operations (https://arxiv.org/pdf/0912.2110.pdf, https://guests.mpim-bonn.mpg.de/gallauer/docs/m6ff.pdf)
 
 -- Differential Geometry
 DG: Hermitian manifold
@@ -75,7 +73,6 @@ AG: Examples Borel subgroups:
 AG: parabolic vector bundle
 AG: Kodaira dimension
 AG: étale fundamental group(oid)
-AG: normal crossings divisor
 AG: hyperelliptic curve
 AG: Narasimhan--Seshadri theorem
 AG: D-affine variety
@@ -99,9 +96,6 @@ TO: Borel construction (EG x X / G) : Example BG = classifying space
 -- Functional Analysis
 FA: unitalization
 FA: von Neumann algebra
-
--- Order Theory ?
-LO ? (Order Theory?) : pre-orders, boolean algebras, that kind of stuff,
 
 -- Derived Algebraic Geometry
 DAG: derived ring
@@ -135,6 +129,8 @@ NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Cor
 NT?: Hasse principle
 NT: Dirichlet unit theorem
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
+NT: Kronecker-Weber theorem
+NT: conductor (abelian extensions?)
 
 -- Representation Theory
 RT: Brauer's theorem

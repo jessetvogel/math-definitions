@@ -1,13 +1,3 @@
-\begin{topic}{inner-product}{inner product}
-    An \textbf{inner product} on a \tref{LA:vector-space}{vector space} $V$ over $k = \RR$ or $\CC$ is a map $\langle \cdot, \cdot \rangle : V \times V \to k$ satisfying
-    \begin{itemize}
-        \item (\textit{linearity}) $\langle \alpha x + \beta y, z \rangle = \alpha \langle x, z \rangle + \beta \langle y, z \rangle$ for all scalars $\alpha$ and $x, y, z \in V$,
-        \item \textit{(conjugate symmetry)} $\langle x, y \rangle = \overline{\langle y, x \rangle}$ for all $x, y \in V$,
-        \item (\textit{positive definiteness}) $\langle x, x \rangle > 0$ for all $x \ne 0$ in $V$.
-    \end{itemize}
-    A vector space together with an inner product is called an \textbf{inner product space}.
-\end{topic}
-
 \begin{topic}{norm}{norm}
     A \textbf{norm} on a \tref{LA:vector-space}{vector space} $V$ over $\RR$ or $\CC$ is a function $\norm{\cdot} : V \to \RR_{\ge 0}$ satisfying
     \begin{itemize}
@@ -18,7 +8,7 @@
 \end{topic}
 
 \begin{example}{norm}
-    Every \tref{inner-product}{inner product} $\langle \cdot, \cdot \rangle$ induces a norm $\norm{x} = \langle x, x \rangle$.
+    Every \tref{LA:inner-product}{inner product} $\langle \cdot, \cdot \rangle$ induces a norm $\norm{x} = \langle x, x \rangle$.
 \end{example}
 
 \begin{example}{norm}
@@ -110,7 +100,7 @@
 \end{topic}
 
 \begin{topic}{hilbert-space}{Hilbert space}
-    A \textbf{Hilbert space} is an \tref{inner-product}{inner product space} which is \tref{TO:complete-metric-space}{complete} with respect to the \tref{TO:metric-space}{metric} $d(x, y) = \langle x - y, x - y \rangle$ induced by the inner product.
+    A \textbf{Hilbert space} is an \tref{LA:inner-product}{inner product space} which is \tref{TO:complete-metric-space}{complete} with respect to the \tref{TO:metric-space}{metric} $d(x, y) = \langle x - y, x - y \rangle$ induced by the inner product.
 \end{topic}
 
 \begin{topic}{bounded-operator}{bounded operator}
@@ -123,11 +113,6 @@
 
 \begin{topic}{compact-operator}{compact operator}
     An operator $T : X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{compact} if for every bounded subset $V \subset X$, the image $T(V)$ is relatively compact, i.e. the closure $\overline{T(V)} \subset Y$ is compact.
-\end{topic}
-
-\begin{topic}{cauchy-schwarz-inequality}{Cauchy--Schwarz inequality}
-    The \textbf{Cauchy--Schwarz inequality} states that for any vectors $v, w$ in an \tref{inner-product}{inner-product-space},
-    \[ \langle v, w \rangle^2 \le \langle v, v \rangle \cdot \langle w, w \rangle . \]
 \end{topic}
 
 \begin{topic}{bolzano-weierstrass-theorem}{Bolzano--Weierstrass theorem}

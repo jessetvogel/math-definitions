@@ -70,11 +70,12 @@
         \item Every field of characteristic zero is perfect. Namely, if an irreducible polynomial $f$ were to have a multiple root (in some field extension), then $f'$ and $f$ will have a common factor. But this cannot happen as $f$ is irreducible and $\deg(f') = \deg(f) - 1$.
         \item Every finite field is perfect.
         \item Every algebraically closed field is perfect.
+        \item The field $\FF_p(t)$ is not perfect: the polynomial $f = x^p - t$ is irreducible, but if $\alpha$ is a root in some field extension, we have $x^p - t = x^p - \alpha^p = (x - \alpha)^p$, which shows $f$ is not separable.
     \end{itemize}
 \end{example}
 
 \begin{example}{perfect-field}
-    The field $\FF_p(t)$ is not perfect: the polynomial $f = x^p - t$ is irreducible, but if $\alpha$ is a root in some field extension, we have $x^p - t = x^p - \alpha^p = (x - \alpha)^p$, which shows $f$ is not separable.
+    A field $k$ of characteristic $p > 0$ is perfect if and only if the \tref{frobenius-morphism}{Frobenius morphism} $F : k \to k$ given by $x \mapsto x^p$ is surjective. Namely, if $F$ is not surjective, there exists some $a \in k \setminus \im F$. But then $f = x^p - a$ factors as $(x - \sqrt[p]{a})^p$ over $k(\sqrt[p]{a})$, so $f$ is inseparable, implying $k$ is not perfect. Conversely, suppose that $F$ is surjective. For any irreducible and inseparable polynomial $f \in k[x]$, we must have $\gcd(f, f') \ne 1$ and hence $f' = 0$. Therefore, such $f$ is a polynomial in $x^p$, that is, $f = a_n x^{p^n} + a_{n - 1} x^{p^{n - 1}} + \cdots + a_1 x^p + a_0$ for some $a_i \in k$. By surjectivity of $F$, we can write $a_i = b_i^n$ for some $b_i \in k$. But then $f = (b_n x^{p^{n - 1}} + b_{n - 1} x^{p^{n - 2}} + \cdots + b_1 x + b_0)^p$, contradicting the irreducibility of $f$.
 \end{example}
 
 \begin{topic}{normal-field-extension}{normal field extension}
@@ -118,6 +119,10 @@
     An \tref{algebraic-field-extension}{algebraic} \tref{field-extension}{field extension} $\ell \supset k$ is called a \textbf{Galois extension} of $k$ if $\ell$ is a \tref{splitting-field}{splitting field} of a \tref{separable-polynomial}{separable polynomial} $f$ over $k$.
     
     Equivalently, an extension is Galois if and only if it is \tref{normal-field-extension}{normal} and \tref{separable-field-extension}{separable}.
+\end{topic}
+
+\begin{topic}{abelian-extension}{abelian extension}
+    An \tref{algebraic-field-extension}{algebraic} \tref{field-extension}{field extension} $\ell \supset k$ is called an \textbf{abelian extension} if it is a \tref{galois-extension}{Galois extension} whose \tref{galois-group}{Galois group} $\textup{Gal}(\ell/k)$ is \tref{GT:abelian-group}{abelian}.
 \end{topic}
 
 \begin{topic}{galois-group}{Galois group}

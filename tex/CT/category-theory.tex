@@ -504,12 +504,12 @@
     A \tref{category}{category} is \textbf{thin} if there exists at most one morphism between any two given objects.
 \end{topic}
 
-% \begin{topic}{exponential-object}{exponential object}
-%     Let $X$ and $Y$ be objects of a \tref{category}{category} $\mathcal{C}$
-% \end{topic}
+\begin{topic}{exponential-object}{exponential object}
+    Let $\mathcal{C}$ be a \tref{category}{category} in which finite products exist, and let $X$ and $Y$ be objects of $\mathcal{C}$. An \textbf{exponential object} of $\mathcal{C}$ is an object $X^Y$ of $\mathcal{C}$ together with a morphism $\textup{ev} : X^Y \times Y \to X$, called \textit{evaluation}, such that for any object $Z$ of $\mathcal{C}$ and morphism $e : Z \times Y \to X$, there exists a unique morphism $u : Z \to X^Y$ such that $e = \textup{ev} \circ (u \times \id_Y)$.
+\end{topic}
 
 \begin{topic}{kleisli-category}{Kleisli category}
-    Let $(T, \mu, \nu)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. The \textbf{Kleisli category} of $T$ is the category $\mathcal{C}_T$ whose objects are the objects of $\mathcal{C}$, and a morphism from $X$ to $Y$ in $\mathcal{C}_T$ is given by a morphism $X \to TY$ in $\mathcal{C}$. Composition is given by
+    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. The \textbf{Kleisli category} of $T$ is the category $\mathcal{C}_T$ whose objects are the objects of $\mathcal{C}$, and a morphism from $X$ to $Y$ in $\mathcal{C}_T$ is given by a morphism $X \to TY$ in $\mathcal{C}$. Composition is given by
     \[ (Y \xrightarrow{g} TZ) \circ_T (X \xrightarrow{f} TY) = \mu_Z \circ Tg \circ f : X \to TY \to T^2 Z \to TZ . \]
     The identity morphisms are given by $\id_X = \eta_X$.
 \end{topic}

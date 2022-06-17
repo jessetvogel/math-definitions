@@ -1,0 +1,9 @@
+Let <span class="math inline">\(V\)</span> be a real or complex <a href="#LA:vector-space">vector space</a> with <a href="#LA:inner-product">inner product</a> <span class="math inline">\(\langle \cdot, \cdot \rangle\)</span> and <a href="#LA:basis">basis</a> <span class="math inline">\(\{ v_1, \ldots, v_n \}\)</span>. Define
+<span class="math display">\[ \begin{aligned}
+        u_1 &= v_1, \\
+        u_2 &= v_2 - \frac{\langle u_2, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1, \\
+        u_3 &= v_3 - \frac{\langle u_3, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 - \frac{\langle u_3, v_2 \rangle}{\langle v_2, v_2 \rangle} v_2, \\
+        & \vdots \\
+        u_n &= v_n - \sum_{i = 1}^{n - 1} \frac{\langle u_n, v_i \rangle}{\langle v_i, v_i \rangle} .
+    \end{aligned} \]</span>
+Then <span class="math inline">\(\{ u_1, \ldots, u_n \}\)</span> forms an orthogonal basis of <span class="math inline">\(V\)</span>, and the calculation of the <span class="math inline">\(u_i\)</span> is known as <b>Gram–Schmidt orthogonalization</b>.

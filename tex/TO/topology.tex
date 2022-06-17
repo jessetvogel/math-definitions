@@ -437,3 +437,14 @@
     \[ \mathcal{T}_Y = \{ f^{-1}(U) \;:\; U \subset X \textup{ open} \} . \]
     It is the \tref{coarser}{coarsest} topology on $Y$ for which $f$ is continuous.
 \end{topic}
+
+\begin{topic}{alexandroff-topology}{Alexandroff topology}
+    Let $(P, \le)$ be a \tref{OT:partially-ordered-set}{partially ordered set}. The \textbf{Alexandroff topology} on $P$ is the \tref{topological-space}{topology} on $P$ given by
+    \[ \mathcal{T}_P = \{ U \subset P \mid x \in U \textup{ and } x \le y \textup{ implies } y \in U \textup{ for all } x, y \in P \} . \]
+\end{topic}
+
+\begin{example}{alexandroff-topology}
+    Let $\textbf{Pos}$ be the \tref{CT:category}{category} of partially ordered sets and monotone maps. Then the Alexandroff topology defines a functor
+    \[ A : \textbf{Pos} \to \textbf{Top} . \]
+    Namely, let $f : P \to Q$ be a monotone map of partially ordered sets, and let $V \subset Q$ be an open subset. Then, for any $x \in f^{-1}(V)$ and $y \in P$ such that $x \le y$, we have $f(x) \in V$ and $f(x) \le f(y)$, so $f(y) \in V$, and hence $y \in f^{-1}(V)$ as well. Therefore, $f : P \to Q$ is continuous. Furthermore, $A$ trivially respects composition and the identity morphism.
+\end{example}

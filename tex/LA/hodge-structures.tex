@@ -1,0 +1,48 @@
+\begin{topic}{pure-hodge-structure}{pure Hodge structure}
+    A \textbf{pure Hodge structure of weight $k \in \ZZ$} consists of a $\ZZ$-module $H_\ZZ$ of finite rank, and a direct sum decomposition of the complexification
+    \[ H_\CC := H_\ZZ \otimes_\ZZ \CC = \bigoplus_{p + q = k} H^{p, q} \quad \text{ with } \quad H^{p, q} = \overline{H^{q, p}} . \]
+    One speaks of \textit{rational} or \textit{real} Hodge structures when replacing $H_\ZZ$ by a rational or real vector space.
+    
+    A \textbf{morphism of pure Hodge structures} is a morphism $f : H_\ZZ \to H'_\ZZ$ of $\ZZ$-modules such that its complexification $f_\CC$ preserves type, i.e. $f_\CC\left(H^{p, q}\right) \subset (H')^{p, q}$.
+    
+    The numbers $h^{p, q}(H) := \dim_\CC H^{p, q}$ are called the \textbf{Hodge numbers} of the Hodge structure.
+\end{topic}
+
+\begin{example}{pure-hodge-structure}
+    For any $H_\ZZ$, taking $H^{k,k} = H_\CC$ and $H^{p, q} = 0$ when $(p, q) \ne (k, k)$ gives the \textit{trivial Hodge structure} of weight $2k$.
+\end{example}
+
+\begin{example}{pure-hodge-structure}
+    Take $H_\ZZ = 2 \pi i \ZZ \subset \CC$ and $H_\CC = H^{-1, -1}$. This is a pure Hodge structure of weight $-2$. In fact, is the unique $1$-dimensional pure Hodge structure of weight $-2$ up to isomorphism, and it is called the \textit{Tate Hodge structure}, often denoted by $\ZZ(1)$.
+\end{example}
+
+\begin{topic}{hodge-filtration}{Hodge filtration}
+    A \textbf{Hodge filtration} is an equivalent description of a \tref{pure-hodge-structure}{pure Hodge structure} of weight $k \in \ZZ$, given by a filtration
+    \[ H_\CC \supset \cdots \supset F^p \supset F^{p + 1} \supset \cdots \quad \text{ with } \quad F^p \oplus \overline{F^q} = H_\CC \text{ for } p + q = k + 1 . \]
+    A Hodge filtration can be obtained from a pure Hodge structure, and vice versa, via
+    \[ F^p = \bigoplus_{r \ge p} H^{r, k - r} \quad \text{and} \quad H^{p, q} = F^p \cap \overline{F^q} . \]
+    % Indeed $F^p$ gives a filtration, and for $p + q = k + 1$ one finds
+    % \[ F^p = \bigoplus_{r \ge p} V^{r, k - r} \qquad \text{and} \qquad \overline{F^q} = \bigoplus_{s \ge k - p + 1} \overline{V^{s, k - s}} = \bigoplus_{r \le p - 1} V^{r, k - r}, \]
+    % from which follows that $F^p \oplus \overline{F^q} = V_\CC$.
+    % In the other direction
+    % \[ \bigoplus_{p + q = k} H^{p, q} = \bigoplus_{p + q = k} F^p \cap \overline{F^q} = H_\CC , \]
+    % because any $v \in H_\CC$ lies in $F^p \backslash F^{p + 1}$ for some unique $p$, and since $F^{p + 1} \oplus \overline{F^{k - p}} = H_\CC$, we have $v \in F^p \cap \overline{F^{k - p}}$. It is clear that $\overline{H^{p, q}} = H^{q, p}$.
+\end{topic}
+
+\begin{topic}{hodge-polynomial}{(mixed) Hodge polynomial}
+    The \textbf{Hodge polynomial} of a \tref{pure-hodge-structure}{pure Hodge structure} $H$ is the polynomial,
+    \[ P_\textup{hodge}(H) = \sum_{p, q \in \ZZ} h^{p, q}(H) u^p v^q , \]
+    where $h^{p, q}(H) = \dim_\CC H^{p, q}$ denote the hodge numbers.
+\end{topic}
+
+\begin{topic}{mixed-hodge-structure}{mixed Hodge structure}
+    A \textbf{mixed Hodge structure} on a $\ZZ$-module $H_\ZZ$ consists of an increasing $\ZZ$-filtration $W_\bdot$ on $H_\QQ = H_\ZZ \otimes \QQ$,
+    \[ 0 \subset \cdots \subset W_i \subset W_{i + 1} \cdots \subset H_\QQ \]
+    and a decreasing $\NN$-filtration $F^\bullet$ on $H_\CC = H_\ZZ \otimes \CC$,
+    \[ H_\CC = F^0 \supset F^1 \supset \cdots \supset 0 \]
+    such that the induced filtrations (obtained by intersections) of $F^\bdot$ on the graded pieces $\left(\text{Gr}^W_k H_\QQ\right) \otimes_\QQ \CC := \left(W_k H_\QQ / W_{k - 1} H_\QQ\right) \otimes_\QQ \CC$ are \tref{pure-hodge-structure}{pure (rational) Hodge structures} of weight $k$.
+    
+    A \textbf{morphism of mixed Hodge structures} is a morphism $f : H_\ZZ \to H'_\ZZ$ of $\ZZ$-modules compatible with the two filtrations $W_\bdot$ and $F^\bdot$.
+    
+    The numbers $h^{p, q}(H) := \dim_\CC \textup{Gr}_F^p \textup{Gr}^W_{p + q}(H_\CC)$ are called the \textbf{mixed Hodge numbers} of the mixed Hodge structure $H$.
+\end{topic}

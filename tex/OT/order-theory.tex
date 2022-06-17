@@ -1,0 +1,55 @@
+\begin{topic}{partially-ordered-set}{partially ordered set}
+    A \textbf{partial order} on a set $P$ is a \tref{binary-relation}{binary relation} $\le$ on $P$ such that
+    \begin{itemize}
+        \item (\textit{reflexivity}) $x \le x$ for all $x \in P$,
+        \item (\textit{anti-symmetry}) if $x \le y$ and $y \le x$ then $x = y$ for all $x, y \in P$,
+        \item (\textit{transitivity}) if $x \le y$ and $y \le z$ then $x \le z$ for all $x, y, z \in P$.
+    \end{itemize}
+    A \textbf{partially ordered set} is a set $P$ together with a partial order $\le$.
+\end{topic}
+
+\begin{topic}{lattice}{lattice}
+    A \textbf{lattice} is a \tref{partially-ordered-set}{partially ordered set} $(P, \le)$ such that
+    \begin{itemize}
+        \item (\textit{least upper bound}) any two elements $x, y \in P$ have a least upper bound $x \vee y$,
+        \item (\textit{greatest lower bound}) any two elements $x, y \in P$ have a greatest lower bound $x \wedge y$,
+        \item (\textit{least element}) there exists a least element $0 \in P$,
+        \item (\textit{greatest element}) there exists a greatest element $1 \in P$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{boolean-algebra}{Boolean algebra}
+    A \textbf{Boolean algebra} is a \tref{lattice}{lattice} $(P, \le)$ such that
+    \begin{itemize}
+        \item (\textit{complements}) for every $x \in P$ there exists an element $\neg x \in P$ such that $x \vee \neg x = 1$ and $x \wedge \neg x = 0$,
+        \item (\textit{distributivity}) $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$ for all $x, y, z \in P$.
+    \end{itemize}
+    A Boolean algebra $(P, \le)$ is \textbf{complete} if every subset $A \subset P$ has a least upper bound and a greatest lower bound.
+\end{topic}
+
+\begin{topic}{atom}{atom}
+    Let $(P, \le)$ be a \tref{partially-ordered-set}{partially ordered set} with a least element $0 \in P$. An \textbf{atom} in $P$ is an element $x \in P$ not equal to $0$ such that $y \le x$ implies $y = 0$ or $y = x$ for all $y \in P$.
+\end{topic}
+
+\begin{topic}{heyting-algebra}{Heyting algebra}
+    A \textbf{Heyting algebra} is a \tref{lattice}{lattice} $(H, \le, \vee, \wedge, 0, 1)$ together with a binary operation $\rightarrow$, called \textit{Heyting implication}, such that $x \wedge y \le z$ if and only if $x \le y \rightarrow z$ for all $x, y, z \in H$.
+\end{topic}
+
+\begin{topic}{binary-relation}{binary relation}
+    A \textbf{binary relation} $R$ over two sets $X$ and $Y$ is a subset of the product $X \times Y$.
+    
+    Usually, one writes $x R y$ to mean $(x, y) \in R$.
+\end{topic}
+
+\begin{topic}{filter}{filter}
+    Let $(P, \le)$ be a \tref{partially-ordered-set}{partially ordered set}. A \textbf{filter} on $P$ is a subset $F \subset P$ such that
+    \begin{itemize}
+        \item (\textit{non-empty}) $F$ is non-empty,
+        \item (\textit{downward directed}) for every $x, y \in F$ there exists some $z \in F$ with $z \le x$ and $z \le y$,
+        \item (\textit{upward-closed}) for all $x \in F$ and $y \in P$ with $x \le y$, also $y \in F$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{filter}
+    Let $X$ be a \tref{TO:topological-space}{topological space}, and $x \in X$ a point. The \textit{neighborhood filter} of $x$, denoted $\mathcal{N}_x$, is the filter consisting of all \tref{TO:neighborhood}{neighborhoods} of $x$. It is a filter on the set of all subsets of $X$, partially ordered by inclusion.
+\end{example}

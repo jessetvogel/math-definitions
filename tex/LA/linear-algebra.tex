@@ -573,7 +573,7 @@
 \end{topic}
 
 \begin{topic}{gram-matrix}{Gram matrix}
-    Let $(V, \langle \cdot, \cdot \rangle)$ be an \tref{FA:inner-product}{inner product space}. The \textbf{Gram matrix} of a list of vectors $v_1, \ldots, v_n \in V$ is the \tref{hermitian-matrix}{Hermitian} matrix
+    Let $V$ be a real or complex \tref{vector-space}{vector space} with \tref{inner-product}{inner product} $\langle \cdot, \cdot \rangle$. The \textbf{Gram matrix} of a list of vectors $v_1, \ldots, v_n \in V$ is the \tref{hermitian-matrix}{Hermitian} matrix
     \[ G_{ij} = \begin{pmatrix}
         \langle v_1, v_1 \rangle & \langle v_1, v_2 \rangle & \cdots & \langle v_1, v_n \rangle \\
         \langle v_2, v_1 \rangle & \langle v_2, v_2 \rangle & \cdots & \langle v_2, v_n \rangle \\
@@ -585,3 +585,15 @@
 \begin{example}{gram-matrix}
     The Gram matrix corresponding to an orthogonal set of vectors is the identity matrix.
 \end{example}
+
+\begin{topic}{gram-schmidt-orthogonalization}{Gram--Schmidt orthogonalization}
+    Let $V$ be a real or complex \tref{vector-space}{vector space} with \tref{inner-product}{inner product} $\langle \cdot, \cdot \rangle$ and \tref{basis}{basis} $\{ v_1, \ldots, v_n \}$. Define
+    \[ \begin{aligned}
+        u_1 &= v_1, \\
+        u_2 &= v_2 - \frac{\langle u_2, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1, \\
+        u_3 &= v_3 - \frac{\langle u_3, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 - \frac{\langle u_3, v_2 \rangle}{\langle v_2, v_2 \rangle} v_2, \\
+        & \vdots \\
+        u_n &= v_n - \sum_{i = 1}^{n - 1} \frac{\langle u_n, v_i \rangle}{\langle v_i, v_i \rangle} .
+    \end{aligned} \]
+    Then $\{ u_1, \ldots, u_n \}$ forms an orthogonal basis of $V$, and the calculation of the $u_i$ is known as \textbf{Gram--Schmidt orthogonalization}.
+\end{topic}

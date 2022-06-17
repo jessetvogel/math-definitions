@@ -1,0 +1,848 @@
+\begin{topic}{domain}{domain}
+    A non-zero \tref{ring}{commutative ring} $R$ is called a \textbf{domain} if it has no zero-divisors, that is, $ab = 0$ implies $a = 0$ or $b = 0$ for all $a, b \in R$.
+\end{topic}
+
+\begin{topic}{irreducible-element}{irreducible element}
+    Let $R$ be a \tref{domain}{domain}. An element $a \in R$ is called a \textbf{irreducible} if $a$ is not a \tref{unit}{unit}, and for all $b, c \in R$ such that $bc = a$ either $b$ or $c$ is a unit.
+\end{topic}
+
+\begin{topic}{field}{field}
+    A non-zero \tref{ring}{commutative ring} $R$ is called a \textbf{field} if all non-zero elements are units, that is, for all non-zero $a \in R$ there exists a $b \in R$ such that $ab = 1$. 
+\end{topic}
+
+\begin{example}{field}
+    Every finite field has $p^n$ elements for some prime $p$ and integer $n \ge 1$, and conversely there exists, up to isomorphism, a unique finite field with $p^n$ elements.
+    Namely, let $k$ be a field of $q$ elements. The \tref{prime-field}{prime field} of $k$ must be $\FF_p$ for some prime $p$, so $k$ is a finite-dimensional $\FF_p$-vector space, and hence $q = p^n$ for some $n \ge 1$. Note that $a^q - a = 0$ for all $a \in k$ since the units $k^*$ form a multiplicative group of order $q - 1$, so the polynomial $X^q - X$ factors as $\prod_{a \in k} (X - a)$ in $k$. In particular, $k$ is a \tref{splitting-field}{splitting field} of $X^q - X$ over $\FF_p$. The uniqueness claim now follows from the uniqueness of splitting fields.
+    To show that for every $q = p^n$ there exists a field with $q$ elements, let $k$ be a splitting field of $X^q - X$ over $\FF_p$, and write $X^q - X = \prod_{i = 1}^{q} (X - \alpha_i)$ with $\alpha_i \in k$. Note that the derivative of $X^q - X$, which is $qX^{q - 1} - 1 = -1$, has no roots, so $X^q - X$ has no double roots, and hence the set $A = \{ \alpha_1, \ldots, \alpha_q \}$ has $q$ elements. Note that $0, \pm 1 \in A$ and $(\alpha_i + \alpha_j)^q = \alpha_i + \alpha_j$ and $(\alpha_i \alpha_j)^q = \alpha_i \alpha_j$ for all $i, j$, so $A$ is a subfield of $k$, and thus $k = \FF_p(\alpha_1, \ldots, \alpha_q) = A$ has $q$ elements, which proves the existence claim.
+\end{example}
+
+\begin{topic}{radical-ideal}{radical ideal}
+    Let $R$ be a \tref{ring}{commutative ring}. The \textbf{radical} of an \tref{ideal}{ideal} $I \subset R$ is given by
+    \[ \sqrt{I} = \{ x \in R \mid x^n \in I \} . \]
+    An ideal $I$ is called \textbf{radical} if $I = \sqrt{I}$.
+\end{topic}
+
+\begin{topic}{prime-ideal}{prime ideal}
+    Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{prime} if $I \ne R$ and
+    \[ ab \in I \implies a \in I \textup{ or } b \in I . \]
+    Equivalently, $I \subset R$ is a prime ideal if and only if the quotient ring $R / I$ is a \tref{domain}{domain}.
+\end{topic}
+
+\begin{topic}{maximal-ideal}{maximal ideal}
+    Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{maximal} if $I \ne R$ and if $I \subset J \subsetneq R$ implies $I = J$ for any other ideal $J \subset R$.
+    
+    Equivalently, $I \subset R$ is a maximal ideal if and only if the quotient ring $R / I$ is a \tref{field}{field}.
+    
+    Every maximal ideal is \tref{prime-ideal}{prime}.
+\end{topic}
+
+\begin{example}{maximal-ideal}
+    Every ideal $I \subsetneq R$ is contained in some maximal ideal $\mathfrak{m}$. Namely, consider the partially ordered set $P$ of ideals $J \subsetneq R$ containing $I$, ordered by inclusion. Then $P$ is non-empty as it contains $I$, and every chain $J_1 \subset J_2 \subset \ldots$ in $P$ has an upper bound $J = \cup_{i \ge 1} J_i$. Note that indeed $J$ is an ideal, and $J \ne R$ as $1 \not\in J$ because $1 \not\in J_i$ for all $i$.
+    Now from \tref{GM:zorns-lemma}{Zorn's lemma} it follows $P$ has a maximal element, which corresponds to a maximal ideal $\mathfrak{m}$ containing $I$.
+\end{example}
+
+\begin{topic}{quotient-ring}{quotient ring}
+    Given a \tref{ring}{commutative ring} $R$ and \tref{ideal}{ideal} $I$, the \textbf{quotient ring} $R/I$ is the ring
+    \[ R/I = \{ a + I : a \in R \} \]
+    where addition and multiplication are given by
+    \[ (a + I) + (b + I) = (a + b) + I \quad \textup{ and } \quad (a + I) (b + I) = (ab) + I . \]
+    It has the universal property that each morphism of rings $f : R \to S$ with $f(I) = 0$ uniquely extends to a morphism $R/I \to S$.
+    \[ \begin{tikzcd} R \arrow{r}{f} \arrow[swap]{d}{\pi} & S \\ R/I \arrow[dashed]{ur} & \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{local-ring}{local ring}
+    A \textbf{local ring} is a \tref{ring}{commutative ring} $R$ with exactly one \tref{maximal-ideal}{maximal ideal}. The maximal is often denoted by $\mathfrak{m}$.
+    
+    The quotient $k = R/\mathfrak{m}$ is called the \textbf{residue field}.
+\end{topic}
+
+\begin{topic}{local-morphism}{local morphism}
+    A \textbf{local morphism} of \tref{local-ring}{local rings} $f : R \to S$ is a ring morphism such that $f(\mathfrak{m}_R) \subset \mathfrak{m}_S$.
+\end{topic}
+
+\begin{topic}{finite-type}{finite type}
+    Let $R$ and $S$ be \tref{ring}{commutative rings}. A \tref{ring-morphism}{ring morphism} $R \to S$ is said to be of \textbf{finite type} if $S$ is isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some integer $n$.
+    
+    That is, $S$ is a \tref{finitely-generated-algebra}{finitely generated $R$-algebra}.
+\end{topic}
+
+\begin{topic}{finitely-presented-algebra}{finitely presented algebra}
+    Let $R$ and $S$ be \tref{ring}{commutative rings}. A \tref{ring-morphism}{ring morphism} $R \to S$ is said to be of \textbf{finite presentation} if $S$ is isomorphic to $R[x_1, \ldots, x_n] / (f_1, \ldots, f_m)$ for some integer $n$ and some $f_i \in R[x_1, \ldots, x_n]$.
+    
+    In this case, $S$ is also said to be a \textbf{finitely presented $R$-algebra}.
+\end{topic}
+
+\begin{example}{finitely-presented-algebra}
+    Let $R = k[x_1, x_2, \ldots]$ and $S = R / (x_1^2, x_2^2, \ldots)$. Then the quotient map $R \to S$ is of \tref{finite-type}{finite type}, but not of finite presentation.
+\end{example}
+
+\begin{topic}{krull-dimension}{Krull dimension}
+    The \textbf{Krull dimension} of a \tref{ring}{commutative ring} $R$ is the supremum of the lengths of all chains of \tref{prime-ideal}{prime ideals}, where a chain of the form
+    \[ \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n \]
+    has length $n$.
+\end{topic}
+
+\begin{topic}{chinese-remainder-theorem}{Chinese remainder theorem}
+    Let $R$ be a \tref{ring}{commutative ring} and suppose $I, J$ are coprime ideals of $R$, i.e. $I + J = R$. Then the \textbf{Chinese remainder theorem} states that $I \cap J = I \cdot J$ and that there is an isomorphism of rings
+    \[ R / (I \cdot J) \xrightarrow{\sim} (R / I) \times (R/J), \qquad a \mod (I \cdot J) \mapsto (a \mod I, b \mod J) . \]
+    In particular, when $R = \ZZ$ with $I = (n)$ and $J = (m)$ for $n, m$ relatively prime, there is
+    \[ \ZZ / nm \ZZ \simeq (\ZZ/n\ZZ) \times (\ZZ/m\ZZ), \qquad a \mod nm \mapsto (a \mod n, a \mod m) . \]
+\end{topic}
+
+\begin{topic}{dual-numbers}{dual numbers}
+    Let $R$ be a \tref{ring}{commutative ring}. The \textbf{ring of dual numbers} over $R$ is the quotient ring
+    \[ R[\varepsilon] / (\varepsilon^2) . \]
+\end{topic}
+
+\begin{topic}{noetherian-ring}{noetherian ring}
+    A \tref{ring}{commutative ring} $R$ is called \textbf{noetherian} if it satisfies the \textit{ascending chain condition}: for any increasing sequence of ideals
+    \[ I_1 \subset I_2 \subset I_3 \subset \cdots \]
+    there exists some $N \in \NN$ such that $I_n = I_N$ for any $n \ge N$.
+    
+    Equivalently, $R$ is noetherian if all its ideals are finitely generated.
+\end{topic}
+
+\begin{example}{noetherian-ring}
+    The following are all noetherian rings.
+    \begin{itemize}
+        \item Any \tref{field}{field}: their only ideal is $(0)$.
+        \item Any \tref{principal-ideal-domain}{PID}: every ideal is generated by a single element.
+        \item If $R$ is noetherian, then so is $R[x]$: this is \textit{Hilbert's basis theorem}.
+    \end{itemize}
+\end{example}
+
+\begin{example}{noetherian-ring}
+    The ring $k[x_1, x_2, x_3, \ldots]$ is not noetherian. Namely, the sequence of ideals
+    \[ (x_1) \subset (x_1, x_2) \subset (x_1, x_2, x_3) \subset \ldots \]
+    is ascending, but does not stabilize.
+\end{example}
+
+\begin{topic}{localization}{localization}
+    Let $R$ be a \tref{ring}{commutative ring}, and $S \subset R$ a \textit{multiplicative set} (that is, $1 \in S$ and $xy \in S$ for all $x, y \in S$). Then the \textbf{localization} of $R$ w.r.t. $S$ is the ring
+    \[ S^{-1} R = R \times S / \sim{} \quad \textup{ where } (r_1, s_1) \sim{} (r_2, s_2) \textup{ if } t(r_1 s_2 - r_2 s_1) = 0 \textup{ for some } t \in S . \]
+\end{topic}
+
+\begin{example}{localization}
+    If $R$ is a \tref{domain}{domain}, then $S = R - \{ 0 \}$ is a multiplicative set, and $S^{-1} R$ is the \tref{field-of-fractions}{field of fractions} of $R$.
+\end{example}
+
+\begin{example}{localization}
+    For any commutative ring $R$ and $f \in R$, the set
+    \[ S = \{ 1, f, f^2, \ldots \} \]
+    is a multiplicative set, and the localization is
+    \[ R_f := S^{-1} R = \left\{ \frac{a}{f^n} : a \in R, \; n \ge 0 \right\} . \]
+\end{example}
+
+\begin{example}{localization}
+    For any commutative ring $R$ and \tref{prime-ideal}{prime ideal} $\mathfrak{p}$, the set
+    \[ S = \{ f \in R \mid f \not\in \mathfrak{p} \} \]
+    is a multiplicative set, and the localization
+    \[ R_\mathfrak{p} := S^{-1} R = \left\{ \frac{f}{g} : f, g \in R, \; g \not\in \mathfrak{p} \right\} \]
+    is a \tref{local-ring}{local ring} with maximal ideal $\mathfrak{p} R_\mathfrak{p}$.
+\end{example}
+
+\begin{topic}{total-quotient-ring}{total quotient ring}
+    The \textbf{total quotient ring} of a \tref{ring}{commutative ring} $R$ is the \tref{localization}{localization} $S^{-1} R$, with $S$ the set of elements of $R$ which are not \tref{zero-divisor}{zero-divisors}.
+    
+    When $R$ is a \tref{domain}{domain}, this construction gives the \tref{field-of-fractions}{field of fractions} of $R$.
+\end{topic}
+
+\begin{topic}{regular-ring}{regular (local) ring}
+    A \textbf{regular local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} ring such that the minimal number of generators of its maximal ideal is equal to its \tref{krull-dimension}{Krull dimension}. Equivalently, a local ring $R$ with maximal ideal $\mathfrak{m}$ and residue field $k = R / \mathfrak{m}$ is regular if and only if $\dim_k(\mathfrak{m} / \mathfrak{m}^2) = \dim R$.
+    
+    A \textbf{regular ring} is a commutative noetherian ring, such that the \tref{localization}{localization} at every \tref{prime-ideal}{prime ideal} is a regular local ring.
+\end{topic}
+
+\begin{example}{regular-ring}
+    Every field is a regular local ring: their Krull dimension is zero, and their maximal ideal is $(0)$.
+\end{example}
+
+\begin{example}{regular-ring}
+    \begin{itemize}
+        \item The local ring $R = k[x]/(x^2)$ is not a regular local ring. Its only prime ideal is its maximal ideal $\mathfrak{m} = (x)/(x^2)$, so the Krull dimension is zero, but the minimal number of generators of $\mathfrak{m}$ is one.
+        \item The ring $R = k[x, y]/(y^2 - x^3)$ is not regular. Namely, at the maximal ideal $\mathfrak{m} = (x, y)$ we have $\dim R_\mathfrak{m} = 1$ since the only non-zero prime ideal in $R$ is $\mathfrak{m}$. However, $\dim_k(\mathfrak{m} / \mathfrak{m}^2) = \dim_k(k \cdot x \oplus k \cdot y) = 2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{principal-ideal-domain}{principal ideal domain (PID)}
+    A \textbf{principal ideal domain} (PID) is a \tref{domain}{domain} $R$ in which every \tref{ideal}{ideal} is \tref{principal-ideal}{principal}. That is, every ideal $I \subset R$ is of the form $I = (x)$ for some element $x \in R$.
+\end{topic}
+
+\begin{topic}{unique-factorization-domain}{unique factorization domain (UFD)}
+    A \textbf{unique factorization domain} (UFD) is a \tref{domain}{domain} $R$ for which every non-zero $x \in R$ can be written as the product of a \tref{unit}{unit} and a finite number of \tref{irreducible-element}{irreducible} elements:
+    \[ a = u \cdot p_1 \cdot p_2 \cdot \cdots \cdot p_k \qquad u \in R^\times, \; k \ge 0, \; p_i \in R \textup{ irreducible}. \]
+\end{topic}
+
+\begin{topic}{euclidean-ring}{Euclidean ring}
+    A \textbf{Euclidean ring} is a \tref{domain}{domain} $R$ for which there exists a function
+    \[ g : R^\times \to \ZZ_{\ge 0} \]
+    such that for all $a, b \in R$ with $b \ne 0$, there exists $q, r \in R$ with $a = qb + r$ and either $r = 0$ or $g(r) < g(b)$.
+    
+    That is, a ring in which one can perform division with remainder. The function $g$ is used to say that the `remainder' $r$ is `smaller' than the element $b$ one divides by.
+    
+    In particular, one can find the \textit{gcd} of elements by means of the \textit{Euclidean algorithm}.
+\end{topic}
+
+\begin{topic}{field-of-fractions}{field of fractions}
+    The \textbf{field of fractions} of a \tref{domain}{domain} $R$ is the \tref{field}{field} given by
+    \[ K = \left\{ (a, b) : a, b \in R, b \ne 0 \right\} / \sim{} \]
+    where $(a, b) \sim{} (c, d)$ if and only if $ad = bc$. Indeed $(a, b)$ represents the fraction $\frac{a}{b}$. Addition and multiplication are given by
+    \[ \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \quad \textup{ and } \quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} . \]
+\end{topic}
+
+\begin{example}{field-of-fractions}
+    The field of fractions of $\ZZ$ is $\QQ$.
+\end{example}
+
+\begin{topic}{valuation-ring}{valuation ring}
+    A \textbf{valuation ring} is a \tref{domain}{domain} $R$ such that for every element $x$ of its \tref{field-of-fractions}{field of fractions}, at least one of $x$ or $x^{-1}$ belongs to $R$.
+\end{topic}
+
+\begin{topic}{discrete-valuation-ring}{discrete valuation ring}
+    A domain \tref{domain}{domain} $R$ is a \textbf{discrete valuation ring} if there is a \textit{discrete valuation} $v$ of its \tref{field-of-fractions}{field of fractions} $K$, such that $R$ is the \textit{valuation ring} of $v$. This means there is a homomorphism
+    \[ v : K^\times \to \ZZ \]
+    such that
+    \[ R = \{ x \in K \mid v(x) \ge 0 \} . \]
+    
+    In particular, $R$ is \tref{local-ring}{local} with maximal ideal $\mathfrak{m} = \{ x \in K \mid v(x) > 0 \}$. Indeed, any element $x \in R$ with $v(x) = 0$ is a unit in $R$.
+\end{topic}
+
+\begin{example}{discrete-valuation-ring}
+    Let $K = \QQ$ and fix a prime number $p$. Any non-zero $x \in \QQ$ can be written uniquely as $x = p^m y$ where $k \in \ZZ$ and both the numerator and denominator of $y$ are coprime to $p$. Now define the discrete valuation $v_p(x) = m$, then the valuation ring is the local ring $\ZZ_{(p)}$.
+\end{example}
+
+\begin{topic}{monic-polynomial}{monic polynomial}
+    Let $k$ be a \tref{ring}{commutative ring}. A polynomial $f \in k[x]$ is called \textbf{monic} if its leading coefficient is $1$.
+\end{topic}
+
+\begin{topic}{integral-element}{integral element}
+    Let $A$ be a \tref{ring}{commutative ring}, and $B$ an $A$-algebra. An element $x \in B$ is said to be \textbf{integral} over $A$ if $x$ is a root of a monic polynomial with coefficients in $A$. That is,
+    \[ x^n + a_1 x^{n - 1} + \cdots + a_n = 0 \]
+    for some $a_i \in A$.
+\end{topic}
+
+\begin{topic}{integral-closure}{integral closure}
+    Let $A$ be a \tref{ring}{commutative ring}, and $B$ an $A$-algebra. The \textbf{integral closure} of $A$ in $B$ is the subring of $B$ of elements which are \tref{integral-element}{integral} over $A$.
+    
+    If the integral closure is equal to $A$, then $A$ is said to be \textbf{integrally closed} in $B$. If the integral closure is equal to $B$, the ring $B$ is said to be \textbf{integral} over $A$.
+\end{topic}
+
+\begin{topic}{artin-ring}{artin ring}
+    A \tref{ring}{commutative ring} $R$ is called \textbf{artin} if it satisfies the \textit{descending chain condition}: for any decreasing sequence of ideals
+    \[ I_1 \supset I_2 \supset I_3 \supset \cdots \]
+    there exists some $N \in \NN$ such that $I_n = I_N$ for any $n \ge N$.
+\end{topic}
+
+\begin{example}{artin-ring}
+    The ring $R = k[x] / (x^n)$, for a \tref{field}{field} $k$ and integer $n \ge 0$, is artin. Namely, the only ideals of $R$ are of the form $(x^k)$ with $0 \le k \le n$. 
+\end{example}
+
+\begin{topic}{fractional-ideal}{fractional ideal}
+    Let $R$ be a \tref{domain}{domain} and $K$ its \tref{field-of-fractions}{field of fractions}. A \textbf{fractional ideal} of $R$ is an $R$-submodule $M$ of $K$ such that $xM \subset R$ for some non-zero $x \in R$.
+\end{topic}
+
+\begin{topic}{invertible-ideal}{invertible ideal}
+    Let $R$ be a \tref{domain}{domain} and $K$ its \tref{field-of-fractions}{field of fractions}. An $R$-submodule $M$ of $K$ is an \textbf{invertible ideal} if there exists a submodule $N$ of $K$ such that $MN = R$. This module $N$ is then unique and equal to
+    \[ N = (R : M) := \{ x \in K \mid xM \subset R \} . \]
+    The invertible ideals form a group with respect to multiplication, whose unit element is $R = (1)$.
+\end{topic}
+
+\begin{topic}{quotient-ideal}{quotient ideal}
+    Let $R$ be a \tref{ring}{commutative ring}, and $I, J \subset R$ two \tref{ideal}{ideals}. Their \textbf{quotient ideal} is the ideal
+    \[ (I : J) = \{ x \in R \mid xJ \subset I \} . \]
+\end{topic}
+
+\begin{example}{quotient-ideal}
+    \begin{itemize}
+        \item In $\ZZ$, we have $((6) : (2)) = (3)$.
+        \item In $k[x, y]$, we have $((xy), (x)) = (y)$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{divisorial-ideal}{divisorial ideal}
+    Let $R$ be a \tref{domain}{domain}. A \textbf{divisorial ideal} of $R$ is a \tref{fractional-ideal}{fractional ideal} $I$ of $R$ such that
+    \[ I = (R : (R : I)) , \]
+    where $(I : J) = \{ x \in K \mid xJ \subset I \}$.
+\end{topic}
+
+\begin{topic}{syzygy-module}{syzygy module}
+    Let $g_1, g_2, \ldots, g_k$ be generators of \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$. The \textbf{syzygy module} is the $R$-module consisting of all relations between the generators, i.e. the kernel of
+    \[ \bigoplus_{i = 1}^{k} R \to M, \qquad (r_1, \ldots, r_k) \mapsto r_1 g_1 + \cdots r_k g_k . \]
+    Inductively, one can define the $n$-th syzygy module for any $n \ge 1$ after choosing generators.
+\end{topic}
+
+% Hilbert's three theorems
+\begin{topic}{hilbert-basis-theorem}{Hilbert's basis theorem}
+    \textbf{Hilbert's basis theorem} states that if a \tref{ring}{commutative ring} $R$ is \tref{noetherian-ring}{noetherian}, then so is the polynomial ring $R[x]$.
+\end{topic}
+
+\begin{topic}{hilbert-nullstellensatz}{Hilbert's Nullstellensatz}
+    Let $k$ be an \tref{algebraically-closed-field}{algebraically closed field} and $A = k[x_1, \ldots, x_n]$ for some $n \ge 0$. For any subset $S \subset A$, let
+    \[ Z(S) = \{ p \in \AA^n \mid f(p) = 0 \textup{ for all } f \in S \} , \]
+    which is a closed subset of $\AA^n_k = \Spec A$. Conversely, for any subset $Y \subset \AA^n_k$, let
+    \[ I(Y) = \{ f \in A \mid f(p) = 0 \textup{ for all } p \in Y \} , \]
+    which is a \tref{radical-ideal}{radical ideal} of $A$.
+    \textbf{Hilbert's Nullstellensatz} states that $Z$ and $I$, when restricted to the set of radical ideals of $A$ and the set of closed subsets of $\AA^n_k$, are inverses of each other. Moreover, they reverse the partial orderings on these sets given by inclusion: $I \subset J$ if and only if $Z(I) \supset Z(J)$ for all radical ideals $I$ and $J$ of $A$.
+\end{topic}
+
+\begin{topic}{hilbert-syzygy-theorem}{Hilbert's syzygy theorem}
+    \textbf{Hilbert's syzygy theorem} states that if $M$ is a finitely generated module over a polynomial ring $k[x_1, \ldots, x_n]$, then the $n$-th \tref{syzygy-module}{syzygy module} $M$ is always \tref{free-module}{free}.
+    
+    In particular, this implies that there exists a free resolution
+    \[ 0 \to F_k \to F_{k - 1} \to \cdots \to F_0 \to M \to 0 \]
+    of length $k \le n$.
+\end{topic}
+
+\begin{topic}{primary-ideal}{primary ideal}
+    Let $R$ be a \tref{ring}{commutative ring}. An \tref{ideal}{ideal} $\mathfrak{q}$ of $R$ is \textbf{primary} if $\mathfrak{q} \ne R$ and if
+    \[ xy \in \mathfrak{q} \implies \textup{ either } x \in \mathfrak{q} \textup{ or } y^n \in \mathfrak{q} \textup{ for some } n > 0 . \]
+    In other words,
+    \[ \mathfrak{q} \textup{ is primary } \iff A / \mathfrak{q} \ne 0 \textup{ and every zero-divisor in } A / \mathfrak{q} \textup{ is nilpotent} . \]
+\end{topic}
+
+\begin{topic}{primary-decomposition}{primary decomposition}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{primary decomposition} of an ideal $I \subset R$ is an expression of $I$ as a finite intersection of \tref{primary-ideal}{primary ideals},
+    \[ I = \bigcap_{i = 1}^{n} \mathfrak{q}_i . \]
+    The primary decomposition is said to be \textbf{minimal} if (i) the $\mathfrak{p}_i = r(\mathfrak{q}_i)$ are all distinct, and (ii) no $\mathfrak{q}_i$ contains the intersection of the other primary ideals.
+\end{topic}
+
+\begin{topic}{annihilator}{annihilator}
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an $R$-module. The \textbf{annihilator} of $M$ is the subring
+    \[ \operatorname{Ann}_R(M) = \{ x \in R \mid xM = 0 \} \]
+\end{topic}
+
+\begin{topic}{nilradical}{nilradical}
+     The \textbf{nilradical} of a \tref{ring}{commutative ring} $R$ is the ideal of \tref{nilpotent-element}{nilpotent} elements
+     \[ \mathfrak{N}_R = \{ x \in R \mid x \textup{ is nilpotent } \} . \]
+     It is equal to the intersection of all prime ideals of $R$,
+     \[ \mathfrak{N}_R = \bigcap_{\mathfrak{p} \subset R \textup{ prime}} \mathfrak{p} . \]
+\end{topic}
+
+\begin{topic}{jacobson-radical}{Jacobson radical}
+     The \textbf{Jacobson radical} of a \tref{ring}{commutative ring} $R$ is the ideal given by the intersection of all \tref{maximal-ideal}{maximal} ideals,
+     \[ \mathfrak{J}_R = \bigcap_{\mathfrak{m} \subset R \textup{ maximal}} \mathfrak{m} . \]
+     It can also be characterized by
+     \[ x \in \mathfrak{J}_R \iff 1 - xy \textup{ is a unit for all } y \in R . \]
+\end{topic}
+
+\begin{topic}{regular-sequence}{regular sequence}
+    Let $R$ be a \tref{ring}{commutative ring}, and $M$ an $R$-module. An $M$-\textbf{regular sequence} is a sequence
+    \[ r_1, r_2, \ldots, r_d \in R \]
+    such that $r_i$ is not a \textit{zero-divisor} on $M/(r_1, \ldots, r_{i - 1})$. That is, if $r_i m = 0$ for some $m \in M / (r_1, \ldots, r_{i - 1})$, then $m = 0$.
+    
+    When $M = R$, such a sequence is simply called a \textbf{regular sequence}.
+\end{topic}
+
+\begin{example}{regular-sequence}
+    Consider $R = k[x, y]$ and the sequence $(xy, x^2)$. This sequence is not regular, since $x^2 \cdot y = 0$ in $\QQ[x, y] / (xy)$, although $y \ne 0$.
+\end{example}
+
+\begin{example}{regular-sequence}
+    Consider $R = k[x, y, z]$ and the sequence $(x, y(1 - x), z(1 - x))$. This sequence is regular since
+    \[ y(1 - x) = y \in k[x, y, z]/(x) = k[y, z] \quad \textup{ and } \quad z(1 - x) = z \in k[x, y, z]/(x, y - xy) = k[z] \]
+    are both non-zero-divisors.
+    
+    However, note that the order matters as $(y(1 - x), z(1 - x), x)$ is not a regular sequence. Namely, $z(1 - x) \cdot y = 0 \in k[x, y, z] / (y(1 - x))$ even though $y \ne 0$.
+\end{example}
+
+\begin{topic}{hilbert-series}{Hilbert series}
+    Let $S = \bigoplus_{i \ge 0} S_i$ be a \tref{finitely-generated-algebra}{finitely generated} \tref{graded-ring}{graded} commutative algebra over a field $k$, with $S_0 = k$. The \textbf{Hilbert series} of $S$ is defined as
+    \[ \operatorname{HS}_S(t) = \sum_{i = 0}^{\infty} \dim_k S_i \cdot t^i . \]
+\end{topic}
+
+\begin{example}{hilbert-series}
+    Let $R = k[x_1, \ldots, x_n]$ and $I = (f)$ for some homogenous polynomial of degree $d$. Then we have an exact sequence (a free resolution)
+    \[ 0 \to R(-d) \xrightarrow{\cdot f} R \to R / I \to 0 , \]
+    which implies that
+    \[ \operatorname{HS}_{R/I}(t) = \operatorname{H}_R(t) - \operatorname{HS}_{R(-d)}(t) = \operatorname{HS}_R(t) (1 - t^d) = \frac{1 - t^d}{(1 - t)^n}. \]
+\end{example}
+
+\begin{topic}{hilbert-polynomial}{Hilbert polynomial}
+    Let $S = \bigoplus_{i \ge 0} S_i$ be a \tref{finitely-generated-algebra}{finitely generated} graded commutative \tref{algebra}{algebra} over a \tref{field}{field} $k$, with $S_0 = k$. The \textit{Hilbert function}
+    \[ i \mapsto \dim_k S_i \]
+    becomes polynomial for large enough values of $i$, and the resulting polynomial is called the \textbf{Hilbert polynomial} $\operatorname{HP}_S(i)$ of $S$.
+\end{topic}
+
+\begin{example}{hilbert-polynomial}
+    Let $R = k[x_1, \ldots, x_n]$, then
+    \[ \dim R_i = \binom{n - 1 + i}{i} = \frac{(n - 1 + i) \cdots (i + 1)}{(n - 1)!} , \]
+    which is a polynomial in $i$ for every value of $n$. In particular,
+    \[ \begin{aligned}
+        \operatorname{HP}_{k[x]}(i) &= 1, \\
+        \operatorname{HP}_{k[x, y]}(i) &= i + 1, \\
+        \operatorname{HP}_{k[x, y, z]}(i) &= \tfrac{1}{2} (i + 1)(i + 2), \\
+        \operatorname{HP}_{k[x, y, z, w]}(i) &= \tfrac{1}{6} (i + 1)(i + 2)(i + 3) .
+    \end{aligned} \]
+\end{example}
+
+\begin{example}{hilbert-polynomial}
+    Let $R = k[x, y, z] / (z^2 - xy)$. It is easy to see that
+    \[ \dim R_i = \left\{ \begin{array}{cl}
+        1 & \textup{ if } i = 0, \\
+        3 & \textup{ if } i = 1, \\
+        i + 1 & \textup{ otherwise}.
+    \end{array} \right. \]
+    Hence, $\operatorname{HP}_R(i) = i + 1$.
+\end{example}
+
+\begin{topic}{absolutely-flat-ring}{absolutely flat ring}
+    A \tref{ring}{commutative ring} $R$ is called \textbf{absolutely flat} if every $R$-module is \tref{flat-module}{flat}.
+\end{topic}
+
+\begin{topic}{standard-smooth-algebra}{standard smooth algebra}
+    Let $A$ be \tref{ring}{commutative ring}, and $B = A[x_1, \ldots, x_n] / (f_1, \ldots, f_c)$ a \tref{finitely-presented-algebra}{finitely presented $A$-algebra}. Then $B$ is a \textbf{standard smooth} over $A$ if the determinant
+    \[ \det \begin{pmatrix}
+        \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_c} \\
+        \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_c} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        \frac{\partial f_c}{\partial x_1} & \frac{\partial f_c}{\partial x_2} & \cdots & \frac{\partial f_c}{\partial x_c}
+    \end{pmatrix} \]
+    maps to an invertible element in $B$. Note that this definition is dependent on the presentation of $B$.
+\end{topic}
+
+\begin{example}{standard-smooth-algebra}
+    \begin{itemize}
+        \item Take $A = k$ a field and $B = k[x, y] / (xy)$. Then $\partial (xy) / \partial x = y$ which is not invertible in $B$, so $k[x, y] / (xy)$ is not standard smooth over $k$.
+        \item Taking $B = k[x, y] / (xy - 1)$, we see that $\partial (xy - 1) / \partial x = y$, which is invertible in $B$. Hence $k[x, y] / (xy - 1)$ is standard smooth over $k$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{standard-etale-algebra}{standard étale algebra}
+    Let $R$ be \tref{ring}{commutative ring}. A \textbf{standard étale algebra} over $R$ is an \tref{algebra}{$R$-algebra} of the form
+    \[ R[x]_g / (f) , \]
+    where $f, g \in R[x]$ with $f$ monic and the derivative $f'$ is invertible in the \tref{localization}{localization} $R[x]_g$.
+\end{topic}
+
+\begin{example}{standard-etale-algebra}
+    Let $k$ be a field, and $n \ge 1$ an integer with $n \nmid \operatorname{char}(k)$. Then $k[t^{\pm 1}, x] / (x^n - t)$ is a standard étale algebra over $k[t^{\pm 1}]$, with $f = x^n - t$ and $g = 1$ as in the definition. Indeed, $f' = n x^{n - 1}$ has inverse $\tfrac{1}{n} x t^{-1}$ in $k[t^{\pm 1}, x]$.
+    
+    However, the algebra $k[t, x] / (x^n - t)$ over $k[t]$ is not standard étale, with $f = x^n - t$ and $g = 1$ as in the definition. Indeed, the derivative $f' = n x^{n - 1}$ is not invertible in $k[t, x] / (x^n - t)$.
+\end{example}
+
+\begin{topic}{etale-algebra}{étale algebra}
+    Let $A$ be a \tref{ring}{commutative ring} and $B$ an $A$-algebra. Then $B$ is an \textbf{étale algebra} over $A$ if $B$ is a \tref{flat-module}{flat} $A$-module and $\Omega_{B/A} = 0$.
+\end{topic}
+
+\begin{topic}{fitting-ideal}{Fitting ideal}
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an $R$-\tref{module}{module} generated by elements $m_1, \ldots, m_n \in M$, with relations
+    \[ a_{i1} m_1 + \cdots a_{in} m_n = 0 \textup{ for } i = 1, 2, \ldots, \ell . \]
+    Then the \textbf{$i$-th Fitting ideal} $\operatorname{Fitt}_i(M)$ of $M$ is generated by the minors (determinants of submatrices) of order $n - i$ of the matrix $a_{ij}$. It can be shown that this does not depend on the choice of generators or relations. One has the inclusions
+    \[ \operatorname{Fitt}_0(M) \subset \operatorname{Fitt}_1(M) \subset \operatorname{Fitt}_2(M) \subset \cdots \]
+    Intuitively, the $i$-th fitting ideal (or actually the quotient $R / \operatorname{Fitt}_i(M)$) measures the obstruction for $M$ to be generated by $i$ elements.
+    
+    Sometimes the \textbf{Fitting ideal} of $M$ is defined as the first non-zero fitting ideal.
+\end{topic}
+
+\begin{example}{fitting-ideal}
+    If $M$ is \tref{free-module}{free} of rank $n$, the matrix $a_{ij}$ will be of size $0 \times n$. Hence $\operatorname{Fitt}_i(M) = 0$ for $i < n$ as there are no submatrices of size $n - i > 0$, and $\operatorname{Fitt}_i(M) = R$ for $i \ge n$ as the determinant of a $0 \times 0$ matrix is one.
+\end{example}
+
+\begin{example}{fitting-ideal}
+    Consider $M = \ZZ / p \ZZ \times \ZZ / p^2 \ZZ$ as $\ZZ$-module. It can be generated by $m_1 = (1, 0)$ and $m_2 = (0, 1)$ with relations $p m_1 = 0$ and $p^2 m_2 = 0$, so the corresponding matrix is
+    \[ a_{ij} = \begin{pmatrix} p & 0 \\ 0 & p^2 \end{pmatrix} \]
+    and thus
+    \[ \operatorname{Fitt}_0(M) = (p^3), \quad \operatorname{Fitt}_1(M) = (p, p^2) = (p) \quad \textup{ and } \quad \operatorname{Fitt}_{\ge 2}(M) = \ZZ . \]
+\end{example}
+
+\begin{example}{fitting-ideal}
+    Consider the finitely generated abelian group $M = \ZZ^r \times \ZZ / d_1 \ZZ \times \cdots \times \ZZ / d_k \ZZ$ with $d_1 | d_2 | \cdots | d_k$. Using the natural generators, the relation matrix is
+    \[ a_{ij} = \begin{pmatrix} \textbf{0}_{r \times r} & & &  \\  & d_1 & \\ & & \ddots & \\ & & & d_k \end{pmatrix} \]
+    and thus
+    \[ \begin{array}{rcl}
+         \operatorname{Fitt}_{0 \le i \le r}(M) &=& (0) , \\
+        \operatorname{Fitt}_{r + 1}(M) &=& (d_1 d_2\cdots d_k) , \\
+        \operatorname{Fitt}_{r + 2}(M) &=& (d_1 d_2\cdots d_{k - 1}) , \\
+        & \vdots & \\
+        \operatorname{Fitt}_{r + k - 1}(M) &=& (d_1) , \\
+        \operatorname{Fitt}_{\ge r + k}(M) &=& \ZZ .
+    \end{array} \]
+\end{example}
+
+\begin{example}{fitting-ideal}
+    Consider the scheme $X = \Spec k[x_1, \ldots, x_n] / I$ with $I = (f_1, \ldots, f_k)$ for some polynomials $f_i$. The module of differentials
+    \[ \Omega_{X/k} = \left(\bigoplus_{i = 1}^{n} k[x_1, \ldots, x_n] / I \cdot dx_i \right) / (df_1, df_2, \ldots, df_k) \]
+    is generated by $dx_1, \ldots, dx_n$ and relations
+    \[ df_i = \sum_{j = 1}^{n} \frac{\partial f_i}{\partial x_j} dx_j = 0 \quad \textup{ for } i = 1, 2, \ldots, k , \]
+    so the corresponding matrix is the Jacobian matrix
+    \[ J = \begin{pmatrix}
+        \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+        \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \frac{\partial f_k}{\partial x_1} & \frac{\partial f_k}{\partial x_2} & \cdots & \frac{\partial f_k}{\partial x_n}
+    \end{pmatrix} . \]
+    Now $X$ is smooth over $k$ if and only if $\Omega_{X/k}$ is locally free of rank $n = \dim X$, which is equivalent to the Fitting ideal $\operatorname{Fitt}_{\dim X}(\Omega_{X/k})$ generating the unit ideal in the localization of each prime ideal of $k[x_1, \ldots, x_n] / I$, which is equivalent to the Fitting ideal $\operatorname{Fitt}_{\dim X}(\Omega_{X/k})$ generating the unit ideal in $k[x_1, \ldots, x_n] / I$ itself.
+\end{example}
+
+\begin{topic}{gcd}{greatest common divisor (GCD)}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{greatest common divisor} of two elements $a, b \in R$ is an element $d \in R$ such that $d | a, b$ and for any other $d' \in R$ with $d' | a, b$ one has $d' | d$. It is denoted $d = \operatorname{gcd}(a, b)$.
+\end{topic}
+
+\begin{topic}{lcm}{least common multiple (LCM)}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{least common multiple} of two elements $a, b \in R$ is an element $m \in R$ such that $a, b | m$ and for any other $m' \in R$ with $a, b | m$ one has $m | m'$. It is denoted $m = \operatorname{lcm}(a, b)$.
+\end{topic}
+
+\begin{topic}{gcd-domain}{GCD domain}
+    A \textbf{GCD domain} is a \tref{domain}{domain} $R$ in which any two elements $a, b$ have a \tref{gcd}{greatest common divisor}.
+\end{topic}
+
+\begin{topic}{projective-dimension}{projective dimension}
+    The \textbf{projective dimension} of a \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$ is the minimal length of a projective resolution of $M$.
+    \[ \cdots \to P_n \to \cdots \to P_2 \to P_1 \to P_0 \to M \to 0 \]
+    It may be infinite.
+\end{topic}
+
+% \begin{example}{projective-dimension}
+%     Consider $R = k[x, y] / (xy)$ and $M = k$ as an $R$-module, where $x$ and $y$ act by multiplication by zero.
+% \end{example}
+
+\begin{topic}{injective-dimension}{injective dimension}
+    The \textbf{injective dimension} of a \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$ is the minimal length of a injective resolution of $M$.
+    \[ 0 \to M \to I^0 \to I^1 \to I^2 \to \cdots \]
+    It may be infinite.
+\end{topic}
+
+\begin{topic}{gorenstein-ring}{Gorenstein ring}
+    A \textbf{Gorenstein local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} \tref{ring}{ring} $R$ with finite \tref{injective-dimension}{injective dimension} as an $R$-module.
+    
+    A \textbf{Gorenstein ring} is a commutative noetherian ring $R$ such that the localization $R_\mathfrak{p}$ is Gorenstein for each \tref{prime-ideal}{prime ideal} $\mathfrak{p}$.
+\end{topic}
+
+\begin{topic}{cohen-macaulay-ring}{Cohen--Macaulay ring}
+    A \tref{finitely-generated-module}{finitely generated} \tref{module}{module} $M$ over a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} \tref{ring}{ring} $R$ is \textbf{Cohen--Macaulay} if its \tref{depth-module}{depth} $\operatorname{depth}_{\mathfrak{m}}(M)$ equals its \tref{krull-dimension}{dimension} $\dim_R(M) := \dim(R/\operatorname{Ann}_R(M))$.
+    
+    More generally, for a commutative noetherian ring $R$, a finitely generated $R$-module $M$ is \textbf{Cohen--Macaulay} if the localization $M_\mathfrak{m}$ is Cohen--Macaulay over $R_\mathfrak{m}$ for each maximal ideal $\mathfrak{m}$ of $R$.
+    
+    A commutative noetherian ring $R$ is \textbf{Cohen--Macaulay} if it is so as a module over itself.
+\end{topic}
+
+\begin{topic}{height-prime-ideal}{height prime ideal}
+    The \textbf{height} of a \tref{prime-ideal}{prime ideal} $\mathfrak{p}$ in a \tref{ring}{commutative-ring} $R$ is the supremum of lengths of chains of prime ideals, where a chain
+    \[ \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n = \mathfrak{p} \]
+    has length $n$.
+\end{topic}
+
+\begin{topic}{associated-graded-ring}{associated graded ring}
+    The \textbf{associated graded ring} of a \tref{ring}{commutative ring} $R$ and an \tref{ideal}{ideal} $\mathfrak{a}$ is the \tref{graded-ring}{graded ring}
+    \[ G_\mathfrak{a}(R) = \bigoplus_{n = 0}^{\infty} \mathfrak{a}^n / \mathfrak{a}^{n + 1} . \]
+\end{topic}
+
+\begin{topic}{completion}{completion}
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an \tref{module}{$R$-module}. Each \tref{ideal}{ideal} $\mathfrak{a} \subset R$ determines a \tref{TO:topological-space}{topology} on $M$ called the \textbf{$\mathfrak{a}$-adic topology}: a subset $U \subset M$ is \textit{open} if and only if for each $x \in U$ there exists a positive integer $n$ such that $x + \mathfrak{a}^n M \subset U$.
+    
+    The \textbf{completion} of $M$ with respect to $\mathfrak{a}$ is the \tref{CT:inverse-limit}{inverse limit}
+    \[ \widehat{M} = \varprojlim_{n \ge 1} M / \mathfrak{a}^n M = \left\{ (x_n)_{n \ge 1} \in \prod_{n \ge 1} M / \mathfrak{a}^n M : x_m = x_n \mod \mathfrak{a}^n M \textup{ for } m \le n \right\} \]
+    with the \tref{TO:subspace-topology}{subspace} \tref{TO:product-topology}{product topology}.
+    
+    When $R = M$, the completion $\widehat{R}$ has a ring structure and is called the \textbf{completion} of $R$, with repsect to $\mathfrak{a}$.
+\end{topic}
+
+\begin{example}{completion}
+    When $R = k[x_1, \ldots, x_n]$ and $\mathfrak{a} = (x_1, \ldots, x_n)$, the completion is the power series ring
+    \[ \widehat{R} = k\llbracket x_1, \ldots, x_n \rrbracket . \]
+\end{example}
+
+\begin{topic}{prime-avoidance-lemma}{prime avoidance lemma}
+    Let $R$ be a \tref{ring}{commutative ring}. The \textbf{prime avoidance lemma} states that if $\mathfrak{p}_1, \ldots, \mathfrak{p}_n$ are \tref{prime-ideal}{prime ideals} and $I$ an \tref{ideal}{ideal} with $I \subset \bigcup_{i = 1}^{n} \mathfrak{p}_i$, then $I \subset \mathfrak{p}_i$ for some $i$.
+\end{topic}
+
+\begin{example}{prime-avoidance-lemma}
+    \begin{proof}
+        Proof by induction on $n$. The base case $n = 1$ is trivial. Let $n > 1$ and assume the result holds for $n - 1$. Suppose for a contradiction that $I \not\subset \mathfrak{p}_i$ for all $i$, then by applying the induction hypothesis to each collection $\mathfrak{p}_1, \ldots, \mathfrak{p}_{i - 1}, \mathfrak{p}_{i + 1}, \ldots, \mathfrak{p}_n$, there exist elements $x_i \in I$ such that $x_i \not\in \mathfrak{p}_j$ whenever $j \ne i$. If for some $i$ we have $x_i \not\in \mathfrak{p}_i$ we are done. Otherwise, $x_i \in \mathfrak{p}_i$ for all $i$ and then
+        \[ y = \sum_{i = 1}^{n} x_1 x_2 \cdots x_{i - 1} x_{i + 1} \cdots x_n \]
+        is contained in $I$ but not in $\mathfrak{p}_i$ for any $i$. This shows $I \not\in \bigcup_{i = 1}^{n} \mathfrak{p}_i$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{integrally-closed-domain}{integrally closed domain}
+    A \tref{domain}{domain} $R$ is \textbf{integrally closed} if it is equal to its \tref{integral-closure}{integral closure} in its \tref{field-of-fractions}{field of fractions}.
+\end{topic}
+
+\begin{example}{integrally-closed-domain}
+    The ring $R = \ZZ[\sqrt{5}]$ is not integrally closed as it does not contain the integral element $\tfrac{1}{2} \sqrt{5} + \tfrac{1}{2} \in \QQ(\sqrt{5})$, which satisfies $x^2 - x - 1 = 0$.
+\end{example}
+
+\begin{example}{integrally-closed-domain}
+    Any \tref{valuation-ring}{valuation ring} $R$ is integrally closed. Namely, suppose $x \in K$ is integral over $R$ and satisfies $x^n + a_{n - 1} x^{n - 1} + \cdots + a_0 = 0$. Either $x \in R$, and we are done, or $x^{-1} \in R$ and we multiply the equation by $x^{-n + 1}$ to obtain
+    \[ -x = a_{n - 1} + a_{n - 2} x^{-1} + \cdots + a_0 x^{-n + 1} , \]
+    which shows $x \in R$.
+\end{example}
+
+\begin{example}{integrally-closed-domain}
+    A domain $R$ is integrally closed if and only if the \tref{localization}{localizations} $R_\mathfrak{p}$ are integrally closed for all \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ of $R$. Namely, if $R$ is integrally closed and $S \subset R$ is a multiplicative set, and $x \in K$ is integral over $S^{-1} R$, then
+    \[ x^n + \frac{a_{n - 1}}{s_{n - 1}} x^{n - 1} + \cdots + \frac{a_0}{s_0} = 0 \]
+    for some $a_i \in R$ and $s_i \in S$. Multiplying this equation by $s^n$, where $s = s_0 s_1 \cdots s_{n - 1}$, we find
+    \[ (sx)^n + \frac{a_{n - 1} s}{s_{n - 1}} (sx)^{n - 1} + \cdots + \frac{a_0 s^n}{s_0} = 0 , \]
+    and clearly $\frac{a_i s^{n - i}}{s_i} \in R$ for all $i = 1, \ldots, n - 1$. Since $R$ is integrally closed, we have $sx \in R$ and thus $x \in S^{-1} R$, so $S^{-1} R$ is integrally closed. Conversely, if all localizations $R_\mathfrak{p}$ are integrally closed, and $x \in K$ is integral over $R$, then in particular $x$ is integral over all $R_\mathfrak{p}$, implying $x \in \bigcap_{\mathfrak{p}} R_\mathfrak{p} = R$.
+\end{example}
+
+\begin{topic}{finitely-generated-algebra}{finitely generated algebra}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{finitely generated algebra} over $R$ is an \tref{algebra}{$R$-algebra} isomorphic to a quotient of $R[x_1, \ldots, x_n]$ for some $n$.
+\end{topic}
+
+\begin{example}{finitely-generated-algebra}
+    The ring of rational numbers $\QQ$ is not finitely generated as a $\ZZ$-algebra. Namely, for any $q_1, \ldots, q_n \in \QQ$, the subring of $\QQ$ generated as a $\ZZ$-algebra by the $q_i$, can only contain denominators with prime factors that are also prime factors of the denominators of the $q_i$. But since there are infinitely many prime numbers, this subring cannot be the whole of $\QQ$.
+\end{example}
+
+\begin{topic}{catenary-ring}{(universally) catenary ring}
+    A \tref{ring}{commutative ring} $R$ is \textbf{catenary} if for any \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ and $\mathfrak{q}$, any two strictly increasing chains of prime ideals
+    \[ \mathfrak{p} = \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n = \mathfrak{q} \]
+    are contained in maximally strictly increasing chains from $\mathfrak{p}$ to $\mathfrak{q}$ of the same (finite) length.
+    
+    The ring $R$ is \textbf{universally catenary} if all \tref{finitely-generated-algebra}{finitely generated algebras} over $R$ are catenary.
+\end{topic}
+
+\begin{topic}{G-ring}{G-ring}
+    A \tref{ring}{commutative ring} $R$ is a \textbf{G-ring} or \textbf{Grothendieck ring} if it is \tref{noetherian-ring}{noetherian} and for every localization $R_{\mathfrak{p}}$ the map $R_{\mathfrak{p}} \to \widehat{R_{\mathfrak{p}}}$ to its \tref{completion}{completion} (with respect to the maximal ideal) is a \tref{AG:regular-morphism}{regular morphism}.
+\end{topic}
+
+\begin{topic}{j0-j1-j2-ring}{J-0/J-1/J-2 ring}
+    Let $R$ be a \tref{noetherian-ring}{noetherian} \tref{ring}{commutative ring}. The \textit{regular locus} $\operatorname{Reg}(X)$ of $X = \Spec R$ is the set of \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ of $R$ such that the \tref{localization}{localization} $R_\mathfrak{p}$ is \tref{regular-ring}{regular}.
+    
+    The ring $R$ is \textbf{J-0} if $\operatorname{Reg}(X)$ contains a nonempty open.
+    
+    The ring $R$ is \textbf{J-1} if $\operatorname{Reg}(X)$ is open.
+    
+    The ring $R$ is \textbf{J-2} if $\operatorname{Reg}(X)$ if any \tref{finitely-generated-algebra}{finitely generated $R$-algebra} is J-1.
+\end{topic}
+
+\begin{topic}{excellent-ring}{(quasi-)excellent ring}
+    A \tref{ring}{commutative ring} $R$ is \textbf{quasi-excellent} if it is \tref{noetherian-ring}{noetherian}, a \tref{G-ring}{G-ring}, and \tref{j0-j1-j2-ring}{J-2}.
+    The ring $R$ is \textbf{excellent} if it is quasi-excellent and \tref{catenary-ring}{universally catenary}.
+\end{topic}
+
+\begin{topic}{henselian-ring}{Henselian ring}
+    A \tref{local-ring}{local-ring} $A$ with \tref{maximal-ideal}{maximal-ideal} $\mathfrak{m}$ is \textbf{Henselian} if \tref{NT:hensel-lifting-lemma}{Hensel's lifting lemma} holds: for every \tref{monic-polynomial}{monic polynomial} $f \in A[x]$, any factorization $\overline{f} = \overline{g} \cdot \overline{h}$ in $(A/\mathfrak{m})[x]$ with $\overline{g}$ and $\overline{h}$ monic and coprime can be lifted to a factorization $f = gh$ in $A[x]$ such that $\deg(\overline{g}) = \deg(g)$ and $g, h$ have reduction $\overline{g}, \overline{h}$ in $A/\mathfrak{m}$.
+    
+    The ring $A$ is called \textbf{strictly Henselian} if in addition the residue field $k = A/\mathfrak{m}$ is \tref{separably-closed-field}{separably closed}.
+\end{topic}
+
+\begin{topic}{going-up}{going-up}
+    Let $A$ be a \tref{ring}{commutative ring}, and $B$ an $A$-algebra. The ring extension $A \subset B$ satisfies the \textbf{going-up property} if whenever
+    \[ \mathfrak{p}_1 \subset \mathfrak{p}_2 \subset \cdots \subset \mathfrak{p}_n \quad \textup{ and } \quad \mathfrak{q}_1 \subset \mathfrak{q}_2 \subset \cdots \subset \mathfrak{q}_m \]
+    are chains of \tref{prime-ideal}{prime ideals} of $A$ and $B$, respectively, with $m < n$ such that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ (that is, $\mathfrak{q}_i \cap A = \mathfrak{p}_i$) for each $1 \le i \le m$, the latter chain can be extended to a chain $\mathfrak{q}_1 \subset \cdots \subset \mathfrak{q}_m$ so that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ for all $1 \le i \le n$.
+    
+    The \textbf{going-up theorem} states that any \tref{integral-closure}{integral extension} $A \subset B$ satisfies the going-up property.
+\end{topic}
+
+\begin{topic}{going-down}{going-down}
+    Let $A$ be a \tref{ring}{commutative ring}, and $B$ an $A$-algebra. The ring extension $A \subset B$ satisfies the \textbf{going-down property} if whenever
+    \[ \mathfrak{p}_1 \supset \mathfrak{p}_2 \supset \cdots \supset \mathfrak{p}_n \quad \textup{ and } \quad \mathfrak{q}_1 \supset \mathfrak{q}_2 \supset \cdots \supset \mathfrak{q}_m \]
+    are chains of \tref{prime-ideal}{prime ideals} of $A$ and $B$, respectively, with $m < n$ such that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ (that is, $\mathfrak{q}_i \cap A = \mathfrak{p}_i$) for each $1 \le i \le m$, the latter chain can be extended to a chain $\mathfrak{q}_1 \supset \cdots \supset \mathfrak{q}_m$ so that $\mathfrak{q}_i$ lies over $\mathfrak{p}_i$ for all $1 \le i \le n$.
+    
+    The \textbf{going-down theorem} states that any \tref{integral-closure}{integral extension} $A \subset B$ with $B$ a \tref{domain}{domain} and $A$ \tref{integral-closure}{integrally closed} in its \tref{field-of-fractions}{field of fractions} satisfies the going-down property.
+\end{topic}
+
+\begin{topic}{eisenstein-polynomial}{Eisenstein polynomial}
+    Let $R$ be a \tref{unique-factorization-domain}{unique factorization domain} and $p \in R$ an \tref{irreducible-element}{irreducible element}. A polynomial
+    \[ f = a_n x^n + \cdots + a_1 x + a_0 \in R[x] \]
+    is \textbf{Eisenstein} (for $p$) if
+    \begin{itemize}
+        \item $p \nmid a_n$,
+        \item $p | a_i$ for $i = 0, 1, \ldots, n - 1$,
+        \item $p^2 \nmid a_0$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{eisenstein-polynomial}
+    \begin{itemize}
+        \item The polynomial $f = x^5 + 6x^2 - 12 \in \ZZ[x]$ is Eisenstein for $p = 3$, but not for $p = 2$.
+        \item The polynomial $f = x^3 + (y^4 - 1) x - (y^2 - 1) \in R[x]$ with $R = \ZZ[y]$ is Eisenstein for $p = y^2 + 1$.
+    \end{itemize}
+\end{example}
+
+\begin{example}{eisenstein-polynomial}
+    \textit{Eisenstein's criterion} states that if $f \in R[x]$ is an Eisenstein polynomial, then it is irreducible in $K[x]$, where $K$ is the \tref{field-of-fractions}{field of fractions} of $R$, and if $f$ is primitive it is also irreducible in $R[x]$.
+    
+    Namely, suppose that $f = a_n x^n + \cdots + a_0$ is Eisenstein, and that $f = gh$ for some $g, h \in R[x]$ with $\deg(g), \deg(h) > 0$. Reducing modulo $p$, we find that
+    \[ \overline{f} = f \mod p = \overline{a}_n x^n \in (R/pR)[x] \]
+    is non-zero as $p \nmid a_n$. Moreover $\overline{f} = \overline{g} \overline{h}$, which is only possible if $\overline{g} = \overline{b} x^k$ and $\overline{h} = \overline{c} x^\ell$ for some $b, c \in R$ and $k, l > 0$ with $k + \ell = n$. Hence, the constant coefficients of $g$ and $h$ are both divisible by $p$, which implies the constant coefficient $a_0$ of $f$ is divisible by $p^2$, a contradiction. Therefore $f$ is irreducible in $R[x]$, and if $f$ is primitive also in $K[x]$.
+\end{example}
+
+\begin{topic}{primitive-polynomial}{primitive polynomial}
+    Let $R$ be a \tref{unique-factorization-domain}{unique factorization domain}. A polynomial $f = a_n x^n + \cdots + a_1 x + a_0 \in R[x]$ is \textbf{primitive} if the \tref{gcd}{greatest common divisor} of its coefficients, $\gcd(a_n, \ldots, a_0)$, also known as its \tref{content-polynomial}{content} is a \tref{unit}{unit} in $R$.
+\end{topic}
+
+\begin{example}{primitive-polynomial}
+    The polynomial $f = 3x^4 + 5x \in \ZZ[x]$ is primitive since $\gcd(3, 5) = 1$, while $g = 2x^3 + 4 \in \ZZ[x]$ is not as $\gcd(2, 4) = 2$. However, both $f$ and $g$ are primitive in $\QQ[x]$.
+\end{example}
+
+\begin{topic}{content-polynomial}{content polynomial}
+    Let $R$ be a \tref{unique-factorization-domain}{unique factorization domain}. The \textbf{content} of a polynomial $f \in R[x]$ is the the \tref{gcd}{greatest common divisor} of its coefficients,
+    \[ \operatorname{co}(f) = \gcd(a_n, \ldots, a_0) , \]
+    which is well-defined up to a unit in $R$.
+\end{topic}
+
+\begin{topic}{laurent-polynomial}{Laurent polynomial}
+    A \textbf{Laurent polynomial} over a \tref{ring}{commutative ring} $R$ is an element $f \in R[x, x^{-1}]$, or explicitly
+    \[ f = \sum_{i} a_i x^i \]
+    where the sum is taken over finitely many $i \in \ZZ$.
+\end{topic}
+
+\begin{topic}{rees-algebra}{Rees algebra}
+    Let $R$ be a \tref{ring}{commutative ring} and $I \subset R$ and \tref{ideal}{ideal}. Then the \textbf{Rees algebra} of $I$ in $R$ is the ring given by
+    \[ R[It] = \bigoplus_{n = 0}^\infty I^n t^n \subset R[t] , \]
+    where $I^0 = R$. % The \textbf{extended Rees algebra} of $I$ in $R$ is the ring given by
+    % \[ R[It, t^{-1}] = \bigoplus_{n = -\infty}^\infty I^n t^n \subset R[t^{\pm 1}] . \]
+\end{topic}
+
+\begin{topic}{formal-group-law}{formal group law}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{(1-dimensional) formal group law} on $R$ is a power series $F(x, y) \in R\llbracket x, y \rrbracket$ such that
+    \begin{itemize}
+        \item (\textit{linear terms}) $F(x, 0) = x$ and $F(0, y) = y$,
+        \item (\textit{associativity}) $F(x, F(y, z)) = F(F(x, y), z)$.
+    \end{itemize}
+    Such a formal group law is called \textbf{commutative} if $F(x, y) = F(y, x)$.
+\end{topic}
+
+\begin{example}{formal-group-law}
+    \begin{itemize}
+        \item The \textit{additive group law} is given by $F(x, y) = x + y$.
+        \item The \textit{multiplicative group law} is given by $F(x, y) = x + y + xy$.
+        \item The group law $F(x, y) = (x + y) / (1 + xy)$ appears in \textit{special relativity} as the addition law for velocities (here the speed of light is set to $c = 1$).
+        \item (Campbell--Hausdorff formula) Let $G$ be a \tref{DG:lie-group}{Lie group} and $\mathfrak{g}$ the corresponding \tref{lie-algebra}{Lie algebra}. For small enough $x, y \in \mathfrak{g}$ one has $\exp(x) \exp(y) = \exp(\mu(x, y))$ with
+        \[ \mu(x, y) = x + y + \frac{1}{2} [x, y] + \frac{1}{12}([x, [x, y]] + [y, [y, x]]) + \cdots \]
+    \end{itemize}
+\end{example}
+
+\begin{topic}{lazard-universal-ring}{Lazard's universal ring}
+    \textbf{Lazard's universal ring} is \tref{ring}{commutative ring} $\mathbb{L}$ with a \tref{formal-group-law}{formal group law}
+    \[ F(x, y) = x + y + \sum_{i + j \ge 2} a_{i,j} x^i y^j \in \mathbb{L}\llbracket x, y \rrbracket , \]
+    with the universal property that for any formal group law $G(x, y) \in R \llbracket x, y \rrbracket$ over a commutative ring $R$, there exists a unique \tref{ring-morphism}{ring morphism} $f : \mathbb{L} \to R$ such that $G(f(x), f(y)) = f(F(x, y))$. The ring $\mathbb{L}$ is constructed as the quotient of the polynomial ring $\ZZ[a_{i, j} : i + j \ge 2]$ by the relations on the $a_{i, j}$ in order to make $F$ associative.
+    
+    It can be shown that $\mathbb{L}$ is isomorphic to the \tref{graded-ring}{graded ring} $\ZZ[x_1, x_2, \ldots]$, where $x_i$ has degree $i$, such that $a_{i, j}$ has degree $(i + j - 1)$.
+\end{topic}
+
+\begin{topic}{dedekind-domain}{Dedekind domain}
+    A \textbf{Dedekind domain} is a \tref{noetherian-ring}{noetherian} \tref{integrally-closed-domain}{integrally closed domain} of \tref{krull-dimension}{dimension} $\le 1$ (that is, every non-zero \tref{prime-ideal}{prime ideal} is \tref{maximal-ideal}{maximal}).
+\end{topic}
+
+\begin{example}{dedekind-domain}
+    Dedekind domains can be characterized in a number of ways. The following are all equivalent.
+    \begin{enumerate}[(i)]
+        \item $R$ is a Dedekind domain.
+        \item $R$ is \tref{noetherian-ring}{noetherian}, and for every prime ideal $\mathfrak{p} \subset R$, the \tref{localization}{localization} $R_\mathfrak{p}$ is a \tref{discrete-valuation-ring}{discrete valuation ring}.
+        \item Every \tref{fractional-ideal}{fractional ideal} of $R$ is \tref{invertible-ideal}{invertible}.
+        \item Every non-zero \tref{ideal}{ideal} $I \subsetneq R$ factors into a product of prime ideals.
+    \end{enumerate}
+    % \textbf{Proof}. $(i \Rightarrow ii)$ Let $I$ be any non-zero ideal, and take some non-zero $a \in I$. Then $(a) \subset I$, so we can write
+    % \[ I = \mathfrak{p}_1^{r_1} \cdots \mathfrak{p}_m^{r_m} \quad \textup{ and } \quad (a) = \mathfrak{p}_1^{s_1} \cdots \mathfrak{p}_m^{s_m} , \]
+    % with $r_i \le s_i$. In particular, the fractional ideal $J = a^{-1} \mathfrak{p}_1^{s_1 - r_1} \cdots \mathfrak{p}_m^{s_m - r_m}$ is the inverse of $I$.
+    % Why noetherian?
+    % $(ii \Rightarrow iii)$ 
+\end{example}
+
+\begin{example}{dedekind-domain}
+    \begin{itemize}
+        \item Any \tref{field}{field} is a Dedekind domain.
+        \item The \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of a \tref{NT:number-field}{number field} $K$ is a Dedekind domain.
+        \item The ring $\ZZ[\sqrt{5}]$ is not a Dedekind domain as it is not integrally closed: the element $\alpha = \frac{1 + \sqrt{5}}{2}$ satisfies $\alpha^2 - \alpha - 1 = 0$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{symmetric-polynomial}{symmetric polynomial}
+    Let $R$ be a \tref{ring}{commutative ring}. A polynomial $f \in R[x_1, \ldots, x_n]$ is \textbf{symmetric} if it is invariant under any \tref{GT:symmetric-group}{permutation} of the variables, that is,
+    \[ f(x_{\sigma(1)}, \ldots, x_{\sigma(n)}) = f(x_1, \ldots, x_n) \quad \textup{ for all } \sigma \in S_n . \]
+    \begin{itemize}
+        \item For any $0 \le k \le n$, the \textbf{$k$th elementary symmetric polynomial} is given by
+        \[ e_k = \sum_{1 \le i_1 < \ldots < i_k \le n} x_{i_1} \cdots x_{i_k} . \]
+        \item For any \tref{GM:integer-partition}{partition} $\lambda = (\lambda_1, \ldots, \lambda_n)$, the \textbf{monomial symmetric polynomial} of $\lambda$ is given by
+        \[ m_\lambda = \sum_{\mu} x_1^{\mu_1} \cdots x_n^{\mu_n} , \]
+        where $\mu$ ranges over all distinct permutations of $\lambda$.
+        \item For any partition $\lambda = (\lambda_1, \ldots, \lambda_r)$, the \textbf{homogeneous symmetric polynomial} of $\lambda$ is given by
+        \[ h_\lambda = h_{\lambda_1} \cdots h_{\lambda_r} , \]
+        where $h_k$ is the sum of all monomials of degree $k$.
+        \item For any partition $\lambda = (\lambda_1, \ldots, \lambda_r)$, the \textbf{power symmetric polynomial} of $\lambda$ is given by
+        \[ p_\lambda = p_{\lambda_1} \cdots p_{\lambda_r} , \]
+        where $p_k = m_{(k)}$ is the sum of all $k$-th powers.
+    \end{itemize}
+    The \textbf{fundamental theorem of symmetric polynomials} states that any symmetric polynomial $f \in R[x_1, \ldots, x_n]$ can be written uniquely as a polynomial in the elementary symmetric polynomials $e_k$. In other words, there is an isomorphism $R[x_1, \ldots, x_n]^{S_n} \simeq R[e_1, \ldots, e_n]$.
+\end{topic}
+
+\begin{example}{symmetric-polynomial}
+    The elementary symmetric polynomials appear (up to sign) as the coefficients of the polynomial
+    \[ F = \sum_{i = 1}^{n} (T - x_i) = \sum_{k = 0}^{n} (-1)^k e_k (x_1, \ldots, x_n) T^{n - k} \in R[x_1, \ldots, x_n][T]  .\]
+    Now let $f = \sum_{k = 0}^{n} a_k T^k \in R[T]$ be a monic polynomial over a field $k$. Over some \tref{splitting-field}{splitting field} $\ell/k$, one may write $f = \prod_{i = 1}^{n} (T - \alpha_i)$, where $\alpha_i \in \ell$ are the zeros of $f$. In particular, from the above we find
+    \[ f = \sum_{k = 0}^{n} (-1)^k e_k(\alpha_1, \ldots, \alpha_n) T^{n - k} , \]
+    that is, the coefficients of $f$ are given by $a_i = (-1)^{n - i} e_{n - i}(\alpha_1, \ldots, \alpha_n)$. Hence, by the fundamental theorem of symmetric polynomials, any symmetric function of the roots $\alpha_i$ can be written as a function of the coefficients of $f$. For example,
+    \[ \sum_{i = 1}^{n} \alpha_i = - a_{n - 1} \quad \textup{ and } \quad \prod_{i = 1}^{n} \alpha_i = (-1)^n a_0 . \]
+    As another example, the \tref{NT:discriminant}{discriminant} $\Delta(f) = \prod_{1 \le i < j \le n} (\alpha_i - \alpha_j)$ of $f$ is symmetric, so it can be expressed in terms of the coefficients of $f$.
+\end{example}
+
+\begin{topic}{divided-power-structure}{divided power structure}
+    Let $R$ be a \tref{ring}{commutative ring} and $I \subset R$ an \tref{ideal}{ideal}. A \textbf{divided power structure} on $I$ is a sequence of maps $\delta_n : I \to A$ for $n \ge 0$, satisfying
+    \begin{itemize}
+        \item $\delta_0(x) = 1$ and $\delta_1(x) = x$ and $\delta_n(x) \in I$ for all $x \in I$ and $n > 0$,
+        \item $\delta_n(x + y) = \sum_{i = 0}^{n} \delta_{n - i}(x) \delta_i(y)$ for all $x, y \in I$,
+        \item $\delta_n(a x) = a^n \delta_n(x)$ for all $a \in R$ and $x \in I$,
+        \item $\delta_m(x) \delta_n(x) = \frac{(m + n)!}{m! n!} \delta_{m + n}(x)$ for all $x \in I$ and $m, n \ge 0$,
+        \item $\delta_n(\delta_m(x)) = \frac{(mn)!}{(m!)^n n!} \delta_{mn}(x)$ for all $x \in I$ and $m > 0$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{divided-power-structure}
+    \begin{itemize}
+        \item For an $\QQ$-algebra $A$, every ideal $I$ has a unique divided power structure with $\delta_n(x) = \frac{x^n}{n!}$.
+        \item For $R = \ZZ/4\ZZ$ with $I = 2\ZZ/4\ZZ$, there are precisely two divided power structures, given by
+        \[ \delta_n(2) = \left\{ \begin{array}{cl} 2 & \textup{ if } n \in 2^{\ZZ_{\ge 0}} , \\ 0 & \textup{ otherwise,} \end{array} \right. \quad \textup{ and } \quad \delta'_n(2) = \left\{ \begin{array}{cl} 2 & \textup{ if } n = 1 , \\ 0 & \textup{ otherwise.} \end{array} \right. \]
+    \end{itemize}
+\end{example}
+
+\begin{topic}{lambda-structure}{lambda structure}
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{$\lambda$-structure} on $R$ is a sequence of maps $\lambda^n : R \to R$ for $n \ge 0$, satisfying
+    \begin{itemize}
+        \item $\lambda^0(r) = 1$ for all $r \in R$,
+        \item $\lambda^1(r) = r$ for all $r \in R$,
+        \item $\lambda^n(1) = 0$ for all $n > 1$,
+        \item $\lambda^{n}(rs) = \sum_{k = 0}^{n} \lambda^k(r) \lambda^{n - k}(s)$ for all $r, s \in R$,
+        \item $\lambda^n(rs) = P_n(\lambda^1(r), \ldots, \lambda^n(r), \lambda^1(s), \ldots,  \lambda^n(s))$ for all $r, s \in R$,
+        \item $\lambda^m(\lambda^n(r)) = P_{m, n}(\lambda^1(r), \ldots, \lambda^{mn}(r))$ for all $r \in R$,
+    \end{itemize}
+    where $P_n$ and $P_{m, n}$ are certain universal polynomials with integer coefficients.
+\end{topic}
+
+\begin{example}{lambda-structure}
+    For any \tref{GT:group}{group} $G$, the \tref{RT:representation-ring}{representation ring} $R(G)$ has a natural $\lambda$-structure. For any \tref{RT:representation}{representation} $\rho : G \to \textup{GL}(V)$ and $n \ge 0$, the $\lambda^n(\rho)$ is given by induced representation on the \tref{exterior-algebra}{exterior power} $\wedge^n V$.
+\end{example}
+
+\begin{topic}{conductor}{conductor}
+    Let $A$ be and $B$ be \tref{ring}{commutative rings} with $A \subset B$. The \textbf{conductor} of $A$ in $B$ is the \tref{ideal}{ideal}
+    \[ \mathfrak{f}(B/A) = \operatorname{Ann}_A(B/A) = \{ a \in A \mid a B \subset A \} . \]
+\end{topic}
+
+\begin{topic}{seminormal-ring}{seminormal ring}
+    A \tref{reduced-ring}{reduced} \tref{ring}{commutative ring} $R$ is \textbf{seminormal} if for all $x, y \in R$ with $x^3 = y^2$ there exists a $z \in R$ such that $x = z^2$ and $y = z^3$.
+\end{topic}
+
+\begin{topic}{krull-domain}{Krull domain}
+    Let $R$ be a \tref{domain}{domain} and denote by $P$ the set of \tref{prime-ideal}{prime ideals} $\mathfrak{p}$ of $R$ of \tref{height-prime-ideal}{height} $1$. Then $R$ is a \textbf{Krull domain} if
+    \begin{enumerate}[(i)]
+        \item the \tref{localization}{localization} $R_\mathfrak{p}$ is a \tref{discrete-valuation-ring}{discrete valuation ring} for all $\mathfrak{p} \in P$,
+        \item $R = \bigcap_{\mathfrak{p} \in P} R_\mathfrak{p}$, where the intersection is taken in the \tref{field-of-fractions}{field of fractions} of $R$,
+        \item every non-zero $r \in R$ is contained in finitely many $\mathfrak{p} \in P$.
+    \end{enumerate}
+\end{topic}
+
+\begin{example}{krull-domain}
+    Any \tref{unique-factorization-domain}{unique factorization domain} is a Krull domain.
+\end{example}
+
+\begin{topic}{picard-group}{Picard group}
+    Let $R$ be a \tref{domain}{domain} with \tref{field-of-fractions}{field of fractions} $K$. Let $\mathcal{I}(R)$ be the set of \tref{invertible-ideal}{invertible ideals} of $R$, which forms a group under multiplication. The set of principal \tref{fractional-ideal}{fractional ideals} forms a subgroup $\mathcal{P}(R) \subset \mathcal{I}(R)$, isomorphic to $K^* / R^*$. The \textbf{Picard group} of $R$ is the quotient
+    \[ \text{Pic}(R) = \mathcal{I}(R) / \mathcal{P}(R) . \]
+    It fits in the exact sequence
+    \[ 0 \to R^* \to K^* \to \mathcal{I}(R) \to \text{Pic}(R) \to 0 . \]
+\end{topic}
+
+\begin{topic}{associated-prime}{associated prime}
+    Let $R$ be a \tref{ring}{commutative ring}, and $M$ an \tref{module}{$R$-module}. A \tref{prime-ideal}{prime ideal} $\mathfrak{p}$ of $R$ is \textbf{associated} to $M$ if there exists an element $m \in M$ whose annihilator $\{ r \in R \mid r \cdot m = 0 \}$ equals $\mathfrak{p}$. The set of all such primes is denoted $\operatorname{Ass}_R(M)$.
+    
+    The prime ideals in $\operatorname{Ass}_R(M)$ which are minimal with respect to inclusion are called \textbf{isolated}, and the other prime ideals are called \textbf{embedded}.
+\end{topic}
+
+\begin{example}{associated-prime}
+    Let $R = k[x, y]$ and $M = k[x, y] / (x^2, xy)$. The prime ideals associated to $M$ are
+    \[ \mathfrak{p}_1 = (x) \quad \textup{ and } \quad \mathfrak{p}_2 = (x, y) , \]
+    annihilating $y$ and $x$, respectively. Since $\mathfrak{p}_1 \subset \mathfrak{p}_2$, the prime ideal $\mathfrak{p}_1$ is isolated, while $\mathfrak{p}_2$ is embedded.
+    
+    Geometrically, this corresponds to the closed subscheme defined by $\mathfrak{p}_2$ being embedded in the closed subscheme defined by $\mathfrak{p}_1$.
+\end{example}
