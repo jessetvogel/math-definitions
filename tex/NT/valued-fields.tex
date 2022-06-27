@@ -1,0 +1,133 @@
+\begin{topic}{valuation}{valuation}
+    A \textbf{valuation} on a \tref{AA:field}{field} $K$ is a function $\phi : K \to \RR_{\ge 0}$ satisfying
+    \begin{itemize}
+        \item $\phi(x) = 0$ if and only if $x = 0$,
+        \item $\phi(xy) = \phi(x) \phi(y)$ for $x, y \in K$,
+        \item there exists $C > 0$ such that $\phi(x + y) \le C \max \{ \phi(x), \phi(y) \}$ for all $x, y \in K$.
+    \end{itemize}
+    The smallest possible constant $C$ is called the \textbf{norm} $\norm{\phi}$ of $\phi$. Note that
+    \[ \norm{\phi} = \sup_{x : \phi(x) \le 1} \phi(1 + x) . \]
+\end{topic}
+
+\begin{example}{valuation}
+    For $K$ equal to $\CC$ or a subfield of it such as $\RR$ or $\QQ$, the absolute value $\phi = |\cdot|$ defines a valuation. Its norm is $2$.
+\end{example}
+
+\begin{example}{valuation}
+    Let $K$ be a \tref{number-field}{number field}, and $\mathcal{O}_K$ its \tref{ring-of-integers}{ring of integers}. For any prime $\mathfrak{p}$ of $\mathcal{O}_K$, there is the valuation
+    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
+    for some fixed $c \in (0, 1)$. From
+    \[ \text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \} \]
+    follows that $\norm{\phi_\mathfrak{p}} = 1$.
+\end{example}
+
+\begin{example}{valuation}
+    For an \tref{AA:irreducible-element}{irreducible} polynomial $P$ in the polynomial ring $F[X]$ over an arbitrary field $F$, we have the number $\text{ord}_P(f) \in \ZZ_{\ge 0}$ of factors $P$ occurring in the factorization of a non-zero polynomial $f \in F[X]$, which is well-defined as $F[X]$ is a \tref{AA:unique-factorization-domain}{unique factorization domain}. It yields the valuation on the field of fractions $F(X)$,
+    \[ \phi_P : F(X) \to \RR_{\ge 0}, \quad f \mapsto c^{\text{ord}_P(f)} ,  \]
+    for some fixed $c \in (0, 1)$. From
+    \[ \text{ord}_P(f + g) \ge \min \{ \text{ord}_P(f), \text{ord}_P(g) \} \]
+    follows that $\norm{\phi_P} = 1$.
+\end{example}
+
+\begin{example}{valuation}
+    If $K = \FF_q$ is a finite field, then every valuation $\phi$ is \textit{trivial}: every non-zero $x \in K$ has finite order, so $\phi(x)^n = \phi(x^n) = \phi(1) = 1$ for some $n \ge 1$, so $\phi(x) = 1$.
+\end{example}
+
+\begin{topic}{archimedean-valuation}{(non-)archimedean valuation}
+    A \tref{valuation}{valuation} $\phi$ on a \tref{AA:field}{field} $K$ is called \textbf{non-archimedean} if its norm $\norm{\phi}$ equals $1$. Otherwise, the valuation is called \textbf{archimedean}.
+\end{topic}
+
+\begin{example}{archimedean-valuation}
+    For a prime $\mathfrak{p}$ of a \tref{number-field}{number field} $K$, consider the valuation
+    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
+    for some fixed $c \in (0, 1)$. From
+    \[ \text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \} \]
+    follows that $\norm{\phi_\mathfrak{p}} = 1$, and thus $\phi_\mathfrak{p}$ is non-archimedean.
+\end{example}
+
+\begin{example}{archimedean-valuation}
+    If $K$ is a number field, and $\sigma : K \to \CC$ an embedding, the valuation coming from the absolute value,
+    \[ \phi_\sigma : K \to \RR_{\ge 0}, \quad x \mapsto |\sigma(x)| , \]
+    has norm $2$, and thus is archimedean.
+\end{example}
+
+\begin{example}{archimedean-valuation}
+    A valuation $\phi : K \to \RR_{\ge 0}$ is non-archimedean if and only if it is bounded on the subring $Z = \{ n \cdot 1 : n \in \ZZ \} \subset K$. Namely, if $\phi$ is non-archimedean, then $\norm{\phi} = 1$, so $\phi(\pm n \cdot 1) \le \phi(1) = 1$ for all $n \in \ZZ_{\ge 0}$, so $\phi$ is bounded on $Z$ by $1$. Conversely, suppose $\phi$ is bounded on $Z$ by $M$. After replacing $\phi$ by a suitable power of $\phi$ if necessary, we can assume $\phi$ satisfies the triangle inequality. Now, taking $n$-th roots of both sides of
+    \[ \phi(x + y)^n = \phi \left( \sum_{i = 0}^{n} x^i y^{n - i} \right) \le (n + 1) M \max \{ \phi(x), \phi(y) \}^n , \]
+    and letting $n$ go to infinity, we find that $\phi$ is non-archimedean.
+\end{example}
+
+\begin{topic}{place}{place}
+    Two \tref{valuation}{valuations} $\phi$ and $\psi$ on a \tref{AA:field}{field} $K$ are said to be \textit{equivalent} if $\phi = \psi^r$ for some constant $r > 0$. A \textbf{place} of $K$ is an equivalence class of non-trivial valuations on $K$.
+    
+    Places are also known as \textbf{prime divisors}, or simply \textbf{primes}, of $K$. Places corresponding to \tref{archimedean-valuation}{archimedian} (resp. non-archimedean) valuations are called \textbf{infinite primes} (resp. \textbf{finite primes}). This terminology comes from the fact that finite primes on a \tref{number-field}{number field} $K$ precisely correspond to the non-zero prime ideals $\mathfrak{p}$ of the \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$, and infinite primes on $K$ correspond to embeddings $\sigma : K \to \CC$, up to complex conjugation.
+\end{topic}
+
+% \begin{topic}{complete-valued-field}{complete valued field}
+    
+% \end{topic}
+
+\begin{topic}{hensel-lifting-lemma}{Hensel's lifting lemma}
+    Let $K$ be a \tref{AA:field}{field}, complete with respect to a \tref{archimedean-valuation}{non-archimedean} \tref{valuation}{valuation}, and $A$ the valuation ring of $K$.
+    Suppose that $f \in A[X]$ is a polynomial that factors over the residue field $k = A / \mathfrak{m}$ as
+    \[ \overline{f} = \overline{g} \cdot \overline{h} \in k[X] \]
+    with $\overline{g}, \overline{h} \in k[X]$ non-zero and coprime. Then \textbf{Hensel's lifting lemma} states that there exists a factorization $f = g \cdot h$ in $A[X]$ such that $\deg(g) = \deg(\overline{g})$ and $g, h$ have reduction $\overline{g}, \overline{h}$ in $k[X]$.
+\end{topic}
+
+\begin{example}{hensel-lifting-lemma}
+    Consider $f = 2X^2 + X + 2 \in \ZZ_2[X]$, whose reduction $\overline{f} = X \in \FF_2[X]$ can be factored as $\overline{g} \cdot \overline{h}$ with $\overline{g} = X$ and $\overline{h} = 1$. The proof of Hensel's lemma is constructive, in the sense that we can compute successive approximations for $g$ and $h$.
+    \[ g_0 = X + 2, \quad h_0 = 1 \quad (f \equiv g_0 h_0 \text{ mod } 2^1) \]
+    \[ g_1 = X + 10, \quad h_1 = 2X - 3 \quad (f \equiv g_1 h_1 \text{ mod } 2^4) \]
+    \[ g_2 = X + 4810, \quad h_2 = 2X - 9619 \quad (f \equiv g_2 h_2 \text{ mod } 2^{10}) \]
+    \[ g_3 = X + 82462974405415300810, \quad h_3 = 2X - 164925948810830601619 \quad (f \equiv g_3 h_3 \text{ mod } 2^{18}) \]
+    In general, we are guaranteed to have $f \equiv g_i h_i \text{ mod } 2^{2^i}$.
+\end{example}
+
+\begin{example}{hensel-lifting-lemma}
+    Let $f \in A[x]$ be a polynomial such that the reduction $\overline{f} = f \mod \mathfrak{m} \in k[x]$ has a simple zero $\overline{\alpha} \in k$. Then we can write $\overline{f} = \overline{g} \cdot \overline{h}$ with $\overline{g} = x - \overline{\alpha}$ coprime to $\overline{h}$. Now by Hensel's lemma, there exists a root $\alpha \in A$ of $f$, which is a lift of $\overline{\alpha}$.
+    
+    In particular, consider the \tref{p-adic-numbers}{$p$-adic rationals} $\QQ_p$ for some prime $p$. The polynomial $f = x^p - x$ splits as
+    \[ x^p - x = \prod_{a \in \FF_p} (x - a) \in \FF_p[x] \]
+    over the residue field $\FF_p$. As a consequence, every $a \in \FF_p^*$ lifts to a $(p - 1)$-th root of unity in $\QQ_p$ (in fact, in $\ZZ_p$).
+\end{example}
+
+\begin{topic}{local-field}{local field}
+    A \textbf{local field} is a \tref{AA:field}{field} $K$ together with a non-trivial \tref{valuation}{valuation} $\phi : K \to \RR_{\ge 0}$ such that the induced topology on $K$ is \tref{TO:locally-compact-space}{locally compact}.
+\end{topic}
+
+\begin{example}{local-field}
+    Let $K$ be a \tref{number-field}{number field}, and $\phi : K \to \RR_{\ge 0}$ a valuation corresponding to a prime $\mathfrak{p}$ of the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$. Then the completion $K_\phi$ of $K$ with respect to $\phi$ is a local field.
+\end{example}
+
+\begin{example}{local-field}
+    Any local field $K$ is \tref{TO:complete-metric-space}{complete} with respect to the metric induced by $\phi$, and either
+    \begin{itemize}
+        \item $K$ is \tref{archimedean-valuation}{archimedean}, and topologically isomorphic to $\RR$ or $\CC$,
+        \item $K$ is non-archimedean, its valuation is discrete and its residue field is finite.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{abhyankar-lemma}{Abhyankar's lemma}
+    Let $K$ be a \tref{AA:field}{field} with discrete \tref{valuation}{valuation} $\phi$, and let $L$ and $E$ be two extensions of $K$ that are contained in some finite extension $M = LE$ of $K$. Let $\psi$ be an extension of $\phi$ to $M$, and $\psi_L$ and $\psi_E$ the restrictions of $\psi$ to $L$ and $E$. \textbf{Abhyankar' lemma} states that if $\psi_L/\phi$ is tamely ramified and $e(\psi_L/\phi)$ divides $e(\psi_E/\phi)$, then $\psi$ is unramified over $\phi_E$.
+\end{topic}
+
+\begin{topic}{krasner-lemma}{Krasner's lemma}
+    Let $K$ be a \tref{AA:field}{field}, complete with respect to a \tref{archimedean-valuation}{non-archimedean valuation} $\phi$, and let $\psi$ be the unique extension of $\phi$ to the \tref{AA:algebraic-closure}{algebraic closure} $\overline{K}$ of $K$.
+    \textbf{Krasner's lemma} states that for every separable element $\alpha \in \overline{K}$ and element $\beta \in \overline{K}$ such that
+    \[ \psi(\alpha - \beta) < \psi(\alpha - \alpha') \]
+    for every $K$-conjugate $\alpha' \ne \alpha$ of $\alpha$, there is an inclusion $K(\alpha) \subset K(\beta)$.
+\end{topic}
+
+\begin{example}{krasner-lemma}
+    \begin{proof}
+        Let $\sigma$ be any automorphism of $\overline{K} / K(\beta)$ and let $\alpha' = \sigma(\alpha)$. If $\alpha' \ne \alpha$, then
+        \[ \psi(\alpha - \beta) = \psi(\sigma(\alpha - \beta)) = \psi(\alpha' - \beta) = \psi(\alpha' - \alpha + \alpha - \beta) = \max \{ \psi(\alpha - \alpha'), \psi(\alpha - \beta) = \psi(\alpha - \alpha') \} , \]
+        where in the fourth equality we used that $\psi(\alpha - \beta) < \psi(\alpha' - \alpha)$. However, this contradicts our assumption, so it follows that $\sigma(\alpha) = \alpha$, and thus $\alpha \in K(\beta)$.
+    \end{proof}
+\end{example}
+
+\begin{example}{krasner-lemma}
+    Krasner's lemma can be used to show that \tref{AA:splitting-field}{splitting fields} are `locally constant' in the following sense. Let $K(\alpha) / K$ be a \tref{AA:galois-extension}{Galois extension} of degree $n$, let $f \in K[x]$ be the \tref{AA:minimal-polynomial}{minimal polynomial} of $\alpha$ over $K$, and let $g \in K[x]$ be a polynomial of degree less than $n$. We claim that $K(\alpha)$ is the splitting field of $f + tg$ for all $t \in K$ with $\psi(t)$ sufficiently small.
+    
+    To see this, let $\alpha_1, \ldots, \alpha_n$ be the Galois conjugates of $\alpha$. Since they are distinct, there exists some $\gamma > 0$ such that $\gamma < \psi(\alpha_i - \alpha_j)$ for all $i \ne j$. As the roots of a polynomial vary continuously with its coefficients, for sufficiently small $\psi(t)$ we can assume $f + tg$ has roots $\beta_1, \ldots, \beta_n$ with $\psi(\alpha_i - \beta_i) < \gamma$. But now $\psi(\alpha_i - \beta_i) < \gamma < \psi(\alpha_i - \alpha_j)$ for all $j \ne i$, so Krasner's lemma implies $K(\alpha_i) \subset K(\beta_i)$. On the other hand, $[K(\beta_i) : K] \le \deg(f + tg) = \deg(f) = [K(\alpha_i) : K]$, so that $K(\beta_i) = K(\alpha_i)$. We conclude that for sufficiently small $\psi(t)$, the splitting field of $f + tg$ is $K(\alpha)$. Moreover, since $[K(\beta)_i : K] = \deg(f + tg)$, this shows $f + tg$ is irreducible for sufficiently small $\psi(t)$.
+\end{example}

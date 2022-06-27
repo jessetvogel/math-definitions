@@ -1,0 +1,19 @@
+<div class="example">Any <span class="math inline">\(p\)</span>-adic integer can be uniquely expressed as <span class="math inline">\(\sum_{i \ge 0} a_i p^i\)</span> for some <span class="math inline">\(a_i \in \{ 0, 1, 2, \ldots, p - 1 \}\)</span>. For example,
+<span class="math display">\[ 7 = 2 \cdot 3^1 + 1 \in \ZZ_3 . \]</span>
+We can compute some <span class="math inline">\(p\)</span>-adic digits of <span class="math inline">\(\tfrac{1}{7}\)</span> using long division.
+<span class="math display">\[ \begin{array}{ccccccccl}
+        \ldots & 0 & 0 & 0 & 0 & 0 & 0 & 1 & / \; 2 \; 1 \\
+               &   &   &   &   &   & 2 & 1 & (1) \\ \hline
+                \ldots & 2 & 2 & 2 & 2 & 2 & 1 \\
+               &   &   &   &   & 2 & 1 &   & (1) \\ \hline
+                \ldots & 2 & 2 & 2 & 2 & 0 \\
+               &   &   &   &   & 0 &   &   & (0) \\ \hline
+                \ldots & 2 & 2 & 2 & 2 \\
+               &   &   & 4 & 2 &   &   &   & (2) \\ \hline
+                \ldots & 2 & 1 & 1 \\
+               &   & 2 & 1 &   &   &   &   & (1) \\ \hline
+                \ldots & 1 & 2
+    \end{array} \]</span>
+Continuing this process, one finds
+<span class="math display">\[ \tfrac{1}{7} = 1 \; 1 0 2 1 2 0 \; 1 0 2 1 2 0 \; 1 0 2 1 2 0 \; \ldots \in \ZZ_3 . . \]</span>
+</div>

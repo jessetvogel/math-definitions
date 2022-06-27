@@ -4,6 +4,7 @@
 -- PDF front cover
 -- Go through document and fix missing tref's
 -- Support \begin{align*?} ... \end{align*?}
+-- Use \dfn instead of \textbf, and for html use <dfn> for custom styling
 
 ---- Theory ----
 
@@ -58,6 +59,7 @@ DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
+AG: D-module
 AG: wonderful compactification
 AG: Jacobian variety
 AG: Abel--Jacobi theorem
@@ -117,7 +119,8 @@ FA: Inequalities for FA (see Lp spaces)
 -- Number Theory
 NT: quadratic reciprocity
 NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
-NT: inertia subgroup
+NT: inertia (sub)group
+NT: decomposition (sub)group
 NT: tame/wild ramification
 NT: ramification groups
 NT: ray class group
@@ -133,7 +136,6 @@ NT: Kronecker-Weber theorem
 NT: conductor (abelian extensions?)
 
 -- Representation Theory
-RT: Brauer's theorem
 RT: Schur index
 
 -- Uncategorized

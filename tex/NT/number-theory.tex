@@ -10,22 +10,15 @@
     The \textbf{Pell equation} is any \tref{diophantine-equation}{Diophantine equation} of the form $x^2 - dy^2 = 1$, where $d \in \ZZ$ is not a square.
 \end{topic}
 
+\begin{topic}{wilson-theorem}{Wilson's theorem}
+    Let $n > 1$ be a natural number. \textbf{Wilson's theorem} states that $n$ is a prime number if and only if
+    \[ (n - 1) ! \equiv -1 \mod n . \]
+\end{topic}
+
 \begin{topic}{gaussian-integers}{Gaussian integers}
     The ring of \textbf{Gaussian integers} is the ring
     \[ \ZZ[i] = \{ a + bi : a, b \in \ZZ \}, \]
     where $i^2 = -1$.
-\end{topic}
-
-\begin{topic}{order}{order}
-    A \tref{number-field}{number ring} whose additive group is finitely generated is called an \textbf{order} in its \tref{AA:field-of-fractions}{field of fractions}.
-    
-    As number rings do not have additive torsion elements, every order is free of finite rank over $\ZZ$. The rank of an order $R$ in $K = Q(R)$ is bounded by $n = [ K : \QQ ]$, and as $R \otimes_\ZZ \QQ = K$ it has to equal $n$. Thus,
-    \[ R = \ZZ \cdot \omega_1 \oplus \ZZ \cdot \omega_2 \oplus \cdots \oplus \ZZ \cdot \omega_n \]
-    for some $\QQ$-basis $\{ \omega_1, \ldots, \omega_n \}$ of $K$.
-\end{topic}
-
-\begin{topic}{monogenic-order}{monogenic order}
-    An \tref{order}{order} is called \textbf{monogenic} if it is of the form $\ZZ[\alpha] = \ZZ[X] / (f)$ for a monic irreducible polynomial $f \in \ZZ[X]$.
 \end{topic}
 
 \begin{topic}{legendre-symbol}{Legendre symbol}
@@ -35,10 +28,6 @@
         1 & \text{ if $a \text{ mod } p$ is a square in $\ZZ/p\ZZ$} ,  \\
         -1 & \text{ otherwise} .
     \end{array} \right. \]
-\end{topic}
-
-\begin{topic}{ring-of-integers}{ring of integers}
-    The \textbf{ring of integers} of a \tref{number-field}{number field} $K$ is the \tref{AA:integral-closure}{integral closure} of $\ZZ$ in $K$, often denoted as $\mathcal{O}_K$. % It is the smallest Dedekind domain with field of fractions $K$.
 \end{topic}
 
 \begin{topic}{bezout-identity}{Bézout's identity}
@@ -55,82 +44,30 @@
     The ring of $p$-adic rationals $\QQ_p$ is defined as the \tref{AA:field-of-fractions}{field of fractions} of $\ZZ_p$.
 \end{topic}
 
-\begin{topic}{valuation}{valuation}
-    A \textbf{valuation} on a \tref{AA:field}{field} $K$ is a function $\phi : K \to \RR_{\ge 0}$ satisfying
-    \begin{itemize}
-        \item $\phi(x) = 0$ if and only if $x = 0$,
-        \item $\phi(xy) = \phi(x) \phi(y)$ for $x, y \in K$,
-        \item there exists $C > 0$ such that $\phi(x + y) \le C \max \{ \phi(x), \phi(y) \}$ for all $x, y \in K$.
-    \end{itemize}
-    The smallest possible constant $C$ is called the \textbf{norm} $\norm{\phi}$ of $\phi$. Note that
-    \[ \norm{\phi} = \sup_{x : \phi(x) \le 1} \phi(1 + x) . \]
-\end{topic}
-
-\begin{example}{valuation}
-    For $K$ equal to $\CC$ or a subfield of it such as $\RR$ or $\QQ$, the absolute value $\phi = |\cdot|$ defines a valuation. Its norm is $2$.
-\end{example}
-
-\begin{example}{valuation}
-    For a prime $\mathfrak{p}$ of a \tref{number-field}{number field} $K$, there is the valuation
-    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
-    for some fixed $c \in (0, 1)$. From
-    \[ \text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \} \]
-    follows that $\norm{\phi_\mathfrak{p}} = 1$.
-\end{example}
-
-\begin{example}{valuation}
-    For an \tref{AA:irreducible-element}{irreducible} polynomial $P$ in the polynomial ring $F[X]$ over an arbitrary field $F$, we have the number $\text{ord}_P(f) \in \ZZ_{\ge 0}$ of factors $P$ occurring in the factorization of a non-zero polynomial $f \in F[X]$, which is well-defined as $F[X]$ is a \tref{AA:unique-factorization-domain}{unique factorization domain}. It yields the valuation on the field of fractions $F(X)$,
-    \[ \phi_P : F(X) \to \RR_{\ge 0}, \quad f \mapsto c^{\text{ord}_P(f)} ,  \]
-    for some fixed $c \in (0, 1)$. From
-    \[ \text{ord}_P(f + g) \ge \min \{ \text{ord}_P(f), \text{ord}_P(g) \} \]
-    follows that $\norm{\phi_P} = 1$.
-\end{example}
-
-\begin{example}{valuation}
-    If $K = \FF_q$ is a finite field, then every valuation $\phi$ is \textit{trivial}: every non-zero $x \in K$ has finite order, so $\phi(x)^n = \phi(x^n) = \phi(1) = 1$ for some $n \ge 1$, so $\phi(x) = 1$.
-\end{example}
-
-\begin{topic}{archimedean-valuation}{(non-)archimedean valuation}
-    A \tref{valuation}{valuation} $\phi$ on a \tref{AA:field}{field} $K$ is called \textbf{non-archimedean} if its norm $\norm{\phi}$ equals $1$. Otherwise, the valuation is called \textbf{archimedean}.
-\end{topic}
-
-\begin{example}{archimedean-valuation}
-    For a prime $\mathfrak{p}$ of a \tref{number-field}{number field} $K$, consider the valuation
-    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
-    for some fixed $c \in (0, 1)$. From
-    \[ \text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \} \]
-    follows that $\norm{\phi_\mathfrak{p}} = 1$, and thus $\phi_\mathfrak{p}$ is non-archimedean.
-\end{example}
-
-\begin{example}{archimedean-valuation}
-    If $K$ is a number field, and $\sigma : K \to \CC$ an embedding, the valuation coming from the absolute value,
-    \[ \phi_\sigma : K \to \RR_{\ge 0}, \quad x \mapsto |\sigma(x)| , \]
-    has norm $2$, and thus is archimedean.
-\end{example}
-
-\begin{topic}{place}{place}
-    Two \tref{valuation}{valuations} $\phi$ and $\psi$ on a \tref{AA:field}{field} $K$ are said to be \textit{equivalent} if $\phi = \psi^r$ for some constant $r > 0$. A \textbf{place} of $K$ is an equivalence class of non-trivial valuations on $K$.
-    
-    Places are also known as \textbf{prime divisors}, or simply \textbf{primes}, of $K$. Places corresponding to \tref{archimedean-valuation}{archimedian} (resp. non-archimedean) valuations are called \textbf{infinite primes} (resp. \textbf{finite primes}). This terminology comes from the fact that finite primes on a \tref{number-field}{number field} $K$ precisely correspond to the non-zero prime ideals $\mathfrak{p}$ of the \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$, and infinite primes on $K$ correspond to embeddings $\sigma : K \to \CC$, up to complex conjugation.
-\end{topic}
-
-% \begin{topic}{complete-valued-field}{complete valued field}
-    
-% \end{topic}
-
-\begin{topic}{hensel-lifting-lemma}{Hensel's lifting lemma}
-    \textbf{Hensel's lifting lemma} states the following: let $K$ be a \tref{AA:field}{field}, complete with respect to a \tref{archimedean-valuation}{non-archimedean} \tref{valuation}{valuation}, and $A$ the valuation ring of $K$. Suppose that $f \in A[X]$ is a polynomial that factors over the residue class field $k = A / \mathfrak{m}$ as
-    \[ \overline{f} = \overline{g} \cdot \overline{h} \in k[X] \]
-    with $\overline{g}, \overline{h} \in k[X]$ non-zero and coprime. Then there exists a factorization $f = g \cdot h$ in $A[X]$ such that $\deg(g) = \deg(\overline{g})$ and $g, h$ have reduction $\overline{g}, \overline{h}$ in $k[X]$.
-\end{topic}
-
-\begin{example}{hensel-lifting-lemma}
-    Consider $f = 2X^2 + X + 2 \in \ZZ_2[X]$, whose reduction $\overline{f} = X \in \FF_2[X]$ can be factored as $\overline{g} \cdot \overline{h}$ with $\overline{g} = X$ and $\overline{h} = 1$. The proof of Hensel's lemma is constructive, in the sense that we can compute successive approximations for $g$ and $h$.
-    \[ g_0 = X + 2, \quad h_0 = 1 \quad (f \equiv g_0 h_0 \text{ mod } 2^1) \]
-    \[ g_1 = X + 10, \quad h_1 = 2X - 3 \quad (f \equiv g_1 h_1 \text{ mod } 2^4) \]
-    \[ g_2 = X + 4810, \quad h_2 = 2X - 9619 \quad (f \equiv g_2 h_2 \text{ mod } 2^{10}) \]
-    \[ g_3 = X + 82462974405415300810, \quad h_3 = 2X - 164925948810830601619 \quad (f \equiv g_3 h_3 \text{ mod } 2^{18}) \]
-    In general, we are guaranteed to have $f \equiv g_i h_i \text{ mod } 2^{2^i}$.
+\begin{example}{p-adic-numbers}
+    Any $p$-adic integer can be uniquely expressed as $\sum_{i \ge 0} a_i p^i$ for some $a_i \in \{ 0, 1, 2, \ldots, p - 1 \}$. For example,
+    \[ 7 = 2 \cdot 3^1 + 1 \in \ZZ_3 . \]
+    We can compute some $p$-adic digits of $\tfrac{1}{7}$ using long division.
+    \[ \begin{array}{ccccccccl}
+        \ldots & 0 & 0 & 0 & 0 & 0 & 0 & 1 & / \; 2 \; 1 \\
+               &   &   &   &   &   & 2 & 1 & (1) \\ \hline
+        % --------------------------------- -
+        \ldots & 2 & 2 & 2 & 2 & 2 & 1 \\
+               &   &   &   &   & 2 & 1 &   & (1) \\ \hline
+        % --------------------------------- -
+        \ldots & 2 & 2 & 2 & 2 & 0 \\
+               &   &   &   &   & 0 &   &   & (0) \\ \hline
+        % --------------------------------- -
+        \ldots & 2 & 2 & 2 & 2 \\
+               &   &   & 4 & 2 &   &   &   & (2) \\ \hline
+        % --------------------------------- -
+        \ldots & 2 & 1 & 1 \\
+               &   & 2 & 1 &   &   &   &   & (1) \\ \hline
+        % --------------------------------- -
+        \ldots & 1 & 2
+    \end{array} \]
+    Continuing this process, one finds
+    \[ \tfrac{1}{7} = 1 \; 1 0 2 1 2 0 \; 1 0 2 1 2 0 \; 1 0 2 1 2 0 \; \ldots \in \ZZ_3 . . \]
 \end{example}
 
 \begin{topic}{discriminant}{discriminant}
@@ -174,12 +111,3 @@
         However, when $\deg(f) \ge 5$, the Galois group is generally not solvable. For example, the Galois group of the quintic polynomial $f = x^5 - x - 1 \in \QQ[x]$ is the symmetric group $S_5$, which is not solvable.
     \end{proof}
 \end{example}
-
-\begin{topic}{multiplier-ring}{multiplier ring}
-    Let $R$ be a \tref{AA:domain}{domain}, $K$ its \tref{AA:field-of-fractions}{field of fractions}, and $I$ a \tref{AA:fractional-ideal}{fractional ideal} of $R$. The \textbf{multiplier ring} of $I$ is the subring of $K$ given by
-    \[ r(I) = \{ x \in K : x I \subset I \} . \]
-\end{topic}
-
-\begin{topic}{ideal-class-group}{ideal class group}
-    Let $K$ be a \tref{number-field}{number field}. The \textbf{ideal class group} of $K$ is the \tref{AA:picard-group}{Picard group} $\textup{Pic}(\mathcal{O}_K)$ of the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$.
-\end{topic}
