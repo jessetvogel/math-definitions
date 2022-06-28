@@ -1,0 +1,10 @@
+Let <span class="math inline">\(L/K\)</span> be a <a href="#AA:galois-extension">Galois extension</a> of <a href="#NT:archimedean-valuation">non-archimedean</a> <a href="#NT:local-field">local fields</a>, and denote by <span class="math inline">\(\psi\)</span> the valuation on <span class="math inline">\(L\)</span>.
+For any <span class="math inline">\(i \ge 0\)</span>, the <b><span class="math inline">\(i\)</span>-th ramification group</b> of <span class="math inline">\(L/K\)</span> is
+<span class="math display">\[ \begin{aligned}
+        G_i &= \{ \sigma \in \operatorname{Gal}(L/K) \mid \psi(x - \sigma(x)) < \psi(\pi_L^i) \textup{ for all } x \in A_L \} \\
+        &= \ker(G \to \operatorname{Aut}(A_L/\mathfrak{p}_L^{i + 1})) ,
+    \end{aligned} \]</span>
+where <span class="math inline">\(A_L = \{ x \in L \mid \psi(x) \le 0 \}\)</span> denotes the valuation ring of <span class="math inline">\(L\)</span>, and <span class="math inline">\(\mathfrak{p}_L = \{ x \in L \mid \psi(x) < 0 \}\)</span> its maximal ideal, with uniformizer <span class="math inline">\(\pi_L \in \mathfrak{p}_L\)</span>.<br/>
+The ramification groups form a decreasing filtration
+<span class="math display">\[ \operatorname{Gal}(L/K) \supset G_0 \supset G_1 \supset \cdots \supset \{ 1 \} . \]</span>
+The corresponding sequence of fields <span class="math inline">\(V_i = L^{G_i}\)</span> are known for <span class="math inline">\(i \ge 0\)</span> as the <b>ramification fields</b> of <span class="math inline">\(L/K\)</span>.

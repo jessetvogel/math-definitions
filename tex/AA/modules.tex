@@ -288,3 +288,29 @@
     \[ 0 \to \wedge^n E = R \to \cdots \to \wedge^i E = R^{\binom{n}{i}} \to \cdots \to \wedge^1 E = R^n \to R \to 0 \]
     which is a free resolution of $k$ as an $R$-module.
 \end{example}
+
+\begin{topic}{shapiro-lemma}{Shapiro's lemma}
+    Let $R$ and $S$ be \tref{ring}{rings}, $R \to S$ a morphism, $M$ a \tref{module}{left $R$-module}, and $N$ a left $S$-module. \textbf{Shapiro's lemma} states that
+    \begin{itemize}
+        \item if $S$ is \tref{projective-module}{projective} as a right $R$-module, then
+        \[ \operatorname{Ext}_R^i(M, N) \simeq \operatorname{Ext}_S^i(S \otimes_R M, N) , \]
+        \item if $S$ is projective as a left $R$-module, then
+        \[ \operatorname{Ext}_R^i(N, M) \simeq \operatorname{Ext}_S^i(N, \Hom_R(S, M)) . \]
+    \end{itemize}
+\end{topic}
+
+\begin{example}{shapiro-lemma}
+    Let $G$ be a \tref{GT:group}{group} and $H \subset G$ a subgroup of finite \tref{GT:index-subgroup}{index}, so that $\ZZ[G]$ is finitely generated and projective as left and right $\ZZ[H]$-module. 
+    For any representations $V$ of $G$ and $W$ of $H$,
+    \[ \operatorname{Ext}_{\ZZ[H]}^i(\operatorname{Res}_H^G(V), W) \simeq \operatorname{Ext}_{\ZZ[G]}^i(V, \Hom_{\ZZ[H]}(\ZZ[G], W)) \simeq \operatorname{Ext}_{\ZZ[G]}^i(V, \operatorname{Ind}_H^G(W)) , \]
+    where we used $\Hom_{\ZZ[H]}(\ZZ[G], W) \simeq \operatorname{Ind}_H^G(W)$. In particular, for $i = 0$, we obtain \tref{RT:frobenius-reciprocity}{Frobenius reciprocity}.
+    
+    Specializing to $V = \ZZ$, we obtain an isomorphism in \tref{HA:group-cohomology}{group cohomology}
+    \[ \begin{aligned}
+        H^i(G, \operatorname{Ind}_H^G(W))
+            &= \operatorname{Ext}_{\ZZ[G]}^i(\ZZ, \operatorname{Ind}_H^G(W)) \\
+            &= \operatorname{Ext}_{\ZZ[G]}^i(\ZZ, \Hom_{\ZZ[H]}(\ZZ[G], W)) \\
+            &= \operatorname{Ext}_{\ZZ[H]}^i(\ZZ, W) \\
+            &= H^i(H, W) .
+    \end{aligned} \]
+\end{example}

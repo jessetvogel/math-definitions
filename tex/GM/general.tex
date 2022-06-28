@@ -165,3 +165,12 @@
         For $a \equiv 0 \mod p$ the proof is trivial. Otherwise, the order of $a \mod p \in (\ZZ/p\ZZ)^*$ divides the order of the group, which is $p - 1$, so it follows that $a^{p - 1} \equiv 1 \mod p$, and hence $a^p \equiv a \mod p$.
     \end{proof}
 \end{example}
+
+\begin{topic}{equivalence-relation}{equivalence relation}
+    Let $X$ be a set. An \textbf{equivalence relation} on $X$ is a \tref{OT:binary-relation}{binary relation} $\sim$ on $X$ such that
+    \begin{itemize}
+        \item (\textit{reflexivity}) $x \sim x$ for all $x \in X$,
+        \item (\textit{symmetry}) $x \sim y$ if and only if $y \sim x$ for all $x, y \in X$,
+        \item (\textit{transitivity}) if $x \sim y$ and $y \sim z$, then $x \sim z$ for all $x, y, z \in X$.
+    \end{itemize}
+\end{topic}

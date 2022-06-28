@@ -948,3 +948,20 @@
 \begin{topic}{wide-subcategory}{wide subcategory}
     A \textbf{wide subcategory} of a \tref{category}{category} $\mathcal{C}$ is a subcategory of $\mathcal{C}$ containing all the objects of $\mathcal{C}$.
 \end{topic}
+
+\begin{topic}{setoid}{setoid}
+    A \textbf{setoid} is a \tref{thin-category}{thin} \tref{groupoid}{groupoid}.
+\end{topic}
+
+\begin{example}{setoid}
+    Let $X$ be a set with an \tref{GM:equivalence-relation}{equivalence relation} $\sim$. Then $X$ defines a setoid whose objects are elements of $X$, and morphisms $x \to y$ are given by relations $x \sim y$.
+\end{example}
+
+\begin{topic}{dagger-category}{dagger category}
+    A \textbf{dagger category} is a \tref{category}{category} $\mathcal{C}$ together with a map $(-)^\dagger : \Hom_\mathcal{C}(X, Y) \to \Hom_\mathcal{C}(Y, X)$ for all objects $X$ and $Y$ of $\mathcal{C}$, such that
+    \begin{itemize}
+        \item (\textit{involution}) $(f^\dagger)^\dagger = f$ for all morphisms $f$,
+        \item (\textit{identity}) $\id_X^\dagger = \id_X$ for all objects $X$,
+        \item (\textit{composition}) $(g \circ f)^\dagger = f^\dagger \circ g^\dagger$ for all morphisms $f : X \to Y$ and $g : Y \to Z$.
+    \end{itemize}
+\end{topic}

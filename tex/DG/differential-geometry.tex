@@ -229,7 +229,7 @@
 \end{topic}
 
 \begin{topic}{complex-manifold}{(almost) complex manifold}
-    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost complex structure} on $M$ is a smooth \tref{tensor-field}{tensor field} $J \in \Gamma(TM \otimes T*M)$ satisfying $J^2 = -1$ when viewed as a bundle isomorphism $J : TM \to TM$. The pair $(M, J)$ is called an \textbf{almost complex manifold}.
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost complex structure} on $M$ is a smooth \tref{tensor-field}{tensor field} $J \in \Gamma(TM \otimes T^*M)$ satisfying $J^2 = -1$ when viewed as a bundle isomorphism $J : TM \to TM$. The pair $(M, J)$ is called an \textbf{almost complex manifold}.
     
     A smooth manifold $M$ is \textbf{complex} if it has an \tref{atlas}{atlas} of charts to open subsets of $\CC^n$, such that the transition maps are \textit{holomorphic}. Any complex smooth manifold has an almost complex structure given by multiplication by $i$. If an almost complex structure arises in this way, it is called a \textbf{complex structure} or \textit{integrable}.
  \end{topic}
@@ -249,7 +249,7 @@
 \end{topic}
 
 \begin{topic}{connection}{connection}
-    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} over a \tref{smooth-manifold}{smooth manifold} $M$. A \textbf{connetion} on $E$ is a linear differential operator
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} over a \tref{smooth-manifold}{smooth manifold} $M$. A \textbf{connection} on $E$ is a linear differential operator
     \[ \nabla : \Gamma(E) \to \Gamma(T^*M \otimes E) \]
     satisfying the \textit{Leibniz rule}
     \[ \nabla(fs) = df \otimes s + f \nabla s \]
@@ -924,7 +924,7 @@
     Let $(M, g)$ be a \tref{riemannian-manifold}{pseudo-Riemannian manifold}, $G$ a \tref{lie-group}{Lie group} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$, and $\pi : P \to M$ a \tref{TO:principal-bundle}{principal $G$-bundle} on $M$.
     
     A \tref{connection}{connection} $\nabla$ on $P$ is a \textbf{Yang--Mills field} if the \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(P \times_G \mathfrak{g})$, a $2$-form with values in the \tref{adjoint-bundle}{adjoint bundle}, satisfies the \textbf{Yang--Mills equations}
-    \[ \nabla F_\nabla = 0 \quad \textup{ and } \quad \star \nabla \star F = J , \]
+    \[ \nabla F_\nabla = 0 \quad \textup{ and } \quad \star \nabla \star F_\nabla = J , \]
     where $J \in \Omega^1(P \times_G \mathfrak{g})$ is a \textit{current}, and $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}. Note that the first equation is the \tref{bianchi-identity}{Bianchi identity}, which is always satisfied.
 \end{topic}
 
@@ -978,3 +978,23 @@
         where $G_g$ denotes the \tref{GT:centralizer}{centralizer} of $G$, and $C_g$ the conjugacy class of $g$, and we used the \tref{GT:orbit-stabilizer-theorem}{orbit-stabilizer theorem}.
     \end{itemize}
 \end{example}
+
+\begin{topic}{riemann-hilbert-correspondence}{Riemann--Hilbert correspondence}
+    Let $M$ be a \tref{complex-manifold}{complex manifold}. The \textbf{Riemann--Hilbert correspondence} states there is an \tref{CT:equivalence-of-categories}{equivalence of categories}
+    \[ \textbf{LS}_\CC(M) \simeq \textbf{Vect}_\CC^\nabla(M) , \]
+    between the category of \tref{TO:local-system}{local systems} of $\CC$-vector spaces on $M$, and the category of complex \tref{vector-bundle}{vector bundles} with a \tref{flat-connection}{flat} \tref{connection}{connection} on $M$.
+    
+    Explicitly, to a local system $\mathcal{L}$ is assigned the vector bundle (with sheaf of sections) $\mathcal{L} \otimes_\CC \mathcal{O}_M$ with connection induced by the \tref{exterior-derivative}{exterior derivative} $d : \mathcal{O}_M \to \Omega_M^1$. Conversely, to a vector bundle $\mathcal{E}$ with flat connection $\nabla$ is assigned the local system given by the sheaf of horizontal sections $\ker(\nabla) \subset \mathcal{E}$.
+\end{topic}
+
+\begin{topic}{finsler-manifold}{Finsler manifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Finsler metric} on $M$ is a \tref{smooth-map}{smooth function} $F : TM \to \RR_{\ge 0}$ on the \tref{tangent-bundle}{tangent bundle} of $M$ such that for all $x \in M$,
+    \begin{itemize}
+        \item (\textit{triangle inequality}) $F(v + w) \le F(v) + F(w)$ for all and $v, w \in T_x M$,
+        \item (\textit{positive homogeneity}) $F(\lambda v) = \lambda F(v)$ for all $v \in T_x M$ and $\lambda \ge 0$,
+        \item (\textit{positive definite}) $F(v) > 0$ for all non-zero $v \in T_x M$.
+    \end{itemize}
+    The pair $(M, F)$ is called a \textbf{Finsler manifold}.
+    
+    A Finsler metric is \textbf{reversible} if in addition $F(v) = F(-v)$ for all $x \in M$ and $v \in T_x M$.
+\end{topic}

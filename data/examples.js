@@ -108,6 +108,7 @@ const examples = [
   "AA:stably-free-module",
   "AA:schur-functor",
   "AA:koszul-complex",
+  "AA:shapiro-lemma",
   "AA:quantized-universal-enveloping-algebra",
   "AA:universal-r-matrix",
   "AA:quantum-yang-baxter-equation",
@@ -231,6 +232,7 @@ const examples = [
   "CT:presentable-category",
   "CT:natural-numbers-object",
   "CT:connected-category",
+  "CT:setoid",
   "CT:monoidal-category",
   "CT:symmetric-monoidal-category",
   "CT:internal-hom",
@@ -448,6 +450,7 @@ const examples = [
   "TO:mapping-cone",
   "TO:isotopy",
   "TO:alexandroff-topology",
+  "TO:local-system",
   "UN:fourier-transform-finite-groups",
   "UN:topological-quantum-field-theory",
 ];

@@ -131,3 +131,23 @@
     
     To see this, let $\alpha_1, \ldots, \alpha_n$ be the Galois conjugates of $\alpha$. Since they are distinct, there exists some $\gamma > 0$ such that $\gamma < \psi(\alpha_i - \alpha_j)$ for all $i \ne j$. As the roots of a polynomial vary continuously with its coefficients, for sufficiently small $\psi(t)$ we can assume $f + tg$ has roots $\beta_1, \ldots, \beta_n$ with $\psi(\alpha_i - \beta_i) < \gamma$. But now $\psi(\alpha_i - \beta_i) < \gamma < \psi(\alpha_i - \alpha_j)$ for all $j \ne i$, so Krasner's lemma implies $K(\alpha_i) \subset K(\beta_i)$. On the other hand, $[K(\beta_i) : K] \le \deg(f + tg) = \deg(f) = [K(\alpha_i) : K]$, so that $K(\beta_i) = K(\alpha_i)$. We conclude that for sufficiently small $\psi(t)$, the splitting field of $f + tg$ is $K(\alpha)$. Moreover, since $[K(\beta)_i : K] = \deg(f + tg)$, this shows $f + tg$ is irreducible for sufficiently small $\psi(t)$.
 \end{example}
+
+\begin{topic}{ramification-group}{ramification group}
+    Let $L/K$ be a \tref{AA:galois-extension}{Galois extension} of \tref{archimedean-valuation}{non-archimedean} \tref{local-field}{local fields}, and denote by $\psi$ the valuation on $L$.
+    For any $i \ge 0$, the \textbf{$i$-th ramification group} of $L/K$ is
+    \[ \begin{aligned}
+        G_i &= \{ \sigma \in \operatorname{Gal}(L/K) \mid \psi(x - \sigma(x)) < \psi(\pi_L^i) \textup{ for all } x \in A_L \} \\
+        &= \ker(G \to \operatorname{Aut}(A_L/\mathfrak{p}_L^{i + 1})) ,
+    \end{aligned} \]
+    where $A_L = \{ x \in L \mid \psi(x) \le 0 \}$ denotes the valuation ring of $L$, and $\mathfrak{p}_L = \{ x \in L \mid \psi(x) < 0 \}$ its maximal ideal, with uniformizer $\pi_L \in \mathfrak{p}_L$.
+    
+    The ramification groups form a decreasing filtration
+    \[ \operatorname{Gal}(L/K) \supset G_0 \supset G_1 \supset \cdots \supset \{ 1 \} . \]
+    The corresponding sequence of fields $V_i = L^{G_i}$ are known for $i \ge 0$ as the \textbf{ramification fields} of $L/K$.
+\end{topic}
+
+\begin{topic}{decomposition-group}{decomposition group}
+    Let $K$ be a \tref{AA:field}{field} with \tref{valuation}{valuation} $\phi$, and let $L/K$ be a finite \tref{AA:galois-extension}{Galois extension} with valuation $\psi$ extending $\phi$. The \textbf{decomposition group} of $\psi$ in $L/K$ is
+    \[ G_\psi = \{ \sigma \in \operatorname{Gal}(L/K) \mid \psi(\sigma(x)) = \psi(x) \textup{ for all } x \in L \} . \]
+    The \textbf{decomposition field} of $\psi$ in $L/K$ is the corresponding invariant field $L^{G_\psi}$.
+\end{topic}

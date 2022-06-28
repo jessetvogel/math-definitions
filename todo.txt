@@ -10,7 +10,6 @@
 
 AA: Levi decomposition (Levi theorem, Levi subalgebra, https://link.springer.com/content/pdf/10.1007/978-3-642-74334-4_6.pdf) (example: parabolic subgroup of GL_n)
 AG: GAGA (equivalence of categories)
-TO: projective bundle
 AG: universal torsor (for smooth projective varieties?)
 AG: Lang's theorem => H^1_ét(Spec FF_q, G) = 0 for G connected, so any G-bundle on Spec FF_q is trivial
 AA: Weyl dimension/character formula (Lie algebras)
@@ -20,13 +19,11 @@ Skein algebras
 Spectrum object
 
 Jack functions / Hall--Littlewood / Macdonald polynomials
-Riemann--Hilbert correspondence
 
 -- General
 GM: graph (directed, weighted)
 
 -- Algebra
-AA: Shapiro's lemma (https://en.wikipedia.org/wiki/Shapiro%27s_lemma, examples to representations and group homology)
 AA: reflection equation algebra / construct quantum group (as O_q(G))
 AA: two-sided bar construction
 AA: dual (Hopf) algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
@@ -53,7 +50,6 @@ DG: Atiyah--Singer theorem
 DG: Floer homology
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
-DG: Finsler manifold
 DG: Atiyah-Bott symplectic form
 DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
