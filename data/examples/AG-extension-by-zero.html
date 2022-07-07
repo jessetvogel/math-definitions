@@ -1,0 +1,19 @@
+<div class="example">For any sheaf <span class="math inline">\(\mathcal{F}\)</span> on <span class="math inline">\(X\)</span>, there is an exact sequence of sheaves on <span class="math inline">\(X\)</span>,
+<span class="math display">\[ 0 \to j_!(\mathcal{F}|_U) \to \mathcal{F} \to i_*(\mathcal{F}|_Z) \to 0 . \]</span>
+Namely, for any point <span class="math inline">\(x \in X\)</span>, we have
+<span class="math display">\[ (j_!(\mathcal{F}|_U))_x = \lim_{x \in V} j_!(\mathcal{F}|_U)(V) = \left\{ \begin{array}{cl}
+        \lim\limits_{x \in W \subset U} \mathcal{F}(W) = \mathcal{F}_x & \textup{ if } x \in U, \\
+        0 & \textup{otherwise} .
+    \end{array} \right. \]</span>
+Similarly, for any point <span class="math inline">\(x \in X\)</span>, we have
+<span class="math display">\[ (i_*(\mathcal{F}|_Z))_x = \lim_{x \in V} \lim_{V \cap Z \subset W} \mathcal{F}(W) = \left\{ \begin{array}{cl}
+        \lim\limits_{x \in V} \mathcal{F}(V) = \mathcal{F}_x & \textup{ if } x \in Z, \\
+        0 & \textup{otherwise} .
+    \end{array} \right. \]</span>
+Hence, on stalks, the above sequence is given by
+<span class="math display">\[ \begin{array}{cl}
+        0 \to \mathcal{F}_x \to \mathcal{F}_x \to 0 \to 0 & \textup{ if } x \in U , \\
+        0 \to 0 \to \mathcal{F}_x \to \mathcal{F}_x \to 0 & \textup{ if } x \in Z ,
+    \end{array} \]</span>
+and therefore the sequence is exact.
+</div>

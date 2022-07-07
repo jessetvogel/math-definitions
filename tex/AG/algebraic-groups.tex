@@ -311,3 +311,17 @@
     Therefore, the Luna stratification of $G \sslash G \simeq \AA^1$ is given by
     \[ \AA^1 = (G \sslash G)_{(G)} \sqcup (G \sslash G)_{(D)}  = \{ \pm 2 \} \sqcup (\AA^1 \setminus \{ \pm 2 \}) . \]
 \end{example}
+
+\begin{topic}{s-equivalence}{S-equivalence}
+    Let $G$ be an \tref{algebraic-group}{algebraic group} acting on a \tref{variety}{variety} $X$. Two points $x, y \in X$ are called \textbf{$S$-equivalent} if the closures of the orbits of $x$ and $y$ intersect.
+\end{topic}
+
+\begin{example}{s-equivalence}
+    Let $G = \GG_m$ act on $X = \Spec k[x, y]$ via $\alpha \cdot (x, y) = (\alpha x, \alpha^{-1} y)$. The orbits of $X$ are given by
+    \[ \{ (0, 0) \}, \quad \{ (0, y) : y \ne 0  \}, \quad \{ (x, 0) : x \ne 0  \}, \quad \textup{ and } \quad \{ (x, y) : xy = a \}  \]
+    for any $a \ne 0$. Note that the origin is contained in the closures of the second and third orbit. Hence, the points of the first three orbits are all $S$-equivalent.
+    
+    The \tref{affine-git-quotient}{GIT quotient} is given by
+    \[ X \sslash \GG_m = \Spec k[x, y]^{\GG_m} = \Spec k[z] , \]
+    with $z = xy$, and we see that $S$-equivalent points are identified under the quotient.
+\end{example}

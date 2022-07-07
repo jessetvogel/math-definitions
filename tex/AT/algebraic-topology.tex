@@ -83,8 +83,8 @@
 \end{topic}
 
 \begin{topic}{excision-theorem}{excision theorem}
-    Let $X$ be a \tref{TO:topological-space}{topological space}, $X' \subset X$ a subpace, and $Y \subset X'$ a subspace such that the \tref{TO:closure}{closure} $\overline{Y}$ is contained in \tref{TO:interior}{interior} $\textup{int}(X')$. The \textbf{excision theorem} states that the inclusion $X \backslash Y \hookrightarrow X$ induces isomorphisms of \tref{relative-homology}{relative homology groups}
-    \[ H_n(X \backslash Y, X' \backslash Y; A) \xrightarrow{\sim} H_n(X, X'; A) \]
+    Let $X$ be a \tref{TO:topological-space}{topological space}, $X' \subset X$ a subpace, and $Y \subset X'$ a subspace such that the \tref{TO:closure}{closure} $\overline{Y}$ is contained in \tref{TO:interior}{interior} $\textup{int}(X')$. The \textbf{excision theorem} states that the inclusion $X \setminus Y \hookrightarrow X$ induces isomorphisms of \tref{relative-homology}{relative homology groups}
+    \[ H_n(X \setminus Y, X' \setminus Y; A) \xrightarrow{\sim} H_n(X, X'; A) \]
     for all $n \in \ZZ$ and coefficient groups $A$.
 \end{topic}
 
@@ -185,10 +185,10 @@
 
 \begin{topic}{cohomology-compact-support}{cohomology with compact support}
     Let $X$ be a \tref{TO:topological-space}{topological space}. The \textbf{cohomology of $X$ with compact support} $H_c^n(X; R)$ is given by the cohomology of the following subcomplex of the singular cohomology complex
-    \[ C_c^n(X; R) = \big\{ f : \mathcal{S}(X)_n \to R : \text{ there is a compact $K \subset X$ with $f(\sigma) = 0$ for all $\sigma \in \mathcal{S}(X \backslash K)_n$} \big\} . \]
+    \[ C_c^n(X; R) = \big\{ f : \mathcal{S}(X)_n \to R : \text{ there is a compact $K \subset X$ with $f(\sigma) = 0$ for all $\sigma \in \mathcal{S}(X \setminus K)_n$} \big\} . \]
     
     Alternatively,
-    \[ H_c^n(X; R) = \varinjlim H^n(X, X \backslash K; R) \]
+    \[ H_c^n(X; R) = \varinjlim H^n(X, X \setminus K; R) \]
     where the direct limit is taken over all compact $K \subset X$ w.r.t. inclusions.
 \end{topic}
 
@@ -564,3 +564,39 @@
 \begin{example}{lefschetz-fixed-point-theorem}
     \tref{brouwer-fixed-point-theorem}{Brouwer's fixed point theorem} follows from Lefschetz fixed point theorem. Namely, let $f : D^n \to D^n$ be a continuous map. Note that $H_0(D^n; \QQ) = \QQ$ and $H_i(D^n; \QQ) = 0$ for all $i > 0$. Since $f_* : H_0(D^n; \QQ) \to H_0(D^n; \QQ)$ is the identity map, it follows that $\Lambda_f = 1 \ne 0$, so $f$ has a fixed point.
 \end{example}
+
+\begin{topic}{aspherical-space}{aspherical space}
+    A \tref{TO:topological-space}{topological space} $X$ is \textbf{aspherical} if its \tref{homotopy-group}{homotopy groups} $\pi_n(X)$ are zero for all $n > 1$. 
+\end{topic}
+
+\begin{topic}{dold-thom-theorem}{Dold--Thom theorem}
+    Let $X$ be a \tref{TO:connected-space}{connected} \tref{cw-complex}{CW-complex} with basepoint $x \in X$. The symmetric products $\operatorname{SP}^n(X) = X^n / S_n$ admit embeddings $\operatorname{SP}^n(X) \to \operatorname{SP}^{n + 1}(X)$ via $(x_1, \ldots, x_n) \mapsto (x_1, \ldots, x_n, x)$. The infinite symmetric product of $X$ is the colimit
+    \[ \operatorname{SP}^\infty(X) = \colim_{n \ge 0} \operatorname{SP}^n(X) . \]
+    The \textbf{Dold--Thom theorem} states that the \tref{homotopy-group}{homotopy groups} of $\operatorname{SP}^\infty(X)$ are isomorphic to the \tref{reduced-homology}{reduced homology} of $X$,
+    \[ \pi_n(\operatorname{SP}^\infty(X)) \simeq \tilde{H}_n(X; \ZZ) . \]
+\end{topic}
+
+\begin{topic}{universal-bundle}{universal bundle}
+    Let $G$ be a \tref{TO:topological-group}{topological group}. A \textbf{universal $G$-bundle} is a \tref{TO:principal-bundle}{principal $G$-bundle} $\pi : EG \to BG$ whose total space $EG$ is \tref{contractible-space}{contractible}.
+\end{topic}
+
+\begin{example}{universal-bundle}
+    \begin{itemize}
+        \item For $G = \{ 1 \}$, the map $\star \to \star$ is a universal $G$-bundle.
+        \item For $G = \CC^*$, the map $\CC^\infty \setminus \{ 0 \} \to \CC \PP^\infty$ is a universal $G$-bundle.
+        \item For $G = S^1$, the map $S^\infty \to \CC \PP^\infty$ is a universal $G$-bundle.
+        \item For $G = \textup{GL}_n(\CC)$, the map
+        \[ M \to \textup{Gr}(n, \CC^\infty) \]
+        is a universal $G$-bundle, where $\textup{Gr}(n, \CC^\infty)$ denotes the \tref{LA:grassmannian}{Grassmanian} of $n$-dimensional subspaces in $\CC^\infty$, and $M$ denotes the space of $\infty \times n$ matrices of full rank $n$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{equivariant-cohomology}{equivariant cohomology}
+    Let $G$ be a \tref{TO:topological-group}{topological group} \tref{GT:group-action}{acting} on a \tref{TO:topological-space}{topological space} $X$, and $A$ an \tref{GT:abelian-group}{abelian group}. The \textbf{equivariant cohomology} of $X$ with coefficients in $A$ is
+    \[ H_G^\bdot(X; A) = H^\bdot(EG \times_G X; A), \]
+    that is, the \tref{AT:singular-homology}{singular cohomology} of $EG \times_G X = (EG \times X) / G$, where $EG$ denotes a \tref{universal-bundle}{universal $G$-bundle} and $G$ acts diagonally on $EG \times X$.
+\end{topic}
+
+\begin{topic}{classifying-space}{classifying space}
+    Let $G$ be a \tref{TO:topological-group}{topological group}. A \textbf{classifying space} $BG$ of $G$ is the \tref{TO:quotient-topology}{quotient} $EG/G$ of a \tref{universal-bundle}{universal $G$-bundle} $EG \to BG$.
+\end{topic}

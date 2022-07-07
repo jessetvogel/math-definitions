@@ -206,3 +206,33 @@
     which gives rise to a long exact sequence
     \[ \cdots \to H_A^i(X, \mathcal{F}) \to H^i(X, \mathcal{F}) \to H^i(U, \mathcal{F}) \to H_A^{i + 1}(X, \mathcal{F}) \to \cdots \]
 \end{example}
+
+\begin{topic}{extension-by-zero}{extension by zero}
+    Let $X$ be a \tref{TO:topological-space}{topological space}, $i : Z \to X$ the inclusion of a closed subset, and $j : U \to X$ the inclusion of the complement $U = X \setminus Z$. For any sheaf of abelian groups $\mathcal{F}$ on $U$, the \textbf{extension by zero} of $\mathcal{F}$ is the sheaf $j_! \mathcal{F}$ on $X$ \tref{associated-sheaf}{associated} to the presheaf
+    \[ V \mapsto \left\{ \begin{array}{cl}
+        \mathcal{F}(V) & \textup{ if } V \subset U , \\
+        0 & \textup{ otherwise} .
+    \end{array} \right. \]
+    For any \tref{sheaf}{sheaf} of abelian groups $\mathcal{F}$ on $Z$, the \tref{direct-image-sheaf}{direct image} $i_* \mathcal{F}$ is called the \textbf{extension by zero} of $\mathcal{F}$.
+\end{topic}
+
+\begin{example}{extension-by-zero}
+    For any sheaf $\mathcal{F}$ on $X$, there is an exact sequence of sheaves on $X$,
+    \[ 0 \to j_!(\mathcal{F}|_U) \to \mathcal{F} \to i_*(\mathcal{F}|_Z) \to 0 . \]
+    Namely, for any point $x \in X$, we have
+    \[ (j_!(\mathcal{F}|_U))_x = \lim_{x \in V} j_!(\mathcal{F}|_U)(V) = \left\{ \begin{array}{cl}
+        \lim\limits_{x \in W \subset U} \mathcal{F}(W) = \mathcal{F}_x & \textup{ if } x \in U, \\
+        0 & \textup{otherwise} .
+    \end{array} \right. \]
+    Similarly, for any point $x \in X$, we have
+    \[ (i_*(\mathcal{F}|_Z))_x = \lim_{x \in V} \lim_{V \cap Z \subset W} \mathcal{F}(W) = \left\{ \begin{array}{cl}
+        \lim\limits_{x \in V} \mathcal{F}(V) = \mathcal{F}_x & \textup{ if } x \in Z, \\
+        0 & \textup{otherwise} .
+    \end{array} \right. \]
+    Hence, on stalks, the above sequence is given by
+    \[ \begin{array}{cl}
+        0 \to \mathcal{F}_x \to \mathcal{F}_x \to 0 \to 0 & \textup{ if } x \in U , \\
+        0 \to 0 \to \mathcal{F}_x \to \mathcal{F}_x \to 0 & \textup{ if } x \in Z ,
+    \end{array} \]
+    and therefore the sequence is exact.
+\end{example}

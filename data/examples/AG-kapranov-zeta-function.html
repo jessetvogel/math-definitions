@@ -14,6 +14,8 @@ with the multiplicative group structure on the right.
 </div><div class="example">For <span class="math inline">\(k = \FF_q\)</span> and <span class="math inline">\(\mu : X \mapsto X(\FF_q)\)</span> the point-counting function, the motivic zeta function reduces to the <a href="#AG:hasse-weil-zeta-function">Hasse–Weil zeta function</a>. Namely, the <span class="math inline">\(\FF_q\)</span>-points of <span class="math inline">\(\textup{Sym}^n X\)</span> can be identified with <span class="math inline">\(0\)</span>-cycles of degree <span class="math inline">\(n\)</span> on <span class="math inline">\(X\)</span>, and the Hasse–Weil zeta function can be expressed as
 <span class="math display">\[ Z(X, t) = \sum_{\alpha} t^{\deg(\alpha)} , \]</span>
 where <span class="math inline">\(\alpha\)</span> runs over the set of effective <span class="math inline">\(0\)</span>-cycles on <span class="math inline">\(X\)</span>.
-</div><div class="example">Let <span class="math inline">\(\mathbb{L} = [\AA^1] \in \textup{K}(\textbf{Var}/k)\)</span> be the class of the affine line. Then,
-<span class="math display">\[ Z(\PP^n, t) = \prod_{i = 0}^{n} \frac{1}{1 - \mathbb{L}^i t} . \]</span>
+</div><div class="example">Let <span class="math inline">\(\mathbb{L} = [\AA^1] \in \textup{K}(\textbf{Var}/k)\)</span> be the class of the affine line. By the <a href="#AA:symmetric-polynomial">fundamental theorem of symmetric polynomials</a>, we have <span class="math inline">\(\operatorname{Sym}^n(\AA^1) \simeq \AA^n\)</span> for all <span class="math inline">\(n \ge 0\)</span>. More generally, one can show
+<span class="math display">\[ Z(\AA^i, t) = 1 + \mathbb{L}^i t + \mathbb{L}^{2i} t^2 + \cdots = \frac{1}{1 - \mathbb{L}^i t} . \]</span>
+In particular,
+<span class="math display">\[ Z(\PP^n, t) = Z\left(\bigsqcup_{i = 0}^{n} \AA^i , t\right) = \prod_{i = 0}^{n} Z(\AA^i, t) = \prod_{i = 0}^{n} \frac{1}{1 - \mathbb{L}^i t} . \]</span>
 </div>

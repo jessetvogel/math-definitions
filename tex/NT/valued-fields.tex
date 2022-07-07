@@ -3,10 +3,10 @@
     \begin{itemize}
         \item $\phi(x) = 0$ if and only if $x = 0$,
         \item $\phi(xy) = \phi(x) \phi(y)$ for $x, y \in K$,
-        \item there exists $C > 0$ such that $\phi(x + y) \le C \max \{ \phi(x), \phi(y) \}$ for all $x, y \in K$.
+        \item there exists a constant $C > 0$ such that $\phi(x + y) \le C \max \{ \phi(x), \phi(y) \}$ for all $x, y \in K$.
     \end{itemize}
-    The smallest possible constant $C$ is called the \textbf{norm} $\norm{\phi}$ of $\phi$. Note that
-    \[ \norm{\phi} = \sup_{x : \phi(x) \le 1} \phi(1 + x) . \]
+    The smallest possible constant $C$, called the \textbf{norm} $\norm{\phi}$ of $\phi$, is given by
+    \[ \norm{\phi} = \sup \{ \phi(1 + x) : x \in K \textup{ s.t. } \phi(x) \le 1 \} . \]
 \end{topic}
 
 \begin{example}{valuation}
@@ -38,23 +38,26 @@
 \end{topic}
 
 \begin{example}{archimedean-valuation}
-    For a prime $\mathfrak{p}$ of a \tref{number-field}{number field} $K$, consider the valuation
-    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
-    for some fixed $c \in (0, 1)$. From
-    \[ \text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \} \]
-    follows that $\norm{\phi_\mathfrak{p}} = 1$, and thus $\phi_\mathfrak{p}$ is non-archimedean.
+    \begin{itemize}
+        \item Let $K$ be a number field, and $\sigma : K \to \CC$ an embedding. The valuation coming from the absolute value,
+        \[ \phi_\sigma : K \to \RR_{\ge 0}, \quad x \mapsto |\sigma(x)| , \]
+        has norm $2$, and is thus archimedean.
+        \item Let $K$ be a \tref{number-field}{number field} and $\mathfrak{p}$ a prime ideal of the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$. The valuation
+        \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
+        for some fixed $c \in (0, 1)$, is non-archimedean as $\text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \}$ for all $x, y \in K$.
+        
+        In fact, every non-trivial non-archimedean valuation $\phi$ on $K$ is of this form. Namely, let $A = \{ x \in K \mid \phi(x) \le 1 \}$ be the valuation ring of $\phi$, and $\mathfrak{m} = \{ x \in K \mid \phi(x) < 1 \}$ its maximal ideal. Then $\mathcal{O}_K \subset A$ as any $x \in \mathcal{O}_K$ satisfies an equation $x^n = \sum_{i = 0}^{n - 1} a_i x^i$ with $a_i \in \ZZ \subset A$, so
+        \[ \phi(x^n) \le \max_{1 \le i \le n - 1} \phi(a_i x^i) \le \max_{1 \le i \le n - 1} \phi(x)^i , \]
+        implying $\phi(x) \le 1$. We obtain a prime ideal $\mathfrak{p} = \mathfrak{m} \cap \mathcal{O}_K$ of $\mathcal{O}_K$, and the localization $\mathcal{O}_{K, \mathfrak{p}}$ is a discrete valuation ring. Picking a uniformizer $\pi \in \mathcal{O}_K$ with $\operatorname{ord}_\mathfrak{p}(\pi) = 1$, we can write any $x \in K^*$ as $x = u \pi^{\operatorname{ord}_\mathfrak{p}}(x)$ with $u \in \mathcal{O}_{K, \mathfrak{p}}^*$. Hence, $\phi(x) = c^{\operatorname{ord}_\mathfrak{p}(x)}$ with $c = \phi(\pi) \in (0, 1)$.
+    \end{itemize}
 \end{example}
 
 \begin{example}{archimedean-valuation}
-    If $K$ is a number field, and $\sigma : K \to \CC$ an embedding, the valuation coming from the absolute value,
-    \[ \phi_\sigma : K \to \RR_{\ge 0}, \quad x \mapsto |\sigma(x)| , \]
-    has norm $2$, and thus is archimedean.
-\end{example}
-
-\begin{example}{archimedean-valuation}
-    A valuation $\phi : K \to \RR_{\ge 0}$ is non-archimedean if and only if it is bounded on the subring $Z = \{ n \cdot 1 : n \in \ZZ \} \subset K$. Namely, if $\phi$ is non-archimedean, then $\norm{\phi} = 1$, so $\phi(\pm n \cdot 1) \le \phi(1) = 1$ for all $n \in \ZZ_{\ge 0}$, so $\phi$ is bounded on $Z$ by $1$. Conversely, suppose $\phi$ is bounded on $Z$ by $M$. After replacing $\phi$ by a suitable power of $\phi$ if necessary, we can assume $\phi$ satisfies the triangle inequality. Now, taking $n$-th roots of both sides of
+    A valuation $\phi : K \to \RR_{\ge 0}$ is non-archimedean if and only if it is bounded on the subring $Z = \{ n \cdot 1 : n \in \ZZ \} \subset K$. Namely, if $\phi$ is non-archimedean, then $\norm{\phi} = 1$, so $\phi(\pm n \cdot 1) \le \phi(1) = 1$ for all $n \in \ZZ_{\ge 0}$, and hence $\phi$ is bounded on $Z$ by $1$. Conversely, suppose $\phi$ is bounded on $Z$ by $M > 0$. After replacing $\phi$ by a suitable power of $\phi$ if necessary, we can assume $\phi$ satisfies the triangle inequality. Now, taking $n$-th roots of both sides of
     \[ \phi(x + y)^n = \phi \left( \sum_{i = 0}^{n} x^i y^{n - i} \right) \le (n + 1) M \max \{ \phi(x), \phi(y) \}^n , \]
     and letting $n$ go to infinity, we find that $\phi$ is non-archimedean.
+    
+    In particular, this shows that any valuation on a field of characteristic $p > 0$ is non-archimedean, as $Z = \FF_p$ is finite.
 \end{example}
 
 \begin{topic}{place}{place}
@@ -151,3 +154,31 @@
     \[ G_\psi = \{ \sigma \in \operatorname{Gal}(L/K) \mid \psi(\sigma(x)) = \psi(x) \textup{ for all } x \in L \} . \]
     The \textbf{decomposition field} of $\psi$ in $L/K$ is the corresponding invariant field $L^{G_\psi}$.
 \end{topic}
+
+\begin{topic}{valuation-topology}{valuation topology}
+    Let $K$ be a \tref{AA:field}{field} with \tref{valuation}{valuation} $\phi : K \to \RR_{\ge 0}$. The \textbf{valuation topology} on $K$ is the \tref{TO:topological-space}{topology} $\mathcal{T}_\phi$ on $K$ for which a \tref{TO:basis}{basis} is given by the open balls
+    \[ U_\varepsilon(x) = \{ y \in K \mid \phi(x - y) < \varepsilon \} \]
+    for all $x \in K$ and $\varepsilon > 0$.
+\end{topic}
+
+\begin{example}{valuation-topology}
+    The topology $\mathcal{T}_\phi$ is \tref{TO:discrete-topology}{discrete} if and only if $\phi$ is trivial. Namely, if $\phi$ is trivial, then $U_{1/2}(x) = \{ x \}$ is open for all $x \in K$. Conversely, if $\mathcal{T}_\phi$ is discrete, then in particular $\{ 0 \}$ is open. Hence, $\{ 0 \} = U_\varepsilon(0)$ for some $\varepsilon > 0$, so $\phi(x) \ge \varepsilon$ for all $x \ne 0$. Now, if there exists any $x \in K$ with $\phi(x) \ne 1$, then $\phi(x^k) = \phi(x)^k < \varepsilon$ for some sufficient $k \in \ZZ$, yielding a contradiction. Hence $\phi$ is trivial.
+\end{example}
+
+\begin{example}{valuation-topology}
+    For $\phi$ a \tref{archimedean-valuation}{non-archimedean valuation} on $K$, the valuation topology can be counterintuitive. Namely, for any $z \in K$, $\varepsilon > 0$ and $x, y \in U_\varepsilon(z)$, we have
+    \[ \phi(x - y) = \phi(x - z + z - y) \le \max \{ \phi(x - z), \phi(z - y) \} < \varepsilon , \]
+    which shows that every point in the open ball is a center, that is, $U_\varepsilon(z) = U_\varepsilon(x) = U_\varepsilon(y)$.
+\end{example}
+
+\begin{example}{valuation-topology}
+    Given two non-trivial valuations $\phi$ and $\psi$ on $K$, there is an equivalence
+    \[ \mathcal{T}_\psi \subset \mathcal{T}_\phi \iff  \phi = \psi^r \textup{ for some } r > 0 . \]
+    Indeed, $(\Leftarrow)$ is clear from the definition, so we focus on $(\Rightarrow)$.
+    As $\phi$ is non-trivial, there exists an element $y \in K$ with $0 < \phi(y) < 1$. We claim
+    \[ \phi(x) < 1 \iff \psi(x) < 1 \textup{ for all } x \in K . \tag{$*$} \]
+    Here, $(\Rightarrow)$ follows as the inequality $\phi(x) < 1$ amounts to saying the sequence $(x^n)_n$ converges to $0$ in $\mathcal{T}_\phi$. For $(\Leftarrow)$, take $x \in K$ with $\psi(x) < 1$. If $\phi(x) > 1$, then $x^{-1}$ would violate $(\Rightarrow)$ of $(*)$, and if $\phi(x) = 1$ then $yx^{-n}$ would violate $(\Rightarrow)$ of $(*)$ for sufficiently large $n$, so indeed $\phi(x) < 1$ as well.
+    Now, for any $x \in K^*$, let $\alpha, \beta \in \RR$ be such that $\phi(x) = \phi(y)^\alpha$ and $\psi(x) = \psi(y)^\beta$. Then for any $a, b \in \ZZ$ with $b > 0$ we have
+    \[ \alpha > \frac{a}{b} \iff \phi(y)^\alpha = \phi(x) < \phi(y)^{a/b} \iff \phi(x^b y^{-a}) < 1 \overset{(*)}{\iff} \psi(x^b y^{-a}) < 1 \iff \beta > \frac{a}{b} , \]
+    which shows $\alpha = \beta$, so $r = \log \phi(x) / \log \psi(x) = \log \phi(y) / \log \psi(y)$ is independent of $x$, and we conclude $\phi = \psi^r$.
+\end{example}

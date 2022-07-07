@@ -363,8 +363,8 @@ img.display-math-svg {
     text-align: center;
     font-weight: bold;
     font-size: 18px;
-    text-decoration: underline;
-    margin-bottom: 6px;
+    /* text-decoration: underline; */
+    margin-bottom: 16px;
     color: var(--clr-text-main);
     transition: color 0.2s;
 }

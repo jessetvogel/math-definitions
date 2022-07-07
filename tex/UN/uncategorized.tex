@@ -1,25 +1,3 @@
-\begin{topic}{fourier-transform-finite-groups}{Fourier transform finite groups}
-    Let $G$ be a finite \tref{GT:group}{group} and $\widehat{G}$ the set of \tref{RT:character-representation}{characters} of \tref{RT:irreducible-representation}{irreducible representations} of $G$. Let $C(G)$ be the $\CC$-vector space of functions $f : G \to \CC$ which are constant on conjugacy classes, and $C(\widehat{G})$ the $\CC$-vector space of functions on $\widehat{G}$.
-    
-    The \textbf{Fourier transform} on $G$ is given by
-    \[ \mathcal{F} : C(G) \to C(\widehat{G}), \quad \mathcal{F}(f)(\chi) = \sum_{g \in G} f(g) \frac{\chi(g)}{\chi(1)} , \]
-    and the \textbf{inverse Fourier transform} by
-    \[ \widehat{\mathcal{F}} : C(\widehat{G}) \to C(G), \quad \widehat{\mathcal{F}}(F)(g) = \sum_{\chi \in \widehat{G}} F(\chi) \chi(1) \overline{\chi(g)} . \]
-    These operations are inverse to each other in the sense that
-    \[ \widehat{\mathcal{F}} \circ \mathcal{F} = |G| \cdot \id_{C(G)} \quad \textup{ and } \quad \mathcal{F} \circ \widehat{\mathcal{F}} = |G| \cdot \id_{C(\widehat{G})} \]
-\end{topic}
-
-\begin{example}{fourier-transform-finite-groups}
-    The \textit{convolution} of two functions $f_1, f_2 \in C(G)$ is given by
-    \[ (f_1 * f_2)(g) = \sum_{xy = g} f_1(x) f_2(y) , \]
-    and pointwise multiplication of $F_1, F_2 \in C(\widehat{G})$ by
-    \[ (F_1 \cdot F_2)(\chi) = F_1(\chi) F_2(\chi) . \]
-    It can be verified that $\mathcal{F}(f_1 * f_2) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2)$. Namely, the
-    \[ \sum_{g \in G} \sum_{xy = g} f_1(x) f_2(y) \frac{\rho(g)}{\chi(1)} = \sum_{x, y \in G} f_1(x) f_2(y) \frac{\rho(xy)}{\chi(1)} = \frac{1}{\chi(1)} \left( \sum_{x \in G} f_1(x) \rho(x) \right) \left( \sum_{y \in G} f_2(y) \rho(y) \right) . \]
-    By Schur's lemma, both factors are scalar matrices, so the trace of this quantity equals
-    \[ \left( \sum_{x \in G} f_1(x) \frac{\chi(x)}{\chi(1)} \right) \left( \sum_{y \in G} f_2(y) \frac{\chi(y)}{\chi(1)} \right) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2) . \]
-\end{example}
-
 \begin{topic}{topological-quantum-field-theory}{Topological Quantum Field Theory (TQFT)}
     Let $(\textbf{Bd}_n, \sqcup, \varnothing)$ be the \tref{CT:monoidal-category}{monoidal category} of (diffeomorphism classes of) $n$-dimensional (\tref{DG:orientable-manifold}{oriented}) \tref{DG:bordism}{bordisms}, and let $k$ be a \tref{AA:ring}{commutative ring}. An $n$-dimensional \textbf{Topological Quantum Field Theory (TQFT)} over $k$ is a \tref{CT:monoidal-functor}{monoidal functor}
     \[ Z : \textbf{Bd}_n \to k\textup{-}\textbf{Mod} , \]

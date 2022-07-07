@@ -5,7 +5,7 @@
         \item the intersection of any two sets in $\mathcal{T}$ is in $\mathcal{T}$,
         \item the union of any collection of sets in $\mathcal{T}$ is in $\mathcal{T}$.
     \end{itemize}
-    The family $\mathcal{T}$ is called a \textbf{topology} for $X$, and the members of $\mathcal{T}$ are referred to as \textbf{open sets}. A subset $V \subset X$ is called \textbf{closed} if its complement $X \backslash V$ is open.
+    The family $\mathcal{T}$ is called a \textbf{topology} for $X$, and the members of $\mathcal{T}$ are referred to as \textbf{open sets}. A subset $V \subset X$ is called \textbf{closed} if its complement $X \setminus V$ is open.
 \end{topic}
 
 \begin{topic}{discrete-topology}{discrete topology}
@@ -82,15 +82,13 @@
 \end{topic}
 
 \begin{topic}{irreducible-space}{(ir)reducible space}
-    % A \tref{topological-space}{topological space} $X$ is \textbf{reducible} if it can be written as a union $X = Z_1 \cup Z_2$ of two closed proper subsets $Z_1, Z_2 \subsetneq X$. Otherwise, $X$ is \textbf{irreducible}.
     A \tref{topological-space}{topological space} $X$ is \textbf{irreducible} if it is non-empty and cannot be written as a union $X = Z_1 \cup Z_2$ of two closed proper subsets $Z_1, Z_2 \subsetneq X$. Otherwise, $X$ is \textbf{reducible}.
 \end{topic}
 
 \begin{topic}{subspace-topology}{subspace topology}
     Let $X$ be a \tref{topological-space}{topological space} with topology $\mathcal{T}$, and let $A$ be a subset of $X$. The \textbf{subspace topology} on $A$ is
     \[ \mathcal{T}_A = \{ A \cap U : U \in \mathcal{T} \} . \]
-    
-    In particular, this makes the inclusion map $i : A \to X$ continuous.
+    It is the \tref{coarser}{coarsest} topology on $A$ such that the inclusion map $i : A \to X$ continuous.
 \end{topic}
 
 \begin{topic}{product-topology}{product topology}
@@ -126,7 +124,7 @@
 \end{topic}
 
 \begin{topic}{connected-space}{connected space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{connected} if the only subsets of $X$ that are both open and closed are $\varnothing$ and $X$ itself.
+    A \tref{topological-space}{topological space} $X$ is \textbf{connected} if the only subsets of $X$ that are both open and closed are $\varnothing$ and $X$ itself. Otherwise, $X$ is \textbf{disconnected}.
 \end{topic}
 
 \begin{topic}{path-connected-space}{path-connected space}
@@ -461,4 +459,33 @@
 
 \begin{example}{local-system}
     Let $X$ be a \tref{connected-space}{connected} and \tref{simply-connected-space}{locally simply connected} topological space, $x \in X$ a point, and $k$ a \tref{AA:ring}{commutative ring}. Then the category of local systems of \tref{AA:module}{$k$-modules} on $X$ is \tref{CT:equivalence-of-categories}{equivalent} to the category of $k[\pi_1(X, x)]$-modules.
+\end{example}
+
+\begin{topic}{deck-transformation}{deck transformation}
+    Let $X$ be a \tref{topological-space}{topological space} and $p : Y \to X$ a \tref{covering-space}{covering space}. A \textbf{deck transformation} of $p$ is an automorphism of $p$ as covering spaces, that is, a \tref{homeomorphism}{homeomorphism} $f : Y \to Y$ such that $p \circ f = p$.
+\end{topic}
+
+\begin{example}{deck-transformation}
+    Let $X = Y = \CC \setminus \{ 0 \}$, and consider the covering space $p : Y \to X$ given by $z \mapsto z^n$ for some $n \ge 1$. Then for every $1 \le k \le n$, the map $f_k : Y \to Y$ given by $f_k(z) = \zeta_n^k \cdot z$ is a deck transformation of $p$.
+\end{example}
+
+\begin{topic}{totally-disconnected-space}{totally disconnected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{totally disconnected} if every \tref{connected-space}{connected} subset of $X$ consists of one point.
+\end{topic}
+
+\begin{example}{totally-disconnected-space}
+    \begin{itemize}
+        \item Any \tref{discrete-topology}{discrete} space is totally disconnected.
+        \item The rational numbers $\QQ$ with Euclidean topology is totally disconnected. Namely, for any $A \subset \QQ$ containing at least two distinct $q_1, q_2 \in A$, there exists an irrational number $r$ with $q_1 < r < q_2$, so that
+        \[ A = \{ q \in A \mid q < r \} \sqcup \{ q \in A \mid q > r \} , \]
+        which shows $A$ is disconnected.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{totally-separated-space}{totally separated space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{totally separated} if for any distinct $x, y \in X$ there exist disjoint open sets $U, V \subset X$ such that $x \in U$, $y \in V$ and $X = U \cup V$.
+\end{topic}
+
+\begin{example}{totally-separated-space}
+    Any \tref{totally-disconnected-space}{totally disconnected space} is totally separated, but the converse does not hold. Namely, let $X$ be the \tref{quotient-topology}{quotient} of $\QQ \sqcup \QQ$ (with Euclidean topology) by $\QQ \setminus \{ 0 \}$. Then $X$ is totally disconnected, but considering the two copies of zero, $X$ is not totally separated.
 \end{example}

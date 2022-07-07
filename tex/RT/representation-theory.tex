@@ -173,7 +173,7 @@
 \end{example}
 
 \begin{example}{tannaka-duality}
-    Note that the group $G$ cannot be determined from the \tref{RT:representation-ring}{representation ring} along, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
+    Note that the group $G$ cannot be determined from the \tref{representation-ring}{representation ring} along, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
     \[ \begin{array}{c|c|c|c|c}
         1 & 1 & 1 & 1 & 1 \\ \hline
         1 & 1 & 1 & -1 & -1 \\ \hline
@@ -185,7 +185,7 @@
 \end{example}
 
 \begin{topic}{maschke-theorem}{Maschke's theorem}
-    Let $G$ be a finite \tref{GT:group}{group} and $k$ a field of \tref{AA:characteristic}{characteristic} coprime to $|G|$. \textbf{Maschke's theorem} states that every \tref{RT:representation}{representations} $\rho : G \to \textup{GL}(V)$ of $G$ over $k$ with a subrepresentation $W \subset V$ splits. That is, there exists another subrepresentation $U \subset V$ such that $V = W \oplus U$.
+    Let $G$ be a finite \tref{GT:group}{group} and $k$ a field of \tref{AA:characteristic}{characteristic} coprime to $|G|$. \textbf{Maschke's theorem} states that every \tref{representation}{representations} $\rho : G \to \textup{GL}(V)$ of $G$ over $k$ with a subrepresentation $W \subset V$ splits. That is, there exists another subrepresentation $U \subset V$ such that $V = W \oplus U$.
 \end{topic}
 
 \begin{example}{maschke-theorem}
@@ -429,3 +429,51 @@
 \begin{topic}{brauer-theorem}{Brauer's theorem}
     Let $G$ be a finite \tref{GT:group}{group}. \textbf{Brauer's theorem} states that every (complex) \tref{character-representation}{character} of $G$ is a linear combination with integer coefficients of characters \tref{induced-representation}{induced} from characters of \tref{GT:elementary-group}{elementary} subgroups of $G$.
 \end{topic}
+
+\begin{topic}{fourier-transform-finite-groups}{Fourier transform finite groups}
+    Let $G$ be a finite \tref{GT:group}{group} and $\widehat{G}$ the set of \tref{character-representation}{characters} of \tref{irreducible-representation}{irreducible representations} of $G$. Let $C(G)$ be the $\CC$-vector space of functions $f : G \to \CC$ which are constant on conjugacy classes, and $C(\widehat{G})$ the $\CC$-vector space of functions on $\widehat{G}$.
+    
+    The \textbf{Fourier transform} on $G$ is given by
+    \[ \mathcal{F} : C(G) \to C(\widehat{G}), \quad \mathcal{F}(f)(\chi) = \sum_{g \in G} f(g) \frac{\chi(g)}{\chi(1)} , \]
+    and the \textbf{inverse Fourier transform} by
+    \[ \widehat{\mathcal{F}} : C(\widehat{G}) \to C(G), \quad \widehat{\mathcal{F}}(F)(g) = \sum_{\chi \in \widehat{G}} F(\chi) \chi(1) \overline{\chi(g)} . \]
+    These operations are inverse to each other in the sense that
+    \[ \widehat{\mathcal{F}} \circ \mathcal{F} = |G| \cdot \id_{C(G)} \quad \textup{ and } \quad \mathcal{F} \circ \widehat{\mathcal{F}} = |G| \cdot \id_{C(\widehat{G})} \]
+\end{topic}
+
+\begin{example}{fourier-transform-finite-groups}
+    The \textit{convolution} of two functions $f_1, f_2 \in C(G)$ is given by
+    \[ (f_1 * f_2)(g) = \sum_{xy = g} f_1(x) f_2(y) , \]
+    and pointwise multiplication of $F_1, F_2 \in C(\widehat{G})$ by
+    \[ (F_1 \cdot F_2)(\chi) = F_1(\chi) F_2(\chi) . \]
+    It can be verified that $\mathcal{F}(f_1 * f_2) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2)$. Namely, the
+    \[ \sum_{g \in G} \sum_{xy = g} f_1(x) f_2(y) \frac{\rho(g)}{\chi(1)} = \sum_{x, y \in G} f_1(x) f_2(y) \frac{\rho(xy)}{\chi(1)} = \frac{1}{\chi(1)} \left( \sum_{x \in G} f_1(x) \rho(x) \right) \left( \sum_{y \in G} f_2(y) \rho(y) \right) . \]
+    By Schur's lemma, both factors are scalar matrices, so the trace of this quantity equals
+    \[ \left( \sum_{x \in G} f_1(x) \frac{\chi(x)}{\chi(1)} \right) \left( \sum_{y \in G} f_2(y) \frac{\chi(y)}{\chi(1)} \right) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2) . \]
+\end{example}
+
+\begin{topic}{coinduced-representation}{coinduced representation}
+    Let $G$ be a \tref{GT:group}{group}, $H \subset G$ a \tref{GT:subgroup}{subgroup}, and $\rho : H \to \textup{GL}(V)$ a \tref{representation}{representation} of $H$ over a field $k$. The \textbf{coinduced representation} of $V$ is the natural representation of $G$ on
+    \[ \operatorname{Coind}_H^G(V) = \Hom_{k[H]}(k[G], V) , \]
+    where $k[G]$ denotes the \tref{AA:group-ring}{group ring} of $G$.
+\end{topic}
+
+\begin{example}{coinduced-representation}
+    For any groups $H \subset G$, there is an \tref{CT:adjunction}{adjunction}
+    \[ \operatorname{Res}_H^G \dashv \operatorname{Coind}_H^G , \]
+    which is a special case of the natural bijection
+    \[ \begin{aligned}
+        \Hom_B(M, N) &\simeq \Hom_A(M, \Hom_B(A, N)) \\
+        \varphi &\mapsto (m \mapsto (a \mapsto \varphi(a \cdot m))) \\
+        (m \mapsto \psi(m)(1)) &\mapsfrom \psi
+    \end{aligned} \]
+    for $A = k[G]$ and $B = k[H]$.
+\end{example}
+
+\begin{example}{coinduced-representation}
+    If the \tref{GT:index-subgroup}{index} $[G : H]$ is finite and invertible in $k$, then the coinduced representation $\operatorname{Coind}_H^G(V)$ is naturally isomorphic to the \tref{induced-representation}{induced representation} via
+    \[ \begin{aligned}
+        \operatorname{Ind}_H^G(V) = k[G] \otimes_{k[H]} V &\to \Hom_{k[H]}(k[G], V) = \operatorname{Coind}_H^G(V) \\
+        g \otimes v &\mapsto \left(g' \mapsto \left\{ \begin{array}{cl} g'g v & \textup{ if } g'g \in H, \\ 0 & \textup{ otherwise}. \end{array} \right. \right)
+    \end{aligned} \]
+\end{example}

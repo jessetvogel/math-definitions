@@ -1,0 +1,9 @@
+<div class="example">The <i>convolution</i> of two functions <span class="math inline">\(f_1, f_2 \in C(G)\)</span> is given by
+<span class="math display">\[ (f_1 * f_2)(g) = \sum_{xy = g} f_1(x) f_2(y) , \]</span>
+and pointwise multiplication of <span class="math inline">\(F_1, F_2 \in C(\widehat{G})\)</span> by
+<span class="math display">\[ (F_1 \cdot F_2)(\chi) = F_1(\chi) F_2(\chi) . \]</span>
+It can be verified that <span class="math inline">\(\mathcal{F}(f_1 * f_2) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2)\)</span>. Namely, the
+<span class="math display">\[ \sum_{g \in G} \sum_{xy = g} f_1(x) f_2(y) \frac{\rho(g)}{\chi(1)} = \sum_{x, y \in G} f_1(x) f_2(y) \frac{\rho(xy)}{\chi(1)} = \frac{1}{\chi(1)} \left( \sum_{x \in G} f_1(x) \rho(x) \right) \left( \sum_{y \in G} f_2(y) \rho(y) \right) . \]</span>
+By Schur’s lemma, both factors are scalar matrices, so the trace of this quantity equals
+<span class="math display">\[ \left( \sum_{x \in G} f_1(x) \frac{\chi(x)}{\chi(1)} \right) \left( \sum_{y \in G} f_2(y) \frac{\chi(y)}{\chi(1)} \right) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2) . \]</span>
+</div>

@@ -181,7 +181,7 @@
 \end{example}
 
 \begin{example}{proper-morphism}
-    Let $X$ be the affine line with double origin, i.e. two copies of $\AA^1$ glued along $\AA^1 \backslash \{ 0 \}$. Then $X \to \AA^1$ is of finite type and universally closed (the latter as $X_R \to \AA^1_R$ is closed for all rings $R$). However, $X \to \AA^1$ is not separated and hence not proper. For this we need to show $\Delta_{X / \AA^1} : X \to X \times_{\AA^1} X$ is not a closed immersion. Consider $\AA^1 \to X \times_{\AA^1} X$ induced from the two maps different maps $\AA^1 \to X$, and note that the inverse image of the diagonal is $\AA^1 \backslash \{ 0 \}$ which is not closed. Hence the diagonal is not closed.
+    Let $X$ be the affine line with double origin, i.e. two copies of $\AA^1$ glued along $\AA^1 \setminus \{ 0 \}$. Then $X \to \AA^1$ is of finite type and universally closed (the latter as $X_R \to \AA^1_R$ is closed for all rings $R$). However, $X \to \AA^1$ is not separated and hence not proper. For this we need to show $\Delta_{X / \AA^1} : X \to X \times_{\AA^1} X$ is not a closed immersion. Consider $\AA^1 \to X \times_{\AA^1} X$ induced from the two maps different maps $\AA^1 \to X$, and note that the inverse image of the diagonal is $\AA^1 \setminus \{ 0 \}$ which is not closed. Hence the diagonal is not closed.
 \end{example}
 
 \begin{topic}{projective-morphism}{(quasi-)projective morphism}
@@ -856,7 +856,7 @@
 \end{topic}
 
 \begin{example}{hodge-deligne-polynomial}
-    For a closed subvariety $Z \subset X$ with complement $U = X \backslash Z$, there is a long exact sequence of mixed Hodge structures
+    For a closed subvariety $Z \subset X$ with complement $U = X \setminus Z$, there is a long exact sequence of mixed Hodge structures
     \[ \cdots \to H_c^i(U, \CC) \to H_c^i(X, \CC) \to H_c^i(Z, \CC) \to H_c^{i + 1}(U, \CC) \to \cdots \]
     which shows that
     \[ e(X) = e(Z) + e(U) . \]
@@ -866,7 +866,7 @@
 \begin{topic}{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}
     Let $S$ be a \tref{variety}{variety} over a field $k$. The \textbf{Grothendieck ring of varieties} over $S$, denoted $\textup{K}(\textbf{Var}/S)$, is defined as the quotient of the \tref{GT:free-group}{free abelian group} on the isomorphism classes of varieties over $S$, by relations of the form
     \[ [X] = [Z] + [U] , \]
-    where $Z \subset X$ is a closed subvariety and $U = X \backslash Z$ its open complement. Multiplication is defined by
+    where $Z \subset X$ is a closed subvariety and $U = X \setminus Z$ its open complement. Multiplication is defined by
     \[ [X] \cdot [Y] = [(X \times_S Y)_\textup{red}] \]
     and extended linearly.
 \end{topic}
@@ -1007,8 +1007,10 @@
 \end{example}
 
 \begin{example}{kapranov-zeta-function}
-    Let $\mathbb{L} = [\AA^1] \in \textup{K}(\textbf{Var}/k)$ be the class of the affine line. Then,
-    \[ Z(\PP^n, t) = \prod_{i = 0}^{n} \frac{1}{1 - \mathbb{L}^i t} . \]
+    Let $\mathbb{L} = [\AA^1] \in \textup{K}(\textbf{Var}/k)$ be the class of the affine line. By the \tref{AA:symmetric-polynomial}{fundamental theorem of symmetric polynomials}, we have $\operatorname{Sym}^n(\AA^1) \simeq \AA^n$ for all $n \ge 0$. More generally, one can show
+    \[ Z(\AA^i, t) = 1 + \mathbb{L}^i t + \mathbb{L}^{2i} t^2 + \cdots = \frac{1}{1 - \mathbb{L}^i t} . \]
+    In particular,
+    \[ Z(\PP^n, t) = Z\left(\bigsqcup_{i = 0}^{n} \AA^i , t\right) = \prod_{i = 0}^{n} Z(\AA^i, t) = \prod_{i = 0}^{n} \frac{1}{1 - \mathbb{L}^i t} . \]
 \end{example}
 
 \begin{topic}{luna-slice-theorem}{Luna slice theorem}
@@ -1246,3 +1248,24 @@
 \begin{topic}{d-module}{D-module}
     
 \end{topic}
+
+\begin{topic}{motivic-integration}{motivic integration}
+    Let $X$ be a \tref{nonsingular-variety}{smooth} complex \tref{variety}{variety} of dimension $n$. Define
+    \[ \begin{array}{cc}
+        \Delta_m = \Spec \CC[t] / (t^{m + 1}), & \Delta_\infty = \Spec \CC \llbracket t \rrbracket \\[10pt]
+        X_m = \Hom_\CC(\Delta_m, X), & X_\infty = \Hom_\CC(\Delta_\infty, X) .
+    \end{array} \]
+    and \textit{truncation maps} $\pi^k_m : X_k \to X_m$ for $k \ge m$ and $\psi_m : X_\infty \to X_m$, induced by the natural maps $\Delta_m \to \Delta_k$ and $\Delta_\infty \to \Delta_m$, respectively.
+    
+    For any $C \subset X_\infty$, which can be written as $C = \psi_m^{-1}(C_m)$ for some \tref{TO:constructible-set}{constructible} $C_m \subset X_m$, the \textbf{motivic measure} of $C$ is
+    \[ \mu(C) = \frac{[C_m]}{\mathbb{L}^{n(m + 1)}} \in \textup{K}(\textbf{Var}_\CC)[\mathbb{L}^{-1}] \]
+    as an element in the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties} localized by the Lefschetz motive $\mathbb{L} = [\AA^1_\CC]$.
+    This is well-defined, because if $C = \psi_m^{-1}(C_m) = \psi_k^{-1}(C_k)$ for some $k > m$, then $C_k = (\pi_m^k)^{-1}(C_m)$ is an $\AA_\CC^{n(k - m)}$-bundle over $C_m$, so $[C_k] = [C_m] \cdot \mathbb{L}^{n(k - m)}$.
+    The \textbf{motivic measure} of $X$ is defined as
+    \[ \mu(X) = \mu(X_\infty) = \frac{[X]}{\mathbb{L}^n} . \]
+\end{topic}
+
+\begin{example}{motivic-integration}
+    For any $n \ge 0$, we have
+    \[ \mu(\AA^n) = \frac{[\AA^n]}{\mathbb{L}^n} = 1 . \]
+\end{example}

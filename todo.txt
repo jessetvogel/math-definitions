@@ -8,6 +8,10 @@
 
 ---- Theory ----
 
+AG: direct image with compact support f_!
+AG: exceptional inverse image f^!
+AG: (complete) linear system
+
 AA: Levi decomposition (Levi theorem, Levi subalgebra, https://link.springer.com/content/pdf/10.1007/978-3-642-74334-4_6.pdf) (example: parabolic subgroup of GL_n)
 AG: GAGA (equivalence of categories)
 AG: universal torsor (for smooth projective varieties?)
@@ -100,21 +104,23 @@ DAG: derived ring
 DAG: derived scheme / stack
 
 -- Algebraic Topology
+AT: Dold--Thom theorem example: SP(S^1) = S^1 and homotopy groups/homology groups (https://people.brandeis.edu/~tbl/dold-thom.pdf)
 AT: Freudenthal suspension theorem
 AT: Gysin sequence
 AT: Bockstein sequence
-AT/TO: equivariant cohomology (note that it is just the cohomology of the quotient stack [X/G])
+AT: equivariant cohomology (https://www.maths.gla.ac.uk/~gbellamy/Cargese/L12.pdf) (independent of chosen universal bundle)
 
 -- Functional Analysis
 FA: Fréchet topology (any Banach space, any Schwartz space) / Frechet space
 FA: Toeplitz algebra
 FA: Inequalities for FA (see Lp spaces)
 
--- Linear algebra
+-- Group Theory
+GT: group of Lie type (doesn't have a standard definition..)
 
 -- Number Theory
+NT: global field
 NT: quadratic reciprocity
-NT: lectures notes of Peter Stevenhagen. Both NT and Topics in Number Theory
 NT: inertia (sub)group
 NT: decomposition (sub)group
 NT: tame/wild ramification
@@ -122,13 +128,11 @@ NT: ramification groups
 NT: ray class group
 NT: ray class field
 NT: Hilbert class field
-NT: artin symbol
-NT: artin map
+NT: Frobenius symbol/Artin symbol
+NT: Artin map
 NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Corollary 2.14 and below)
 NT?: Hasse principle
-NT: Dirichlet unit theorem
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
-NT: Kronecker-Weber theorem
 NT: conductor (abelian extensions?)
 
 -- Representation Theory
@@ -143,6 +147,5 @@ RT: Schur index
     - Reflection equation algebra from R-matrix
 - Mirror symmetry ??? What is this all about ??
     - Kontsevich Homological Mirror Symmetry
-- S-equivalence
 - Path-ordered exponential
 - Intersection cohomology

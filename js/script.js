@@ -11,43 +11,44 @@ function loadTopic(id) {
 
     // Load definition
     content.innerHTML = '<div id="definition"><div class="loading"></div></div>';
-
-    const xhttpDef = new XMLHttpRequest();
-    xhttpDef.open('GET', 'data/definitions/' + id.replace(':', '-') + '.html', true);
-    xhttpDef.onload = function () {
-        const definition = document.getElementById('definition');
-        if (xhttpDef.status == 200) {
-            definition.innerHTML = this.responseText;
-            typeset(definition);
+    fetch('data/definitions/' + id.replace(':', '-') + '.html').then(response => {
+        switch(response.status) {
+            case 200: return response.text();
+            case 404: throw 'Definition not found 🥺';
+            default: throw 'Could not load definition 🥺';
         }
-        else if (xhttpDef.status == 404)
-            definition.innerHTML = '<div class="error">Definition not found 🥺</div>';
-    };
-    xhttpDef.onerror = function () {
-        content.innerHTML = '<div class="error">Could not load definition 🥺</div>';
-    };
-    xhttpDef.send();
+    }).then(response => {
+        const definition = document.getElementById('definition');
+        definition.innerHTML = response;
+        typeset(definition);
+        setDocumentTitle(capitalize(topics[id]));
+    }).catch(error => {
+        content.innerHTML = `<div class="error">${error}</div>`;
+        setDocumentTitle(null);
+    });
 
     // Load examples
     if (!examples.includes(id))
         return;
 
     content.innerHTML += '<div id="examples" class="hidden"></div>';
-    const xhttpEx = new XMLHttpRequest();
-    xhttpEx.open('GET', 'data/examples/' + id.replace(':', '-') + '.html', true);
-    xhttpEx.onload = function () {
+    fetch('data/examples/' + id.replace(':', '-') + '.html').then(response => {
+        switch(response.status) {
+            case 200: return response.text();
+            case 404: throw 'Examples not found 🥺';
+            default: throw 'Could not load examples 🥺';
+        }
+    }).then(response => {
         const examples_ = document.getElementById('examples');
         const toggle = document.createElement('div');
         toggle.classList.add('toggle-examples-button');
         toggle.addEventListener('click', function () { examples_.classList.toggle('hidden'); });
         examples_.append(toggle);
-        examples_.insertAdjacentHTML('beforeend', this.responseText);
+        examples_.insertAdjacentHTML('beforeend', response);
         typeset(examples_);
-    };
-    xhttpEx.onerror = function () {
-        console.log('error..');
-    };
-    xhttpEx.send();
+    }).catch(error => {
+        console.log(error);
+    });
 }
 
 function gotoTopic(id) {
@@ -57,6 +58,10 @@ function gotoTopic(id) {
     autoCompleteList.innerHTML = '';
     setSearchCategory(categories[id.substring(0, id.indexOf(':'))]);
     window.history.pushState(id, 'Math: ' + id, '#' + id);
+}
+
+function setDocumentTitle(str) {
+    document.title = (str == null) ? 'Math Definitions' : str + ' - Math Definitions';
 }
 
 function checkUrlFragment() {
@@ -110,7 +115,7 @@ function initAutoComplete() {
             if (item == null)
                 item = autoCompleteList.querySelector('div');
             if (item != null)
-                id = item.querySelector('.identifier').innerText;
+                id = item.querySelector('.identifier')?.innerText;
             if (id != null)
                 gotoTopic(id);
         }
