@@ -578,6 +578,12 @@
 
 \begin{topic}{universal-bundle}{universal bundle}
     Let $G$ be a \tref{TO:topological-group}{topological group}. A \textbf{universal $G$-bundle} is a \tref{TO:principal-bundle}{principal $G$-bundle} $\pi : EG \to BG$ whose total space $EG$ is \tref{contractible-space}{contractible}.
+    
+    It has the property that for any principal $G$-bundle $P \to X$, there exists a map $X \to BG$ such that $P \simeq X \times_{BG} EG$.
+    \[ \begin{tikzcd}
+        P \arrow{d} \arrow{r} & EG \arrow{d}{\pi} \\
+        X \arrow{r} & BG
+    \end{tikzcd} \]
 \end{topic}
 
 \begin{example}{universal-bundle}

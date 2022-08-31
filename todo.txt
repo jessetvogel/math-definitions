@@ -19,6 +19,9 @@ AG: Lang's theorem => H^1_ét(Spec FF_q, G) = 0 for G connected, so any G-bundle
 AA: Weyl dimension/character formula (Lie algebras)
 Skein algebras
 
+-- Category Theory
+CT: noetherian category
+
 -- Higher Algebra
 Spectrum object
 
@@ -94,6 +97,7 @@ HT: Spectra!
 
 -- Topology
 TO: Borel construction (EG x X / G) : Example BG = classifying space
+TO: map from SU(2) to SO(3) (https://www.youtube.com/watch?v=ACZC_XEyg9U 50:21)
 
 -- Functional Analysis
 FA: unitalization
@@ -137,6 +141,9 @@ NT: conductor (abelian extensions?)
 
 -- Representation Theory
 RT: Schur index
+
+-- Topology
+TO: T5 and T6 space
 
 -- Uncategorized
 - Modular form

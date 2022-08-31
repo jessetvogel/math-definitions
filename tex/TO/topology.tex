@@ -57,8 +57,12 @@
     Given a \tref{topological-space}{topological space} $X$ with topology $\mathcal{T}$, a \textbf{subbasis} for $\mathcal{T}$ is a subfamily $\mathcal{B} \subset \mathcal{T}$ such that $\mathcal{B}$ \textit{generates} $\mathcal{T}$. That is, every open set in $\mathcal{T}$ is a union of finite intersections of sets of $\mathcal{B}$.
 \end{topic}
 
-\begin{topic}{second-countable}{second countable}
-    A \tref{topological-space}{topological space} which admits a countable \tref{basis}{basis} is called \textbf{second countable}.
+\begin{topic}{first-countable-space}{first countable space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{first countable} if for every point $x \in X$, there exists a sequence of \tref{neighborhood}{neighborhoods} $N_1, N_2, \ldots$ of $x$ such that for every neighborhood $N$ of $x$ contains some $N_i$.
+\end{topic}
+
+\begin{topic}{second-countable-space}{second countable space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{second countable} if it admits a countable \tref{basis}{basis}.
 \end{topic}
 
 \begin{topic}{dense}{dense}
@@ -113,12 +117,6 @@
     The map $x \mapsto (x, f(x))$ defines a \tref{homeomorphism}{homeomorphism} from $X$ to $G_f$.
 \end{topic}
 
-\begin{topic}{hausdorff-space}{Hausdorff space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{Hausdorff} if for any two distinct points $x, y \in X$ there exist disjoint open sets $U, V \subset X$ such that $x \in U$ and $y \in V$.
-    
-    Equivalently, this is the case if the diagonal $\Delta = \{ (x, x) \in X \times X : x \in X \}$ is closed in $X \times X$.
-\end{topic}
-
 \begin{topic}{compact-space}{compact space}
     A \tref{topological-space}{topological space} $X$ is \textbf{compact} if every open covering of $X$ has a finite subcover.
 \end{topic}
@@ -129,9 +127,13 @@
 
 \begin{topic}{path-connected-space}{path-connected space}
     A \tref{topological-space}{topological space} $X$ is \textbf{path-connected} if for every two points $x, y \in X$, there exists a continuous map $f : [0, 1] \to X$ (a \textit{path}) with $f(0) = x$ and $f(1) = y$.
-    
-    A path-connected space is in particular \tref{connected-space}{connected}.
 \end{topic}
+
+\begin{example}{path-connected-space}
+    Every path-connected space is \tref{connected-space}{connected}, but not conversely. Namely, consider
+    \[ X = \{ (x, \sin \tfrac{1}{x}) : x \in (0, 1] \} \cup \{ (0, 0) \} \subset \RR^2 , \]
+    with the topology induced from the Euclidean plane. Then $X$ is connected, since it is the closure of the image of $\gamma : (0, 1] \to X$, $x \mapsto (x, \sin \tfrac{1}{x})$. However, there is no way to connect $(0, 0)$ with any other point via a path.
+\end{example}
 
 \begin{topic}{suspension}{suspension}
     The \textbf{suspension} of a \tref{topological-space}{topological space} $X$ is the \tref{quotient-topology}{quotient space}
@@ -198,12 +200,26 @@
     whose basepoint is the constant map $\text{const}_y$.
 \end{topic}
 
-\begin{topic}{T0-space}{T0 space}
+\begin{topic}{T0-space}{T0 (Kolmogorov) space}
     A \textbf{T0 space} is a \tref{topological-space}{topological space} $X$ such that for all distinct $x, y \in X$, at least one of them has an open neighborhood $U \subset X$ not containing the other.
 \end{topic}
 
-\begin{topic}{T1-space}{T1 space}
+\begin{topic}{T1-space}{T1 (Fréchet) space}
     A \textbf{T1 space} is a \tref{topological-space}{topological space} $X$ such that for all distinct $x, y \in X$ there exists an open neighborhood $U \subset X$ of $x$ not containing $y$.
+\end{topic}
+
+\begin{topic}{hausdorff-space}{T2 (Hausdorff) space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Hausdorff} if for any two distinct points $x, y \in X$ there exist disjoint open sets $U, V \subset X$ such that $x \in U$ and $y \in V$.
+    
+    Equivalently, this is the case if the diagonal $\Delta = \{ (x, x) \in X \times X : x \in X \}$ is closed in $X \times X$.
+\end{topic}
+
+\begin{topic}{T3-space}{T3 (regular Hausdorff) space}
+    A \textbf{T3 space} is a \tref{topological-space}{topological space} $X$ which is both \tref{regular-space}{regular} and \tref{T1-space}{T1}. Equivalently, it is a topological space which is both regular and \tref{hausdorff-space}{Hausdorff}.
+\end{topic}
+
+\begin{topic}{T4-space}{T4 (normal Hausdorff) space}
+    A \textbf{T4 space} is a \tref{topological-space}{topological space} which is \tref{normal-space}{normal} and \tref{hausdorff-space}{Hausdorff}.
 \end{topic}
 
 \begin{topic}{simply-connected-space}{simply connected space}
@@ -261,6 +277,9 @@
         \item (\textit{symmetry}) $d(x, y) = d(y, x)$ for all $x, y \in X$,
         \item (\textit{triangle inequality}) $d(x, z) \le d(x, y) + d(y, z)$ for all $x, y, z \in X$.
     \end{itemize}
+    A metric $d$ naturally induces a \tref{topological-space}{topology} on $X$, given by a \tref{basis}{basis} of open balls
+    \[ B_\varepsilon(x) = \{ y \in X \mid d(x, y) < \varepsilon \} \]
+    for all $x \in X$ and $\varepsilon > 0$.
 \end{topic}
 
 \begin{example}{metric-space}
@@ -336,23 +355,19 @@
     A \tref{topological-space}{topological space} is \textbf{normal} if every two disjoint closed sets have disjoint open neighborhoods.
 \end{topic}
 
-\begin{topic}{T4-space}{T4 space}
-    A \textbf{T4 space} is a \tref{topological-space}{topological space} which is \tref{hausdorff-space}{Hausdorff} and \tref{normal-space}{normal}.
-\end{topic}
-
 \begin{topic}{urysohn-lemma}{Urysohn's lemma}
     Let $X$ be a \tref{topological-space}{topological space}. \textbf{Urysohn's lemma} states that $X$ is \tref{normal-space}{normal} if and only if for any two disjoint closed subsets $Z_0, Z_1 \subset X$ there exists a \tref{continuous-map}{continuous map} $f : [0, 1] \to X$ such that $f(Z_0) = 0$ and $f(Z_1) = 1$.
 \end{topic}
 
 \begin{topic}{paracompact-space}{paracompact space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{paracompact} if every open cover of $X$ has a refinement that is locally finite. An open cover is \textit{locally finite} if any point has an open neighborhood where only finitely many sets of the open cover intersect.
+    A \tref{topological-space}{topological space} $X$ is \textbf{paracompact} if every open cover of $X$ has an open \tref{cover-refinement}{refinement} that is locally finite. An open cover is \textit{locally finite} if any point has an open neighborhood where only finitely many sets of the open cover intersect.
 \end{topic}
 
 \begin{topic}{topological-group}{topological group}
     A \textbf{topological group} is a \tref{GT:group}{group} $G$ which is also a \tref{topological-space}{topological space}, such that multiplication $G \times G \to G, (x, y) \mapsto xy$ and inversion $G \to G, x \mapsto x^{-1}$ are \tref{continuous-map}{continuous}.
 \end{topic}
 
-\begin{topic}{sequentially-compact}{sequentially compact}
+\begin{topic}{sequentially-compact-space}{sequentially compact space}
     A \tref{topological-space}{topological space} is \textbf{sequentially compact} if every sequence of points $(x_n)_{n \in \NN}$ in $X$ has a \tref{convergent-sequence}{convergent} subsequence.
 \end{topic}
 
@@ -375,7 +390,7 @@
 \end{topic}
 
 \begin{topic}{separable-space}{separable space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{separable} if it contains a countable $\tref{dense}{dense}$ subset.
+    A \tref{topological-space}{topological space} $X$ is \textbf{separable} if it contains a countable \tref{dense}{dense} subset.
 \end{topic}
 
 \begin{topic}{baire-space}{Baire space}
@@ -489,3 +504,84 @@
 \begin{example}{totally-separated-space}
     Any \tref{totally-disconnected-space}{totally disconnected space} is totally separated, but the converse does not hold. Namely, let $X$ be the \tref{quotient-topology}{quotient} of $\QQ \sqcup \QQ$ (with Euclidean topology) by $\QQ \setminus \{ 0 \}$. Then $X$ is totally disconnected, but considering the two copies of zero, $X$ is not totally separated.
 \end{example}
+
+\begin{topic}{topologically-distinguishable}{topologically distinguishable}
+    Let $X$ be a \tref{topological-space}{topological space}. Two points $x, y \in X$ are \textbf{topologically distinguishable} if there exists an open set $U \subset X$ such that $U$ contains $x$ or $y$, but not both.
+\end{topic}
+
+\begin{topic}{arc-connected-space}{arc-connected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{arc-connected} if for every two \tref{topologically-distinguishable}{topologically distinguishable} points $x, y \in X$, there exists an \tref{embedding}{embedding} $f : [0, 1] \to X$ such that $f(0) = x$ and $f(1) = y$.
+\end{topic}
+
+\begin{example}{arc-connected-space}
+    Every arc-connected space is path-connected, but not conversely. Let $X$ be the line with two origins, that is, $X = (\RR \times \{ 0 \}) \sqcup (\RR \times \{ 1 \}) / \sim{}$ where $(x, 0) \sim{} (x, 1)$ for all $x \ne 0$. Then the two origins $(0, 0)$ and $(0, 1)$ are topologically distinguishable, and even though there exist paths $f : [0, 1] \to X$ connecting them, such an $f$ is never an embedding as there are points which it hits at least twice.
+\end{example}
+
+\begin{topic}{preregular-space}{preregular space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{preregular} if for every two \tref{topologically-distinguishable}{topologically distinguishable} points $x, y \in X$, there exist disjoint open subsets $U, V \subset X$ such that $x \in U$ and $y \in V$.
+\end{topic}
+
+\begin{topic}{regular-space}{regular space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{regular} if for every closed set $Y \subset X$ and every point $x \in X \setminus Y$, there exist disjoint open subsets $U, V \subset X$ such that $Y \subset U$ and $p \in V$.
+\end{topic}
+
+\begin{topic}{lindelof-space}{Lindelöf space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Lindelöf} if every open cover of $X$ has a countable subcover.
+\end{topic}
+
+\begin{topic}{hemicompact-space}{hemicompact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{hemicompact} if there exists a sequence $Y_1, Y_2, \ldots$ of \tref{compact-space}{compact} subsets of $X$, such that every compact subset $Y \subset X$ is contained in some $Y_i$.
+\end{topic}
+
+\begin{topic}{alexandrov-space}{Alexandrov space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Alexandrov} if arbitrary intersections $\bigcap_{i \in I} U_i$ of open subsets are again open.
+\end{topic}
+
+\begin{topic}{meager-set}{meager set}
+    Let $X$ be a \tref{topological-space}{topological space}. A subset $A \subset X$ is called \textit{nowhere dense} if its \tref{closure}{closure} has an empty \tref{interior}{interior}. A subset $B \subset X$ is called \textbf{meager} if it is a countable union of nowhere dense subsets of $X$.
+    
+    The topological space $X$ is called \textbf{meager} if it is a meager subset of itself.
+\end{topic}
+
+\begin{topic}{pseudocompact-space}{pseudocompact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{pseudocompact} if for every \tref{continuous-map}{continuous map} $f : X \to \RR$, the image $f(X) \subset \RR$ is bounded.
+\end{topic}
+
+\begin{topic}{cover-refinement}{cover refinement}
+    Let $X$ be a \tref{topological-space}{topological space}. A cover $\{ V_j : j \in J \}$ of $X$ is a \textbf{refinement} of a cover $\{ U_i : i \in I \}$ of $X$ if for every $j \in J$ there exists some $i \in I$ such that $V_j \subset U_i$.
+\end{topic}
+
+\begin{topic}{metacompact-space}{metacompact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{metacompact} if for every open cover $\{ U_i : i \in I \}$ of $X$, there exists a \tref{cover-refinement}{refinement} $\{ V_j : j \in J \}$ which is again an open cover of $X$, such that every point $x \in X$ is contained in only finitely many $V_j$.
+\end{topic}
+
+\begin{topic}{tychonoff-space}{Tychonoff space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Tychonoff} if for every closed set $Y \subset X$ and every point $x \in X \setminus Y$, there exists a \tref{continuous-map}{continuous map} $f : X \to \RR$ such that $f(x) = 1$ and $f(y) = 0$ for all $y \in Y$.
+\end{topic}
+
+\begin{topic}{metrizable-space}{metrizable space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{metrizable} if it is \tref{homeomorphism}{homeomorphic} to a \tref{metric-space}{metric space}.
+\end{topic}
+
+\begin{topic}{ultraconnected-space}{ultraconnected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{ultraconnected} if $Y \cap Z \ne \varnothing$ for every two non-empty closed subsets $Y, Z \subset X$.
+\end{topic}
+
+\begin{example}{ultraconnected-space}
+    \begin{itemize}
+        \item Any \tref{indiscrete-topology}{indiscrete space} is ultraconnected.
+        \item The set $X = \{ a, b \}$ with topology $\mathcal{T} = \{ \varnothing, \{ a \}, \{ a, b \} \}$ is ultraconnected.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{hyperconnected-space}{hyperconnected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{hyperconnected} if $U \cap V \ne \varnothing$ for every two non-empty open subsets $U, V \subset X$.
+\end{topic}
+
+\begin{topic}{rothberger-space}{Rothberger space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Rothberger} if for every sequence of open covers $\mathcal{U}_1, \mathcal{U}_2, \ldots$ for $X$, there are open sets $U_1 \in \mathcal{U}_1, U_2 \in \mathcal{U}_2, \ldots$ such that $\{ U_i : i \ge 0 \}$ is an open cover for $X$.
+\end{topic}
+
+\begin{topic}{menger-space}{Menger space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Menger} if for every sequence of open covers $\mathcal{U}_1, \mathcal{U}_2, \ldots$ for $X$, there are finite subsets $\mathcal{F}_1 \in \mathcal{U}_1, \mathcal{F}_2 \in \mathcal{U}_2, \ldots$ such that $\mathcal{F}_1 \cup \mathcal{F}_2 \cup \cdots$ is an open cover for $X$.
+\end{topic}

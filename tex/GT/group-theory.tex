@@ -592,3 +592,21 @@
         \item For $p = 2$, the \tref{dihedral-group}{dihedral group} $D_{2^k}$ is a $p$-group for any $k \ge 0$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{goursat-lemma}{Goursat's lemma}
+    Let $G$ and $H$ be \tref{group}{groups}, and $K \subset G \times H$ a \tref{subgroup}{subgroup} such that the projections $\pi_G : K \to G$ and $\pi_H : K \to H$ are surjective. Then \textbf{Goursat's lemma} states that there exists a unique triple $(N, M, f)$, where $N \subset G$ and $M \subset H$ are \tref{normal-subgroup}{normal} subgroups and $f : G/N \to H/M$ an isomorphism, such that
+    \[ K = \{ (g, h) \in G \times H \mid f(gN) = hM \} . \]
+    Explicitly, $N = \ker \pi_G$ and $M = \ker \pi_H$.
+\end{topic}
+
+\begin{topic}{ascendant-subgroup}{ascendant subgroup}
+    Let $G$ be a \tref{group}{group}. A \tref{subgroup}{subgroup} $H \subset G$ is \textbf{ascendant} if there exists a chain of subgroups
+    \[ H = H_0 \subset H_1 \subset H_2 \subset \cdots \subset G \]
+    such that $G = \bigcup_{i \ge 0} H_i$ and $H_{i - 1}$ is \tref{normal-subgroup}{normal} in $H_i$ for all $i = 1, \ldots, n$.
+\end{topic}
+
+\begin{example}{ascendant-subgroup}
+    Every \tref{subnormal-subgroup}{subnormal subgroup} is ascendant, but not conversely. Namely, let $G = N \rtimes H$, where $H = \ZZ/2\ZZ$ acts on $N = \langle e^{2 \pi i / 2^n} : n \ge 0 \rangle \subset \CC^*$ via $x \mapsto x^{-1}$. Then $H \subset G$ is ascendant, using the chain
+    \[ N = N_0 \rtimes H \subset N_1 \rtimes H \subset N_2 \rtimes H \subset \cdots \subset G , \]
+    where $N_i = \langle e^{2 \pi i / 2^n} : 0 \le n \le i \rangle \subset N$. Indeed, $\bigcup_{i \ge 0} N_i \rtimes H = G$ and $N_i \rtimes H \subset N_{i + 1} \rtimes H$ is normal since it has \tref{index-subgroup}{index} $2$. On the other hand, $H \subset G$ is not subnormal since the above chain shows that the subnormal depth grows arbitrarily large.
+\end{example}
