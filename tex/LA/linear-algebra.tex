@@ -43,16 +43,16 @@
 \begin{topic}{linear-map}{linear map}
     A \textbf{linear map} is a map $f : V \to W$ between \tref{vector-space}{vector spaces} such that
     \begin{itemize}
-        \item $f(v + v') = f(v) + f(v')$,
+        \item $f(u + v) = f(u) + f(v)$,
         \item $f(\lambda v) = \lambda f(v)$,
     \end{itemize}
-    for all vectors $v, v' \in V$ and scalars $\lambda \in k$.
+    for all vectors $u, v \in V$ and scalars $\lambda \in k$.
 \end{topic}
 
-\begin{topic}{matrix-representation}{matrix representation}
-    Let $V$ and $W$ be finite-dimensional \tref{vector-space}{vector spaces}, and $T : V \to W$ a \tref{linear-map}{linear transformation}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are (ordered) \tref{basis}{bases} of $V$ and $W$, respectively, then the \textbf{matrix representation} of $T$ is the $m \times n$ matrix
+\begin{topic}{matrix}{matrix}
+    Let $V$ and $W$ be finite-dimensional \tref{vector-space}{vector spaces}, and $f : V \to W$ a \tref{linear-map}{linear map}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are ordered \tref{basis}{bases} of $V$ and $W$, respectively, then the \textbf{matrix} associated to $f$ is the $m \times n$ matrix
     \[ A = \begin{pmatrix} a_{11} & a_{21} & \cdots & a_{n1} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix} \]
-    where $a_{ij}$ is the $i$-th component of $T(v_j)$ with respect to the basis for $W$.
+    where $a_{ij}$ is the $i$-th component of $f(v_j)$ with respect to the basis for $W$.
 \end{topic}
 
 \begin{topic}{matrix-multiplication}{matrix multiplication}
@@ -397,7 +397,7 @@
         \[ p_A(A) = p_A(PDP^{-1}) = P p_A(D) P^{-1} = P \begin{pmatrix} p_A(\lambda_1) & & \\ & \ddots & \\ & & p_A(\lambda_n) \end{pmatrix} P^{-1} = 0 , \]
         since all eigenvalues $\lambda_i$ are roots of $p_A$. In other words, the function
         \[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
-        is zero on the set of diagonalizable complex matrices, which is \tref{TO:dense}{dense} in $\textup{Mat}_{n \times n}(\CC)$. Hence by continuity of $\varphi$, we must have $\varphi(A) = 0$ for all $A \in \textup{Mat}_{n \times n}(\CC)$.
+        is zero on the set of diagonalizable complex matrices, which is \tref{TO:dense-set}{dense} in $\textup{Mat}_{n \times n}(\CC)$. Hence by continuity of $\varphi$, we must have $\varphi(A) = 0$ for all $A \in \textup{Mat}_{n \times n}(\CC)$.
     \end{proof}
 \end{example}
 

@@ -111,13 +111,11 @@
 \begin{topic}{graded-module}{graded module}
     A \textbf{graded module} $M$ over a \tref{graded-ring}{graded ring} $R$ is an \tref{module}{$R$-module}
     \[ M = \bigoplus_{i \ge 0} M_i \]
-    such that
-    \[ R_i M_j \subset M_{i + j} \]
-    for all $i, j \ge 0$.
+    such that $R_i M_j \subset M_{i + j}$ for all $i, j \ge 0$.
 \end{topic}
 
 \begin{topic}{length-module}{length of a module}
-    The \textbf{length} of a \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is the maximum length of chains of submodules
+    The \textbf{length} of a \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is the maximum length $n$ of chains of submodules
     \[ M_0 \subsetneq M_1 \subsetneq \cdots \subsetneq M_n = M . \]
     It may be infinite.
 \end{topic}
@@ -186,9 +184,9 @@
 \end{example}
 
 \begin{topic}{noetherian-module}{noetherian module}
-    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{noetherian} if it satisfies the \textit{ascending chain condition}: for any increasing sequence of submodules
+    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{noetherian} if it satisfies the \textit{ascending chain condition}: for any increasing sequence of submodules of $M$,
     \[ M_1 \subset M_2 \subset M_3 \subset \cdots \]
-    there exists some $N \in \NN$ such that $M_n = M_N$ for any $n \ge N$.
+    there exists some $N \in \NN$ such that $M_n = M_N$ for all $n \ge N$.
     
     Equivalently, $M$ is noetherian if all its submodules are finitely generated.
 \end{topic}

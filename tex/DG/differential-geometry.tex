@@ -998,3 +998,20 @@
     
     A Finsler metric is \textbf{reversible} if in addition $F(v) = F(-v)$ for all $x \in M$ and $v \in T_x M$.
 \end{topic}
+
+\begin{topic}{conformal-map}{conformal map}
+    Let $(M, g)$ and $(M', g')$ be two \tref{riemannian-manifold}{Riemannian manifolds}. A \tref{smooth-map}{smooth map} $f : M \to M'$ is \textbf{conformal} if $f^* g' = \alpha g$ for some $\alpha \in C^\infty(M)$. The function $\alpha$ is called the \textbf{conformal factor}.
+\end{topic}
+
+\begin{example}{conformal-map}
+    Let $M = \RR^2 \setminus \{ (0, 0) \}$ and $M' = \RR^2$, both equipped with the standard Euclidean metric, and consider the map
+    \[ f : M \to M', \quad (x, y) \mapsto (u, v) = \left(\frac{x}{x^2 + y^2}, \frac{y}{x^2 + y^2} \right) . \]
+    Then the pullback of $g' = du^2 + dv^2$ along $f$ is given by
+    \[ \begin{aligned}
+        f^* g'
+            &= f^* (du^2 + dv^2) \\
+            &= \left(d \left(\frac{x}{x^2 + y^2} \right)\right)^2 + \left(d \left( \frac{y}{x^2 + y^2} \right)\right)^2 \\
+            &= \frac{1}{(x^2 + y^2)^2} (dx^2 + dy^2) ,
+    \end{aligned} \]
+    so $f$ is conformal with conformal factor $\alpha = (x^2 + y^2)^{-2}$.
+\end{example}

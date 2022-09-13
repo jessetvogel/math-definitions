@@ -1,13 +1,13 @@
 \begin{topic}{category}{category}
     A \textbf{category} $\mathcal{C}$ is given by a collection of \textit{objects} and \textit{morphisms}.
     \begin{itemize}
-        \item Each morphism has a \textit{domain} and \textit{codomain}, which are objects. We write $f : X \to Y$ or $X \overset{f}{\to} Y$ if $X$ is the domain of $f$ and $Y$ the codomain. We also write $X = \text{dom}(X)$ and $Y = \text{cod}(Y)$.
+        \item Each morphism has a \textit{domain} and \textit{codomain}, which are objects. We write $f : X \to Y$ or $X \overset{f}{\to} Y$ if $X$ is the domain of $f$ and $Y$ the codomain. We also write $X = \textup{dom}(X)$ and $Y = \textup{cod}(Y)$.
         
-        \item Given two morphisms $f$ and $g$ such that $\text{cod}(f) = \text{dom}(g)$, the \textbf{composition} of $f$ and $g$, written $gf$, is defined and has domain $\text{dom}(f)$ and codomain $\text{cod}(g)$.
+        \item Given two morphisms $f$ and $g$ such that $\textup{cod}(f) = \textup{dom}(g)$, the \textbf{composition} of $f$ and $g$, written $g \circ f$, is defined and has domain $\textup{dom}(f)$ and codomain $\textup{cod}(g)$.
         
-        \item Composition is associative, i.e. $(fg)h = f(gh)$.
+        \item Composition is associative, that is, $(f \circ g) \circ h = f \circ (g \circ h)$.
         
-        \item For every object $X$ there is an \textit{identity} morphism $\id_X : X \to X$ satisfying $f \id_X = f$ and $\id_X g = g$ for all $f, g$.
+        \item For every object $X$ there is an \textit{identity} morphism $\id_X : X \to X$ satisfying $f \circ \id_X = f$ and $\id_X \circ g = g$ for all $f, g$.
     \end{itemize}
 \end{topic}
 
@@ -80,7 +80,7 @@
 
 \begin{topic}{yoneda-embedding}{Yoneda embedding}
     Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Yoneda embedding} is the \tref{functor}{functor}
-    \[ y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\text{op}} \]
+    \[ y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\textup{op}} \]
     which assigns to an object $X$ of $\mathcal{C}$ the functor
     \[ y_X = \Hom_{\mathcal{C}}(-, X) , \]
     and to a morphism $f : X \to Y$ the natural transformation
@@ -109,7 +109,7 @@
 \end{example}
 
 \begin{example}{yoneda-lemma}
-    As a consequence, the Yoneda embedding $y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\text{op}}$ is \tref{full-functor}{full} and \tref{faithful-functor}{faithful}. Namely, for any objects $X$ and $Y$ in $\mathcal{C}$ there is a natural bijection
+    As a consequence, the Yoneda embedding $y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\textup{op}}$ is \tref{full-functor}{full} and \tref{faithful-functor}{faithful}. Namely, for any objects $X$ and $Y$ in $\mathcal{C}$ there is a natural bijection
     \[ \Hom(y_X, y_Y) \simeq y_Y(X) = \Hom_\mathcal{C}(X, Y) . \]
 \end{example}
 
@@ -217,16 +217,16 @@
 \end{topic}
 
 \begin{topic}{grothendieck-topology}{Grothendieck topology}
-    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{Grothendieck topology} on $\mathcal{C}$ consists of a family $\text{Cov}(C)$ of \tref{sieve}{sieves} on $C$ for every object $C$ of $\mathcal{C}$, called \textit{covering sieves}, such that
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{Grothendieck topology} on $\mathcal{C}$ consists of a family $\textup{Cov}(C)$ of \tref{sieve}{sieves} on $C$ for every object $C$ of $\mathcal{C}$, called \textit{covering sieves}, such that
     \begin{itemize}
-        \item the maximal sieve $\text{mac}(C) = \{ \text{all } f : C' \to C \}$ is in $\text{Cov}(C)$,
-        \item if $R \in \text{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) = \{ g : C'' \to C' \mid fg \in R \} \in \text{Cov}(C')$,
-        \item if $R$ is any sieve on $C$ and $S$ is a covering sieve on $C$, such that for every $f : C' \to C$ from $S$ we have $f^*(R) \in \text{Cov}(C')$, then $R \in \text{Cov}(C)$.
+        \item the maximal sieve $\textup{max}(C) = \{ \text{all } f : C' \to C \}$ is in $\textup{Cov}(C)$,
+        \item if $R \in \textup{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) = \{ g : C'' \to C' \mid fg \in R \} \in \textup{Cov}(C')$,
+        \item if $R$ is any sieve on $C$ and $S$ is a covering sieve on $C$, such that for every $f : C' \to C$ from $S$ we have $f^*(R) \in \textup{Cov}(C')$, then $R \in \textup{Cov}(C)$.
     \end{itemize}
 \end{topic}
 
 \begin{topic}{site}{site}
-    A small \tref{category}{category} $\mathcal{C}$ together with a \tref{grothendieck-topology}{Grothendieck topology} on it is called a \textbf{site}.
+    A \textbf{site} is a small \tref{category}{category} $\mathcal{C}$ together with a \tref{grothendieck-topology}{Grothendieck topology} on it.
 \end{topic}
 
 \begin{topic}{grothendieck-topos}{Grothendieck topos}
@@ -234,7 +234,7 @@
 \end{topic}
 
 \begin{topic}{sheaf}{sheaf}
-    A \tref{presheaf}{presheaf} $\mathcal{F} : \mathcal{C}^\text{op} \to \textbf{Set}$ on a \tref{site}{site} $\mathcal{C}$ is a \textbf{sheaf} if for every covering sieve $\{ U_i \to U \}_{i \in I}$, the diagram
+    A \tref{presheaf}{presheaf} $\mathcal{F} : \mathcal{C}^\textup{op} \to \textbf{Set}$ on a \tref{site}{site} $\mathcal{C}$ is a \textbf{sheaf} if for every covering sieve $\{ U_i \to U \}_{i \in I}$, the diagram
     \[ \mathcal{F}(U) \to \prod_{i \in I} \mathcal{F}(U_i) \rightrightarrows \prod_{i, j \in I} \mathcal{F}(U_i \times_U U_j) \]
     is an \tref{equalizer}{equalizer}.
 \end{topic}
@@ -249,7 +249,7 @@
 \end{topic}
 
 \begin{example}{localization}
-    A \tref{AA:ring}{ring} $R$ can be considered as an \tref{HA:additive-category}{additive category} $\mathcal{R}$ with one object $\bdot$ via $R = \text{End}_\mathcal{R}(\bdot)$: multiplication is given by composition. Let $S$ is a multiplicatively closed subset of $R$ containing $1$. If $R$ is commutative, or more generally if $S$ is in the center of $R$, then the \tref{localization}{localization} $S^{-1} R$ can be defined, which corresponds precisely to the localization $\mathcal{R}\left[\frac{1}{S}\right]$.
+    A \tref{AA:ring}{ring} $R$ can be considered as an \tref{HA:additive-category}{additive category} $\mathcal{R}$ with one object $\bdot$ via $R = \textup{End}_\mathcal{R}(\bdot)$: multiplication is given by composition. Let $S$ is a multiplicatively closed subset of $R$ containing $1$. If $R$ is commutative, or more generally if $S$ is in the center of $R$, then the \tref{localization}{localization} $S^{-1} R$ can be defined, which corresponds precisely to the localization $\mathcal{R}\left[\frac{1}{S}\right]$.
 \end{example}
 
 \begin{topic}{limit}{(co)limit}
@@ -282,20 +282,22 @@
     A \tref{category}{category} $\mathcal{C}$ is \textbf{small} if its objects and morphisms form a set.
     
     A category $\mathcal{C}$ is \textbf{locally small} if for all objects $X, Y$, the hom-class $\Hom(X, Y)$ is a set.
+    
+    A category $\mathcal{C}$ is \textbf{essentially small} if it is \tref{equivalence-of-categories}{equivalent} to a small category.
 \end{topic}
 
 \begin{topic}{presheaf}{presheaf}
-    A \textbf{presheaf} on a \tref{category}{category} $\mathcal{C}$ is a \tref{functor}{functor} $F : \mathcal{C}^\text{op} \to \textbf{Set}$.
+    A \textbf{presheaf} on a \tref{category}{category} $\mathcal{C}$ is a \tref{functor}{functor} $F : \mathcal{C}^\textup{op} \to \textbf{Set}$.
 \end{topic}
 
 \begin{topic}{representable-functor}{representable functor}
     A \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is \textbf{representable} if it is \tref{natural-transformation}{naturally} isomorphic to $\Hom_\mathcal{C}(X, -)$ for some object $X$ of $\mathcal{C}$.
     
-    Similarly, a functor $F : \mathcal{C}^\text{op} \to \textbf{Set}$ (i.e. a \tref{presheaf}{presheaf}) is \textbf{representable} if it is naturally isomorphic to $\Hom_\mathcal{C}(-, X)$ for some object $X$ of $\mathcal{C}$.
+    Similarly, a functor $F : \mathcal{C}^\textup{op} \to \textbf{Set}$ (i.e. a \tref{presheaf}{presheaf}) is \textbf{representable} if it is naturally isomorphic to $\Hom_\mathcal{C}(-, X)$ for some object $X$ of $\mathcal{C}$.
 \end{topic}
 
 \begin{topic}{opposite-category}{opposite category}
-    The \textbf{opposite category} $\mathcal{C}^\text{op}$ of a \tref{category}{category} $\mathcal{C}$ is formed by reversing the morphisms. That is, the objects of $\mathcal{C}^\text{op}$ are the objects of $\mathcal{C}$, and there is a morphism $f^\text{op} : Y \to X$ in $\mathcal{C}^\text{op}$ for each morphism $f : X \to Y$ in $\mathcal{C}$.
+    The \textbf{opposite category} $\mathcal{C}^\textup{op}$ of a \tref{category}{category} $\mathcal{C}$ is formed by reversing the morphisms. That is, the objects of $\mathcal{C}^\textup{op}$ are the objects of $\mathcal{C}$, and there is a morphism $f^\textup{op} : Y \to X$ in $\mathcal{C}^\textup{op}$ for each morphism $f : X \to Y$ in $\mathcal{C}$.
 \end{topic}
 
 \begin{topic}{zero-object}{zero object}
@@ -362,7 +364,7 @@
     \[ f_{ij} \circ f_{jk} = f_{ik} \quad \text{for all } i \le j \le k . \]
     An \textbf{inverse limit} of an inverse system is an object $X = \varprojlim_{i \in I} X_i$ in $\mathcal{C}$ with maps $\pi_i : X \to X_i$ for each $i \in I$ such that $\pi_i = f_{ij} \circ \pi_j$ for all $i \le j$, satisfying the universal property: for any other such object $Y$ with maps $p_i : Y \to Y_i$ there is a unique map $h : Y \to X$ such that $p_i = \pi_i \circ h$ for all $i \in I$.
     \[ \begin{tikzcd} Y \arrow[dashed, swap]{d}{h} \arrow{dr}{p_i} & \\ X \arrow{r}{\pi_i} & X_i \end{tikzcd} \]
-    Equivalently, an inverse system is a \tref{functor}{functor} $F : I^\text{op} \to \mathcal{C}$ for a directed set $I$, and an inverse limit is a \tref{limit}{limit} for $F$.
+    Equivalently, an inverse system is a \tref{functor}{functor} $F : I^\textup{op} \to \mathcal{C}$ for a directed set $I$, and an inverse limit is a \tref{limit}{limit} for $F$.
 \end{topic}
 
 \begin{example}{inverse-limit}
@@ -402,13 +404,13 @@
 \end{example}
 
 \begin{example}{galois-category}
-    Let $k$ be a field, and $\mathcal{C}$ the \tref{opposite-category}{opposite} of the category $\textbf{SAlg}_k$ of free separable $k$-algebras, with $F(A) = \text{Alg}_k(A, k_s)$, where $k_s$ is a separable closure of $k$. Then $\mathcal{C}$ with $F$ is a Galois category.
+    Let $k$ be a field, and $\mathcal{C}$ the \tref{opposite-category}{opposite} of the category $\textbf{SAlg}_k$ of free separable $k$-algebras, with $F(A) = \textup{Alg}_k(A, k_s)$, where $k_s$ is a separable closure of $k$. Then $\mathcal{C}$ with $F$ is a Galois category.
 \end{example}
 
 \begin{example}{galois-category}
-    Let $\pi$ be a \tref{GT:profinite-group}{profinite group}. The category $\pi\text{-}\textbf{set}$ of finite sets with a continuous $\pi$-action, and $F : \pi\text{-}\textbf{set} \to \textbf{Set}$ the forgetful functor, is a Galois category.
+    Let $\pi$ be a \tref{GT:profinite-group}{profinite group}. The category $\pi\textup{-}\textbf{set}$ of finite sets with a continuous $\pi$-action, and $F : \pi\textup{-}\textbf{set} \to \textbf{Set}$ the forgetful functor, is a Galois category.
     
-    It is a theorem that any essentially small Galois category is equivalent to $\pi\text{-}\textbf{set}$ for the uniquely determined profinite group $\pi = \text{Aut}(F)$.
+    It is a theorem that any essentially small Galois category is equivalent to $\pi\textup{-}\textbf{set}$ for the uniquely determined profinite group $\pi = \textup{Aut}(F)$.
 \end{example}
 
 \begin{topic}{fiber-category}{Fiber category}
@@ -451,7 +453,7 @@
     \[ \begin{tikzcd} \pi_0^* x_i \arrow{r}{\varphi_{ij}} \arrow[swap]{d}{\pi_0^* \psi_i} & \pi_1^* x_j \arrow{d}{\pi_1^* \psi_j} \\ \pi_0^* y_i \arrow{r}{\phi_{ij}} & \pi_1^* y_j \end{tikzcd} \]
     in $S_{ij}$ commutes.
     
-    A descent datum $(x_i, \varphi_{ij})$ is \textbf{effective} if there exists an object $x$ of $\mathfrak{X}$ over $S$ such that $(X_i, \varphi_{ij})$ is isomorphic to the \textit{canonical descent datum} $(f_i^* x, \text{can})$.
+    A descent datum $(x_i, \varphi_{ij})$ is \textbf{effective} if there exists an object $x$ of $\mathfrak{X}$ over $S$ such that $(X_i, \varphi_{ij})$ is isomorphic to the \textit{canonical descent datum} $(f_i^* x, \textup{can})$.
 \end{topic}
 
 \begin{topic}{category-fibered-in-groupoids}{category fibered in groupoids}
@@ -964,4 +966,46 @@
         \item (\textit{identity}) $\id_X^\dagger = \id_X$ for all objects $X$,
         \item (\textit{composition}) $(g \circ f)^\dagger = f^\dagger \circ g^\dagger$ for all morphisms $f : X \to Y$ and $g : Y \to Z$.
     \end{itemize}
+\end{topic}
+
+\begin{topic}{noetherian-object}{noetherian object}
+    Let $\mathcal{C}$ be a \tref{category}{category}. An object $X$ in $\mathcal{C}$ is \textbf{noetherian} if for every chain of \tref{subobject}{subobjects} of $X$,
+    \[ X_1 \xrightarrow{m_1} X_2 \xrightarrow{m_2} X_3 \xrightarrow{m_3} \cdots \]
+    there exists some $N \in \NN$ such that $m_n$ is an \tref{isomorphism}{isomorphism} for all $n \ge N$.
+\end{topic}
+
+\begin{topic}{noetherian-category}{noetherian category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{noetherian} if it is \tref{small-category}{essentially small} and every object of $X$ is \tref{noetherian-object}{noetherian}.
+\end{topic}
+
+\begin{topic}{dense-functor}{dense functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{dense} if every object $X$ of $\mathcal{D}$ is the \tref{limit}{colimit} of the functor
+    \[ F/X \xrightarrow{\pi_\mathcal{C}} \mathcal{C} \xrightarrow{F} \mathcal{D} , \]
+    where $F/X$ denotes the \tref{comma-category}{comma category} of $F$ and $X : \textbf{1} \to \mathcal{D}$.
+\end{topic}
+
+\begin{topic}{dense-subcategory}{dense subcategory}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A subcategory $\mathcal{C'}$ of $\mathcal{C}$ is \textbf{dense} if the inclusion functor $i : \mathcal{C}' \to \mathcal{C}$ is \tref{dense-functor}{dense}.
+\end{topic}
+
+\begin{topic}{multiplicative-system}{multiplicative system}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A set of morphisms $S$ in $\mathcal{C}$ is a \textbf{left multiplicative system} if
+    \begin{itemize}
+        \item $\id_X \in S$ for all $X$, and $g \circ f \in S$ for all composable $f, g \in S$,
+        \item for all $f : X \to Y$ and $t : X \to Z$ in $\mathcal{C}$ with $t \in S$, there exists an object $W$ and morphisms $g : Z \to W$ and $s : Y \to W$ in $\mathcal{C}$, such that $s \in S$ and $s \circ f = g \circ t$.
+        \[ \begin{tikzcd} X \arrow{r}{f} \arrow[swap]{d}{t} & Y \arrow[dashed]{d}{s} \\ Z \arrow[dashed]{r}{g} & W \end{tikzcd} \]
+        \item for all $f, g : X \to Y$ in $\mathcal{C}$ and $t : W \to X$ in $S$ with $f \circ t = g \circ t$, there exists an $s : Y \to Z$ with $s \circ f = s \circ g$.
+        \[ \begin{tikzcd} W \arrow{r}{t} & X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow[dashed]{r}{s} & Z \end{tikzcd} \]
+    \end{itemize}
+    A set of morphisms $S$ in $\mathcal{C}$ is a \textbf{right multiplicative system} if
+    \begin{itemize}
+        \item $\id_X \in S$ for all $X$, and $g \circ f \in S$ for all composable $f, g \in S$,
+        \item for all $g : Z \to W$ and $s : Y \to W$ in $\mathcal{C}$ with $s \in S$, there exists an object $X$ and morphisms $f : X \to Y$ and $t : X \to Z$ in $\mathcal{C}$, such that $t \in S$ and $s \circ f = g \circ t$.
+        \[ \begin{tikzcd} X \arrow[dashed]{r}{f} \arrow[dashed, swap]{d}{t} & Y \arrow{d}{s} \\ Z \arrow{r}{g} & W \end{tikzcd} \]
+        \item for all $f, g : X \to Y$ in $\mathcal{C}$ and $s : Y \to Z$ in $S$ with $s \circ f = s \circ g$, there exists an $t : W \to X$ with $f \circ t = g \circ t$.
+        \[ \begin{tikzcd} W \arrow[dashed]{r}{t} & X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow{r}{s} & Z \end{tikzcd} \]
+    \end{itemize}
+    A set of morphisms $S$ in $\mathcal{C}$ is a \textbf{multiplicative system} if it is both a left and right multiplicative system.
+    
+    A multiplicative system $S$ in $\mathcal{C}$ is \textbf{saturated} if for all composable morphisms $f, g, h$ in $\mathcal{C}$ with $g \circ f \in S$ and $h \circ g \in S$, also $g \in S$.
 \end{topic}

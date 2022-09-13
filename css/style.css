@@ -69,6 +69,7 @@ body {
     --clr-background-highlight: rgba(0, 0, 0, 0.08);
     --clr-background-tooltip: #fefdfc;
     --clr-list-marker: rgba(0, 0, 0, 0.5);
+    --transition-time: 0.5s
 }
 
 body.dark {
@@ -104,8 +105,7 @@ body.dark #content b {
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 html,
@@ -141,7 +141,7 @@ header {
     height: 40px;
 }
 
-#search-bar > div {
+#search-bar>div {
     z-index: 1;
     position: absolute;
     width: 100%;
@@ -175,7 +175,7 @@ header {
     outline: none;
 }
 
-#auto-complete-list > div {
+#auto-complete-list>div {
     height: 40px;
     line-height: 40px;
     padding-left: 8px;
@@ -228,8 +228,8 @@ header {
     line-height: 40px;
 }
 
-#auto-complete-list > div.focus,
-#auto-complete-list > div:hover {
+#auto-complete-list>div.focus,
+#auto-complete-list>div:hover {
     background-color: var(--clr-background-highlight);
 }
 
@@ -266,22 +266,22 @@ ol[type="(1)"] {
     padding-left: 32px;
 }
 
-ol[type="(i)"] > li,
-ol[type="(1)"] > li {
+ol[type="(i)"]>li,
+ol[type="(1)"]>li {
     counter-increment: list;
 }
 
-ol[type="(i)"] > li::marker {
+ol[type="(i)"]>li::marker {
     content: "(" counter(list, lower-roman) ") ";
 }
 
-ol[type="(1)"] > li::marker {
+ol[type="(1)"]>li::marker {
     content: "(" counter(list, numeric) ") ";
 }
 
 li::marker {
     color: var(--clr-list-marker);
-    transition: color 0.2s;
+    transition: color var(--transition-time);
 }
 
 span.math.inline {
@@ -338,7 +338,7 @@ img.display-math-svg {
     margin-top: 32px;
     margin-bottom: 32px;
     scale: 1.33;
-    transition: filter 0.2s;
+    transition: filter var(--transition-time);
 }
 
 .error {
@@ -352,7 +352,7 @@ img.display-math-svg {
     background-color: var(--clr-background-example);
     box-shadow: 0px 0px 5px var(--clr-shadow);
     font-size: 16px;
-    transition: background-color 0.5s;
+    transition: background-color var(--transition-time);
 }
 
 #examples.hidden .example {
@@ -368,7 +368,7 @@ img.display-math-svg {
     /* text-decoration: underline; */
     margin-bottom: 16px;
     color: var(--clr-text-main);
-    transition: color 0.2s;
+    transition: color var(--transition-time);
 }
 
 .toggle-examples-button {
@@ -381,6 +381,7 @@ img.display-math-svg {
 .toggle-examples-button::before {
     content: "(hide examples)";
     cursor: pointer;
+    transition: color var(--transition-time);
 }
 
 #examples.hidden .toggle-examples-button::before {
@@ -413,7 +414,8 @@ img.display-math-svg {
     opacity: 0;
     background-color: var(--clr-loading-icon);
     animation: loading 0.8s infinite;
-    animation-delay: 0.2s; /* if loading takes less than 0.2s, no animation is needed */
+    animation-delay: 0.2s;
+    /* if loading takes less than 0.2s, no animation is needed */
     margin-left: auto;
     margin-right: auto;
     margin-top: 16px;
@@ -425,6 +427,7 @@ img.display-math-svg {
         transform: scale(0);
         opacity: 1;
     }
+
     100% {
         transform: scale(1);
         opacity: 0;
@@ -435,9 +438,11 @@ img.display-math-svg {
     0% {
         text-shadow: 0px 0px 1px rgba(255, 255, 255, 0);
     }
+
     50% {
         text-shadow: 0px 0px 3px aliceblue;
     }
+
     100% {
         text-shadow: 0px 0px 1px aliceblue;
     }
@@ -454,7 +459,7 @@ img.display-math-svg {
     border-radius: 50%;
     opacity: 0.25;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: opacity var(--transition-time);
     background-image: url("../img/moon.png");
     background-position: center;
     background-size: cover;
@@ -478,11 +483,13 @@ body.dark #button-theme:hover {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
 
+/* these lines will be added by JavaScript */
 /* body, input { transition: background-color 0.5s, color 0.5s; } */
 
 /* citations */
@@ -498,7 +505,7 @@ body.dark #button-theme:hover {
     color: var(--clr-autocomplete-topic-default);
 }
 
-.cite > span {
+.cite>span {
     position: absolute;
     bottom: 32px;
     right: -16px;
@@ -509,7 +516,7 @@ body.dark #button-theme:hover {
     display: none;
 }
 
-.cite > span::after {
+.cite>span::after {
     content: "";
     box-shadow: 3px 3px 5px var(--clr-shadow);
     background-color: var(--clr-background-tooltip);
@@ -521,7 +528,7 @@ body.dark #button-theme:hover {
     transform: rotate(45deg);
 }
 
-.cite > span::before {
+.cite>span::before {
     /* just as a bounding box for the :hover */
     content: "";
     position: absolute;
@@ -531,7 +538,7 @@ body.dark #button-theme:hover {
     height: 32px;
 }
 
-.cite:hover > span {
+.cite:hover>span {
     display: block;
     width: max-content;
 }

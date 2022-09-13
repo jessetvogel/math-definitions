@@ -285,7 +285,7 @@
 \end{example}
 
 \begin{topic}{dominant-morphism}{dominant morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{dominant} if the image of $f$ is a \tref{TO:dense}{dense} subset of $Y$.
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{dominant} if the image of $f$ is a \tref{TO:dense-set}{dense} subset of $Y$.
 \end{topic}
 
 \begin{topic}{serre-duality}{Serre duality}
@@ -595,15 +595,11 @@
 \end{topic}
 
 \begin{topic}{algebraic-cycle}{algebraic cycle}
-    Let $X$ be a \tref{variety}{variety} over a field $k$. The \textbf{group of algebraic cycles} on $X$ is the free abelian group on closed integral subvarieties of $X$,
-    \[ Z_*(X) = \bigoplus_{Y \subset X} \ZZ \cdot [Y] . \] 
-    Elements of this group are formal linear combinations
-    \[ \sum_i n_i [Y_i] \]
-    called \textbf{algebraic cycles} on $X$.
-    
-    An algebraic cycle is \textbf{effective} if $n_i \ge 0$ for all $i$.
-    
-    An \textbf{algebraic $k$-cycle} is a formal linear combination of closed integral subvarieties of $X$ of dimension $k$.
+    Let $X$ be a \tref{scheme}{scheme} over a field $k$. The group of \textbf{algebraic $r$-cycles} on $X$ is the \tref{GT:free-group}{free abelian group} on $r$-dimensional \tref{closed-immersion}{closed} \tref{integral-scheme}{integral} subschemes $Z$ of $X$,
+    \[ Z_r(X) = \bigoplus_{Z \subset X} \ZZ \cdot [Z] . \]
+    The group of \textbf{algebraic cycles} is the \tref{AA:graded-module}{graded} group
+    \[ Z(X) = \bigoplus_{r \ge 0} Z_r(X) . \]
+    An algebraic cycle $\sum_i n_i [Z_i] \in Z(X)$ is \textbf{effective} if $n_i \ge 0$ for all $i$.
 \end{topic}
 
 \begin{topic}{rational-equivalence}{rational equivalence}
@@ -612,12 +608,12 @@
 \end{topic}
 
 \begin{topic}{chow-group}{Chow group}
-    Let $X$ be a \tref{noetherian-scheme}{noetherian scheme}. The $i$-th \textbf{Chow group} of $X$ is the quotient of $Z_i(X)$, the group of \tref{algebraic-cycle}{algebraic $i$-cycles} on $X$, by the subgroup of $i$-cycles \tref{rational-equivalence}{rationally equivalent} to zero.
-    \[ \textup{CH}_i(X) = Z_i(X) / \sim{}_\textup{rat} \]
+    Let $X$ be a \tref{noetherian-scheme}{noetherian scheme}. The $r$-th \textbf{Chow group} of $X$ is the quotient of $Z_r(X)$, the group of \tref{algebraic-cycle}{algebraic $r$-cycles} on $X$, by the subgroup of $r$-cycles \tref{rational-equivalence}{rationally equivalent} to zero.
+    \[ \textup{CH}_r(X) = Z_r(X) / \sim{}_\textup{rat} \]
 \end{topic}
 
 \begin{topic}{algebraic-equivalence}{algebraic equivalence}
-    Two \tref{algebraic-cycle}{algebraic cycles} $Z, Z'$ on a \tref{variety}{variety} $X$ are \textbf{algebraically equivalent} if there is an \tref{algebraic-curve}{curve} $C$ and an algebraic cycle $W$ on $X \times C1$ \tref{flat-morphism}{flat} over $C$, such that
+    Two \tref{algebraic-cycle}{algebraic cycles} $Z, Z'$ on a \tref{variety}{variety} $X$ are \textbf{algebraically equivalent} if there is an \tref{algebraic-curve}{curve} $C$ and an algebraic cycle $W$ on $X \times C$ \tref{flat-morphism}{flat} over $C$, such that
     \[ [Z] - [Z'] = [W \cap X \times \{ c_1 \}] - [W \cap X \times \{ c_2 \}] \]
     for two points $c_1, c_2$ on $C$.
     
@@ -851,11 +847,17 @@
 
 \begin{topic}{hodge-deligne-polynomial}{Hodge--Deligne polynomial}
     Let $X$ be a \tref{variety}{variety} over $\CC$. The \tref{AT:cohomology-compact-support}{cohomology groups with compact support} $H_c^k(X, \CC)$ naturally carry a \tref{LA:mixed-hodge-structure}{mixed Hodge structure}. The \textbf{Hodge--Deligne polynomial} of $X$ is the polynomial
-    \[ e(X) = \sum_{k, p, q} (-1)^k h_c^{k; p, q}(X) u^p v^q \in \ZZ[u, v] , \]
+    \[ \mu(X) = \sum_{k, p, q} h_c^{k; p, q}(X) u^p v^q t^k \in \ZZ[u, v, t] , \]
     where $h_c^{k; p, q}(X) = \dim_\CC \textup{Gr}_F^p \textup{Gr}^W_{p + q} H_c^k(X, \CC)$ are the mixed Hodge numbers.
 \end{topic}
 
-\begin{example}{hodge-deligne-polynomial}
+\begin{topic}{e-polynomial}{E-polynomial}
+    Let $X$ be a \tref{variety}{variety} over $\CC$. The \tref{AT:cohomology-compact-support}{cohomology groups with compact support} $H_c^k(X, \CC)$ naturally carry a \tref{LA:mixed-hodge-structure}{mixed Hodge structure}. The \textbf{$E$-polynomial} of $X$ is the polynomial
+    \[ e(X) = \sum_{k, p, q} (-1)^k h_c^{k; p, q}(X) u^p v^q  in \ZZ[u, v] , \]
+    where $h_c^{k; p, q}(X) = \dim_\CC \textup{Gr}_F^p \textup{Gr}^W_{p + q} H_c^k(X, \CC)$ are the mixed Hodge numbers.
+\end{topic}
+
+\begin{example}{e-polynomial}
     For a closed subvariety $Z \subset X$ with complement $U = X \setminus Z$, there is a long exact sequence of mixed Hodge structures
     \[ \cdots \to H_c^i(U, \CC) \to H_c^i(X, \CC) \to H_c^i(Z, \CC) \to H_c^{i + 1}(U, \CC) \to \cdots \]
     which shows that
@@ -932,21 +934,31 @@
 \end{topic}
 
 \begin{topic}{chow-motive}{Chow motive}
-    Let $\mathcal{V}(k)$ be the \tref{CT:category}{category} whose objects are \tref{smooth-morphism}{smooth} \tref{projective-variety}{projective varieties} over $k$, and whose morphisms are given by the \tref{chow-group}{Chow groups}
-    \[ \Hom_{\mathcal{V}(k)}(X, Y) = \textup{CH}^{\dim Y}(Y \times_k X) . \]
+    Let $\mathcal{V}(k)$ be the \tref{CT:category}{category} whose objects are \tref{smooth-morphism}{smooth} \tref{projective-morphism}{projective} schemes over a field $k$, and whose morphisms are given by the \tref{chow-group}{Chow groups}
+    \[ \Hom_{\mathcal{V}(k)}(X, Y) = \textup{CH}_{\dim X}(X \times_k Y) . \]
+    Composition is given by
+    \[ \beta \circ \alpha = \pi_{XZ*}(\pi_{XY}^*(\alpha) \cdot \pi_{YZ}^*(\beta)) \]
+    for all $\alpha \in \Hom_{\mathcal{V}(k)}(X, Y)$ and $\beta \in \Hom_{\mathcal{V}(k)}(Y, Z)$, and for any $X$ the identity $\id_X$ is given by the diagonal $\Delta_X(X) \in \textup{CH}_{\dim X}(X, X)$.
+    
     The category of \textbf{effective pure Chow motives} $\textup{Chow}^\textup{eff}(k)$ is the \tref{CT:karoubi-envelope}{idempotent completion} of $\mathcal{V}(k)$, that is,
     \begin{itemize}
-        \item the objects are pairs $(X, p)$ with $X$ a smooth projective variety over $k$, and $p \in \textup{CH}^{\dim(X)}(X, X)$ with $p \circ p = p$,
-        \item the morphisms $f : (X, p) \to (Y, q)$ are correspondences $f \in \textup{CH}^{\dim Y}(Y \times_k X)$ such that $f \circ p = f = q \circ f$.
+        \item the objects are pairs $(X, p)$ with $X$ a smooth projective scheme over $k$, and $p \in \textup{CH}_{\dim X}(X, X)$ with $p \circ p = p$,
+        \item the morphisms $f : (X, p) \to (Y, q)$ are correspondences $f \in \textup{CH}_{\dim X}(X \times_k Y)$ such that $f \circ p = f = q \circ f$.
     \end{itemize}
     This category has the structure of a \tref{CT:monoidal-category}{monoidal category} given by
     \[ (X, p) \otimes (Y, q) = (X \times_k Y, p \times q) , \]
-    with unit $\textbf{1} = (\Spec k, \Gamma_{\id}^t)$.
+    with unit $\textbf{1} = (\Spec k, \Gamma_{\id})$.
     
-    Consider the morphism $f : \PP^1_k \to \Spec k$ and a point $x : \Spec k \to \PP^1_k$. Note that $f \circ x = \id$ and $x \circ f$ is idempotent, and write $p$ for the transposed graph of $x \circ f$. Then $(\PP^1_k, p)$ is isomorphic to $\textbf{1}$ via $x$ and $f$. Moreover, $(\PP^1_k, \Gamma_{\id}^t)$ decomposes as $(\PP^1_k, p) \oplus (\PP^1_k, p^t)$, and $\mathbb{L} = (\PP^1_k, p^t)$ is called the \textit{Lefschetz motive}.
+    Consider the morphism $f : \PP^1_k \to \Spec k$ and a point $x : \Spec k \to \PP^1_k$. Since $x \circ f$ is idempotent, and every idempotent splits, $(\PP^1_k, \Gamma_\id) = \textbf{1} \oplus \mathbb{L}$, for some object $\mathbb{L}$ called the \textit{Lefschetz motive}.
     
     The category of \textbf{pure Chow motives} $\textup{Chow}(k)$ is obtained by adjoining a formal inverse $\mathbb{L}^{-1}$ to $\textup{Chow}^\textup{eff}(k)$.
 \end{topic}
+
+\begin{example}{chow-motive}
+    For any morphism $f : X \to Y$ between smooth projective schemes over $k$, the graph $\Gamma_f = \{ (x, y) \in X \times_k Y \mid y = f(x) \}$ defines a correspondence $\Gamma_f \in \textup{CH}_{\dim X}(X \times_k Y)$. For morphisms $f : X \to Y$ and $g : Y \to Z$, one can check that $\Gamma_g \circ \Gamma_f =\Gamma_{g \circ f}$. In particular, there is a functor
+    \[ \textbf{SmProj}_k \to \textup{Chow}^\textup{eff}(k) , \]
+    which sends a smooth projective scheme $X$ over $k$ to $(X, \Gamma_{\id_X})$, and a morphism $f : X \to Y$ to $\Gamma_f$.
+\end{example}
 
 \begin{topic}{hasse-weil-zeta-function}{Hasse--Weil zeta function}
     Let $X$ be a \tref{variety}{variety} over a finite field $\FF_q$. The \textbf{Hasse--Weil zeta function} of $X$ is given by
@@ -1139,7 +1151,7 @@
     \[ \begin{tikzcd}
         X \arrow[swap]{dr}{f} & X' \arrow[swap]{l}{\pi} \arrow{r}{i} \arrow{d} & \PP^n_S \arrow{dl} \\ & S &
     \end{tikzcd} \]
-    with $\pi : X' \to X$ \tref{proper-morphism}{proper} and surjective, $i : X' \to \PP^n_S$ an \tref{immersion}{immersion}, such that $\pi$ restricts to an isomorphism $\pi^{-1}(U) \simeq U$ for some \tref{TO:dense}{dense} open $U \subset X$.
+    with $\pi : X' \to X$ \tref{proper-morphism}{proper} and surjective, $i : X' \to \PP^n_S$ an \tref{immersion}{immersion}, such that $\pi$ restricts to an isomorphism $\pi^{-1}(U) \simeq U$ for some \tref{TO:dense-set}{dense} open $U \subset X$.
  \end{topic}
 
 \begin{topic}{normal-crossings-divisor}{normal crossings divisor}
@@ -1264,4 +1276,18 @@
 \begin{example}{motivic-integration}
     For any $n \ge 0$, we have
     \[ \mu(\AA^n) = \frac{[\AA^n]}{\mathbb{L}^n} = 1 . \]
+\end{example}
+
+\begin{topic}{nisnevich-morphism}{Nisnevich morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{Nisnevich} if it is \tref{etale-morphism}{étale} and for every point $y \in Y$, there exists a point $x \in X$ with $f(x) = y$ such that the induced map on residue fields $k(y) \to k(x)$ is an isomorphism.
+\end{topic}
+
+\begin{example}{nisnevich-morphism}
+    The morphism
+    \[ f : \Spec \CC[x^{\pm 1}, y] / (y^2 - x) \to \Spec \CC[x^{\pm 1}] \]
+    is étale, but not Nisnevich, because the induced map on residue fields for the generic point
+    \[ f^\# : \CC(x) \to \CC(x)[y] / (y^2 - x) \]
+    is not an isomorphism. However, if we add $\Spec \CC(x) \to \Spec \CC[x^{\pm 1}]$ to the morphism, then
+    \[ \tilde{f} : \Spec \CC[x^{\pm 1}, y] / (y^2 - x) \sqcup \Spec \CC(x) \to \Spec \CC[x^{\pm 1}] , \]
+    is Nisnevich.
 \end{example}

@@ -1,0 +1,103 @@
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, citecolor = [rgb]{0.153,0.255,0.545}, urlcolor = black, colorlinks = true, linkcolor = [rgb]{0.153,0.255,0.545}}
+\usepackage{bbm}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{xstring} % \IfSubStr
+\usepackage{xifthen}
+\usepackage{framed}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+% \usepackage{todonotes}
+
+% Page margins
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+% Commands - common symbols
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\GG}{\mathbb{G}}
+\renewcommand{\AA}{\mathbb{A}}
+% \newcommand{\pp}{\mathfrak{p}}
+% \newcommand{\mm}{\mathfrak{m}}
+% \newcommand{\Ext}{\text{Ext}}
+% \newcommand{\Tor}{\text{Tor}}
+% \newcommand{\kk}{\Bbbk}
+\newcommand{\dif}{d}
+\newcommand{\id}{\text{id}}
+\newcommand{\bdot}{{\mathbin{\vcenter{\hbox{\scalebox{0.67}{$\bullet$}}}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\renewcommand{\mod}{\textup{ mod }}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\colim}{colim}
+
+% Renew commands
+\renewcommand{\labelitemi}{\tiny$\blacksquare$}
+
+% Indentation and spacing
+\setlength{\itemindent}{0cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.5\baselineskip}
+\renewcommand{\baselinestretch}{1.25}
+
+% Theorems
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{proposition}[theorem]{Proposition}
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{corollary}[theorem]{Corollary}
+% \theoremstyle{definition}
+% \newtheorem{example}[theorem]{Example}
+% \newtheorem{remark}[theorem]{Remark}
+% \newtheorem{algorithm}[theorem]{Algorithm}
+% \newtheorem{definition}[theorem]{Definition}
+% % \numberwithin{theorem}{section}
+% % \numberwithin{equation}{section}
+% \counterwithout{equation}{section}
+% \counterwithout{theorem}{section}
+
+% Topic counter & environment
+\newcounter{topics}
+\makeatletter
+\newenvironment{topic}[2]%
+{\refstepcounter{topics}%
+\protected@edef\@currentlabelname{#2}%
+\label{topic:\cat:#1}%
+\begin{framed}
+%\begin{center}\begin{tabular}{|p{1\textwidth}|}\hline\vspace{0cm}}{\vspace{0.25cm}\\\hline\end{tabular}\end{center}}
+}{\end{framed}}
+\makeatother
+\setlength{\topsep}{0pt}
+
+
+\newenvironment{example}[1]%
+{\begin{framed}\textbf{Example \nameref{topic:\cat:#1}}. }{\end{framed}}
+
+% Topic reference
+\newcommand{\tref}[2]{\textbf{#2} (\textbf{\IfSubStr{#1}{:}{\nameref{topic:#1}}{\nameref{topic:\cat:#1}}})}%
+
+% \newcommand{\tref}[2]{\textbf{#2}}%
+
+% Proof environment
+\renewenvironment{proof}{\break \textbf{Proof}.}{\qed}

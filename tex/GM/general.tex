@@ -150,7 +150,7 @@
 \end{example}
 
 \begin{topic}{zorns-lemma}{Zorn's lemma}
-    Let $P$ be a partially ordered set, such that every chain in $P$
+    Let $P$ be a \tref{OT:partially-ordered-set}{partially ordered set}, such that every chain in $P$
     \[ x_1 \le x_2 \le x_3 \le \cdots \]
     has an upper bound in $P$. Then \textbf{Zorn's lemma} states that $P$ contains at least one maximal element.
 \end{topic}
@@ -173,4 +173,10 @@
         \item (\textit{symmetry}) $x \sim y$ if and only if $y \sim x$ for all $x, y \in X$,
         \item (\textit{transitivity}) if $x \sim y$ and $y \sim z$, then $x \sim z$ for all $x, y, z \in X$.
     \end{itemize}
+\end{topic}
+
+\begin{topic}{pascal-rule}{Pascal's rule}
+    \textbf{Pascal's rule} states that
+    \[ \binom{n}{k} = \binom{n - 1}{k} + \binom{n - 1}{k - 1} \]
+    for all integers $n, k \ge 1$.
 \end{topic}

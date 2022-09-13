@@ -5,7 +5,7 @@
 \begin{example}{algebraic-group}
     \begin{itemize}
         \item Linear groups such as $\text{GL}_n(k)$ and $\text{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
-        \item Finite groups can be realized as a disjoint union of points.
+        \item Finite groups can be realized as a disjoint union of points, that is, $\Spec (k^G)$.
         \item Elliptic curves, or more generally \tref{abelian-variety}{abelian varieties}.
     \end{itemize}
 \end{example}
@@ -324,4 +324,12 @@
     The \tref{affine-git-quotient}{GIT quotient} is given by
     \[ X \sslash \GG_m = \Spec k[x, y]^{\GG_m} = \Spec k[z] , \]
     with $z = xy$, and we see that $S$-equivalent points are identified under the quotient.
+\end{example}
+
+\begin{topic}{isogeny}{isogeny}
+    Let $G$ and $H$ be \tref{algebraic-group}{algebraic groups}. An \textbf{isogeny} from $G$ to $H$ is a surjective morphism of algebraic groups $f : G \to H$ such that $\ker f$ is finite.
+\end{topic}
+
+\begin{example}{isogeny}
+    The natural map $\textup{SL}_n(\CC) \to \textup{PGL}_n(\CC)$ is an isogeny for any $n \ge 1$, as it is surjective, and its kernel has order $n$.
 \end{example}

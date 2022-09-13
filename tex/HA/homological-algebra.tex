@@ -1,9 +1,12 @@
 % Abelian categories
-\begin{topic}{additive-category}{additive category}
-    An \textbf{additive category} is a category $\mathcal{A}$ such that
+\begin{topic}{additive-category}{(pre)additive category}
+    A \tref{CT:category}{category} $\mathcal{A}$ is \textbf{preadditive} if
     \begin{itemize}
-        \item every $\Hom_\mathcal{A}(A, B)$ is an abelian group, and composition is bilinear,
-        \item there is a \tref{CT:zero-object}{zero object} $0$ which is both \tref{CT:terminal-object}{terminal} and \tref{CT:initial-object}{initial},
+        \item every $\Hom_\mathcal{A}(A, B)$ is an \tref{GT:abelian-group}{abelian group}, and composition is bilinear,
+    \end{itemize}
+    and $\mathcal{A}$ is \textbf{additive} if moreover
+    \begin{itemize}
+        \item there is a \tref{CT:zero-object}{zero object} $0$,
         \item finite direct sums and finite direct products exist, and coincide.
     \end{itemize}
 \end{topic}
@@ -11,8 +14,8 @@
 \begin{topic}{abelian-category}{abelian category}
     An \textbf{abelian category} is an \tref{additive-category}{additive category} category $\mathcal{A}$ in which
     \begin{itemize}
-        \item all kernels and cokernels exist,
-        \item every monomoprhism is the kernel of some morphism, and every epimoprhism is the cokernel of some morphism.
+        \item every morphism $f$ has a kernel (that is, an \tref{CT:equalizer}{equalizer} of $f$ and $0$) and a cokernel (that is, a \tref{CT:coequalizer}{coequalizer} of $f$ and $0$),
+        \item every \tref{CT:monomorphism}{monomorphism} is the kernel of some morphism, and every \tref{CT:epimorphism}{epimorphism} is the cokernel of some morphism.
     \end{itemize}
 \end{topic}
 
@@ -28,6 +31,10 @@
     is a group morphism.
     
     It follows that an additive functor preserves finite direct sums and sends $0$ to $0$.
+\end{topic}
+
+\begin{topic}{pseudo-abelian-category}{pseudo-abelian-category}
+    A \tref{additive-category}{preadditive category} $\mathcal{A}$ is \textbf{pseudo-abelian} if every \tref{CT:idempotent-morphism}{idempotent morphism} $p : A \to A$ in $\mathcal{A}$ has a kernel, that is, $A$ is isomorphic to a direct sum $A_0 \oplus A_1$ such that $p = 0_{A_0} \oplus \id_{A_1}$.
 \end{topic}
 
 \begin{topic}{exact-sequence}{(short) exact sequence}
@@ -261,9 +268,11 @@
 \end{topic}
 
 \begin{example}{spectral-sequence}
-    Let $C^{\bdot, \bdot}$ be a \tref{double-complex}{double complex} with total complex $C^\bdot$, over an abelian category $\mathcal{A}$. It is a theorem that there exists the \textit{double complex spectral sequence}
+    Let $C^{\bdot, \bdot}$ be a \tref{double-complex}{double complex} in $\mathcal{A}$ with \tref{total-complex}{total complex} $C^\bdot$. It is a theorem that there exists the \textit{double complex spectral sequence}
     \[ E_0^{p, q} = C^{p, q} \Rightarrow H^{p + q}(C^\bdot) , \]
-    and by symmetry also $E_0^{p, q} = C^{q, p} \Rightarrow H^{p + q}(C^\bdot)$. These spectral sequences can be used to prove the \tref{snake-lemma}{Snake lemma}. Consider the diagram
+    and by symmetry also
+    \[ E_0^{p, q} = C^{q, p} \Rightarrow H^{p + q}(C^\bdot) . \]
+    These spectral sequences can be used to prove the \tref{snake-lemma}{Snake lemma}. Consider the diagram
     \[ \begin{tikzcd}
         0 \arrow{r} & A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \arrow{r} & 0 \\
         0 \arrow{r} & A \arrow{r}{f} \arrow{u}{a} & B \arrow{r}{g} \arrow{u}{b} & C \arrow{r} \arrow{u}{c} & 0
@@ -305,12 +314,12 @@
         \end{tikzpicture} \\ \; \\
         E_2^{p, q} = \quad \begin{tikzcd}[row sep=0.5em, column sep=0.5em]
             0 & \ker(\coker a \to \coker b) \arrow{rrd} & 0 & 0 \\
-            0 & 0 & 0 & \ker c / \ker b
+            0 & 0 & 0 & \coker(\ker b \to \ker c)
         \end{tikzcd} \begin{tikzpicture}[overlay,remember picture]
-            \draw[-latex] (-7.0, -0.6) -- (-7.0, 0.65);
-            \draw[-latex] (-7.0, -0.6) -- (0, -0.6);
+            \draw[-latex] (-8.5, -0.6) -- (-8.5, 0.65);
+            \draw[-latex] (-8.5, -0.6) -- (0, -0.6);
             \node at (0.2, -0.6) {$p$};
-            \node at (-7.25, 0.7) {$q$};
+            \node at (-8.75, 0.7) {$q$};
         \end{tikzpicture}
     \end{array} \]
     Since this page must also converge to zero, the map $\delta : \ker(\coker a \to \coker b) \to \ker c / \ker b$ must be an isomorphism, and its inverse can be used to define the connecting homomorphism $d : \ker c \to \coker a$ making

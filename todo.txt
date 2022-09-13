@@ -8,6 +8,8 @@
 
 ---- Theory ----
 
+CT: example: dense functor. continuous map f : X \to Y yields functor F : Open(Y) \to Open(X). Then F is dense if and only if the image of f is dense in Y
+
 AG: direct image with compact support f_!
 AG: exceptional inverse image f^!
 AG: (complete) linear system
@@ -19,8 +21,14 @@ AG: Lang's theorem => H^1_ét(Spec FF_q, G) = 0 for G connected, so any G-bundle
 AA: Weyl dimension/character formula (Lie algebras)
 Skein algebras
 
--- Category Theory
-CT: noetherian category
+-- Complex Analysis
+CA: holomorphic function
+CA: meromorphic function
+CA: Cauchy--Riemann equations
+CA: Cauchy's integral theorem
+CA: Residue theorem
+CA: Schwarz lemma
+CA: Riemann mapping theorem
 
 -- Higher Algebra
 Spectrum object
@@ -54,7 +62,8 @@ DG: Hermitian manifold
 DG: moment polytope (da Silva, Chapter 27)
 DG?: Goldman symplectic structure
 DG: Atiyah--Singer theorem
-DG: Floer homology
+DG: Morse function / Morse homology
+DG: Floer homology (https://math.berkeley.edu/~auroux/papers/lec-nantes.pdf, https://walkerstern.gitlab.io/Notes/Fukaya/Notes_Fukaya.pdf)
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
 DG: Atiyah-Bott symplectic form
@@ -109,10 +118,9 @@ DAG: derived scheme / stack
 
 -- Algebraic Topology
 AT: Dold--Thom theorem example: SP(S^1) = S^1 and homotopy groups/homology groups (https://people.brandeis.edu/~tbl/dold-thom.pdf)
-AT: Freudenthal suspension theorem
 AT: Gysin sequence
 AT: Bockstein sequence
-AT: equivariant cohomology (https://www.maths.gla.ac.uk/~gbellamy/Cargese/L12.pdf) (independent of chosen universal bundle)
+AT: Borel--Moore homology
 
 -- Functional Analysis
 FA: Fréchet topology (any Banach space, any Schwartz space) / Frechet space
@@ -138,6 +146,9 @@ NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Cor
 NT?: Hasse principle
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 NT: conductor (abelian extensions?)
+
+-- Logic
+LO: Diaconescu's theorem
 
 -- Representation Theory
 RT: Schur index

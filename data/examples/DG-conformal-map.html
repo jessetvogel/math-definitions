@@ -1,0 +1,11 @@
+<div class="example">Let <span class="math inline">\(M = \RR^2 \setminus \{ (0, 0) \}\)</span> and <span class="math inline">\(M' = \RR^2\)</span>, both equipped with the standard Euclidean metric, and consider the map
+<span class="math display">\[ f : M \to M', \quad (x, y) \mapsto (u, v) = \left(\frac{x}{x^2 + y^2}, \frac{y}{x^2 + y^2} \right) . \]</span>
+Then the pullback of <span class="math inline">\(g' = du^2 + dv^2\)</span> along <span class="math inline">\(f\)</span> is given by
+<span class="math display">\[ \begin{aligned}
+        f^* g'
+            &= f^* (du^2 + dv^2) \\
+            &= \left(d \left(\frac{x}{x^2 + y^2} \right)\right)^2 + \left(d \left( \frac{y}{x^2 + y^2} \right)\right)^2 \\
+            &= \frac{1}{(x^2 + y^2)^2} (dx^2 + dy^2) ,
+    \end{aligned} \]</span>
+so <span class="math inline">\(f\)</span> is conformal with conformal factor <span class="math inline">\(\alpha = (x^2 + y^2)^{-2}\)</span>.
+</div>

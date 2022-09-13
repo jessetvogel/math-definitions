@@ -58,14 +58,14 @@
 \end{topic}
 
 \begin{topic}{first-countable-space}{first countable space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{first countable} if for every point $x \in X$, there exists a sequence of \tref{neighborhood}{neighborhoods} $N_1, N_2, \ldots$ of $x$ such that for every neighborhood $N$ of $x$ contains some $N_i$.
+    A \tref{topological-space}{topological space} $X$ is \textbf{first countable} if for every point $x \in X$, there exists a sequence of \tref{neighborhood}{neighborhoods} $N_1, N_2, \ldots$ of $x$ such that every neighborhood $N$ of $x$ contains some $N_i$.
 \end{topic}
 
 \begin{topic}{second-countable-space}{second countable space}
     A \tref{topological-space}{topological space} $X$ is \textbf{second countable} if it admits a countable \tref{basis}{basis}.
 \end{topic}
 
-\begin{topic}{dense}{dense}
+\begin{topic}{dense-set}{dense set}
     A subset $A$ of a \tref{topological-space}{topological space} $X$ is \textbf{dense} if its \tref{closure}{closure} $\overline{A}$ equals $X$.
 \end{topic}
 
@@ -368,7 +368,7 @@
 \end{topic}
 
 \begin{topic}{sequentially-compact-space}{sequentially compact space}
-    A \tref{topological-space}{topological space} is \textbf{sequentially compact} if every sequence of points $(x_n)_{n \in \NN}$ in $X$ has a \tref{convergent-sequence}{convergent} subsequence.
+    A \tref{topological-space}{topological space} $X$ is \textbf{sequentially compact} if every sequence of points $(x_n)_{n \in \NN}$ in $X$ has a \tref{convergent-sequence}{convergent} subsequence.
 \end{topic}
 
 \begin{topic}{convergent-sequence}{convergent sequence}
@@ -390,13 +390,13 @@
 \end{topic}
 
 \begin{topic}{separable-space}{separable space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{separable} if it contains a countable \tref{dense}{dense} subset.
+    A \tref{topological-space}{topological space} $X$ is \textbf{separable} if it contains a countable \tref{dense-set}{dense} subset.
 \end{topic}
 
 \begin{topic}{baire-space}{Baire space}
     A \tref{topological-space}{topological space} $X$ is a \textbf{Baire space}, if for any countable collection $(X_n)_{n \in \NN}$ of subsets of $X$ with empty \tref{interior}{interior}, the union $\bigcup_{n \in \NN} X_n$ also has empty interior.
     
-    Equivalently, $X$ is a Baire space if the intersection of a countable number of \tref{dense}{dense} subsets of $X$ is again dense.
+    Equivalently, $X$ is a Baire space if the intersection of a countable number of \tref{dense-set}{dense} subsets of $X$ is again dense.
 \end{topic}
 
 \begin{example}{baire-space}
@@ -522,7 +522,7 @@
 \end{topic}
 
 \begin{topic}{regular-space}{regular space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{regular} if for every closed set $Y \subset X$ and every point $x \in X \setminus Y$, there exist disjoint open subsets $U, V \subset X$ such that $Y \subset U$ and $p \in V$.
+    A \tref{topological-space}{topological space} $X$ is \textbf{regular} if for every closed set $Y \subset X$ and every point $x \in X \setminus Y$, there exist disjoint open subsets $U, V \subset X$ such that $Y \subset U$ and $x \in V$.
 \end{topic}
 
 \begin{topic}{lindelof-space}{Lindelöf space}
@@ -584,4 +584,34 @@
 
 \begin{topic}{menger-space}{Menger space}
     A \tref{topological-space}{topological space} $X$ is \textbf{Menger} if for every sequence of open covers $\mathcal{U}_1, \mathcal{U}_2, \ldots$ for $X$, there are finite subsets $\mathcal{F}_1 \in \mathcal{U}_1, \mathcal{F}_2 \in \mathcal{U}_2, \ldots$ such that $\mathcal{F}_1 \cup \mathcal{F}_2 \cup \cdots$ is an open cover for $X$.
+\end{topic}
+
+\begin{topic}{sequential-space}{sequential space}
+    Let $X$ be a \tref{topological-space}{topological space}. A subset $A \subset X$ is \textit{sequentially closed} if every point $x \in X$ which is the limit of a \tref{convergent-sequence}{convergent sequence} $(a_n)_{n \in \NN}$ in $A$, is contained in $A$. The space $X$ is \textbf{sequential} if every sequentially closed subset of $X$ is closed.
+\end{topic}
+
+\begin{topic}{frechet-urysohn-space}{Fréchet--Urysohn space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Fréchet--Urysohn} if for every subset $A \subset X$ and $x \in \overline{A}$ there exists a sequence $(a_n)_{n \in \NN}$ in $A$ \tref{convergent-sequence}{converging} to $x$.
+\end{topic}
+
+\begin{topic}{isolated-point}{isolated point}
+    Let $X$ be a \tref{topological-space}{topological space}. An \textbf{isolated point} of a subset $A \subset X$ is a point $a \in A$ for which there exists an open subset $U \subset X$ such that $U \cap A = \{ a \}$.
+\end{topic}
+
+\begin{example}{isolated-point}
+    Let $X = \RR$ with the Euclidean topology. Then $0$ is an isolated point of $A = \{ 0 \} \cup [1, 2]$ since the open subset $U = (-\tfrac{1}{2}, \tfrac{1}{2}) \subset X$ intersects $A$ only in $0$.
+\end{example}
+
+\begin{topic}{scattered-space}{scattered space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{scattered} if every non-empty subset $A \subset X$ has an \tref{isolated-point}{isolated point}.
+\end{topic}
+
+\begin{topic}{extremally-disconnected-space}{extremally disconnected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{extremally disconnected} if the \tref{closure}{closure} of every open set is open.
+\end{topic}
+
+\begin{topic}{sigma-compact-space}{sigma-compact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{$\sigma$-compact} if there is a sequence $K_1, K_2, \ldots$ of \tref{compact-space}{compact} subsets $K_n \subset X$ such that $X = \bigcup_{n \ge 1} K_i$.
+    
+    A topological space $X$ is is \textbf{$\sigma$-locally compact} if it is $\sigma$-compact and \tref{locally-compact-space}{locally compact}.
 \end{topic}

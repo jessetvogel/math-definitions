@@ -1,0 +1,128 @@
+\documentclass{report}
+% \usepackage[nottoc]{tocbibind}
+\input{./header.tex}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+    \; \\ \vspace{5cm} \textbf{\Huge Math Definitions}
+    \\ \vspace{2cm}
+    \textsc{Jesse Vogel}
+\end{center}
+
+\newpage
+
+{
+    \renewcommand{\baselinestretch}{0.6}\normalsize
+    \tableofcontents
+}
+
+\newcommand{\cat}{}
+
+\chapter{General}
+\renewcommand{\cat}{GM}
+\input{GM/general}
+
+\chapter{Linear Algebra}
+\renewcommand{\cat}{LA}
+\input{LA/linear-algebra}
+\input{LA/symplectic-spaces}
+\input{LA/convex-geometry}
+\input{LA/lattices}
+\input{LA/hodge-structures}
+\input{LA/inner-product-spaces}
+
+\chapter{Group Theory}
+\renewcommand{\cat}{GT}
+\input{GT/group-theory}
+
+\chapter{Topology}
+\renewcommand{\cat}{TO}
+\input{TO/topology}
+
+\chapter{Category Theory}
+\renewcommand{\cat}{CT}
+\input{CT/category-theory}
+\input{CT/monoidal-categories}
+\input{CT/higher-category-theory}
+
+\chapter{Order Theory}
+\renewcommand{\cat}{OT}
+\input{OT/order-theory}
+
+\chapter{Algebra}
+\renewcommand{\cat}{AA}
+\input{AA/ring-theory}
+\input{AA/fields}
+\input{AA/modules}
+\input{AA/tensor-algebra}
+\input{AA/algebra}
+\input{AA/advanced-algebra}
+\input{AA/lie-algebras}
+\input{AA/quantum-algebra}
+\input{AA/invariant-theory}
+\input{AA/commutative-algebra}
+
+\chapter{Number Theory}
+\renewcommand{\cat}{NT}
+\input{NT/number-theory}
+\input{NT/algebraic-number-theory}
+\input{NT/valued-fields}
+
+\chapter{Algebraic Geometry}
+\renewcommand{\cat}{AG}
+\input{AG/sheaves}
+\input{AG/algebraic-geometry}
+\input{AG/log-geometry}
+\input{AG/stacks}
+\input{AG/algebraic-groups}
+
+\chapter{Homological Algebra}
+\renewcommand{\cat}{HA}
+\input{HA/homological-algebra}
+\input{HA/triangulated-categories}
+\input{HA/derived-categories}
+
+\chapter{Algebraic Topology}
+\renewcommand{\cat}{AT}
+\input{AT/algebraic-topology}
+
+\chapter{Differential Geometry}
+\renewcommand{\cat}{DG}
+\input{DG/differential-geometry}
+\input{DG/symplectic-geometry}
+\input{DG/lie-groups}
+
+\chapter{Deformation Theory}
+\renewcommand{\cat}{DT}
+\input{DT/deformation-theory}
+
+\chapter{Computer Algebra}
+\renewcommand{\cat}{CP}
+\input{CP/computer-algebra}
+
+\chapter{Homotopy Theory}
+\renewcommand{\cat}{HT}
+\input{HT/homotopy-theory}
+\input{HT/dg-categories}
+
+\chapter{Representation Theory}
+\renewcommand{\cat}{RT}
+\input{RT/representation-theory}
+
+\chapter{Functional Analysis}
+\renewcommand{\cat}{FA}
+\input{FA/functional-analysis}
+
+\chapter{Measure Theory}
+\renewcommand{\cat}{MT}
+\input{MT/measure-theory}
+
+\chapter{Uncategorized}
+\renewcommand{\cat}{UN}
+\input{UN/uncategorized}
+\input{UN/quivers}
+
+\end{document}
