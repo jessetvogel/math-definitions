@@ -594,32 +594,6 @@
     \end{aligned} \]
 \end{topic}
 
-\begin{topic}{algebraic-cycle}{algebraic cycle}
-    Let $X$ be a \tref{scheme}{scheme} over a field $k$. The group of \textbf{algebraic $r$-cycles} on $X$ is the \tref{GT:free-group}{free abelian group} on $r$-dimensional \tref{closed-immersion}{closed} \tref{integral-scheme}{integral} subschemes $Z$ of $X$,
-    \[ Z_r(X) = \bigoplus_{Z \subset X} \ZZ \cdot [Z] . \]
-    The group of \textbf{algebraic cycles} is the \tref{AA:graded-module}{graded} group
-    \[ Z(X) = \bigoplus_{r \ge 0} Z_r(X) . \]
-    An algebraic cycle $\sum_i n_i [Z_i] \in Z(X)$ is \textbf{effective} if $n_i \ge 0$ for all $i$.
-\end{topic}
-
-\begin{topic}{rational-equivalence}{rational equivalence}
-    Two \tref{algebraic-cycle}{algebraic cycles} $Z, Z'$ on a \tref{variety}{variety} $X$ are \textbf{rationally equivalent} if there is an algebraic cycle $W$ on $X \times \PP^1$ \tref{flat-morphism}{flat} over $\PP^1$, such that
-    \[ [Z] - [Z'] = [W \cap X \times \{ 0 \}] - [W \cap X \times \{ \infty \}] . \]
-\end{topic}
-
-\begin{topic}{chow-group}{Chow group}
-    Let $X$ be a \tref{noetherian-scheme}{noetherian scheme}. The $r$-th \textbf{Chow group} of $X$ is the quotient of $Z_r(X)$, the group of \tref{algebraic-cycle}{algebraic $r$-cycles} on $X$, by the subgroup of $r$-cycles \tref{rational-equivalence}{rationally equivalent} to zero.
-    \[ \textup{CH}_r(X) = Z_r(X) / \sim{}_\textup{rat} \]
-\end{topic}
-
-\begin{topic}{algebraic-equivalence}{algebraic equivalence}
-    Two \tref{algebraic-cycle}{algebraic cycles} $Z, Z'$ on a \tref{variety}{variety} $X$ are \textbf{algebraically equivalent} if there is an \tref{algebraic-curve}{curve} $C$ and an algebraic cycle $W$ on $X \times C$ \tref{flat-morphism}{flat} over $C$, such that
-    \[ [Z] - [Z'] = [W \cap X \times \{ c_1 \}] - [W \cap X \times \{ c_2 \}] \]
-    for two points $c_1, c_2$ on $C$.
-    
-    The \tref{neron-severi-group}{Néron--Severi group}.
-\end{topic}
-
 \begin{topic}{algebraic-curve}{algebraic curve}
     An \textbf{algebraic curve} is an (irreducible) \tref{variety}{variety} of pure dimension $1$.
 \end{topic}
@@ -932,33 +906,6 @@
 \begin{topic}{quasi-affine-scheme}{quasi-affine scheme}
     A \tref{scheme}{scheme} is \textbf{quasi-affine} if it is \tref{quasi-compact-scheme}{quasi-compact} and isomorphic to an open subscheme of an \tref{affine-scheme}{affine scheme}.
 \end{topic}
-
-\begin{topic}{chow-motive}{Chow motive}
-    Let $\mathcal{V}(k)$ be the \tref{CT:category}{category} whose objects are \tref{smooth-morphism}{smooth} \tref{projective-morphism}{projective} schemes over a field $k$, and whose morphisms are given by the \tref{chow-group}{Chow groups}
-    \[ \Hom_{\mathcal{V}(k)}(X, Y) = \textup{CH}_{\dim X}(X \times_k Y) . \]
-    Composition is given by
-    \[ \beta \circ \alpha = \pi_{XZ*}(\pi_{XY}^*(\alpha) \cdot \pi_{YZ}^*(\beta)) \]
-    for all $\alpha \in \Hom_{\mathcal{V}(k)}(X, Y)$ and $\beta \in \Hom_{\mathcal{V}(k)}(Y, Z)$, and for any $X$ the identity $\id_X$ is given by the diagonal $\Delta_X(X) \in \textup{CH}_{\dim X}(X, X)$.
-    
-    The category of \textbf{effective pure Chow motives} $\textup{Chow}^\textup{eff}(k)$ is the \tref{CT:karoubi-envelope}{idempotent completion} of $\mathcal{V}(k)$, that is,
-    \begin{itemize}
-        \item the objects are pairs $(X, p)$ with $X$ a smooth projective scheme over $k$, and $p \in \textup{CH}_{\dim X}(X, X)$ with $p \circ p = p$,
-        \item the morphisms $f : (X, p) \to (Y, q)$ are correspondences $f \in \textup{CH}_{\dim X}(X \times_k Y)$ such that $f \circ p = f = q \circ f$.
-    \end{itemize}
-    This category has the structure of a \tref{CT:monoidal-category}{monoidal category} given by
-    \[ (X, p) \otimes (Y, q) = (X \times_k Y, p \times q) , \]
-    with unit $\textbf{1} = (\Spec k, \Gamma_{\id})$.
-    
-    Consider the morphism $f : \PP^1_k \to \Spec k$ and a point $x : \Spec k \to \PP^1_k$. Since $x \circ f$ is idempotent, and every idempotent splits, $(\PP^1_k, \Gamma_\id) = \textbf{1} \oplus \mathbb{L}$, for some object $\mathbb{L}$ called the \textit{Lefschetz motive}.
-    
-    The category of \textbf{pure Chow motives} $\textup{Chow}(k)$ is obtained by adjoining a formal inverse $\mathbb{L}^{-1}$ to $\textup{Chow}^\textup{eff}(k)$.
-\end{topic}
-
-\begin{example}{chow-motive}
-    For any morphism $f : X \to Y$ between smooth projective schemes over $k$, the graph $\Gamma_f = \{ (x, y) \in X \times_k Y \mid y = f(x) \}$ defines a correspondence $\Gamma_f \in \textup{CH}_{\dim X}(X \times_k Y)$. For morphisms $f : X \to Y$ and $g : Y \to Z$, one can check that $\Gamma_g \circ \Gamma_f =\Gamma_{g \circ f}$. In particular, there is a functor
-    \[ \textbf{SmProj}_k \to \textup{Chow}^\textup{eff}(k) , \]
-    which sends a smooth projective scheme $X$ over $k$ to $(X, \Gamma_{\id_X})$, and a morphism $f : X \to Y$ to $\Gamma_f$.
-\end{example}
 
 \begin{topic}{hasse-weil-zeta-function}{Hasse--Weil zeta function}
     Let $X$ be a \tref{variety}{variety} over a finite field $\FF_q$. The \textbf{Hasse--Weil zeta function} of $X$ is given by

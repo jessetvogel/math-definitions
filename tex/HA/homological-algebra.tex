@@ -97,12 +97,25 @@
     \[ H^i(A^\bdot) = \ker d^i / \im d^{i - 1} . \]
 \end{topic}
 
-\begin{topic}{long-exact-sequence-homology}{long exact sequence in homology}
+\begin{topic}{long-exact-sequence-cohomology}{long exact sequence in cohomology}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let
     \[ 0 \rightarrow A^\bdot \rightarrow B^\bdot \rightarrow C^\bdot \rightarrow 0 \]
-    be a short exact sequence of \tref{chain-complex}{complexes} in $\mathcal{A}$. Then there is an induced long exact sequence
+    be a \tref{exact-sequence}{short exact sequence} of \tref{chain-complex}{complexes} in $\mathcal{A}$. Then there is an induced long exact sequence of \tref{homology-object}{cohomology objects}
     \[ \cdots \rightarrow H^i(A^\bdot) \rightarrow H^i(B^\bdot) \rightarrow H^i(C^\bdot) \rightarrow H^{i + 1}(A^\bdot) \rightarrow \cdots . \]
 \end{topic}
+
+\begin{example}{long-exact-sequence-cohomology}
+\begin{proof}
+    Consider the following commutative diagram.
+    \[ \begin{tikzcd}
+        & \coker(A^{n - 1} \xrightarrow{d} A^n) \arrow{r} \arrow{d}{d} & \coker(B^{n - 1} \xrightarrow{d} B^n) \arrow{r} \arrow{d}{d} & \coker(C^{n - 1} \xrightarrow{d} C^n) \arrow{r} \arrow{d}{d} & 0 \\
+        0 \arrow{r} & \ker(A^{n + 1} \xrightarrow{d} A^{n + 2}) \arrow{r} & \ker(B^{n + 1} \xrightarrow{d} B^{n + 2}) \arrow{r} & \ker(C^{n + 1} \xrightarrow{d} C^{n + 2}) &
+    \end{tikzcd} \]
+    The \tref{snake-lemma}{snake lemma} shows that both rows are exact. Since the kernel and cokernel of the first vertical map are $H^n(A^\bdot)$ and $H^{n + 1}(A^\bdot)$, respectively, and similarly for the other vertical maps, applying the snake lemma again yields an exact sequence
+    \[ H^n(A^\bdot) \to H^n(B^\bdot) \to H^n(C^\bdot) \xrightarrow{\delta} H^{n + 1}(A^\bdot) \to H^{n + 1}(B^\bdot) \to H^{n + 1}(C^\bdot) . \]
+    The long exact sequence is now obtained by pasting these exact sequences together.
+\end{proof}
+\end{example}
 
 \begin{topic}{chain-homotopy}{chain homotopy}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : A^\bdot \to B^\bdot$ be morphisms of \tref{chain-complex}{chain complexes} in $\mathcal{A}$. A \textbf{chain homotopy} from $f$ to $g$ is a collection of morphisms $k^i : A^i \to B^{i - 1}$ such that
@@ -518,7 +531,7 @@
 \end{topic}
 
 \begin{example}{mapping-cone}
-    Let $f : X \to Y$ be a \tref{TO:continuous-map}{continuous map} between \tref{TO:topological-space}{topological spaces}. Then the mapping cone $C(f_\bdot)$ of the induced morphism $f_\bdot : C_\bdot(X; \ZZ) \to C_\bdot(Y; \ZZ)$ between \tref{AT:singular-homology}{singular complexes} of $X$ and $Y$ is \tref{AT:homotopy-equivalence}{homotopy equivalent} to the singular complex of the \tref{mapping-cone}{mapping cone} of $f$.
+    Let $f : X \to Y$ be a \tref{TO:continuous-map}{continuous map} between \tref{TO:topological-space}{topological spaces}. Then the mapping cone $C(f_*)$ of the induced morphism $f_* : C_\bdot(X; \ZZ) \to C_\bdot(Y; \ZZ)$ between \tref{AT:singular-homology}{singular complexes} of $X$ and $Y$ is \tref{chain-homotopy-equivalence}{homotopy equivalent} to the singular complex of the \tref{mapping-cone}{mapping cone} of $f$.
 \end{example}
 
 \begin{topic}{enough-injectives}{enough injectives}

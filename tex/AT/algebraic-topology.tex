@@ -90,12 +90,20 @@
 
 \begin{topic}{mayer-vietoris-sequence}{Mayer–Vietoris sequence}
     Let $X$ be a \tref{TO:topological-space}{topological space}, and $U, V \subset X$ two subsets with $X = \textup{interior}(U) \cup \textup{interior}(V)$. Then there is a long exact sequence of homology groups (with coefficients in $A$)
-    \[ \cdots \longrightarrow H_n(U \cap V; A) \overset{i}{\longrightarrow} H_n(U; A) \oplus H_n(V; A) \overset{p}{\longrightarrow} H_n(X; A) \overset{\partial}{\longrightarrow} H_{n - 1}(U \cap V; A) \longrightarrow \cdots \]
-    where $i$ is induced by the inclusions $U \cap V \hookrightarrow U$ and $U \cap V \hookrightarrow V$, and $p = i_*^U - i_*^V$. The map $\delta$ is a connecting morphism. This sequence is called the \textbf{Mayer–Vietoris sequence}.
+    \[ \cdots \longrightarrow H_n(U \cap V; A) \overset{i}{\longrightarrow} H_n(U; A) \oplus H_n(V; A) \overset{p}{\longrightarrow} H_n(X; A) \overset{\delta}{\longrightarrow} H_{n - 1}(U \cap V; A) \longrightarrow \cdots \]
+    where $i$ is induced by the inclusions $U \cap V \hookrightarrow U$ and $U \cap V \hookrightarrow V$, and $p = i_*^U - i_*^V$. The map $\delta$ is a connecting morphism. This sequence is called the \textbf{Mayer--Vietoris sequence}.
     
     Dually, there is one for cohomology
-    \[ \cdots \longrightarrow H^n(X; A) \overset{r}{\longrightarrow} H^n(U; A) \oplus H^n(V; A) \overset{\Delta}{\longrightarrow} H^n(U \cap V; A) \overset{\partial}{\longrightarrow} H^{n + 1}(X; A) \longrightarrow \cdots \]
+    \[ \cdots \longrightarrow H^n(X; A) \overset{r}{\longrightarrow} H^n(U; A) \oplus H^n(V; A) \overset{\Delta}{\longrightarrow} H^n(U \cap V; A) \overset{\delta}{\longrightarrow} H^{n + 1}(X; A) \longrightarrow \cdots \]
 \end{topic}
+
+\begin{example}{mayer-vietoris-sequence}
+    Consider the \tref{TO:wedge-sum}{wedge sum} $X = S^1 \vee S^1$ with the natural open covering $X = U \cup V$, where $U = S^1$ and $V = S^1$ are the two circles. Since the cohomology of $S^1$ and $U \cap V = \star$ is known,
+    \[ H^n(S^1; A) = \left\{ \begin{array}{cl} A & \textup{ if } n = 0, \\ 0 & \textup{ otherwise}, \end{array} \right. \quad \textup{ and } \quad H^n(\star; A) = \left\{ \begin{array}{cl} A & \textup{ if } n = 0, 1, \\ 0 & \textup{ otherwise}, \end{array} \right. \]
+    the Mayer--Vietoris sequence can be written as
+    \[ 0 \to H^0(X; A) \to A \oplus A \xrightarrow{\Delta} A \to H^1(X; A) \to A \oplus A \to 0 \to H^2(X; A) \to 0 \to \cdots \]
+    where $\Delta : A \oplus A \to A$ is given by $(a, b) \mapsto a + b$. Now we can read off that $H^0(X; A) = \ker(\Delta) \simeq A$ and $H^1(X; A) \simeq A \oplus A$ and $H^n(X; A) = 0$ for $n \ge 2$.
+\end{example}
 
 \begin{topic}{deformation-retract}{(strong) deformation retract}
     A \textbf{deformation retraction} of a \tref{TO:topological-space}{topological space} $X$ onto a subspace $A$ is a continuous map

@@ -134,7 +134,7 @@
 \end{topic}
 
 \begin{topic}{eigenvalue}{eigenvalue/eigenvector}
-    Let $A$ be an $n \times n$ matrix. A scalar $\lambda$ is an \textbf{eigenvalue} of $A$ if there exists a nonzero vector $v$ such that $A v = \lambda v$. The vector $v$ is then an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
+    Let $A : V \to V$ be a \tref{linear-map}{linear map}. A scalar $\lambda$ is an \textbf{eigenvalue} of $A$ if there exists a nonzero vector $v \in V$ such that $A v = \lambda v$. The vector $v$ is then an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
 \end{topic}
 
 \begin{topic}{characteristic-polynomial}{characteristic polynomial}
@@ -166,7 +166,7 @@
     Let $A$ be an $n \times n$ matrix. The \textbf{algebraic multiplicity} of an eigenvalue $\lambda$ of $A$ is its multiplicity as a root of the \tref{characteristic-polynomial}{characteristic polynomial} of $A$.
     
     The \textbf{geometric multiplicity} is the \tref{dimension}{dimension} of the corresponding \textit{eigenspace}
-    \[ E_\lambda = \{ v \in V : A v = \lambda v \} . \]
+    \[ E_\lambda(A) = \{ v \in V \mid A v = \lambda v \} . \]
 \end{topic}
 
 \begin{example}{algebraic-geometric-multiplicity}
@@ -311,8 +311,10 @@
     \[ \norm{\cdot} : \RR^n \to \RR, \quad v \mapsto \norm{v} . \]
 \end{example}
 
-\begin{topic}{generalized-eigenvalue}{generalized eigenvalue/eigenvector}
-    Let $A$ be an $n \times n$ matrix. A scalar $\lambda$ is a \textbf{generalized eigenvalue} if there exists a vector $v$ and integer $N \ge 1$ such that $(A - \lambda I)^N v = 0$. The vector $v$ is called the \textbf{generalized eigenvector} corresponding to $\lambda$.
+\begin{topic}{generalized-eigenspace}{generalized eigenspace}
+    Let $A : V \to V$ be a \tref{linear-map}{linear map}, and $\lambda$ an \tref{eigenvalue}{eigenvalue} of $A$. The \textbf{generalized eigenspace} corresponding to $\lambda$ is the subspace
+    \[ V_\lambda(A) = \{ v \in V \mid (A - \lambda I)^n v = 0 \textup{ for some } n \ge 1 \} , \]
+    whose elements are called \textbf{generalized eigenvector} of $A$ corresponding to $\lambda$.
 \end{topic}
 
 \begin{topic}{matrix-exponential}{matrix exponential}
@@ -482,6 +484,7 @@
     \end{aligned} \]
     be the subspaces of even and odd functions, respectively. Then $U_+ \cap U_- = \{ 0 \}$ since for any $f \in U_+ \cap U_-$ we have $f(x) = f(-x) = -f(x)$ for all $x \in \RR$. Furthermore, $V = U_+ + U_-$ since for any $f : \RR \to \RR$ we have
     \[ f(x) = \underbrace{\frac{f(x) + f(-x)}{2}}_{\in U_+} + \underbrace{\frac{f(x) - f(-x)}{2}}_{\in U_-} . \]
+    Hence, $U_+$ and $U_-$ are complementary subspaces of $V$.
 \end{example}
 
 \begin{topic}{projective-linear-group}{projective linear group}

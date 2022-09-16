@@ -3,7 +3,7 @@
 \end{topic}
 
 \begin{topic}{irreducible-element}{irreducible element}
-    Let $R$ be a \tref{domain}{domain}. An element $a \in R$ is called a \textbf{irreducible} if $a$ is not a \tref{unit}{unit}, and for all $b, c \in R$ such that $bc = a$ either $b$ or $c$ is a unit.
+    Let $R$ be a \tref{domain}{domain}. An element $a \in R$ is called a \textbf{irreducible} if $a$ is not a \tref{unit-element}{unit}, and for all $b, c \in R$ such that $bc = a$ either $b$ or $c$ is a unit.
 \end{topic}
 
 \begin{topic}{field}{field}
@@ -51,9 +51,13 @@
 \end{topic}
 
 \begin{topic}{local-ring}{local ring}
-    A \textbf{local ring} is a \tref{ring}{commutative ring} $R$ with exactly one \tref{maximal-ideal}{maximal ideal}. The maximal is often denoted by $\mathfrak{m}$.
+    A \tref{ring}{commutative ring} $R$ is \textbf{local} if it has exactly one \tref{maximal-ideal}{maximal ideal} $\mathfrak{m}$.
     
     The quotient $k = R/\mathfrak{m}$ is called the \textbf{residue field}.
+\end{topic}
+
+\begin{topic}{semi-local-ring}{semi-local ring}
+    A \tref{ring}{commutative ring} $R$ is \textbf{semi-local} if it has finitely many \tref{maximal-ideal}{maximal ideals}.
 \end{topic}
 
 \begin{topic}{local-morphism}{local morphism}
@@ -169,7 +173,7 @@
 \end{topic}
 
 \begin{topic}{unique-factorization-domain}{unique factorization domain (UFD)}
-    A \textbf{unique factorization domain} (UFD) is a \tref{domain}{domain} $R$ for which every non-zero $x \in R$ can be written as the product of a \tref{unit}{unit} and a finite number of \tref{irreducible-element}{irreducible} elements:
+    A \textbf{unique factorization domain} (UFD) is a \tref{domain}{domain} $R$ for which every non-zero $x \in R$ can be written as the product of a \tref{unit-element}{unit} and a finite number of \tref{irreducible-element}{irreducible} elements:
     \[ a = u \cdot p_1 \cdot p_2 \cdot \cdots \cdot p_k \qquad u \in R^\times, \; k \ge 0, \; p_i \in R \textup{ irreducible}. \]
 \end{topic}
 
@@ -665,7 +669,7 @@
 \end{example}
 
 \begin{topic}{primitive-polynomial}{primitive polynomial}
-    Let $R$ be a \tref{unique-factorization-domain}{unique factorization domain}. A polynomial $f = a_n x^n + \cdots + a_1 x + a_0 \in R[x]$ is \textbf{primitive} if the \tref{gcd}{greatest common divisor} of its coefficients, $\gcd(a_n, \ldots, a_0)$, also known as its \tref{content-polynomial}{content} is a \tref{unit}{unit} in $R$.
+    Let $R$ be a \tref{unique-factorization-domain}{unique factorization domain}. A polynomial $f = a_n x^n + \cdots + a_1 x + a_0 \in R[x]$ is \textbf{primitive} if the \tref{gcd}{greatest common divisor} of its coefficients, $\gcd(a_n, \ldots, a_0)$, also known as its \tref{content-polynomial}{content} is a \tref{unit-element}{unit} in $R$.
 \end{topic}
 
 \begin{example}{primitive-polynomial}

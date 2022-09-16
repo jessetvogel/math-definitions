@@ -8,8 +8,6 @@
 
 ---- Theory ----
 
-CT: example: dense functor. continuous map f : X \to Y yields functor F : Open(Y) \to Open(X). Then F is dense if and only if the image of f is dense in Y
-
 AG: direct image with compact support f_!
 AG: exceptional inverse image f^!
 AG: (complete) linear system

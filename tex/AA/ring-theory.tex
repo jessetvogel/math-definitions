@@ -20,11 +20,11 @@
     for all $a, b \in R$.
 \end{topic}
 
-\begin{topic}{unit}{unit}
+\begin{topic}{unit-element}{unit}
     Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{unit} if there exists some $b \in R$ such that $ab = 1$. This is denoted $b = a^{-1}$.
 \end{topic}
 
-\begin{example}{unit}
+\begin{example}{unit-element}
     If $a \in R$ is a unit, its inverse is unique. Namely, if $ab = ca = 1$ for some $b, c \in R$, then $b = cab = c$.
 \end{example}
 
@@ -47,7 +47,7 @@
 \end{topic}
 
 \begin{example}{nilpotent-element}
-    If $a \in R$ is nilpotent, then $1 - a$ is \tref{unit}{invertible} in $R$. Namely, $a^n = 0$ for some $n \ge 0$, so
+    If $a \in R$ is nilpotent, then $1 - a$ is \tref{unit-element}{invertible} in $R$. Namely, $a^n = 0$ for some $n \ge 0$, so
     \[ (1 - a) (1 + a + a^2 + \cdots + a^{n - 1}) = 1 - a^n = 1 . \]
 \end{example}
 
@@ -282,12 +282,8 @@
     where $\varepsilon : P_\bdot \to B$ is a free resolution of simplicial $A$-algebras.
 \end{topic}
 
-% \begin{example}{cotangent-complex}
-%     ???
-% \end{example}
-
 \begin{topic}{division-ring}{division ring}
-    A \textbf{division ring} is a non-zero \tref{ring}{ring} $R$ in which every non-zero element $x \in R$ is a \tref{unit}{unit}, i.e. there exists $y \in R$ such that $xy = yx = 1$
+    A \textbf{division ring} is a non-zero \tref{ring}{ring} $R$ in which every non-zero element $x \in R$ is a \tref{unit-element}{unit}, i.e. there exists $y \in R$ such that $xy = yx = 1$
 \end{topic}
 
 \begin{example}{division-ring}
@@ -349,3 +345,7 @@
         \item For any $k$ be a field, the matrix rings $R = \textup{Mat}_n(k)$ are von Neumann regular. Namely, any $A \in \textup{Mat}_n(k)$ of rank $r$ can be written as $A = U \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} V$ using Gaussian elimination, with $U$ and $V$ invertible. Now, $A = AXA$ for $X = V^{-1} U^{-1}$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{clean-ring}{clean ring}
+    A \tref{ring}{ring} $R$ is \textbf{clean} if every element $x \in R$ can be written as $x = u + e$ for some \tref{unit-element}{unit} $u \in R^*$ and \tref{idempotent-element}{idempotent} $e \in R$.
+\end{topic}
