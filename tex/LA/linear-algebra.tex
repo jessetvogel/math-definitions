@@ -50,7 +50,7 @@
 \end{topic}
 
 \begin{topic}{matrix}{matrix}
-    Let $V$ and $W$ be finite-dimensional \tref{vector-space}{vector spaces}, and $f : V \to W$ a \tref{linear-map}{linear map}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are ordered \tref{basis}{bases} of $V$ and $W$, respectively, then the \textbf{matrix} associated to $f$ is the $m \times n$ matrix
+    Let $V$ and $W$ be finite-dimensional \tref{vector-space}{vector spaces}, and $f : V \to W$ a \tref{linear-map}{linear map}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are ordered \tref{basis}{bases} of $V$ and $W$, respectively, then the $m \times n$ \textbf{matrix} associated to $f$ is
     \[ A = \begin{pmatrix} a_{11} & a_{21} & \cdots & a_{n1} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix} \]
     where $a_{ij}$ is the $i$-th component of $f(v_j)$ with respect to the basis for $W$.
 \end{topic}
@@ -69,7 +69,7 @@
 % \end{topic}
 
 \begin{topic}{invertible-matrix}{invertible matrix}
-    An $n \times n$ matrix $A$ is \textbf{invertible} if there exists an $n \times n$ matrix $B$ such that $AB = BA = I$. In this case, $B$ is called the \textbf{inverse} of $A$, and is the unique matrix with this property.
+    An $n \times n$ \tref{matrix}{matrix} $A$ is \textbf{invertible} if there exists an $n \times n$ matrix $B$ such that $AB = BA = I$. In this case, $B$ is called the \textbf{inverse} of $A$, and is the unique matrix with this property.
     
     If $A$ is not invertible, it is called \textbf{singular}.
 \end{topic}
@@ -150,16 +150,16 @@
     In particular, the constant coefficient is the \tref{determinant}{determinant} of $A$.
 \end{example}
 
-\begin{topic}{diagonalization}{diagonalization}
-    A \textbf{diagonalization} of an $n \times n$ matrix $A$ consists of an \tref{invertible-matrix}{invertible matrix} $C$ and a diagonal matrix $D$ such that
-    \[ D = C A C^{-1} . \]
-    If such a diagonalization exists, $A$ is said to be \textbf{diagonalizable}.
+\begin{topic}{diagonalizable-matrix}{diagonalizable matrix}
+    An $n \times n$ \tref{matrix}{matrix} $A$ is \textbf{diagonalizable} if there exists an \tref{invertible-matrix}{invertible matrix} $P$ and a diagonal matrix $D$ such that
+    \[ A = P D P^{-1} . \]
+    Such a decomposition is called a \textbf{diagonalization}.
 \end{topic}
 
-\begin{example}{diagonalization}
-    Let $A$ be a diagonalizable matrix. Note that we can write
-    \[ AC = DC , \]
-    with $C$ invertible and $D$ diagonal. From this expression it is clear that the columns of $C$ must be \tref{eigenvalue}{eigenvectors} of $A$, and that $D$ contains the corresponding eigenvalues. The matrix $C$ being invertible means that $A$ has $n$ linearly independent eigenvectors.
+\begin{example}{diagonalizable-matrix}
+    Let $A$ be a diagonalizable matrix, that is, we can write
+    \[ A P = P D , \]
+    with $P$ invertible and $D$ diagonal. From this expression it is clear that the columns of $P$ must be \tref{eigenvalue}{eigenvectors} of $A$, and that $D$ contains the corresponding eigenvalues. The matrix $P$ being invertible means that $A$ has $n$ linearly independent eigenvectors.
 \end{example}
 
 \begin{topic}{algebraic-geometric-multiplicity}{algebraic/geometric multiplicity}
@@ -395,7 +395,7 @@
 
 \begin{example}{cayley-hamilton-theorem}
     \begin{proof}
-        For \tref{diagonalization}{diagonalizable} matrices $A = PDP^{-1}$, with $D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}$, the proof is easy:
+        For \tref{diagonalizable-matrix}{diagonalizable} matrices $A = PDP^{-1}$, with $D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}$, the proof is easy:
         \[ p_A(A) = p_A(PDP^{-1}) = P p_A(D) P^{-1} = P \begin{pmatrix} p_A(\lambda_1) & & \\ & \ddots & \\ & & p_A(\lambda_n) \end{pmatrix} P^{-1} = 0 , \]
         since all eigenvalues $\lambda_i$ are roots of $p_A$. In other words, the function
         \[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
@@ -612,3 +612,15 @@
     \[ \begin{pmatrix} 2 & 3 \\ 1 & 1 \end{pmatrix} \quad \textup{ and } \quad \begin{pmatrix} 1 & 0 & 1 \\ 0 & -1 & 1 \end{pmatrix} \]
     are unimodular and totally unimodular, respectively.
 \end{example}
+
+\begin{topic}{companion-matrix}{companion matrix}
+    Let $f = x^n + a_{n - 1} x^{n - 1} + \cdots + a_1 x + a_0 \in k[x]$ be a \tref{AA:monic-polynomial}{monic polynomial} over a \tref{AA:field}{field} $k$. The \textbf{companion matrix} of $f$ is the $n \times n$ \tref{matrix}{matrix}
+    \[ \begin{pmatrix}
+        0 & 0 & \cdots & 0 & -a_0 \\
+        1 & 0 & \cdots & 0 & -a_1 \\
+        0 & 1 & \cdots & 0 & -a_2 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 1 & -a_{n - 1}
+    \end{pmatrix} . \]
+    In particular, $f$ is the \tref{characteristic-polynomial}{characteristic polynomial} of this matrix.
+\end{topic}

@@ -43,7 +43,7 @@
     
     Conversely, if $P$ is projective, consider the free module $F = \oplus_{p \in P} R$ and the surjective $R$-module morphism
     \[ f : F \to P, \quad (r_p)_{p \in P} \mapsto \sum_{p \in P} r_p \cdot p . \]
-    Since $P$ is projective, $f$ splits, i.e. there exists $g : P \to F$ with $fg = \id_P$. Then it follows that $F \simeq P \oplus \ker f$. Note that if $P$ is finitely generated, $F$ can be taken of finite rank.
+    Since $P$ is projective, $f$ splits, i.e. there exists $g : P \to F$ with $fg = \id_P$. Then it follows that $F \isom P \oplus \ker f$. Note that if $P$ is finitely generated, $F$ can be taken of finite rank.
 \end{example}
 
 \begin{topic}{injective-module}{injective module}
@@ -93,7 +93,7 @@
     
     The following corollary is also known as Nakayama's lemma: if $M$ is a finitely generated module over $R$, and $I \subset R$ an ideal contained in the \tref{jacobson-radical}{Jacobson radical} $\mathfrak{J}_R$ of $R$ such that $IM = M$, then $M = 0$.
     
-    (This follows from the above by observing that $r \equiv 1 \; (\text{mod } \mathfrak{J}_R)$ must be a unit, so $M = r^{-1} r M = 0$.)
+    (This follows from the above by observing that $r \equiv 1 \mod \mathfrak{J}_R)$ must be a unit, so $M = r^{-1} r M = 0$.)
 \end{topic}
 
 \begin{topic}{faithfully-flat-module}{faithfully flat module}
@@ -134,7 +134,7 @@
 
 \begin{topic}{depth-module}{depth of a module}
     Let $R$ be a \tref{ring}{commutative ring}, $I \subset R$ an \tref{ideal}{ideal} and $M$ a finitely generated \tref{module}{$R$-module} such that $IM \subsetneq M$. Then the $I$-depth of $M$ is defined as
-    \[ \text{depth}_I(M) = \min \{ i \in \ZZ : \text{Ext}^i(R/I, M) \ne 0 \} . \]
+    \[ \textup{depth}_I(M) = \min \{ i \in \ZZ : \textup{Ext}^i(R/I, M) \ne 0 \} . \]
     When $R$ is a \tref{local-ring}{local ring}, one usually takes $I$ equal to be the maximal ideal $\mathfrak{m}$.
 \end{topic}
 
@@ -145,7 +145,7 @@
 \end{topic}
 
 \begin{example}{bimodule}
-    Given any field $k$, the ring of $m \times n$ matrices $\text{Mat}_{m \times n}(k)$ is an $R$-$S$-bimodule where $R = \text{Mat}_{m \times m}(k)$ and $S = \text{Mat}_{n \times n}(k)$.
+    Given any field $k$, the ring of $m \times n$ matrices $\textup{Mat}_{m \times n}(k)$ is an $R$-$S$-bimodule where $R = \textup{Mat}_{m \times m}(k)$ and $S = \textup{Mat}_{n \times n}(k)$.
 \end{example}
 
 \begin{topic}{torsionless-module}{torsionless module}
@@ -180,7 +180,7 @@
     \[ R = \left\{ \begin{pmatrix} \alpha & \beta \\ 0 & \gamma \end{pmatrix} : \alpha, \beta, \gamma \in k \textup{ with } \alpha, \gamma \ne 0 \right\} \]
     be the ring of upper triangular $2 \times 2$ matrices over a field $k$, and $M = k^2$ the $R$-module with
     \[ \begin{pmatrix} \alpha & \beta \\ 0 & \gamma \end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} \alpha x + \beta y \\ \gamma y \end{pmatrix} . \]
-    Then $M$ is not simple, as $N = k \times \{ 0 \}$ is a non-zero proper submodule of $M$. However, $M$ is indecomposable since $M \not\simeq N \oplus (M / N)$.
+    Then $M$ is not simple, as $N = k \times \{ 0 \}$ is a non-zero proper submodule of $M$. However, $M$ is indecomposable since $M \not\isom N \oplus (M / N)$.
 \end{example}
 
 \begin{topic}{noetherian-module}{noetherian module}
@@ -237,7 +237,7 @@
 \end{example}
 
 \begin{topic}{stably-free-module}{stably free module}
-    Let $R$ be a \tref{ring}{ring}. An $R$-module $M$ is \textbf{stably free} if $P \bigoplus R^m \simeq R^n$ for some $m$ and $n$.
+    Let $R$ be a \tref{ring}{ring}. An $R$-module $M$ is \textbf{stably free} if $P \bigoplus R^m \isom R^n$ for some $m$ and $n$.
 \end{topic}
 
 \begin{example}{stably-free-module}
@@ -291,17 +291,17 @@
     Let $R$ and $S$ be \tref{ring}{rings}, $R \to S$ a morphism, $M$ a \tref{module}{left $R$-module}, and $N$ a left $S$-module. \textbf{Shapiro's lemma} states that
     \begin{itemize}
         \item if $S$ is \tref{projective-module}{projective} as a right $R$-module, then
-        \[ \operatorname{Ext}_R^i(M, N) \simeq \operatorname{Ext}_S^i(S \otimes_R M, N) , \]
+        \[ \operatorname{Ext}_R^i(M, N) \isom \operatorname{Ext}_S^i(S \otimes_R M, N) , \]
         \item if $S$ is projective as a left $R$-module, then
-        \[ \operatorname{Ext}_R^i(N, M) \simeq \operatorname{Ext}_S^i(N, \Hom_R(S, M)) . \]
+        \[ \operatorname{Ext}_R^i(N, M) \isom \operatorname{Ext}_S^i(N, \Hom_R(S, M)) . \]
     \end{itemize}
 \end{topic}
 
 \begin{example}{shapiro-lemma}
     Let $G$ be a \tref{GT:group}{group} and $H \subset G$ a subgroup of finite \tref{GT:index-subgroup}{index}, so that $\ZZ[G]$ is finitely generated and projective as left and right $\ZZ[H]$-module. 
     For any representations $V$ of $G$ and $W$ of $H$,
-    \[ \operatorname{Ext}_{\ZZ[H]}^i(\operatorname{Res}_H^G(V), W) \simeq \operatorname{Ext}_{\ZZ[G]}^i(V, \Hom_{\ZZ[H]}(\ZZ[G], W)) \simeq \operatorname{Ext}_{\ZZ[G]}^i(V, \operatorname{Ind}_H^G(W)) , \]
-    where we used $\Hom_{\ZZ[H]}(\ZZ[G], W) \simeq \operatorname{Ind}_H^G(W)$. In particular, for $i = 0$, we obtain \tref{RT:frobenius-reciprocity}{Frobenius reciprocity}.
+    \[ \operatorname{Ext}_{\ZZ[H]}^i(\operatorname{Res}_H^G(V), W) \isom \operatorname{Ext}_{\ZZ[G]}^i(V, \Hom_{\ZZ[H]}(\ZZ[G], W)) \isom \operatorname{Ext}_{\ZZ[G]}^i(V, \operatorname{Ind}_H^G(W)) , \]
+    where we used $\Hom_{\ZZ[H]}(\ZZ[G], W) \isom \operatorname{Ind}_H^G(W)$. In particular, for $i = 0$, we obtain \tref{RT:frobenius-reciprocity}{Frobenius reciprocity}.
     
     Specializing to $V = \ZZ$, we obtain an isomorphism in \tref{HA:group-cohomology}{group cohomology}
     \[ \begin{aligned}

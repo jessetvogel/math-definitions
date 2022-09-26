@@ -34,7 +34,7 @@
         
         \item Any representation of the cyclic group $G = \ZZ/n\ZZ$ is a direct sum of $1$-dimensional representations which sends $1 \textup{ mod } n$ to an $n$-th root of unity. Hence the (complex) representation ring of $G$ is $R_\CC(G) = \ZZ[t]/(t^n - 1)$, where $t$ corresponds to the representation $1 \mapsto \zeta_n$, a primitive root of unity.
         
-        \item The complex irreducible representations of a product of finite groups $G \times H$ are given by the tensor products $\rho \otimes \tau$, where $\rho$ and $\tau$ are irreducible representations of $G$ and $H$, respectively. Therefore, there is a natural isomorphism $\textup{Rep}_\CC(G) \otimes \textup{Rep}_\CC(H) \simeq \textup{Rep}_\CC(G \times H)$.
+        \item The complex irreducible representations of a product of finite groups $G \times H$ are given by the tensor products $\rho \otimes \tau$, where $\rho$ and $\tau$ are irreducible representations of $G$ and $H$, respectively. Therefore, there is a natural isomorphism $R_\CC(G) \otimes R_\CC(H) \isom R_\CC(G \times H)$.
     \end{itemize}
 \end{example}
 
@@ -93,8 +93,8 @@
 
 \begin{topic}{first-orthogonality-theorem}{first orthogonality theorem}
     Let $G$ be a finite \tref{GT:group}{group} and let $\rho_1 : G \to \textup{GL}(V)$ and $\rho_2 : G \to \textup{GL}(W)$ be two \tref{irreducible-representation}{irreducible representations} over $\CC$ with corresponding \tref{character-representation}{characters} $\chi_1$ and $\chi_2$. Then the \textbf{first orthogonality theorem} states that
-    \[ \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \overline{\chi_2(g)} = \left\{ \begin{array}{cl} 1 & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 , \end{array} \right. \]
-    where $\simeq$ denotes \tref{equivalent-representations}{equivalence}.
+    \[ \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \overline{\chi_2(g)} = \left\{ \begin{array}{cl} 1 & \textup{ if } \rho_1 \isom \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\isom \rho_2 , \end{array} \right. \]
+    where $\isom$ denotes \tref{equivalent-representations}{equivalence}.
 \end{topic}
 
 \begin{example}{first-orthogonality-theorem}
@@ -103,10 +103,10 @@
         \[ B = \sum_{g \in G} \rho_1(g) A \rho_2(g^{-1}) . \]
         Note that
         \[ \rho_1(h) B = \sum_{g \in G} \rho_1(hg) A \rho_2(g^{-1}) = \sum_{g' \in G} \rho_1(g') A \rho_2(g'^{-1} h) = B \rho_2(h) . \]
-        If $\rho_1 \simeq \rho_2$, then \tref{schur-lemma}{Schur's first lemma} implies $B = \lambda I$ for some $\lambda \in \CC$, and if $\rho_1 \not\simeq \rho_2$, then \tref{schur-lemma}{Schur's second lemma} yields $B = 0$. Now taking $A_{\ell m} = \delta_{\ell r} \delta_{ms}$, in terms of some basis for $V$ and $W$, gives
-        \[ \sum_{g \in G} (\rho_1(g))_{ir} (\rho_2(g^{-1}))_{sj} = \left\{ \begin{array}{cl} \lambda_{rs} \delta_{ij} & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 . \end{array} \right. \]
-        Whenever $\rho_1 \simeq \rho_2$, we can set $i = j$ and sum over $i$ to obtain $|G| \delta_{rs} = \lambda_{rs} \dim_\CC(V)$. Substituting this into the above, setting $r = i$ and $s = j$ and summing over $i$ and $j$ now gives
-        \[ \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) = \left\{ \begin{array}{cl} |G| & \textup{ if } \rho_1 \simeq \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\simeq \rho_2 , \end{array} \right. \]
+        If $\rho_1 \isom \rho_2$, then \tref{schur-lemma}{Schur's first lemma} implies $B = \lambda I$ for some $\lambda \in \CC$, and if $\rho_1 \not\isom \rho_2$, then \tref{schur-lemma}{Schur's second lemma} yields $B = 0$. Now taking $A_{\ell m} = \delta_{\ell r} \delta_{ms}$, in terms of some basis for $V$ and $W$, gives
+        \[ \sum_{g \in G} (\rho_1(g))_{ir} (\rho_2(g^{-1}))_{sj} = \left\{ \begin{array}{cl} \lambda_{rs} \delta_{ij} & \textup{ if } \rho_1 \isom \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\isom \rho_2 . \end{array} \right. \]
+        Whenever $\rho_1 \isom \rho_2$, we can set $i = j$ and sum over $i$ to obtain $|G| \delta_{rs} = \lambda_{rs} \dim_\CC(V)$. Substituting this into the above, setting $r = i$ and $s = j$ and summing over $i$ and $j$ now gives
+        \[ \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) = \left\{ \begin{array}{cl} |G| & \textup{ if } \rho_1 \isom \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\isom \rho_2 , \end{array} \right. \]
         as desired.
     \end{proof}
 \end{example}
@@ -114,7 +114,7 @@
 \begin{example}{first-orthogonality-theorem}
     Define an inner product on the characters of $G$,
     \[ \langle \chi_1, \chi_2 \rangle = \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) . \]
-    The first orthogonality theorem now says that $\langle \chi, \chi \rangle = 1$ for any character $\chi$, and that inequivalent characters are orthogonal. In particular, two irreducible representations $\rho_1$ and $\rho_2$ are equivalent if and only if their characters are equal. Namely, if $\rho_1 \not\simeq \rho_2$, then $\langle \chi_1, \chi_2 \rangle = 0$, and since $\langle \chi_1, \chi_1 \rangle = 1$, we must have $\chi_1 \ne \chi_2$.
+    The first orthogonality theorem now says that $\langle \chi, \chi \rangle = 1$ for any character $\chi$, and that inequivalent characters are orthogonal. In particular, two irreducible representations $\rho_1$ and $\rho_2$ are equivalent if and only if their characters are equal. Namely, if $\rho_1 \not\isom \rho_2$, then $\langle \chi_1, \chi_2 \rangle = 0$, and since $\langle \chi_1, \chi_1 \rangle = 1$, we must have $\chi_1 \ne \chi_2$.
 \end{example}
 
 \begin{topic}{character-group}{character group}
@@ -218,7 +218,7 @@
 
 \begin{example}{induced-representation}
     Let $G$ be a group, $H \subset G$ a subgroup, and let $\tau : H \to \textup{GL}(k)$ the trivial representation. Then the induced representation
-    \[ \textup{Ind}_H^G(\tau) = k[G] \otimes_{k[H]} k \simeq k[G/H] \]
+    \[ \textup{Ind}_H^G(\tau) = k[G] \otimes_{k[H]} k \isom k[G/H] \]
     is the representation of $G$ corresponding to the action of $G$ on the (left) \tref{GT:coset}{cosets} of $H$ in $G$.
     
     In particular, for $H = G$ we obtain the trivial representation, and for $H = \{ 1 \}$ the \tref{regular-representation}{regular representation}.
@@ -236,9 +236,9 @@
 
 \begin{example}{frobenius-reciprocity}
     For any pair of representations $\rho : H \to \textup{GL}(V)$ and $\tau : G \to \textup{GL}(W)$, Frobenius reciprocity yields a natural bijection
-    \[ \Hom_{\textbf{Rep}_k(G)}(\textup{Ind}_H^G(\rho), \tau) \simeq \Hom_{\textbf{Rep}_k(H)}(\rho, \textup{Res}_H^G(\tau)) . \]
+    \[ \Hom_{\textbf{Rep}_k(G)}(\textup{Ind}_H^G(\rho), \tau) \isom \Hom_{\textbf{Rep}_k(H)}(\rho, \textup{Res}_H^G(\tau)) . \]
     Assuming $k = \CC$ and comparing dimensions, we find using \tref{schur-lemma}{Schur's lemmas} that
-    \[ \langle \textup{Ind}_H^G(\rho), \tau \rangle_G \simeq \langle \rho, \textup{Res}_H^G(\tau) \rangle_H . \]
+    \[ \langle \textup{Ind}_H^G(\rho), \tau \rangle_G \isom \langle \rho, \textup{Res}_H^G(\tau) \rangle_H . \]
 \end{example}
 
 \begin{example}{frobenius-reciprocity}
@@ -328,7 +328,7 @@
 
 \begin{example}{jacquet-module}
     Consider a \tref{GT:semidirect-product}{semidirect product} $G = N \rtimes H$, and representations $\rho : G \to \textup{GL}(U)$ and $\tau : H \to \textup{GL}(V)$. The representation $\tau$ can be extended to $\tau' : G \to \textup{GL}(V)$ by setting $\tau'(nh) = \tau(h)$ for all $n \in N$ and $h \in H$. Also, since $N \subset G$ is normal, we have that $U^N$ is naturally an $H$-representation. Now we have a natural bijection
-    \[ \Hom_G(U, V) \simeq \Hom_H(U^N, V) , \]
+    \[ \Hom_G(U, V) \isom \Hom_H(U^N, V) , \]
     since any $H$-equivariant morphism $\phi : U \to V$ is $G$-equivariant if and only if $\phi(U/U^N) = 0$. In particular, this gives an \tref{CT:adjunction}{adjunction}
     \[ (-)^N \dashv (-)' \quad \textup{ where } \quad (-)^N : \textbf{Rep}_k(G) \to \textbf{Rep}_k(H), \quad (-)' : \textbf{Rep}_k(H) \to \textbf{Rep}_k(G) . \]
 \end{example}
@@ -463,7 +463,7 @@
     \[ \operatorname{Res}_H^G \dashv \operatorname{Coind}_H^G , \]
     which is a special case of the natural bijection
     \[ \begin{aligned}
-        \Hom_B(M, N) &\simeq \Hom_A(M, \Hom_B(A, N)) \\
+        \Hom_B(M, N) &\isom \Hom_A(M, \Hom_B(A, N)) \\
         \varphi &\mapsto (m \mapsto (a \mapsto \varphi(a \cdot m))) \\
         (m \mapsto \psi(m)(1)) &\mapsfrom \psi
     \end{aligned} \]
@@ -477,3 +477,14 @@
         g \otimes v &\mapsto \left(g' \mapsto \left\{ \begin{array}{cl} g'g v & \textup{ if } g'g \in H, \\ 0 & \textup{ otherwise}. \end{array} \right. \right)
     \end{aligned} \]
 \end{example}
+
+\begin{topic}{clifford-theorem}{Clifford's theorem}
+    Let $G$ be a \tref{GT:group}{group} with \tref{GT:normal-subgroup}{normal subgroup} $N \subset G$ of finite \tref{GT:index-subgroup}{index}, and let $V$ be a \tref{irreducible-representation}{irreducible} \tref{representation}{representation} of $G$ over a field $k$. Then \textbf{Clifford's theorem} states the restriction of $V$ to $N$ decomposes as a direct sum
+    \[ \textup{Res}^G_N(V) \isom W_1^r \oplus \cdots \oplus W_n^r \]
+    for some $n, r \ge 0$ and distinct irreducible representations $W_i$ of $N$, such that
+    \begin{enumerate}[(i)]
+        \item the action of $G$ acts permutes the summands $W_i^r$ transitively,
+        \item all $W_i$ have the same dimension,
+        \item $V$ is isomorphic to the \tref{induced-representation}{induced representation} $\operatorname{Ind}_{H_i}^G(W_i^r)$ with $H_i = \{ g \in G \mid g W_i = W_i \}$, for all $i$.
+    \end{enumerate}
+\end{topic}

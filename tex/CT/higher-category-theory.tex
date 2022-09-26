@@ -1,7 +1,7 @@
 \begin{topic}{enriched-category}{enriched category}
     Let $\mathcal{A}$ be a \tref{monoidal-category}{monoidal category}. An \textbf{$\mathcal{A}$-enriched category} $\mathcal{C}$ consists of
     \begin{itemize}
-        \item (\textit{objects}) a collection $\text{Ob}(\mathcal{C})$, whose elements are called \textit{objects} of $\mathcal{C}$,
+        \item (\textit{objects}) a collection $\textup{Ob}(\mathcal{C})$, whose elements are called \textit{objects} of $\mathcal{C}$,
         \item (\textit{hom-objects}) for every pair of objects $X, Y$ an object $\underline{\Hom}_\mathcal{C}(X, Y)$ of $\mathcal{A}$,
         \item (\textit{composition law}) for every triple of objects $X, Y, Z$ a morphism
         \[ c_{Z, Y, X} : \underline{\Hom}_\mathcal{C}(Y, Z) \otimes \underline{\Hom}_\mathcal{C}(X, Y) \to \underline{\Hom}_\mathcal{C}(X, Z) \]
@@ -38,7 +38,7 @@
 
 \begin{topic}{simplicial-object}{simplicial object}
     A \textbf{simplicial object} in a \tref{CT:category}{category} $\mathcal{C}$ is a \tref{CT:functor}{functor}
-    \[ X : \Delta^\text{op} \to \mathcal{C} , \]
+    \[ X : \Delta^\textup{op} \to \mathcal{C} , \]
     where $\Delta$ denotes the \tref{simplex-category}{simplex category}. Concretely, a simplicial object consists of a family of objects $X_n$ in $\mathcal{C}$ and a morphism $X_m \to X_n$ for each function $f : [n] \to [m]$, which compose nicely.
     
     The \textit{face maps} are the maps $d_{n, i} : X_n \to X_{n - 1}$ corresponding to the function $\delta^{n, i} : [n - 1] \to [n]$ that misses $i$.
@@ -54,15 +54,15 @@
 
 \begin{example}{simplicial-object}
     The \textit{standard simplicial set} $\Delta^n$ is given by $\Hom_\Delta(-, [n])$. By the \tref{yoneda-lemma}{Yoneda lemma}, we can identify
-    \[ X_n = X([n]) \simeq \Hom_{\textbf{Set}_\Delta}(\Delta^n, X) . \]
+    \[ X_n = X([n]) \isom \Hom_{\textbf{Set}_\Delta}(\Delta^n, X) . \]
 \end{example}
 
 \begin{topic}{nerve}{nerve}
-    The \textbf{nerve} of a \tref{CT:category}{category} $\mathcal{C}$ is the \tref{simplicial-object}{simplicial set} $\text{N}_\bdot(\mathcal{C})$, where $\text{N}_n(\mathcal{C})$ is the set of \tref{CT:functor}{functors} from $[n] = \{ 0, 1, \ldots, n \}$ (viewed as category: a unique morphism from $i$ to $j$ iff $i \le j$) to $\mathcal{C}$.
-    Indeed, for any non-decreasing map $\alpha : [m] \to [n]$, precomposition with $\alpha$ gives a map $\text{N}_n(\mathcal{C}) \to \text{N}_m(\mathcal{C})$.
+    The \textbf{nerve} of a \tref{CT:category}{category} $\mathcal{C}$ is the \tref{simplicial-object}{simplicial set} $\textup{N}_\bdot(\mathcal{C})$, where $\textup{N}_n(\mathcal{C})$ is the set of \tref{CT:functor}{functors} from $[n] = \{ 0, 1, \ldots, n \}$ (viewed as category: a unique morphism from $i$ to $j$ iff $i \le j$) to $\mathcal{C}$.
+    Indeed, for any non-decreasing map $\alpha : [m] \to [n]$, precomposition with $\alpha$ gives a map $\textup{N}_n(\mathcal{C}) \to \textup{N}_m(\mathcal{C})$.
     
     It can be shown that the \textit{nerve functor}
-    \[ \text{N}_\bdot : \textbf{Cat} \to \textbf{Set}_\Delta \]
+    \[ \textup{N}_\bdot : \textbf{Cat} \to \textbf{Set}_\Delta \]
     is \tref{CT:full-functor}{fully} \tref{CT:faithful-functor}{faithful}.
 \end{topic}
 
@@ -80,7 +80,7 @@
 \end{example}
 
 \begin{example}{nerve}
-    Consider a \tref{GT:group}{group} $G$ as a category with one object. Note that any $f \in N_n(G)$ can be described by the images $f(k - 1 \le k) \in G$ for $1 \le k \le n$, so that $N_n(G) \simeq G^n$. Hence, the nerve $N_\bdot(G)$ is the simplicial set
+    Consider a \tref{GT:group}{group} $G$ as a category with one object. Note that any $f \in N_n(G)$ can be described by the images $f(k - 1 \le k) \in G$ for $1 \le k \le n$, so that $N_n(G) \isom G^n$. Hence, the nerve $N_\bdot(G)$ is the simplicial set
     \[ \cdots G \times G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \rightrightarrows * \]
     with face and degeneracy maps given by
     \[ d_{n, i} : G^n \to G^{n - 1}, \quad (g_1, \ldots, g_n) \mapsto \left\{ \begin{array}{cl}
@@ -89,7 +89,7 @@
         (g_1, \ldots, g_{n - 1}) & \textup{ for } i = n,
     \end{array} \right. \]
     \[ s_{n, i} : G^n \to G^{n + 1}, \quad (g_1, \ldots, g_n) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n) \quad \textup{ for } 0 \le i \le n . \]
-    More generally, a group $G$ acting on a set $X$ can be viewed as a category $[X/G]$ whose objects are points of $X$, and a morphism $x \to gx$ for every $x \in X$ and $g \in G$. Similar to the above, we have $N_n([X/G]) \simeq G^n \times X$, so the nerve $N_\bdot([X/G])$ is the simplicial set
+    More generally, a group $G$ acting on a set $X$ can be viewed as a category $[X/G]$ whose objects are points of $X$, and a morphism $x \to gx$ for every $x \in X$ and $g \in G$. Similar to the above, we have $N_n([X/G]) \isom G^n \times X$, so the nerve $N_\bdot([X/G])$ is the simplicial set
     \[ \cdots G \times G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times X \rightrightarrows X \]
     with face and degeneracy maps given by
     \[ d_{n, i} : G^n \times X \to G^{n - 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto \left\{ \begin{array}{cl}
@@ -103,7 +103,7 @@
 \begin{topic}{infinity-category}{infinity category}
     An \textbf{$\infty$-category} is a \tref{simplicial-object}{simplicial set} $\mathcal{C}$ such that every map of simplicial sets $\Lambda^n_i \to \mathcal{C}$ with $0 < i < n$ can be extended to a map $\Delta^n \to \mathcal{C}$.
     \[ \begin{tikzcd} \Lambda^n_i \arrow{r} \arrow{d} & \mathcal{C} \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]
-    One thinks of the vertices $\mathcal{C}_0$ as the objects, the edges $\mathcal{C}_1$ as the $1$-morphisms (with $\id_x = s_0(x)$ and $d_0(f) = \text{cod}(f)$ and $d_1(f) = \text{dom}(f)$), the triangles $\mathcal{C}_2$ as a $2$-morphism from $g \circ f$ to $h$, etc.
+    One thinks of the vertices $\mathcal{C}_0$ as the objects, the edges $\mathcal{C}_1$ as the $1$-morphisms (with $\id_x = s_0(x)$ and $d_0(f) = \textup{cod}(f)$ and $d_1(f) = \textup{dom}(f)$), the triangles $\mathcal{C}_2$ as a $2$-morphism from $g \circ f$ to $h$, etc.
     
     A \textit{functor} between $\infty$-categories is a map of simplicial sets.
     
@@ -140,14 +140,14 @@
 
 \begin{topic}{weighted-limit}{weighted (co)limit}
     Let $\mathcal{V}$ be a \tref{monoidal-category}{monoidal category}, and let $F : \mathcal{I} \to \mathcal{C}$ be a \tref{functor}{functor} with $\mathcal{C}$ a category \tref{enriched-category}{enriced} in $\mathcal{V}$. A \textbf{weighted limit} for $F$ with respect to a \textit{weight functor} $W : \mathcal{I} \to \mathcal{V}$ is an object ${\lim}^W F$ in $\mathcal{C}$ represented by
-    \[ \Hom_\mathcal{C}(C, {\lim}^W F) \simeq \Hom_{\mathcal{V}^\mathcal{I}}(W, \Hom_\mathcal{C}(C, F(-))) . \]
+    \[ \Hom_\mathcal{C}(C, {\lim}^W F) \isom \Hom_{\mathcal{V}^\mathcal{I}}(W, \Hom_\mathcal{C}(C, F(-))) . \]
     A \textbf{weighted colimit} for $F$ with respect to $W : \mathcal{I}^\textup{op} \to \mathcal{V}$ is an object ${\colim}_W F$ in $\mathcal{C}$ represented by
-    \[ \Hom_\mathcal{C}({\colim}_W F, C) \simeq \Hom_{\mathcal{V}^{\mathcal{I}^\textup{op}}}(W, \Hom_\mathcal{C}(F(-), C)) . \]
+    \[ \Hom_\mathcal{C}({\colim}_W F, C) \isom \Hom_{\mathcal{V}^{\mathcal{I}^\textup{op}}}(W, \Hom_\mathcal{C}(F(-), C)) . \]
 \end{topic}
 
 \begin{example}{weighted-limit}
     Note that an ordinary \tref{limit}{limit} of a functor $F : \mathcal{I} \to \mathcal{C}$, if it exists, can be computed via the \tref{yoneda-embedding}{Yoneda embedding} on the level of presheaves:
-    \[ \begin{aligned} \Hom_\mathcal{C}(C, \lim F) &\simeq \lim (\Hom_\mathcal{C}(C, F(-))) \\ &\simeq \Hom_\textbf{Set}(\textup{pt}, \lim (\Hom_\mathcal{C}(C, F(-)))) \\ &\simeq \Hom_{\textbf{Set}^\mathcal{I}}(\Delta_{\textup{pt}}, \Hom_\mathcal{C}(C, F(-))) . \end{aligned} \]
+    \[ \begin{aligned} \Hom_\mathcal{C}(C, \lim F) &\isom \lim (\Hom_\mathcal{C}(C, F(-))) \\ &\isom \Hom_\textbf{Set}(\textup{pt}, \lim (\Hom_\mathcal{C}(C, F(-)))) \\ &\isom \Hom_{\textbf{Set}^\mathcal{I}}(\Delta_{\textup{pt}}, \Hom_\mathcal{C}(C, F(-))) . \end{aligned} \]
     In particular, the weighted limit reduces to the ordinary limit when $W : \mathcal{I} \to \textbf{Set}$ is the constant functor $\Delta_\textup{pt}$.
 \end{example}
 

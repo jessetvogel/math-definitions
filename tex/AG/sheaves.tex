@@ -25,7 +25,7 @@
 \begin{topic}{constant-sheaf}{constant sheaf}
     Let $X$ be a \tref{TO:topological-space}{topological space}, and $A$ an \tref{GT:abelian-group}{abelian group}. The \textbf{constant sheaf} $\underline{A}$ on $X$ determined by $A$ is the \tref{sheaf}{sheaf} given by
     \[ \underline{A}(U) = \{ \textup{locally constant functions } U \to A \} , \]
-    and the usual restriction maps. Note that for every \tref{TO:connected-space}{connected} open set $U$ we have $\underline{A}(U) \simeq A$, hence the name `constant sheaf'.
+    and the usual restriction maps. Note that for every \tref{TO:connected-space}{connected} open set $U$ we have $\underline{A}(U) \isom A$, hence the name `constant sheaf'.
     
     A sheaf $\mathcal{F}$ on $X$ is \textbf{locally constant} if every point has an open neighborhood $U$ such that $\mathcal{F}|_U$ is isomorphic to a \textbf{constant sheaf}.
 \end{topic}
@@ -131,7 +131,7 @@
 \begin{topic}{sheaf-associated-to-module}{sheaf associated to module}
     Let $R$ be a ring and let $M$ be an $R$-module. The \textbf{sheaf associated} to $M$ on $X = \Spec R$, denoted $\tilde{M}$, is defined by the gluing data: to each distinguished open $X_f = \{ f \ne 0 \}$ is assigned the localized $R_f$-module $M_f$. For each $X_f \subset X_g$ there is the natural map $M_g \to M_f$. In particular, $\tilde{R} = \mathcal{O}_X$.
     
-    For the projective case, let $S$ be a graded ring and $M$ a graded $S$-module. The \textbf{sheaf associated} to $M$ on $X = \Proj S$, denoted $\tilde{M}$, is defined by the gluing data: for each homogeneous $f \in S$, we have $\tilde{M}|_{\{ f \ne 0\}} \simeq (M_f)_0$.
+    For the projective case, let $S$ be a graded ring and $M$ a graded $S$-module. The \textbf{sheaf associated} to $M$ on $X = \Proj S$, denoted $\tilde{M}$, is defined by the gluing data: for each homogeneous $f \in S$, we have $\tilde{M}|_{\{ f \ne 0\}} \isom (M_f)_0$.
 \end{topic}
 
 \begin{topic}{coherent-sheaf}{(quasi-)coherent sheaf}
@@ -148,7 +148,7 @@
 
 \begin{example}{coherent-sheaf}
     Let $X = \Spec(\ZZ)$ and $Y = \bigsqcup_{i = 1}^{\infty} X = \Spec\left(\prod_{i = 1}^\infty \ZZ \right)$, with the obvious morphism $f : Y \to X$. Then $f_* \mathcal{O}_Y$ is not a quasi-coherent $\mathcal{O}_X$-module. Namely, if it were quasi-coherent, then in particular every $n \in \ZZ$ should induce a natural isomorphism
-    \[ \prod_{i = 1}^{\infty} \ZZ_n \simeq \left(\prod_{i = 1}^{\infty} \ZZ \right)_n . \]
+    \[ \prod_{i = 1}^{\infty} \ZZ_n \isom \left(\prod_{i = 1}^{\infty} \ZZ \right)_n . \]
     However, the element $(1, 1/n, 1/n^2, 1/n^3, \ldots)$ does exist on the left-hand side, but not on the right-hand side for $n \ge 2$.
 \end{example}
 
@@ -162,7 +162,7 @@
     
     For any sheaf of \tref{O-module}{$\mathcal{O}_X$-modules} $\mathcal{F}$, the \textbf{twisted sheaf} $\mathcal{F}(n)$ is given by $\mathcal{F} \otimes_{\mathcal{O}_X} \mathcal{O}_X(n)$.
     
-    Note that sheaves $\mathcal{O}_X(n)$ are all \tref{invertible-sheaf}{invertible} sheaves, and that $\mathcal{O}_X(n) \otimes \mathcal{O}_X(m) \simeq \mathcal{O}_X(n + m)$.
+    Note that sheaves $\mathcal{O}_X(n)$ are all \tref{invertible-sheaf}{invertible} sheaves, and that $\mathcal{O}_X(n) \otimes \mathcal{O}_X(m) \isom \mathcal{O}_X(n + m)$.
 \end{topic}
 
 \begin{topic}{external-tensor-product}{external tensor product}

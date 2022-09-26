@@ -18,7 +18,7 @@
 \begin{topic}{order}{order}
     The \textbf{order} of a \tref{group}{group} $G$ is its number of elements.
     
-    The \textbf{order} of an element $x \in G$, denoted $\text{ord}(x)$, is the least positive integer $n$ such that $x^n = 1$. If no such $n$ exists, then $\text{ord}(x) = \infty$.
+    The \textbf{order} of an element $x \in G$, denoted $\textup{ord}(x)$, is the least positive integer $n$ such that $x^n = 1$. If no such $n$ exists, then $\textup{ord}(x) = \infty$.
 \end{topic}
 
 \begin{topic}{cyclic-group}{cyclic group}
@@ -59,11 +59,11 @@
 
 \begin{topic}{permutation-sign}{permutation sign}
     The \textbf{sign} of a \tref{symmetric-group}{permutation} $\sigma \in S_n$ is defined as
-    \[ \text{sign}(\sigma) = \prod_{1 \le i < j \le n} \frac{\sigma(j) - \sigma(i)}{j - i} \in \{ +1, -1 \} . \]
-    We call $\sigma$ \textit{even} if $\text{sign}(\sigma) = 1$ and \textit{odd} if $\text{sign}(\sigma) = -1$.
+    \[ \textup{sign}(\sigma) = \prod_{1 \le i < j \le n} \frac{\sigma(j) - \sigma(i)}{j - i} \in \{ +1, -1 \} . \]
+    We call $\sigma$ \textit{even} if $\textup{sign}(\sigma) = 1$ and \textit{odd} if $\textup{sign}(\sigma) = -1$.
     
     This defines a \tref{group-homomorphism}{group homomorphism}
-    \[ \text{sign} : S_n \to \{ +1, -1 \} . \]
+    \[ \textup{sign} : S_n \to \{ +1, -1 \} . \]
 \end{topic}
 
 \begin{topic}{alternating-group}{alternating group}
@@ -108,7 +108,7 @@
 
 \begin{topic}{torsion-subgroup}{torsion subgroup}
     The \textbf{torsion subgroup} of a \tref{group}{group} $G$ is the subgroup of elements of finite \tref{order}{order}.
-    \[ G_{\text{tor}} = \{ x \in G \mid \text{ord}(x) < \infty \} \]
+    \[ G_{\textup{tor}} = \{ x \in G \mid \textup{ord}(x) < \infty \} \]
 \end{topic}
 
 \begin{topic}{normalizer}{normalizer}
@@ -166,7 +166,7 @@
 \end{topic}
 
 \begin{example}{solvable-group}
-    The group $S_3$ is solvable, since we have the sequence $S_3 \supset A_3 \supset \{ 1 \}$, and $S_3 / A_3 \simeq \ZZ/2\ZZ$ and $A_3/\{ 1 \} \simeq \ZZ/3\ZZ$.
+    The group $S_3$ is solvable, since we have the sequence $S_3 \supset A_3 \supset \{ 1 \}$, and $S_3 / A_3 \isom \ZZ/2\ZZ$ and $A_3/\{ 1 \} \isom \ZZ/3\ZZ$.
     
     The group $S_n$ is not solvable for $n \ge 5$.
 \end{example}
@@ -211,7 +211,7 @@
 \end{example}
 
 \begin{topic}{semidirect-product}{semidirect product}
-    Given two \tref{group}{groups} $N, H$ and a \tref{group-homomorphism}{group homomorphism} $\varphi : H \to \text{Aut}(N)$, the \textbf{semidirect product} of $N$ and $H$ with respect to $\varphi$, denoted $N \rtimes_\varphi H$, is the group with underlying set $N \times H$ where products and inverses given by
+    Given two \tref{group}{groups} $N, H$ and a \tref{group-homomorphism}{group homomorphism} $\varphi : H \to \textup{Aut}(N)$, the \textbf{semidirect product} of $N$ and $H$ with respect to $\varphi$, denoted $N \rtimes_\varphi H$, is the group with underlying set $N \times H$ where products and inverses given by
     \[ (n, h) \cdot (n', h') = (n \varphi(h)(n'), h h') \quad \text{ and } \quad (n, h)^{-1} = (\varphi(h)^{-1}(n^{-1}), h^{-1}) . \]
     In particular, $N$ (viewed as $N \times 1 \subset N \rtimes_\varphi H$) is a \tref{normal-subgroup}{normal subgroup} and the \tref{quotient-group}{quotient} is isomorphic to $H$ via $\psi : (N \rtimes_\varphi H)/N \to H$ given by $(n, h) \mapsto h$.
     
@@ -232,7 +232,7 @@
 
 \begin{topic}{profinite-group}{profinite group}
     A \textbf{profinite group} $G$ is a \tref{TO:topological-group}{topological group} isomorphic to an \tref{CT:inverse-limit}{inverse limit} of \tref{TO:discrete-topology}{discrete} finite groups
-    \[ G \simeq \varprojlim_I G_i = \left\{ (x_i)_{i \in I} \in \prod_{i \in I} G_i : f_{ij}(x_j) = x_i \text{ for all } i \le j \right\} . \]
+    \[ G \isom \varprojlim_I G_i = \left\{ (x_i)_{i \in I} \in \prod_{i \in I} G_i : f_{ij}(x_j) = x_i \text{ for all } i \le j \right\} . \]
     The topology on $G$ is the \tref{TO:subspace-topology}{subspace} \tref{TO:product-topology}{product topology.}
 \end{topic}
 
@@ -247,9 +247,9 @@
 \end{topic}
 
 \begin{topic}{wreath-product}{wreath product}
-    Let $G, H$ be \tref{group}{groups} and $S$ a set with $H$ \tref{group-action}{acting} on $S$. Let $K$ be the direct product $K = \prod_{s \in S} G$. Then $H$ acts on $K$ by $h \cdot (g_s)_{s \in S} = (g_{h^{-1} s})_{s \in S}$. The \textbf{unrestricted wreath product} of $G$ and $H$, denoted $G \, \text{Wr}_S H$ or $G \overline{\wr}_S H$, is the \tref{semidirect-product}{semidirect product} $K \rtimes H$.
+    Let $G, H$ be \tref{group}{groups} and $S$ a set with $H$ \tref{group-action}{acting} on $S$. Let $K$ be the direct product $K = \prod_{s \in S} G$. Then $H$ acts on $K$ by $h \cdot (g_s)_{s \in S} = (g_{h^{-1} s})_{s \in S}$. The \textbf{unrestricted wreath product} of $G$ and $H$, denoted $G \, \textup{Wr}_S H$ or $G \overline{\wr}_S H$, is the \tref{semidirect-product}{semidirect product} $K \rtimes H$.
     
-    The \textbf{restricted wreath product}, denoted $G \, \text{wr}_S H$ or $G \wr_S H$, is obtained by replacing $K$ with the direct sum $\bigoplus_{s \in S} G$.
+    The \textbf{restricted wreath product}, denoted $G \, \textup{wr}_S H$ or $G \wr_S H$, is obtained by replacing $K$ with the direct sum $\bigoplus_{s \in S} G$.
 \end{topic}
 
 \begin{example}{wreath-product}
@@ -331,7 +331,7 @@
 \begin{example}{free-product}
     \begin{itemize}
         \item If $G = \langle x \mid x^m = 1 \rangle$ and $H = \langle y \mid y^n = 1 \rangle$, then $G * H = \langle x, y \mid x^m = y^n = 1 \rangle$.
-        \item If $F_n$ is the \tref{free-group}{free group} on $n$ generators, then $F_m * F_n \simeq F_{m + n}$.
+        \item If $F_n$ is the \tref{free-group}{free group} on $n$ generators, then $F_m * F_n \isom F_{m + n}$.
         \item The \tref{modular-group}{modular group} $\textup{PSL}_2(\ZZ)$ is isomorphic to the free product $(\ZZ/2\ZZ) * (\ZZ/3\ZZ)$.
     \end{itemize}
 \end{example}
@@ -351,7 +351,7 @@
 \end{topic}
 
 \begin{example}{sylow-theorem}
-    Suppose $G$ is a finite group of order $|G| = pq$, with $p$ and $q$ prime and $p \not\equiv 1 \mod q$ and $q \not\equiv 1 \mod p$. Then $G \simeq \ZZ/pq\ZZ$. Namely, from the Sylow theorems it follows that there is precisely one Sylow $p$-group and one Sylow $q$-group. Therefore, there are precisely $p - 1$ elements of \tref{order}{order} $p$, and $q - 1$ elements of order $q$. The only element of order $1$ is the group unit. Since $1 + (p - 1) + (q - 1) < pq = |G|$, it follows that there is at least one element $g \in G$ of order $\textup{ord}(g) = pq$, and hence $G \simeq \ZZ/pq\ZZ$.
+    Suppose $G$ is a finite group of order $|G| = pq$, with $p$ and $q$ prime and $p \not\equiv 1 \mod q$ and $q \not\equiv 1 \mod p$. Then $G \isom \ZZ/pq\ZZ$. Namely, from the Sylow theorems it follows that there is precisely one Sylow $p$-group and one Sylow $q$-group. Therefore, there are precisely $p - 1$ elements of \tref{order}{order} $p$, and $q - 1$ elements of order $q$. The only element of order $1$ is the group unit. Since $1 + (p - 1) + (q - 1) < pq = |G|$, it follows that there is at least one element $g \in G$ of order $\textup{ord}(g) = pq$, and hence $G \isom \ZZ/pq\ZZ$.
 \end{example}
 
 \begin{example}{sylow-theorem}
@@ -453,7 +453,7 @@
 
 \begin{example}{complete-group}
     \begin{itemize}
-        \item The \tref{symmetric-group}{symmetric group} $S_n$ is complete for $n \ne 2, 6$. For $n = 2$, the group $S_2 \simeq \ZZ/2\ZZ$ has non-trivial center, and for $n = 6$, the group $S_6$ has an outer automorphism determined by
+        \item The \tref{symmetric-group}{symmetric group} $S_n$ is complete for $n \ne 2, 6$. For $n = 2$, the group $S_2 \isom \ZZ/2\ZZ$ has non-trivial center, and for $n = 6$, the group $S_6$ has an outer automorphism determined by
         \[ (1 \; 2) \mapsto (1 \; 2)(3 \; 4) (5 \; 6), \qquad (1 \; 2 \; 3 \; 4 \; 5 \; 6) \mapsto (2 \; 4) (3 \; 6 \; 5) . \]
     \end{itemize}
 \end{example}
@@ -493,7 +493,7 @@
 \end{topic}
 
 \begin{example}{burnside-ring}
-    Every finite $G$-set is a disjoint union of its orbits, and any orbit is isomorphic to a $G$-set of cosets $G/H$, where $H$ is the stabilizer of an element in the orbit. Since $G/H \simeq G/H'$ as $G$-sets if and only if $H$ and $H'$ are conjugate in $G$, it follows that $A(G) \simeq \ZZ^c$ as abelian groups, where $c$ is the number of conjugacy classes of subgroups of $G$.
+    Every finite $G$-set is a disjoint union of its orbits, and any orbit is isomorphic to a $G$-set of cosets $G/H$, where $H$ is the stabilizer of an element in the orbit. Since $G/H \isom G/H'$ as $G$-sets if and only if $H$ and $H'$ are conjugate in $G$, it follows that $A(G) \isom \ZZ^c$ as abelian groups, where $c$ is the number of conjugacy classes of subgroups of $G$.
     
     Suppose that $G$ is a \tref{simple-group}{simple group}, so that the only subgroups of $G$ are $\{ 1 \}$ and $G$ itself. Since $[G/G] = 1 \in A(G)$, we find that $A(G)$ is generated by $[G / \{ 1 \}] = [G]$, where $G$ acts on itself by left multiplication. The isomorphism
     \[ G \times G \to G \times G, \quad (g, h) \mapsto (g, g^{-1} h) \]

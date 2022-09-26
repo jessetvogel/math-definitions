@@ -134,7 +134,7 @@
     
     Adding this element gives
     \[ \begin{aligned}
-        k[x, y, y/x] / (x^3 - y^2) &\simeq k[t] \\
+        k[x, y, y/x] / (x^3 - y^2) &\isom k[t] \\
         x &\mapsto t^2 \\
         y &\mapsto t^3
     \end{aligned} \]
@@ -278,7 +278,7 @@
 
 \begin{example}{flat-morphism}
     The morphism $\Spec k[x, y, t] / (xy - t) \to \Spec k[t]$ is flat. This follows from $k[x, y, t] / (xy - t)$ being flat over $k[t]$, because it is a free $k[t]$-module:
-    \[ k[x, y, t] / (xy - t) \simeq k[t] \oplus \bigoplus_{i \ge 1} k[t] \cdot x^i \oplus \bigoplus_{i \ge 1} k[t] \cdot y^i \]
+    \[ k[x, y, t] / (xy - t) \isom k[t] \oplus \bigoplus_{i \ge 1} k[t] \cdot x^i \oplus \bigoplus_{i \ge 1} k[t] \cdot y^i \]
     However, the morphism
     \[ \Spec k[x, y, t] / (txy - t) \to \Spec k[t] \]
     is not flat. Namely, at the maximal ideal $(x, y, t)$, we have that $(k[x, y, t] / (txy - t))_{(x, y, t)}$ is not flat over $k[t]_{(t)}$, as tensoring the injective map $k[t]_{(t)} \xrightarrow{\cdot t} k[t]_{(t)}$ does not give an injective map: $t$ is a zero-divisor in $k[x, y, t] / (txy - t)$.
@@ -290,7 +290,7 @@
 
 \begin{topic}{serre-duality}{Serre duality}
     Let $X$ be a \tref{smooth-morphism}{smooth} projective \tref{scheme}{scheme} of dimension $n$, and let $\omega_X$ be its \tref{canonical-sheaf}{canonical sheaf}. Then \textbf{Serre duality} states that for every coherent sheaf $\mathcal{F}$ on $X$ there is a natural isomorphism
-    \[ H^i(X, \mathcal{F}^\vee \otimes \omega_X) \simeq H^{n - i}(X, \mathcal{F})^\vee . \]
+    \[ H^i(X, \mathcal{F}^\vee \otimes \omega_X) \isom H^{n - i}(X, \mathcal{F})^\vee . \]
 \end{topic}
 
 \begin{topic}{picard-group}{Picard group}
@@ -304,7 +304,7 @@
     for some \textit{transition functions} $g_{ij} \in \mathcal{O}_X^*(U_i \cap U_j)$. These functions satisfy the \textit{cocycle condition}: $g_{ii} = 1$ and $g_{ij} g_{jk} g_{ki} = 1$ on $U_i \cap U_j \cap U_k$. Given another set of generators
     \[ s'_i = h_i s_i \]
     with $h_i \in \mathcal{O}_X^*(U_i)$, we find $g'_{ij} = h_i g_{ij} h_j^{-1}$. Hence, there is a natural isomorphism
-    \[ \textup{Pic}(X) \simeq \check{H}^1(X, \mathcal{O}_X^*) \simeq H^1(X, \mathcal{O}_X^*) . \]
+    \[ \textup{Pic}(X) \isom \check{H}^1(X, \mathcal{O}_X^*) \isom H^1(X, \mathcal{O}_X^*) . \]
     Indeed this is a homomorphism since multiplying transition functions corresponds to the tensor product of the corresponding invertible sheaves.
 \end{example}
 
@@ -316,11 +316,11 @@
         f &: R^n \to I, \quad (r_i)_{i = 1}^{n} \mapsto \sum_{i = 1}^{n} r_i x_i , \\
         g &: I \to R^n, \quad x \mapsto (x y_i)_{i = 1}^{n} .
     \end{aligned} \]
-    Since the composition $I \xrightarrow{g} R^n \xrightarrow{f} I$ is the identity, we find that $R^n \simeq I \oplus \ker(f)$, which shows that $I$ is a finitely generated projective $R$-module, that is, a line bundle over $X$. In particular, any principal fractional ideal $I = fR$, with $f \in K^*$, is isomorphic to $R$ as an $R$-module, so the associated line bundle is trivial.
+    Since the composition $I \xrightarrow{g} R^n \xrightarrow{f} I$ is the identity, we find that $R^n \isom I \oplus \ker(f)$, which shows that $I$ is a finitely generated projective $R$-module, that is, a line bundle over $X$. In particular, any principal fractional ideal $I = fR$, with $f \in K^*$, is isomorphic to $R$ as an $R$-module, so the associated line bundle is trivial.
     
-    This defines a map $\varphi : \textup{Pic}(R) \to \textup{Pic}(X)$. To see why this is a group homomorphism, let $I$ and $J$ be invertible ideals. Since $I$ is projective, the functor $I \otimes_R (-)$ is exact, so the map $I \otimes_R J \to I \otimes_R F \simeq F$, given by $\sum_{i = 1}^{n} x_i \otimes y_i \mapsto \sum_{i = 1}^{n} x_i y_i$, is an injection. Hence, $I \otimes_R J$ is isomorphic to its image $IJ \subset F$.
+    This defines a map $\varphi : \textup{Pic}(R) \to \textup{Pic}(X)$. To see why this is a group homomorphism, let $I$ and $J$ be invertible ideals. Since $I$ is projective, the functor $I \otimes_R (-)$ is exact, so the map $I \otimes_R J \to I \otimes_R F \isom F$, given by $\sum_{i = 1}^{n} x_i \otimes y_i \mapsto \sum_{i = 1}^{n} x_i y_i$, is an injection. Hence, $I \otimes_R J$ is isomorphic to its image $IJ \subset F$.
     
-    Injectivity of $\varphi$ follows because any invertible ideal $I$ isomorphic to $R$ as $R$-modules must be of the form $I = fR$ for some $f \in K^*$, and hence is principal. Surjectivity of $\varphi$ is shown as follows. Let $L$ be a line bundle over $X$, i.e. a finitely generated projective $R$-module of rank $1$. As $L$ is projective, the functor $L \otimes_R (-)$ is exact, which yields an inclusion $L = L \otimes_R R \subset L \otimes_R K \simeq K$. Since $L$ is finitely generated, the image of $L$ inside $K$ is a fractional ideal $I$. To show it is invertible, let $J$ be the fractional ideal corresponding to the dual bundle $L^\vee = \Hom_R(L, R)$. Then, $R \simeq L \otimes_R L^\vee \simeq I \otimes_R J \simeq IJ$, so $IJ = fR$ for some $f \in K^*$, and hence $I (f^{-1} J) = R$, so $I$ is indeed invertible.
+    Injectivity of $\varphi$ follows because any invertible ideal $I$ isomorphic to $R$ as $R$-modules must be of the form $I = fR$ for some $f \in K^*$, and hence is principal. Surjectivity of $\varphi$ is shown as follows. Let $L$ be a line bundle over $X$, i.e. a finitely generated projective $R$-module of rank $1$. As $L$ is projective, the functor $L \otimes_R (-)$ is exact, which yields an inclusion $L = L \otimes_R R \subset L \otimes_R K \isom K$. Since $L$ is finitely generated, the image of $L$ inside $K$ is a fractional ideal $I$. To show it is invertible, let $J$ be the fractional ideal corresponding to the dual bundle $L^\vee = \Hom_R(L, R)$. Then, $R \isom L \otimes_R L^\vee \isom I \otimes_R J \isom IJ$, so $IJ = fR$ for some $f \in K^*$, and hence $I (f^{-1} J) = R$, so $I$ is indeed invertible.
 \end{example}
 
 \begin{topic}{picard-functor}{Picard functor}
@@ -434,7 +434,7 @@
 
 \begin{topic}{projection-formula}{projection formula}
     Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}, $\mathcal{F}$ an $\mathcal{O}_X$-module, and $\mathcal{E}$ a \tref{free-sheaf}{locally free} $\mathcal{O}_Y$-module. The \textbf{projection formula} states a natural isomorphism
-    \[ f_*\left(\mathcal{F} \otimes_{\mathcal{O}_X} f^* \mathcal{E} \right) \simeq f_*\left(\mathcal{F}\right) \otimes_{\mathcal{O}_Y} \mathcal{E} . \]
+    \[ f_*\left(\mathcal{F} \otimes_{\mathcal{O}_X} f^* \mathcal{E} \right) \isom f_*\left(\mathcal{F}\right) \otimes_{\mathcal{O}_Y} \mathcal{E} . \]
 \end{topic}
 
 \begin{topic}{rational-map}{rational map}
@@ -491,7 +491,7 @@
     Let $n \ge 1$ and let $k$ be a field containing a primitive $n$-th root unity $\zeta_n \in k$. Consider $f : X \to S$ with $X = S = \GG_m = \Spec k[x, x^{-1}]$ given by $x \mapsto x^n$. Then we see that
     \[ X \times_S X = \{ (x, y) \in \GG_m^2 : x^n = y^n \} \]
     decomposes as the disjoint union
-    \[ (\ZZ/n\ZZ) \times \GG_m \simeq X \times_S X, \quad (k, x) \mapsto (x, \zeta_n^k x) , \]
+    \[ (\ZZ/n\ZZ) \times \GG_m \isom X \times_S X, \quad (k, x) \mapsto (x, \zeta_n^k x) , \]
     and thus $f$ is a Galois cover.
 \end{example}
 
@@ -534,7 +534,7 @@
 \end{example}
 
 \begin{topic}{calabi-yau-variety}{Calabi--Yau variety}
-    A \textbf{Calabi--Yau variety} is a \tref{variety}{variety} $X$ which is \tref{smooth-morphism}{smooth} and \tref{proper-morphism}{proper} over a field $k$, whose \tref{canonical-sheaf}{canonical sheaf} is trivial, that is, $\wedge^n \Omega_{X/k} \simeq \mathcal{O}_X$.
+    A \textbf{Calabi--Yau variety} is a \tref{variety}{variety} $X$ which is \tref{smooth-morphism}{smooth} and \tref{proper-morphism}{proper} over a field $k$, whose \tref{canonical-sheaf}{canonical sheaf} is trivial, that is, $\wedge^n \Omega_{X/k} \isom \mathcal{O}_X$.
     
     If moreover $H^i(X, \mathcal{O}_X) = 0$ for all $1 \le i \le n - 1$, one speaks of a \textbf{strict Calabi--Yau variety}.
 \end{topic}
@@ -574,7 +574,7 @@
 \end{topic}
 
 \begin{example}{severi-brauer-variety}
-    Consider the projective variety $X$ over $\QQ$ defined by $X^2 + Y^2 + Z^2 = 0$. It is Severi--Brauer, since over the complex numbers we have $X_\CC \simeq \PP_\CC^1$ via $(X : Y : Z) \mapsto (X + iY : Z)$ with inverse $(S : T) \mapsto (\tfrac{1}{2} (S^2 - T^2) : -\tfrac{i}{2} (S^2 + T^2) : TS)$.
+    Consider the projective variety $X$ over $\QQ$ defined by $X^2 + Y^2 + Z^2 = 0$. It is Severi--Brauer, since over the complex numbers we have $X_\CC \isom \PP_\CC^1$ via $(X : Y : Z) \mapsto (X + iY : Z)$ with inverse $(S : T) \mapsto (\tfrac{1}{2} (S^2 - T^2) : -\tfrac{i}{2} (S^2 + T^2) : TS)$.
 \end{example}
 
 \begin{example}{severi-brauer-variety}
@@ -582,8 +582,8 @@
     
     For $A = \textup{Mat}_{n \times n}(k)$, the $n$-dimensional right ideals are precisely of the form
     \[ I = \left\{ \begin{pmatrix} a_1 v & a_2 v & \cdots & a_n v \end{pmatrix} : a_i \in k \right\} \]
-    for some non-zero $v \in k^n$, where $v$ is uniquely determined up to scaling. Hence, it follows that $\textup{SB}(A) \simeq \PP^{n - 1}_k$ by taking $v$ as coordinate. Now for a general CSA $A$ of dimension $n^2$ over $k$, we find
-    \[ \textup{SB}(A) \times_k \overline{k} \simeq \textup{SB}(A \otimes_k \overline{k}) \simeq \textup{SB}(\textup{Mat}_{n \times n}(\overline{k})) \simeq \PP^{n - 1}_{\overline{k}} . \]
+    for some non-zero $v \in k^n$, where $v$ is uniquely determined up to scaling. Hence, it follows that $\textup{SB}(A) \isom \PP^{n - 1}_k$ by taking $v$ as coordinate. Now for a general CSA $A$ of dimension $n^2$ over $k$, we find
+    \[ \textup{SB}(A) \times_k \overline{k} \isom \textup{SB}(A \otimes_k \overline{k}) \isom \textup{SB}(\textup{Mat}_{n \times n}(\overline{k})) \isom \PP^{n - 1}_{\overline{k}} . \]
 \end{example}
 
 \begin{topic}{segre-embedding}{Segre embedding}
@@ -603,11 +603,11 @@
 \end{topic}
 
 \begin{topic}{toric-variety}{toric variety}
-    A \textbf{toric variety} is a \tref{variety}{variety} $X$ together with an embedding of an \tref{algebraic-torus}{algebraic torus} $T \simeq \mathbb{G}_m^n$ into $X$ as an open dense subset, such that the action of $T$ on itself (by translation) extends to the whole of $X$.
+    A \textbf{toric variety} is a \tref{variety}{variety} $X$ together with an embedding of an \tref{algebraic-torus}{algebraic torus} $T \isom \mathbb{G}_m^n$ into $X$ as an open dense subset, such that the action of $T$ on itself (by translation) extends to the whole of $X$.
 \end{topic}
 
 \begin{example}{toric-variety}
-    One way to construct toric varieties is using \tref{LA:fan}{fans}. Let $N \simeq \ZZ^n$ be a finitely generated free abelian group, and let $\Delta$ be a fan in $N_\RR = N \otimes_\ZZ \RR$. For every cone $\sigma \in \Delta$, consider the \tref{AA:monoid}{commutative monoid} $S_\sigma = \sigma^\vee \cap M$, where $\sigma^\vee$ is denotes the \tref{LA:dual-cone}{dual cone}, and $M = \Hom_\ZZ(N, \ZZ)$. Furthermore, let $k$ be a commutative ring, and write $U_\sigma = \Spec(k[S_\sigma])$.
+    One way to construct toric varieties is using \tref{LA:fan}{fans}. Let $N \isom \ZZ^n$ be a finitely generated free abelian group, and let $\Delta$ be a fan in $N_\RR = N \otimes_\ZZ \RR$. For every cone $\sigma \in \Delta$, consider the \tref{AA:monoid}{commutative monoid} $S_\sigma = \sigma^\vee \cap M$, where $\sigma^\vee$ is denotes the \tref{LA:dual-cone}{dual cone}, and $M = \Hom_\ZZ(N, \ZZ)$. Furthermore, let $k$ be a commutative ring, and write $U_\sigma = \Spec(k[S_\sigma])$.
     
     Now for every face $\tau \subset \sigma$, there exists some $u \in \sigma^\vee$ such that $\tau = \sigma \cap u^\perp$, and hence $S_\tau = S_\sigma + \ZZ_{\ge 0} \cdot (-u)$. So, the natural map $k[S_\sigma] \to k[S_\tau]$ is a \tref{AA:localization}{localization} given by inverting $u$, which induces a \tref{principal-open-subset}{principal open subset} $\Spec(k[S_\tau]) \to \Spec(k[S_\sigma])$.
     
@@ -650,7 +650,7 @@
     \end{tikzpicture} \]
     One computes
     \[ U_{\sigma_1} = \Spec(k[x, y]), \quad U_{\sigma_2} = \Spec(k[x^{-1}, yx^{-1}]), \quad U_{\sigma_3} = \Spec(k[y^{-1}, xy^{-1}]) , \]
-    and gluing gives $X(\Delta) \simeq \PP_k^2$.    
+    and gluing gives $X(\Delta) \isom \PP_k^2$.    
 \end{example}
 
 \begin{example}{toric-variety}
@@ -686,7 +686,7 @@
 \end{topic}
 
 \begin{topic}{ample-invertible-sheaf}{(very) ample invertible sheaf}
-    Let $X$ be a \tref{scheme}{scheme} over $S$. An \tref{invertible-sheaf}{invertible sheaf} $\mathcal{L}$ on $X$ is called \textbf{very ample} relative to $S$, if there is an \tref{immersion}{immersion} $i : X \to \PP_S^n$ for some $n$, such that $\mathcal{L} \simeq i^*(\mathcal{O}_{\PP_S^n}(1))$.
+    Let $X$ be a \tref{scheme}{scheme} over $S$. An \tref{invertible-sheaf}{invertible sheaf} $\mathcal{L}$ on $X$ is called \textbf{very ample} relative to $S$, if there is an \tref{immersion}{immersion} $i : X \to \PP_S^n$ for some $n$, such that $\mathcal{L} \isom i^*(\mathcal{O}_{\PP_S^n}(1))$.
     
     An invertible sheaf $\mathcal{L}$ on a \tref{noetherian-scheme}{noetherian scheme} $X$ is \textbf{ample} if for every \tref{coherent-sheaf}{coherent sheaf} $\mathcal{F}$ on $X$, there is an integer $n_0 > 0$ such that for every $n \ge n_0$ the sheaf $\mathcal{F} \otimes \mathcal{L}^{\otimes n}$ is generated by its global sections.
 \end{topic}
@@ -710,7 +710,7 @@
 \begin{example}{cech-cohomology}
     Note that 
     \[ d^0 : C^0(\mathcal{U}, \mathcal{F}) = \prod_{i \in I} \mathcal{F}(U_i) \to C^1(\mathcal{U}, \mathcal{F}) = \prod_{i < j} \mathcal{F}(U_{ij}) \]
-    sends $s = (s_i)_{i \in I}$ to $d^0 s = \left(s_j|_{U_i} - s_i|_{U_j}\right)_{ij}$. Therefore, by the sheaf property $\hat{H}^0(\mathcal{U}, \mathcal{F}) = \ker d^0 \simeq \mathcal{F}(X)$.
+    sends $s = (s_i)_{i \in I}$ to $d^0 s = \left(s_j|_{U_i} - s_i|_{U_j}\right)_{ij}$. Therefore, by the sheaf property $\hat{H}^0(\mathcal{U}, \mathcal{F}) = \ker d^0 \isom \mathcal{F}(X)$.
     % H^1 isomorphic to line bundles that trivialize on each U_i
 \end{example}
 
@@ -966,7 +966,7 @@
 \end{example}
 
 \begin{example}{kapranov-zeta-function}
-    Let $\mathbb{L} = [\AA^1] \in \textup{K}(\textbf{Var}/k)$ be the class of the affine line. By the \tref{AA:symmetric-polynomial}{fundamental theorem of symmetric polynomials}, we have $\operatorname{Sym}^n(\AA^1) \simeq \AA^n$ for all $n \ge 0$. More generally, one can show
+    Let $\mathbb{L} = [\AA^1] \in \textup{K}(\textbf{Var}/k)$ be the class of the affine line. By the \tref{AA:symmetric-polynomial}{fundamental theorem of symmetric polynomials}, we have $\operatorname{Sym}^n(\AA^1) \isom \AA^n$ for all $n \ge 0$. More generally, one can show
     \[ Z(\AA^i, t) = 1 + \mathbb{L}^i t + \mathbb{L}^{2i} t^2 + \cdots = \frac{1}{1 - \mathbb{L}^i t} . \]
     In particular,
     \[ Z(\PP^n, t) = Z\left(\bigsqcup_{i = 0}^{n} \AA^i , t\right) = \prod_{i = 0}^{n} Z(\AA^i, t) = \prod_{i = 0}^{n} \frac{1}{1 - \mathbb{L}^i t} . \]
@@ -980,10 +980,10 @@
         \[ \psi : G \times_{G_x} Y \to X, \quad (g, y) \mapsto g \cdot y , \]
         is \tref{etale-morphism}{étale}, and its image $U$ is open in $X$,
         \item the map
-        \[ Y/G_x \simeq (G \times_{G_x} Y) / G \xrightarrow{\psi / G} U / G \]
+        \[ Y/G_x \isom (G \times_{G_x} Y) / G \xrightarrow{\psi / G} U / G \]
         is étale at $[x]$,
         \item the maps $\psi$ and $G \times_{G_x} Y \to (G \times_{G_x} Y) / G \to Y / G_x$ induce an isomorphism
-        \[ G \times_{G_x} Y \simeq U \times_{U/G} (Y/G_x) . \]
+        \[ G \times_{G_x} Y \isom U \times_{U/G} (Y/G_x) . \]
     \end{enumerate}
     The subvariety $Y$ is called an \textit{étale slice} at $x$.
 \end{topic}
@@ -997,7 +997,7 @@
 \begin{topic}{moduli-space}{moduli space}
     Let $F : \textbf{Sch}^\textup{op} \to \textbf{Set}$ be a \tref{CT:functor}{functor}.
     A scheme $M$ is a \textbf{fine moduli space} for $F$ if $M$ \tref{CT:representable-functor}{represents} $F$, that is, there is a \tref{CT:natural-transformation}{natural} isomorphism
-    \[ F \simeq \Hom_\textbf{Sch}(-, M) . \]
+    \[ F \isom \Hom_\textbf{Sch}(-, M) . \]
     A scheme $M$ is a \textbf{coarse moduli space} for $F$ if there exists a natural transformation
     \[ F \Rightarrow \Hom_\textbf{Sch}(-, M) , \]
     which is universal among all such natural transformations.
@@ -1044,11 +1044,11 @@
 \end{topic}
 
 \begin{topic}{spreading-out}{spreading-out}
-    Let $X$ be a \tref{variety}{variety} over $\CC$. A \textbf{spreading-out} of $X$ is a separated scheme $\tilde{X}$ over a \tref{AA:finitely-generated-algebra}{finitely generated $\ZZ$-algebra} $R$ with an embedding $R \to \CC$, such that $X \simeq \tilde{X} \times_R \CC$.
+    Let $X$ be a \tref{variety}{variety} over $\CC$. A \textbf{spreading-out} of $X$ is a separated scheme $\tilde{X}$ over a \tref{AA:finitely-generated-algebra}{finitely generated $\ZZ$-algebra} $R$ with an embedding $R \to \CC$, such that $X \isom \tilde{X} \times_R \CC$.
 \end{topic}
 
 \begin{example}{spreading-out}
-    Let $X \subset \AA^n_\CC$ be an affine variety defined by polynomials $f_1, \ldots, f_r \in \CC[x_1, \ldots, x_n]$. Writing $f_i = \sum_{j, k} a_{ijk} x_j^k$, we see that a spreading-out $\tilde{X}$ can be defined over $R = \ZZ[a_{ijk}]$ by the same polynomials $f_i$, from which it is clear that $X \simeq \tilde{X} \times_R \CC$.
+    Let $X \subset \AA^n_\CC$ be an affine variety defined by polynomials $f_1, \ldots, f_r \in \CC[x_1, \ldots, x_n]$. Writing $f_i = \sum_{j, k} a_{ijk} x_j^k$, we see that a spreading-out $\tilde{X}$ can be defined over $R = \ZZ[a_{ijk}]$ by the same polynomials $f_i$, from which it is clear that $X \isom \tilde{X} \times_R \CC$.
 \end{example}
 
 % \begin{topic}{mixed-hodge-polynomial}{mixed Hodge polynomial}
@@ -1093,12 +1093,12 @@
 \end{topic}
 
 \begin{topic}{chow-lemma}{Chow's lemma}
-    % Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $X$ a scheme \tref{proper-morphism}{proper} over $S$. Then \textbf{Chow's lemma} states that there exists a scheme $X'$ which is \tref{projective-morphism}{projective} over $S$, and a surjective morphism $f : X' \to X$ over $S$, which induces an isomorphism $f^{-1}(U) \simeq U$ for some \tref{TO:dense}{dense} open $U \subset X$.
+    % Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $X$ a scheme \tref{proper-morphism}{proper} over $S$. Then \textbf{Chow's lemma} states that there exists a scheme $X'$ which is \tref{projective-morphism}{projective} over $S$, and a surjective morphism $f : X' \to X$ over $S$, which induces an isomorphism $f^{-1}(U) \isom U$ for some \tref{TO:dense}{dense} open $U \subset X$.
     Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $f : X \to S$ a \tref{separated-morphism}{separated morphism} of \tref{finite-type}{finite type}. Then \textbf{Chow's lemma} states that there exists a commutative diagram
     \[ \begin{tikzcd}
         X \arrow[swap]{dr}{f} & X' \arrow[swap]{l}{\pi} \arrow{r}{i} \arrow{d} & \PP^n_S \arrow{dl} \\ & S &
     \end{tikzcd} \]
-    with $\pi : X' \to X$ \tref{proper-morphism}{proper} and surjective, $i : X' \to \PP^n_S$ an \tref{immersion}{immersion}, such that $\pi$ restricts to an isomorphism $\pi^{-1}(U) \simeq U$ for some \tref{TO:dense-set}{dense} open $U \subset X$.
+    with $\pi : X' \to X$ \tref{proper-morphism}{proper} and surjective, $i : X' \to \PP^n_S$ an \tref{immersion}{immersion}, such that $\pi$ restricts to an isomorphism $\pi^{-1}(U) \isom U$ for some \tref{TO:dense-set}{dense} open $U \subset X$.
  \end{topic}
 
 \begin{topic}{normal-crossings-divisor}{normal crossings divisor}
@@ -1140,7 +1140,7 @@
 \begin{example}{etale-fundamental-group}
     Let $X = \AA^1_k \setminus \{ 0 \}$ over a field $k$, and take $\overline{x} = 1$. A direct system pro-representing $F$ is given by
     \[ \pi_n : X_n = \AA^1_k \setminus \{ 0 \} \to X, \quad x \mapsto x^n , \]
-    for each integer $n \ge 1$, with a morphism $X_m \to X_n$, $x \mapsto x^{m/n}$ whenever $n$ divides $m$. Note that $\textup{Aut}_X(X_n) \simeq \ZZ/n\ZZ$, where $k \mod n$ corresponds to the automorphism $X_n \to X_n$ given by $x \mapsto \zeta_n^k x$. The étale fundamental group of $X$ at $\overline{x}$ is now
+    for each integer $n \ge 1$, with a morphism $X_m \to X_n$, $x \mapsto x^{m/n}$ whenever $n$ divides $m$. Note that $\textup{Aut}_X(X_n) \isom \ZZ/n\ZZ$, where $k \mod n$ corresponds to the automorphism $X_n \to X_n$ given by $x \mapsto \zeta_n^k x$. The étale fundamental group of $X$ at $\overline{x}$ is now
     \[ \pi_1(X, \overline{x}) = \varprojlim_{n \ge 1} \ZZ/n\ZZ = \hat{\ZZ} , \]
     the \tref{GT:profinite-group}{profinite completion} of $\ZZ$.
 \end{example}
@@ -1185,7 +1185,7 @@
     Let $\textup{SB}$ be the set of \tref{stably-birational}{stably birational} equivalence classes of \tref{nonsingular-variety}{smooth} \tref{proper-morphism}{proper} \tref{variety}{varieties} over $\CC$. The \textbf{Larsen--Lunts theorem} states that there exists a unique ring morphism
     \[ \phi : \textup{K}(\textbf{Var}_\CC) \to \ZZ[\textup{SB}] , \]
     from the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}, such that $\phi([X])$ is the class of $X$ in $\textup{SB}$ for any smooth proper $X$. Moreover, the kernel of $\phi$ is the ideal generated by $\mathbb{L} = [\AA^1_\CC]$, so that
-    \[ \textup{K}(\textbf{Var}_\CC) / (\mathbb{L}) \simeq \ZZ[\textup{SB}] . \]
+    \[ \textup{K}(\textbf{Var}_\CC) / (\mathbb{L}) \isom \ZZ[\textup{SB}] . \]
 \end{topic}
 
 \begin{topic}{riemann-hurwitz-formula}{Riemann--Hurwitz formula}

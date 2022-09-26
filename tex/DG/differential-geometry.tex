@@ -98,7 +98,7 @@
         \item for each $p \in M$, the \textit{fiber} $E_p = \pi^{-1}(p)$ has the structure of a real \tref{LA:vector-space}{vector space},
         \item for each $p \in M$, there exists a neighborhood $U \subset M$ of $p$ and a \tref{diffeomorphism}{diffeomorphism} $\Phi : \pi^{-1}(U) \to U \times \RR^k$ such that
         \[ \begin{tikzcd} \pi^{-1}(U) \arrow{rr}{\Phi} \arrow[swap]{dr}{\pi} && U \times \RR^k \arrow{dl}{\pi_U} \\ & U & \end{tikzcd} \]
-        commutes, and the restriction of $\Phi|_{E_p} : E_p \to \{ p \} \times \RR^k \simeq \RR^k$ is a linear isomorphism.
+        commutes, and the restriction of $\Phi|_{E_p} : E_p \to \{ p \} \times \RR^k \isom \RR^k$ is a linear isomorphism.
     \end{itemize}
 \end{topic}
 
@@ -259,7 +259,7 @@
 \begin{example}{connection}
     Let $\nabla$ and $\nabla'$ be two connections on $E$. Then for any $f \in C^\infty(M)$ and $s \in \Gamma(E)$,
     \[ (\nabla' - \nabla) (fs) = df \otimes s + f \nabla' s - df \otimes s - f \nabla s = f(\nabla' - \nabla) s , \]
-    so $\nabla' - \nabla : \Gamma(E) \to \Gamma(T^*M \otimes E)$ is $C^\infty(M)$-linear and thus corresponds to a section of $\Hom(E, T^*M \otimes E) \simeq T^*M \otimes \textup{End}(E)$. Hence, there exists some $A \in \Omega^1(M; \textup{End}(E))$ such that $\nabla' = \nabla + A$. This shows there are as many connections on $E$ as there are sections on $\Omega^1(M; \textup{End}(E))$. (Indeed there exists at least one connection on any $E$ using a partition of unity and the trivial connection.)
+    so $\nabla' - \nabla : \Gamma(E) \to \Gamma(T^*M \otimes E)$ is $C^\infty(M)$-linear and thus corresponds to a section of $\Hom(E, T^*M \otimes E) \isom T^*M \otimes \textup{End}(E)$. Hence, there exists some $A \in \Omega^1(M; \textup{End}(E))$ such that $\nabla' = \nabla + A$. This shows there are as many connections on $E$ as there are sections on $\Omega^1(M; \textup{End}(E))$. (Indeed there exists at least one connection on any $E$ using a partition of unity and the trivial connection.)
 \end{example}
 
 \begin{example}{connection}
@@ -291,7 +291,7 @@
 \end{example}
 
 \begin{topic}{curvature-connection}{curvature of a connection}
-    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The map $\nabla^2 : \Omega^0(M; E) \to \Omega^2(M; E)$ is $C^\infty(M)$-linear and hence induced by a section $F_\nabla \in \Omega^2(M; \text{End}(E))$, called the \textbf{curvature} of $\nabla$.
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The map $\nabla^2 : \Omega^0(M; E) \to \Omega^2(M; E)$ is $C^\infty(M)$-linear and hence induced by a section $F_\nabla \in \Omega^2(M; \textup{End}(E))$, called the \textbf{curvature} of $\nabla$.
     
     For any $k \ge 0$, the map $\nabla^2 : \Omega^k(M; E) \to \Omega^{k + 2}(M; E)$ is given by $\nabla^2 \omega = F_\nabla \wedge \omega$.
 \end{topic}
@@ -320,7 +320,7 @@
 \end{topic}
 
 \begin{topic}{curvature-form}{curvature form}
-    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \text{tr } F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \text{End}(E))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\text{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \tr F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \textup{End}(E))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\textup{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
 \end{topic}
 
 \begin{topic}{torsion-connection}{torsion of connection}
@@ -451,7 +451,7 @@
     \[ \exp : \mathfrak{g} \to G \]
     from Lie algebra $\mathfrak{g} = T_e G$ of $G$ to $G$, given by $\exp(v) = \gamma(1)$ where $\gamma : \RR \to G$ is the unique one-parameter subgroup of $G$ with $\gamma'(0) = v$.
     
-    In particular, when $G = \text{GL}_n(\RR)$ is the general linear group, we have $\mathfrak{g} = \text{Mat}_{n \times n}(\RR)$ and
+    In particular, when $G = \textup{GL}_n(\RR)$ is the general linear group, we have $\mathfrak{g} = \textup{Mat}_{n \times n}(\RR)$ and
     \[ \exp : \mathfrak{g} \to G, \quad A \mapsto \exp(A) = \sum_{k = 0}^{\infty} \frac{A^k}{k!} \]
     is the usual \tref{LA:matrix-exponential}{exponential map}.
 \end{example}
@@ -517,19 +517,19 @@
 \end{topic}
 
 \begin{topic}{higgs-bundle}{Higgs bundle}
-    Let $M$ be a \tref{complex-manifold}{complex manifold}. A \textbf{Higgs bundle} on $M$ is a holomorphic \tref{vector-bundle}{vector bundle} $E$ on $M$ together with a section $\phi \in \Omega^1(M; \text{End}(E))$, called the \textbf{Higgs field}, satisfying $\phi \wedge \phi = 0$.
+    Let $M$ be a \tref{complex-manifold}{complex manifold}. A \textbf{Higgs bundle} on $M$ is a holomorphic \tref{vector-bundle}{vector bundle} $E$ on $M$ together with a section $\phi \in \Omega^1(M; \textup{End}(E))$, called the \textbf{Higgs field}, satisfying $\phi \wedge \phi = 0$.
 \end{topic}
 
 \begin{topic}{frame-bundle}{(tangent) frame bundle}
     The \textbf{frame bundle} of a \tref{vector-bundle}{vector bundle} $E \to M$ of rank $k$ is the vector bundle $F(E) \to M$ whose fibers $F_x$ at a point $x \in M$ is the vector space of ordered bases $\{ e_1, \ldots, e_k \}$ of $E_x$.
     
-    There is a natural fiber-wise action of $\text{GL}_k(\RR)$ on $F(E)$ given by change of basis: $\{ e_1, \ldots, e_k \} \cdot g = \{ f_1, \ldots, f_k \}$ where $f_i = \sum_j e_j g_{ji}$. This makes $F(E)$ into a \tref{TO:principal-bundle}{$\text{GL}_k(\RR)$-principal bundle}.
+    There is a natural fiber-wise action of $\textup{GL}_k(\RR)$ on $F(E)$ given by change of basis: $\{ e_1, \ldots, e_k \} \cdot g = \{ f_1, \ldots, f_k \}$ where $f_i = \sum_j e_j g_{ji}$. This makes $F(E)$ into a \tref{TO:principal-bundle}{$\textup{GL}_k(\RR)$-principal bundle}.
     
     When $E = TM$, the \tref{tangent-bundle}{tangent bundle}, the frame bundle $F(TM)$ is called the \textbf{tangent frame bundle}.
 \end{topic}
 
 \begin{topic}{spin-structure}{spin structure}
-    Let $(M, g)$ be an $n$-dimensional orientable \tref{riemannian-manifold}{Riemannian manifold}. A \textbf{spin structure} on $M$ is a \tref{TO:principal-bundle}{principal $\text{Spin}(n)$-bundle} $P \to M$ together with a bundle morphism $f : P \to F_{\text{SO}(n)}(M)$ to the oriented orthonormal \tref{frame-bundle}{tangent frame bundle}, equivariant with respect to the double cover $\text{Spin}(n) \to \text{SO}(n)$.
+    Let $(M, g)$ be an $n$-dimensional orientable \tref{riemannian-manifold}{Riemannian manifold}. A \textbf{spin structure} on $M$ is a \tref{TO:principal-bundle}{principal $\textup{Spin}(n)$-bundle} $P \to M$ together with a bundle morphism $f : P \to F_{\textup{SO}(n)}(M)$ to the oriented orthonormal \tref{frame-bundle}{tangent frame bundle}, equivariant with respect to the double cover $\textup{Spin}(n) \to \textup{SO}(n)$.
     % Can be generalized to any vector bundle
 \end{topic}
 
@@ -571,7 +571,7 @@
 
 \begin{example}{volume-form}
     When $M$ is a \tref{riemannian-manifold}{Riemannian manifold} with metric $g$, there is a natural volume form on $M$. In local coordinates $x_1, \ldots, x_n$ it is given by
-    \[ \text{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge dx_2 \wedge \cdots \wedge dx_n , \]
+    \[ \textup{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge dx_2 \wedge \cdots \wedge dx_n , \]
     which is indeed independent of the choice of local coordinates.
 \end{example}
 
@@ -579,15 +579,15 @@
     Let $(M, g)$ be an $n$-dimensional \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Hodge star operators} are the maps
     \[ \star : \Omega^k(M) \to \Omega^{n - k}(M) \]
     for $0 \le k \le n$ defined by
-    \[ \alpha \wedge \star \beta = g(\alpha, \beta) \text{vol}_g \]
-    for all $\alpha, \beta \in \Omega^k(M)$, where $\text{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge \cdots dx_n$ is the \tref{volume-form}{volume form} induced by $g$. Here $g$ is defined on $\Omega^k(M)$ by
+    \[ \alpha \wedge \star \beta = g(\alpha, \beta) \textup{vol}_g \]
+    for all $\alpha, \beta \in \Omega^k(M)$, where $\textup{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge \cdots dx_n$ is the \tref{volume-form}{volume form} induced by $g$. Here $g$ is defined on $\Omega^k(M)$ by
     \[ g(\alpha, \beta) = \det\left(g(\alpha_i, \beta_j)\right)_{i, j = 1}^{k} \]
     for decomposable $\alpha = \alpha_1 \wedge \cdots \wedge \alpha_k$ and $\beta = \beta_1 \wedge \cdots \wedge \beta_k$ and extended linearly.
 \end{topic}
 
 \begin{topic}{hodge-inner-product}{Hodge inner product}
     Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Hodge inner product} is the (global) inner product on the de Rham spaces $\Omega^k(M)$ given by
-    \[ (\alpha, \beta) = \int_X \alpha \wedge \star \beta = \int_X g(\alpha, \beta) \; \text{vol}_g \]
+    \[ (\alpha, \beta) = \int_X \alpha \wedge \star \beta = \int_X g(\alpha, \beta) \; \textup{vol}_g \]
     for $\alpha, \beta \in \Omega^k(M)$, where $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}.
 \end{topic}
 
@@ -596,7 +596,7 @@
     \[ 0 \to \Omega^0(M) \xrightarrow{d} \Omega^1(M) \xrightarrow{d} \Omega^2(M) \xrightarrow{d} \cdots \]
     where $\Omega^k(M)$ denotes the space of \tref{differential-form}{differential $k$-forms}, and $d$ the \tref{exterior-derivative}{exterior derivative}.
     
-    The \textbf{de Rham cohomology groups} $H_\text{dR}^k(M)$ are the \tref{HA:homology-object}{cohomology groups} of $\Omega^\bdot(M)$.
+    The \textbf{de Rham cohomology groups} $H_\textup{dR}^k(M)$ are the \tref{HA:homology-object}{cohomology groups} of $\Omega^\bdot(M)$.
 \end{topic}
 
 \begin{topic}{harmonic-form}{harmonic form}
@@ -607,8 +607,8 @@
 
 \begin{topic}{holonomy-group}{holonomy group}
     Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} over a \tref{smooth-manifold}{smooth manifold} $M$, and $\nabla$ a \tref{connection}{connection} on $E$. By \tref{parallel-transport}{parallel transport}, any loop $\gamma : [0, 1] \to M$ based at a point $x \in M$ yields a linear invertible map $P_\gamma : E_x \to E_x$. The \textbf{holonomy group} of $\nabla$ based at $x$ is the group
-    \[ \text{Hol}_x(\nabla) = \{ P_\gamma \in \text{GL}(E_x) : \gamma \text{ is a loop based at } x \} . \]
-    The \textbf{restricted holonomy group} is the subgroup $\text{Hol}_x^0(\nabla)$ coming from contractible loops.
+    \[ \textup{Hol}_x(\nabla) = \{ P_\gamma \in \textup{GL}(E_x) : \gamma \text{ is a loop based at } x \} . \]
+    The \textbf{restricted holonomy group} is the subgroup $\textup{Hol}_x^0(\nabla)$ coming from contractible loops.
 \end{topic}
 
 \begin{topic}{implicit-function-theorem}{implicit function theorem}
@@ -884,7 +884,7 @@
 \begin{topic}{hopf-fibration}{Hopf fibration}
     The \textbf{Hopf fibration} is a non-trivial \tref{TO:fiber-bundle}{fiber bundle} over $S^2$ with fiber $S^1$, whose total space is $S^3$.
     \[ S^1 \hookrightarrow S^3 \to S^2 \]
-    Identifying $S^3 \simeq \{ (z_0, z_1) \in \CC^2 : |z_0|^2 + |z_1|^2 = 1 \}$ and $S^2 \simeq \CC P^2$, the Hopf fibration is given by
+    Identifying $S^3 \isom \{ (z_0, z_1) \in \CC^2 : |z_0|^2 + |z_1|^2 = 1 \}$ and $S^2 \isom \CC P^2$, the Hopf fibration is given by
     \[ S^3 \to S^2, \quad (z_0, z_1) \mapsto (z_0 : z_1) . \]
 \end{topic}
 
@@ -931,7 +931,7 @@
 % \begin{example}{yang-mills-theory}
 %     Let $M = \RR^4$ with the Minkowski metric $\eta = (-1, 1, 1, 1)$, and take $G = U(1)$ with $\mathfrak{g} = i\RR$, and $P = G \times M$. A connection $\nabla$ can be written as
 %     \[ \nabla = d + A \]
-%     with $A \in \Omega^1(\mathfrak{g} \times M) \simeq \Omega^1(M)$.
+%     with $A \in \Omega^1(\mathfrak{g} \times M) \isom \Omega^1(M)$.
     
 %     Since $U(1)$ is abelian, we get
 %     \[ F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu . \]

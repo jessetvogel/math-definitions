@@ -110,7 +110,7 @@
 
 \begin{example}{yoneda-lemma}
     As a consequence, the Yoneda embedding $y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\textup{op}}$ is \tref{full-functor}{full} and \tref{faithful-functor}{faithful}. Namely, for any objects $X$ and $Y$ in $\mathcal{C}$ there is a natural bijection
-    \[ \Hom(y_X, y_Y) \simeq y_Y(X) = \Hom_\mathcal{C}(X, Y) . \]
+    \[ \Hom(y_X, y_Y) \isom y_Y(X) = \Hom_\mathcal{C}(X, Y) . \]
 \end{example}
 
 \begin{topic}{groupoid}{groupoid}
@@ -125,7 +125,7 @@
     A functor $F : \mathcal{C} \to \mathcal{D}$ is an equivalence of categories if and only if it is \tref{full-functor}{fully} \tref{faithful-functor}{faithful} and \tref{essentially-surjective-functor}{essentially surjective}.
     \begin{proof}
         $(\Rightarrow)$ For any morphism $f : X \to Y$ in $\mathcal{C}$, we have $GF(f) = \mu_Y \circ f \circ \mu_X^{-1}$, which shows that $\Hom_\mathcal{C}(X, Y) \xrightarrow{GF} \Hom_\mathcal{C}(GFX, GFY)$ is a bijection. Since this map factors through $\Hom_\mathcal{D}(FX, FY)$, we must have that $F$ is fully faithful. Furthermore, any object $D$ of $\mathcal{D}$ is isomorphic to $FG(D)$ via $\nu_D$, so $F$ is essentially surjective.
-        $(\Leftarrow)$ For any object $D$ of $\mathcal{D}$, there exists an object $C$ of $\mathcal{C}$ and an isomorphism $D \simeq F(C)$. Put $G(D) = C$ and call the isomorphism $\nu_D$. For any morphism $f : A \to B$ in $\mathcal{D}$, we have the induced morphism $\nu_B \circ f \circ \nu_A^{-1} : FG(A) \to FG(B)$, and since $F$ is fully faithful, there exists a unique $g : G(A) \to G(B)$ with $F(g) = \nu_B \circ f \circ \nu_A^{-1}$. Put $G(f) = g$. Now clearly, $\nu_B \circ f = FG(f) \circ \nu_A$, so $\nu : \id_\mathcal{D} \Rightarrow FG$ is a natural isomorphism. To construct $\mu : \id_\mathcal{C} \Rightarrow GF$, take any $h : X \to Y$ in $\mathcal{C}$, and consider the isomorphism $\nu_{F(X)} : F(X) \xrightarrow{\sim} FGF(X)$. As $F$ is fully faithful, there exists a unique isomorphism $\mu_X : X \xrightarrow{\sim} GF(X)$ such that $F(\mu_X) = \nu_{F(X)}$. Now, since $F(\mu_Y) F(h) = FGF(h) F(\mu_X)$ by naturality of $\mu$, and $F$ is fully faithful, we have $\mu_Y \circ h = GF(h) \circ \mu_X$, so $\mu : \id_\mathcal{C} \Rightarrow GF$ is a natural isomorphism.
+        $(\Leftarrow)$ For any object $D$ of $\mathcal{D}$, there exists an object $C$ of $\mathcal{C}$ and an isomorphism $D \isom F(C)$. Put $G(D) = C$ and call the isomorphism $\nu_D$. For any morphism $f : A \to B$ in $\mathcal{D}$, we have the induced morphism $\nu_B \circ f \circ \nu_A^{-1} : FG(A) \to FG(B)$, and since $F$ is fully faithful, there exists a unique $g : G(A) \to G(B)$ with $F(g) = \nu_B \circ f \circ \nu_A^{-1}$. Put $G(f) = g$. Now clearly, $\nu_B \circ f = FG(f) \circ \nu_A$, so $\nu : \id_\mathcal{D} \Rightarrow FG$ is a natural isomorphism. To construct $\mu : \id_\mathcal{C} \Rightarrow GF$, take any $h : X \to Y$ in $\mathcal{C}$, and consider the isomorphism $\nu_{F(X)} : F(X) \xrightarrow{\sim} FGF(X)$. As $F$ is fully faithful, there exists a unique isomorphism $\mu_X : X \xrightarrow{\sim} GF(X)$ such that $F(\mu_X) = \nu_{F(X)}$. Now, since $F(\mu_Y) F(h) = FGF(h) F(\mu_X)$ by naturality of $\mu$, and $F$ is fully faithful, we have $\mu_Y \circ h = GF(h) \circ \mu_X$, so $\mu : \id_\mathcal{C} \Rightarrow GF$ is a natural isomorphism.
     \end{proof}
 \end{example}
 
@@ -173,13 +173,13 @@
 
 \begin{example}{adjunction}
     Let $U : \textbf{Grp} \to \textbf{Set}$ be the \textit{forgetful functor}, which sends a \tref{GT:group}{group} $G$ to its underlying set, and let $F : \textbf{Set} \to \textbf{Grp}$ be the \textit{free functor}, which sends a set $S$ to the \tref{GT:free-group}{free group} $F_S$. Given a group $G$ and set $S$, any function of sets $S \to G$ can uniquely be extended to a group morphism $F_S \to G$, and any such morphism comes uniquely from a function. This gives a bijection
-    \[ \Hom_{\textbf{Grp}}(F(S), G) \simeq \Hom_{\textbf{Set}}(S, U(G)) , \]
+    \[ \Hom_{\textbf{Grp}}(F(S), G) \isom \Hom_{\textbf{Set}}(S, U(G)) , \]
     which is natural in $S$ and $G$, or in other words, we have an adjunction $F \dashv U$.
 \end{example}
 
 \begin{example}{adjunction}
     Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be adjoint functors, $F \dashv G$. Then for any object $C$ of $\mathcal{C}$, we have a natural bijection
-    \[ \Hom_{\mathcal{D}}(F(C), F(C)) \simeq \Hom_{\mathcal{C}}(C, GF(C)) . \]
+    \[ \Hom_{\mathcal{D}}(F(C), F(C)) \isom \Hom_{\mathcal{C}}(C, GF(C)) . \]
     In particular, the identity morphism $\id_{F(C)}$ corresponds to some $\eta_C : C \to GF(C)$. Since this construction is natural in $C$, we obtain a \tref{natural-transformation}{natural transformation} $\eta : \id_\mathcal{C} \Rightarrow GF$, called the \textit{unit} of the adjunction.
     Similarly, for any object $D$ of $\mathcal{D}$, the morphism $\id_{G(D)}$ corresponds to some $\varepsilon_D : FG(D) \to D$, which yields a natural transformation $\varepsilon : FG \Rightarrow \id_\mathcal{D}$, called the \textit{counit} of the adjunction.
 \end{example}
@@ -243,7 +243,7 @@
     Let $\mathcal{C}$ be a \tref{category}{category}, and $W$ a collection of morphisms of $\mathcal{C}$. A \textbf{localization} of $\mathcal{C}$ by $W$ is a category $\mathcal{C}\left[\frac{1}{W}\right]$ with a functor $Q : \mathcal{C} \to \mathcal{C}\left[\frac{1}{W}\right]$ such that
     \begin{itemize}
         \item $Q(f)$ is an isomorphism for all $f \in W$,
-        \item for any category $\mathcal{D}$ and functor $F : \mathcal{C} \to \mathcal{D}$ such that $F(f)$ is an isomorphism for all $f \in W$, there exists a unique functor $G : \mathcal{C}\left[\frac{1}{W}\right] \to \mathcal{D}$ such that $F \simeq G \circ Q$.
+        \item for any category $\mathcal{D}$ and functor $F : \mathcal{C} \to \mathcal{D}$ such that $F(f)$ is an isomorphism for all $f \in W$, there exists a unique functor $G : \mathcal{C}\left[\frac{1}{W}\right] \to \mathcal{D}$ such that $F \isom G \circ Q$.
         \[ \begin{tikzcd} \mathcal{C} \arrow{r}{Q} \arrow[swap]{rd}{F} & \mathcal{C}\left[\frac{1}{W}\right] \arrow[dashed]{d}{G} \\ & \mathcal{D} \end{tikzcd} \]
     \end{itemize}
 \end{topic}
@@ -554,7 +554,7 @@
 \begin{topic}{subobject-classifier}{subobject classifier}
     Let $\mathcal{C}$ be a \tref{category}{category} with finite \tref{limit}{limits}. A \textbf{subobject classifier} is a \tref{monomorphism}{monomorphism} $t : 1 \to \Omega$, where $1$ is a \tref{terminal-object}{terminal object}, with the property that for any monomorphism $m : A \to B$, there is a unique arrow $\phi : B \to \Omega$ such that there is a pullback diagram
     \[ \begin{tikzcd} A \arrow[swap]{d}{m} \arrow{r} & T \arrow{d}{t} \\ B \arrow{r}{\phi} & \Omega \end{tikzcd} \]
-    In particular, arrows $\phi : B \to \Omega$ classify \tref{subobject}{subobjects} of $B$, that is $\textup{Sub}(-) \simeq \Hom_\mathcal{C}(-, \Omega)$.
+    In particular, arrows $\phi : B \to \Omega$ classify \tref{subobject}{subobjects} of $B$, that is $\textup{Sub}(-) \isom \Hom_\mathcal{C}(-, \Omega)$.
 \end{topic}
 
 \begin{example}{subobject-classifier}
@@ -562,7 +562,7 @@
 \end{example}
 
 \begin{example}{subobject-classifier}
-    Let's construct a subobject classifier $\Omega$ in $\textbf{Set}^{\mathcal{C}^\textup{op}}$. For a representable presheaf $y_C$ we must have that morphisms $y_C \to \Omega$ correspond one-to-one with subpresheaves of $y_C$, a.k.a. \tref{sieve}{sieves} on $C$. By the \tref{yoneda-lemma}{Yoneda lemma}, we define $\Omega(C) \simeq \Hom(y_C, \Omega)$ to be the set of sieves on $C$. Naturally, for a morphism $f : C' \to C$ we define $\Omega(f)$ by sending a sieve $R$ on $C$ to the pullback $f^*(R) = \{ g : D \to C' : fg \in R \}$. The map $t : 1 \to \Omega$ sends, for each $C$, the unique element of $1(C)$ to the maximal sieve on $C$.
+    Let's construct a subobject classifier $\Omega$ in $\textbf{Set}^{\mathcal{C}^\textup{op}}$. For a representable presheaf $y_C$ we must have that morphisms $y_C \to \Omega$ correspond one-to-one with subpresheaves of $y_C$, a.k.a. \tref{sieve}{sieves} on $C$. By the \tref{yoneda-lemma}{Yoneda lemma}, we define $\Omega(C) \isom \Hom(y_C, \Omega)$ to be the set of sieves on $C$. Naturally, for a morphism $f : C' \to C$ we define $\Omega(f)$ by sending a sieve $R$ on $C$ to the pullback $f^*(R) = \{ g : D \to C' : fg \in R \}$. The map $t : 1 \to \Omega$ sends, for each $C$, the unique element of $1(C)$ to the maximal sieve on $C$.
     
     To prove this is a subobject classifier, let $Y$ be a subpresheaf of $X$. For any $C$ and $x \in X(C)$, the set
     \[ \phi_C(x) = \{ f : D \to C : X(f)(x) \in Y(D) \} \]
@@ -655,7 +655,7 @@
     Given functors $F, G : \mathcal{C} \to \mathcal{D}$, form the functor
     \[ S = \Hom_\mathcal{D}(F(-), G(-)) : \mathcal{C}^\textup{op} \times \mathcal{C} \to \textbf{Set} . \]
     The end of $S$ is the set of natural transformations $F \Rightarrow G$,
-    \[ \int_c \Hom_\mathcal{D}(F(c), G(c)) \simeq \textup{Nat}(F, G) . \]
+    \[ \int_c \Hom_\mathcal{D}(F(c), G(c)) \isom \textup{Nat}(F, G) . \]
     The components of any $\mu \in \int_c \Hom_\mathcal{D}(F(c), G(c))$ can be obtained via the projections $\pi_c$. The wedge condition precisely reduces to the naturality condition.
 \end{example}
 
@@ -705,7 +705,7 @@
     Let $\mathcal{C}$ be a \tref{category}{category} with finite products. A \textbf{group object} in $\mathcal{C}$ is an object $G$ of $\mathcal{C}$ together with morphisms $m : G \times G \to G$ (\textit{multiplication}), $e : 1 \to G$ (\textit{group unit}) and $i : G \to G$ (\textit{inversion}), such that
     \begin{itemize}
         \item (\textit{associativity}) $m \circ (m \times \id_G) = m \circ (\id \times m)$,
-        \item (\textit{unit}) $m \circ (\id_G \times e) = \id_G$ and $m \circ (e \times \id_G) = \id_G$, where we identified $G \times 1 \simeq G$,
+        \item (\textit{unit}) $m \circ (\id_G \times e) = \id_G$ and $m \circ (e \times \id_G) = \id_G$, where we identified $G \times 1 \isom G$,
         \item (\textit{inversion}) $m \circ (\id_G \times i) \circ \Delta = m \circ (i \times \id_G) \circ \Delta = e_G$, where $\Delta : G \to G \times G$ is the diagonal map, and $e_G : G \to G$ is the composition of $e$ with the unique morphism $G \to 1$.
     \end{itemize}
 \end{topic}
@@ -719,7 +719,7 @@
 
 \begin{topic}{pro-representable-functor}{pro-representable functor}
     A \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is \textbf{pro-representable} if there is a \tref{natural-transformation}{natural} isomorphism
-    \[ \varinjlim_{i \in I} \Hom_\mathcal{C}(X_i, -) \simeq F , \]
+    \[ \varinjlim_{i \in I} \Hom_\mathcal{C}(X_i, -) \isom F , \]
     for some \tref{direct-limit}{direct system} $(X_i, f_{ij})$.
 \end{topic}
 
@@ -815,8 +815,8 @@
         \item The compact objects in $\textbf{Vect}_k$ are the finite-dimensional vector spaces.
         \begin{proof}
             Let $V$ be a compact vector space. Since $V$ is isomorphic to the filtered colimit of its finite-dimensional subspaces $W \subset V$, it follows that
-            \[ \underset{\textup{fd } W \subset V}{\operatorname{colim}} \Hom(V, W) \simeq \Hom(V, V) . \]
-            In particular, there exists a finite-dimensional subspace $i : W \hookrightarrow V$ and a morphism $f : V \to W$ such that $i \circ f = \id_V$, which shows that $V \simeq W$ is finite-dimensional. Conversely, for any finite-dimensional vector space $V$, there is an \tref{adjunction}{adjunction}
+            \[ \underset{\textup{fd } W \subset V}{\operatorname{colim}} \Hom(V, W) \isom \Hom(V, V) . \]
+            In particular, there exists a finite-dimensional subspace $i : W \hookrightarrow V$ and a morphism $f : V \to W$ such that $i \circ f = \id_V$, which shows that $V \isom W$ is finite-dimensional. Conversely, for any finite-dimensional vector space $V$, there is an \tref{adjunction}{adjunction}
             \[ \Hom(V, -) \dashv \Hom(V^*, -) , \]
             where $V^*$ denotes the \tref{LA:dual-vector-space}{dual} of $V$. Therefore, $\Hom(V, - )$ preserves all colimits, so $V$ is compact.
         \end{proof}
@@ -831,7 +831,7 @@
 
 \begin{topic}{continuous-functor}{(co)continuous functor}
     A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{continuous} if it preserves all small \tref{limit}{limits} in $\mathcal{C}$, that is, if for every functor $G : \mathcal{I} \to \mathcal{C}$ with $\mathcal{I}$ a \tref{small-category}{small category}, there is an isomorphism
-    \[ F(\lim G) \simeq \lim(F \circ G) . \]
+    \[ F(\lim G) \isom \lim(F \circ G) . \]
     Dually, a functor $F : \mathcal{C} \to \mathcal{D}$ is \textbf{cocontinuous} if it preserves all small colimits in $\mathcal{C}$.
 \end{topic}
 
@@ -1022,7 +1022,7 @@
 
 \begin{example}{density-theorem}
     \begin{proof}
-        Let $T$ denote the composition $y_{(-)} \circ \pi_\mathcal{C}$. We will show that, for all presheaves $G : \mathcal{C} \to \textbf{Set}^\textup{op}$, there is a natural bijection $\Hom(T, \Delta_G) \simeq \Hom_{\textbf{Set}^{\mathcal{C}^\textup{op}}}(F, G)$, where $\Delta_G$ denotes the constant functor.
+        Let $T$ denote the composition $y_{(-)} \circ \pi_\mathcal{C}$. We will show that, for all presheaves $G : \mathcal{C} \to \textbf{Set}^\textup{op}$, there is a natural bijection $\Hom(T, \Delta_G) \isom \Hom_{\textbf{Set}^{\mathcal{C}^\textup{op}}}(F, G)$, where $\Delta_G$ denotes the constant functor.
         
         Take any $\alpha \in \Hom(T, \Delta_G)$, that is, a collection of maps $\alpha_{(C, x)} : y_C \to G$ such that $\alpha_{(C, x)} = \alpha_{(C', x')} \circ y_f$ for all $f : (C, x) \to (C', x')$ in $\int^\mathcal{C} F$. By the \tref{yoneda-lemma}{Yoneda lemma}, every $\alpha_{(C, x)}$ corresponds to an element $g_{(C, x)} \in G(C)$, and we have $G(f)(g_{(C', x')}) = g_{(C, x)}$ as $G(f)$ corresponds under the Yoneda lemma to $(-) \circ y_f$. Now, the maps $\mu_C : F(C) \to G(C)$ given by $x \mapsto g_{(C, x)}$ define a natural transformation $\mu : F \Rightarrow G$, since
         \[ (G(f) \circ \mu_{C'})(x') = G(f)(g_{(C', x')}) = g_{(C, x)} = (\mu_C \circ F(C))(x') \]

@@ -67,7 +67,7 @@
 \end{topic}
 
 \begin{example}{c-star-algebra}
-    The algebra $\text{Mat}_n(\CC)$ of $n \times n$ matrices over $\CC$ becomes a C*-algebra if we use \textit{operator norm}
+    The algebra $\textup{Mat}_n(\CC)$ of $n \times n$ matrices over $\CC$ becomes a C*-algebra if we use \textit{operator norm}
     \[ \norm{A} = \sup \{ \norm{A v} : v \in \CC^n \textup{ with } \norm{v} = 1 \} . \]
 \end{example}
 
@@ -187,7 +187,7 @@
 \begin{example}{fredholm-operator}
     Let $H$ be a Hilbert space with orthonormal basis $(e_n)_{n \in \NN}$. The right shift operator $S$ on $H$ defined by
     \[ S(e_n) = e_{n + 1}, \quad \textup{ for } n \ge 0 , \]
-    has $\ker S = \{ 0 \}$ and $\operatorname{coker} S \simeq \langle e_0 \rangle$, so $S$ is a Fredholm operator with index $-1$. The powers $S^k$ for $k \ge 0$ are also Fredholm with index $-k$.
+    has $\ker S = \{ 0 \}$ and $\coker S \isom \langle e_0 \rangle$, so $S$ is a Fredholm operator with index $-1$. The powers $S^k$ for $k \ge 0$ are also Fredholm with index $-k$.
     
     Similarly, the adjoint $S^*$, the left shift operator,
     \[ S^*(e_0) = 0 \text{ and } S^*(e_{n + 1}) = e_n, \quad \textup { for } n \ge 0 , \]
@@ -227,12 +227,12 @@
     defines a homotopy between $u \oplus u^*$ and $\left(\begin{smallmatrix} 0 & -1 \\ 1 & 0 \end{smallmatrix}\right)$, and in particular all $u \oplus u^*$ with $u$ unitary are homotopic. Hence,
     \[ [p] = \left[ \begin{pmatrix} p & \\ & 0 \end{pmatrix} \right] = \left[ \begin{pmatrix} u & \\ & u^* \end{pmatrix} \begin{pmatrix} p & \\ & 0 \end{pmatrix} \begin{pmatrix} u^* & \\ & u \end{pmatrix} \right] = \left[ \begin{pmatrix} q & \\ & 0 \end{pmatrix} \right] = [q] , \]
     which shows that
-    \[ \textup{K}_0(\CC) \simeq \ZZ , \]
+    \[ \textup{K}_0(\CC) \isom \ZZ , \]
     where the isomorphism is given by the rank.
 \end{example}
 
 \begin{topic}{bott-periodicity}{Bott periodicity}
-    Let $\textup{K}_n : \textbf{C*Alg} \to \textbf{Ab}$ denote the \tref{k-theory-c-star-algebra}{K-theory} of \tref{c-star-algebra}{C*-algebras}. \textbf{Bott periodicity} states that there are isomorphisms $\textup{K}_n \simeq \textup{K}_{n + 2}$ for all $n$. In particular, for any short exact sequence of $C^*$-algebras $0 \to A \xrightarrow{i} B \xrightarrow{q} C \to 0$, the long exact sequence of $K$-theory collapses to a hexagon:
+    Let $\textup{K}_n : \textbf{C*Alg} \to \textbf{Ab}$ denote the \tref{k-theory-c-star-algebra}{K-theory} of \tref{c-star-algebra}{C*-algebras}. \textbf{Bott periodicity} states that there are isomorphisms $\textup{K}_n \isom \textup{K}_{n + 2}$ for all $n$. In particular, for any short exact sequence of $C^*$-algebras $0 \to A \xrightarrow{i} B \xrightarrow{q} C \to 0$, the long exact sequence of $K$-theory collapses to a hexagon:
     \[ \begin{tikzcd}
         \textup{K}_0(A) \arrow{r}{i_*} & \textup{K}_0(B) \arrow{r}{q_*} & \textup{K}_0(C) \arrow{d}{\exp} \\ \textup{K}_1(C) \arrow{u}{\textup{ind}} & \textup{K}_1(B) \arrow{l}{q_*} & \textup{K}_1(A) \arrow{l}{i_*}
     \end{tikzcd} \]

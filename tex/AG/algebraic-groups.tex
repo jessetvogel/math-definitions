@@ -4,7 +4,7 @@
 
 \begin{example}{algebraic-group}
     \begin{itemize}
-        \item Linear groups such as $\text{GL}_n(k)$ and $\text{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
+        \item Linear groups such as $\textup{GL}_n(k)$ and $\textup{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
         \item Finite groups can be realized as a disjoint union of points, that is, $\Spec (k^G)$.
         \item Elliptic curves, or more generally \tref{abelian-variety}{abelian varieties}.
     \end{itemize}
@@ -25,14 +25,14 @@
 \begin{example}{reductive-algebraic-group}
     \begin{itemize}
         \item Any finite group is reductive.
-        \item The groups $\mathbb{G}_m, \text{GL}_n(\CC), \text{SL}_n(\CC)$ and $\text{PGL}_n(\CC)$ are all reductive. 
-        \item A group which is not reductive is $\mathbb{G}_a$. Namely, since it is solvable (it is abelian) its radical is $\mathbb{G}_a$, which is not a torus. Also, we see that it is not linearly reductive: take $V = k^2$ with $\mathbb{G}_a$ acting via $t \cdot (x, y) = (x + ty, y)$. Then $U := k \cdot (1, 0) \subset V$ is a sub-$k[\mathbb{G}_a]$-module, but $V \not\simeq U \oplus (V / U)$.
+        \item The groups $\mathbb{G}_m, \textup{GL}_n(\CC), \textup{SL}_n(\CC)$ and $\textup{PGL}_n(\CC)$ are all reductive. 
+        \item A group which is not reductive is $\mathbb{G}_a$. Namely, since it is solvable (it is abelian) its radical is $\mathbb{G}_a$, which is not a torus. Also, we see that it is not linearly reductive: take $V = k^2$ with $\mathbb{G}_a$ acting via $t \cdot (x, y) = (x + ty, y)$. Then $U := k \cdot (1, 0) \subset V$ is a sub-$k[\mathbb{G}_a]$-module, but $V \not\isom U \oplus (V / U)$.
     \end{itemize}
 \end{example}
 
 \begin{topic}{algebraic-torus}{(split) algebraic torus}
     An \textbf{algebraic torus} $T$ over a field $k$ is an \tref{algebraic-group}{algebraic group} which, over an \tref{AA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$, is isomorphic to a finite product of copies of $\mathbb{G}_m = \Spec \overline{k}[t, t^{-1}]$, that is
-    \[ T \times_k \overline{k} \simeq \Spec \overline{k}[t_1, t_1^{-1}, \ldots, t_r, t_r^{-1}] , \]
+    \[ T \times_k \overline{k} \isom \Spec \overline{k}[t_1, t_1^{-1}, \ldots, t_r, t_r^{-1}] , \]
     where $r$ is called the \textit{rank} of the algebraic torus $T$.
     
     The torus $T$ is \textbf{split} if it is isomorphic to a finite product of copies of $\mathbb{G}_m$ over $k$.
@@ -43,7 +43,7 @@
     \begin{itemize}
         \item the torus $\GG_m = \Spec \RR[t, t^{-1}]$,
         \item the unitary group $U(1) = \Spec \RR[x, y] / (x^2 + y^2 - 1)$. Indeed we have
-        \[ U(1) \times_\RR \CC = \Spec \CC[x, y] / (x^2 + y^2 - 1) \simeq \Spec \CC[z, z^{-1}] \]
+        \[ U(1) \times_\RR \CC = \Spec \CC[x, y] / (x^2 + y^2 - 1) \isom \Spec \CC[z, z^{-1}] \]
         via the isomorphism $z = x + iy$ and $z^{-1} = x - iy$.
     \end{itemize}
 \end{example}
@@ -61,7 +61,7 @@
 \end{topic}
 
 \begin{example}{borel-subgroup}
-    For $G = \text{GL}_n(k)$, the subgroup of invertible upper triangular matrices is a Borel subgroup.
+    For $G = \textup{GL}_n(k)$, the subgroup of invertible upper triangular matrices is a Borel subgroup.
 \end{example}
 
 % \begin{example}{borel-subgroup}
@@ -81,7 +81,7 @@
 \begin{example}{lie-kolchin-theorem}
     The conditions in the above theorem are all necessary:
     \begin{itemize}
-        \item (\textit{connected}) The algebraic group $G = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \right\} \simeq \ZZ/2\ZZ$ is smooth and solvable, but not connected. Also $G$ is not triangularizable, since for the natural representation of $G$ on $k^2$, the two matrices have no common eigenvector.
+        \item (\textit{connected}) The algebraic group $G = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \right\} \isom \ZZ/2\ZZ$ is smooth and solvable, but not connected. Also $G$ is not triangularizable, since for the natural representation of $G$ on $k^2$, the two matrices have no common eigenvector.
         \item (\textit{smooth}) Let $k$ be an (algebraically closed) field of characteristic $2$, and let $G \subset \textup{SL}_2$ be the algebraic group given by
         \[ G(R) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \textup{Mat}_{2 \times 2}(R) : a^2 = d^2 = 1 \textup{ and } b^2 = c^2 = 0 \right\} . \]
         Then $G$ is connected (topologically it is a point) but not smooth, and the exact sequence
@@ -117,7 +117,7 @@
         
         $(ii \Rightarrow iii)$ Apply $(ii)$ to a faithful finite-dimensional representation of $G$.
         
-        $(iii \Rightarrow iv)$ Embed $G \subset \mathbb{T}_n$ and let $U = G \cap \mathbb{U}_n$. Then $U \subset G$ is normal and unipotent since $\mathbb{U}_n \subset \mathbb{T}_n$ is. Now $G/U$ injects into $\mathbb{T}_n/\mathbb{U}_n \simeq \mathbb{G}_m^n$, and a subgroup of a diagonalizable group is diagonalizable.
+        $(iii \Rightarrow iv)$ Embed $G \subset \mathbb{T}_n$ and let $U = G \cap \mathbb{U}_n$. Then $U \subset G$ is normal and unipotent since $\mathbb{U}_n \subset \mathbb{T}_n$ is. Now $G/U$ injects into $\mathbb{T}_n/\mathbb{U}_n \isom \mathbb{G}_m^n$, and a subgroup of a diagonalizable group is diagonalizable.
         
         $(iv \Rightarrow i)$ Take some $U \subset G$ as in $(iv)$ and a representation $(V, r)$ of $G$. Since $U$ is unipotent, we have $V^U \ne 0$, and since $U$ is normal in $G$, we have that $V^U$ is stable under $G$. Namely, for any $v \in V^U$ with $n \in U(k)$ and $g \in G(k)$ we find that
         \[ r(n) r(g) v = r(ng) v = r(gn') v = r(g) r(n') v = r(g) v , \]
@@ -241,13 +241,13 @@
 
 \begin{topic}{projective-git-quotient}{projective GIT quotient}
     Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} acting on an \tref{algebraic-scheme}{algebraic scheme} $X$ over a field $k$, and let $\mathcal{L}$ be a \tref{equivariant-sheaf}{$G$-linearized} \tref{invertible-sheaf}{invertible sheaf} on $X$. The \textbf{projective GIT quotient} of $X$ by $G$ with respect to $\mathcal{L}$ is the morphism
-    \[ \pi : X^\text{ss}(\mathcal{L}) \to X \sslash_\mathcal{L} G := \text{Proj}\left(\bigoplus_{n \ge 0} H^0(X, \mathcal{L}^n)^G \right) , \]
+    \[ \pi : X^\textup{ss}(\mathcal{L}) \to X \sslash_\mathcal{L} G := \text{Proj}\left(\bigoplus_{n \ge 0} H^0(X, \mathcal{L}^n)^G \right) , \]
     where
-    \[ X^\text{ss}(\mathcal{L}) = \left\{ x \in X : \exists s \in H^0(X, \mathcal{L}^n)^G \text{ for some $n \ge 0$ such that $s(x) \ne 0$ and $X_s$ is affine} \right\} \]
+    \[ X^\textup{ss}(\mathcal{L}) = \left\{ x \in X : \exists s \in H^0(X, \mathcal{L}^n)^G \text{ for some $n \ge 0$ such that $s(x) \ne 0$ and $X_s$ is affine} \right\} \]
     denotes the \textit{semistable locus} of $X$. It is a uniform \tref{categorical-quotient}{categorical quotient}.
     
-    Furthermore, there exists an open subset $U \subset X \sslash_\mathcal{L} G$ such that $\pi^{-1}(U)$ equals the set of \textit{stable points} \[ X^\text{s}(\mathcal{L}) = \left\{ x \in X : \begin{array}{c} \exists s \in H^0(X, \mathcal{L}^n)^G \text{ for some $n \ge 0$ such that $s(x) \ne 0$,} \\ \text{$X_s$ is affine and the action of $G$ on $X_s$ is closed} \end{array} \right\} \]
-    and the restriction $\pi|_{X^\text{s}(\mathcal{L})} : X^\text{s}(\mathcal{L}) \to U$ is a uniform \tref{geometric-quotient}{geometric quotient}.
+    Furthermore, there exists an open subset $U \subset X \sslash_\mathcal{L} G$ such that $\pi^{-1}(U)$ equals the set of \textit{stable points} \[ X^\textup{s}(\mathcal{L}) = \left\{ x \in X : \begin{array}{c} \exists s \in H^0(X, \mathcal{L}^n)^G \text{ for some $n \ge 0$ such that $s(x) \ne 0$,} \\ \text{$X_s$ is affine and the action of $G$ on $X_s$ is closed} \end{array} \right\} \]
+    and the restriction $\pi|_{X^\textup{s}(\mathcal{L})} : X^\textup{s}(\mathcal{L}) \to U$ is a uniform \tref{geometric-quotient}{geometric quotient}.
 \end{topic}
 
 % \begin{topic}{projective-git-quotient}
@@ -261,7 +261,7 @@
 \begin{example}{projective-git-quotient}
     Note that the \tref{affine-git-quotient}{affine GIT quotient} can be seen as a particular (trivial) case of the projective GIT quotient. Given $X = \Spec R$ with an action of $G$, one can take the line bundle $\mathcal{L} = \mathcal{O}_X$ with linearization $\phi : \sigma^* \mathcal{O}_X \to p_2^* \mathcal{O}_X$ the identity. Then $H^0(X, \mathcal{O}_X^n)^G = R^G$ for any $n \ge 0$, and so
     \[ X \sslash_{\mathcal{L}} G = \operatorname{Proj} \left( \bigoplus_{n \ge 0} R^G \right) = \operatorname{Proj} \left( R^G[x] \right) = \PP^0_{\Spec \left( R^G \right) } = \Spec\left( R^G \right) , \]
-    which is the affine GIT quotient. Note that $X^\text{ss} = X$ as $1 \in R = H^0(X, \mathcal{L})$ is an invariant section which does not vanish on any point.
+    which is the affine GIT quotient. Note that $X^\textup{ss} = X$ as $1 \in R = H^0(X, \mathcal{L})$ is an invariant section which does not vanish on any point.
     
     In general, we have $H^0(X, \mathcal{L}^0)^G = \mathcal{O}_X(X)^G = R^G$ and hence there is always an induced map
     \[ X \sslash_{\mathcal{L}} G \to \Spec\left( R^G \right) \]
@@ -303,12 +303,12 @@
 
 \begin{example}{luna-stratification}
     Let $G = \textup{SL}_2(\CC)$, and consider $G$ acting on itself by conjugation. The GIT quotient is given by the trace map
-    \[ \pi : G \to G \sslash G \simeq \AA^1, \quad A \mapsto \tr(A) . \]
+    \[ \pi : G \to G \sslash G \isom \AA^1, \quad A \mapsto \tr(A) . \]
     The fiber $\pi^{-1}(2)$ consists of the orbits of $I = \left(\begin{smallmatrix} 1 & 0 \\ 0 & 1 \end{smallmatrix}\right)$ and $J = \left(\begin{smallmatrix} 1 & 1 \\ 0 & 1 \end{smallmatrix} \right)$, so the unique closed orbit of $\pi^{-1}(2)$ is $\left\{ I \right\}$, as the closure of $G \cdot J$ contains $\lim_{a \to 0} \left(\begin{smallmatrix} 1 & a \\ 0 & 1 \end{smallmatrix}\right) = I \not\in G \cdot J$. Similarly, the unique closed orbit of the fiber $\pi^{-1}(-2)$ is $\left\{ -I \right\}$. In both cases, the corresponding stabilizer is equal to $G$.
     
     For $t \ne \pm 2$, the fiber $\pi^{-1}(t)$ is precisely the orbit of $\left(\begin{smallmatrix} \lambda & 0 \\ 0 & \lambda^{-1} \end{smallmatrix}\right)$, with $\lambda \in \CC \setminus \{ 0, \pm 1 \}$ such that $\lambda + \lambda^{-1} = t$, and the corresponding conjugacy class of stabilizers is $(D)$, where $D \subset G$ is the subgroup of diagonal matrices.
     
-    Therefore, the Luna stratification of $G \sslash G \simeq \AA^1$ is given by
+    Therefore, the Luna stratification of $G \sslash G \isom \AA^1$ is given by
     \[ \AA^1 = (G \sslash G)_{(G)} \sqcup (G \sslash G)_{(D)}  = \{ \pm 2 \} \sqcup (\AA^1 \setminus \{ \pm 2 \}) . \]
 \end{example}
 

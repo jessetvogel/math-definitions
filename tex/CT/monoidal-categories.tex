@@ -43,11 +43,11 @@
 \begin{example}{symmetric-monoidal-category}
     The category $\textbf{Set}$ of sets, with either $\sqcup$ or $\times$ as tensor product, is naturally symmetric.
     
-    The category $R\text{-}\textbf{Mod}$ of $R$-modules, with either $\oplus$ or $\otimes_R$ as tensor product, is naturally symmetric.
+    The category $R\textup{-}\textbf{Mod}$ of $R$-modules, with either $\oplus$ or $\otimes_R$ as tensor product, is naturally symmetric.
 \end{example}
 
 \begin{example}{symmetric-monoidal-category}
-    The category $R\text{-}\textbf{Bimod}$ of $R$-bimodules is monoidal, with $\otimes_R$ as tensor product and $R$ as unital object, but not necessarily symmetric. For example, take $R = k$ a field with two non-commuting automorphisms $\sigma, \tau$. Let $M = {}_1 k_\sigma$ be the abelian group $k$ with $k$-bimodule structure given by $a \cdot x \cdot b = ax \sigma(b)$, and let $N = {}_1 k_\tau$ similarly. Then we have a $k$-bimodule isomorphism $\varphi : M \otimes_k N \xrightarrow{\sim} {}_1 k_{\sigma \tau}$ given by $x \otimes y \mapsto x \sigma(y)$, and similarly $N \otimes_k M = {}_1 k_{\tau \sigma}$. If there were to exist some $k$-bimodule isomorphism $\psi : {}_1 k_{\sigma \tau} \xrightarrow{\sim} {}_1 k_{\tau \sigma}$ it would be given by $\psi(x) = x \psi(1)$ (since $\psi$ is a left $k$-module isomorphism). However, as $\psi$ is a right $k$-module isomorphism as well, we must have $\psi(x) = \psi(1) \tau \sigma \tau^{-1} \sigma^{-1} (x)$, which implies that $x = \tau \sigma \tau^{-1} \sigma^{-1} (x)$ for all $x \in k$, but we assumed $\tau$ and $\sigma$ did not commute. Hence such $\psi$ does not exist, and $k\text{-}\textbf{Bimod}$ cannot be symmetric.
+    The category $R\textup{-}\textbf{Bimod}$ of $R$-bimodules is monoidal, with $\otimes_R$ as tensor product and $R$ as unital object, but not necessarily symmetric. For example, take $R = k$ a field with two non-commuting automorphisms $\sigma, \tau$. Let $M = {}_1 k_\sigma$ be the abelian group $k$ with $k$-bimodule structure given by $a \cdot x \cdot b = ax \sigma(b)$, and let $N = {}_1 k_\tau$ similarly. Then we have a $k$-bimodule isomorphism $\varphi : M \otimes_k N \xrightarrow{\sim} {}_1 k_{\sigma \tau}$ given by $x \otimes y \mapsto x \sigma(y)$, and similarly $N \otimes_k M = {}_1 k_{\tau \sigma}$. If there were to exist some $k$-bimodule isomorphism $\psi : {}_1 k_{\sigma \tau} \xrightarrow{\sim} {}_1 k_{\tau \sigma}$ it would be given by $\psi(x) = x \psi(1)$ (since $\psi$ is a left $k$-module isomorphism). However, as $\psi$ is a right $k$-module isomorphism as well, we must have $\psi(x) = \psi(1) \tau \sigma \tau^{-1} \sigma^{-1} (x)$, which implies that $x = \tau \sigma \tau^{-1} \sigma^{-1} (x)$ for all $x \in k$, but we assumed $\tau$ and $\sigma$ did not commute. Hence such $\psi$ does not exist, and $k\textup{-}\textbf{Bimod}$ cannot be symmetric.
 \end{example}
 
 \begin{example}{symmetric-monoidal-category}
@@ -110,14 +110,14 @@
         \[ [A, B] = \Hom_\textbf{Set}(A, B) . \]
         Indeed, for any set $X$ there is an adjunction $(-) \otimes X \dashv {[X, -]}$ since we have a natural bijection
         \[ \begin{array}{ccc}
-            \Hom_\textbf{Set}(A \times X, B) & \simeq & \Hom_\textbf{Set}(A, [X, B]) \\
+            \Hom_\textbf{Set}(A \times X, B) & \isom & \Hom_\textbf{Set}(A, [X, B]) \\
             f & \mapsto & (a \mapsto f(a, -)) \\
             ((a, x) \mapsto g(a)(x)) & \mapsfrom & g
         \end{array} \]
         \item Let $G$ be a \tref{GT:group}{group} and let $\mathcal{C} = \textbf{Rep}_k(G)$ be the monoidal category of representations of $G$ (over a field $k$), with tensor product $\otimes_k$. An internal hom in $\mathcal{C}$ is given by
         \[ [V, W] = \Hom_{k}(V, W) , \]
         which follows from the natural bijection
-        \[ \Hom_\mathcal{C}(U \otimes_k V, W) \simeq \Hom_\mathcal{C}(U, V^* \otimes_k W) \simeq \Hom_\mathcal{C}(U, \Hom_k(V, W)) . \]
+        \[ \Hom_\mathcal{C}(U \otimes_k V, W) \isom \Hom_\mathcal{C}(U, V^* \otimes_k W) \isom \Hom_\mathcal{C}(U, \Hom_k(V, W)) . \]
     \end{itemize}
 \end{example}
 

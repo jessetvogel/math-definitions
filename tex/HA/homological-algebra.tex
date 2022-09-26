@@ -66,7 +66,7 @@
 
 \begin{topic}{injective-object}{injective object}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An object $I$ of $\mathcal{A}$ is called \textbf{injective} if the functor
-    \[ \Hom_\mathcal{A}(-, I) : \mathcal{A}^\text{op} \to \textbf{Ab} \]
+    \[ \Hom_\mathcal{A}(-, I) : \mathcal{A}^\textup{op} \to \textbf{Ab} \]
     is \tref{exact-functor}{exact}. Since it is already left exact for any object $I$, this is equivalent to the condition that for all monomorphisms $f : M \to N$ and morphisms $g : M \to I$ there exists a morphism $h : N \to I$ such that $hf = g$.
     \[ \begin{tikzcd} M \arrow[hookrightarrow]{r}{f} \arrow[swap]{d}{g} & N \arrow[dashed]{ld}{\exists h} \\ I & \end{tikzcd} \]
 \end{topic}
@@ -165,12 +165,12 @@
 \begin{topic}{injective-resolution}{injective resolution}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $M$ an object in $\mathcal{A}$. An \textbf{injective resolution} of $M$ is an exact sequence
     \[ 0 \to M \to I^0 \to I^1 \to \cdots \]
-    where all $I^i$ are \tref{injective-object}{injective objects}. Equivalently, this can be seen as a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to I^\bdot$ in $\text{Comp}(\mathcal{A})$.
+    where all $I^i$ are \tref{injective-object}{injective objects}. Equivalently, this can be seen as a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to I^\bdot$ in $\textup{Comp}(\mathcal{A})$.
 \end{topic}
 
 \begin{example}{injective-resolution}
     Let $A, B$ be objects of $\mathcal{A}$, and $f : A \to B$ a morphism. Let $0 \to A \to I_A^\bdot$ and $0 \to B \to I_B^\bdot$ be injective resolutions of $A$ and $B$, respectively. Then the map $f : A \to B$ can be lifted to a map $f^\bdot : I_A^\bdot \to I_B^\bdot$ such that $H^0(f^\bdot) = f$. Moreover, any two such liftings of $f$ are homotopic. In particular, for $A = B$ and $f = \id_A$, this shows that an injective resolution of $A$ is unique up to homotopy equivalence. Moreover, there is a bijection
-    \[ \Hom_{\textbf{K}(\mathcal{A})}(I_A^\bdot, I_B^\bdot) \simeq \Hom_{\mathcal{A}}(A, B) , \]
+    \[ \Hom_{\textbf{K}(\mathcal{A})}(I_A^\bdot, I_B^\bdot) \isom \Hom_{\mathcal{A}}(A, B) , \]
     where $\textbf{K}(\mathcal{A})$ is the \tref{homotopy-category}{homotopy category} of $\mathcal{A}$.
     \begin{proof}
         First we construct one such lift $f^\bdot$. Since $A \to I_A^0$ is injective, the map $d_B \circ f : A \to I_B^0$ lifts to some $f^0 : I_A^0 \to I_B^0$ by injectivity of $I_B^0$. Suppose by induction that we have defined $f^k$ for $k \le n$ such that $d_B \circ f^k = f^{k + 1} \circ d_A$ for all $k < n$. Note that $d_B \circ f^n$ sends $\ker d_A^n$ to $\im (d_B \circ f^n \circ d_A^{n - 1}) = \im (d_B \circ d_B \circ f^{n - 1}) = 0$. Hence $d_B \circ f^n$ descends to a map $d_A(I_A^n) \to I_B^{n + 1}$, and by injectivity of $I_B^{n + 1}$ this lifts to a map $f^{n + 1} : I_A^{n + 1} \to I_B^{n + 1}$. By construction this map satisfies $f^{n + 1} \circ d_A = d_B \circ f^n$. Indeed, as $i_B \circ f = f^0 \circ i_A$, we have $H^0(f^\bdot) = f$.
@@ -186,26 +186,26 @@
 \begin{topic}{projective-resolution}{projective resolution}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $M$ an object in $\mathcal{A}$. A \textbf{projective resolution} of $M$ is an exact sequence
     \[ \cdots \to P^1 \to P^0 \to M \to 0 \]
-    where all $P^i$ are \tref{projective-object}{projective objects}. Equivalently, this can be seen as a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to P^\bdot$ in $\text{Comp}(\mathcal{A})$.
+    where all $P^i$ are \tref{projective-object}{projective objects}. Equivalently, this can be seen as a \tref{quasi-isomorphism}{quasi-isomorphism} $M[0] \to P^\bdot$ in $\textup{Comp}(\mathcal{A})$.
 \end{topic}
 
 % Derived functors
 \begin{topic}{right-derived-functors}{right derived functors}
     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{injective-resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
-    \[ \text{R}^i F M = H^i(F(I^\bdot)) . \]
-    This is well-defined (independent of the chosen resolution) and yields additive functors $\text{R}^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \simeq F$.
+    \[ \textup{R}^i F M = H^i(F(I^\bdot)) . \]
+    This is well-defined (independent of the chosen resolution) and yields additive functors $\textup{R}^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \isom F$.
     
     For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
-    \[ 0 \to FA \to FB \to FC \to \text{R}^1FA \to \text{R}^1FB \to \text{R}^1FC \to \text{R}^2FA \to \cdots \]
+    \[ 0 \to FA \to FB \to FC \to \textup{R}^1FA \to \textup{R}^1FB \to \textup{R}^1FC \to \textup{R}^2FA \to \cdots \]
 \end{topic}
 
 \begin{topic}{left-derived-functors}{left derived functors}
     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough projectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{right exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick a \tref{projective-resolution}{projective resolution} $P^\bdot \to M[0]$. Then we define
-    \[ \text{L}_i F M = H^i(F(P^\bdot)) . \]
-    This is well-defined (independent of the chosen resolution) and yields additive functors $\text{L}_i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{left derived functors} of $F$. Note that $\text{L}_0 F \simeq F$.
+    \[ \textup{L}_i F M = H^i(F(P^\bdot)) . \]
+    This is well-defined (independent of the chosen resolution) and yields additive functors $\textup{L}_i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{left derived functors} of $F$. Note that $\textup{L}_0 F \isom F$.
     
     For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
-    \[ \cdots \to \text{L}_2FC \to \text{L}_1FA \to \text{L}_1FB \to \text{L}_1FC \to FA \to FB \to FC \to 0 \]
+    \[ \cdots \to \textup{L}_2FC \to \textup{L}_1FA \to \textup{L}_1FB \to \textup{L}_1FC \to FA \to FB \to FC \to 0 \]
 \end{topic}
 
 \begin{topic}{acyclic-object}{acyclic object}
@@ -268,12 +268,12 @@
     \begin{itemize}
         \item $d_r^2 = 0$ (i.e. the $E_r^{p + \bdot r, q - \bdot r + \bdot}$ are complexes),
         \item there are isomorphisms (which are part of the data)
-        \[ E_{r + 1}^{p, q} \simeq H^0(E_r^{p + \bdot r, q - \bdot r + \bdot}), \]
-        \item for any $(p, q)$ there exists an $r_0$ such that $d_r^{p, q} = d_r^{p - r, q + r - 1} = 0$ for all $r \ge r_0$. In particular, $E_r^{p, q} \simeq E_{r_0}^{p, q}$ for all $r \ge r_0$, and this object is denoted by $E_\infty^{p, q}$.
+        \[ E_{r + 1}^{p, q} \isom H^0(E_r^{p + \bdot r, q - \bdot r + \bdot}), \]
+        \item for any $(p, q)$ there exists an $r_0$ such that $d_r^{p, q} = d_r^{p - r, q + r - 1} = 0$ for all $r \ge r_0$. In particular, $E_r^{p, q} \isom E_{r_0}^{p, q}$ for all $r \ge r_0$, and this object is denoted by $E_\infty^{p, q}$.
         \item There is a decreasing filtration
         \[ 0 \subset \cdots \subset F^{p + 1} E^n \subset F^p E^n \subset \cdots E^n , \]
         with $\cap_p F^p E^n = 0$ and $\cup_p F^p E^n = E^n$, and isomorphisms
-        \[ E_\infty^{p, q} \simeq F^p E^{p + q} / F^{p + 1} E^{p + q} . \]
+        \[ E_\infty^{p, q} \isom F^p E^{p + q} / F^{p + 1} E^{p + q} . \]
     \end{itemize}
     
     In some sense, the objects $E_r^{p, q}$ converge towards subquotients of a certain filtration of $E^n$. Usually, the objects of one layer of some fixed $r$ are given. Then one writes
@@ -347,20 +347,20 @@
 \end{topic}
 
 \begin{topic}{grothendieck-group}{Grothendieck group}
-    The \textbf{Grothendieck group} $\text{K}_0(\mathcal{A})$ of an \tref{abelian-category}{abelian category} $\mathcal{A}$ is defined as the free abelian group on isomorphism classes of objects in $\mathcal{A}$, modulo the relations $[B] = [A] + [C]$ for every short exact sequence
+    The \textbf{Grothendieck group} $\textup{K}_0(\mathcal{A})$ of an \tref{abelian-category}{abelian category} $\mathcal{A}$ is defined as the free abelian group on isomorphism classes of objects in $\mathcal{A}$, modulo the relations $[B] = [A] + [C]$ for every short exact sequence
     \[ 0 \to A \to B \to C \to 0 \]
     in $\mathcal{A}$.
 \end{topic}
 
 \begin{example}{grothendieck-group}
-    Let $\mathcal{A} = \textbf{Vect}_k$ be the category of finite-dimensional vector spaces over a field $k$. Since such vector spaces are determined up to isomorphism by their dimension, and $\dim_k V \oplus W = \dim_k V + \dim_k W$, we find that $\text{K}_0(\textbf{Vect}_k) = \ZZ$.
+    Let $\mathcal{A} = \textbf{Vect}_k$ be the category of finite-dimensional vector spaces over a field $k$. Since such vector spaces are determined up to isomorphism by their dimension, and $\dim_k V \oplus W = \dim_k V + \dim_k W$, we find that $\textup{K}_0(\textbf{Vect}_k) = \ZZ$.
 \end{example}
 
 \begin{example}{grothendieck-group}
-    Let $\mathcal{A} = \text{Coh}(\PP^n)$ be the category of coherent sheaves on projective space $\PP^n$. Note that the twisting sheaves $\mathcal{O}(d)$ must generate the Grothendieck group $\text{K}_0(\mathcal{A})$, as any coherent sheaf has a finite resolution by direct sums of twisting sheaves. The exact Koszul complex
+    Let $\mathcal{A} = \textup{Coh}(\PP^n)$ be the category of coherent sheaves on projective space $\PP^n$. Note that the twisting sheaves $\mathcal{O}(d)$ must generate the Grothendieck group $\textup{K}_0(\mathcal{A})$, as any coherent sheaf has a finite resolution by direct sums of twisting sheaves. The exact Koszul complex
     \[ 0 \to \mathcal{O} \to \bigoplus^{n + 1} \mathcal{O}(1) \to \bigoplus^{\binom{n + 1}{2}} \mathcal{O}(2) \to \cdots \to \bigoplus^{n + 1} \mathcal{O}(n) \to \mathcal{O}(n + 1) \to 0 \]
     now shows that
-    \[ \text{K}_0(\text{Coh}(\PP^n)) = \ZZ[T] / (1 - T)^{n + 1} \]
+    \[ \textup{K}_0(\textup{Coh}(\PP^n)) = \ZZ[T] / (1 - T)^{n + 1} \]
     (injectivity can be shown using euler-characteristics). Moreover, the tensor product of coherent sheaves corresponds to the multiplication in the ring.
 \end{example}
 
@@ -368,7 +368,7 @@
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $A$ an object of $\mathcal{A}$. The functor
     \[ \Hom_{\mathcal{A}}(A, -) : \mathcal{A} \to \textbf{Ab} \]
     is \tref{exact-functor}{left exact}, so (if $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}) it has \tref{right-derived-functors}{right derived functors}, which are known as the \textbf{Ext functors}
-    \[ \text{Ext}^i_\mathcal{A}(A, B) = \text{R}^i \Hom_\mathcal{A}(A, B) . \]
+    \[ \textup{Ext}^i_\mathcal{A}(A, B) = \textup{R}^i \Hom_\mathcal{A}(A, B) . \]
 \end{topic}
 
 \begin{example}{ext-functors}
@@ -379,13 +379,13 @@
 \end{example}
 
 \begin{example}{ext-functors}
-    For $n > 0$, elements of the Ext group $\text{Ext}^n(A, B)$ correspond to extensions
+    For $n > 0$, elements of the Ext group $\textup{Ext}^n(A, B)$ correspond to extensions
     \[ 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 . \]
-    Consider the case $n = 1$. Let $P^\bdot \to A$ (call the differential maps $\pi_i$) be a projective resolution of $A$, so that $\text{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))$. This is the group of maps $g : P^1 \to B$ such that $g \circ \pi_2 = 0$, modulo all maps of the form $f \circ \pi_0$ for $f : A \to B$. Now we can construct the pushout
+    Consider the case $n = 1$. Let $P^\bdot \to A$ (call the differential maps $\pi_i$) be a projective resolution of $A$, so that $\textup{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))$. This is the group of maps $g : P^1 \to B$ such that $g \circ \pi_2 = 0$, modulo all maps of the form $f \circ \pi_0$ for $f : A \to B$. Now we can construct the pushout
     \[ E_0 = P^0 \oplus B / \{ \pi_1(q) = g(q) \text{ for } q \in P^1 \} . \]
     Note that $g$ descends to $\overline{g} : P^0 \to B$, and that the maps $B \to E_0$, $b \mapsto (b, 0)$ and $E_0 \to A, (b, p) \mapsto \pi_0(p)$ are well-defined (the latter as $\pi_0 \pi_1 = 0$), and respectively injective and surjective. It is not hard to prove exactness in the middle, so we get an extension
     \[ 0 \to B \to E_0 \to A \to 0 . \]
-    In particular, the trivial element in $\text{Ext}^1(A, B)$ yields the trivial extension
+    In particular, the trivial element in $\textup{Ext}^1(A, B)$ yields the trivial extension
     \[ 0 \to A \to A \oplus B \to B \to 0 . \]
 \end{example}
 
@@ -393,7 +393,7 @@
     For a commutative \tref{AA:ring}{ring} $R$ and an $R$-module $B$, the \tref{AA:tensor-product}{tensor product} gives a functor
     \[ (-) \otimes_R B : R\textbf{-Mod} \to R\textbf{-Mod} \]
     which is \tref{exact-functor}{right exact}, so it has \tref{left-derived-functors}{left derived functors}, which are known as the \textbf{Tor functors}
-    \[ \text{Tor}^R_i(A, B) = A \overset{\text{L}_i}{\otimes} B . \]
+    \[ \textup{Tor}^R_i(A, B) = A \overset{\textup{L}_i}{\otimes} B . \]
 \end{topic}
 
 \begin{example}{tor-functors}
@@ -444,14 +444,14 @@
     Let $k$ be a field. Consider the group $\mathbb{U}_2(k)$ of upper triangular $2 \times 2$ matrices over $k$, naturally acting on $V = k^2$. Then $V$, as a representation of $\mathbb{U}_2(k)$, has a composition series
     \[ 0 = V_0 \subsetneq V_1 \subsetneq V_2 = V , \]
     where $V_1 = k \times \{ 0 \}$ is the $1$-dimensional invariant subspace of $V$. Hence, the semisimplification of $V$ is
-    \[ V^\textup{ss} = V_1/V_0 \oplus V_2/V_1 \simeq k^2 , \]
+    \[ V^\textup{ss} = V_1/V_0 \oplus V_2/V_1 \isom k^2 , \]
     which is the $2$-dimensional representation of $\mathbb{U}_2(k)$ given by
     \[ \begin{pmatrix} a & b \\ 0 & c \end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} a x \\ c y \end{pmatrix} . \]
 \end{example}
 
 \begin{topic}{yoneda-product}{Yoneda product}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} with \tref{enough-injectives}{enough injectives}. The \textbf{Yoneda product} is the pairing between \tref{ext-functors}{Ext groups}
-    \[ \text{Ext}_\mathcal{A}^m(B, C) \otimes \text{Ext}_\mathcal{A}^n(A, B) \to \text{Ext}_\mathcal{A}^{m + n}(A, C) \]
+    \[ \textup{Ext}_\mathcal{A}^m(B, C) \otimes \textup{Ext}_\mathcal{A}^n(A, B) \to \textup{Ext}_\mathcal{A}^{m + n}(A, C) \]
     induced by $\Hom_\mathcal{A}(B, C) \otimes \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{A}(A, C)$, $f \otimes g \mapsto f \circ g$.
     
     In terms of extensions
@@ -459,20 +459,20 @@
     \[ \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to B \to 0 \]
     the Yoneda cup product is given by
     \[ \xi \smile \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
-    in $\text{Ext}_\mathcal{A}^{m + n}(A, C)$.
+    in $\textup{Ext}_\mathcal{A}^{m + n}(A, C)$.
 \end{topic}
 
 \begin{example}{yoneda-product}
-    For $n = 0$ and $m = 1$, we have that the product of $f : A \to B$ in $\text{Ext}^0(A, B) = \Hom(A, B)$ and $\eta : 0 \to C \to F_0 \to B \to 0$ in $\text{Ext}^1(B, C)$ is the \textit{pullback}
+    For $n = 0$ and $m = 1$, we have that the product of $f : A \to B$ in $\textup{Ext}^0(A, B) = \Hom(A, B)$ and $\eta : 0 \to C \to F_0 \to B \to 0$ in $\textup{Ext}^1(B, C)$ is the \textit{pullback}
     \[ 0 \to C \to F_0 \oplus_B A \to A \to 0 . \]
-    Similarly, for $n = 1$ and $m = 0$, the product of $0 \to B \to E_0 \to A \to 0$ in $\text{Ext}^1(A, B)$ and $g : B \to C$ in $\text{Ext}^0(B, C) = \Hom(B, C)$ is the \textit{pushout}
+    Similarly, for $n = 1$ and $m = 0$, the product of $0 \to B \to E_0 \to A \to 0$ in $\textup{Ext}^1(A, B)$ and $g : B \to C$ in $\textup{Ext}^0(B, C) = \Hom(B, C)$ is the \textit{pushout}
     \[ 0 \to C \to C \oplus_B E_0 \to A \to 0 . \]
     It is not hard to verify these sequences are indeed exact. 
 \end{example}
 
 \begin{example}{yoneda-product}
     In terms of the \tref{derived-category}{derived category} $\textbf{D}(\mathcal{A})$, the Yoneda product can easily be described. From the isomorphism
-    \[ \textup{Ext}^i_\mathcal{A}(A, B) \simeq \Hom_{\textbf{D}(\mathcal{A})}(A, B[i]), \]
+    \[ \textup{Ext}^i_\mathcal{A}(A, B) \isom \Hom_{\textbf{D}(\mathcal{A})}(A, B[i]), \]
     we find that the Yoneda product is simply given by composition in the derived category
     \[ \Hom_{\textbf{D}(\mathcal{A})}(B, C[i]) \otimes \Hom_{\textbf{D}(\mathcal{A})}(A, B[j]) \to \Hom_{\textbf{D}(\mathcal{A})}(A, C[i + j]), \quad f \otimes g \mapsto f[j] \circ g . \]
 \end{example}
@@ -486,13 +486,13 @@
 \end{topic}
 
 \begin{example}{homological-dimension}
-    By \tref{AA:hilbert-syzygy-theorem}{Hilbert's syzygy theorem}, any $k[x_1, \ldots, x_n]$-module has a projective resolution of length $\le n$. Since this upper bound is attained for the \tref{AA:koszul-complex}{Koszul complex}, the global homological dimension of $k[x_1, \ldots, x_n]\text{-}\textbf{Mod}$ is $n$.
+    By \tref{AA:hilbert-syzygy-theorem}{Hilbert's syzygy theorem}, any $k[x_1, \ldots, x_n]$-module has a projective resolution of length $\le n$. Since this upper bound is attained for the \tref{AA:koszul-complex}{Koszul complex}, the global homological dimension of $k[x_1, \ldots, x_n]\textup{-}\textbf{Mod}$ is $n$.
 \end{example}
 
 \begin{example}{homological-dimension}
-    Knowing the global homological dimension $n$ of a category $\mathcal{A}$ is useful, as it follows that for any \tref{exact-functor}{right exact functor} $F : \mathcal{A} \to \mathcal{B}$ the \tref{left-derived-functors}{left derived functors} $\text{L}^i F A$ are zero for all $A$ in $\mathcal{A}$ and $i > n$.
+    Knowing the global homological dimension $n$ of a category $\mathcal{A}$ is useful, as it follows that for any \tref{exact-functor}{right exact functor} $F : \mathcal{A} \to \mathcal{B}$ the \tref{left-derived-functors}{left derived functors} $\textup{L}^i F A$ are zero for all $A$ in $\mathcal{A}$ and $i > n$.
     
-    In particular, for $F = \Hom_\mathcal{A}(-, B)$ we find $\text{Ext}_\mathcal{A}^i(A, B) = 0$ for all $A, B$ in $\mathcal{A}$ and $i > n$.
+    In particular, for $F = \Hom_\mathcal{A}(-, B)$ we find $\textup{Ext}_\mathcal{A}^i(A, B) = 0$ for all $A, B$ in $\mathcal{A}$ and $i > n$.
 \end{example}
 
 \begin{topic}{grothendieck-spectral-sequence}{Grothendieck spectral sequence}
@@ -594,7 +594,7 @@
         is the $G$-invariant submodule of $M$.
         \item (\textit{degree $1$}) Functions $f : G \to M$ such that $f(g_1 g_2) = f(g_1) + g_1 f(g_2)$ for all $g_1, g_2 \in G$ are called \textit{crossed homomorphisms}. Functions $f : G \to M$ of the form $f(g) = gm - m$ for some $m \in M$ are called \textit{principal homomorphisms}. Note that $\ker d^1$ and $\im d^0$ are precisely the sets of crossed and principal homomorphisms, respectively. Therefore, $H^1(G, M)$ is the set of crossed homomorphisms modulo the set of principal homomorphisms.
         
-        In particular, if $G$ acts trivially on $M$, every principal homomorphism is trivial, and crossed homomorphisms correspond to group homomorphisms $G \to M$, so that $H^1(G, M) \simeq \Hom(G, M)$.
+        In particular, if $G$ acts trivially on $M$, every principal homomorphism is trivial, and crossed homomorphisms correspond to group homomorphisms $G \to M$, so that $H^1(G, M) \isom \Hom(G, M)$.
     \end{itemize}
 \end{example}
 
@@ -616,7 +616,7 @@
     whose inverses are given by
     \[ \Phi_n : C^n(G, M) \xrightarrow{\sim} \Hom_{\ZZ[G]}(F_n, M), \quad \Phi_n(f)(g_0, \ldots, g_n) = g_0 f(g_0^{-1} g_1, g_1^{-1} g_2, \ldots, g_{n - 1}^{-1} g_n) . \]
     In particular the cohomology groups agree, and thus group cohomology is given by
-    \[ H^n(G, M) \simeq \textup{R}^i \Hom_{\ZZ[G]}(\ZZ, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) . \]
+    \[ H^n(G, M) \isom \textup{R}^i \Hom_{\ZZ[G]}(\ZZ, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) . \]
 \end{example}
 
 \begin{topic}{contractible-chain-complex}{contractible chain complex}
@@ -693,7 +693,7 @@
 \end{topic}
 
 \begin{topic}{deligne-tensor-product}{Deligne tensor product}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{finite-abelian-category}{finite} \tref{abelian-category}{abelian categories} over a field $k$. The \textbf{Deligne tensor product} of $\mathcal{A}$ and $\mathcal{B}$ is a finite abelian category $\mathcal{A} \boxtimes \mathcal{B}$ together with a bifunctor $\boxtimes : \mathcal{A} \times \mathcal{B} \to \mathcal{A} \boxtimes \mathcal{B}$ that is \tref{exact-functor}{right exact} in both variables, which is universal in the sense that for every bifunctor $F : \mathcal{A} \times \mathcal{B} \to \mathcal{C}$ which is right exact in both variables, there exists a unique right exact functor $G : \mathcal{A} \boxtimes \mathcal{B} \to \mathcal{C}$ and a unique \tref{CT:natural-transformation}{natural} isomorphism that $F \simeq G \circ \boxtimes$.
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{finite-abelian-category}{finite} \tref{abelian-category}{abelian categories} over a field $k$. The \textbf{Deligne tensor product} of $\mathcal{A}$ and $\mathcal{B}$ is a finite abelian category $\mathcal{A} \boxtimes \mathcal{B}$ together with a bifunctor $\boxtimes : \mathcal{A} \times \mathcal{B} \to \mathcal{A} \boxtimes \mathcal{B}$ that is \tref{exact-functor}{right exact} in both variables, which is universal in the sense that for every bifunctor $F : \mathcal{A} \times \mathcal{B} \to \mathcal{C}$ which is right exact in both variables, there exists a unique right exact functor $G : \mathcal{A} \boxtimes \mathcal{B} \to \mathcal{C}$ and a unique \tref{CT:natural-transformation}{natural} isomorphism that $F \isom G \circ \boxtimes$.
     \[ \begin{tikzcd}
         \mathcal{A} \times \mathcal{B} \arrow{r}{\boxtimes} \arrow[swap]{dr}{F} & \mathcal{A} \boxtimes \mathcal{B} \arrow[dashed]{d}{G} \\
         & \mathcal{C}
@@ -705,7 +705,7 @@
     \[ A\textup{-}\textbf{Mod}_\textup{fd} \boxtimes B\textup{-}\textbf{Mod}_\textup{fd} \simeq (A \otimes_k B)\textup{-}\textbf{Mod}_\textup{fd} . \]
     Indeed, we can construct $G$ as follows: for any finite-dimensional $(A \otimes_k B)$-module $M$, take a presentation
     \[ (A \otimes_k B)^{\oplus n_1} \to (A \otimes_k B)^{\oplus n_0} \to M \to 0 , \]
-    and put $G(M) = \coker\left( F(A, B)^{\oplus n_1} \to F(A, B)^{\oplus n_0} \right)$. This is well-defined by right exactness of $F$, and it is easy to see that $G$ is right exact and that $F \simeq G \circ \boxtimes$.
+    and put $G(M) = \coker\left( F(A, B)^{\oplus n_1} \to F(A, B)^{\oplus n_0} \right)$. This is well-defined by right exactness of $F$, and it is easy to see that $G$ is right exact and that $F \isom G \circ \boxtimes$.
     
     In fact, this is the prototype example since every finite abelian category is equivalent to $A\textup{-}\textbf{Mod}_\textup{fd}$ for some finite-dimensional $k$-algebra $A$.
 \end{example}
@@ -732,5 +732,5 @@
     Let $C_\bdot$ and $D_\bdot$ be \tref{chain-complex}{chain complexes} of $k$-modules, for some \tref{AA:ring}{commutative ring} $k$. If for all $n \in \ZZ$, the $k$-modules $C_n$, $D_n$, $\ker(d_n^C)$ and $\ker(d_n^D)$ are all \tref{AA:flat-module}{flat}, there is a \tref{exact-sequence}{short exact sequence}
     \[ 0 \to \bigoplus_{p + q = n} H_p(C_\bdot) \otimes H_q(D_\bdot) \to H_n(C_\bdot \otimes D_\bdot) \to \bigoplus_{p + q = n - 1} \textup{Tor}_1^k(H_p(C_\bdot), H_q(D_\bdot)) \to 0 , \]
     known as the \textbf{Künneth formula}. In particular, if $H_n(C_\bdot)$ or $H_n(D_\bdot)$ are \tref{AA:projective-module}{projective} $k$-modules for all $n$, there is an isomorphism
-    \[ \bigoplus_{p + q = n} H_p(C_\bdot) \otimes H_q(D_\bdot) \simeq H_n(C_\bdot \otimes D_\bdot) . \]
+    \[ \bigoplus_{p + q = n} H_p(C_\bdot) \otimes H_q(D_\bdot) \isom H_n(C_\bdot \otimes D_\bdot) . \]
 \end{topic}

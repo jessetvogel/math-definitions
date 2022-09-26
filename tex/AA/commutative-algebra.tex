@@ -90,7 +90,7 @@
     Let $R$ be a \tref{ring}{commutative ring} and suppose $I, J$ are coprime ideals of $R$, i.e. $I + J = R$. Then the \textbf{Chinese remainder theorem} states that $I \cap J = I \cdot J$ and that there is an isomorphism of rings
     \[ R / (I \cdot J) \xrightarrow{\sim} (R / I) \times (R/J), \qquad a \mod (I \cdot J) \mapsto (a \mod I, b \mod J) . \]
     In particular, when $R = \ZZ$ with $I = (n)$ and $J = (m)$ for $n, m$ relatively prime, there is
-    \[ \ZZ / nm \ZZ \simeq (\ZZ/n\ZZ) \times (\ZZ/m\ZZ), \qquad a \mod nm \mapsto (a \mod n, a \mod m) . \]
+    \[ \ZZ / nm \ZZ \isom (\ZZ/n\ZZ) \times (\ZZ/m\ZZ), \qquad a \mod nm \mapsto (a \mod n, a \mod m) . \]
 \end{topic}
 
 \begin{topic}{dual-numbers}{dual numbers}
@@ -765,7 +765,7 @@
         \[ p_\lambda = p_{\lambda_1} \cdots p_{\lambda_r} , \]
         where $p_k = m_{(k)}$ is the sum of all $k$-th powers.
     \end{itemize}
-    The \textbf{fundamental theorem of symmetric polynomials} states that any symmetric polynomial $f \in R[x_1, \ldots, x_n]$ can be written uniquely as a polynomial in the elementary symmetric polynomials $e_k$. In other words, there is an isomorphism $R[x_1, \ldots, x_n]^{S_n} \simeq R[e_1, \ldots, e_n]$.
+    The \textbf{fundamental theorem of symmetric polynomials} states that any symmetric polynomial $f \in R[x_1, \ldots, x_n]$ can be written uniquely as a polynomial in the elementary symmetric polynomials $e_k$. In other words, there is an isomorphism $R[x_1, \ldots, x_n]^{S_n} \isom R[e_1, \ldots, e_n]$.
 \end{topic}
 
 \begin{example}{symmetric-polynomial}
@@ -838,9 +838,9 @@
 
 \begin{topic}{picard-group}{Picard group}
     Let $R$ be a \tref{domain}{domain} with \tref{field-of-fractions}{field of fractions} $K$. Let $\mathcal{I}(R)$ be the set of \tref{invertible-ideal}{invertible ideals} of $R$, which forms a group under multiplication. The set of principal \tref{fractional-ideal}{fractional ideals} forms a subgroup $\mathcal{P}(R) \subset \mathcal{I}(R)$, isomorphic to $K^* / R^*$. The \textbf{Picard group} of $R$ is the quotient
-    \[ \text{Pic}(R) = \mathcal{I}(R) / \mathcal{P}(R) . \]
+    \[ \textup{Pic}(R) = \mathcal{I}(R) / \mathcal{P}(R) . \]
     It fits in the exact sequence
-    \[ 0 \to R^* \to K^* \to \mathcal{I}(R) \to \text{Pic}(R) \to 0 . \]
+    \[ 0 \to R^* \to K^* \to \mathcal{I}(R) \to \textup{Pic}(R) \to 0 . \]
 \end{topic}
 
 \begin{topic}{associated-prime}{associated prime}

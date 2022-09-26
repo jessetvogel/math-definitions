@@ -15,17 +15,17 @@
 
 \begin{example}{valuation}
     Let $K$ be a \tref{number-field}{number field}, and $\mathcal{O}_K$ its \tref{ring-of-integers}{ring of integers}. For any prime $\mathfrak{p}$ of $\mathcal{O}_K$, there is the valuation
-    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
+    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\textup{ord}_\mathfrak{p}(x)} , \]
     for some fixed $c \in (0, 1)$. From
-    \[ \text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \} \]
+    \[ \textup{ord}_\mathfrak{p}(x + y) \ge \min \{ \textup{ord}_\mathfrak{p}(x), \textup{ord}_\mathfrak{p}(y) \} \]
     follows that $\norm{\phi_\mathfrak{p}} = 1$.
 \end{example}
 
 \begin{example}{valuation}
-    For an \tref{AA:irreducible-element}{irreducible} polynomial $P$ in the polynomial ring $F[X]$ over an arbitrary field $F$, we have the number $\text{ord}_P(f) \in \ZZ_{\ge 0}$ of factors $P$ occurring in the factorization of a non-zero polynomial $f \in F[X]$, which is well-defined as $F[X]$ is a \tref{AA:unique-factorization-domain}{unique factorization domain}. It yields the valuation on the field of fractions $F(X)$,
-    \[ \phi_P : F(X) \to \RR_{\ge 0}, \quad f \mapsto c^{\text{ord}_P(f)} ,  \]
+    For an \tref{AA:irreducible-element}{irreducible} polynomial $P$ in the polynomial ring $F[X]$ over an arbitrary field $F$, we have the number $\textup{ord}_P(f) \in \ZZ_{\ge 0}$ of factors $P$ occurring in the factorization of a non-zero polynomial $f \in F[X]$, which is well-defined as $F[X]$ is a \tref{AA:unique-factorization-domain}{unique factorization domain}. It yields the valuation on the field of fractions $F(X)$,
+    \[ \phi_P : F(X) \to \RR_{\ge 0}, \quad f \mapsto c^{\textup{ord}_P(f)} ,  \]
     for some fixed $c \in (0, 1)$. From
-    \[ \text{ord}_P(f + g) \ge \min \{ \text{ord}_P(f), \text{ord}_P(g) \} \]
+    \[ \textup{ord}_P(f + g) \ge \min \{ \textup{ord}_P(f), \textup{ord}_P(g) \} \]
     follows that $\norm{\phi_P} = 1$.
 \end{example}
 
@@ -43,8 +43,8 @@
         \[ \phi_\sigma : K \to \RR_{\ge 0}, \quad x \mapsto |\sigma(x)| , \]
         has norm $2$, and is thus archimedean.
         \item Let $K$ be a \tref{number-field}{number field} and $\mathfrak{p}$ a prime ideal of the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$. The valuation
-        \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\text{ord}_\mathfrak{p}(x)} , \]
-        for some fixed $c \in (0, 1)$, is non-archimedean as $\text{ord}_\mathfrak{p}(x + y) \ge \min \{ \text{ord}_\mathfrak{p}(x), \text{ord}_\mathfrak{p}(y) \}$ for all $x, y \in K$.
+        \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\textup{ord}_\mathfrak{p}(x)} , \]
+        for some fixed $c \in (0, 1)$, is non-archimedean as $\textup{ord}_\mathfrak{p}(x + y) \ge \min \{ \textup{ord}_\mathfrak{p}(x), \textup{ord}_\mathfrak{p}(y) \}$ for all $x, y \in K$.
         
         In fact, every non-trivial non-archimedean valuation $\phi$ on $K$ is of this form. Namely, let $A = \{ x \in K \mid \phi(x) \le 1 \}$ be the valuation ring of $\phi$, and $\mathfrak{m} = \{ x \in K \mid \phi(x) < 1 \}$ its maximal ideal. Then $\mathcal{O}_K \subset A$ as any $x \in \mathcal{O}_K$ satisfies an equation $x^n = \sum_{i = 0}^{n - 1} a_i x^i$ with $a_i \in \ZZ \subset A$, so
         \[ \phi(x^n) \le \max_{1 \le i \le n - 1} \phi(a_i x^i) \le \max_{1 \le i \le n - 1} \phi(x)^i , \]
@@ -79,11 +79,11 @@
 
 \begin{example}{hensel-lifting-lemma}
     Consider $f = 2X^2 + X + 2 \in \ZZ_2[X]$, whose reduction $\overline{f} = X \in \FF_2[X]$ can be factored as $\overline{g} \cdot \overline{h}$ with $\overline{g} = X$ and $\overline{h} = 1$. The proof of Hensel's lemma is constructive, in the sense that we can compute successive approximations for $g$ and $h$.
-    \[ g_0 = X + 2, \quad h_0 = 1 \quad (f \equiv g_0 h_0 \text{ mod } 2^1) \]
-    \[ g_1 = X + 10, \quad h_1 = 2X - 3 \quad (f \equiv g_1 h_1 \text{ mod } 2^4) \]
-    \[ g_2 = X + 4810, \quad h_2 = 2X - 9619 \quad (f \equiv g_2 h_2 \text{ mod } 2^{10}) \]
-    \[ g_3 = X + 82462974405415300810, \quad h_3 = 2X - 164925948810830601619 \quad (f \equiv g_3 h_3 \text{ mod } 2^{18}) \]
-    In general, we are guaranteed to have $f \equiv g_i h_i \text{ mod } 2^{2^i}$.
+    \[ g_0 = X + 2, \quad h_0 = 1 \quad (f \equiv g_0 h_0 \mod 2^1) \]
+    \[ g_1 = X + 10, \quad h_1 = 2X - 3 \quad (f \equiv g_1 h_1 \mod 2^4) \]
+    \[ g_2 = X + 4810, \quad h_2 = 2X - 9619 \quad (f \equiv g_2 h_2 \mod 2^{10}) \]
+    \[ g_3 = X + 82462974405415300810, \quad h_3 = 2X - 164925948810830601619 \quad (f \equiv g_3 h_3 \mod 2^{18}) \]
+    In general, we are guaranteed to have $f \equiv g_i h_i \mod 2^{2^i}$.
 \end{example}
 
 \begin{example}{hensel-lifting-lemma}

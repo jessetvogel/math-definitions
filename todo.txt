@@ -8,6 +8,8 @@
 
 ---- Theory ----
 
+LA: Jordan normal form
+
 AG: direct image with compact support f_!
 AG: exceptional inverse image f^!
 AG: (complete) linear system

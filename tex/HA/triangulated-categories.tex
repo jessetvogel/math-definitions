@@ -59,11 +59,11 @@
     \end{enumerate}
     \begin{proof}
         $(i \Rightarrow ii)$ Let $\pi : \mathcal{T} \to \mathcal{S}$ be a right adjoint and take $A = \pi(X)$. The transpose of $\id_{\pi(X)}$ under the adjunction is a morphism $A \to X$, and fits into some exact triangle $A \to X \to B \to A[1]$. Now for any $D \in \mathcal{S}$ we have
-        \[ \Hom_\mathcal{T}(D, A) = \Hom_{\mathcal{S}'}(D, \pi(X)) \simeq \Hom_\mathcal{T}(i(D), X) = \Hom_\mathcal{T}(D, X) , \]
+        \[ \Hom_\mathcal{T}(D, A) = \Hom_{\mathcal{S}'}(D, \pi(X)) \isom \Hom_\mathcal{T}(i(D), X) = \Hom_\mathcal{T}(D, X) , \]
         so from the long exact sequence
         \[ \cdots \to \Hom_\mathcal{T}(D, A) \to \Hom_\mathcal{T}(D, X) \to \Hom_\mathcal{T}(D, B) \to \Hom_\mathcal{T}(D, A[1]) \to \cdots \]
         follows that $\Hom_\mathcal{T}(D, B) = 0$, that is, $B \in \mathcal{S}^\perp$.
-        $(ii \Rightarrow i)$ For each $X \in \mathcal{T}$, choose an exact triangle $A_X \to X \to B_X \to A_X[1]$ as described. Define a functor $\pi : \mathcal{T} \to \mathcal{S}$ by $\pi(X) = A_X$. For a morphism $f : X \to Y$, note that $\Hom_\mathcal{T}(A_X, A_Y) \simeq \Hom_\mathcal{T}(A_X, Y)$ since $B_Y \in \mathcal{S}^\perp$ (again use the long exact sequence). Hence, there is a unique morphism $f' : A_X \to A_Y$ making the obvious square commute, and we set $\pi(f) = f'$. One can check that this indeed gives a functor, and that $\pi$ is right adjoint to $i$.
+        $(ii \Rightarrow i)$ For each $X \in \mathcal{T}$, choose an exact triangle $A_X \to X \to B_X \to A_X[1]$ as described. Define a functor $\pi : \mathcal{T} \to \mathcal{S}$ by $\pi(X) = A_X$. For a morphism $f : X \to Y$, note that $\Hom_\mathcal{T}(A_X, A_Y) \isom \Hom_\mathcal{T}(A_X, Y)$ since $B_Y \in \mathcal{S}^\perp$ (again use the long exact sequence). Hence, there is a unique morphism $f' : A_X \to A_Y$ making the obvious square commute, and we set $\pi(f) = f'$. One can check that this indeed gives a functor, and that $\pi$ is right adjoint to $i$.
     \end{proof}
 \end{example}
 
@@ -74,8 +74,8 @@
 \begin{topic}{spanning-class}{spanning class}
     Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A collection $\Omega$ of objects in $\mathcal{T}$ is a \textbf{spanning class} (or spans $\mathcal{T}$) if for all $B \in \mathcal{T}$ we have
     \begin{itemize}
-        \item $\Hom(A, B[i]) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \simeq 0$,
-        \item $\Hom(B[i], A) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \simeq 0$.
+        \item $\Hom(A, B[i]) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \isom 0$,
+        \item $\Hom(B[i], A) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \isom 0$.
     \end{itemize}
 \end{topic}
 
@@ -120,7 +120,7 @@
     The \tref{derived-category}{derived category} $\textbf{D}^\textup{b}(\PP^n)$ of coherent sheaves on projective space has a semi-orthogonal decomposition
     \[ \textbf{D}^\textup{b}(\PP^n) = \langle \mathcal{O}(-n), \mathcal{O}(-n + 1), \ldots, \mathcal{O}(-1), \mathcal{O} \rangle . \]
     Indeed, the sequence $\mathcal{O}(-n), \ldots, \mathcal{O}$ is exceptional since
-    \[ \textup{Ext}^r(\mathcal{O}(i), \mathcal{O}(j)) \simeq \textup{Ext}^r(\mathcal{O}, \mathcal{O}(j - i)) \simeq H^r(\PP^n, \mathcal{O}(j - i)) = \left\{ \begin{array}{cl}
+    \[ \textup{Ext}^r(\mathcal{O}(i), \mathcal{O}(j)) \isom \textup{Ext}^r(\mathcal{O}, \mathcal{O}(j - i)) \isom H^r(\PP^n, \mathcal{O}(j - i)) = \left\{ \begin{array}{cl}
          k & \textup{ if } r = 0, i \le j , \\
          k & \textup{ if } r = n, i - j < n + 1 , \\
          0 & \textup{ otherwise}.
@@ -151,7 +151,7 @@
     \[ Q : \mathcal{T} \to S^\perp , \]
     which is easily seen to be additive and exact.
     
-    Universality is easily verified: any other additive and exact $F : \mathcal{T} \to \mathcal{D}$ that sends objects of $\mathcal{S}$ to zero, yields $\mathcal{S}^\perp \to \mathcal{D}$ by the restricting $F$ to $S^\perp$. And indeed, applying $F$ to the above exact triangle gives $F(X) \simeq F(Q(X))$.
+    Universality is easily verified: any other additive and exact $F : \mathcal{T} \to \mathcal{D}$ that sends objects of $\mathcal{S}$ to zero, yields $\mathcal{S}^\perp \to \mathcal{D}$ by the restricting $F$ to $S^\perp$. And indeed, applying $F$ to the above exact triangle gives $F(X) \isom F(Q(X))$.
 \end{example}
 
 \begin{topic}{tensor-triangulated-category}{tensor triangulated category}

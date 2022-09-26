@@ -51,7 +51,7 @@
     Considering $\AA^1_k = \Spec k[\NN]$ and $\AA^2_k = \Spec k[\NN^2]$, it follows that
     \begin{itemize}
         \item the map $g : \AA^1_k \to \AA^1_k$, $x \mapsto x^{17}$ induced by $\varphi : \NN \to \NN$, $n \mapsto 17n$ is log étale if and only if $17$ is invertible in $k$, since $\ker(\varphi^\textup{gp} : \ZZ \to \ZZ) = 0$ and $\coker(\varphi^\textup{gp} : \ZZ \to \ZZ) = \ZZ / 17 \ZZ$ are finite. Note that $g$ is not étale as a morphism of schemes, as $f$ is ramified at the origin.
-        \item the map $h : \AA^2_k \to \AA^1_k$, $(x, y) \mapsto xy$ induced by $\varphi : \NN \to \NN^2$, $n \mapsto (n, n)$ is not log étale since $\coker(\varphi^\textup{gp} : \ZZ \to \ZZ^2) \simeq \ZZ$ is infinite.
+        \item the map $h : \AA^2_k \to \AA^1_k$, $(x, y) \mapsto xy$ induced by $\varphi : \NN \to \NN^2$, $n \mapsto (n, n)$ is not log étale since $\coker(\varphi^\textup{gp} : \ZZ \to \ZZ^2) \isom \ZZ$ is infinite.
     \end{itemize}
     % Note that $f$ is log étale (provided $17 \in k^*$), and induces the morphism on the \tref{log-differentials}{log differentials}
     % \[ \begin{aligned}
@@ -63,14 +63,14 @@
 
 \begin{topic}{log-differentials}{log differentials}
     Let $f : (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{log-scheme}{log schemes}. The $\mathcal{O}_X$-module $\omega^1_{X/Y}$ of \textbf{log differentials} is the quotient of
-    \[ \Omega_{X/Y}^1 \oplus (\mathcal{O}_X \otimes_\ZZ \mathcal{M}^\text{gp}) \]
+    \[ \Omega_{X/Y}^1 \oplus (\mathcal{O}_X \otimes_\ZZ \mathcal{M}^\textup{gp}) \]
     by the following relations of local sections:
     \begin{itemize}
         \item $(d \alpha(a), 0) = (0, \alpha(a) \otimes a)$ for all $a \in M$,
         \item $(0, 1 \otimes a) = 0$ for all $a \in \im(f^{-1} \mathcal{N} \to \mathcal{M})$.
     \end{itemize}
     
-    Think of $\omega^1_{X/Y}$ as an extension of the usual sheaf of differentials $\Omega_{X/Y}^1$, where elements of the form $d \log(a) = \frac{da}{a}$ (represented by $(0, 1 \otimes a)$) are added for all $a \in \mathcal{M}^\text{gp}$, up to the image of $f^{-1} \mathcal{N}$. In fact, we have a morphism
+    Think of $\omega^1_{X/Y}$ as an extension of the usual sheaf of differentials $\Omega_{X/Y}^1$, where elements of the form $d \log(a) = \frac{da}{a}$ (represented by $(0, 1 \otimes a)$) are added for all $a \in \mathcal{M}^\textup{gp}$, up to the image of $f^{-1} \mathcal{N}$. In fact, we have a morphism
     \[ d \log : \mathcal{M} \to \omega_{X/Y}^1, \quad f \mapsto d \log(f) . \]
 \end{topic}
 
@@ -89,7 +89,7 @@
 \begin{example}{log-differentials}
     Let $k$ be a commutative ring. Let $P$ and $Q$ commutative monoids, take $X = \Spec k[P]$ and $Y = \Spec k[Q]$ with their natural log structure, and let $f : X \to Y$ be a morphism of log schemes induced by a morphism of monoids $Q \to P$. Then the sheaf of log differentials $\omega^1_{X/Y}$ is given by
     \[ \begin{aligned}
-        \omega^1_{X/Y} &\simeq \mathcal{O}_X \otimes_\ZZ (P^\textup{gp} / \operatorname{im} Q^\textup{gp}) , \\
+        \omega^1_{X/Y} &\isom \mathcal{O}_X \otimes_\ZZ (P^\textup{gp} / \operatorname{im} Q^\textup{gp}) , \\
         a \cdot d \log b  &\mapsfrom a \otimes b
     \end{aligned} \]
 \end{example}

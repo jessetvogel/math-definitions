@@ -21,7 +21,7 @@
 \end{topic}
 
 \begin{example}{tautological-one-form}
-    Take $Q = \RR^n$ so that $T^* Q \simeq \RR^{2n}$ with standard coordinates $q^1, p_1, \ldots, q^n, p_n$. Then the tautological $1$-form is given by
+    Take $Q = \RR^n$ so that $T^* Q \isom \RR^{2n}$ with standard coordinates $q^1, p_1, \ldots, q^n, p_n$. Then the tautological $1$-form is given by
     \[ \theta = \sum_{i = 1}^{n} p_i dq^i . \]
 \end{example}
 
@@ -32,7 +32,7 @@
 \end{topic}
 
 \begin{example}{canonical-symplectic-form}
-    Take $Q = \RR^n$ so that $T^* Q \simeq \RR^{2n}$ with standard coordinates $q^1, p_1, \ldots, q^n, p_n$. Then the tautological $1$-form is given by
+    Take $Q = \RR^n$ so that $T^* Q \isom \RR^{2n}$ with standard coordinates $q^1, p_1, \ldots, q^n, p_n$. Then the tautological $1$-form is given by
     \[ \theta = \sum_{i = 1}^{n} p_i dq^i , \]
     and thus the canonical symplectic form is given by
     \[ \omega = -d \theta = \sum_{i = 1}^{n} d q^i \wedge d p_i. \]
@@ -78,12 +78,12 @@
     Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} on $M$. A \textbf{moment map} for the action is a smooth map $\mu : M \to \mathfrak{g}^*$ such that
     \[ d \langle \mu, \xi \rangle = \omega(X_\xi, -) \]
     for all $\xi \in \mathfrak{g}$, and such that $\mu$ is $G$-equivariant with respect to the \tref{adjoint-representation}{co-adjoint representation} of $G$, that is,
-    \[ \mu(g \cdot p) = \text{Ad}_G^* (g) \mu(p) \]
+    \[ \mu(g \cdot p) = \textup{Ad}_G^* (g) \mu(p) \]
     for all $p \in M$ and $g \in G$.
 \end{topic}
 
 \begin{example}{moment-map}
-    Consider the $2$-sphere $S^2 = \{ x \in \RR^3 \mid \norm{x} = 1 \} \subset \RR^3$, with symplectic form $\omega_x(v, w) = (v \times w) \cdot x$, where we view $v, w \in T_x S^2$ inside $\RR^3$. The torus $G = U(1)$ acts on $S^2$ by rotation around the $x_3$-axis, and this action is symplectic since the action is given by the flow of the Hamiltonian vector field $X_H(x) = (-x_2, x_1, 0)$ with $H(x) = x_3$. Identifying $\mathfrak{g} \simeq \RR \simeq \mathfrak{g}^*$, we find, up to a constant factor, that $X_\xi(x) = \xi (-x_2, x_1, 0)$ for $\xi \in \RR$. Hence, by definition of $\omega$ we can compute
+    Consider the $2$-sphere $S^2 = \{ x \in \RR^3 \mid \norm{x} = 1 \} \subset \RR^3$, with symplectic form $\omega_x(v, w) = (v \times w) \cdot x$, where we view $v, w \in T_x S^2$ inside $\RR^3$. The torus $G = U(1)$ acts on $S^2$ by rotation around the $x_3$-axis, and this action is symplectic since the action is given by the flow of the Hamiltonian vector field $X_H(x) = (-x_2, x_1, 0)$ with $H(x) = x_3$. Identifying $\mathfrak{g} \isom \RR \isom \mathfrak{g}^*$, we find, up to a constant factor, that $X_\xi(x) = \xi (-x_2, x_1, 0)$ for $\xi \in \RR$. Hence, by definition of $\omega$ we can compute
     \[ \begin{aligned}
         \omega_x(X_\xi(x), -)
             &= (-x_1 x_3) dx_1 + (-x_2 x_3) dx_2 + (x_1^2 + x_2^2) dx_3 \\

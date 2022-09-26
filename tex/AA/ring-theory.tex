@@ -109,8 +109,8 @@
 
 \begin{example}{group-ring}
     \begin{itemize}
-        \item For $G = \ZZ$, we have $R[G] \simeq R[x, x^{-1}]$.
-        \item For $G = \ZZ/n\ZZ$ with $n \ge 1$, we have $R[G] \simeq R[x] / (x^n - 1)$.
+        \item For $G = \ZZ$, we have $R[G] \isom R[x, x^{-1}]$.
+        \item For $G = \ZZ/n\ZZ$ with $n \ge 1$, we have $R[G] \isom R[x] / (x^n - 1)$.
     \end{itemize}
 \end{example}
 
@@ -126,7 +126,7 @@
 \begin{example}{idempotent-element}
     The idempotent elements of a commutative ring $R$ are in bijection with the decompositions of $R$ as a product $R = R_1 \times R_2$. Indeed, every such decomposition yields the idempotent element $(1, 0)$. Conversely, for every idempotent $e \in R$, we have that $Re$ and $R(1 - e)$ are subrings of $R$, and we have an isomorphism
     \[ \begin{aligned}
-        R &\simeq Re \times R(1 - e) \\
+        R &\isom Re \times R(1 - e) \\
         r &\mapsto (re, r - re)
     \end{aligned} \]
     whose inverse is $(a, b) \mapsto a + b$. Clearly these two constructions are inverse to each other.
@@ -149,11 +149,11 @@
 
 \begin{example}{morita-equivalence}
     Any ring $R$ is Morita equivalent to the ring $\textup{M}_n(R)$ of $n \times n$ matrices with elements in $R$, for any $n > 0$. Indeed, take
-    \[ R\textup{-Mod} \to \textup{M}_n(R)\textup{-Mod}, \quad M \to R^{n \times 1} \otimes_R M \simeq M^n , \]
+    \[ R\textup{-Mod} \to \textup{M}_n(R)\textup{-Mod}, \quad M \to R^{n \times 1} \otimes_R M \isom M^n , \]
     where $\textup{M}_n(R)$ acts on $M^n$ by matrix multiplication on the left. Inversely, take
     \[ \textup{M}_n(R)\textup{-Mod} \to R\textup{-Mod}, \quad N \to R^{1 \times n} \otimes_{\textup{M}_n(R)} N . \]
     Indeed these are inverse to each other since
-    \[ R^{1 \times n} \otimes_{\textup{M}_n(R)} R^{n \times 1} \simeq R \quad \textup{and} \quad R^{n \times 1} \otimes_R R^{1 \times n} \simeq \textup{M}_n(R) . \]
+    \[ R^{1 \times n} \otimes_{\textup{M}_n(R)} R^{n \times 1} \isom R \quad \textup{and} \quad R^{n \times 1} \otimes_R R^{1 \times n} \isom \textup{M}_n(R) . \]
 \end{example}
 
 \begin{topic}{homogeneous-ideal}{homogeneous ideal}
@@ -296,7 +296,7 @@
 
 \begin{example}{corner-ring}
     Let $R = \textup{Mat}_{3 \times 3}(k)$ and $e = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$. The associated corner is
-    \[ eRe = \left\{ \begin{pmatrix} a & b & 0 \\ c & d & 0 \\ 0 & 0 & 0 \end{pmatrix} \right\} \simeq \textup{Mat}_{2 \times 2}(k) , \]
+    \[ eRe = \left\{ \begin{pmatrix} a & b & 0 \\ c & d & 0 \\ 0 & 0 & 0 \end{pmatrix} \right\} \isom \textup{Mat}_{2 \times 2}(k) , \]
     with $e$ as multiplicative identity.
 \end{example}
 
