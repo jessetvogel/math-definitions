@@ -118,7 +118,7 @@
 
 \begin{topic}{group-action}{group action}
     Let $G$ be a \tref{group}{group} and $X$ a set. An \textbf{action} of $G$ on $X$ is map
-    \[ G \times X \to X : (g, x) \mapsto g \cdot x \]
+    \[ G \times X \to X, \quad (g, x) \mapsto g \cdot x \]
     satisfying $1 \cdot x = x$ and $g \cdot (h \cdot x) = (gh) \cdot x$ for all $g, h \in G$ and $x \in X$.
 \end{topic}
 
@@ -154,7 +154,7 @@
 
 \begin{topic}{orbit}{orbit}
     Let $G$ be a \tref{group}{group} \tref{group-action}{acting} on a set $X$. The \textbf{orbit} of an element $x \in X$ is the set
-    \[ Gx = \{ g \cdot x \mid g \in G \} \subset X . \]
+    \[ G x = \{ g \cdot x \mid g \in G \} \subset X . \]
 \end{topic}
 
 \begin{topic}{solvable-group}{solvable group}
@@ -614,3 +614,19 @@
 \begin{topic}{feit-thompson-theorem}{Feit--Thompson theorem}
     The \textbf{Feit--Thompson theorem} states that every finite \tref{group}{group} of odd \tref{order}{order} is \tref{solvable-group}{solvable}.
 \end{topic}
+
+\begin{topic}{burnside-lemma}{Burnside's lemma}
+    Let $G$ be a finite \tref{group}{group}, \tref{group-action}{acting} on a set $X$. \textbf{Burnside's lemma} states that
+    \[ |X/G| = \frac{1}{|G|} \sum_{g \in G} |X^g| , \]
+    where $X/G$ denotes the set of \tref{orbit}{orbits}, and $X^g = \{ x \in X \mid g \cdot x = x \}$.
+\end{topic}
+
+\begin{example}{burnside-lemma}
+    \begin{proof}
+        First note that
+        \[ \sum_{g \in G} |X^g| = |\{ (g, x) \in G \times X \mid g \cdot x = x \}| = \sum_{x \in X} |G_x| , \]
+        where $G_x$ denotes the \tref{stabilizer}{stabilizer} of $x$. From the \tref{orbit-stabilizer-theorem}{oribt-stabilizer theorem} follows that
+        \[ \sum_{x \in X} |G_x| = \sum_{x \in X} \frac{|G|}{|G x|} = |G| \sum_{O \in X/G} \sum_{x \in O} \frac{1}{|O|} = |X/G| , \]
+        so the result follows.
+    \end{proof}
+\end{example}

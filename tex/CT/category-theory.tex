@@ -165,7 +165,7 @@
 
 \begin{topic}{adjunction}{adjunction}
     Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be a pair of \tref{functor}{functors}. Then $F$ is \textbf{left adjoint} to $G$, or $G$ is \textbf{right adjoint} to $F$, or there is an \textbf{adjunction} $F \dashv G$, if there is a natural bijection
-    \[ \Hom_{\mathcal{D}}(F(C), D) \xrightarrow{\sim} \Hom_{\mathcal{D}}(C, G(D)) \]
+    \[ \Hom_{\mathcal{D}}(F(C), D) \xrightarrow{\sim} \Hom_{\mathcal{C}}(C, G(D)) \]
     for each object $C$ in $\mathcal{C}$ and $D$ in $\mathcal{D}$. Naturality means that for all $f : C \to C'$ in $\mathcal{C}$ and $g : D' \to D$ in $\mathcal{D}$, the following square commutes.
     \[ \begin{tikzcd}[row sep=3em] \Hom_{\mathcal{D}}(F(C), D) \arrow{r} & \Hom_{\mathcal{C}}(C, G(D)) \\ \Hom_{\mathcal{D}}(F(C'), D') \arrow{r} \arrow{u}{g \circ (-) \circ F(f)} & \Hom_{\mathcal{C}}(C', G(D')) \arrow[swap]{u}{G(g) \circ (-) \circ f} \end{tikzcd} \]
     Two maps $f : F(C) \to D$ and $g : C \to G(D)$ which correspond to each other are called \textit{transposes}.

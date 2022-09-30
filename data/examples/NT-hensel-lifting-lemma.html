@@ -1,9 +1,9 @@
 <div class="example">Consider <span class="math inline">\(f = 2X^2 + X + 2 \in \ZZ_2[X]\)</span>, whose reduction <span class="math inline">\(\overline{f} = X \in \FF_2[X]\)</span> can be factored as <span class="math inline">\(\overline{g} \cdot \overline{h}\)</span> with <span class="math inline">\(\overline{g} = X\)</span> and <span class="math inline">\(\overline{h} = 1\)</span>. The proof of Hensel’s lemma is constructive, in the sense that we can compute successive approximations for <span class="math inline">\(g\)</span> and <span class="math inline">\(h\)</span>.
-<span class="math display">\[ g_0 = X + 2, \quad h_0 = 1 \quad (f \equiv g_0 h_0 \text{ mod } 2^1) \]</span>
-<span class="math display">\[ g_1 = X + 10, \quad h_1 = 2X - 3 \quad (f \equiv g_1 h_1 \text{ mod } 2^4) \]</span>
-<span class="math display">\[ g_2 = X + 4810, \quad h_2 = 2X - 9619 \quad (f \equiv g_2 h_2 \text{ mod } 2^{10}) \]</span>
-<span class="math display">\[ g_3 = X + 82462974405415300810, \quad h_3 = 2X - 164925948810830601619 \quad (f \equiv g_3 h_3 \text{ mod } 2^{18}) \]</span>
-In general, we are guaranteed to have <span class="math inline">\(f \equiv g_i h_i \text{ mod } 2^{2^i}\)</span>.
+<span class="math display">\[ g_0 = X + 2, \quad h_0 = 1 \quad (f \equiv g_0 h_0 \mod 2^1) \]</span>
+<span class="math display">\[ g_1 = X + 10, \quad h_1 = 2X - 3 \quad (f \equiv g_1 h_1 \mod 2^4) \]</span>
+<span class="math display">\[ g_2 = X + 4810, \quad h_2 = 2X - 9619 \quad (f \equiv g_2 h_2 \mod 2^{10}) \]</span>
+<span class="math display">\[ g_3 = X + 82462974405415300810, \quad h_3 = 2X - 164925948810830601619 \quad (f \equiv g_3 h_3 \mod 2^{18}) \]</span>
+In general, we are guaranteed to have <span class="math inline">\(f \equiv g_i h_i \mod 2^{2^i}\)</span>.
 </div><div class="example">Let <span class="math inline">\(f \in A[x]\)</span> be a polynomial such that the reduction <span class="math inline">\(\overline{f} = f \mod \mathfrak{m} \in k[x]\)</span> has a simple zero <span class="math inline">\(\overline{\alpha} \in k\)</span>. Then we can write <span class="math inline">\(\overline{f} = \overline{g} \cdot \overline{h}\)</span> with <span class="math inline">\(\overline{g} = x - \overline{\alpha}\)</span> coprime to <span class="math inline">\(\overline{h}\)</span>. Now by Hensel’s lemma, there exists a root <span class="math inline">\(\alpha \in A\)</span> of <span class="math inline">\(f\)</span>, which is a lift of <span class="math inline">\(\overline{\alpha}\)</span>.<br/>
 In particular, consider the <a href="#NT:p-adic-numbers"><span class="math inline">\(p\)</span>-adic rationals</a> <span class="math inline">\(\QQ_p\)</span> for some prime <span class="math inline">\(p\)</span>. The polynomial <span class="math inline">\(f = x^p - x\)</span> splits as
 <span class="math display">\[ x^p - x = \prod_{a \in \FF_p} (x - a) \in \FF_p[x] \]</span>

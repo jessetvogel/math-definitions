@@ -624,3 +624,33 @@
     \end{pmatrix} . \]
     In particular, $f$ is the \tref{characteristic-polynomial}{characteristic polynomial} of this matrix.
 \end{topic}
+
+\begin{topic}{jordan-normal-form}{Jordan normal form}
+    An $n \times n$ \tref{matrix}{matrix} $A$ is said to be in \textbf{Jordan normal form} if it is block diagonal with blocks of the form
+    \[ B(\lambda, m) = \begin{pmatrix}
+        \lambda & 1 & 0 & \cdots & 0 & 0 \\
+        0 & \lambda & 1 & \cdots & 0 & 0 \\
+        0 & 0 & 1 & \cdots & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & 0 & \cdots & \lambda & 1 \\
+        0 & 0 & 0 & \cdots & 0 & \lambda
+    \end{pmatrix} \]
+    for some $\lambda$ and $m$.
+\end{topic}
+
+\begin{example}{jordan-normal-form}
+    Let $V$ be a finite-dimensional \tref{vector-space}{vector space} and $f : V \to V$ a \tref{linear-map}{linear map}, whose \tref{characteristic-polynomial}{characteristic polynomial} splits into linear factors
+    \[ p_f(x) = (x - \lambda_1)^{m_1} \cdots (x - \lambda_k)^{m_k} , \]
+    with $\lambda_i$ distinct. Then there exists a basis for $V$ such that the matrix representing $f$ is in Jordan normal form.
+\end{example}
+
+\begin{topic}{general-affine-group}{general affine group}
+    The \textbf{general affine group} of degree $n$ over a field $k$ is the \tref{GT:semidirect-product}{semidirect product}
+    \[ \textup{AGL}_n(k) = k^n \rtimes \textup{GL}_n(k) , \]
+    where the \tref{general-linear-group}{general linear group} $\textup{GL}_n(k)$ acts on $k^n$ by matrix multiplication.
+\end{topic}
+
+\begin{example}{general-affine-group}
+    In terms of matrices, the general affine group $\textup{AGL}_n(k)$ can be identified with the subgroup of matrices
+    \[ \textup{AGL}_n(k) = \left\{ \left(\begin{array}{c|c} A & v \\ \hline 0 & 1 \end{array}\right) : A \in \textup{GL}_n(k), v \in k^n \right\} . \]
+\end{example}

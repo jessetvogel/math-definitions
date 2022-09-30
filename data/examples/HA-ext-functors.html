@@ -2,12 +2,12 @@
 <span class="math display">\[ 0 \to \ZZ \xrightarrow{\cdot m} \ZZ \to \ZZ / m \ZZ \to 0 , \]</span>
 follows that
 <span class="math display">\[ \textup{Ext}^n_\ZZ(\ZZ/m\ZZ, A) = \left\{ \begin{array}{cl} \{ a \in A : ma = 0 \} & \textup{ for } n = 0 , \\ A/mA & \textup{ for } n = 1 . \end{array} \right. \]</span>
-</div><div class="example">For <span class="math inline">\(n > 0\)</span>, elements of the Ext group <span class="math inline">\(\text{Ext}^n(A, B)\)</span> correspond to extensions
+</div><div class="example">For <span class="math inline">\(n > 0\)</span>, elements of the Ext group <span class="math inline">\(\textup{Ext}^n(A, B)\)</span> correspond to extensions
 <span class="math display">\[ 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 . \]</span>
-Consider the case <span class="math inline">\(n = 1\)</span>. Let <span class="math inline">\(P^\bdot \to A\)</span> (call the differential maps <span class="math inline">\(\pi_i\)</span>) be a projective resolution of <span class="math inline">\(A\)</span>, so that <span class="math inline">\(\text{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))\)</span>. This is the group of maps <span class="math inline">\(g : P^1 \to B\)</span> such that <span class="math inline">\(g \circ \pi_2 = 0\)</span>, modulo all maps of the form <span class="math inline">\(f \circ \pi_0\)</span> for <span class="math inline">\(f : A \to B\)</span>. Now we can construct the pushout
+Consider the case <span class="math inline">\(n = 1\)</span>. Let <span class="math inline">\(P^\bdot \to A\)</span> (call the differential maps <span class="math inline">\(\pi_i\)</span>) be a projective resolution of <span class="math inline">\(A\)</span>, so that <span class="math inline">\(\textup{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))\)</span>. This is the group of maps <span class="math inline">\(g : P^1 \to B\)</span> such that <span class="math inline">\(g \circ \pi_2 = 0\)</span>, modulo all maps of the form <span class="math inline">\(f \circ \pi_0\)</span> for <span class="math inline">\(f : A \to B\)</span>. Now we can construct the pushout
 <span class="math display">\[ E_0 = P^0 \oplus B / \{ \pi_1(q) = g(q) \text{ for } q \in P^1 \} . \]</span>
 Note that <span class="math inline">\(g\)</span> descends to <span class="math inline">\(\overline{g} : P^0 \to B\)</span>, and that the maps <span class="math inline">\(B \to E_0\)</span>, <span class="math inline">\(b \mapsto (b, 0)\)</span> and <span class="math inline">\(E_0 \to A, (b, p) \mapsto \pi_0(p)\)</span> are well-defined (the latter as <span class="math inline">\(\pi_0 \pi_1 = 0\)</span>), and respectively injective and surjective. It is not hard to prove exactness in the middle, so we get an extension
 <span class="math display">\[ 0 \to B \to E_0 \to A \to 0 . \]</span>
-In particular, the trivial element in <span class="math inline">\(\text{Ext}^1(A, B)\)</span> yields the trivial extension
+In particular, the trivial element in <span class="math inline">\(\textup{Ext}^1(A, B)\)</span> yields the trivial extension
 <span class="math display">\[ 0 \to A \to A \oplus B \to B \to 0 . \]</span>
 </div>

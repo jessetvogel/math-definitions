@@ -2,13 +2,13 @@
 <span class="math display">\[ [A, B] = \Hom_\textbf{Set}(A, B) . \]</span>
 Indeed, for any set <span class="math inline">\(X\)</span> there is an adjunction <span class="math inline">\((-) \otimes X \dashv {[X, -]}\)</span> since we have a natural bijection
 <span class="math display">\[ \begin{array}{ccc}
-            \Hom_\textbf{Set}(A \times X, B) & \simeq & \Hom_\textbf{Set}(A, [X, B]) \\
+            \Hom_\textbf{Set}(A \times X, B) & \isom & \Hom_\textbf{Set}(A, [X, B]) \\
             f & \mapsto & (a \mapsto f(a, -)) \\
             ((a, x) \mapsto g(a)(x)) & \mapsfrom & g
         \end{array} \]</span>
 </li><li> Let <span class="math inline">\(G\)</span> be a <a href="#GT:group">group</a> and let <span class="math inline">\(\mathcal{C} = \textbf{Rep}_k(G)\)</span> be the monoidal category of representations of <span class="math inline">\(G\)</span> (over a field <span class="math inline">\(k\)</span>), with tensor product <span class="math inline">\(\otimes_k\)</span>. An internal hom in <span class="math inline">\(\mathcal{C}\)</span> is given by
 <span class="math display">\[ [V, W] = \Hom_{k}(V, W) , \]</span>
 which follows from the natural bijection
-<span class="math display">\[ \Hom_\mathcal{C}(U \otimes_k V, W) \simeq \Hom_\mathcal{C}(U, V^* \otimes_k W) \simeq \Hom_\mathcal{C}(U, \Hom_k(V, W)) . \]</span>
+<span class="math display">\[ \Hom_\mathcal{C}(U \otimes_k V, W) \isom \Hom_\mathcal{C}(U, V^* \otimes_k W) \isom \Hom_\mathcal{C}(U, \Hom_k(V, W)) . \]</span>
 </li></ul>
 </div>

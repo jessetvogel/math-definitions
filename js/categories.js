@@ -13,9 +13,9 @@ const categories = {
     "HT": "Homotopy Theory",
     "LA": "Linear Algebra",
     "MT": "Measure Theory",
-    "NT": "Number Theory",
-    "OT": "Order Theory",
+    "NT": "Number Theory", 
     "RT": "Representation Theory",
+    "ST": "Set Theory",
     "TO": "Topology",
     "UN": "Uncategorized"
 };

@@ -452,7 +452,7 @@
 \end{topic}
 
 \begin{topic}{alexandroff-topology}{Alexandroff topology}
-    Let $(P, \le)$ be a \tref{OT:partially-ordered-set}{partially ordered set}. The \textbf{Alexandroff topology} on $P$ is the \tref{topological-space}{topology} on $P$ given by
+    Let $(P, \le)$ be a \tref{ST:partially-ordered-set}{partially ordered set}. The \textbf{Alexandroff topology} on $P$ is the \tref{topological-space}{topology} on $P$ given by
     \[ \mathcal{T}_P = \{ U \subset P \mid x \in U \textup{ and } x \le y \textup{ implies } y \in U \textup{ for all } x, y \in P \} . \]
 \end{topic}
 
@@ -614,4 +614,13 @@
     A \tref{topological-space}{topological space} $X$ is \textbf{$\sigma$-compact} if there is a sequence $K_1, K_2, \ldots$ of \tref{compact-space}{compact} subsets $K_n \subset X$ such that $X = \bigcup_{n \ge 1} K_i$.
     
     A topological space $X$ is is \textbf{$\sigma$-locally compact} if it is $\sigma$-compact and \tref{locally-compact-space}{locally compact}.
+\end{topic}
+
+\begin{topic}{stone-cech-compactification}{Stone--Čech compactification}
+    Let $X$ be a \tref{topological-space}{topological space}. The \textbf{Stone--Čech compactification} of $X$ is a \tref{compact-space}{compact} \tref{hausdorff-space}{Hausdorff} space $\beta(X)$ together with a \tref{continuous-map}{continuous map} $i : X \to \beta(X)$, such that for any continuous map $f : X \to K$, with $K$ a compact Hausdorff space, there exists a unique $g : \beta(X) \to K$ such that $f = g \circ i$.
+    \[ \begin{tikzcd} X \arrow{r}{i} \arrow[swap]{dr}{f} & \beta(X) \arrow{d}{g} \\ & K \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{profinite-space}{profinite space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{profinite} if it is \tref{compact-space}{compact} \tref{hausdorff-space}{Hausdorff} and \tref{totally-disconnected-space}{totally disconnected}.
 \end{topic}
