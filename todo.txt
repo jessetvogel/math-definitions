@@ -111,8 +111,8 @@ FA: unitalization
 FA: von Neumann algebra
 
 -- Derived Algebraic Geometry
+DAG: derived scheme / stack (https://arxiv.org/pdf/2109.14594.pdf, Definition 1.21)
 DAG: derived ring
-DAG: derived scheme / stack
 
 -- Algebraic Topology
 AT: Dold--Thom theorem example: SP(S^1) = S^1 and homotopy groups/homology groups (https://people.brandeis.edu/~tbl/dold-thom.pdf)

@@ -22,6 +22,7 @@ const KaTeXOptions = {
         "\\norm": "{\\left\\|#1\\right\\|}",
         "\\sslash": "\\mathbin{/\\mkern-6mu/}",
         "\\mod": "\\text{ mod }",
-        "\\mapsfrom": "\\leftarrow{\\raise{.4pt}{\\hspace{-7.5pt}\\shortmid}}" // \\mathrel{\\unicode{x21a4}}
+        "\\mapsfrom": "\\leftarrow{\\raise{.4pt}{\\hspace{-7.5pt}\\shortmid}}", // \\mathrel{\\unicode{x21a4}}
+        "\\isom": "\\cong"
     }
 };

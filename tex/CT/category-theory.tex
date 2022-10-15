@@ -533,7 +533,7 @@
 \end{example}
 
 \begin{example}{kleisli-category}
-    Using the Kleisli category, we can construct an adjunction that gives rise to the monad $T$. Let $F : \mathcal{C} \to \mathcal{C}_T$ be given by $FX = X$ and $F(X \xrightarrow{f} Y) = \eta_Y \circ f : X \to TY$, and conversely let $G : \mathcal{C}_T \to \mathcal{C}$ be given by $GX = TX$ and $G(X \rightarrow{f} TY) = \mu_Y \circ Tf : TX \to TY$. It is not hard to show that $F$ is left adjoint to $G$, and that this adjunction gives rise to the monad $T = GF$.
+    Using the Kleisli category, we can construct an adjunction that gives rise to the monad $T$. Let $F : \mathcal{C} \to \mathcal{C}_T$ be given by $FX = X$ and $F(X \xrightarrow{f} Y) = \eta_Y \circ f : X \to TY$, and conversely let $G : \mathcal{C}_T \to \mathcal{C}$ be given by $GX = TX$ and $G(X \xrightarrow{f} TY) = \mu_Y \circ Tf : TX \to TY$. It is not hard to show that $F$ is left adjoint to $G$, and that this adjunction gives rise to the monad $T = GF$.
 \end{example}
 
 \begin{topic}{profunctor}{profunctor}
@@ -1028,4 +1028,37 @@
         \[ (G(f) \circ \mu_{C'})(x') = G(f)(g_{(C', x')}) = g_{(C, x)} = (\mu_C \circ F(C))(x') \]
         for all $f : (C, x) \to (C', x')$. Clearly, the map $\alpha \mapsto \mu$ is invertible as $\alpha_{(C, x)}$ corresponds to $\mu_C(x)$ under the Yoneda lemma.
     \end{proof}
+\end{example}
+
+\begin{topic}{lawvere-fixed-point-theorem}{Lawvere's fixed-point theorem}
+    Let $\mathcal{C}$ be a \tref{cartesian-closed-category}{Cartesian closed category}. A morphism $f : X \to Y$ is called \textit{point-surjective} if for every morphism $p : 1 \to Y$ there exists a morphism $q : 1 \to X$ such that $p = f \circ q$. \textbf{Lawvere's fixed-point theorem} states that, if $f : A \to B^A$ is a point-surjective morphism, then every morphism $g : B \to B$ has a \textit{fixed point}, that is, a morphism $p : 1 \to B$ such that $g \circ p = p$.
+\end{topic}
+
+\begin{example}{lawvere-fixed-point-theorem}
+    \begin{proof}
+        Given $g : B \to B$, let $p : 1 \to B^A$ be the transpose of the composition
+        \[ A \xrightarrow{\Delta} A \times A \xrightarrow{f \times \id_A} B^A \times A \xrightarrow{\textup{eval}} B \xrightarrow{g} B . \]
+        Since $f$ is point-surjective, there exists $q : 1 \to A$ such that $p = f \circ q$. Now,
+        \[ (f \circ q)^T \circ q = p^T \circ q = g \circ \textup{eval} \circ (f \times \id_A) \circ \Delta \circ q = g \circ (f \circ q)^T \circ q , \]
+        so $(f \circ q)^T \circ q : 1 \to B$ is a fixed-point of $g$.
+    \end{proof}
+\end{example}
+
+\begin{example}{lawvere-fixed-point-theorem}
+    \tref{ST:cantor-theorem}{Cantor's theorem} immediately follows from Lawvere's fixed-point theorem. Namely, the category of sets is cartesian closed, and the map $g : \{ 0, 1 \} \to \{ 0, 1 \}$ defined by $g(0) = 1$ and $g(1) = 0$ has no fixed points, so there can not exist any surjective morphism $A \to \{ 0, 1 \}^A \cong P(A)$ from a set $A$ to its \tref{ST:power-set}{power set} $P(A)$.
+\end{example}
+
+\begin{topic}{grothendieck-construction}{Grothendieck construction}
+    Let $F : \mathcal{C} \to \textbf{Cat}$ be a \tref{functor}{functor} from a \tref{category}{category} $\mathcal{C}$ to the category of \tref{small-category}{small} categories $\textbf{Cat}$. The \textbf{Grothendieck construction} for $F$ is the category $\int_\mathcal{C} F$ whose
+    \begin{itemize}
+        \item objects are pairs $(C, X)$ with $C$ an object of $\mathcal{C}$ and $X$ an object of $F(C)$,
+        \item morphisms from $(C, X)$ to $(C', X')$ are pairs $(f, g)$ where $f : C \to C'$ and $g : F(f)(X) \to X'$.
+    \end{itemize}
+    Composition in $\int_\mathcal{C} F$ is given by $(f, g) \circ (f', g') = (f \circ f', g \circ F(f)(g'))$.
+\end{topic}
+
+\begin{example}{grothendieck-construction}
+    Let $N$ and $H$ be \tref{GT:group}{groups} and let $\varphi : H \to \textup{Aut}(N)$ be a group homomorphism. Viewing $H$ as a category $\mathcal{C}_H$ with a single object, this defines a functor $F : \mathcal{C}_H \to \textbf{Cat}$, which sends the single object to $\mathcal{C}_N$ and sends $h \in H$ to $\varphi(h)$ seen as an endofunctor of $\mathcal{C}_N$. The category $\int_{\mathcal{C}_H} F$ has a single object, and morphisms are of the form $(h, n)$ with $h \in H$ and $n \in N$. Composition of morphisms is given by
+    \[ (h, n) \circ (h', n') = (h \circ h', n \circ \varphi(h)(n')) . \]
+    That is, $\int_{\mathcal{C}_H} F$ is the \tref{GT:semidirect-product}{semidirect product} $N \rtimes_\varphi H$ seen as a category with a single object.
 \end{example}

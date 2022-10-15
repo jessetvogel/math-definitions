@@ -27,6 +27,10 @@
     A Boolean algebra $(P, \le)$ is \textbf{complete} if every subset $A \subset P$ has a least upper bound and a greatest lower bound.
 \end{topic}
 
+\begin{example}{boolean-algebra}
+    Let $X$ be a set, and let $P$ be the \tref{power-set}{power set} of $X$. Then $(P, \subset)$ is a Boolean algebra, where the negation $\neg A$ is the difference $X \setminus A$.
+\end{example}
+
 \begin{topic}{atom}{atom}
     Let $(P, \le)$ be a \tref{partially-ordered-set}{partially ordered set} with a least element $0 \in P$. An \textbf{atom} in $P$ is an element $x \in P$ not equal to $0$ such that $y \le x$ implies $y = 0$ or $y = x$ for all $y \in P$.
 \end{topic}
@@ -53,3 +57,9 @@
 \begin{example}{filter}
     Let $X$ be a \tref{TO:topological-space}{topological space}, and $x \in X$ a point. The \textit{neighborhood filter} of $x$, denoted $\mathcal{N}_x$, is the filter consisting of all \tref{TO:neighborhood}{neighborhoods} of $x$. It is a filter on the set of all subsets of $X$, partially ordered by inclusion.
 \end{example}
+
+\begin{topic}{de-morgan-laws}{De Morgan's laws}
+    Let $B$ be a \tref{boolean-algebra}{Boolean algebra}. \textbf{De Morgan's laws} state that
+    \[ \neg (x \lor y) = \neg x \land \neg y \quad \textup{ and } \quad \neg (x \land y) = \neg x \lor \neg y \]
+    for all $x, y \in B$.
+\end{topic}

@@ -1015,3 +1015,42 @@
     \end{aligned} \]
     so $f$ is conformal with conformal factor $\alpha = (x^2 + y^2)^{-2}$.
 \end{example}
+
+\begin{topic}{hessian-matrix}{Hessian matrix}
+    Let $f : \RR^n \to \RR$ be a \tref{smooth-map}{smooth function}. The \textbf{Hessian matrix} of $f$ is the $n \times n$ matrix of smooth functions
+    \[ \begin{pmatrix}
+        \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+        \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial^2 x_2} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f}{\partial^2 x_n}
+    \end{pmatrix} . \]
+\end{topic}
+
+\begin{topic}{jacobian-matrix}{Jacobian matrix}
+    Let $f : \RR^n \to \RR^m$ be a \tref{smooth-map}{smooth map}. The \textbf{Jacobian matrix} of $f$ is the $m \times n$ matrix of smooth functions
+    \[ \begin{pmatrix}
+        \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+        \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \cdots & \frac{\partial f_m}{\partial x_n}
+    \end{pmatrix} . \]
+\end{topic}
+
+\begin{topic}{critical-value}{critical value}
+    Let $f : M \to N$ be a \tref{smooth-map}{smooth map} between \tref{smooth-manifold}{smooth manifolds}. A \textbf{critical point} of $f$ is a point $p \in M$ such that the derivative $(df)_x : T_x M \to T_{f(x)} N$ has rank less than $\dim N$.
+    
+    A \textbf{critical value} of $f$ is a point $q \in N$ such that $q = f(p)$ for some critical point $p$ of $f$.
+    
+    A \textbf{regular value} of $f$ is a point $q \in N$ which is not a critical value.
+\end{topic}
+
+\begin{topic}{morse-function}{Morse function}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Morse function} on $M$ is a \tref{smooth-map}{smooth function} $f : M \to \RR$ such that for every \tref{critical-value}{critical point} $p \in M$ of $f$, there exists a \tref{atlas}{chart} $\phi : U \to \RR^n$ around $p$ such that the \tref{hessian-matrix}{Hessian matrix}
+    \[ \left( \frac{\partial^2 (f \circ \phi^{-1})}{\partial x_i \partial x_j} (\phi(p)) \right)_{i, j = 1, \ldots, n} \]
+    is \tref{LA:invertible-matrix}{invertible}.
+\end{topic}
+
+\begin{topic}{morse-lemma}{Morse lemma}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $f : M \to \RR$ a \tref{morse-function}{Morse function} on $M$. \textbf{Morse lemma} states that for every critical point $p \in M$ of $f$, there exists a \tref{atlas}{chart} $\phi : U \to \RR^n$ around $p$ such that
+    \[ (f \circ \phi^{-1})(x_1, \ldots, x_n) = f(p) + \sum_{i = 1}^{k} x_i^2 - \sum_{i = k + 1}^{n} x_i^2 . \]
+\end{topic}

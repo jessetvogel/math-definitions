@@ -93,7 +93,7 @@
     A \textbf{Frobenius algebra} over a field $k$ is a $k$-algebra $A$ equipped with a bilinear form $\beta : A \otimes_k A \to k$, called the \textit{Frobenius pairing}, satisfying
     \begin{itemize}
         \item (\textit{associativity}) $\beta(ab \otimes c) = \beta(a \otimes bc)$ for all $a, b, c \in A$,
-        \item (\textit{non-degeneracy}) there exists a $k$-linear map $\gamma : k \to A \otimes A$ such that 
+        \item (\textit{non-degeneracy}) there exists a $k$-linear map $\gamma : k \to A \otimes_k A$ such that 
         \[ (\beta \otimes \id_A)(a \otimes \gamma(1)) = a = (\id_A \otimes \beta)(\gamma(1) \otimes a) \]
         for all $a \in A$.
     \end{itemize}
@@ -103,6 +103,7 @@
     \begin{itemize}
         \item Let $A$ be a finite field extension of $k$, and $\varepsilon : A \to k$ any non-zero $k$-linear map. Then $A$ with the pairing $\beta : A \otimes A \to k, a \otimes b \mapsto \varepsilon(ab)$ is a Frobenius algebra.
         \item The ring $\textup{Mat}_n(k)$ of $n \times n$ matrices over $k$, with pairing $A \otimes B \mapsto \operatorname{tr}(AB)$, is a Frobenius algebra.
+        \item The complex numbers $\CC$ are a Frobenius algebra over $\RR$ with pairing $\beta(z_1 \otimes z_2) = \operatorname{Re}(z_1 z_2)$. The map $\gamma : \RR \to \CC \otimes_\RR \CC$ is given by $\gamma(1) = 1 \otimes 1 - i \otimes i$.
     \end{itemize}
 \end{example}
 
