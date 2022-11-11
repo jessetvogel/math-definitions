@@ -96,6 +96,12 @@
     The monoidal category $\mathcal{C}$ is \textbf{left rigid} (resp. \textbf{right rigid}) if all objects are left rigid (resp. right rigid), and \textbf{rigid} if it is both left and right rigid.
 \end{topic}
 
+\begin{example}{rigid-monoidal-category}
+    Let $k$ be a field. The category $\textbf{FinVect}_k$ of finite-dimensional \tref{LA:vector-space}{vector spaces} over $k$, with tensor product $\otimes_k$, is a rigid monoidal category. Namely, the left and right dual of a vector space $V$ is the \tref{LA:dual-vector-space}{dual vector space} $V^*$. Indeed, for every $V$ we have maps
+    \[ \eta_V : k \to V \otimes_k V^*, \quad 1 \mapsto \sum_{i = 1}^{n} e_i \otimes e^*_i , \quad \textup{ and } \quad \varepsilon_V : V^* \otimes_k V \to k, \quad f \otimes v \mapsto f(v) , \]
+    where $e_1, \ldots, e_n$ is some basis for $V$ with dual basis $e^*_1, \ldots, e^*_n$ for $V^*$.
+\end{example}
+
 \begin{topic}{internal-hom}{internal hom}
     Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{symmetric-monoidal-category}{symmetric} \tref{monoidal-category}{monoidal category}. An \textbf{internal hom} in $\mathcal{C}$ is a \tref{functor}{functor}
     \[ [-, -] : \mathcal{C}^\textup{op} \times \mathcal{C} \to \mathcal{C} \]

@@ -63,3 +63,15 @@
     \[ \neg (x \lor y) = \neg x \land \neg y \quad \textup{ and } \quad \neg (x \land y) = \neg x \lor \neg y \]
     for all $x, y \in B$.
 \end{topic}
+
+\begin{topic}{modular-lattice}{modular lattice}
+    A \tref{lattice}{lattice} $(P, \le)$ is \textbf{modular} if
+    \[ x \lor (y \land z) = (x \lor y) \land z \]
+    for all $x, y, z \in P$ with $x \le z$.
+\end{topic}
+
+\begin{example}{modular-lattice}
+    Let $R$ be a \tref{AA:ring}{ring} and $M$ an \tref{AA:module}{$R$-module}. Then the lattice of submodules of $M$ with respect to inclusions, sums and intersections, is a modular lattice. That is, for any submodules $A, B, C \subset M$ with $A \subset C$, we have
+    \[ A + (B \cap C) = (A + B) \cap C . \]
+    Indeed, for any $x \in A + (B \cap C)$, we can write $x = a + y$ with $a \in A$ and $y \in B \cap C$. Since $A \subset C$, we have $a \in A \cap C$, so $x \in (A + B) \cap C$. Conversely, for any $x \in (A + B) \cap C$, we can write $x = a + b$ with $a \in A$ and $b \in B$ and $a + b \in C$. Since $a \in A \subset C$, also $b = (a + b) - a \in C$, so $x \in A + (B \cap C)$.
+\end{example}

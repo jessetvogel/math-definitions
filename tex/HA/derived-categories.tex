@@ -35,15 +35,15 @@
     
     An $R$-module is \textbf{perfect module} if it is perfect when seen as a chain complex concentrated at degree zero.
     
-    A chain complex of \tref{AG:coherent-sheaf}{quasi-coherent sheaves} $\mathcal{F}$ over a \tref{AG:scheme}{scheme} $X$ is \textbf{perfect} if the (derived) pullback $\textup{L} f^* \mathcal{F}$ is perfect for all commutative rings $R$ and morphisms $f : \Spec(R) \to X$.
+    A chain complex of \tref{AG:coherent-sheaf}{quasi-coherent sheaves} $\mathcal{F}$ over a \tref{AG:scheme}{scheme} $X$ is \textbf{perfect} if the (derived) pullback $L f^* \mathcal{F}$ is perfect for all commutative rings $R$ and morphisms $f : \Spec(R) \to X$.
 \end{topic}
 
 \begin{topic}{fourier-mukai-transform}{Fourier--Mukai transform}
     Let $X$ and $Y$ be \tref{AG:smooth-morphism}{smooth} \tref{AG:projective-variety}{projective varieties}, and $\mathcal{P} \in \textbf{D}^\textup{b}(X \times Y)$ an object in the (bounded) \tref{derived-category}{derived category} of \tref{AG:coherent-sheaf}{coherent sheaves} on their product. Write $q : X \times Y \to X$ and $p : X \times Y \to Y$ for the projections. The \textbf{Fourier--Mukai transform} is the functor
-    \[ \Phi_\mathcal{P} : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(Y), \quad \mathcal{E} \mapsto \textup{R} p_* \left( q^* \mathcal{E} \overset{\textup{L}}{\otimes} \mathcal{P} \right) . \]
+    \[ \Phi_\mathcal{P} : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(Y), \quad \mathcal{E} \mapsto R p_* \left( q^* \mathcal{E} \overset{L}{\otimes} \mathcal{P} \right) . \]
     The object $\mathcal{P}$ is called the \textbf{Fourier--Mukai kernel} of $\Phi_\mathcal{P}$.
     
-    Note that $\Phi_\mathcal{P}$ is \tref{exact-functor-triangulated}{exact} since $q^*, (-) \overset{\textup{L}}{\otimes} \mathcal{P}$ and $\textup{R} p_*$ are all exact.
+    Note that $\Phi_\mathcal{P}$ is \tref{exact-functor-triangulated}{exact} since $q^*, (-) \overset{L}{\otimes} \mathcal{P}$ and $R p_*$ are all exact.
 \end{topic}
 
 \begin{example}{fourier-mukai-transform}
@@ -51,10 +51,10 @@
         \item The identity functor $\id : \textbf{D}^\textup{b}(X) \to \textbf{D}^\textup{b}(X)$ is naturally isomorphic to the Fourier--Mukai transform with kernel the structure sheaf $\mathcal{O}_\Delta$ of the diagonal $\Delta \subset X \times X$. Indeed, if $\iota : X \xrightarrow{\sim} \Delta \subset X \times X$ is the diagonal, then
         \[ \begin{aligned}
             \Phi_{\mathcal{O}_\Delta}(\mathcal{E})
-                &= \textup{R} p_* (q^* \mathcal{E} \overset{\textup{L}}{\otimes} \mathcal{O}_\Delta) \\
-                &= \textup{R} p_* (q^* \mathcal{E} \overset{\textup{L}}{\otimes} \iota_* \mathcal{O}_X) \\
-                &\isom \textup{R} p_* (\textup{R} \iota_* (\iota^* q^* \mathcal{E} \overset{\textup{L}}{\otimes} \mathcal{O}_X) \\
-                &\isom \textup{R} (p \circ \iota)_* (q \circ \iota)^* \mathcal{E} \\
+                &= R p_* (q^* \mathcal{E} \overset{L}{\otimes} \mathcal{O}_\Delta) \\
+                &= R p_* (q^* \mathcal{E} \overset{L}{\otimes} \iota_* \mathcal{O}_X) \\
+                &\isom R p_* (R \iota_* (\iota^* q^* \mathcal{E} \overset{L}{\otimes} \mathcal{O}_X) \\
+                &\isom R (p \circ \iota)_* (q \circ \iota)^* \mathcal{E} \\
                 &\isom \mathcal{E} ,
         \end{aligned} \]
         as $p \circ \iota = q \circ \iota = \id_X$, and where in the third line we used the \tref{AG:projection-formula}{projection formula}.

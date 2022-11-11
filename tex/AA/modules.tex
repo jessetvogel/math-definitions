@@ -312,3 +312,34 @@
             &= H^i(H, W) .
     \end{aligned} \]
 \end{example}
+
+\begin{topic}{pseudo-coherent-module}{pseudo-coherent module}
+    Let $R$ be a \tref{ring}{ring}. An \tref{module}{$R$-module} $M$ is \textbf{$n$-pseudo-coherent}, for some integer $n \ge 0$, if there exists an \tref{HA:exact-sequence}{exact sequence} of $R$-modules
+    \[ \bigoplus_{i = 1}^{r_n} R \to \cdots \to \bigoplus_{i = 1}^{r_1} R \to \bigoplus_{i = 1}^{r_0} R \to M \to 0 . \]
+    The module $M$ \textbf{pseudo-coherent} if it is $n$-pseudo-coherent for all $n \ge 0$.
+\end{topic}
+
+\begin{example}{pseudo-coherent-module}
+    \begin{itemize}
+        \item A module is $0$-pseudo-coherent if and only if it is \tref{finitely-generated-module}{finitely generated}.
+        \item A module is $1$-pseudo-coherent if and only if it is \tref{finitely-presented-module}{finitely presented}.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{projective-dimension}{projective dimension}
+    The \textbf{projective dimension} of a \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$ is the minimal length of a projective resolution of $M$.
+    \[ \cdots \to P_n \to \cdots \to P_2 \to P_1 \to P_0 \to M \to 0 \]
+    It may be infinite.
+\end{topic}
+
+\begin{example}{projective-dimension}
+    Consider $R = k[x, y] / (xy)$ and $M = k$ as an $R$-module, where $x$ and $y$ act by multiplication by zero. Then $M$ cannot be resolved by a finite complex of projective $R$-modules, but there does exist an infinite resolution
+    \[ \cdots \to R^2 \xrightarrow{\begin{pmatrix} y & 0 \\ 0 & x \end{pmatrix}} R^2 \xrightarrow{\begin{pmatrix} x & 0 \\ 0 & y \end{pmatrix}} R^2 \xrightarrow{\begin{pmatrix} y & 0 \\ 0 & x \end{pmatrix}} R^2 \xrightarrow{\begin{pmatrix} x & y \end{pmatrix}} R \to M \to 0 . \]
+    Therefore, the projective dimension of $M$ is infinite.
+\end{example}
+
+\begin{topic}{injective-dimension}{injective dimension}
+    The \textbf{injective dimension} of a \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$ is the minimal length of a injective resolution of $M$.
+    \[ 0 \to M \to I^0 \to I^1 \to I^2 \to \cdots \]
+    It may be infinite.
+\end{topic}

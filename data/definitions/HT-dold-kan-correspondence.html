@@ -1,10 +1,8 @@
 The <b>Dold–Kan correspondence</b> is an <a href="#CT:equivalence-of-categories">equivalence</a> between the category of <a href="#CT:simplicial-object">simplicial</a> <a href="#GT:abelian-group">abelian groups</a> and non-negatively graded <a href="#HA:chain-complex">chain complexes</a> of abelian groups,
-<span class="math display">\[ \textbf{Ab}_\Delta \simeq \operatorname{Ch}_{\ge 0}(\ZZ) . \]</span>
-To any simplicial abelian group <span class="math inline">\(A_\bdot\)</span>, one assigns the <i>(normalized) Moore complex</i>
-<span class="math display">\[ N(A_\bdot)_n := \bigcap_{i = 0}^{n - 1} \ker d_{n, i} \quad \text{ with differential } \quad \partial_n = d_{n, n}, \]</span>
-where <span class="math inline">\(d_{n, i} : A_n \to A_{n - 1}\)</span> are the face maps of <span class="math inline">\(A_\bdot\)</span>.
+<span class="math display">\[ \textbf{Ab}_\Delta \simeq \operatorname{Ch}_{\ge 0}(\textbf{Ab}) . \]</span>
+To any simplicial abelian group <span class="math inline">\(A_\bdot\)</span>, one assigns the <a href="#HT:moore-complex">normalized Moore complex</a> <span class="math inline">\(N(A_\bdot)\)</span>.
 Inversely, to any chain complex <span class="math inline">\(C_\bdot\)</span> one assigns the simplicial abelian group
-<span class="math display">\[ \sigma(C_\bdot)_n := \bigoplus_{[n] \twoheadrightarrow [k]} C_k . \]</span>
+<span class="math display">\[ \sigma(C_\bdot)_n = \bigoplus_{[n] \twoheadrightarrow [k]} C_k . \]</span>
 For any <span class="math inline">\(\nu : [m] \to [n]\)</span> and <span class="math inline">\(\tau : [n] \twoheadrightarrow [k]\)</span>, the composition <span class="math inline">\(\tau\nu : [m] \to [k]\)</span> uniquely factors as <span class="math inline">\([m] \overset{\sigma}{\twoheadrightarrow} [j] \overset{\iota}{\hookrightarrow} [k]\)</span> for some <span class="math inline">\(j \le m, k\)</span>, which defines a map
 <span class="math display">\[ (C_k \to C_j) = \left\{ \begin{array}{cl} \id_{C_k} & \textup{ if } j = k , \\ (-1)^k \partial_k & \textup{ if } j = k - 1 \textup{ and } \iota = d_{k,k} , \\ 0 & \textup{ otherwise}. \end{array} \right. \]</span>
 The universal property of the direct sum yields morphisms <span class="math inline">\(\sigma(C_\bdot)_\nu : \sigma(C_\bdot)_n \to \sigma(C_\bdot)_m\)</span>.<br/>

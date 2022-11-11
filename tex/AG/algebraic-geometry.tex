@@ -199,7 +199,7 @@
 \end{topic}
 
 \begin{topic}{variety}{variety}
-    An (abstract) \textbf{variety} is an \tref{integral-scheme}{integral} \tref{separated-morphism}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over a field $k$.
+    An (abstract) \textbf{variety} is a \tref{reduced-scheme}{reduced} \tref{separated-morphism}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over a \tref{AA:field}{field} $k$.
 \end{topic}
 
 \begin{topic}{complete-variety}{complete variety}
@@ -1237,4 +1237,17 @@
     is not an isomorphism. However, if we add $\Spec \CC(x) \to \Spec \CC[x^{\pm 1}]$ to the morphism, then
     \[ \tilde{f} : \Spec \CC[x^{\pm 1}, y] / (y^2 - x) \sqcup \Spec \CC(x) \to \Spec \CC[x^{\pm 1}] , \]
     is Nisnevich.
+\end{example}
+
+\begin{topic}{jacobian-variety}{Jacobian variety}
+    Let $C$ be a \tref{complete-variety}{complete} \tref{smooth-morphism}{smooth} \tref{algebraic-curve}{curve} over a field $k$, such that $C(k)$ is non-empty.
+    The \textbf{Jacobian variety} of $C$ is a variety $J(C)$ over $k$ representing the functor
+    \[ T \mapsto \operatorname{Pic}_{X/k}(T)^0 , \]
+    where $\operatorname{Pic}_{X/k}$ is the \tref{picard-functor}{relative Picard functor}.
+\end{topic}
+
+\begin{example}{jacobian-variety}
+    Let $E$ be an \tref{elliptic-curve}{elliptic curve}. Then the Jacobian $J(E)$ of $E$ is isomorphic to $E$ via the isomorphism
+    \[ E \xrightarrow{\sim} J(E), \quad P \mapsto \mathcal{O}_E(P - O) , \]
+    where $O$ is the unit of the elliptic curve.
 \end{example}

@@ -192,33 +192,33 @@
 % Derived functors
 \begin{topic}{right-derived-functors}{right derived functors}
     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{injective-resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
-    \[ \textup{R}^i F M = H^i(F(I^\bdot)) . \]
-    This is well-defined (independent of the chosen resolution) and yields additive functors $\textup{R}^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \isom F$.
+    \[ R^i F M = H^i(F(I^\bdot)) . \]
+    This is well-defined (independent of the chosen resolution) and yields additive functors $R^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \isom F$.
     
     For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
-    \[ 0 \to FA \to FB \to FC \to \textup{R}^1FA \to \textup{R}^1FB \to \textup{R}^1FC \to \textup{R}^2FA \to \cdots \]
+    \[ 0 \to FA \to FB \to FC \to R^1FA \to R^1FB \to R^1FC \to R^2FA \to \cdots \]
 \end{topic}
 
 \begin{topic}{left-derived-functors}{left derived functors}
     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough projectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{right exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick a \tref{projective-resolution}{projective resolution} $P^\bdot \to M[0]$. Then we define
-    \[ \textup{L}_i F M = H^i(F(P^\bdot)) . \]
-    This is well-defined (independent of the chosen resolution) and yields additive functors $\textup{L}_i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{left derived functors} of $F$. Note that $\textup{L}_0 F \isom F$.
+    \[ L_i F M = H^i(F(P^\bdot)) . \]
+    This is well-defined (independent of the chosen resolution) and yields additive functors $L_i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{left derived functors} of $F$. Note that $L_0 F \isom F$.
     
     For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
-    \[ \cdots \to \textup{L}_2FC \to \textup{L}_1FA \to \textup{L}_1FB \to \textup{L}_1FC \to FA \to FB \to FC \to 0 \]
+    \[ \cdots \to L_2 FC \to L_1 FA \to L_1 FB \to L_1 FC \to FA \to FB \to FC \to 0 \]
 \end{topic}
 
 \begin{topic}{acyclic-object}{acyclic object}
     Let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact functor} between \tref{abelian-category}{abelian categories}. An object $A$ of $\mathcal{A}$ is called \textbf{acyclic with respect to $F$}, or \textbf{$F$-acyclic}, if
-    \[ \textup{R}^iF(A) = 0 \quad \textup{for all } i > 0, \]
-    where $\textup{R}^i F$ are the \tref{right-derived-functors}{right derived functors} of $F$.
+    \[ R^i F(A) = 0 \quad \textup{for all } i > 0, \]
+    where $R^i F$ are the \tref{right-derived-functors}{right derived functors} of $F$.
     
-    Similarly, if $F : \mathcal{A} \to \mathcal{B}$ is a right exact functor, an object $A$ of $\mathcal{A}$ is \textbf{$F$-acyclic} if $\textup{L}_i F(A) = 0$ for all $i > 0$, where $\textup{L}_i F$ denote the \tref{left-derived-functors}{left derived functors} of $F$.
+    Similarly, if $F : \mathcal{A} \to \mathcal{B}$ is a right exact functor, an object $A$ of $\mathcal{A}$ is \textbf{$F$-acyclic} if $L_i F(A) = 0$ for all $i > 0$, where $L_i F$ denote the \tref{left-derived-functors}{left derived functors} of $F$.
 \end{topic}
 
 \begin{example}{acyclic-object}
     Given a left (resp. right) exact functor $F : \mathcal{A} \to \mathcal{B}$ and an object $A$ of $\mathcal{A}$, an \textit{acyclic resolution} of $A$ is a resolution $0 \to A \to I^0 \to I^1 \to \cdots$ (resp. $\cdots \to P^1 \to P^0 \to A \to 0$) of $A$ where the $I^i$ (resp. $P^i$) are $F$-acyclic objects. The left (resp. right) derived functors can be computed as
-    \[ \textup{R}^i F(A) = H^i(F(I^\bdot)) \qquad \left(\textup{resp. } \textup{L}_i F(A) = H^i(F(P^\bdot)) \right) . \]
+    \[ R^i F(A) = H^i(F(I^\bdot)) \qquad \left(\textup{resp. } L_i F(A) = H^i(F(P^\bdot)) \right) . \]
 \end{example}
 
 \begin{example}{acyclic-object}
@@ -368,7 +368,7 @@
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $A$ an object of $\mathcal{A}$. The functor
     \[ \Hom_{\mathcal{A}}(A, -) : \mathcal{A} \to \textbf{Ab} \]
     is \tref{exact-functor}{left exact}, so (if $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}) it has \tref{right-derived-functors}{right derived functors}, which are known as the \textbf{Ext functors}
-    \[ \textup{Ext}^i_\mathcal{A}(A, B) = \textup{R}^i \Hom_\mathcal{A}(A, B) . \]
+    \[ \textup{Ext}^i_\mathcal{A}(A, B) = R^i \Hom_\mathcal{A}(A, B) . \]
 \end{topic}
 
 \begin{example}{ext-functors}
@@ -393,7 +393,7 @@
     For a commutative \tref{AA:ring}{ring} $R$ and an $R$-module $B$, the \tref{AA:tensor-product}{tensor product} gives a functor
     \[ (-) \otimes_R B : R\textbf{-Mod} \to R\textbf{-Mod} \]
     which is \tref{exact-functor}{right exact}, so it has \tref{left-derived-functors}{left derived functors}, which are known as the \textbf{Tor functors}
-    \[ \textup{Tor}^R_i(A, B) = A \overset{\textup{L}_i}{\otimes} B . \]
+    \[ \textup{Tor}^R_i(A, B) = A \overset{L_i}{\otimes} B . \]
 \end{topic}
 
 \begin{example}{tor-functors}
@@ -490,7 +490,7 @@
 \end{example}
 
 \begin{example}{homological-dimension}
-    Knowing the global homological dimension $n$ of a category $\mathcal{A}$ is useful, as it follows that for any \tref{exact-functor}{right exact functor} $F : \mathcal{A} \to \mathcal{B}$ the \tref{left-derived-functors}{left derived functors} $\textup{L}^i F A$ are zero for all $A$ in $\mathcal{A}$ and $i > n$.
+    Knowing the global homological dimension $n$ of a category $\mathcal{A}$ is useful, as it follows that for any \tref{exact-functor}{right exact functor} $F : \mathcal{A} \to \mathcal{B}$ the \tref{left-derived-functors}{left derived functors} $L^i F A$ are zero for all $A$ in $\mathcal{A}$ and $i > n$.
     
     In particular, for $F = \Hom_\mathcal{A}(-, B)$ we find $\textup{Ext}_\mathcal{A}^i(A, B) = 0$ for all $A, B$ in $\mathcal{A}$ and $i > n$.
 \end{example}
@@ -616,7 +616,7 @@
     whose inverses are given by
     \[ \Phi_n : C^n(G, M) \xrightarrow{\sim} \Hom_{\ZZ[G]}(F_n, M), \quad \Phi_n(f)(g_0, \ldots, g_n) = g_0 f(g_0^{-1} g_1, g_1^{-1} g_2, \ldots, g_{n - 1}^{-1} g_n) . \]
     In particular the cohomology groups agree, and thus group cohomology is given by
-    \[ H^n(G, M) \isom \textup{R}^i \Hom_{\ZZ[G]}(\ZZ, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) . \]
+    \[ H^n(G, M) \isom R^i \Hom_{\ZZ[G]}(\ZZ, M) = \textup{Ext}^n_{\ZZ[G]}(\ZZ, M) . \]
 \end{example}
 
 \begin{topic}{contractible-chain-complex}{contractible chain complex}

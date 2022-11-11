@@ -8,6 +8,10 @@
 
 ---- Theory ----
 
+HT: Quillen equivalence example: it is a theorem that | - | \dashv Sing(-). In particular, Ho(Set_\Delta) \simeq Ho(Top)
+HA: coextension of scalars
+AG: polarized variety (ample line bundle)
+
 AG: direct image with compact support f_!
 AG: exceptional inverse image f^!
 AG: (complete) linear system
@@ -48,19 +52,17 @@ AA: Primitive ideal / Primitive spectrum (C*-algebra)
 AA: witt vectors
 
 -- Homological Algebra
-HA: split up Dold-Kan into Moore chain complex / normalized chain complex
 HA: triangulated enhancement
 HA: exceptional sequence example: any line bundle in D^b(X) for X connected smooth projective. Hom(L, L) = k, and Ext^(i > 0)(L, L) = 0, since $L$ locally free! ??
 HA: (Semiorthogonal decomposition for projective bundles)
-HA: (Grothendieck) derivator (example: Quillen Model structures D = HO(M), then X \mapsto Ho(Fun(X^op, M))) (Appendix A of https://math.mit.edu/~tabuada/BuenosAires.pdf)
 HA: Grothendieck's six operations (https://arxiv.org/pdf/0912.2110.pdf, https://guests.mpim-bonn.mpg.de/gallauer/docs/m6ff.pdf)
+HA: (Grothendieck) derivator (example: Quillen Model structures D = HO(M), then X \mapsto Ho(Fun(X^op, M))) (Appendix A of https://math.mit.edu/~tabuada/BuenosAires.pdf)
 
 -- Differential Geometry
 DG: Hermitian manifold
 DG: moment polytope (da Silva, Chapter 27)
 DG?: Goldman symplectic structure
 DG: Atiyah--Singer theorem
-DG: Morse function / Morse homology
 DG: Floer homology (https://math.berkeley.edu/~auroux/papers/lec-nantes.pdf, https://walkerstern.gitlab.io/Notes/Fukaya/Notes_Fukaya.pdf)
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
@@ -71,7 +73,6 @@ DG: Hermitian connection / Chern connection
 -- Algebraic Geometry
 AG: D-module
 AG: wonderful compactification
-AG: Jacobian variety
 AG: Abel--Jacobi theorem
 AG: Kempf-Ness stratification
 AG: natural log structure on toric varieties
@@ -165,3 +166,6 @@ TO: T5 and T6 space
     - Kontsevich Homological Mirror Symmetry
 - Path-ordered exponential
 - Intersection cohomology
+
+-- Probability Theory / Statistics
+PT: random variables, pdf, cdf, central limit theorem, ...

@@ -495,22 +495,6 @@
     A \textbf{GCD domain} is a \tref{domain}{domain} $R$ in which any two elements $a, b$ have a \tref{gcd}{greatest common divisor}.
 \end{topic}
 
-\begin{topic}{projective-dimension}{projective dimension}
-    The \textbf{projective dimension} of a \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$ is the minimal length of a projective resolution of $M$.
-    \[ \cdots \to P_n \to \cdots \to P_2 \to P_1 \to P_0 \to M \to 0 \]
-    It may be infinite.
-\end{topic}
-
-% \begin{example}{projective-dimension}
-%     Consider $R = k[x, y] / (xy)$ and $M = k$ as an $R$-module, where $x$ and $y$ act by multiplication by zero.
-% \end{example}
-
-\begin{topic}{injective-dimension}{injective dimension}
-    The \textbf{injective dimension} of a \tref{module}{module} $M$ over a \tref{ring}{commutative ring} $R$ is the minimal length of a injective resolution of $M$.
-    \[ 0 \to M \to I^0 \to I^1 \to I^2 \to \cdots \]
-    It may be infinite.
-\end{topic}
-
 \begin{topic}{gorenstein-ring}{Gorenstein ring}
     A \textbf{Gorenstein local ring} is a commutative \tref{noetherian-ring}{noetherian} \tref{local-ring}{local} \tref{ring}{ring} $R$ with finite \tref{injective-dimension}{injective dimension} as an $R$-module.
     
@@ -875,3 +859,20 @@
     The \textbf{Novikov field} of $\Gamma$ over $k$ is the field
     \[ \left\{ \sum_{i = 0}^{\infty} a T^{\lambda_i} : a_i \in k, \lambda_i \in \Gamma \textup{ and } \lim_{i \to \infty} \lambda_i = \infty \right\} . \]
 \end{topic}
+
+\begin{topic}{plethystic-exponential}{plethystic exponential}
+    Let $R$ be a \tref{ring}{commutative ring}. The \textbf{plethystic exponential} of a power series $f \in t R \llbracket t \rrbracket$ is 
+    \[ \operatorname{PExp}(f) = \exp \left( \sum_{k = 1}^{\infty} \frac{f(t^k)}{k} \right) \in R \llbracket t \rrbracket . \]
+\end{topic}
+
+\begin{example}{plethystic-exponential}
+    For any $n \ge 0$,
+    \[ \operatorname{PExp}(t^n) = \exp \left( \sum_{k = 1}^{\infty} \frac{t^{nk}}{k} \right) = \exp \left( - \log(1 - t^n) \right) = \frac{1}{1 - t^n} . \]
+    Furthermore, the plethystic exponential satisfies the following properties:
+    \begin{itemize}
+        \item $\operatorname{PExp}(0) = 1$,
+        \item $\operatorname{PExp}(f + g) = \operatorname{PExp}(f) \operatorname{PExp}(g)$ for all $f, g \in t R \llbracket t \rrbracket$,
+        \item $\operatorname{PExp}(-f) = \operatorname{PExp}(f)^{-1}$ for all $f \in t R \llbracket t \rrbracket$.
+    \end{itemize}
+    
+\end{example}
