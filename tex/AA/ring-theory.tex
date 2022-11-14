@@ -282,6 +282,23 @@
     where $\varepsilon : P_\bdot \to B$ is a free resolution of simplicial $A$-algebras.
 \end{topic}
 
+\begin{example}{cotangent-complex}
+    Let $k$ be a field of characteristic zero, and consider $A = k[x] / (x^n)$ as $k$-algebra. In order to compute $\mathbb{L}_{A/k}$, we pick a cofibrant replacement of $A$ given by $A' = k[y, t]$, where $\deg(y) = 0$ and $\deg(t) = 1$ with $dt = y^n$, and the map $A' \to A$ is given by $y \mapsto x$ and $t \mapsto 0$. Now $\mathbb{L}_{A/k}$ can be computed as $I/I^2$ for $I = \ker(A' \otimes_k A \xrightarrow{f} A)$, where $f$ is given by multiplication in $A$.
+    \[ \begin{tikzcd}
+        I = \ker f \arrow{d} & k[x, y] / (x^n) \cdot t \arrow[equals]{d} \arrow{r}{t \mapsto y^n} & (y - x) \arrow{d} \\
+        A' \otimes_k A \arrow{d}{f} & k[x, y] / (x^n) \cdot t \arrow{d} \arrow{r}{t \mapsto y^n} & k[x, y] / (x^n) \arrow{d}{y \mapsto x} \\
+        A & 0 \arrow{r} & k[x] / (x^n)
+    \end{tikzcd} \]
+    In particular, the cotangent complex is given by
+    \[ \mathbb{L}_{A/k} = \Big[ k[x] / (x^n) \cdot t \xrightarrow{t \mapsto n x^{n - 1} (y - x)} k \langle y - x \rangle \oplus k \langle x (y - x) \rangle \oplus \cdots \oplus k \langle x^{n - 1} (y - x) \rangle \Big]  \]
+    and its non-trivial homology groups can be computed as
+    \[ \begin{aligned}
+        H_0(\mathbb{L}_{A/k}) &\isom k \langle y - x \rangle \oplus k \langle x (y - x) \rangle \oplus \cdots \oplus k \langle x^{n - 2} (y - x) \rangle \isom \Omega^1_{A/k} , \\
+        H_1(\mathbb{L}_{A/k}) &\isom (x) k[x] / (x^n) \isom k \langle x \rangle \oplus \cdots \oplus k \langle x^{n - 1} \rangle ,
+    \end{aligned} \]
+    both having dimension $n - 1$ over $k$.
+\end{example}
+
 \begin{topic}{division-ring}{division ring}
     A \textbf{division ring} is a non-zero \tref{ring}{ring} $R$ in which every non-zero element $x \in R$ is a \tref{unit-element}{unit}, i.e. there exists $y \in R$ such that $xy = yx = 1$
 \end{topic}

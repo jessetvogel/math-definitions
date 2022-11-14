@@ -417,6 +417,7 @@ const topics = {
   "AG:motivic-integration": "motivic integration",
   "AG:nisnevich-morphism": "Nisnevich morphism",
   "AG:jacobian-variety": "Jacobian variety",
+  "AG:polarized-variety": "polarized variety",
   "AG:sheaf": "sheaf",
   "AG:constant-sheaf": "constant sheaf",
   "AG:stalk": "stalk",

@@ -19,6 +19,13 @@
     \[ N(A_\bdot)_n = \bigcap_{i = 0}^{n - 1} \ker d_{n, i} \quad \text{ with differential } \quad \partial_n = d_{n, n} . \]
 \end{topic}
 
+\begin{example}{moore-complex}
+    Let $A_\bdot$ be a constant simplicial abelian group, that is, $A_n = A$ and all face and degeneracy maps are $\id_A$. Then the Moore complex of $A_\bdot$ is
+    \[ C(A_\bdot) = \left[ \cdots \xrightarrow{\id_A} \underset{(3)}{A} \xrightarrow{0} \underset{(2)}{A} \xrightarrow{\id_A} \underset{(1)}{A} \xrightarrow{0} \underset{(0)}{A} \to 0 \right] \]
+    and the normalized Moore complex is
+    \[ N(A_\bdot) = \left[ \cdots \underset{(3)}{0} \to \underset{(2)}{0} \to \underset{(1)}{0} \to \underset{(0)}{A} \to 0 \right] . \]
+\end{example}
+
 \begin{topic}{dold-kan-correspondence}{Dold--Kan correspondence}
     The \textbf{Dold--Kan correspondence} is an \tref{CT:equivalence-of-categories}{equivalence} between the category of \tref{CT:simplicial-object}{simplicial} \tref{GT:abelian-group}{abelian groups} and non-negatively graded \tref{HA:chain-complex}{chain complexes} of abelian groups,
     \[ \textbf{Ab}_\Delta \simeq \operatorname{Ch}_{\ge 0}(\textbf{Ab}) . \]

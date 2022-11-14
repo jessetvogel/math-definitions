@@ -8,9 +8,10 @@
 
 ---- Theory ----
 
+ST: correct lattice, complemented lattice, complete lattice, ...
+
 HT: Quillen equivalence example: it is a theorem that | - | \dashv Sing(-). In particular, Ho(Set_\Delta) \simeq Ho(Top)
 HA: coextension of scalars
-AG: polarized variety (ample line bundle)
 
 AG: direct image with compact support f_!
 AG: exceptional inverse image f^!
