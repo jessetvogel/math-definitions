@@ -1062,3 +1062,31 @@
     \[ (h, n) \circ (h', n') = (h \circ h', n \circ \varphi(h)(n')) . \]
     That is, $\int_{\mathcal{C}_H} F$ is the \tref{GT:semidirect-product}{semidirect product} $N \rtimes_\varphi H$ seen as a category with a single object.
 \end{example}
+
+\begin{topic}{internal-category}{internal category}
+    Let $\mathcal{C}$ be a \tref{category}{category} with \tref{pullback}{pullbacks}. A \textbf{category internal} to $\mathcal{C}$ consists of
+    \begin{itemize}
+        \item objects $C_0, C_1$ in $\mathcal{C}$,
+        \item morphisms $s, t : C_1 \to C_0$,
+        \item a morphism $e : C_0 \to C_1$,
+        \item a morphism $c : C_1 \times_{C_0} C_1 \to C_1$, where the pullback of $s$ and $t$ is taken,
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item (\textit{source/target identity}) $s \circ e = t \circ e = \id_{C_0}$,
+        \item (\textit{source/target composition}) $s \circ c = s \circ \pi_1$ and $t \circ c = t \circ \pi_2$,
+        \item (\textit{associativity}) $c \circ (\id_{C_1} \times_{C_0} c) = c \circ (c \times_{C_0} \id_{C_1})$,
+        \item (\textit{composition identity}) $e \times_{C_0} \id_{C_1} \circ c = \pi_2$ and $\id_{C_1} \times_{C_0} e \circ c = \pi_1$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{internal-category}
+    \begin{itemize}
+        \item A category internal to \textbf{Set} is the same as a \tref{small-category}{small category}.
+        \item A category internal to \textbf{Cat} is the same as a \tref{double-category}{double category}.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{double-category}{double category}
+    A \textbf{double category} is a \tref{internal-category}{category internal} to the \tref{category}{category} of categories  $\textbf{Cat}$.
+\end{topic}

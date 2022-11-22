@@ -8,6 +8,9 @@
 
 ---- Theory ----
 
+FA: Schauder basis (example: Fourier series)
+DG: Whitney stratification
+CA: Monomial order and Gröbner basis for \oplus S
 ST: correct lattice, complemented lattice, complete lattice, ...
 
 HT: Quillen equivalence example: it is a theorem that | - | \dashv Sing(-). In particular, Ho(Set_\Delta) \simeq Ho(Top)
@@ -36,21 +39,15 @@ CA: Riemann mapping theorem
 -- Higher Algebra
 Spectrum object
 
-Jack functions / Hall--Littlewood / Macdonald polynomials
-
--- General
-GM: graph (directed, weighted)
-
 -- Algebra
 AA: reflection equation algebra / construct quantum group (as O_q(G))
 AA: two-sided bar construction
 AA: dual (Hopf) algebra (https://math.stackexchange.com/questions/3324098/dual-of-a-hopf-algebra)
 AA: semisimple Lie algebra: equivalent conditions
 AA: Manin triple (example: correspondence: f.d. Manin triple <=> f.d. Lie bialgebra)
-AA: Dedekind domain (Example: give equivalent definitions proof)
 AA: bar complex as simplicial complex
 AA: Primitive ideal / Primitive spectrum (C*-algebra)
-AA: witt vectors
+AA: Jack functions / Hall--Littlewood / Macdonald polynomials
 
 -- Homological Algebra
 HA: triangulated enhancement
@@ -146,15 +143,6 @@ NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Cor
 NT?: Hasse principle
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 NT: conductor (abelian extensions?)
-
--- Logic
-LO: Diaconescu's theorem
-
--- Representation Theory
-RT: Schur index
-
--- Topology
-TO: T5 and T6 space
 
 -- Uncategorized
 - Modular form

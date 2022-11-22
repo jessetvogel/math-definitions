@@ -50,7 +50,7 @@
 \end{topic}
 
 \begin{topic}{matrix}{matrix}
-    Let $V$ and $W$ be finite-dimensional \tref{vector-space}{vector spaces}, and $f : V \to W$ a \tref{linear-map}{linear map}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are ordered \tref{basis}{bases} of $V$ and $W$, respectively, then the $m \times n$ \textbf{matrix} associated to $f$ is
+    Let $f : V \to W$ be a \tref{linear-map}{linear map} between finite-dimensional \tref{vector-space}{vector spaces}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are ordered \tref{basis}{bases} for $V$ and $W$, respectively, then the $m \times n$ \textbf{matrix} representing $f$ with respect to these bases is
     \[ A = \begin{pmatrix} a_{11} & a_{21} & \cdots & a_{n1} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix} \]
     where $a_{ij}$ is the $i$-th component of $f(v_j)$ with respect to the basis for $W$.
 \end{topic}
@@ -63,10 +63,6 @@
 \begin{topic}{matrix-transpose}{matrix transpose}
     The \textbf{transpose} of a matrix $A = (a_{ij})$ is the matrix $A^T = (b_{ij})$ given by $b_{ij} = a_{ji}$.
 \end{topic}
-
-% \begin{topic}{row-echelon-form}{(reduced) row-echelon form}
-    
-% \end{topic}
 
 \begin{topic}{invertible-matrix}{invertible matrix}
     An $n \times n$ \tref{matrix}{matrix} $A$ is \textbf{invertible} if there exists an $n \times n$ matrix $B$ such that $AB = BA = I$. In this case, $B$ is called the \textbf{inverse} of $A$, and is the unique matrix with this property.
@@ -536,7 +532,7 @@
     An $m \times n$ matrix $A$ is said to be in \textbf{row echelon form} if
     \begin{itemize}
         \item the zero rows of $A$ are below the nonzero rows of $A$, and
-        \item the \textit{pivot} of each nonzero row, i.e. its first nonzero entry, is farther to the right than the pivots of the rows above.
+        \item the \textit{pivot} of each nonzero row, i.e. its first nonzero entry, is strictly to the right of the pivots of the rows above.
     \end{itemize}
     The matrix $A$ is said to be in \textbf{reduced row echelon form} if in addition
     \begin{itemize}

@@ -139,7 +139,7 @@
 \end{example}
 
 \begin{topic}{zorns-lemma}{Zorn's lemma}
-    Let $P$ be a \tref{ST:partially-ordered-set}{partially ordered set}, such that every chain in $P$
+    Let $P$ be a \tref{ST:partial-order}{partially ordered set}, such that every chain in $P$
     \[ x_1 \le x_2 \le x_3 \le \cdots \]
     has an upper bound in $P$. Then \textbf{Zorn's lemma} states that $P$ contains at least one maximal element.
 \end{topic}
@@ -205,3 +205,9 @@
         \item $\pi = [3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, \ldots]$
     \end{itemize}
 \end{example}
+
+\begin{topic}{dickson-lemma}{Dickson's lemma}
+    For any $n \ge 1$, consider the \tref{ST:partial-order}{partial order} on $\NN^n$ given by
+    \[ (a_1, \ldots, a_n) \le (b_1, \ldots, b_n) \iff a_i \le b_i \textup{ for all } i . \]
+    \textbf{Dickson's lemma} states that every non-empty subset $S \subset \NN^n$ has only finitely many minimal elements.
+\end{topic}

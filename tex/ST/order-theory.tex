@@ -1,15 +1,36 @@
-\begin{topic}{partially-ordered-set}{partially ordered set}
-    A \textbf{partial order} on a set $P$ is a \tref{binary-relation}{binary relation} $\le$ on $P$ such that
+\begin{topic}{partial-order}{partial order}
+    A \textbf{partial order} on a set $A$ is a \tref{binary-relation}{binary relation} $\le$ on $A$ such that
     \begin{itemize}
-        \item (\textit{reflexivity}) $x \le x$ for all $x \in P$,
-        \item (\textit{anti-symmetry}) if $x \le y$ and $y \le x$ then $x = y$ for all $x, y \in P$,
-        \item (\textit{transitivity}) if $x \le y$ and $y \le z$ then $x \le z$ for all $x, y, z \in P$.
+        \item (\textit{reflexivity}) $x \le x$ for all $x \in A$,
+        \item (\textit{anti-symmetry}) if $x \le y$ and $y \le x$ then $x = y$ for all $x, y \in A$,
+        \item (\textit{transitivity}) if $x \le y$ and $y \le z$ then $x \le z$ for all $x, y, z \in A$.
     \end{itemize}
-    A \textbf{partially ordered set} is a set $P$ together with a partial order $\le$.
+    A \textbf{partially ordered set} is a set $A$ together with a partial order $\le$.
 \end{topic}
 
+\begin{topic}{total-order}{total order}
+    A \textbf{total order} on a set $A$ is a \tref{partial-order}{partial order} $\le$ such that
+    \begin{itemize}
+        \item (\textit{total}) $x \le y$ or $y \le x$ for all $x, y \in A$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{well-order}{well-order}
+    A \textbf{well-order} on a set $A$ is a \tref{total-order}{total order} $\le$ such that
+    \begin{itemize}
+        \item (\textit{least element}) for every non-empty subset $S \subset A$, there exists an element $s \in S$ such that $s \le x$ for all $x \in S$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{well-order}
+    \begin{itemize}
+        \item The natural numbers $\NN$ with the usual order $\le$ is a well-order.
+        \item The real numbers $\RR$ with the usual order $\le$ is not a well-order. Namely, the open interval $(0, 1) \subset \RR$ does not have a least element.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{lattice}{lattice}
-    A \textbf{lattice} is a \tref{partially-ordered-set}{partially ordered set} $(P, \le)$ such that
+    A \textbf{lattice} is a \tref{partial-order}{partially ordered set} $(P, \le)$ such that
     \begin{itemize}
         \item (\textit{least upper bound}) any two elements $x, y \in P$ have a least upper bound $x \vee y$,
         \item (\textit{greatest lower bound}) any two elements $x, y \in P$ have a greatest lower bound $x \wedge y$,
@@ -32,7 +53,7 @@
 \end{example}
 
 \begin{topic}{atom}{atom}
-    Let $(P, \le)$ be a \tref{partially-ordered-set}{partially ordered set} with a least element $0 \in P$. An \textbf{atom} in $P$ is an element $x \in P$ not equal to $0$ such that $y \le x$ implies $y = 0$ or $y = x$ for all $y \in P$.
+    Let $(P, \le)$ be a \tref{partial-order}{partially ordered set} with a least element $0 \in P$. An \textbf{atom} in $P$ is an element $x \in P$ not equal to $0$ such that $y \le x$ implies $y = 0$ or $y = x$ for all $y \in P$.
 \end{topic}
 
 \begin{topic}{heyting-algebra}{Heyting algebra}
@@ -46,7 +67,7 @@
 \end{topic}
 
 \begin{topic}{filter}{filter}
-    Let $(P, \le)$ be a \tref{partially-ordered-set}{partially ordered set}. A \textbf{filter} on $P$ is a subset $F \subset P$ such that
+    Let $(P, \le)$ be a \tref{partial-order}{partially ordered set}. A \textbf{filter} on $P$ is a subset $F \subset P$ such that
     \begin{itemize}
         \item (\textit{non-empty}) $F$ is non-empty,
         \item (\textit{downward directed}) for every $x, y \in F$ there exists some $z \in F$ with $z \le x$ and $z \le y$,

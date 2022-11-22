@@ -222,6 +222,14 @@
     A \textbf{T4 space} is a \tref{topological-space}{topological space} which is \tref{normal-space}{normal} and \tref{hausdorff-space}{Hausdorff}.
 \end{topic}
 
+\begin{topic}{T5-space}{T5 (completely normal Hausdorff) space}
+    A \textbf{T5 space} is a \tref{topological-space}{topological space} $X$ which is completely normal and \tref{hausdorff-space}{Hausdorff}. Equivalently, every subspace of $X$ is a \tref{T4-space}{T4 space}.
+\end{topic}
+
+\begin{topic}{T6-space}{T6 (perfectly normal Hausdorff space) space}
+    A \textbf{T6 space} is a \tref{topological-space}{topological space} $X$ which is \tref{hausdorff-space}{Hausdorff} such that for every two disjoint closed subsets $Y, Z \subset X$, there exists a \tref{continuous-map}{continuous function} $f : [0, 1] \to X$ with $f^{-1}(0) = Y$ and $f^{-1}(1) = Z$.
+\end{topic}
+
 \begin{topic}{simply-connected-space}{simply connected space}
     A \tref{topological-space}{topological space} $X$ is \textbf{simply connected} if it is \tref{path-connected-space}{path-connected} and every loop $f : S^1 \to X$ can be contracted to a point, i.e. there exists map $F : D^2 \to X$ which restricts to $f$ on $S^1$.
     
@@ -452,7 +460,7 @@
 \end{topic}
 
 \begin{topic}{alexandroff-topology}{Alexandroff topology}
-    Let $(P, \le)$ be a \tref{ST:partially-ordered-set}{partially ordered set}. The \textbf{Alexandroff topology} on $P$ is the \tref{topological-space}{topology} on $P$ given by
+    Let $(P, \le)$ be a \tref{ST:partial-order}{partially ordered set}. The \textbf{Alexandroff topology} on $P$ is the \tref{topological-space}{topology} on $P$ given by
     \[ \mathcal{T}_P = \{ U \subset P \mid x \in U \textup{ and } x \le y \textup{ implies } y \in U \textup{ for all } x, y \in P \} . \]
 \end{topic}
 

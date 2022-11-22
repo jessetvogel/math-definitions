@@ -1,0 +1,11 @@
+Let <span class="math inline">\(p\)</span> be a prime number, and <span class="math inline">\(R\)</span> a <a href="#AA:ring">commutative ring</a>. For every <span class="math inline">\(n \ge 0\)</span>, the <b><span class="math inline">\(n\)</span>-th Witt polynomial</b> is given by
+<span class="math display">\[ W_n = \sum_{i = 0}^{n} p^i X_i^{p^{n - i}} \in \ZZ[X_0, X_1, \ldots] . \]</span>
+The ring of <b>Witt vectors</b> over <span class="math inline">\(R\)</span> is the set <span class="math inline">\(W(R)\)</span> of sequences <span class="math inline">\(x = (x_0, x_1, \ldots)\)</span> of elements in <span class="math inline">\(R\)</span>, with the unique commutative ring structure such that
+<ul><li> for any <span class="math inline">\(x, y \in W(R)\)</span>,
+<span class="math display">\[ \begin{aligned}
+            x + y &= (\Sigma_0(x_0, y_0), \Sigma_1(x_0, y_0, x_1, y_1), \ldots) \\
+            x \cdot y &= (\Pi_0(x_0, y_0), \Pi_1(x_0, y_0, x_1, y_1), \ldots)
+        \end{aligned} \]</span>
+with <span class="math inline">\(\Sigma_i\)</span> and <span class="math inline">\(\Pi_i\)</span> polynomials with coefficients in <span class="math inline">\(\ZZ\)</span>, independent of <span class="math inline">\(R\)</span>.
+</li><li> for every <span class="math inline">\(n \ge 0\)</span>, the Witt polynomial <span class="math inline">\(W_n\)</span> defines a ring morphism <span class="math inline">\(W(R) \to R\)</span>.
+</li></ul>

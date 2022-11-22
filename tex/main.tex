@@ -15,7 +15,7 @@
 \newpage
 
 {
-    \renewcommand{\baselinestretch}{0.6}\normalsize
+    % \renewcommand{\baselinestretch}{0.6}\normalsize
     \tableofcontents
 }
 
@@ -29,6 +29,15 @@
 \renewcommand{\cat}{ST}
 \input{ST/set-theory}
 \input{ST/order-theory}
+
+\chapter{Logic}
+\renewcommand{\cat}{LO}
+\input{LO/logic}
+
+\chapter{Combinatorics}
+\renewcommand{\cat}{CO}
+\input{CO/combinatorics}
+\input{CO/quivers}
 
 \chapter{Linear Algebra}
 \renewcommand{\cat}{LA}
@@ -55,6 +64,7 @@
 \renewcommand{\cat}{CT}
 \input{CT/category-theory}
 \input{CT/monoidal-categories}
+\input{CT/simplicial-objects}
 \input{CT/higher-category-theory}
 
 \chapter{Algebra}
@@ -130,6 +140,5 @@
 \chapter{Uncategorized}
 \renewcommand{\cat}{UN}
 \input{UN/uncategorized}
-\input{UN/quivers}
 
 \end{document}

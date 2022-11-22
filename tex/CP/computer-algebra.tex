@@ -1,7 +1,70 @@
+\begin{topic}{monomial-order}{monomial order}
+    Let $k$ be a \tref{AA:field}{field}. A \textbf{monomial} in $S = k[x_1, \ldots, x_n]$ is an element of the form $X^\alpha = x_1^{\alpha_1} \cdots x_n^{\alpha_n}$ with $\alpha_i \in \NN$. A \textbf{monomial order} on $S$ is a \tref{ST:total-order}{total order} on the set of monomials of $S$ such that
+    \begin{itemize}
+        \item $1 < X$ for all monomials $X \ne 1$ of $S$,
+        \item if $X < Y$ then $XZ < YZ$ for all monomials $X, Y$ and $Z$ of $S$.
+    \end{itemize}
+    
+    For a given monomial order on $S$ and any non-zero polynomial $f \in k[x_1, \ldots, x_n]$, write
+    \[ f = a_1 X^{\alpha_1} + \cdots a_m X^{\alpha_m} \]
+    with $a_i \ne 0$ and such that $X^{\alpha_1} > \cdots > X^{\alpha_r}$, one defines
+    \begin{itemize}
+        \item $\operatorname{lm}(f) = X^{\alpha_1}$, the \textit{leading monomial} of $f$,
+        \item $\operatorname{lc}(f) = a_1$, the \textit{leading coefficient} of $f$,
+        \item $\operatorname{lt}(f) = a_1 X^{\alpha_1}$, the \textit{leading term} of $f$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{monomial-order}
+    \begin{itemize}
+        \item The \textit{lexicographical order} is the monomial order defined by
+        \[ X^\alpha < X^\beta \iff \left\{ \begin{array}{l} \text{the first coordinates $\alpha_i$ and $\beta_i$ which} \\ \text{are different satisfy $\alpha_i < \beta_i$} \end{array} \right. \]
+        In particular, for $k[x, y]$ this gives $1 < y < y^2 < y^3 < \cdots < x < xy < xy^2 < \cdots < x^2 < \cdots$.
+        \item The \textit{degree lexicographical order} is the monomial order defined by
+        \[ X^\alpha < X^\beta \iff \left\{ \begin{array}{l} \text{$\deg(X^\alpha) < \deg(X^\beta)$,} \\ \text{with lex order as tiebreaker} \end{array} \right. \]
+        In particular, for $k[x, y]$ this gives $1 < x < y < x^2 < xy < y^2 < x^3 < x^2 y < x y^2 < y^3 < \cdots$.
+        \item The \textit{degree reverse lexicographical order} is defined as
+        \[ X^\alpha < X^\beta \iff \left\{ \begin{array}{l} \text{$\deg(X^\alpha) < \deg(X^\beta)$, and as tiebreaker:} \\ \text{use reverse lex order, invert the result} \end{array} \right. \]
+        In particular, for $k[x, y, z]$ this gives $z^2 < yz < xz < y^2 < xy < x^2$.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{groebner-basis}{Gröbner basis}
-    Let $I \subset k[x_1, x_2, \ldots, x_n]$ be an \tref{AA:ideal}{ideal}. A generating set $G = \{ g_1, g_2, \ldots, g_n \}$ for $I$ is called a \textbf{Gröbner basis} for $I$ if for all non-zero $f \in I$, the \textit{leading monomial} $\textup{lm}(g_i)$ divides $\textup{lm}(f)$ for some $i$.
+    Let $k$ be a \tref{AA:field}{field}, and choose a \tref{monomial-order}{monomial order} on $S = k[x_1, \ldots, x_n]$. A \textbf{Gröbner basis} for an \tref{AA:ideal}{ideal} $I \subset S$ is a generating set $G = \{ g_1, g_2, \ldots, g_n \}$ such that for all non-zero $f \in I$, the leading monomial $\operatorname{lm}(g_i)$ divides $\operatorname{lm}(f)$ for some $i$.
     
-    A Gröbner basis $G$ is called \textbf{minimal} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and the leading monomial $\textup{lm}(g_i)$ does not divide $\textup{lm}(g_j)$ for $i \ne j$.
+    A Gröbner basis $G$ is called \textbf{minimal} if the leading coefficients $\operatorname{lc}(g_i) = 1$ for all $i$, and the leading monomial $\operatorname{lm}(g_i)$ does not divide $\operatorname{lm}(g_j)$ for $i \ne j$.
     
-    A Gröbner basis $G$ is called \textbf{reduced} if the \textit{leading coefficients} $\text{lc}(g_i) = 1$ for all $i$, and $g_i$ is reduced with respect to $G - \{ g_i \}$. A reduced Gröbner basis for $I$ always exists and is unique.
+    A Gröbner basis $G$ is called \textbf{reduced} if the leading coefficients $\operatorname{lc}(g_i) = 1$ for all $i$, and $g_i$ is reduced with respect to $G \setminus \{ g_i \}$. A reduced Gröbner basis for $I$ always exists and is unique.
+\end{topic}
+
+\begin{topic}{schreyer-resolution}{Schreyer resolution}
+    Let $k$ be a \tref{AA:field}{field} and let $S = k[x_1, \ldots, x_n] / I$ for some ideal $I$.
+    A \textbf{Schreyer resolution} of an \tref{AA:module}{$S$-module} $M$ is an \tref{HA:exact-sequence}{exact sequence}
+    \[ \Phi : \cdots \to F_i \xrightarrow{\varphi_i} F_{i - 1} \xrightarrow{\varphi_{i - 1}} \cdots \xrightarrow{\varphi_2} F_1 \xrightarrow{\varphi_1} F_0 \xrightarrow{\varphi_0} M \to 0 \]
+    such that
+    \begin{itemize}
+        \item every $F_i = S^{\oplus n_i}$ is a free $S$-module with basis $e_1, \ldots, e_{n_i}$,
+        \item $\{ \varphi_i(e_j) : 1 \le j \le n_i \}$ forms a \tref{groebner-basis}{minimal Gröbner basis} for the image of $\varphi_i$, for all $i \ge 1$.
+    \end{itemize}
+    
+    A \textbf{Schreyer frame} of $M$ is a sequence of $S$-module morphisms
+    \[ \Xi : \cdots \to F_i \xrightarrow{\xi_i} F_{i - 1} \xrightarrow{\xi_{i - 1}} \cdots \xrightarrow{\xi_2} F_1 \xrightarrow{\xi_1} F_0 \xrightarrow{\xi_0} M \to 0 \]
+    such that
+    \begin{itemize}
+        \item every $F_i = S^{\oplus n_i}$ is a free $S$-module with basis $e_1, \ldots, e_{n_i}$,
+        \item the sequence is exact at $M$,
+        % \item $\{ \xi_1(e_1), \ldots, \xi_1(e_{n_1}) \}$ is a minimal set of generators for $\textup{in}(\ker \xi_0)$,
+        \item $\{ \xi_i(e_j) : 1 \le j \le n_i \}$ is a minimal set of generators for the initial ideal $(\operatorname{lm}(f) : f \in \ker \xi_{i - 1})$ for all $i \ge 1$.
+    \end{itemize}
+    In particular, if $\Phi$ is a Schreyer resolution for $M$, then defining $\xi_0 = \varphi_0$ and $\xi_i(e_j) = \operatorname{lm}(\varphi_i(e_j))$ for $i > 0$ gives a Schreyer frame for $M$.
+\end{topic}
+
+\begin{topic}{schreyer-theorem}{Schreyer's theorem}
+    Let $k$ be a \tref{AA:field}{field} and $S = k[x_1, \ldots, x_n]$.
+    Suppose that $M \subset S^{\oplus m}$ is an $S$-submodule generated by a \tref{groebner-basis}{Gröbner basis} $G = \{ g_1, \ldots, g_\ell \}$ for $M$ with respect to some \tref{monomial-order}{monomial order} on $S^{\oplus m}$. In particular, $M$ is the image of the $S$-module morphism
+    \[ \phi : S^{\oplus \ell} \to S^{\oplus m}, \quad (a_1, \ldots, a_\ell) \mapsto a_1 g_1 + \cdots + a_\ell g_\ell . \]
+    Now \textbf{Schreyer's theorem} states that
+    \[ G' = \left\{ \frac{L_{ij}}{\operatorname{lt}(g_i)} e_i - \frac{L_{ij}}{\operatorname{lt}(g_j)} e_j : 1 \le i < j \le \ell \textup{ with } L_{ij} = \operatorname{lcm}(\operatorname{lm}(g_i), \operatorname{lm}(g_j)) \right\} \]
+    generates the \tref{AA:syzygy-module}{syzygy module} $\ker(\phi)$, and moreover that $G'$ is a Gröbner basis for $\ker(\phi)$ with respect to the monomial order on $S^{\oplus \ell}$ given by
+    \[ X e_i < Y e_j \iff \left\{ \begin{array}{l} \operatorname{lm}(X g_i) < \operatorname{lm}(Y g_j) \textup{ or } \\ \operatorname{lm}(X g_i) = \operatorname{lm}(Y g_j) \textup{ and } i < j . \end{array} \right. \]
 \end{topic}
