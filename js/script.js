@@ -12,7 +12,7 @@ function loadTopic(id) {
     // Load definition
     content.innerHTML = '<div id="definition"><div class="loading"></div></div>';
     fetch('data/definitions/' + id.replace(':', '-') + '.html').then(response => {
-        switch(response.status) {
+        switch (response.status) {
             case 200: return response.text();
             case 404: throw 'Definition not found 🥺';
             default: throw 'Could not load definition 🥺';
@@ -33,7 +33,7 @@ function loadTopic(id) {
 
     content.innerHTML += '<div id="examples" class="hidden"></div>';
     fetch('data/examples/' + id.replace(':', '-') + '.html').then(response => {
-        switch(response.status) {
+        switch (response.status) {
             case 200: return response.text();
             case 404: throw 'Examples not found 🥺';
             default: throw 'Could not load examples 🥺';
@@ -218,10 +218,21 @@ function autoCompleteSetFocus(i) {
 }
 
 function searchMatch(id, input) {
+    // If prefix is provided, filter by prefix
+    const prefix = input.match(/^(\w+):/g);
+    if (prefix != null) {
+        if (!id.startsWith(prefix))
+            return null;
+        input = input.substring(prefix[0].length);
+        if (input == '')
+            return [0, createSearchEntry(capitalize(topics[id]), categories[id.substring(0, id.indexOf(':'))], id)];
+    }
+
     // Search based on 'parts': split both topic and input on words, and match each word of the input to a word on the topic
     // Note that the parts of the topics have already been precomputed
     const topicParts = autoCompleteTopicParts[id];
     const inputParts = normalizeString(input).toLowerCase().match(/\w+/g);
+    if (inputParts == null) return null; // in case the input does not contain any words
     const m = topicParts.length;
     const n = inputParts.length;
 
@@ -254,11 +265,15 @@ function searchMatch(id, input) {
 
     const category = categories[id.substring(0, id.indexOf(':'))];
     const topicHTML = makeBold(capitalize(topics[id]), ranges);
-    const html = '<span class="topic">' + topicHTML + '</span><span class="category">' + category + '</span><span class="identifier">' + id + '</span>';
+    const html = createSearchEntry(topicHTML, category, id);
     let order = 0; // determine the order in which results must be listed, based on a number
     for (let i = 0; i < ranges.length; ++i)
         order += ranges[i][0] * (1 << (i * 6));
     return [order, html];
+}
+
+function createSearchEntry(topicHTML, category, id) {
+    return '<span class="topic">' + topicHTML + '</span><span class="category">' + category + '</span><span class="identifier">' + id + '</span>';
 }
 
 function setSearchCategory(str) {

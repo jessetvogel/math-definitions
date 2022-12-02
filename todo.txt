@@ -4,7 +4,7 @@
 -- PDF front cover
 -- Go through document and fix missing tref's
 -- Support \begin{align*?} ... \end{align*?}
--- Use \dfn instead of \textbf, and for html use <dfn> for custom styling
+-- Use \dfn or \emph instead of \textbf, and for html use <dfn> for custom styling
 
 ---- Theory ----
 
@@ -108,6 +108,7 @@ TO: map from SU(2) to SO(3) (https://www.youtube.com/watch?v=ACZC_XEyg9U 50:21)
 -- Functional Analysis
 FA: unitalization
 FA: von Neumann algebra
+FA: Smith space
 
 -- Derived Algebraic Geometry
 DAG: derived scheme / stack (https://arxiv.org/pdf/2109.14594.pdf, Definition 1.21)
@@ -158,3 +159,4 @@ NT: conductor (abelian extensions?)
 
 -- Probability Theory / Statistics
 PT: random variables, pdf, cdf, central limit theorem, ...
+PT: "Probability - Geoffrey Grimmett & Dominic Welsh"
