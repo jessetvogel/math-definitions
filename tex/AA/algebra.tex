@@ -89,8 +89,14 @@
     For example, for $G = \textup{GL}_n(k)$ the group of invertible matrices, the determinant $\det \in \mathcal{O}_G(G)$ is a group-like element, since $\det(AB) = \det(A) \det(B)$ for all $A, B \in \textup{GL}_n(k)$.
 \end{example}
 
+% \begin{topic}{dual-hopf-algebra}{dual Hopf algebra}
+%     Let $(A, \mu, \eta, \Delta, \varepsilon, S)$ be a \tref{hopf-algebra}{Hopf algebra} over a \tref{AA:field}{field} $k$. The \textbf{dual Hopf algebra} of $A$ is the $k$-algebra
+%     \[ A^\circ = \{ a \in A \mid \mu^*(a) \in A^* \otimes_k A^* \subset (A \otimes_k A)^* \} \]
+%     with multiplication $\Delta^* : A^\circ \otimes_k A^\circ \to A^\circ$, unit $\varepsilon^* : k \to A^\circ$, comultiplication $\mu^* : A^\circ \to A^\circ \otimes_k A^\circ$, counit $\eta^* : A^\circ \to k$ and antipode $S^* : A^\circ \to A^\circ$.
+% \end{topic}
+
 \begin{topic}{frobenius-algebra}{Frobenius algebra}
-    A \textbf{Frobenius algebra} over a field $k$ is a $k$-algebra $A$ equipped with a bilinear form $\beta : A \otimes_k A \to k$, called the \textit{Frobenius pairing}, satisfying
+    A \textbf{Frobenius algebra} over a \tref{field}{field} $k$ is a \tref{algebra}{$k$-algebra} $A$ equipped with a bilinear form $\beta : A \otimes_k A \to k$, called the \textit{Frobenius pairing}, satisfying
     \begin{itemize}
         \item (\textit{associativity}) $\beta(ab \otimes c) = \beta(a \otimes bc)$ for all $a, b, c \in A$,
         \item (\textit{non-degeneracy}) there exists a $k$-linear map $\gamma : k \to A \otimes_k A$ such that 
@@ -101,7 +107,7 @@
 
 \begin{example}{frobenius-algebra}
     \begin{itemize}
-        \item Let $A$ be a finite field extension of $k$, and $\varepsilon : A \to k$ any non-zero $k$-linear map. Then $A$ with the pairing $\beta : A \otimes A \to k, a \otimes b \mapsto \varepsilon(ab)$ is a Frobenius algebra.
+        \item Let $A$ be a finite field extension of $k$, and $\varepsilon : A \to k$ any non-zero $k$-linear map. Then $A$ with the pairing $\beta : A \otimes_k A \to k, a \otimes b \mapsto \varepsilon(ab)$ is a Frobenius algebra.
         \item The ring $\textup{Mat}_n(k)$ of $n \times n$ matrices over $k$, with pairing $A \otimes B \mapsto \operatorname{tr}(AB)$, is a Frobenius algebra.
         \item The complex numbers $\CC$ are a Frobenius algebra over $\RR$ with pairing $\beta(z_1 \otimes z_2) = \operatorname{Re}(z_1 z_2)$. The map $\gamma : \RR \to \CC \otimes_\RR \CC$ is given by $\gamma(1) = 1 \otimes 1 - i \otimes i$.
     \end{itemize}
@@ -117,7 +123,7 @@
     A Frobenius algebra $A$ naturally carries a $k$-coalgebra structure. Take as counit the map
     \[ \varepsilon : A \to k, \quad a \mapsto \beta(1 \otimes a) = \beta(a \otimes 1) \]
     which is well-defined by associativity of $\beta$. As comultiplication, take
-    \[ \delta : A \to A \otimes A, \quad a \mapsto (\mu \otimes \id_A)(a \otimes \gamma(1)) = (\id_A \otimes \mu)(\gamma(1) \otimes a) . \]
+    \[ \delta : A \to A \otimes_k A, \quad a \mapsto (\mu \otimes \id_A)(a \otimes \gamma(1)) = (\id_A \otimes \mu)(\gamma(1) \otimes a) . \]
     To see why this is well-defined, write $\gamma(1) = \sum_i a_i \otimes b_i$ as before, then the associativity and non-degeneracy of $\beta$ imply that
     \[ \begin{aligned}
         (\mu \otimes \id_A)(a \otimes \gamma(1)) &= \sum_{i = 1}^{n} a a_i \otimes b_i = \sum_{i,j = 1}^{n} \beta(b_j \otimes a a_i) a_j \otimes b_i \\ &= \sum_{i,j = 1}^{n} \beta(b_i a \otimes a_j) a_i \otimes b_j = \sum_{i = 1}^{n} a_i \otimes b_i a = (\id_A \otimes \mu)(\gamma(1) \otimes a) 
@@ -306,3 +312,18 @@
 \begin{example}{noether-normalization-lemma}
     Let $k$ be a field of characteristic not equal to $2$. The algebra $A = k[x, y] / (xy - 1)$ is finitely generated over $k$, but it is not finitely generated (as module) over $k[x]$ or $k[y]$. However, after a change of coordinates $x = z + w$ and $y = z - w$, we see that $A \isom k[z, w] / (z^2 - w^2 - 1)$ is finitely generated (as module) over $k[z]$ and $k[w]$.
 \end{example}
+
+\begin{topic}{huber-ring}{Huber ring}
+    An \textit{adic ring} is a topological \tref{ring}{ring} $A$ for which there exists an \tref{ideal}{ideal} $I \subset A$, called the \textit{ideal of definition}, such that $\{ I^n : n \in \NN \}$ is a \tref{TO:neighborhood-basis}{neighborhood basis} of $0$ in $A$.
+
+    A \textbf{Huber ring} is a topological ring $A$ for which there exists an open adic subring $A_0 \subset A$ with finitely generated ideal of definition $I$.
+\end{topic}
+
+\begin{topic}{huber-pair}{Huber pair}
+    Let $A$ be \tref{huber-ring}{Huber ring}. A subset $S \subset A$ is \textit{bounded} if for every \tref{TO:neighborhood}{neighborhood} $U$ of $0$ in $A$ there exists a neighborhood $V$ of $0$ with $\{ vs : v \in V, s \in S \} \subset U$. Denote by $A^\circ$ the subset of elements $a \in A$ for which $\{ a \in A \mid \{ a^n : n \ge 1 \}$ is bounded.
+
+    A \textbf{Huber pair} is a pair $(A, A^+)$ where $A$ is a Huber ring and $A^+ \subset A^\circ$ is an open subring of $A$ that is \tref{integral-closure}{integrally closed} in $A$.
+
+    A morphism of Huber pairs $(A, A^+) \to (B, B^+)$ is a continuous ring morphism $f : A \to B$ such that $f(A^+) \subset B^+$.
+\end{topic}
+

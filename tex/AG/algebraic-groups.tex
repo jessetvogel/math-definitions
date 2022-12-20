@@ -333,3 +333,15 @@
 \begin{example}{isogeny}
     The natural map $\textup{SL}_n(\CC) \to \textup{PGL}_n(\CC)$ is an isogeny for any $n \ge 1$, as it is surjective, and its kernel has order $n$.
 \end{example}
+
+\begin{topic}{cartier-dual}{Cartier dual}
+    Let $G$ be a finite commutative \tref{group-scheme}{group scheme} over a field $k$, that is, $G = \Spec A$ for some finite-dimensional \tref{AA:hopf-algebra}{Hopf algebra} $A$ over $k$. The \textbf{Cartier dual} of $G$ is the group scheme $\hat{G} = \Spec A^*$ given by the dual Hopf algebra $A^*$.
+\end{topic}
+
+\begin{example}{cartier-dual}
+    \begin{itemize}
+        \item For any finite commutative group scheme $G$ over $k$, the Cartier dual of the Cartier dual of $G$ is isomorphic to $G$.
+        \item The Cartier dual of $\ZZ/n\ZZ$ is $\mu_n$.
+        \item Let $k$ be a field of characteristic $p$, and let $\alpha_p = \Spec k[t] / (t^p)$ as a subgroup of the additive group. Then the Cartier dual of $\alpha_p$ is itself.
+    \end{itemize}
+\end{example}

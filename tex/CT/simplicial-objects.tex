@@ -86,7 +86,7 @@
 \end{example}
 
 \begin{topic}{cech-nerve}{Čech nerve}
-    Let $\mathcal{C}$ be a \tref{category}{category} with \tref{pullback}{pullbacks}. The \textbf{Čech nerve} of a morphism $U \to X$ is the \tref{simplicial-object}{simplicial object} $C(U \to X)$ in $\mathcal{C}$ given by
+    Let $\mathcal{C}$ be a \tref{category}{category} with \tref{pullback}{pullbacks}. The \textbf{Čech nerve} of a morphism $U \to X$ is the \tref{simplicial-object}{simplicial object} $C(U/X)$ in $\mathcal{C}$ given by
     \[ \cdots U \times_X U \times_X U \times_X U \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; U \times_X U \times_X U \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; U \times_X U \rightrightarrows U \]
     where the face and degeneracy maps are given by
     \[ \begin{aligned}
@@ -103,4 +103,18 @@
     called the \textbf{$n$-skeleton} and \textbf{$n$-coskeleton} functor, respectively, which are given by the left and right \tref{kan-extension}{Kan extension}, respectively.
     
     The $n$-skeleton yields a simplicial set which is freely filled with degenerate simplices above degree $n$. The $n$-coskeleton yields a simplicial set having a simplex of degree $m > n$ whenever there is a compatible family of $m$-faces.
+    
+    One defines $\textbf{sk}_n = \operatorname{sk}_n \circ \operatorname{tr}_n$ and $\textbf{cosk}_n = \operatorname{cosk}_n \circ \operatorname{tr}_n$ and has an adjunction $\textbf{sk}_n \dashv \textbf{cosk}_n$.
 \end{topic}
+
+\begin{topic}{hypercover}{hypercover}
+    Let $\mathcal{C}$ be a \tref{site}{site} with finite \tref{pullback}{fiber products}. A \textbf{hypercovering} of an object $X$ in $\mathcal{C}$ is a \tref{simplicial-object}{simplicial object} $U_\bdot$ in $\mathcal{C}$ with a covering morphism $U_0 \to X$ such that, for all $n \ge 0$, the natural map
+    \[ U_{n + 1} \to (\textbf{cosk}_n(\textbf{sk}_n(U)))_{n + 1} \]
+    is a covering morphism, where $\textbf{cosk}_n$ and $\textbf{sk}_n$ denote the \tref{simplicial-skeleton}{simplicial (co)skeleton} functors.
+\end{topic}
+
+\begin{example}{hypercover}
+    Let $U \to X$ be a covering morphism in $\mathcal{C}$. Then the \tref{cech-nerve}{Čech nerve}
+    \[ C(U/X) = \left[ \cdots U \times_X U \times_X U \times_X U \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; U \times_X U \times_X U \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; U \times_X U \rightrightarrows U \right] \]
+    is a hypercovering of $X$.
+\end{example}

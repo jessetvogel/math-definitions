@@ -289,3 +289,39 @@
 \begin{topic}{contactomorphism}{contactomorphism}
     Let $(M, \xi)$ be a \tref{contact-structure}{contact manifold}. A \textbf{contactomorphism} of $(M, \xi)$ is a \tref{diffeomorphism}{diffeomorphism} $f$ of $M$ such that $f^* \xi = \xi$. A contactomorphism $f$ is called \textbf{strict} for a given contact structure $\alpha$ if $f^* \alpha = \alpha$.
 \end{topic}
+
+\begin{topic}{noether-theorem}{Noether's theorem}
+    Let $(M, \omega, G, \varphi, \mu)$ be a (weakly) \tref{hamiltonian-manifold}{Hamiltonian manifold}, and let $H \in C^\infty(M)$ be a $G$-invariant function on $M$. Then \textbf{Noether's theorem} states that the moment map $\mu : M \to \mathfrak{g}^*$ is a constant of motion for $H$, that is,
+    \[ \mu \circ \varphi_H^t = \mu , \]
+    where $\varphi_H^t : M \to M$ denotes the flow along the \tref{hamiltonian-vector-field}{Hamiltonian vector field} $X_H$.
+\end{topic}
+
+\begin{example}{noether-theorem}
+    \begin{proof}
+        Take any $\xi \in \mathfrak{g}$ and $x \in M$, and define $F = \langle \mu, \xi \rangle \in C^\infty(M)$. Then $X_F = X_\xi$ by definition of the moment map. Define $g : \RR \to G$ by $g(t) = \exp(t \xi)$, then by assumption $H(g(t) x) = H(x)$ for all $t \in \RR$. Differentiating this equality with respect to $t$ and evaluating at $t = 0$ gives
+        \[ 0 = dH \left(\left.\frac{d}{dt}\right|_{t = 0} g(t) x\right) = dH \left(X_\xi(x)\right) = dH(X_F(x)) = \{ H, F \}(x) . \]
+        Since $x$ was arbitrary, we find $\{ H, F \} = 0$, so $F$ is a constant of motion. Since $\xi$ was arbitrary, it also follows that $\mu$ is a constant of motion.
+    \end{proof}
+\end{example}
+
+\begin{example}{noether-theorem}
+    Consider $M = \RR^2$ with the standard symplectic form $\omega = dq \wedge dp$, and let $G = \textup{SO}(2)$ act naturally on $M$. The Lie algebra of $G$ is $\mathfrak{g} = i\RR$, and the moment map $\mu : M \to \mathfrak{g}^*$ for the action is given by $(q, p) \mapsto (i \alpha \mapsto (q^2 + p^2) \alpha)$.
+    In particular, for any Hamiltonian $H$ invariant under the action of $G$, for example $H(q, p) = q^2 + p^2$, the function $q^2 + p^2$ is a constant of motion.
+\end{example}
+
+\begin{topic}{goldman-symplectic-form}{Goldman symplectic form}
+    Let $\Sigma$ be a \tref{closed-manifold}{closed} surface, and let $G$ be a \tref{lie-group}{Lie group} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$.
+    Let $X = \Hom(\pi_1(\Sigma), G) / G$ be the \textit{$G$-character variety} of $\Sigma$ and $G$. At any point $\phi \in X$, the \tref{tangent-space}{tangent space} of $X$ at $\phi$ can be identified with the \tref{HA:group-cohomology}{group cohomology} group $H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)})$, where $\pi_1(\Sigma)$ acts on $\mathfrak{g}$ through $\phi$ composed with the \tref{adjoint-representation}{adjoint representation}. The \textbf{Goldman symplectic structure} on $X$ is the \tref{symplectic-manifold}{symplectic structure} on $X$ given at $\phi$ by
+    \[ \omega_\phi : H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)}) \otimes H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)}) \to H^2(\pi_1(\Sigma), \RR) \cong \RR , \]
+    which is the composition of the \tref{AT:cup-product}{cup product} with a trace form on $\mathfrak{g}_{\textup{Ad}(\phi)}$.
+\end{topic}
+
+\begin{example}{goldman-symplectic-form}
+    The tangent space $T_\phi X$ can be identified with $H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)})$ as follows. Consider a path $\phi_t$ on $X$ given by
+    \[ \phi_t(\alpha) = \exp(t u(\alpha) + \mathcal{O}(t^2)) \phi(\alpha) , \]
+    for some $u : \pi_1(\Sigma) \to \mathfrak{g}$. The condition $\phi_t(\alpha \beta) = \phi_t(\alpha) \phi_t(\beta)$ translates to
+    \[ u(\alpha \beta) = u(\alpha) + \textup{Ad}(\phi(\alpha))(u(\beta)) , \]
+    which is the $1$-cocycle condition for $u$, where $\pi_1(\Sigma)$ acts on $\mathfrak{g}$ via $\phi$ composed with the adjoint representation. The action of $G$ on $X$ is given by conjugation, so a path $\phi_t$ is trivial if $\phi_t(\alpha) = g_t^{-1} \phi(\alpha) g_t$ for some path
+    \[ g_t = \exp(t v + \mathcal{O}(t^2)) \]
+    on $G$, with $v \in \mathfrak{g}$. This is the case when $u(\alpha) = \textup{Ad}(\phi(\alpha))(v) - v$, that is, when $u$ is a principal homomorphism. Therefore, the tangent space $T_\phi X$ is precisely the first cohomology group $H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)})$.
+\end{example}

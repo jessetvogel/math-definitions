@@ -161,7 +161,7 @@
 \end{example}
 
 \begin{example}{separated-morphism}
-    Let $X$ be the affine line with two origins, that is, glue two copies of $\AA_k^1$ along $\AA_k^1 - \{ 0 \}$. We claim that $X$ is not separated over $k$. Namely, consider the map $\AA^1_k \to X \times_k X$ obtained from the two different maps $\AA_k^1 \to X$. Then the inverse image of the diagonal is $\AA_k^1 - \{ 0 \}$, which is not closed. Hence, the diagonal is not closed and $\Delta$ is not a closed immersion.
+    Let $X$ be the affine line with two origins, that is, glue two copies of $\AA_k^1$ along $\AA_k^1 \setminus \{ 0 \}$. We claim that $X$ is not separated over $k$. Namely, consider the map $\AA^1_k \to X \times_k X$ obtained from the two different maps $\AA_k^1 \to X$. Then the inverse image of the diagonal is $\AA_k^1 \setminus \{ 0 \}$, which is not closed. Hence, the diagonal is not closed and $\Delta$ is not a closed immersion. However, $X$ can be shown to be quasi-separated over $k$.
 \end{example}
 
 \begin{example}{separated-morphism}
@@ -177,7 +177,7 @@
 \end{example}
 
 \begin{example}{proper-morphism}
-    The morphism $\AA_k^1 \to \Spec k$ is not proper as it is not universally closed. Namely, the projection $\AA^1_k \times \AA^1_k \to \AA^1_k$ sends the closed set $\{ xy - 1 \}$ to $\AA^1_k - \{ 0 \}$ and thus cannot be a closed mapping. However, the morphism is clearly of finite type, and also separated as the diagonal $\Delta : \AA^1_k \to \AA^1_k \times \AA^1_k$ is closed, it is given by $\{ x - y = 0 \}$.
+    The morphism $\AA_k^1 \to \Spec k$ is not proper as it is not universally closed. Namely, the projection $\AA^1_k \times \AA^1_k \to \AA^1_k$ sends the closed set $\{ xy - 1 \}$ to $\AA^1_k \setminus \{ 0 \}$ and thus cannot be a closed mapping. However, the morphism is clearly of finite type, and also separated as the diagonal $\Delta : \AA^1_k \to \AA^1_k \times \AA^1_k$ is closed, it is given by $\{ x - y = 0 \}$.
 \end{example}
 
 \begin{example}{proper-morphism}
@@ -394,7 +394,7 @@
 
 \begin{example}{fppf-covering}
     Consider the following cover of the affine line $\AA^1_k$,
-    \[ \left\{ \AA^1_k - \{ 0 \} \to \AA^1_k, \qquad \Spec(\mathcal{O}_{\AA^1_k, 0}) \to \AA^1_k \right\} . \]
+    \[ \left\{ \AA^1_k \setminus \{ 0 \} \to \AA^1_k, \qquad \Spec(\mathcal{O}_{\AA^1_k, 0}) \to \AA^1_k \right\} . \]
     It is not an fppf covering since the second morphism is not locally of finite presentation.
     
     (However, it is an \tref{fpqc-covering}{fpqc covering}.)
@@ -816,7 +816,7 @@
 \end{topic}
 
 \begin{example}{affine-variety}
-    The variety $\AA^2 - \{ (0, 0) \}$ is quasi-affine, but not affine.
+    The variety $\AA^2 \setminus \{ (0, 0) \}$ is quasi-affine, but not affine.
 \end{example}
 
 \begin{topic}{hodge-deligne-polynomial}{Hodge--Deligne polynomial}
@@ -1255,3 +1255,21 @@
 \begin{topic}{polarized-variety}{polarized variety}
     A \textbf{polarization} of a \tref{variety}{variety} $X$ over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$ is a choice of an \tref{ample-invertible-sheaf}{ample line bundle} on $X$, up to \tref{algebraic-equivalence}{algebraic equivalence}.
 \end{topic}
+
+\begin{topic}{semi-separated-morphism}{semi-separated morphism}
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{semi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is \tref{affine-morphism}{affine}.
+\end{topic}
+
+\begin{example}{semi-separated-morphism}
+    If $f : X \to S$ is a semi-separated morphism with $S$ affine, then intersections of open affines on $X$ are again open affine. That is, for two open affines $U, V \subset X$, their intersection is given by
+    \[ U \cap V = U \times_X V = \Delta_{X/S}^{-1}(U \times_S V) , \]
+    which is again affine open.
+\end{example}
+
+\begin{example}{semi-separated-morphism}
+    Any \tref{separated-morphism}{separated morphism} is semi-separated morphism, and any semi-separated morphism is quasi-separated, but the converses do not hold.
+    
+    Namely, let $X$ be the affine plane with double origin, over a field $k$. Then $X \to \Spec k$ is quasi-compact, but not semi-separated as the intersection of the two affine planes $U, V \subset X$, which is $U \cap V = \AA^2_k \setminus \{ (0, 0) \}$, is not affine.
+    
+    Furthermore, let $Y$ be the affine line with double origin, over a field $k$. Then $Y \to \Spec k$ is semi-separated, but not separated.
+\end{example}

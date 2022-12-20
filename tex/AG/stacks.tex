@@ -45,11 +45,11 @@
     \end{itemize}
     The \textbf{inertia} of $\mathfrak{X}$ is $\mathcal{I}_\mathfrak{X} = \mathcal{I}_{\mathfrak{X}/\mathfrak{S}}$.
     
-    If $\mathfrak{X}$ and $\mathfrak{X}'$ are \tref{stack}{stacks} over $\mathfrak{S}$, the inertia $\mathcal{I}_{\mathfrak{X}/\mathfrak{X}'}$ is also a stack, called the \textbf{inertia stack} of .
+    If $\mathfrak{X}$ and $\mathfrak{X}'$ are \tref{stack}{stacks} over $\mathfrak{S}$, the relative inertia $\mathcal{I}_{\mathfrak{X}/\mathfrak{X}'}$ is also a stack, called the \textbf{relative inertia stack} of $\mathfrak{X}$ over $\mathfrak{X}'$.
 \end{topic}
 
 \begin{example}{inertia-stack}
-    Let $X$ be a scheme, $G$ a commutative group acting on $X$, and $[X/G]$ the corresponding \tref{quotient-stack}{quotient-stack}. Then the inertia stack of $[X/G]$ is
+    Let $X$ be a \tref{scheme}{scheme}, $G$ an \tref{GT:abelian-group}{abelian group} acting on $X$, and $[X/G]$ the corresponding \tref{quotient-stack}{quotient stack}. Then the inertia stack of $[X/G]$ is
     \[ \mathcal{I}_{[X/G]} = \bigsqcup_{g \in G} [X^g / G] , \]
-    where $X^g$ denotes the locus of $X$ fixed by $g \in G$. Namely, an $S$-point of $\mathcal{I}_{[X/G]}$ is given by a triple $(P, \phi, \alpha)$, where $P \to T$ is a $G$-torsor, $\phi : P \to X$ a $G$-equivariant morphism, and $\alpha : P \to P$ an automorphism of $P$ such that $\phi \circ \alpha = \phi$. Since $G$ is commutative, $\alpha$ is (fppf-)locally given by multiplication by some $g \in G$, so $\phi \circ \alpha = \phi$ implies that $\phi$ factors through $X^g$. This construction induces a map $\mathcal{I}_{[X/G]} \to \bigsqcup_{g \in G} [X^g/G]$, which can be shown to be an equivalence.
+    where $X^g$ denotes the locus of $X$ fixed by $g \in G$. Namely, an $S$-point of $\mathcal{I}_{[X/G]}$ is given by a triple $(P, \phi, \alpha)$, where $P \to T$ is a $G$-torsor, $\phi : P \to X$ a $G$-equivariant morphism, and $\alpha : P \to P$ an automorphism of $P$ such that $\phi \circ \alpha = \phi$. Since $G$ is abelian, $\alpha$ is (fppf-)locally given by multiplication by some $g \in G$, so $\phi \circ \alpha = \phi$ implies that $\phi$ factors through $X^g$. This construction induces a map $\mathcal{I}_{[X/G]} \to \bigsqcup_{g \in G} [X^g/G]$, which can be shown to be an equivalence.
 \end{example}

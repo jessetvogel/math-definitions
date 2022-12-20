@@ -320,7 +320,9 @@
 \end{example}
 
 \begin{topic}{structure-group}{structure group}
-    Let $p : E \to B$ be a \tref{fiber-bundle}{fiber bundle} with fiber $F$, and let $G$ be a \tref{topological-group}{topological group} acting continuously and \tref{GT:faithful-group-action}{faithfully} on $F$. Then $G$ is called a \textbf{structure group} of the bundle if there exists a trivialization $\{ (U_i, \varphi_{ij} : E|_{U_i} \xrightarrow{\sim} U_i \times F) \}$ such that the transition functions $\varphi_i \circ \varphi_j^{-1}$ take values in $G$. In physics, the group $G$ is called the \textit{gauge group} of the bundle.
+    Let $p : E \to B$ be a \tref{fiber-bundle}{fiber bundle} with fiber $F$, and let $G$ be a \tref{topological-group}{topological group} acting continuously and \tref{GT:faithful-group-action}{faithfully} on $F$. Then $G$ is called a \textbf{structure group} of the bundle if there exists a trivialization $\{ (U_i, \varphi_{ij} : E|_{U_i} \xrightarrow{\sim} U_i \times F) \}$ such that the transition functions $\varphi_i \circ \varphi_j^{-1}$ take values in $G$. 
+    
+    In physics, the group $G$ is called the \textit{gauge group} of the bundle.
 \end{topic}
 
 % \begin{topic}{principal-homogeneous-space}{principal homogeneous space}
@@ -631,4 +633,27 @@
 
 \begin{topic}{profinite-space}{profinite space}
     A \tref{topological-space}{topological space} $X$ is \textbf{profinite} if it is \tref{compact-space}{compact} \tref{hausdorff-space}{Hausdorff} and \tref{totally-disconnected-space}{totally disconnected}.
+\end{topic}
+
+\begin{topic}{neighborhood-basis}{neighborhood basis}
+    Let $X$ be a \tref{topological-space}{topological space} with a point $x \in X$. A \textbf{neighborhood basis} at $x$ is a set $\mathcal{N}$ of \tref{neighborhood}{neighborhoods} of $x$ such that for every neighborhood $U$ of $x$, there exists an $N \in \mathcal{N}$ with $U \subset N$.
+\end{topic}
+
+\begin{topic}{mapping-class-group}{mapping class group}
+    Let $X$ be a \tref{topological-space}{topological space}, and let $\textup{Aut}(X)$ be the topological \tref{GT:group}{group} of automorphisms of $X$, whose topology is given by the \tref{mapping-space}{compact-open topology}. Then the \textbf{mapping class group} of $X$ is the \tref{GT:quotient-group}{quotient}
+    \[ \textup{MCG}(X) = \textup{Aut}(X) / \textup{Aut}_0(X) , \]
+    where $\textup{Aut}_0(X)$ is the path-component of the identity in $\textup{Aut}(X)$. Note that $f, g \in \textup{Aut}(X)$ define the same element in $\textup{MCG}(X)$ if and only if they are \tref{isotopy}{isotopic}.
+\end{topic}
+
+\begin{example}{mapping-class-group}
+    \begin{itemize}
+        \item The mapping class group of the $2$-sphere is $\textup{MCG}(S^2) \cong \ZZ/2\ZZ$, corresponding to maps of degree $\pm 1$.
+        \item The mapping class group of the $n$-torus is $\textup{MCG}(T^n) = \textup{GL}_n(\ZZ)$.
+        \item The mapping class group of the Klein bottle is $\textup{MCG}(K) = \ZZ/2\ZZ \times \ZZ/2\ZZ$ is the Klein four-group.
+        \item The mapping class group of the real projective plane is $\textup{MCG}(\RR \PP^2) = 1$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{torelli-group}{Torelli group}
+    Let $X$ be a \tref{topological-space}{topological space}. There is an action of the \tref{mapping-class-group}{mapping class group} $\textup{MCG}(X)$ of $X$ on the \tref{AT:singular-homology}{homology} of $X$ since automorphisms of $X$ \tref{isotopy}{isotopic} to the identity act trivially on homology. The \textbf{Torelli group} of $X$ is the subgroup $\textup{Tor}(X) \subset \textup{MCG}(X)$ which acts trivially on the homology of $X$.
 \end{topic}

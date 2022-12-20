@@ -91,6 +91,12 @@
     \[ \rho^* : G \to \textup{GL}(V^*), \quad g \mapsto \rho(g^{-1})^T = (-) \circ \rho(g^{-1}) . \]
 \end{topic}
 
+\begin{example}{dual-representation}
+    If the character $\chi$ of $\rho$ only takes real values, then the dual representation $\rho^*$ is isomorphic to $\rho$ itself. Namely, denote by $\chi^*$ the character of $\rho^*$, then
+    \[ \langle \chi, \chi^* \rangle = \frac{1}{|G|} \sum_{g \in G} \chi(g) \chi(g^{-1}) = \frac{1}{|G|} \sum_{g \in G} \chi(g) \chi(g) = 1 , \]
+    so the result follows from the \tref{first-orthogonality-theorem}{first orthogonality theorem}.
+\end{example}
+
 \begin{topic}{first-orthogonality-theorem}{first orthogonality theorem}
     Let $G$ be a finite \tref{GT:group}{group} and let $\rho_1 : G \to \textup{GL}(V)$ and $\rho_2 : G \to \textup{GL}(W)$ be two \tref{irreducible-representation}{irreducible representations} over $\CC$ with corresponding \tref{character-representation}{characters} $\chi_1$ and $\chi_2$. Then the \textbf{first orthogonality theorem} states that
     \[ \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \overline{\chi_2(g)} = \left\{ \begin{array}{cl} 1 & \textup{ if } \rho_1 \isom \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\isom \rho_2 , \end{array} \right. \]
