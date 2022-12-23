@@ -15,14 +15,6 @@
     Let $L/K$ be an \tref{AA:field-extension}{extension} of \tref{number-field}{number fields}, and let $\mathfrak{p}$ be a non-zero \tref{AA:prime-ideal}{prime ideal} in the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$. Then $\mathfrak{p}$ is \textbf{inert} in $L$ if $\mathfrak{p} \mathcal{O}_L$ is prime in $\mathcal{O}_L$.
 \end{topic}
 
-% \begin{topic}{order}{order}
-%     A \tref{number-field}{number ring} whose additive group is finitely generated is called an \textbf{order} in its \tref{AA:field-of-fractions}{field of fractions}.
-    
-%     As number rings do not have additive torsion elements, every order is free of finite rank over $\ZZ$. The rank of an order $R$ in $K = Q(R)$ is bounded by $n = [ K : \QQ ]$, and as $R \otimes_\ZZ \QQ = K$ it has to equal $n$. Thus,
-%     \[ R = \ZZ \cdot \omega_1 \oplus \ZZ \cdot \omega_2 \oplus \cdots \oplus \ZZ \cdot \omega_n \]
-%     for some $\QQ$-basis $\{ \omega_1, \ldots, \omega_n \}$ of $K$.
-% \end{topic}
-
 \begin{topic}{multiplier-ring}{multiplier ring}
     Let $R$ be a \tref{AA:domain}{domain}, $K$ its \tref{AA:field-of-fractions}{field of fractions}, and $I$ a \tref{AA:fractional-ideal}{fractional ideal} of $R$. The \textbf{multiplier ring} of $I$ is the subring of $K$ given by
     \[ r(I) = \{ x \in K : x I \subset I \} . \]
@@ -61,4 +53,12 @@
     In particular,
     \[ R^* = \mu_R \times \langle \eta_1 \rangle \times \langle \eta_2 \rangle \cdots \langle \eta_{r + s - 1} \rangle , \]
     for some \textit{fundamental units} $\eta_i \in R^*$.
+\end{topic}
+
+\begin{topic}{global-field}{global field}
+    A \textbf{global field} is a \tref{AA:field}{field} which is either
+    \begin{itemize}
+        \item a \tref{number-field}{number field},
+        \item a finite \tref{AA:field-extension}{field extension} of $\FF_q(T)$, or equivalently, the \tref{AG:function-field}{function field} of an \tref{AG:algebraic-curve}{algebraic curve} over a finite field.
+    \end{itemize}
 \end{topic}

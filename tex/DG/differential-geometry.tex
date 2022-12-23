@@ -231,7 +231,7 @@
 \begin{topic}{complex-manifold}{(almost) complex manifold}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost complex structure} on $M$ is a smooth \tref{tensor-field}{tensor field} $J \in \Gamma(TM \otimes T^*M)$ satisfying $J^2 = -1$ when viewed as a bundle isomorphism $J : TM \to TM$. The pair $(M, J)$ is called an \textbf{almost complex manifold}.
     
-    A smooth manifold $M$ is \textbf{complex} if it has an \tref{atlas}{atlas} of charts to open subsets of $\CC^n$, such that the transition maps are \textit{holomorphic}. Any complex smooth manifold has an almost complex structure given by multiplication by $i$. If an almost complex structure arises in this way, it is called a \textbf{complex structure} or \textit{integrable}.
+    A smooth manifold $M$ is \textbf{complex} if it has an \tref{atlas}{atlas} of charts to open subsets of $\CC^n$, such that the transition maps are \tref{CA:holomorphic-function}{holomorphic}. Any complex smooth manifold has an almost complex structure given by multiplication by $i$. If an almost complex structure arises in this way, it is called a \textbf{complex structure} or \textit{integrable}.
  \end{topic}
  
  \begin{example}{complex-manifold}
@@ -241,7 +241,7 @@
  \end{example}
 
 \begin{topic}{kahler-manifold}{Kähler manifold}
-    A \textbf{Kähler manifold} is a \tref{smooth-manifold}{smooth manifold} $M$ with three compatible structures: a complex structure $J$, a \tref{riemannian-manifold}{Riemannian structure} $g$, and a \tref{symplectic-manifold}{symplectic structure} $\omega$. Compatibility means that
+    A \textbf{Kähler manifold} is a \tref{smooth-manifold}{smooth manifold} $M$ with a \tref{complex-manifold}{complex structure} $J$, a \tref{riemannian-manifold}{Riemannian structure} $g$, and a \tref{symplectic-manifold}{symplectic structure} $\omega$, which are compatible in the sense that
     \[ g(X, Y) = \omega(X, JY) \]
     for all \tref{vector-field}{vector fields} $X, Y$ on $M$.
     
@@ -1054,3 +1054,17 @@
     Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $f : M \to \RR$ a \tref{morse-function}{Morse function} on $M$. \textbf{Morse lemma} states that for every critical point $p \in M$ of $f$, there exists a \tref{atlas}{chart} $\phi : U \to \RR^n$ around $p$ such that
     \[ (f \circ \phi^{-1})(x_1, \ldots, x_n) = f(p) + \sum_{i = 1}^{k} x_i^2 - \sum_{i = k + 1}^{n} x_i^2 . \]
 \end{topic}
+
+\begin{topic}{holomorphic-vector-bundle}{holomorphic vector bundle}
+    Let $X$ be a \tref{complex-manifold}{complex manifold}. A \textbf{holomorphic vector bundle} over $X$ is a complex \tref{vector-bundle}{vector bundle} $\pi : E \to X$ such that $\pi$ is \tref{CA:holomorphic-function}{holomorphic}.
+\end{topic}
+
+\begin{topic}{gradient}{gradient}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold} and $f : M \to \RR$ be a \tref{smooth-map}{smooth function}. The \textbf{gradient} of $f$ is the \tref{vector-field}{vector field} $\nabla f$ uniquely determined by
+    \[ g(\nabla f, -) = df . \]
+\end{topic}
+
+\begin{example}{gradient}
+    Consider $M = \RR^3$ with the standard Riemannian metric. The gradient of a function $f(x, y, z)$ is given by
+    \[ \nabla f = \frac{\partial f}{\partial x} \partial_x + \frac{\partial f}{\partial y} \partial_y + \frac{\partial f}{\partial z} \partial_z . \]
+\end{example}

@@ -51,9 +51,9 @@
 \end{example}
 
 \begin{topic}{hamiltonian-vector-field}{Hamiltonian vector field}
-    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}. Every smooth function $H : M \to \RR$ uniquely determines a \tref{vector-field}{vector field} $X_H$ satisfying
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $H : M \to \RR$ a \tref{smooth-map}{smooth function}. The \textbf{Hamiltonian vector field} with \textit{Hamiltonian} $H$ is the \tref{vector-field}{vector field} $X_H$ determined by
     \[ \omega(X_H, -) = dH . \]
-    Such a vector field is called a \textbf{Hamiltonian vector field} with \textbf{Hamiltonian $H$}.
+    The vector field $X_H$ is also known as the \textit{symplectic gradient} of $H$.
 \end{topic}
 
 \begin{example}{hamiltonian-vector-field}
@@ -75,9 +75,9 @@
 \end{topic}
 
 \begin{topic}{moment-map}{moment map}
-    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} on $M$. A \textbf{moment map} for the action is a smooth map $\mu : M \to \mathfrak{g}^*$ such that
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} on $M$. A smooth map $\mu : M \to \mathfrak{g}^*$ is a \textbf{weak moment map} for the action if
     \[ d \langle \mu, \xi \rangle = \omega(X_\xi, -) \]
-    for all $\xi \in \mathfrak{g}$, and such that $\mu$ is $G$-equivariant with respect to the \tref{adjoint-representation}{co-adjoint representation} of $G$, that is,
+    for all $\xi \in \mathfrak{g}$, and a \textbf{moment map} if moreover $\mu$ is $G$-equivariant with respect to the \tref{adjoint-representation}{co-adjoint representation} of $G$, that is,
     \[ \mu(g \cdot p) = \textup{Ad}_G^* (g) \mu(p) \]
     for all $p \in M$ and $g \in G$.
 \end{topic}
@@ -95,9 +95,9 @@
 \end{example}
 
 \begin{topic}{hamiltonian-manifold}{Hamiltonian manifold}
-    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} $\varphi : G \times M \to M$ on $M$. The action is \textbf{Hamiltonian} if it admits a \tref{moment-map}{moment map}.
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} $\varphi : G \times M \to M$ on $M$. The action is \textbf{(weakly) Hamiltonian} if it admits a \tref{moment-map}{(weak) moment map}.
     
-    The collection $(M, \omega, G, \varphi, \mu)$ is called a \textbf{Hamiltonian manifold}.
+    The collection $(M, \omega, G, \varphi, \mu)$ is called a \textbf{(weakly) Hamiltonian manifold}.
 \end{topic}
 
 \begin{topic}{marsden-weinstein-quotient}{Marsden--Weinstein quotient}
@@ -108,6 +108,16 @@
     Furthermore,
     \[ \dim(M \sslash G) = \dim M - 2 \dim G . \]
 \end{topic}
+
+\begin{example}{marsden-weinstein-quotient}
+    Let $G$ be a Lie group acting freely and properly on a smooth manifold $Q$. The action lifts to an action on the cotangent bundle $T^* Q$, given by
+    \[ g \cdot (q, p) = (g \cdot q, p \circ (d(g \cdot)(q))^{-1} ) , \]
+    which is symplectic with respect to the \tref{canonical-symplectic-form}{canonical symplectic form} on $T^*Q$, and admits a moment map $\mu : T^*Q \to \mathfrak{g}^*$ given by
+    \[ \mu(q, p)(\xi) = p(X_\xi(q)) \]
+    for all $(q, p) \in T^*Q$ and $\xi \in \mathfrak{g}$. Now, there is a canonical isomorphism of symplectic manifolds
+    \[ T^*Q \sslash G \cong T^*(Q / G) , \]
+    where on the right-hand side we also take the canonical symplectic structure. % TODO: prove this
+\end{example}
 
 \begin{topic}{poisson-manifold}{Poisson manifold}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Poisson structure} on $M$ is a bracket $\{ \cdot, \cdot \}$ on the algebra $C^\infty(M)$ of smooth functions making it into a \tref{AA:poisson-algebra}{Poisson algebra}. A \textbf{Poisson manifold} is a manifold with a Poisson structure.
@@ -170,9 +180,9 @@
 \end{topic}
 
 \begin{topic}{fubini-study-form}{Fubini--Study form}
-    The \textbf{Fubini--study form} on $\CC \PP^n$ is the unique $2$-form $\omega_\textup{FS}$ on $\CC \PP^n$ such that
+    The \textbf{Fubini--Study form} is a \tref{symplectic-manifold}{symplectic form} on $\CC \PP^n$ which is the unique \tref{differential-form}{$2$-form} $\omega_\textup{FS}$ on $\CC \PP^n$ such that
     \[ \pi^* \omega_\textup{FS} = \frac{i}{2} \partial \bar{\partial} \log (|\cdot|^2) , \]
-    where $\pi : \CC^n \setminus \{ 0 \} \to \CC \PP^n$ is the projection map, $\partial$ and $\bar{\partial}$ are the \tref{dolbeault-operators}{Dolbeault operators}, and $|\cdot| : \CC^n \to \RR$ is the Euclidean norm. It is a \tref{symplectic-manifold}{symplectic form}.
+    where $\pi : \CC^n \setminus \{ 0 \} \to \CC \PP^n$ is the projection map, $\partial$ and $\bar{\partial}$ are the \tref{dolbeault-operators}{Dolbeault operators}, and $|\cdot| : \CC^n \to \RR$ is the Euclidean norm.
 \end{topic}
 
 \begin{topic}{compatible-triple}{compatible triple}

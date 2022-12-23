@@ -8,12 +8,14 @@
 
 ---- Theory ----
 
-DG: Symplectic gradient / weakly hamiltonian manifold / weak moment map
+AG/GIT: Hilbert--Mumford criterion
+AG: Narasimhan--Seshadri theorem (https://arxiv.org/pdf/2208.05940.pdf)
+
 RT: Steinberg representation
 ?AG: Beilinson theorem (https://johncalab.github.io/stuff/beilinson.pdf)
 FA: Schauder basis (example: Fourier series)
 DG: Whitney stratification
-CA: Monomial order and Gröbner basis for \oplus S
+CP: Monomial order and Gröbner basis for \oplus S
 ST: correct lattice, complemented lattice, complete lattice, ...
 CT: filtration
 
@@ -32,13 +34,11 @@ AA: Weyl dimension/character formula (Lie algebras)
 Skein algebras
 
 -- Complex Analysis
-CA: holomorphic function
 CA: meromorphic function
-CA: Cauchy--Riemann equations
-CA: Cauchy's integral theorem
 CA: Residue theorem
 CA: Schwarz lemma
 CA: Riemann mapping theorem
+CA: Cauchy--Riemann equations (proof)
 
 -- Higher Algebra
 Spectrum object
@@ -88,7 +88,6 @@ AG: parabolic vector bundle
 AG: Kodaira dimension
 AG: étale fundamental group(oid)
 AG: hyperelliptic curve
-AG: Narasimhan--Seshadri theorem
 AG: D-affine variety
 AG: Proj construction
 AG: k-univariant / uniruled ?
@@ -132,7 +131,6 @@ FA: Inequalities for FA (see Lp spaces)
 GT: group of Lie type (doesn't have a standard definition..)
 
 -- Number Theory
-NT: global field
 NT: quadratic reciprocity
 NT: inertia (sub)group
 NT: decomposition (sub)group

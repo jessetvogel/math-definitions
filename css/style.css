@@ -338,6 +338,7 @@ img.display-math-svg {
     margin-top: 32px;
     margin-bottom: 32px;
     scale: 1.33;
+    max-width: 75%; /* to prevent overflow-x */
     transition: filter var(--transition-time);
 }
 

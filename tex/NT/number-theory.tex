@@ -111,3 +111,19 @@
         However, when $\deg(f) \ge 5$, the Galois group is generally not solvable. For example, the Galois group of the quintic polynomial $f = x^5 - x - 1 \in \QQ[x]$ is the symmetric group $S_5$, which is not solvable.
     \end{proof}
 \end{example}
+
+\begin{topic}{adele-ring}{adele ring}
+    Let $K$ be a \tref{global-field}{global field}. The \textbf{adele ring} of $K$ is the subring
+    \[ \mathbb{A}_K \subset \prod_{\nu} K_\nu , \]
+    where the product is taken over all \tref{place}{places} $\nu$ of $K$, of all tuples $(x_\nu)_\nu$ such that $\nu(x_\nu) \le 1$ for all \tref{archimedean-valuation}{non-archimedean valuations} $\nu$.
+\end{topic}
+
+\begin{example}{adele-ring}
+    The adele ring of $\QQ$ is given by $\mathbb{A}_\QQ = \QQ \otimes_\ZZ (\RR \times \prod_{p \textup{ prime}} \ZZ_p)$.
+\end{example}
+
+\begin{topic}{idele-group}{idele group}
+    Let $K$ be a \tref{global-field}{global field}. The \textbf{idele group} of $K$ is the \tref{GT:group}{group} of \tref{AA:unit-element}{units} of the \tref{adele-ring}{adele ring} of $K$, denoted
+    \[ \mathbb{I}_K = \mathbb{A}_K^* . \]
+    The idele group is a topological group considered as $\{ (x, x^{-1}) \in \mathbb{A}_K \times \mathbb{A}_K : x \in \mathbb{I}_K \}$ with the \tref{TO:subspace-topology}{subspace topology}.
+\end{topic}

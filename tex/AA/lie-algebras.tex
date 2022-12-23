@@ -186,7 +186,11 @@
     \begin{proof}
         $(\Rightarrow)$ After a base change to an algebraically closed field, one can apply \tref{lie-theorem}{Lie's theorem} to obtain a basis of $V$ in which $\mathfrak{g}$ consists of upper triangular matrices, and hence $[\mathfrak{g}, \mathfrak{g}]$ of strictly upper triangular matrices. Then it is clear that $\tr(xy) = 0$ for all $x \in \mathfrak{g}$ and $y \in [\mathfrak{g}, \mathfrak{g}]$, since $xy$ is also strictly upper triangular.
         
-        $(\Leftarrow)$ I will try to prove this sometime. % If $\mathfrak{g}$ is not solvable, then the derived series stabilizes, i.e. $[\mathfrak{g}^{(i)}, \mathfrak{g}^{(i)}] = \mathfrak{g}^{(i)} \ne 0$ for some $i$. (TODO)
+        $(\Leftarrow)$ If $\mathfrak{g}$ is not solvable, then $[\mathfrak{g}^{(i)}, \mathfrak{g}^{(i)}] = \mathfrak{g}^{(i)} \ne 0$ for some $i$, and $\tr(x^2) = 0$ for all $x \in \mathfrak{g}^{(i)}$ by assumption. Hence, it suffices to show that if $[\mathfrak{g}, \mathfrak{g}] = \mathfrak{g}$ and $\tr(x^2) = 0$ for all $x \in \mathfrak{g}$, then $\mathfrak{g} = 0$.
+        Choose a \tref{cartan-subalgebra}{Cartan subalgebra} $\mathfrak{h} \subset \mathfrak{g}$ and decompose $V = \bigoplus_{\lambda \in \mathfrak{h}^*} V_\lambda$ and $\mathfrak{g} = \bigoplus_{\alpha \in \mathfrak{h}^*} \mathfrak{g}_\alpha$. Since $[\mathfrak{g}, \mathfrak{g}] = \mathfrak{g}$ and $[\mathfrak{g}_\alpha, \mathfrak{g}_\beta] = \mathfrak{g}_{\alpha + \beta}$, we have $\mathfrak{h} = \sum_{\alpha \in \mathfrak{h}^*} [\mathfrak{g}_\alpha, \mathfrak{g}_{-\alpha}]$. 
+        By Cartan's lemma, for any $\lambda$ such that $V_\lambda \ne 0$ and any $\alpha$, we can write $\lambda(h) = r_{\lambda, \alpha} \alpha(h)$ for some $r_{\lambda, \alpha} \in \QQ^\times$. Now for all $h \in [\mathfrak{g}_\alpha, \mathfrak{g}_{-\alpha}]$,
+        \[ 0 = \tr(h^2) = \sum_{\lambda \in \mathfrak{h}^*} \tr\left(h^2|_{V_\lambda}\right) = \sum_{\lambda \in \mathfrak{h}^*} \lambda(h)^2 \dim V_\lambda = \alpha(h)^2 \sum_{\lambda \in \mathfrak{h}^*} r_{\lambda, \alpha}^2 \dim V_\lambda . \]
+        Hence, $\alpha(h) = 0$ for all $h \in [\mathfrak{g}_\alpha, \mathfrak{g}_{-\alpha}]$, and thus $\lambda(h) = 0$ for all $h \in [\mathfrak{g}_\alpha, \mathfrak{g}_{-\alpha}]$, and therefore $\lambda(h) = 0$ for all $h \in \mathfrak{h}$, so $V = V_0$. As $\mathfrak{g}_\alpha V = \mathfrak{g}_\alpha V_0 \subset V_\alpha = 0$ for $\alpha \ne 0$, we have $\mathfrak{g} = \mathfrak{g}_0$, which is nilpotent. Therefore, $\mathfrak{g} = [\mathfrak{g}, \mathfrak{g}] = 0$.
     \end{proof}
 \end{example}
 
@@ -597,3 +601,12 @@
     Let $V$ be a \tref{LA:vector-space}{vector space} over a \tref{field}{field} $k$, and let $\omega : V \times V \to k$ be a skew-symmetric bilinear form on $V$. The \textbf{Heisenberg Lie algebra} corresponding to $(V, \omega)$ is the \tref{lie-algebra}{Lie algebra} $V \oplus k$ whose Lie bracket is given by
     \[ [ (v, \alpha), (w, \beta) ] = (0, \omega(v, w)) . \]
 \end{topic}
+
+\begin{topic}{trace-form-lie-algebra}{trace form Lie algebra}
+    Let $\mathfrak{g}$ be a \tref{lie-algebra}{Lie algebra} with \tref{lie-algebra-representation}{representation} $\pi : \mathfrak{g} \to \mathfrak{gl}(V)$. The \textbf{trace form} on $\mathfrak{g}$ corresponding to $\pi$ is the symmetric bilinear form on $\mathfrak{g}$ given by
+    \[ (x, y) \mapsto \tr (\pi(x) \pi(y)) . \]
+\end{topic}
+
+\begin{example}{trace-form-lie-algebra}
+    Provided $\mathfrak{g}$ is finite-dimensional, the trace form on $\mathfrak{g}$ corresponding to the \tref{DG:adjoint-representation}{adjoint representation} $\textup{ad}_\mathfrak{g} : \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$ is the \tref{killing-form}{Killing form}.
+\end{example}

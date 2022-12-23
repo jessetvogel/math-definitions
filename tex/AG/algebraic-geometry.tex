@@ -1044,7 +1044,7 @@
 \end{topic}
 
 \begin{topic}{spreading-out}{spreading-out}
-    Let $X$ be a \tref{variety}{variety} over $\CC$. A \textbf{spreading-out} of $X$ is a separated scheme $\tilde{X}$ over a \tref{AA:finitely-generated-algebra}{finitely generated $\ZZ$-algebra} $R$ with an embedding $R \to \CC$, such that $X \isom \tilde{X} \times_R \CC$.
+    Let $X$ be a \tref{variety}{variety} over $\CC$. A \textbf{spreading-out} of $X$ is a \tref{separated-scheme}{separated} scheme $\tilde{X}$ over a \tref{AA:finitely-generated-algebra}{finitely generated $\ZZ$-algebra} $R$ with an embedding $R \to \CC$, such that $X \isom \tilde{X} \times_R \CC$.
 \end{topic}
 
 \begin{example}{spreading-out}
@@ -1272,4 +1272,14 @@
     Namely, let $X$ be the affine plane with double origin, over a field $k$. Then $X \to \Spec k$ is quasi-compact, but not semi-separated as the intersection of the two affine planes $U, V \subset X$, which is $U \cap V = \AA^2_k \setminus \{ (0, 0) \}$, is not affine.
     
     Furthermore, let $Y$ be the affine line with double origin, over a field $k$. Then $Y \to \Spec k$ is semi-separated, but not separated.
+\end{example}
+
+\begin{topic}{function-field}{function field}
+    Let $X$ be an \tref{TO:irreducible-space}{irreducible} \tref{variety}{variety} over a field $k$. The \textbf{function field} of $X$ is the field $K(X)$ over $k$ given by
+    \[ K(X) = \{ (U, f) : U \subset X \textup{ dense open and } f \in \mathcal{O}_X(U) \} / \sim{} \]
+    where $(U, f) \sim{} (V, g)$ if and only if $f|_{U \cap V} = g|_{U \cap V}$.
+\end{topic}
+
+\begin{example}{function-field}
+    For an affine variety $X = \Spec R$ over $k$, the function field of $X$ is given by the \tref{AA:field-of-fractions}{field of fractions} of $R$.
 \end{example}

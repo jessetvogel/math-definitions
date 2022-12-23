@@ -1,0 +1,45 @@
+\begin{topic}{complex-differentiable}{complex differentiable}
+    A function $f : U \to \CC$, with $U \subset \CC$ an open subset, is \textbf{complex differentiable} at $z \in U$ if the limit
+    \[ f'(z) = \lim_{n \to \infty} \frac{f(z_n) - f(z)}{z_n - z} \]
+    exists and is the same for any sequence $(z_n)_{n \in \NN}$ in $U$ converging to $z$.
+\end{topic}
+
+\begin{topic}{holomorphic-function}{holomorphic function}
+    A function $f : U \to \CC$, with $U \subset \CC$ an open subset, is \textbf{holomorphic} if it is \tref{complex-differentiable}{complex differentiable} for all $z \in U$.
+    
+    A function $f : U \to \CC^n$, with $U \subset \CC^m$ an open subset, is \textbf{holomorphic} if every component is holomorphic as a function in each variable separately, with the other variables fixed.
+    
+    A map $f : X \to Y$ between \tref{DG:complex-manifold}{complex manifolds} is \textbf{holomorphic} if for every point $x \in X$, there is a \tref{DG:atlas}{chart} $(U, \varphi)$ on $X$ with $x \in U$ and a chart $(V, \psi)$ on $Y$ with $f(U) \subset V$, such that the composition
+    \[ \varphi(U) \xrightarrow{\varphi^{-1}} U \xrightarrow{f} V \xrightarrow{\psi} \psi(V) \subset \CC^n \]
+    is holomorphic.
+\end{topic}
+
+\begin{example}{holomorphic-function}
+    The function $f(z) = |z|^2$ is not holomorphic on $\CC$ as
+    \[ \lim_{n \to \infty} \frac{|1 + \tfrac{1}{n}|^2 - |1|^2}{(1 + \tfrac{1}{n}) - 1} = 2 \ne 0 = \lim_{n \to \infty} \frac{|1 + \tfrac{i}{n}|^2 - |1|^2}{(1 + \tfrac{i}{n}) - 1} . \]
+\end{example}
+
+\begin{topic}{cauchy-riemann-equations}{Cauchy--Riemann equations}
+    The \textbf{Cauchy--Riemann equations} state that a function $f : \CC \to \CC$ given by
+    \[ f(x + iy) = u(x, y) + i v(x, y) \]
+    with $u, v : \RR^2 \to \RR$ differentiable, is \tref{holomorphic-function}{holomorphic} if and only if
+    \[ \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \textup{ and } \quad \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x} . \]
+\end{topic}
+
+\begin{example}{cauchy-riemann-equations}
+    Consider the function $f(z) = z^2$, which can be written as $f(x + iy) = u(x, y) + iv(x, y)$ with $u(x, y) = x^2 - y^2$ and $v(x, y) = 2xy$. Then we see that
+    \[ \frac{\partial u}{\partial x} = 2x = \frac{\partial v}{\partial y} \quad \textup{ and } \quad \frac{\partial u}{\partial y} = -2y = -\frac{\partial v}{\partial x} , \]
+    so $f$ is holomorphic.
+\end{example}
+
+\begin{topic}{cauchy-integral-theorem}{Cauchy's integral theorem}
+    Let $f : U \to \CC$ be a \tref{holomorphic-function}{holomorphic function}, with $U \subset \CC$ a \tref{TO:simply-connected-space}{simply connected} open subset. Then \textbf{Cauchy's integral theorem} states that
+    \[ \oint_\gamma f(z) dz = 0 \]
+    for any closed loop $\gamma$ in $U$.
+\end{topic}
+
+\begin{topic}{cauchy-integral-formula}{Cauchy's integral formula}
+    Let $f : U \to \CC$ be a \tref{holomorphic-function}{holomorphic function}, with $U \subset \CC$ an open subset containing a closed disk $D = \{ z \in \CC \mid |z - a| \le r \}$ for some $a \in U$ and $r > 0$. Then \textbf{Cauchy's integral formula} states that
+    \[ f(a) = \frac{1}{2 \pi i} \oint_\gamma \frac{f(z)}{z - a} dz , \]
+    where $\gamma$ is the curve going counterclockwise along the boundary of $D$.
+\end{topic}
