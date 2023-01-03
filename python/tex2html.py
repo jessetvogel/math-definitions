@@ -347,6 +347,10 @@ class Parser:
             if self.found(Token.T_COMMAND, '\\tref'):
                 self.parse_tref()
                 continue
+
+            if self.found(Token.T_COMMAND, '\\img'):
+                self.parse_img()
+                continue
                 
             if self.found(Token.T_COMMAND, '\\begin'):
                 self.parse_begin_environment()
@@ -412,6 +416,15 @@ class Parser:
         self.output.write('</a>')
         self.consume(Token.T_SEPARATOR, '}')
     
+    def parse_img(self):
+        self.consume(Token.T_COMMAND, '\\img')
+        self.consume(Token.T_SEPARATOR, '{')
+        filename = self.consume(Token.T_TEXT).data
+        if not os.path.exists(f'../data/img/{filename}'):
+            raise Exception('image "{filename}" does not exist')
+        self.consume(Token.T_SEPARATOR, '}')
+        self.output.write(f'<img class="math-img" src="data/img/{filename}" alt />')
+
     def resolve_identifier(self, identifier):
         if ':' in identifier:
             return identifier
@@ -492,3 +505,5 @@ class Parser:
             return svg_file_relative
         except:
             return False
+
+

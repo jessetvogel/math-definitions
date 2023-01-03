@@ -8,7 +8,6 @@
 
 ---- Theory ----
 
-AG/GIT: Hilbert--Mumford criterion
 AG: Narasimhan--Seshadri theorem (https://arxiv.org/pdf/2208.05940.pdf)
 
 RT: Steinberg representation
@@ -38,7 +37,7 @@ CA: meromorphic function
 CA: Residue theorem
 CA: Schwarz lemma
 CA: Riemann mapping theorem
-CA: Cauchy--Riemann equations (proof)
+CA: Cauchy--Riemann equations (proof p.74)
 
 -- Higher Algebra
 Spectrum object

@@ -342,6 +342,17 @@ img.display-math-svg {
     transition: filter var(--transition-time);
 }
 
+img.math-img {
+    display: block;
+    margin: 16px auto;
+    max-width: 50%;
+    transition: filter var(--transition-time);
+}
+
+body.dark img.math-img {
+    filter: invert(87%);
+}
+
 .error {
     text-align: center;
 }

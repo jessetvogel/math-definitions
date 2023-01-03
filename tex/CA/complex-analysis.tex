@@ -17,12 +17,13 @@
 \begin{example}{holomorphic-function}
     The function $f(z) = |z|^2$ is not holomorphic on $\CC$ as
     \[ \lim_{n \to \infty} \frac{|1 + \tfrac{1}{n}|^2 - |1|^2}{(1 + \tfrac{1}{n}) - 1} = 2 \ne 0 = \lim_{n \to \infty} \frac{|1 + \tfrac{i}{n}|^2 - |1|^2}{(1 + \tfrac{i}{n}) - 1} . \]
+    In fact, while $f$ is complex differentiable at $0$, it is not holomorphic in any neighborhood of $0$.
 \end{example}
 
 \begin{topic}{cauchy-riemann-equations}{Cauchy--Riemann equations}
     The \textbf{Cauchy--Riemann equations} state that a function $f : \CC \to \CC$ given by
     \[ f(x + iy) = u(x, y) + i v(x, y) \]
-    with $u, v : \RR^2 \to \RR$ differentiable, is \tref{holomorphic-function}{holomorphic} if and only if
+    where $u, v : \RR^2 \to \RR$ have continuous first partial derivatives, is \tref{holomorphic-function}{holomorphic} if and only if
     \[ \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \textup{ and } \quad \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x} . \]
 \end{topic}
 
@@ -42,4 +43,30 @@
     Let $f : U \to \CC$ be a \tref{holomorphic-function}{holomorphic function}, with $U \subset \CC$ an open subset containing a closed disk $D = \{ z \in \CC \mid |z - a| \le r \}$ for some $a \in U$ and $r > 0$. Then \textbf{Cauchy's integral formula} states that
     \[ f(a) = \frac{1}{2 \pi i} \oint_\gamma \frac{f(z)}{z - a} dz , \]
     where $\gamma$ is the curve going counterclockwise along the boundary of $D$.
+\end{topic}
+
+\begin{topic}{entire-function}{entire function}
+    An \textbf{entire function} is a function $f : \CC \to \CC$ which is \tref{holomorphic-function}{holomorphic} on the whole complex plane.
+\end{topic}
+
+\begin{topic}{julia-set}{Julia set}
+    Let $f : \CC \to \CC$ be a polynomial function. The \textbf{filled Julia set} for $f$ is the subset of $\CC$ given by
+    \[  \{ z \in \CC \mid \{ f^n(z) : n \in \NN \} \textup{ is bounded} \} \]
+    and the \textbf{Julia set} for $f$ is the \tref{TO:boundary}{boundary} of the filled Julia set.
+\end{topic}
+
+\begin{example}{julia-set}
+    \begin{itemize}
+        \item The filled Julia set for $f(z) = z^2$ is the unit disk, whose Julia set is the unit circle.
+    
+        \item The filled Julia set for $f(z) = z^2 + c$ with $c = -0.4 + 0.6i$ is shown below.
+        \img{julia-set.png}
+    \end{itemize}
+\end{example}
+
+\begin{topic}{mandelbrot-set}{Mandelbrot set}
+    The Mandelbrot set is the set of complex numbers $c \in \CC$ for which the sequence $(z_n)_{n \in \NN}$ given by
+    \[ z_0 = 0 \quad \textup{ and } \quad z_{n + 1} = z_n^2 + c \]
+    is bounded.
+    \img{mandelbrot-set.png}
 \end{topic}

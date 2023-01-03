@@ -1,0 +1,16 @@
+<div class="example">Consider <span class="math inline">\(X = \PP^n_k\)</span> with an action <span class="math inline">\(\sigma : G \times X \to X\)</span> which is linear, that is, <span class="math inline">\(\mathcal{L} = \mathcal{O}_X(1)\)</span> is <span class="math inline">\(G\)</span>-linearized. Note that there is a dual action
+<span class="math display">\[ \begin{aligned}
+        \hat{\sigma} : H^0(X, \mathcal{O}_X(1)) &\to \mathcal{O}_G(G) \otimes H^0(X, \mathcal{O}_X(1)) \\
+        x_i &\mapsto \sum_{j = 0}^{n} a_{ij} \otimes x_j
+    \end{aligned} \]</span>
+given by some <span class="math inline">\(a_{ij} \in \mathcal{O}_G(G)\)</span>. This induces a linear action on <span class="math inline">\(\AA^{n + 1}_k\)</span>
+<span class="math display">\[ \tilde{\sigma} : G \times \AA^{n + 1}_k \to \AA^{n + 1}_k \]</span>
+which is compatible with <span class="math inline">\(\sigma\)</span> in the sense that
+<img class="display-math-svg" src="data/svg/25e5923d444537d495a35d891e08196d3c377f18.svg" alt />
+commutes.<br/>
+Now, for any one-parameter subgroup <span class="math inline">\(\lambda\)</span>, choose coordinates on <span class="math inline">\(\AA^{n + 1}_k\)</span> such that <span class="math inline">\(\lambda\)</span> acts diagonally, that is, <span class="math inline">\(\lambda(t) = \text{diag}(t^{r_0}, \ldots, t^{r_n})\)</span> with <span class="math inline">\(r_i \in \ZZ\)</span>. For any closed point <span class="math inline">\(x \in X\)</span> with lift <span class="math inline">\(\tilde{x} \in \AA^{n + 1}_k\)</span>, one computes the weights
+<span class="math display">\[ \mu^{\mathcal{L}}(x, \lambda) = \max \{ -r_i : \tilde{x}_i \ne 0 \} . \]</span>
+Moreover, <span class="math inline">\(\lim_{t \to 0} \lambda(t) \cdot \tilde{x}\)</span> does not exist (resp. does exist, resp. is zero) if and only if <span class="math inline">\(\mu(x, \lambda) > 0\)</span> (resp. <span class="math inline">\(\mu(x, \lambda) = 0\)</span>, resp. <span class="math inline">\(\mu(x, \lambda) < 0\)</span>). <br/>
+Note that this analysis provides a nice interpretation of <span class="math inline">\(\mu\)</span> as
+<span class="math display">\[ \mu^{\mathcal{L}}(x, \lambda) = \min \{ \alpha \in \ZZ \mid \lim_{t \to 0} t^\alpha \lambda(t) \cdot \tilde{x} \text{ exists} \} . \]</span>    
+</div>
