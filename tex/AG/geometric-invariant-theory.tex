@@ -17,9 +17,9 @@
 \end{topic}
 
 \begin{example}{geometric-quotient}
-    Let $X = \AA^n - \{ 0 \}$ and $G = \mathbb{G}_m$ act on $X$ by scaling the coordinates. Then the map $\pi : \AA^n - \{ 0 \} \to \PP^{n - 1}$ is a geometric quotient.
+    Let $X = \AA^n - \{ 0 \}$ and $G = \GG_m$ act on $X$ by scaling the coordinates. Then the map $\pi : \AA^n - \{ 0 \} \to \PP^{n - 1}$ is a geometric quotient.
     
-    If we instead take $X = \AA^n$ with $G = \mathbb{G}_m$ acting on $X$ by scaling the coordinates, then the map $\pi' : \AA^n \to \{ \star \}$ is a \tref{categorical-quotient}{categorical quotient}, but not a geometric quotient: the only geometric fiber of $\pi'$ is the whole of $X$, but this is not the orbit of any geometric point of $X$. To be more precise, the image of $\Psi : (g, x) \mapsto (g \cdot x, x)$ is not the whole of $\AA^n \times \AA^n$.
+    If we instead take $X = \AA^n$ with $G = \GG_m$ acting on $X$ by scaling the coordinates, then the map $\pi' : \AA^n \to \{ \star \}$ is a \tref{categorical-quotient}{categorical quotient}, but not a geometric quotient: the only geometric fiber of $\pi'$ is the whole of $X$, but this is not the orbit of any geometric point of $X$. To be more precise, the image of $\Psi : (g, x) \mapsto (g \cdot x, x)$ is not the whole of $\AA^n \times \AA^n$.
 \end{example}
 
 \begin{example}{geometric-quotient}
@@ -41,7 +41,7 @@
     \begin{itemize}
         \item For $X = \Spec k[x]$ and $G = \ZZ/2\ZZ$ acting on $X$ by $x \mapsto -x$, we have $k[x]^{\ZZ/2\ZZ} = k[x^2]$, so the affine GIT quotient is $\Spec k[x] \to \Spec k[y]$ given by $y \mapsto x^2$.
         \item For $X = \Spec k[\lambda, \lambda^{-1}, (\lambda \pm 1)^{-1}]$ and $G = \ZZ/2\ZZ$ acting on $X$ by $\lambda \mapsto -\lambda^{-1}$, we have $R^{\ZZ/2\ZZ} = k[\lambda + \lambda^{-1}, (\lambda + \lambda^{-1} \pm 2)^{-1}]$, so the affine GIT quotient is $\CC \setminus \{ 0, \pm 1 \} \to \CC \setminus \{ \pm 2 \}$ given by $\lambda \mapsto \lambda + \lambda^{-1}$.
-        \item For $X = \AA^n = \Spec k[x_1, \ldots, x_n]$ and $G = \mathbb{G}_m$ acting on $X$ by $x_i \mapsto x_i \otimes t$, we have $k[x]^{\mathbb{G}_m} = k$, so the affine GIT quotient is $\AA^n \to \Spec k$.
+        \item For $X = \AA^n = \Spec k[x_1, \ldots, x_n]$ and $G = \GG_m$ acting on $X$ by $x_i \mapsto x_i \otimes t$, we have $k[x]^{\GG_m} = k$, so the affine GIT quotient is $\AA^n \to \Spec k$.
     \end{itemize}
 \end{example}
 
@@ -141,7 +141,7 @@
 \begin{topic}{hilbert-mumford-criterion}{Hilbert--Mumford criterion}
     Let $G$ be a \tref{reductive-algebraic-group}{reductive algebraic group} over a field $k$ acting on a \tref{scheme}{scheme} $X$ \tref{proper-morphism}{proper} over $k$, and let $\mathcal{L}$ be an \tref{ample-invertible-sheaf}{ample} \tref{equivariant-sheaf}{$G$-linearized} \tref{invertible-sheaf}{line bundle} on $X$.
 
-    For any closed point $x \in X$ and one-parameter subgroup $\lambda : \mathbb{G}_m \to G$, the limit $\tilde{x} = \lim_{t \to 0} \lambda(t) \cdot x$ exists, as $X$ is proper over $k$, and is fixed under the action of $\mathbb{G}_m$. Hence, $\mathbb{G}_m$ acts on $\mathcal{L}_{\tilde{x}}$ via a character $\chi : \mathbb{G}_m \to \textup{Aut}(\mathcal{L}_{\tilde{x}}) \cong \mathbb{G}_m$ given by $t \to t^r$ for some $r \in \mathbb{Z}$. The \textit{weight} of $\lambda$ at $x$ with respect to $\mathcal{L}$ is defined as $\mu^\mathcal{L}(x, \lambda) = -r$.
+    For any closed point $x \in X$ and one-parameter subgroup $\lambda : \GG_m \to G$, the limit $\tilde{x} = \lim_{t \to 0} \lambda(t) \cdot x$ exists, as $X$ is proper over $k$, and is fixed under the action of $\GG_m$. Hence, $\GG_m$ acts on $\mathcal{L}_{\tilde{x}}$ via a character $\chi : \GG_m \to \textup{Aut}(\mathcal{L}_{\tilde{x}}) \cong \GG_m$ given by $t \to t^r$ for some $r \in \mathbb{Z}$. The \textit{weight} of $\lambda$ at $x$ with respect to $\mathcal{L}$ is defined as $\mu^\mathcal{L}(x, \lambda) = -r$.
     
     The \textbf{Hilbert--Mumford Criterion} states that for any closed point $x \in X$,
     \begin{enumerate}[(i)]

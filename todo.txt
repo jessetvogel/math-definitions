@@ -10,7 +10,9 @@
 
 AG: Narasimhan--Seshadri theorem (https://arxiv.org/pdf/2208.05940.pdf)
 
-RT: Steinberg representation
+RT: Steinberg representation (https://www.ams.org/journals/bull/1987-16-02/S0273-0979-1987-15512-1/S0273-0979-1987-15512-1.pdf)
+??: Tits building
+??: BN-pair
 ?AG: Beilinson theorem (https://johncalab.github.io/stuff/beilinson.pdf)
 FA: Schauder basis (example: Fourier series)
 DG: Whitney stratification
@@ -31,6 +33,7 @@ AG: universal torsor (for smooth projective varieties?)
 AG: Lang's theorem => H^1_ét(Spec FF_q, G) = 0 for G connected, so any G-bundle on Spec FF_q is trivial
 AA: Weyl dimension/character formula (Lie algebras)
 Skein algebras
+AA: tilting modules/functors/algebras
 
 -- Complex Analysis
 CA: meromorphic function

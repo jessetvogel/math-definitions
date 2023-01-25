@@ -10,6 +10,7 @@ const KaTeXOptions = {
         "\\PP": "\\mathbb{P}",
         "\\AA": "\\mathbb{A}",
         "\\FF": "\\mathbb{F}",
+        "\\GG": "\\mathbb{G}",
         "\\textup": "\\text{#1}",
         "\\im": "\\operatorname{im}",
         // colim: "\\operatorname{colim}",

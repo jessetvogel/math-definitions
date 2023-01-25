@@ -83,7 +83,7 @@
 
 \begin{example}{group-like-element}
     If $A = \mathcal{O}_G(G)$ for some \tref{AG:algebraic-group}{algebraic group} $G$, then a group-like element $a \in A$ corresponds to a group morphism
-    \[ \chi : G \to \mathbb{G}_m = \Spec(k[t, t^{-1}]), \quad t \mapsto a , \]
+    \[ \chi : G \to \GG_m = \Spec(k[t, t^{-1}]), \quad t \mapsto a , \]
     known as a \textit{character}, and vice-versa, any such character corresponds to a group-like element $a = \chi^\#(t) \in A$.
     
     For example, for $G = \textup{GL}_n(k)$ the group of invertible matrices, the determinant $\det \in \mathcal{O}_G(G)$ is a group-like element, since $\det(AB) = \det(A) \det(B)$ for all $A, B \in \textup{GL}_n(k)$.
@@ -327,3 +327,11 @@
     A morphism of Huber pairs $(A, A^+) \to (B, B^+)$ is a continuous ring morphism $f : A \to B$ such that $f(A^+) \subset B^+$.
 \end{topic}
 
+\begin{topic}{matrix-factorization}{matrix factorization}
+    Let $R$ be a \tref{ring}{ring} and $x$ an element of $R$. A \textbf{matrix factorization} of $x$ is a pair of \tref{free-module}{free} $R$-modules $M$ and $N$, together with $R$-module morphisms $f : M \to N$ and $g : N \to M$ such that $g \circ f = x \cdot \id_M$ and $f \circ g = x \cdot \id_N$.
+\end{topic}
+
+\begin{example}{matrix-factorization}
+    Consider the polynomial ring $R = k[x, y, z, w]$ and the element $xy - zw \in R$. A matrix factorization of this element is given by $M = N = R^2$ with
+    \[ f = \begin{pmatrix} x & z \\ w & y \end{pmatrix} \quad \textup{ and } \quad g = \begin{pmatrix} y & -z \\ -w & x \end{pmatrix} . \]
+\end{example}

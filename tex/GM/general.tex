@@ -22,7 +22,9 @@
         \[ \sum_{n = 0}^{\infty} t^n = \frac{1}{1 - t} . \]
         \item The generating function of the linear sequence $0, 1, 2, 3, \ldots$ is
         \[ \sum_{n = 0}^{\infty} n t^{n} = t \cdot \frac{d}{dt} \sum_{n = 0}^{\infty} t^{n} = t \cdot \frac{d}{dt} \left( \frac{1}{1 - t} \right) = \frac{t}{(1 - t)^2} . \]
-        % \item The generating function of 
+        \item Consider the Fibonacci numbers given by $F_0 = 0, F_1 = 1$ and $F_n = F_{n - 1} + F_{n - 2}$ for $n \ge 2$, and let $f = \sum_{n \ge 0} F_n t^n \in \ZZ \llbracket t \rrbracket$. The recurrence relation implies that
+        \[ (1 - t - t^2) f = F_0 + (F_1 - F_0) t + \sum_{n \ge 2} (F_n - F_{n - 1} - F_{n - 2}) t^n = t , \]
+        so that $f = t / (1 - t - t^2)$.
     \end{itemize}
 \end{example}
 

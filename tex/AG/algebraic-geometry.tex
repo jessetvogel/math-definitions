@@ -84,7 +84,7 @@
 \end{example}
 
 \begin{topic}{open-immersion}{open immersion}
-    An \textbf{open immersion} is a morphism $i : U \to X$ of \tref{scheme}{schemes} which induces an isomorphism of $U$ with an open subscheme of $X$.
+    An \textbf{open immersion} is a morphism $j : U \to X$ of \tref{scheme}{schemes} which induces an isomorphism of $U$ with an open subscheme of $X$.
 \end{topic}
 
 \begin{topic}{closed-immersion}{closed immersion}
@@ -263,7 +263,7 @@
     \[ \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there exists a unique morphism $\Spec A \to X$ making the diagram commute.
     
-    That is, $f$ is formally smooth if it is \tref{formally-smooth}{formally smooth} and \tref{formally-unramified}{formally unramified}.
+    That is, $f$ is formally étale if it is \tref{formally-smooth}{formally smooth} and \tref{formally-unramified}{formally unramified}.
 \end{topic}
 
 \begin{example}{formally-etale}
@@ -468,7 +468,7 @@
 \end{topic}
 
 \begin{topic}{syntomic-morphism}{syntomic morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{syntomic at $x \in X$} if there exists an affine open neighborhood $U = \Spec A \subset X$ of $x$ and an affine open $V = \Spec B$ with $f(U) \subset V$ such that the induced ring morphism $B \to A$ is \textit{syntomic}, i.e. of \tref{AA:finitely-presented-algebra}{finite presentation}, makes $A$ into a \tref{AA:flat-module}{flat} \tref{AA:module}{$B$-module}, and all the fiber rings $A \otimes_B k(\mathfrak{p})$ are local complete intersections.
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{syntomic at $x \in X$} if there exists an affine open neighborhood $U = \Spec A \subset X$ of $x$ and an affine open $V = \Spec B \subset Y$ with $f(U) \subset V$ such that the induced ring morphism $B \to A$ is \textit{syntomic}, i.e. of \tref{AA:finitely-presented-algebra}{finite presentation}, makes $A$ into a \tref{AA:flat-module}{flat} \tref{AA:module}{$B$-module}, and all the fiber rings $A \otimes_B k(\mathfrak{p})$ are local complete intersections.
     
     The morphism $f$ is \textbf{syntomic} if it is syntomic at all points $x \in X$.
 \end{topic}
@@ -603,7 +603,7 @@
 \end{topic}
 
 \begin{topic}{toric-variety}{toric variety}
-    A \textbf{toric variety} is a \tref{variety}{variety} $X$ together with an embedding of an \tref{algebraic-torus}{algebraic torus} $T \isom \mathbb{G}_m^n$ into $X$ as an open dense subset, such that the action of $T$ on itself (by translation) extends to the whole of $X$.
+    A \textbf{toric variety} is a \tref{variety}{variety} $X$ together with an embedding of an \tref{algebraic-torus}{algebraic torus} $T \isom \GG_m^n$ into $X$ as an open dense subset, such that the action of $T$ on itself (by translation) extends to the whole of $X$.
 \end{topic}
 
 \begin{example}{toric-variety}
@@ -753,7 +753,7 @@
 \end{example}
 
 \begin{topic}{regular-morphism}{regular morphism}
-    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}, and assume that all fibers $X_y$ are \tref{noetherian-scheme}{locally noetherian}. Then $f$ \textbf{regular} at $x \in X$ if $f$ is \tref{flat-morphism}{flat} at $x$ and the fiber $X_{f(x)}$ is \tref{geometrically-regular}{geometrically regular} at $x$ over $k(y)$. The morphism $f$ is \textbf{regular} if it is regular at all points $x \in X$.
+    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}, and assume that all fibers $X_y$ are \tref{noetherian-scheme}{locally noetherian}. Then $f$ is \textbf{regular} at $x \in X$ if $f$ is \tref{flat-morphism}{flat} at $x$ and the fiber $X_{f(x)}$ is \tref{geometrically-regular}{geometrically regular} at $x$ over $k(y)$. The morphism $f$ is \textbf{regular} if it is regular at all points $x \in X$.
 \end{topic}
 
 \begin{topic}{local-to-global-sequence}{local-to-global Ext sequence}
@@ -896,7 +896,7 @@
 
 \begin{topic}{brauer-group}{Brauer group}
     Let $X$ be a \tref{scheme}{scheme}. The \textbf{Brauer group} of $X$ is the second étale cohomology group
-    \[ \textup{Br}(X) = H^2_\textup{ét}(X, \mathbb{G}_m) . \]
+    \[ \textup{Br}(X) = H^2_\textup{ét}(X, \GG_m) . \]
 \end{topic}
 
 \begin{topic}{rationally-connected-variety}{rationally connected variety}
