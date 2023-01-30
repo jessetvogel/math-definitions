@@ -122,6 +122,11 @@
     \end{itemize}
 \end{example}
 
+\begin{example}{integer-partition}
+    The numbers $p_n$ of partitions of $n$ can be collected in a \tref{generating-function}{generating function}
+    \[ P(t) = \sum_{n \ge 0} p_n t^n = \prod_{i = 1}^{\infty} \frac{1}{1 - t^i} \in \ZZ \llbracket t \rrbracket . \]
+\end{example}
+
 \begin{topic}{conjugate-partition}{conjugate partition}
     Given a \tref{integer-partition}{partition} $\lambda = (\lambda_1, \ldots, \lambda_k)$ of a non-negative integer $n$, the \textbf{conjugate partition} $\lambda' = (\lambda'_1, \ldots, \lambda'_\ell)$ to $\lambda$ is given by
     \[ \lambda'_i = | \{ 1 \le j \le k \mid \lambda_j \ge i \} | \]

@@ -158,6 +158,7 @@ const examples = [
   "AG:group-scheme",
   "AG:severi-brauer-variety",
   "AG:toric-variety",
+  "AG:formal-completion",
   "AG:ample-invertible-sheaf",
   "AG:cech-cohomology",
   "AG:sheaf-differentials",

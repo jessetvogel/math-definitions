@@ -666,6 +666,12 @@
     When $X = \Spec R$ is an \tref{affine-scheme}{affine scheme} and $I \subset R$ an ideal, the formal completion is also known as the \textbf{formal spectrum} of $R$ along $I$, denoted $\textup{Spf}(R)$.
 \end{topic}
 
+\begin{example}{formal-completion}
+    Let $k$ be a field and consider $X = \Spec k[x]$ with closed subscheme $Y \subset X$ given by the ideal $(x)$. Then the formal completion of $X$ along $Y$ has a topological space consisting of one point, with sheaf of rings given by $k \llbracket x \rrbracket$.
+    
+    Note that this locally ringed space is not the same as $\Spec k \llbracket x \rrbracket$, whose topological space has two points, given by the prime ideals $(0)$ and $(x)$.
+\end{example}
+
 \begin{topic}{noetherian-formal-scheme}{noetherian formal scheme}
     A \textbf{noetherian formal scheme} is a \tref{ringed-space}{locally ringed space} $(\mathfrak{X}, \mathcal{O}_\mathfrak{X})$, which has a finite open cover $\{ \mathfrak{U}_i \}$ such that for each $i$, the pair $(\mathfrak{U}_i, \mathcal{O}_\mathfrak{X}|_{\mathfrak{U}_i})$ is isomorphic to the \tref{formal-completion}{formal completion} of some \tref{noetherian-scheme}{noetherian scheme} $X$ along a closed subscheme $Y \subset X$.
 \end{topic}
