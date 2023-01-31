@@ -501,6 +501,12 @@
     given by $(x, y) \mapsto (y - x, x)$, and since $\ker [n]$ is a finite group (acting on $E$ by translation), it follows that $[n]$ is a Galois cover.
 \end{example}
 
+\begin{example}{galois-cover}
+    The morphism
+    \[ \Spec(k[x, y, (x^2 - 1)^{-1}] / (y^3 - 3y + 2x)) \to \Spec(k[x, (x^2 - 1)^{-1}]) \]
+    given by $(x, y) \mapsto x$ is an \tref{etale-morphism}{étale} cover, but not a Galois cover.
+\end{example}
+
 \begin{topic}{equivariant-sheaf}{equivariant sheaf}
     Given a \tref{scheme}{scheme} $X$ with an action $\sigma : G \times X \to X$ of a group scheme $G$, an \textbf{equivariant sheaf} on $X$ is an \tref{O-module}{$\mathcal{O}_X$-module} $\mathcal{F}$ together with an isomorphism of sheaves on $G \times X$,
     \[ \phi : \sigma^* \mathcal{F} \xrightarrow{\sim} \pi_2^* \mathcal{F} \]
@@ -667,9 +673,9 @@
 \end{topic}
 
 \begin{example}{formal-completion}
-    Let $k$ be a field and consider $X = \Spec k[x]$ with closed subscheme $Y \subset X$ given by the ideal $(x)$. Then the formal completion of $X$ along $Y$ has a topological space consisting of one point, with sheaf of rings given by $k \llbracket x \rrbracket$.
+    Let $k$ be a field and consider $X = \Spec k[x]$ with closed subscheme $Y \subset X$ given by the ideal $(x)$. Then the formal completion $\hat{X}$ has a topological space consisting of one point, with sheaf of rings given by $\mathcal{O}_{\hat{X}}(\hat{X}) = k \llbracket x \rrbracket$.
     
-    Note that this locally ringed space is not the same as $\Spec k \llbracket x \rrbracket$, whose topological space has two points, given by the prime ideals $(0)$ and $(x)$.
+    Note that the locally ringed space $\hat{X}$ is not the same as $\Spec k \llbracket x \rrbracket$, whose topological space has two points, given by the prime ideals $(0)$ and $(x)$.
 \end{example}
 
 \begin{topic}{noetherian-formal-scheme}{noetherian formal scheme}
@@ -1289,3 +1295,17 @@
 \begin{example}{function-field}
     For an affine variety $X = \Spec R$ over $k$, the function field of $X$ is given by the \tref{AA:field-of-fractions}{field of fractions} of $R$.
 \end{example}
+
+\begin{topic}{hyperelliptic-curve}{hyperelliptic curve}
+    A \textbf{hyperelliptic curve} is an \tref{algebraic-curve}{algebraic curve} over a field $k$ of \tref{geometric-genus}{genus} $g > 1$, given by an equation of the form
+    \[ y^2 + h y = f \]
+    where $f \in k[x]$ is a \tref{AA:separable-polynomial}{separable polynomial} of degree $n = 2g + 1$ or $n = 2g + 2$, and $h \in k[x]$ is a polynomial of degree less than $g + 2$. When $\operatorname{char}(k) \ne 2$, one can take $h = 0$ by a substitution of variables.
+\end{topic}
+
+\begin{topic}{proj-construction}{Proj construction}
+    Let $S = \bigoplus_{i \ge 0} S_i$ be a \tref{AA:graded-ring}{graded ring}. The \textbf{Proj construction} assigns to $S$ the \tref{scheme}{scheme} $\Proj S = (X, \mathcal{O}_X)$ defined as follows.
+    \begin{itemize}
+        \item The topological space $X$ is the set of homogeneous \tref{AA:prime-ideal}{prime ideals} $\mathfrak{p} \subset S$ not containing the irrelevant ideal $S_+ = \bigoplus_{i > 0} S_i$, whose closed sets are given precisely by the sets $V(\mathfrak{a}) = \{ \textup{homogeneous prime ideals } \mathfrak{p} \subset S \textup{ with } \mathfrak{p} \supset \mathfrak{a} \}$ for all homogeneous ideals $\mathfrak{a} \subset S$.
+        \item The sheaf of rings $\mathcal{O}_X$ is given as follows. For each open set $U \subset X$, $\mathcal{O}_X(U)$ is the set of functions $s : U \to \sqcup_{\mathfrak{p} \in U} {(S_\mathfrak{p})}_0$ with $s(\mathfrak{p}) \in (S_\mathfrak{p})_0$ for each $\mathfrak{p} \in U$, such that $s$ is locally a quotient of elements in $S$. This means that for each $\mathfrak{p} \in U$, there is a neighborhood $V \subset U$ of $\mathfrak{p}$, and homogeneous elements $a, f \in S$ of the same degree such that for each $\mathfrak{q} \in V$, $f \not\in \mathfrak{q}$ and $s(\mathfrak{q}) = a / f$ in $(S_\mathfrak{q})_0$. The sets $\mathcal{O}_X(U)$ are indeed rings.
+    \end{itemize}
+\end{topic}

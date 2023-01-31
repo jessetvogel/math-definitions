@@ -343,3 +343,25 @@
     \[ 0 \to M \to I^0 \to I^1 \to I^2 \to \cdots \]
     It may be infinite.
 \end{topic}
+
+\begin{topic}{coextension-of-scalars}{coextension of scalars}
+    Let $f : R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Coextension of scalars} along $f$ is the \tref{CT:functor}{functor}
+    \[ \Hom_R(S, -) : R\textup{-}\textbf{Mod} \to S\textup{-}\textbf{Mod} \]
+    where $S$ is seen as an $R$-module via $f$. The $S$-module structure on $\Hom_R(S, M)$, for an $R$-module $M$, is given by $(s \cdot \varphi)(x) = \varphi(s \cdot x)$ for all $s, x \in S$ and $\varphi \in \Hom_R(S, M)$.
+    
+    Coextension of scalars is \tref{CT:adjunction}{right adjoint} to \tref{restriction-of-scalars}{restriction of scalars}.
+\end{topic}
+
+\begin{topic}{restriction-of-scalars}{restriction of scalars}
+    Let $f : R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Restriction of scalars} along $f$ is the \tref{CT:functor}{functor}
+    \[ U : S\textup{-}\textbf{Mod} \to R\textup{-}\textbf{Mod} \]
+    assigning to an \tref{module}{$S$-module} $N$ the $R$-module with underlying abelian group $N$ and whose $R$-module structure is given by $r \cdot n = f(r) \cdot n$ for all $r \in R$ and $n \in N$.
+\end{topic}
+
+\begin{topic}{extension-of-scalars}{extension of scalars}
+    Let $f : R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Extension of scalars} along $f$ is the \tref{CT:functor}{functor}
+    \[ (-) \otimes_R S : R\textup{-}\textbf{Mod} \to S\textup{-}\textbf{Mod} \]
+    assigning to an \tref{module}{$R$-module} $M$ the \tref{tensor-product}{tensor product} $M \otimes_R S$.
+    
+    Extension of scalars is \tref{CT:adjunction}{left adjoint} to \tref{restriction-of-scalars}{restriction of scalars}.
+\end{topic}

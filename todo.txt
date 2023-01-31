@@ -17,11 +17,6 @@ RT: Steinberg representation (https://www.ams.org/journals/bull/1987-16-02/S0273
 FA: Schauder basis (example: Fourier series)
 DG: Whitney stratification
 CP: Monomial order and Gröbner basis for \oplus S
-ST: correct lattice, complemented lattice, complete lattice, ...
-CT: filtration
-
-HT: Quillen equivalence example: it is a theorem that | - | \dashv Sing(-). In particular, Ho(Set_\Delta) \simeq Ho(Top)
-HA: coextension of scalars
 
 AG: direct image with compact support f_!
 AG: exceptional inverse image f^!
@@ -75,7 +70,6 @@ DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
 AG: D-module
-AG: wonderful compactification
 AG: Abel--Jacobi theorem
 AG: Kempf-Ness stratification
 AG: natural log structure on toric varieties
@@ -88,10 +82,7 @@ AG: Examples Borel subgroups:
     - All are conjugate (over algebraically closed field k)
 AG: parabolic vector bundle
 AG: Kodaira dimension
-AG: étale fundamental group(oid)
-AG: hyperelliptic curve
 AG: D-affine variety
-AG: Proj construction
 AG: k-univariant / uniruled ?
 AG: non-ablian Hodge theorem (https://www.ma.imperial.ac.uk/~jbm18/introductiontohiggsbundles.pdf)
 

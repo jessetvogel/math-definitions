@@ -236,3 +236,24 @@
         \item Let $k$ be a field of characteristic $p$, and let $\alpha_p = \Spec k[t] / (t^p)$ as a subgroup of the additive group. Then the Cartier dual of $\alpha_p$ is itself.
     \end{itemize}
 \end{example}
+
+\begin{topic}{dual-abelian-variety}{dual abelian variety}
+    Let $X$ be an \tref{abelian-variety}{abelian variety} over a field $k$. The \textbf{dual abelian variety} $X^t$ of $X$ is the variety over $k$ representing the functor
+    \[ T \mapsto \operatorname{Pic}_{X/k}(T)^0 , \]
+    where $\operatorname{Pic}_{X/k}(T)$ is the \tref{picard-functor}{relative Picard functor}. There is a group law on $X^t$, given by the tensor product of line bundles, making $X^t$ into an abelian variety over $k$.
+\end{topic}
+
+\begin{topic}{poincare-bundle}{Poincaré bundle}
+    Let $X$ be an \tref{abelian-variety}{abelian variety} over a field $k$, and denote by $X^t$ its \tref{dual-abelian-variety}{dual}. The \textbf{Poincaré bundle} is the universal line bundle on $X \times_k X^t$, that is, the \tref{invertible-sheaf}{line bundle} $\mathcal{P} \in \operatorname{Pic}_{X/k}(X \times_k X^t)^0 = \Hom(X^t, X^t)$ corresponding to $\id_{X^t}$.
+\end{topic}
+
+\begin{topic}{wonderful-compactification}{wonderful compactification}
+    Let $G$ be a complex \tref{TO:connected-space}{connected} semisimple \tref{algebraic-group}{algebraic group} with trivial \tref{GT:group-center}{center} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$ and write $n = \dim G$. Consider the action of $G \times G$ on the \tref{LA:grassmannian}{Grassmanian} $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$ via the \tref{DG:adjoint-representation}{adjoint representation} $\textup{Ad}_{G \times G} : G \times G \to \textup{GL}(\mathfrak{g} \oplus \mathfrak{g})$. The \tref{GT:stabilizer}{stabilizer} of $\mathfrak{g}_\Delta = \{ (x, x) : x \in \mathfrak{g} \}$ in $G \times G$ is given by $G_\Delta = \{ (g, g) : g \in G \}$, so that $(G \times G) \cdot \mathfrak{g}_\Delta \cong (G \times G) / G_\Delta \cong G$.
+    The \textbf{wonderful compactification} of $G$ is
+    \[ \overline{G} = \overline{(G \times G) \cdot \mathfrak{g}_\Delta} \]
+    where the \tref{TO:closure}{closure} is taken in $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$. As $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$ is \tref{projective-variety}{projective}, also $\overline{G}$ is projective.
+\end{topic}
+
+\begin{example}{wonderful-compactification}
+    Consider the \tref{LA:projective-linear-group}{projective linear group} $G = \textup{PGL}_2(\CC)$. Its wonderful compactification is $\PP(\textup{Mat}_{2 \times 2}(\CC)) \cong \PP^3_\CC$.
+\end{example}
