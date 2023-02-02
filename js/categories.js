@@ -14,6 +14,7 @@ const categories = {
     "HA": "Homological Algebra",
     "HT": "Homotopy Theory",
     "LA": "Linear Algebra",
+    "LO": "Logic",
     "MT": "Measure Theory",
     "NT": "Number Theory", 
     "RT": "Representation Theory",

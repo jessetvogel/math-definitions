@@ -145,7 +145,7 @@
 \end{example}
 
 \begin{topic}{tannaka-duality}{Tannaka duality}
-    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{CT:rigid-monoidal-category}{rigid} \tref{HA:linear-category}{$k$-linear} \tref{CT:monoidal-category}{monoidal category}, such that $\textup{End}(\textbf{1}) = k$, and let $\omega : \mathcal{C} \to \textbf{Vect}_k$ be an \tref{HA:exact-functor}{exact} \tref{CT:faithful-functor}{faithful} $k$-linear \tref{CT:monoidal-functor}{monoidal} \tref{CT:functor}{functor}. The pair $(\mathcal{C}, \omega)$ is called a \textbf{Tannakian category}. Then \textbf{Tannaka duality} states that
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{CT:rigid-monoidal-category}{rigid} \tref{HA:linear-category}{$k$-linear} \tref{HA:abelian-category}{abelian} \tref{CT:monoidal-category}{monoidal category}, such that $\textup{End}(\textbf{1}) = k$, and let $\omega : \mathcal{C} \to \textbf{Vect}_k$ be an \tref{HA:exact-functor}{exact} \tref{CT:faithful-functor}{faithful} $k$-linear \tref{CT:monoidal-functor}{monoidal} \tref{CT:functor}{functor}. The pair $(\mathcal{C}, \omega)$ is called a \textbf{Tannakian category}. Then \textbf{Tannaka duality} states that
     \begin{enumerate}[(i)]
         \item The group $\textup{Aut}^\otimes(\omega)$ of \tref{CT:natural-transformation}{natural automorphisms} of $\omega$ that preserve the monoidal structure, is naturally represented by an affine group scheme $G$.
         \item The functor $\mathcal{C} \to \textbf{Rep}_k(G)$, induced by $\omega$, from $\mathcal{C}$ to the category of finite-dimensional \tref{representation}{representations} of $G$ over $k$, is an \tref{CT:equivalence-of-categories}{equivalence of categories}.
@@ -179,7 +179,21 @@
 \end{example}
 
 \begin{example}{tannaka-duality}
-    Note that the group $G$ cannot be determined from the \tref{representation-ring}{representation ring} along, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
+    Let $\mathcal{C}$ be the category of real Hodge structures, whose objects are pairs $(H, \{ H^{p, q} \})$ consisting of a real vector space $H$ and a \tref{LA:pure-hodge-structure}{pure Hodge structure} $\{ H^{p, q} \}$ on $H_\CC = H \otimes_R \CC$, and let $\omega : \mathcal{C} \to \textbf{Vect}_\RR$ be the forgetful functor that sends $(H, \{ H^{p, q} \})$ to $H$.
+    One can check that $(\mathcal{C}, \omega)$ is indeed a Tannakian category.
+    
+    We claim that the corresponding (real) affine group scheme $\textup{Aut}^\otimes(\omega)$ is given by $\mathbb{S} = \textup{Res}_{\CC/\RR}(\GG_m)$, that is, $\mathbb{S}(A) = \GG_m(A \otimes_\RR \CC) = (A \otimes_\RR \CC)^\times$ for all $\RR$-algebras $A$. First of all, we see that the real and complex points of $\mathbb{S}$ can be identified as
+    \[ \mathbb{S}(\RR) = \left\{ \left(\begin{smallmatrix} x & y \\ -y & x \end{smallmatrix}\right) \in \textup{GL}_2(\RR) \right\} \quad \textup{ and } \quad \mathbb{S}(\CC) = \left\{ \left(\begin{smallmatrix} x & y \\ -y & x \end{smallmatrix}\right) \in \textup{GL}_2(\CC) \right\} \cong \CC^\times \times \CC^\times \]
+    where the latter isomorphism is given by $\left(\begin{smallmatrix} x & y \\ -y & x \end{smallmatrix}\right) \mapsto (x + iy, x - iy)$. Note that complex conjugation on $\mathbb{S}(\CC)$ corresponds to $(\alpha, \beta) \mapsto (\overline{\beta}, \overline{\alpha})$.
+    
+    Now, if $V$ is a representation of $\mathbb{S}$, then $\mathbb{S}(\CC) = \CC^\times \times \CC^\times$ acts on $V_\CC$, yielding a decomposition $V_\CC = \bigoplus_{p, q} V^{p, q}$, where $V^{p, q} = \{ v \in V \mid (\alpha, \beta) \cdot v = \alpha^p \beta^q v \textup{ for all } (\alpha, \beta) \in \mathbb{S}(\CC) \}$. Furthermore, for any $v \in V^{p, q}$ we have
+    \[ (\alpha, \beta) \cdot \overline{v} = \overline{\overline{(\alpha, \beta)} \cdot v} = \overline{(\overline{\beta}, \overline{\alpha}) \cdot v} = \overline{\overline{\beta}^p \overline{\alpha}^q v} = \alpha^q \beta^p \overline{v} \]
+    so $\overline{V^{p, q}} = V^{q, p}$. This construction yields a functor $\textbf{Rep}_\RR(\mathbb{S}) \to \mathcal{C}$ compatible with the forgetful functors to $\textbf{Vect}_\RR$.
+    Conversely, given a pair $(H, \{ H^{p, q} \})$, we define an action of $\mathbb{S}(\CC)$ on $H_\CC$ where $(\alpha, \beta) \in \mathbb{S}(\CC)$ acts on $H^{p, q}$ as multiplication by $\alpha^p \beta^q$. The condition $\overline{H^{p, q}} = H^{q, p}$ implies that this complex representation comes from a real representation $\mathbb{S}(\RR) \to \textup{GL}(H)$ by extension of scalars. This construction yields a quasi-inverse $\mathcal{C} \to \textbf{Rep}_\RR(\mathbb{S})$, establishing the equivalence of categories.
+\end{example}
+
+\begin{example}{tannaka-duality}
+    Note that the group $G$ cannot be determined from the \tref{representation-ring}{representation ring} alone, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
     \[ \begin{array}{c|c|c|c|c}
         1 & 1 & 1 & 1 & 1 \\ \hline
         1 & 1 & 1 & -1 & -1 \\ \hline

@@ -178,6 +178,8 @@
 
 \begin{example}{bruhat-decomposition}
     Let $G = \textup{GL}_n(\CC)$ with $B \subset G$ the subgroup of upper triangular matrices, $T \subset G$ the subgroup of diagonal matrices, and $W$ the \tref{GT:symmetric-group}{symmetric group} $S_n$. The Bruhat decomposition says that for any $A \in G$, we can write $A = U P V$ with $U, V \in B$ and $P$ a \tref{LA:permutation-matrix}{permutation matrix}. Rewriting as $P = U^{-1} A V^{-1}$, this says any invertible matrix $A$ can be brought into a permutation matrix via row and column operations, where we can only add row $i$ to row $j$ if $i > j$, and column $i$ to column $j$ if $i < j$.
+    
+    Essentially, this is how matrices are brought into \tref{LA:row-echelon-form}{reduced row echelon form}.
 \end{example}
 
 \begin{topic}{langs-theorem}{Lang's theorem}
@@ -257,3 +259,8 @@
 \begin{example}{wonderful-compactification}
     Consider the \tref{LA:projective-linear-group}{projective linear group} $G = \textup{PGL}_2(\CC)$. Its wonderful compactification is $\PP(\textup{Mat}_{2 \times 2}(\CC)) \cong \PP^3_\CC$.
 \end{example}
+
+\begin{topic}{pro-algebraic-completion}{pro-algebraic completion}
+    Let $\Gamma$ be a \tref{GT:group}{group} and $k$ be a \tref{AA:field}{field}. Consider the collection of pairs $(G, \varphi_G)$ consisting of an \tref{affine-scheme}{affine} \tref{group-scheme}{group scheme} $G$ over $k$ and a group morphism $\varphi_G : \Gamma \to G(k)$. Define a partial order on this collection by setting $(G, \varphi_G) \le (H, \varphi_H)$ if there exists a morphism $f : G \to H$ such that $\varphi_H = f \circ \varphi_G$. The \textbf{pro-algebraic completion} of $\Gamma$ is the \tref{CT:inverse-limit}{inverse limit}
+    \[ \widehat{\Gamma}^\textup{alg} = \varprojlim_{(G, \varphi_G)} G . \]
+\end{topic}

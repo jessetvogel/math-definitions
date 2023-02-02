@@ -1309,3 +1309,19 @@
         \item The sheaf of rings $\mathcal{O}_X$ is given as follows. For each open set $U \subset X$, $\mathcal{O}_X(U)$ is the set of functions $s : U \to \sqcup_{\mathfrak{p} \in U} {(S_\mathfrak{p})}_0$ with $s(\mathfrak{p}) \in (S_\mathfrak{p})_0$ for each $\mathfrak{p} \in U$, such that $s$ is locally a quotient of elements in $S$. This means that for each $\mathfrak{p} \in U$, there is a neighborhood $V \subset U$ of $\mathfrak{p}$, and homogeneous elements $a, f \in S$ of the same degree such that for each $\mathfrak{q} \in V$, $f \not\in \mathfrak{q}$ and $s(\mathfrak{q}) = a / f$ in $(S_\mathfrak{q})_0$. The sets $\mathcal{O}_X(U)$ are indeed rings.
     \end{itemize}
 \end{topic}
+
+\begin{topic}{weil-restriction}{Weil restriction}
+    Let $f : S' \to S$ be a morphism of \tref{scheme}{schemes}. Given a scheme $X$ over $S'$, if the functor
+    \[ \textup{Res}_{S'/S}(X) : \textbf{Sch}_S^\textup{op} \to \textbf{Set}, \quad T \mapsto \Hom_{S'}(T \times_S S', X) \]
+    is \tref{CT:representable-functor}{representable}, then the corresponding scheme $\textup{Res}_{S'/S}(X)$ over $S$ is called the \textbf{Weil restriction} of $X$ along $f$.
+\end{topic}
+
+\begin{example}{weil-restriction}
+    Let $\ell/k$ be a finite \tref{AA:field-extension}{field extension} of degree $s$. Given an affine variety $X = \Spec(\ell[x_1, \ldots, x_n]) / (f_1, \ldots, f_m)$ over $\ell$, the Weil restriction $\textup{Res}_{\ell/k}(X)$ is given by $\Spec(k[y_{1, 1}, \ldots, y_{n, s}]) / (g_{1, 1}, \ldots, g_{m, s})$, where $y_{i, j}$ and $g_{i, j}$ are given by $x_i = y_{i, 1} e_1 + \ldots + y_{i, s} e_s$ and $f_i = g_{i, 1} e_1 + \ldots + g_{i, s} e_s$, for a $k$-basis $e_1, \ldots, e_s$ of $\ell$.
+    
+    In particular,
+    \begin{itemize}
+        \item $\textup{Res}_{\ell/k}(\Spec(\ell)) = \Spec(k)$
+        \item $\textup{Res}_{\ell/k}(\AA^n_\ell) = \AA^{ns}_k$.
+    \end{itemize}
+\end{example}

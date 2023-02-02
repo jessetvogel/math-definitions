@@ -182,6 +182,7 @@ const examples = [
   "AG:jacobian-variety",
   "AG:semi-separated-morphism",
   "AG:function-field",
+  "AG:weil-restriction",
   "AG:geometric-quotient",
   "AG:affine-git-quotient",
   "AG:projective-git-quotient",
