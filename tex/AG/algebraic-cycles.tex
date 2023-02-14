@@ -72,18 +72,35 @@
 \end{topic}
 
 \begin{topic}{voevodsky-motive}{Voevodsky motive}
-    Let $k$ be a field, and write $\textup{FinCorr}(k)$ for the category of \tref{finite-correspondence}{finite correspondences} over $k$. Let $\widehat{\textup{DM}}_\textup{gm}^\textup{eff}(k)$ be the category obtained from the bounded \tref{HA:homotopy-category}{homotopy category} $\textbf{K}^\textup{b}(\textup{FinCorr}(k))$ by localizing with respect to
-    \begin{itemize}
-        \item (\textit{$\AA^1$-invariance}) $\pi_X : X \times_k \AA^1_k \to X$ for all smooth schemes $X$ over $k$,
-        \item (\textit{Mayer--Vietoris}) for all smooth schemes $X$ over $k$ and Zariski opens $i_U : U \hookrightarrow X$ and $i_V : V \hookrightarrow X$ with $X = U \cup V$, the map
-        \[ \operatorname{Cone}(U \cap V \xrightarrow{i} U \oplus V) \xrightarrow{i_{U*} - i_{V*}} X , \]
-        where $i$ is induced by the inclusions of $U \cap V$ into $U$ and $V$.
-    \end{itemize}
-    The category of \textbf{effective geometric motives} $\textup{DM}_\textup{gm}^\textup{eff}(k)$ is the \tref{CT:karoubi-envelope}{idempotent completion} of $\widehat{\textup{DM}}_\textup{gm}^\textup{eff}(k)$.
-    
-    Let $\ZZ(1) = \operatorname{Cone}(\PP^1_k \to \Spec k)[-3]$ and define $\ZZ(n)$ as $\ZZ(1)^{\otimes n}$ for $n \ge 0$.
-    %
-    The category of \textbf{geometric motives} $\textup{DM}_\textup{gm}(k)$ is defined by inverting the functor $(-) \otimes \ZZ(1)$ on $\textup{DM}_\textup{gm}^\textup{eff}(k)$. That is, its objects are of the form $X(n)$, with $X \in \textup{DM}_\textup{gm}^\textup{eff}(k)$ and $n \in \ZZ$, and the morphisms are given by
-    \[ \Hom_{\textup{DM}_\textup{gm}(k)}(X(n), Y(m)) = \varinjlim_{N} \Hom_{\textup{DM}_\textup{gm}^\textup{eff}(k)}(X \otimes \ZZ(n + N), Y \otimes \ZZ(m + N)) . \]
-    In particular, the natural functor $i : \textup{DM}_\textup{gm}^\textup{eff}(k) \to \textup{DM}_\textup{gm}(k)$ that sends $X$ to $X(0)$ is \tref{CT:full-functor}{fully} \tref{CT:faithful-functor}{faithful}, and the natural map $i(X \otimes \ZZ(n)) \to X(n)$ is an isomorphism.
+    Let $k$ be a \tref{AA:field}{field}. The \textit{category of geometric motives} $\textup{DM}_\textup{gm}(k)$ is constructed as follows.
+    \begin{enumerate}[(i)]
+        \item Let $\textup{FinCorr}(k)$ be the category of \tref{finite-correspondence}{finite correspondences} over $k$.
+        \item Let $\widehat{\textup{DM}}_\textup{gm}^\textup{eff}(k)$ be the category obtained from the bounded \tref{HA:homotopy-category}{homotopy category} $\textbf{K}^\textup{b}(\textup{FinCorr}(k))$ by \tref{CT:localization}{localizing} with respect to
+        \begin{itemize}
+            \item (\textit{$\AA^1$-invariance}) $\pi_X : X \times_k \AA^1_k \to X$ for all smooth schemes $X$ over $k$,
+            \item (\textit{Mayer--Vietoris}) for all smooth schemes $X$ over $k$ and Zariski opens $j_U : U \hookrightarrow X$ and $j_V : V \hookrightarrow X$ with $X = U \cup V$, the map
+            \[ \operatorname{Cone}(U \cap V \xrightarrow{j} U \oplus V) \xrightarrow{j_{U*} - j_{V*}} X , \]
+            where $j$ is induced by the inclusions of $U \cap V$ into $U$ and $V$.
+        \end{itemize}
+        \item Define the category of \textbf{effective geometric motives} $\textup{DM}_\textup{gm}^\textup{eff}(k)$ as the \tref{CT:karoubi-envelope}{idempotent completion} of $\widehat{\textup{DM}}_\textup{gm}^\textup{eff}(k)$.
+        \item Consider the projection $\pi : \PP^1_k \to \Spec k$ and any section $\sigma : \Spec k \to \PP^1_k$. Writing $\ZZ = \Spec k$, note that the exact triangle
+        \[ \begin{tikzcd} \operatorname{Cone}(\pi)[-1] \arrow{r} & \PP^1_k \arrow[swap]{r}{\pi} & \ZZ \arrow{r} \arrow[shift right=0.4em, swap]{l}{\sigma} & \operatorname{Cone}(\pi) \end{tikzcd}  \]
+        splits, so that $\PP^1_k \cong \ZZ \oplus \operatorname{Cone}(\pi)[-1]$. Define $\ZZ(1) = \operatorname{Cone}(\pi)[-3]$ so that $\PP^1_k \cong \ZZ \oplus \ZZ(1)[2]$. Furthermore, define $\ZZ(n) = \ZZ(1)^{\otimes n}$ for $n \ge 0$.
+        \item The category of \textbf{geometric motives} $\textup{DM}_\textup{gm}(k)$ is defined by inverting the functor $(-) \otimes \ZZ(1)$ on $\textup{DM}_\textup{gm}^\textup{eff}(k)$. That is, its objects are of the form $X(n)$, with $X \in \textup{DM}_\textup{gm}^\textup{eff}(k)$ and $n \in \ZZ$, and the morphisms are given by
+        \[ \Hom_{\textup{DM}_\textup{gm}(k)}(X(n), Y(m)) = \varinjlim_{N} \Hom_{\textup{DM}_\textup{gm}^\textup{eff}(k)}(X \otimes \ZZ(n + N), Y \otimes \ZZ(m + N)) . \]
+    \end{enumerate}
+    The natural functor $i : \textup{DM}_\textup{gm}^\textup{eff}(k) \to \textup{DM}_\textup{gm}(k)$ that sends $X$ to $X(0)$ is \tref{CT:full-functor}{fully} \tref{CT:faithful-functor}{faithful}, and the natural map $i(X \otimes \ZZ(n)) \to X(n)$ is an isomorphism.
 \end{topic}
+
+\begin{example}{voevodsky-motive}
+    Let us prove inductively that $M_\textup{gm}(\AA^n_k \setminus \{ 0 \}) \cong \ZZ \oplus \ZZ(n)[2n - 1]$ for all $n \ge 1$.
+    
+    For $n = 1$, apply the Mayer--Vietoris sequence to the usual covering $\PP^1_k = \AA^1_k \cup \AA^1_k$ to find
+    \[ M_\textup{gm}(\AA^1_k \setminus \{ 0 \}) \to M_\textup{gm}(\AA^1_k) \oplus M_\textup{gm}(\AA^1_k) \xrightarrow{\left(\begin{smallmatrix} j_1 & -j_2 \end{smallmatrix}\right)} M_\textup{gm}(\PP^1_k) \to M_\textup{gm}(\AA^1_k \setminus \{ 0 \})[1] . \]
+    Recall that $M_\textup{gm}(\AA^1_k) = M_\textup{gm}(\Spec k) = \ZZ$ and $M_\textup{gm}(\PP^1) = \ZZ \oplus \ZZ(1)[2]$. Note that $j_1, j_2 : M_\textup{gm}(\AA^1_k) \to M_\textup{gm}(\PP^1_k)$ both factor through $M_\textup{gm}(\Spec k) = \ZZ$ as $M_\textup{gm}(\AA^1_k \to \Spec k)$ is an isomorphism. Therefore, it follows that $M_\textup{gm}(\AA^1_k \setminus \{ 0 \}) = \operatorname{Cone}\left(\begin{smallmatrix} j_1 & -j_2 \end{smallmatrix}\right)[-1] = \ZZ \oplus \ZZ(1)[1]$.
+    
+    For $n \ge 2$, we use the covering $\AA^n_k \setminus \{ 0 \} = (\AA^n_k \setminus \AA^{n - 1}_k) \cup (\AA^n_k \setminus \AA^1_k)$, the fact that $(\AA^n_k \setminus \AA^{n - 1}_k) \cap (\AA^n_k \setminus \AA^1_k) = (\AA^{n - 1}_k \setminus \{ 0 \}) \times (\AA^1_k \setminus \{ 0 \})$, and the isomorphisms $M_\textup{gm}(\AA^n_k \setminus \AA^{n - 1}_k) \cong M_\textup{gm}(\AA^1_k \setminus \{ 0 \})$ and $M_\textup{gm}(\AA^n_k \setminus \AA^1_k) \cong M_\textup{gm}(\AA^{n - 1}_k \setminus \{ 0 \})$, in order to obtain the Mayer--Vietoris sequence
+    \[ (\ZZ \oplus \ZZ(1)[1]) \otimes (\ZZ \oplus \ZZ(n - 1)[2n - 3]) \to (\ZZ \oplus \ZZ(1)[1]) \oplus (\ZZ \oplus \ZZ(n - 1)[2n - 3]) \]
+    \[ \to M_\textup{gm}(\AA^n_k \setminus \{ 0 \}) \to (\ZZ \oplus \ZZ(1)[1]) \otimes (\ZZ \oplus \ZZ(n - 1)[2n - 3])[1] . \]
+    The first map can be written down explicitly, so that after expanding brackets it follows that $M_\textup{gm}(\AA^n_k \setminus \{ 0 \}) \cong \ZZ \oplus \ZZ(n)[2n - 1]$.
+\end{example}

@@ -105,6 +105,20 @@
     where $\Delta : A \oplus A \to A$ is given by $(a, b) \mapsto a + b$. Now we can read off that $H^0(X; A) = \ker(\Delta) \isom A$ and $H^1(X; A) \isom A \oplus A$ and $H^n(X; A) = 0$ for $n \ge 2$.
 \end{example}
 
+\begin{example}{mayer-vietoris-sequence}
+    The Mayer--Vietoris sequence can be used to compute the homology of the $n$-spheres $S^n$. We will take coefficients in $\ZZ$, and let it be clear that $H_0(S^n) = \ZZ$ for all $n \ge 1$. For $n = 1$, cover $S^1$ by two copies of $D^1$ with intersection $D^1 \sqcup D^1$ to obtain the exact sequence
+    \[ \cdots \to H_1(D^1) \oplus H_1(D^1) \to H_1(S^1) \to H_0(D^1 \sqcup D^1) \to H_0(D^1) \oplus H_0(D^1) \to H_0(S^1) \to 0 \]
+    which equals
+    \[ \cdots \to 0 \to H_1(S^1) \to \ZZ \oplus \ZZ \xrightarrow{(a, b) \mapsto (a + b, a + b)} \ZZ \oplus \ZZ \xrightarrow{(a, b) \mapsto a - b} \ZZ \to 0 . \]
+    It follows that $H_1(S^1) = \ZZ$. For $n > 1$, cover $S^n$ by two copies of $D^n$ with intersection $S^{n - 1} \times D^1$ to obtain the exact sequence
+    \[ \cdots \to H_i(D^n) \oplus H_i(D^n) \to H_i(S^n) \to H_{i - 1}(S^{i - 1} \times D^1) \to H_{i - 1}(D^n) \oplus H_{i - 1}(D^n) \to \cdots \]
+    \[ \cdots \to H_1(D^n) \oplus H_1(D^n) \to H_1(S^n) \to H_0(S^{n - 1} \times D^1) \to H_0(D^n) \oplus H_0(D^n) \to H_0(S^n) \to 0 \]
+    where $i > 1$, which equals
+    \[ \cdots \to 0 \to H_i(S^n) \to H_{i - 1}(S^{n - 1} \times D^1) \to 0 \to \cdots \to 0 \to H_1(S^n) \to \ZZ \xrightarrow{a \mapsto (a, a)} \ZZ \oplus \ZZ \xrightarrow{(a, b) \mapsto a - b} \ZZ \to 0 . \]
+    It follows that $H_i(S^n) = H_{i - 1}(S^{n - 1} \times D^1) = H_{i - 1}(S^{n - 1})$ for all $i > 1$, and that $H_1(S^n) = 0$. Now by induction on $n$ we find that
+    \[ H_i(S^n) = \left\{ \begin{array}{cl} \ZZ & \textup{ if } i = 0 \textup{ or } i = n , \\ 0 & \textup{ otherwise}. \end{array} \right. \]
+\end{example}
+
 \begin{topic}{deformation-retract}{(strong) deformation retract}
     A \textbf{deformation retraction} of a \tref{TO:topological-space}{topological space} $X$ onto a subspace $A$ is a continuous map
     \[ F : X \times [0, 1] \to X \]

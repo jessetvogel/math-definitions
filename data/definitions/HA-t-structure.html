@@ -1,4 +1,4 @@
-Let <span class="math inline">\(\mathcal{D}\)</span> be a <a href="#HA:triangulated-category">triangulated category</a>. A <b>t-structure</b> on <span class="math inline">\(\mathcal{D}\)</span> is a pair <span class="math inline">\((\mathcal{D}_{\ge 0}, \mathcal{D}_{\le 0})\)</span> of <a href="#CT:full-subcategory">full subcategories</a>, stable under isomorphisms, such that
+Let <span class="math inline">\(\mathcal{D}\)</span> be a <a href="#HA:triangulated-category">triangulated category</a>. A <b><span class="math inline">\(t\)</span>-structure</b> on <span class="math inline">\(\mathcal{D}\)</span> is a pair <span class="math inline">\((\mathcal{D}_{\ge 0}, \mathcal{D}_{\le 0})\)</span> of <a href="#CT:full-subcategory">full subcategories</a>, stable under isomorphisms, such that
 <ul><li> <span class="math inline">\(\mathcal{D}_{\ge 0}[1] \subset \mathcal{D}_{\ge 0}\)</span> and <span class="math inline">\(\mathcal{D}_{\le 0}[-1] \subset \mathcal{D}_{\le 0}\)</span>,
 </li><li> <span class="math inline">\(\Hom_\mathcal{D}(X, Y[-1]) = 0\)</span> for all <span class="math inline">\(X \in \mathcal{D}_{\ge 0}\)</span> and <span class="math inline">\(Y \in \mathcal{D}_{\le 0}\)</span>,
 </li><li> for all <span class="math inline">\(Y \in \mathcal{D}\)</span>, there exists a distinguished triangle
@@ -6,4 +6,5 @@ Let <span class="math inline">\(\mathcal{D}\)</span> be a <a href="#HA:triangula
 with <span class="math inline">\(X \in \mathcal{D}_{\ge 0}\)</span> and <span class="math inline">\(Z \in \mathcal{D}_{\le 0}[-1]\)</span>.
 </li></ul>
 One writes <span class="math inline">\(\mathcal{D}_{\ge n} = \mathcal{D}_{\ge 0}[n]\)</span> and <span class="math inline">\(\mathcal{D}_{\le n} = \mathcal{D}_{\le 0}[n]\)</span> for all <span class="math inline">\(n \in \ZZ\)</span>.<br/>
-The <b>heart</b> of the t-structure is the full subcategory <span class="math inline">\(\mathcal{D}^\heartsuit = \mathcal{D}_{\ge 0} \cap \mathcal{D}_{\le 0}\)</span>.
+The <b>heart</b> of the <span class="math inline">\(t\)</span>-structure is the full subcategory <span class="math inline">\(\mathcal{D}^\heartsuit = \mathcal{D}_{\ge 0} \cap \mathcal{D}_{\le 0}\)</span>.<br/>
+A <span class="math inline">\(t\)</span>-structure is <b>non-degenerate</b> if the intersections <span class="math inline">\(\cap_{n \in \ZZ} \mathcal{D}_{\ge n}\)</span> and <span class="math inline">\(\cap_{n \in \ZZ} \mathcal{D}_{\le n}\)</span> consist only of zero objects.

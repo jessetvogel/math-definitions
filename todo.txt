@@ -142,7 +142,6 @@ NT: conductor (abelian extensions?)
 -- Uncategorized
 - Modular form
 - Proofs of theorems
-- Voevodsky mixed motive category DM(k, Q) (is a triangulated category!)
 - Grothendieck--Verdier duality
 - Quantum groups: SL2(C) as example!
     - Reflection equation algebra from R-matrix

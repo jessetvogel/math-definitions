@@ -159,7 +159,7 @@
 \end{topic}
 
 \begin{topic}{t-structure}{t-structure}
-    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A \textbf{t-structure} on $\mathcal{D}$ is a pair $(\mathcal{D}_{\ge 0}, \mathcal{D}_{\le 0})$ of \tref{CT:full-subcategory}{full subcategories}, stable under isomorphisms, such that
+    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A \textbf{$t$-structure} on $\mathcal{D}$ is a pair $(\mathcal{D}_{\ge 0}, \mathcal{D}_{\le 0})$ of \tref{CT:full-subcategory}{full subcategories}, stable under isomorphisms, such that
     \begin{itemize}
         \item $\mathcal{D}_{\ge 0}[1] \subset \mathcal{D}_{\ge 0}$ and $\mathcal{D}_{\le 0}[-1] \subset \mathcal{D}_{\le 0}$,
         \item $\Hom_\mathcal{D}(X, Y[-1]) = 0$ for all $X \in \mathcal{D}_{\ge 0}$ and $Y \in \mathcal{D}_{\le 0}$,
@@ -169,11 +169,13 @@
     \end{itemize}
     One writes $\mathcal{D}_{\ge n} = \mathcal{D}_{\ge 0}[n]$ and $\mathcal{D}_{\le n} = \mathcal{D}_{\le 0}[n]$ for all $n \in \ZZ$.
     
-    The \textbf{heart} of the t-structure is the full subcategory $\mathcal{D}^\heartsuit = \mathcal{D}_{\ge 0} \cap \mathcal{D}_{\le 0}$.
+    The \textbf{heart} of the $t$-structure is the full subcategory $\mathcal{D}^\heartsuit = \mathcal{D}_{\ge 0} \cap \mathcal{D}_{\le 0}$.
+    
+    A $t$-structure is \textbf{non-degenerate} if the intersections $\cap_{n \in \ZZ} \mathcal{D}_{\ge n}$ and $\cap_{n \in \ZZ} \mathcal{D}_{\le n}$ consist only of zero objects.
 \end{topic}
 
 \begin{example}{t-structure}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $\textbf{D}(\mathcal{A})$ its \tref{derived-category}{derived category}. The natural t-structure on $\textbf{D}(\mathcal{A})$ is given by the pair
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $\textbf{D}(\mathcal{A})$ its \tref{derived-category}{derived category}. The natural $t$-structure on $\textbf{D}(\mathcal{A})$ is given by the pair
     \[ \begin{aligned}
         \textbf{D}(\mathcal{A})_{\ge 0} &= \{ A_\bdot \in \textbf{D}(\mathcal{A}) \mid H_i(A_\bdot) = 0 \textup{ for all } i < 0 \} , \\
         \textbf{D}(\mathcal{A})_{\le 0} &= \{ A_\bdot \in \textbf{D}(\mathcal{A}) \mid H_i(A_\bdot) = 0 \textup{ for all } i > 0 \} .
