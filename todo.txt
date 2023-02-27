@@ -71,7 +71,7 @@ DG: Hermitian connection / Chern connection
 -- Algebraic Geometry
 AG: D-module
 AG: Abel--Jacobi theorem
-AG: Kempf-Ness stratification
+AG: Kempf--Ness stratification
 AG: natural log structure on toric varieties
 AG: Serre intersection formula
 AG: Brauer group of field parametrizes CSA's / (Morita) equivalence
@@ -140,7 +140,6 @@ NT: example: fractional ideals are invertible sheaves over O_K the ring of integ
 NT: conductor (abelian extensions?)
 
 -- Uncategorized
-- Modular form
 - Proofs of theorems
 - Grothendieck--Verdier duality
 - Quantum groups: SL2(C) as example!

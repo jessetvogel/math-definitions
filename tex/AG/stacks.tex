@@ -1,13 +1,9 @@
-\begin{topic}{stack}{stack}
-    A \textbf{stack} (over a \tref{CT:site}{site} $\mathfrak{S}$) is a \tref{CT:category-fibered-in-groupoids}{category fibered in groupoids} over $\mathfrak{S}$ such that every \tref{CT:descent-datum}{descent datum} is effective and isomorphisms are a sheaf. Morphisms of stacks are defined as morphisms of categories over $\mathfrak{S}$, and similarly for 2-morphisms and isomorphisms.
-\end{topic}
-
 \begin{topic}{artin-stack}{Artin stack}
-    A \tref{stack}{stack} $\mathfrak{X}$ is an \textbf{Artin stack} if there exists a smooth and surjective representable morphism $S \to \mathfrak{X}$ for some scheme $S$. The morphism $S \to \mathfrak{X}$ is also called a \textit{presentation} for $\mathfrak{X}$.
+    A \tref{CT:stack}{stack} $\mathfrak{X}$ is an \textbf{Artin stack} if there exists a smooth and surjective representable morphism $S \to \mathfrak{X}$ for some scheme $S$. The morphism $S \to \mathfrak{X}$ is also called a \textit{presentation} for $\mathfrak{X}$.
 \end{topic}
 
 \begin{topic}{deligne-mumford-stack}{Deligne-Mumford stack}
-    A \tref{stack}{stack} $\mathfrak{X}$ is an \textbf{Deligne--Mumford stack} if there exists an étale and surjective representable morphism $S \to \mathfrak{X}$ for some scheme $S$. The morphism $S \to \mathfrak{X}$ is also called a \textit{presentation} for $\mathfrak{X}$.
+    A \tref{CT:stack}{stack} $\mathfrak{X}$ is an \textbf{Deligne--Mumford stack} if there exists an étale and surjective representable morphism $S \to \mathfrak{X}$ for some scheme $S$. The morphism $S \to \mathfrak{X}$ is also called a \textit{presentation} for $\mathfrak{X}$.
 \end{topic}
 
 \begin{topic}{quotient-stack}{quotient stack}
@@ -19,7 +15,7 @@
 \end{example}
 
 \begin{topic}{motivic-hall-algebra}{motivic Hall algebra}
-    Let $M$ be a \tref{smooth-morphism}{smooth} \tref{projective-variety}{projective variety} over a field $k$, and $\mathcal{A} = \textup{Coh}(M)$ the \tref{HA:abelian-category}{abelian category} of \tref{coherent-sheaf}{coherent sheaves} on $M$. Let $\mathcal{M}^{(n)}$ denote the moduli \tref{stack}{stack} of $n$-flags of coherent sheaves on $M$. That is, for a scheme $S$, the $S$-objects of $\mathcal{M}^{(n)}$ are chains of monomorphisms of coherent sheaves on $S \times M$ of the form
+    Let $M$ be a \tref{smooth-morphism}{smooth} \tref{projective-variety}{projective variety} over a field $k$, and $\mathcal{A} = \textup{Coh}(M)$ the \tref{HA:abelian-category}{abelian category} of \tref{coherent-sheaf}{coherent sheaves} on $M$. Let $\mathcal{M}^{(n)}$ denote the moduli \tref{CT:stack}{stack} of $n$-flags of coherent sheaves on $M$. That is, for a scheme $S$, the $S$-objects of $\mathcal{M}^{(n)}$ are chains of monomorphisms of coherent sheaves on $S \times M$ of the form
     \[ 0 \to E_0 \hookrightarrow E_1 \hookrightarrow \cdots \hookrightarrow E_n = E , \]
     such that each $E_i/E_{i - 1}$ is $S$-flat, so in particular each $E_i$ is $S$-flat. For such chains $(E_i)_i$ and $(F_i)_i$ over schemes $S$ and $T$, respectively, a morphism over $f : T \to S$ is a family of isomorphisms
     \[ \theta_i : f^*(E_i) \xrightarrow{\sim} F_i \]
@@ -36,20 +32,3 @@
     where multiplication given by
     \[ m = b_* \circ (a_1, a_2)^* : \textup{H}(\mathcal{A}) \otimes \textup{H}(\mathcal{A}) \to \textup{H}(\mathcal{A}) . \]
 \end{topic}
-
-\begin{topic}{inertia-stack}{inertia stack}
-    Let $\pi : \mathfrak{X} \to \mathfrak{S}$ and $\pi' : \mathfrak{X}' \to \mathfrak{S}$ be \tref{CT:category-fibered-in-groupoids}{categories fibered in groupoids} over $\mathfrak{S}$, and let $f : \mathfrak{X} \to \mathfrak{X}'$ be a morphism of fibered categories over $\mathfrak{S}$. The \textbf{relative inertia} of $\mathfrak{X}$ over $\mathfrak{X}'$ is the category $\mathcal{I}_{\mathfrak{X}/\mathfrak{X}'}$ over $\mathfrak{S}$ whose
-    \begin{itemize}
-        \item objects over $S \in \mathfrak{S}$ are pairs $(x, \alpha)$ with $x \in \mathfrak{X}(S)$ and $\alpha : x \to x$ a morphism with $f(\alpha) = \id_{f(x)}$,
-        \item morphisms $(x, \alpha) \to (y, \beta)$ over $f : S \to T$ are given by morphisms $\phi : x \to y$ such that $\pi(\phi) = f$ and $\phi \circ \alpha = \beta \circ \phi$.
-    \end{itemize}
-    The \textbf{inertia} of $\mathfrak{X}$ is $\mathcal{I}_\mathfrak{X} = \mathcal{I}_{\mathfrak{X}/\mathfrak{S}}$.
-    
-    If $\mathfrak{X}$ and $\mathfrak{X}'$ are \tref{stack}{stacks} over $\mathfrak{S}$, the relative inertia $\mathcal{I}_{\mathfrak{X}/\mathfrak{X}'}$ is also a stack, called the \textbf{relative inertia stack} of $\mathfrak{X}$ over $\mathfrak{X}'$.
-\end{topic}
-
-\begin{example}{inertia-stack}
-    Let $X$ be a \tref{scheme}{scheme}, $G$ an \tref{GT:abelian-group}{abelian group} acting on $X$, and $[X/G]$ the corresponding \tref{quotient-stack}{quotient stack}. Then the inertia stack of $[X/G]$ is
-    \[ \mathcal{I}_{[X/G]} = \bigsqcup_{g \in G} [X^g / G] , \]
-    where $X^g$ denotes the locus of $X$ fixed by $g \in G$. Namely, an $S$-point of $\mathcal{I}_{[X/G]}$ is given by a triple $(P, \phi, \alpha)$, where $P \to T$ is a $G$-torsor, $\phi : P \to X$ a $G$-equivariant morphism, and $\alpha : P \to P$ an automorphism of $P$ such that $\phi \circ \alpha = \phi$. Since $G$ is abelian, $\alpha$ is (fppf-)locally given by multiplication by some $g \in G$, so $\phi \circ \alpha = \phi$ implies that $\phi$ factors through $X^g$. This construction induces a map $\mathcal{I}_{[X/G]} \to \bigsqcup_{g \in G} [X^g/G]$, which can be shown to be an equivalence.
-\end{example}
