@@ -133,13 +133,10 @@
     A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{essentially surjective} if each object in $\mathcal{D}$ is isomorphic to $F(X)$ for some $X$ in $\mathcal{C}$.
 \end{topic}
 
-\begin{topic}{equalizer}{equalizer}
-    Let $f, g : X \to Y$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $E$ of $\mathcal{C}$ together with morphism $e : E \to X$ is said to be an \textbf{equalizer} of the pair $f, g$ if $fe = ge$ and for any other such $e' : E' \to X$ there exists a unique morphism $h : E' \to E$ such that $e' = eh$.
+\begin{topic}{equalizer}{(co)equalizer}
+    Let $f, g : X \to Y$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An \textbf{equalizer} of the pair $f, g$ is an object $E$ of $\mathcal{C}$ together with a morphism $e : E \to X$ such that $fe = ge$, and such that for any other $e' : E' \to X$ with $f \circ e' = g \circ e'$ there exists a unique morphism $h : E' \to E$ such that $e' = e \circ h$.
     \[ \begin{tikzcd} E \arrow{r}{e} & X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \\ E' \arrow[dashed]{u}{\exists!} \arrow[swap]{ur}{e'} && \end{tikzcd} \]
-\end{topic}
-
-\begin{topic}{coequalizer}{coequalizer}
-    Let $f, g : X \to Y$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $Q$ of $\mathcal{C}$ together with morphism $q : Y \to Q$ is said to be a \textbf{coequalizer} of the pair $f, g$ if $qf = qg$ and for any other such $q' : Y \to Q'$ there exists a unique morphism $h : Q \to Q'$ such that $q' = hq$.
+    Dually, a \textbf{coequalizer} of the pair $f, g$ is an object $Q$ of $\mathcal{C}$ together with a morphism $q : Y \to Q$ such that $q \circ f = q \circ g$, and such that for any other $q' : Y \to Q'$ with $q' \circ f = q' \circ g$ there exists a unique morphism $h : Q \to Q'$ such that $q' = h \circ q$.
     \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow{r}{q} \arrow[swap]{dr}{q'} & Q \arrow[dashed]{d}{\exists!} \\ && Q' \end{tikzcd} \]
 \end{topic}
 
@@ -159,7 +156,7 @@
 \end{topic}
 
 \begin{topic}{regular-epimorphism}{regular epimorphism}
-    An \tref{epimorphism}{epimorphism} $f : X \to Y$ is called a \textbf{regular epimorphism} if fits into an \tref{coequalizer}{coequalizer} diagram:
+    An \tref{epimorphism}{epimorphism} $f : X \to Y$ is called a \textbf{regular epimorphism} if fits into an \tref{equalizer}{coequalizer} diagram:
     \[ \begin{tikzcd} W \arrow[shift left=0.25em]{r} \arrow[shift right=0.25em]{r} & X \arrow{r}{f} & Y \end{tikzcd} \]
 \end{topic}
 
@@ -558,7 +555,7 @@
         \item $\mathcal{C}$ has all finite \tref{limit}{limits},
         \item for every pullback diagram
         \[ \begin{tikzcd} Z \arrow[swap]{d}{p_1} \arrow{r}{p_0} & X \arrow{d}{f} \\ X \arrow{r}{f} & Y \end{tikzcd} \]
-        the \tref{coequalizer}{coequalizer} of $p_0$ and $p_1$ exists,
+        the \tref{equalizer}{coequalizer} of $p_0$ and $p_1$ exists,
         \item \tref{regular-epimorphism}{regular epimorphisms} are stable under pullback.
     \end{itemize}
 \end{topic}
@@ -688,7 +685,7 @@
 \end{example}
 
 \begin{topic}{strict-epimorphism}{strict epimorphism}
-    Let $\mathcal{C}$ be a \tref{category}{category}. A morphism $f : X \to Y$ in $\mathcal{C}$ is a \textbf{strict epimorphism} if for all $g : X \to Z$ with the property that $fx = fy$ implies $gx = gy$ for all $x, y : W \to X$, there exists a unique $h : Y \to Z$ such that $g = hf$. In other words, $f$ is a split epimorphism if it is the \tref{limit}{colimit} of all parallel morphisms $x, y : X \to Y$ that it \tref{coequalizer}{coequalizes}.
+    Let $\mathcal{C}$ be a \tref{category}{category}. A morphism $f : X \to Y$ in $\mathcal{C}$ is a \textbf{strict epimorphism} if for all $g : X \to Z$ with the property that $fx = fy$ implies $gx = gy$ for all $x, y : W \to X$, there exists a unique $h : Y \to Z$ such that $g = hf$. In other words, $f$ is a split epimorphism if it is the \tref{limit}{colimit} of all parallel morphisms $x, y : X \to Y$ that it \tref{equalizer}{coequalizes}.
 \end{topic}
 
 \begin{example}{strict-epimorphism}
@@ -821,7 +818,7 @@
 \end{topic}
 
 \begin{topic}{split-coequalizer}{split coequalizer}
-    A \tref{coequalizer}{coequalizer diagram} $X \overset{f}{\underset{g}{\rightrightarrows}} Y \xrightarrow{q} Q$ in a \tref{category}{category} $\mathcal{C}$ is \textbf{split} if there are morphisms $s : Q \to Y$ and $t : Y \to X$ such that $qs = \id_Q$, $ft = \id_Y$ and $sq = gt$.
+    A \tref{equalizer}{coequalizer diagram} $X \overset{f}{\underset{g}{\rightrightarrows}} Y \xrightarrow{q} Q$ in a \tref{category}{category} $\mathcal{C}$ is \textbf{split} if there are morphisms $s : Q \to Y$ and $t : Y \to X$ such that $qs = \id_Q$, $ft = \id_Y$ and $sq = gt$.
     \[ \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow{r}{q} \arrow[swap, bend right=45]{l}{t} & Q \arrow[swap, bend right=45]{l}{s} \end{tikzcd} \]
 \end{topic}
 
@@ -1044,4 +1041,29 @@
 
 \begin{topic}{involution}{involution}
     Let $\mathcal{C}$ be a \tref{category}{category} and $X$ an object of $\mathcal{C}$. An \textbf{involution} of $X$ is a morphism $i : X \to X$ such that $i \circ i = \id_X$.
+\end{topic}
+
+\begin{topic}{image}{(co)image}
+    Let $\mathcal{C}$ be a \tref{category}{category} and $f : X \to Y$ a morphism in $\mathcal{C}$. A \textbf{image} of $f$ is a \tref{monomorphism}{monomorphism} $m : I \to Y$ with the universal property that there exists a morphism $g : X \to I$ such that $f = m \circ g$, and such that for every other monomorphism $m' : I' \to Y$ and morphism $g' : X \to I'$ with $f = m' \circ g'$, there exists a unique morphism $h : I \to I'$ such that $m = m' \circ h$.
+    \[ \begin{tikzcd}
+        X \arrow{rr}{f} \arrow{dr}{g} \arrow[swap, bend right=15]{ddr}{g'} & & Y \\
+        & I \arrow{ur}{m} \arrow[dashed]{d}{h} & \\
+        & I' \arrow[swap, bend right=15]{uur}{m'}
+    \end{tikzcd} \]
+    Dually, a \textbf{coimage} of $f$ is an \tref{epimorphism}{epimorphism} $e : X \to C$ with the universal property that there exists a morphism $g : C \to Y$ such that $f = g \circ e$, and such that for every other epimorphism $e' : X \to C'$ and morphism $g' : C' \to Y$ with $f = g' \circ e'$, there exists a unique morphism $h : C' \to C$ such that $e = h \circ e'$.
+    \[ \begin{tikzcd}
+        X \arrow{rr}{f} \arrow{dr}{e} \arrow[swap, bend right=15]{ddr}{e'} & & Y \\
+        & C \arrow{ur}{g} & \\
+        & C' \arrow[swap, bend right=15]{uur}{g'} \arrow[swap, dashed]{u}{h}
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{image}
+    In the categories $\textbf{Set}, \textbf{Grp}, \textbf{Ring}, \ldots$ the image and coimage of a morphism $f : X \to Y$ coincide and is given by $\{ f(x) : x \in X \}$ with the natural structure of a set, group, ring, etc.
+\end{example}
+
+\begin{topic}{kernel}{(co)kernel}
+    Let $\mathcal{C}$ be a \tref{category}{category} with \tref{zero-object}{zero object} $0$, and let $f : X \to Y$ be a morphism in $\mathcal{C}$. A \textbf{kernel} of $f$ is an \tref{equalizer}{equalizer} of $f$ and $X \to 0 \to Y$.
+
+    Dually, a \textbf{cokernel} of $f$ is a \tref{equalizer}{coequalizer} of $f$ and $X \to 0 \to Y$.
 \end{topic}

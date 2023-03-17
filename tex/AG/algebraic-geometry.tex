@@ -42,9 +42,9 @@
 
 % Scheme properties
 \begin{topic}{reduced-scheme}{reduced scheme}
-    A \tref{scheme}{scheme} $X$ is \textbf{reduced} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ has no \tref{AA:nilpotent-element}{nilpotent} elements.
+    A \tref{scheme}{scheme} $X$ is \textbf{reduced} if for every open subset $U \subset X$ the ring $\mathcal{O}_X(U)$ is \tref{AA:reduced-ring}{reduced}.
     
-    Equivalently, this is the case if all stalks $\mathcal{O}_{X, x}$ have no nilpotent elements.
+    Equivalently, this is the case if all stalks $\mathcal{O}_{X, x}$ are reduced.
 \end{topic}
 
 \begin{topic}{integral-scheme}{integral scheme}
@@ -185,14 +185,34 @@
 \end{example}
 
 \begin{topic}{projective-morphism}{(quasi-)projective morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{projective} if it factors as
-    \[ X \xrightarrow{i} \PP^n_Y \xrightarrow{p} Y , \]
-    with $i$ a \tref{closed-immersion}{closed immersion} and $p$ the projection.
-    
+    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is
+    \begin{itemize}
+        \item \textbf{projective} (\textit{in the sense of EGA}) if it factors as
+        \[ X \xrightarrow{i} \PP(\mathcal{E}) \xrightarrow{\pi} Y \]
+        for some \tref{coherent-sheaf}{quasi-coherent} finite type $\mathcal{O}_Y$-module $\mathcal{E}$, with $i$ a \tref{closed-immersion}{closed immersion} and $\pi$ the projection,
+        \item \textbf{bundle-projective} if it factors as
+        \[ X \xrightarrow{i} \PP(\mathcal{E}) \xrightarrow{\pi} Y \]
+        for some finite locally free $\mathcal{O}_Y$-module $\mathcal{E}$, with $i$ a \tref{closed-immersion}{closed immersion} and $\pi$ the projection,
+        \item \textbf{H-projective} (\textit{`H' standing for Hartshorne}) if it factors as
+        \[ X \xrightarrow{i} \PP^n_Y \xrightarrow{\pi} Y , \]
+        for some integer $n \ge 0$, with $i$ a closed immersion and $\pi$ the projection.
+        \item \textbf{locally projective} if there exists an open covering $Y = \bigcup_i U_i$ such that $f^{-1}(U_i) \to U_i$ is projective for each $i$.
+    \end{itemize}
     The morphism $f$ is \textbf{quasi-projective} if it factors as
     \[ X \xrightarrow{j} X' \xrightarrow{g} Y , \]
     with $j$ an \tref{open-immersion}{open immersion} and $g$ a projective morphism.
 \end{topic}
+
+\begin{example}{projective-morphism}
+    There are implications
+    \[ \textup{H-projective} \Rightarrow \textup{bundle-projective} \Rightarrow \textup{projective} \Rightarrow \textup{locally projective} \]
+    but the converses do not hold.
+    \begin{itemize}
+        \item Let $k$ be a field. The obvious morphism $\bigsqcup_{n = 1}^{\infty} \PP^n_k \to \bigsqcup_{n = 1}^{\infty} \Spec k$ is bundle-projective but not H-projective.
+        \item Let $X$ be the affine line over $k$ with infinitely many origins. The morphism $\bigsqcup_{n = 1}^{\infty} \PP^n_k \to X$ which sends $\PP^n_k$ to the $n$-th origin is projective but not bundle-projective.
+        \item There are examples of morphisms which are locally projective but not projective.
+    \end{itemize}
+\end{example}
 
 \begin{topic}{regular-scheme}{regular scheme}
     A \tref{scheme}{scheme} $X$ is \textbf{regular} if it is \tref{noetherian-scheme}{locally noetherian} and all of its stalks are \tref{AA:regular-ring}{regular local rings}.
@@ -514,7 +534,7 @@
     \[ \pi_{23}^* \phi \circ (\id_G \times \sigma)^* \phi = (m \times \id_X)^* \phi \]
     on $G \times G \times X$, where $m : G \times G \to G$ is the multiplication map on $G$. That is, the following diagram commutes:
     \[ \begin{tikzcd}[column sep=5em]
-        (\sigma \circ (\id_G \times \sigma))^* \mathcal{L} \arrow["\sim{}"']{r}{(\id_G \times \sigma)^* \phi} \arrow[equal]{dd} & (\pi_2 \circ (\id_G \times \sigma))^* \mathcal{L} \arrow[equal]{d} & \\ & (\sigma \circ \pi_{23})^* \mathcal{L} \arrow["\sim{}"']{r}{\pi_{23}^* \phi} & (\pi_2 \circ \pi_{23})^* \mathcal{L} \arrow[equal]{d} \\ (\sigma \circ (m \times \id_X))^* \mathcal{L} \arrow["\sim{}"']{rr}{(m \times \id_X)^* \phi} & & (\pi_2 \circ (m \times \id_X))^* \mathcal{L}
+        (\sigma \circ (\id_G \times \sigma))^* \mathcal{F} \arrow["\sim{}"']{r}{(\id_G \times \sigma)^* \phi} \arrow[equal]{dd} & (\pi_2 \circ (\id_G \times \sigma))^* \mathcal{F} \arrow[equal]{d} & \\ & (\sigma \circ \pi_{23})^* \mathcal{F} \arrow["\sim{}"']{r}{\pi_{23}^* \phi} & (\pi_2 \circ \pi_{23})^* \mathcal{F} \arrow[equal]{d} \\ (\sigma \circ (m \times \id_X))^* \mathcal{F} \arrow["\sim{}"']{rr}{(m \times \id_X)^* \phi} & & (\pi_2 \circ (m \times \id_X))^* \mathcal{F}
     \end{tikzcd} \]
 \end{topic}
 
@@ -1327,10 +1347,19 @@
 \end{example}
 
 \begin{topic}{weak-factorization-theorem}{weak factorization theorem}
-    Let $\phi : X \dashrightarrow Y$ be a \tref{birational-map}{birational map} between \tref{complete-variety}{complete} \tref{nonsingular-variety}{nonsingular} \tref{TO:connected-space}{connected} \tref{variety}{varieties} over a \tref{AA:field}{field} $k$, and let $U \subset X$ be an open subset where $\phi$ is an isomorphism.
+    Let $\phi : X \dashrightarrow Y$ be a \tref{birational-map}{birational map} between \tref{complete-variety}{complete} \tref{nonsingular-variety}{nonsingular} \tref{TO:connected-space}{connected} \tref{variety}{varieties} over a \tref{AA:field}{field} $k$ of characteristic zero, and let $U \subset X$ be an open subset where $\phi$ is an isomorphism.
     The \textbf{weak factorization theorem} states that $\phi$ can be factored as a composition of birational maps
     \[ X = V_0 \overset{\phi_1}{\dashrightarrow} V_1 \overset{\phi_2}{\dashrightarrow} \cdots \overset{\phi_n}{\dashrightarrow} V_n = Y \]
     such that each $\phi_i$ is an isomorphism over $U$ and $\phi_i : V_{i - 1} \dashrightarrow V_i$ or $\phi_i^{-1} : V_i \dashrightarrow V_{i - 1}$ is obtained by \tref{blowup}{blowing up} a smooth center disjoint from $U$.
     
     Moreover, there is an index $i_0$ such that for all $i \le i_0$ the map $V_i \dashrightarrow X$ is defined everywhere and \tref{projective-morphism}{projective}, and for all $i \ge i_0$ the map $V_i \dashrightarrow Y$ is defined everywhere and projective.
+\end{topic}
+
+\begin{topic}{grothendieck-verdier-duality}{Grothendieck--Verdier duality}
+    Let $f : X \to Y$ be a morphism between \tref{smooth-morphism}{smooth} \tref{scheme}{schemes} over a \tref{AA:field}{field} $k$. For any $\mathcal{F} \in \textbf{D}^\textup{b}(Y)$, define
+    \[ f^! \mathcal{F} = \omega_f[\dim X - \dim Y] \otimes L f^* \mathcal{F} \in \textbf{D}^\textup{b}(X) \]
+    where $\omega_f = \omega_X \otimes f^* \omega_Y^{-1}$ is the \textit{relative dualizing sheaf}.
+    \textbf{Grothendieck--Verdier duality} states that there exists a functorial isomorphism
+    \[ R \iHom(R f_* \mathcal{E}, \mathcal{F}) \isom R f_* R \iHom(\mathcal{E}, f^! \mathcal{F}) \]
+    for all $\mathcal{E} \in \textbf{D}^\textup{b}(X)$ and $\mathcal{F} \in \textbf{D}^\textup{b}(Y)$. In particular, there is an \tref{CT:adjunction}{adjunction} $R f_* \dashv f^!$.
 \end{topic}

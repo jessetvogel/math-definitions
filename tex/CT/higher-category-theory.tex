@@ -2,20 +2,20 @@
     Let $\mathcal{A}$ be a \tref{monoidal-category}{monoidal category}. An \textbf{$\mathcal{A}$-enriched category} $\mathcal{C}$ consists of
     \begin{itemize}
         \item (\textit{objects}) a collection $\textup{Ob}(\mathcal{C})$, whose elements are called \textit{objects} of $\mathcal{C}$,
-        \item (\textit{hom-objects}) for every pair of objects $X, Y$ an object $\underline{\Hom}_\mathcal{C}(X, Y)$ of $\mathcal{A}$,
+        \item (\textit{hom-objects}) for every pair of objects $X, Y$ an object $\iHom_\mathcal{C}(X, Y)$ of $\mathcal{A}$,
         \item (\textit{composition law}) for every triple of objects $X, Y, Z$ a morphism
-        \[ c_{Z, Y, X} : \underline{\Hom}_\mathcal{C}(Y, Z) \otimes \underline{\Hom}_\mathcal{C}(X, Y) \to \underline{\Hom}_\mathcal{C}(X, Z) \]
+        \[ c_{Z, Y, X} : \iHom_\mathcal{C}(Y, Z) \otimes \iHom_\mathcal{C}(X, Y) \to \iHom_\mathcal{C}(X, Z) \]
         in $\mathcal{A}$,
-        \item (\textit{identities}) for every object $X$ a morphism $e_X : \textbf{1} \to \underline{\Hom}_\mathcal{C}(X, X)$ in $\mathcal{A}$,
+        \item (\textit{identities}) for every object $X$ a morphism $e_X : \textbf{1} \to \iHom_\mathcal{C}(X, X)$ in $\mathcal{A}$,
     \end{itemize}
     such that for every quadruple of objects $W, X, Y, Z$ the diagram
     \[ \begin{tikzcd}
-        & \underline{\Hom}_\mathcal{C}(Y, Z) \otimes \underline{\Hom}_\mathcal{C}(W, Y) \arrow{dd}{c_{Z, Y, W}} \\ \underline{\Hom}_\mathcal{C}(Y, Z) \otimes \left(\underline{\Hom}_\mathcal{C}(X, Y) \otimes \underline{\Hom}_\mathcal{C}(W, X)\right) \arrow{ur}{\id \otimes c_{Y, X, W}} \arrow{dd}{\alpha} & \\ & \underline{\Hom}_\mathcal{C}(W, Z) \arrow{dd}{c_{Z, X, W}} \\ \left(\underline{\Hom}_\mathcal{C}(Y, Z) \otimes \underline{\Hom}_\mathcal{C}(X, Y)\right) \otimes \underline{\Hom}_\mathcal{C}(W, X) \arrow{dr}{c_{Z, Y, X} \otimes \id} & \\ & \underline{\Hom}_\mathcal{C}(X, Z) \otimes \underline{\Hom}_\mathcal{C}(W, X)
+        & \iHom_\mathcal{C}(Y, Z) \otimes \iHom_\mathcal{C}(W, Y) \arrow{dd}{c_{Z, Y, W}} \\ \iHom_\mathcal{C}(Y, Z) \otimes \left(\iHom_\mathcal{C}(X, Y) \otimes \iHom_\mathcal{C}(W, X)\right) \arrow{ur}{\id \otimes c_{Y, X, W}} \arrow{dd}{\alpha} & \\ & \iHom_\mathcal{C}(W, Z) \arrow{dd}{c_{Z, X, W}} \\ \left(\iHom_\mathcal{C}(Y, Z) \otimes \iHom_\mathcal{C}(X, Y)\right) \otimes \iHom_\mathcal{C}(W, X) \arrow{dr}{c_{Z, Y, X} \otimes \id} & \\ & \iHom_\mathcal{C}(X, Z) \otimes \iHom_\mathcal{C}(W, X)
     \end{tikzcd} \]
     commutes, and for every pair of objects $X, Y$, the diagrams
     \[ \begin{tikzcd}
-        \textbf{1} \otimes \underline{\Hom}_\mathcal{C}(X, Y) \arrow{rr}{e_Y \otimes \id} \arrow{dr}{\lambda} && \underline{\Hom}_\mathcal{C}(Y, Y) \otimes \underline{\Hom}_\mathcal{C}(X, Y) \arrow{dl}{c_{Y, Y, X}} \\ & \underline{\Hom}_\mathcal{C}(X, Y) & \\
-        \underline{\Hom}_\mathcal{C}(X, Y) \otimes \textbf{1} \arrow{rr}{\id \otimes e_X} \arrow{dr}{\rho} && \underline{\Hom}_\mathcal{C}(X, Y) \otimes \underline{\Hom}_\mathcal{C}(X, X) \arrow{dl}{c_{Y, X, X}} \\ & \underline{\Hom}_\mathcal{C}(X, Y) &       
+        \textbf{1} \otimes \iHom_\mathcal{C}(X, Y) \arrow{rr}{e_Y \otimes \id} \arrow{dr}{\lambda} && \iHom_\mathcal{C}(Y, Y) \otimes \iHom_\mathcal{C}(X, Y) \arrow{dl}{c_{Y, Y, X}} \\ & \iHom_\mathcal{C}(X, Y) & \\
+        \iHom_\mathcal{C}(X, Y) \otimes \textbf{1} \arrow{rr}{\id \otimes e_X} \arrow{dr}{\rho} && \iHom_\mathcal{C}(X, Y) \otimes \iHom_\mathcal{C}(X, X) \arrow{dl}{c_{Y, X, X}} \\ & \iHom_\mathcal{C}(X, Y) &       
     \end{tikzcd} \]
     commute.
 \end{topic}
@@ -82,3 +82,26 @@
         \item (\textit{equivariance 2}) $\theta \circ (\sigma_1(\theta_1) \otimes \cdots \otimes \sigma_n(\theta_n)) = (\sigma_1, \ldots, \sigma_n)(\theta \circ (\theta_1 \otimes \cdots \otimes \theta_n))$ for all $\sigma_i \in S_{k_i}$.
     \end{itemize}
 \end{topic}
+
+\begin{topic}{derivator}{derivator}
+    A \textbf{prederivator} is a strict $2$-functor $\mathbb{D} : \textbf{Cat}^\textup{op} \to \textbf{CAT}$ from the $2$-category of \tref{small-category}{small categories} to the $2$-category of all categories (ignoring set-theoretic issues). For any $u : I \to J$ in $\textbf{Cat}$, the induced functor $\mathbb{D}(u) : \mathbb{D}(J) \to \mathbb{D}(I)$ is usually denoted by $u^*$.
+
+    A \textbf{derivator} is a prederivator $\mathbb{D}$ such that
+    \begin{itemize}
+        \item $\mathbb{D}(\varnothing)$ is not the empty category,
+        \item the natural functor $\mathbb{D}(I \sqcup J) \to \mathbb{D}(I) \times \mathbb{D}(J)$ is an \tref{equivalence-of-categories}{equivalence of categories} for all $I, J \in \textbf{Cat}$,
+        \item for all $I \in \textbf{Cat}$, any morphism $f : X \to Y$ in $\mathbb{D}(I)$ is an \tref{isomorphism}{isomorphism} if and only if $f_i : X_i \to Y_i$ is an isomorphism in $\mathbb{D}(\{ i \})$ for all $i \in I$.
+        \item for every $u : I \to J$ in $\textbf{Cat}$, the functor $u^*$ has a \tref{adjunction}{left adjoint} $u_!$ and right adjoint $u^*$,
+        \item for every $u : I \to J$ in $\textbf{Cat}$ and $j \in J$, the morphisms
+        \[ \operatorname*{hocolim}_{u \downarrow j} \textup{pr}_1^*(X) \xrightarrow{\alpha_!} u_!(X)_j \quad \textup{ and } \quad u_*(X)_j \xrightarrow{\alpha_!} \operatorname*{hocolim}_{j \downarrow u} \textup{pr}_2^*(X) \]
+        are isomorphisms for all $X \in \mathbb{D}(I)$, where $\textup{pr}_1 : u \downarrow j \to I$ and $\textup{pr}_2 : j \downarrow u \to I$ denote the natural projections.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{derivator}
+    \begin{itemize}
+        \item Given a category $\mathcal{C}$, the functor $y_\mathcal{C} : I \mapsto \mathcal{C}^I$ is a prederivator. It is a derivator if and only if $\mathcal{C}$ is \tref{complete-category}{complete} and cocomplete.
+        \item Given an \tref{HA:abelian-category}{abelian category} $\mathcal{A}$, the functor $\mathbb{D}_\mathcal{A}$ which sends $I$ to the \tref{HA:derived-category}{derived category} $D(\mathcal{A}^I)$ is a prederivator.
+        \item Given a cofibrantly generated \tref{HT:model-category}{model category} $\mathcal{C}$, one can endow $\mathcal{C}^I$ with the projective model structure for any $I \in \textbf{Cat}$. The functor $\mathbb{D}_\mathcal{C}$ which sends $I$ to the \tref{HT:homotopy-category}{homotopy category} $\operatorname{Ho}(\mathcal{C}^I)$ is a prederivator.
+    \end{itemize}
+\end{example}

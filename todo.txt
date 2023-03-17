@@ -8,8 +8,6 @@
 
 ---- Theory ----
 
-AG: Narasimhan--Seshadri theorem (https://arxiv.org/pdf/2208.05940.pdf)
-
 RT: Steinberg representation (https://www.ams.org/journals/bull/1987-16-02/S0273-0979-1987-15512-1/S0273-0979-1987-15512-1.pdf)
 ??: Tits building
 ??: BN-pair
@@ -63,7 +61,6 @@ DG: moment polytope (da Silva, Chapter 27)
 DG: Atiyah--Singer theorem
 DG: Floer homology (https://math.berkeley.edu/~auroux/papers/lec-nantes.pdf, https://walkerstern.gitlab.io/Notes/Fukaya/Notes_Fukaya.pdf)
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
-DG: holomorphic function / Cauchy--Riemann equations / meromorphic funtion
 DG: Atiyah-Bott symplectic form
 DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection

@@ -14,7 +14,7 @@
 \begin{topic}{abelian-category}{abelian category}
     An \textbf{abelian category} is an \tref{additive-category}{additive category} category $\mathcal{A}$ in which
     \begin{itemize}
-        \item every morphism $f$ has a kernel (that is, an \tref{CT:equalizer}{equalizer} of $f$ and $0$) and a cokernel (that is, a \tref{CT:coequalizer}{coequalizer} of $f$ and $0$),
+        \item every morphism $f$ has a \tref{CT:kernel}{kernel} and a \tref{CT:kernel}{cokernel},
         \item every \tref{CT:monomorphism}{monomorphism} is the kernel of some morphism, and every \tref{CT:epimorphism}{epimorphism} is the cokernel of some morphism.
     \end{itemize}
 \end{topic}
@@ -390,7 +390,7 @@
 \end{example}
 
 \begin{topic}{tor-functors}{Tor functors}
-    For a commutative \tref{AA:ring}{ring} $R$ and an $R$-module $B$, the \tref{AA:tensor-product}{tensor product} gives a functor
+    For a \tref{AA:ring}{commutative ring} $R$ and an $R$-module $B$, the \tref{AA:tensor-product}{tensor product} gives a functor
     \[ (-) \otimes_R B : R\textbf{-Mod} \to R\textbf{-Mod} \]
     which is \tref{exact-functor}{right exact}, so it has \tref{left-derived-functors}{left derived functors}, which are known as the \textbf{Tor functors}
     \[ \textup{Tor}^R_i(A, B) = A \overset{L_i}{\otimes} B . \]

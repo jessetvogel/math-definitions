@@ -317,7 +317,7 @@
 \end{topic}
 
 \begin{topic}{annihilator}{annihilator}
-    Let $R$ be a \tref{ring}{commutative ring} and $M$ an $R$-module. The \textbf{annihilator} of $M$ is the subring
+    Let $R$ be a \tref{ring}{commutative ring} and $M$ an $R$-module. The \textbf{annihilator} of $M$ is the \tref{ideal}{ideal} of $R$ given by
     \[ \operatorname{Ann}_R(M) = \{ x \in R \mid xM = 0 \} . \]
 \end{topic}
 
@@ -910,4 +910,14 @@
 
 \begin{topic}{nagata-ring}{Nagata ring}
     A \textbf{Nagata ring} is a \tref{noetherian-ring}{noetherian} \tref{ring}{ring} $R$ such that $R / \mathfrak{p}$ is \tref{japanese-ring}{Japanese} for every \tref{prime-ideal}{prime ideal} $\mathfrak{p}$ of $R$.
+\end{topic}
+
+\begin{topic}{miracle-flatness}{miracle flatness}
+    Let $R \to S$ be a \tref{local-morphism}{local morphism} between \tref{local-ring}{local} \tref{noetherian-ring}{noetherian} \tref{ring}{rings}. \textbf{Miracle flatness} states that if
+    \begin{enumerate}[(i)]
+        \item $R$ is \tref{regular-ring}{regular},
+        \item $S$ is \tref{cohen-macaulay-ring}{Cohen--Macaulay},
+        \item $\dim(S) = \dim(R) + \dim(S / \mathfrak{m}_R S)$,
+    \end{enumerate}
+    then $S$ is \tref{flat-module}{flat} over $R$.
 \end{topic}

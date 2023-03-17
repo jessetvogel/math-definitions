@@ -1,6 +1,15 @@
-A morphism <span class="math inline">\(f : X \to Y\)</span> of <a href="#AG:scheme">schemes</a> is <b>projective</b> if it factors as
-<span class="math display">\[ X \xrightarrow{i} \PP^n_Y \xrightarrow{p} Y , \]</span>
-with <span class="math inline">\(i\)</span> a <a href="#AG:closed-immersion">closed immersion</a> and <span class="math inline">\(p\)</span> the projection.<br/>
+A morphism <span class="math inline">\(f : X \to Y\)</span> of <a href="#AG:scheme">schemes</a> is
+<ul><li> <b>projective</b> (<i>in the sense of EGA</i>) if it factors as
+<span class="math display">\[ X \xrightarrow{i} \PP(\mathcal{E}) \xrightarrow{\pi} Y \]</span>
+for some <a href="#AG:coherent-sheaf">quasi-coherent</a> finite type <span class="math inline">\(\mathcal{O}_Y\)</span>-module <span class="math inline">\(\mathcal{E}\)</span>, with <span class="math inline">\(i\)</span> a <a href="#AG:closed-immersion">closed immersion</a> and <span class="math inline">\(\pi\)</span> the projection,
+</li><li> <b>bundle-projective</b> if it factors as
+<span class="math display">\[ X \xrightarrow{i} \PP(\mathcal{E}) \xrightarrow{\pi} Y \]</span>
+for some finite locally free <span class="math inline">\(\mathcal{O}_Y\)</span>-module <span class="math inline">\(\mathcal{E}\)</span>, with <span class="math inline">\(i\)</span> a <a href="#AG:closed-immersion">closed immersion</a> and <span class="math inline">\(\pi\)</span> the projection,
+</li><li> <b>H-projective</b> (<i>‘H’ standing for Hartshorne</i>) if it factors as
+<span class="math display">\[ X \xrightarrow{i} \PP^n_Y \xrightarrow{\pi} Y , \]</span>
+for some integer <span class="math inline">\(n \ge 0\)</span>, with <span class="math inline">\(i\)</span> a closed immersion and <span class="math inline">\(\pi\)</span> the projection.
+</li><li> <b>locally projective</b> if there exists an open covering <span class="math inline">\(Y = \bigcup_i U_i\)</span> such that <span class="math inline">\(f^{-1}(U_i) \to U_i\)</span> is projective for each <span class="math inline">\(i\)</span>.
+</li></ul>
 The morphism <span class="math inline">\(f\)</span> is <b>quasi-projective</b> if it factors as
 <span class="math display">\[ X \xrightarrow{j} X' \xrightarrow{g} Y , \]</span>
 with <span class="math inline">\(j\)</span> an <a href="#AG:open-immersion">open immersion</a> and <span class="math inline">\(g\)</span> a projective morphism.
