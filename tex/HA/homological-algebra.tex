@@ -486,7 +486,7 @@
 \end{topic}
 
 \begin{example}{homological-dimension}
-    By \tref{AA:hilbert-syzygy-theorem}{Hilbert's syzygy theorem}, any $k[x_1, \ldots, x_n]$-module has a projective resolution of length $\le n$. Since this upper bound is attained for the \tref{AA:koszul-complex}{Koszul complex}, the global homological dimension of $k[x_1, \ldots, x_n]\textup{-}\textbf{Mod}$ is $n$.
+    By \tref{AA:hilbert-syzygy-theorem}{Hilbert's syzygy theorem}, any $k[x_1, \ldots, x_n]$-module has a projective resolution of length $\le n$. Since this upper bound is attained for the \tref{AA:koszul-complex}{Koszul complex}, the global homological dimension of $\textbf{Mod}_{k[x_1, \ldots, x_n]}$ is $n$.
 \end{example}
 
 \begin{example}{homological-dimension}
@@ -684,7 +684,7 @@
 
 \begin{example}{finite-abelian-category}
     A theorem by Deligne states that for every finite abelian category $\mathcal{A}$ over $k$, there is a finite-dimensional $k$-algebra $A$ and a $k$-linear \tref{CT:equivalence-of-categories}{equivalence of categories}
-    \[ \mathcal{A} \simeq A\textup{-}\textbf{Mod}_\textup{fd} , \]
+    \[ \mathcal{A} \simeq \textbf{Mod}_A^\textup{fd} , \]
     between $\mathcal{A}$ and the category of $A$-modules which are finite-dimensional as vector spaces over $k$. Such $A$ is uniquely determined up to \tref{AA:morita-equivalence}{Morita equivalence}.
 \end{example}
 
@@ -701,13 +701,13 @@
 \end{topic}
 
 \begin{example}{deligne-tensor-product}
-    Let $A$ and $B$ be two finite-dimensional algebras over $k$, and write $A\textup{-}\textbf{Mod}_\textup{fd}$ for the finite abelian category of $A$-modules which are finite-dimensional as vector spaces over $k$. Then
-    \[ A\textup{-}\textbf{Mod}_\textup{fd} \boxtimes B\textup{-}\textbf{Mod}_\textup{fd} \simeq (A \otimes_k B)\textup{-}\textbf{Mod}_\textup{fd} . \]
+    Let $A$ and $B$ be two finite-dimensional algebras over $k$, and write $\textbf{Mod}_A^\textup{fd}$ for the finite abelian category of $A$-modules which are finite-dimensional as vector spaces over $k$. Then
+    \[ \textbf{Mod}_A^\textup{fd} \boxtimes \textbf{Mod}_B^\textup{fd} \simeq \textbf{Mod}_{A \otimes_k B}^\textup{fd} . \]
     Indeed, we can construct $G$ as follows: for any finite-dimensional $(A \otimes_k B)$-module $M$, take a presentation
     \[ (A \otimes_k B)^{\oplus n_1} \to (A \otimes_k B)^{\oplus n_0} \to M \to 0 , \]
     and put $G(M) = \coker\left( F(A, B)^{\oplus n_1} \to F(A, B)^{\oplus n_0} \right)$. This is well-defined by right exactness of $F$, and it is easy to see that $G$ is right exact and that $F \isom G \circ \boxtimes$.
     
-    In fact, this is the prototype example since every finite abelian category is equivalent to $A\textup{-}\textbf{Mod}_\textup{fd}$ for some finite-dimensional $k$-algebra $A$.
+    In fact, this is the prototype example since every finite abelian category is equivalent to $\textbf{Mod}_A^\textup{fd}$ for some finite-dimensional $k$-algebra $A$.
 \end{example}
 
 \begin{topic}{double-complex}{double complex}

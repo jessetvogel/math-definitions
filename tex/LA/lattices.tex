@@ -71,15 +71,14 @@
 \begin{example}{root-datum}
     Let $G$ be a \tref{AG:reductive-algebraic-group}{reductive algebraic group} over an algebraically closed field $k$, with a split maximal torus $T$. Its root datum is the quadruple $(X^*, \Phi, X_*, \Phi^\vee)$, where
     \begin{itemize}
-        \item $X^* = \Hom(T, \GG_m)$ is that character lattice,
+        \item $X^* = \Hom(T, \GG_m)$ is the character lattice,
         \item $X_* = \Hom(\GG_m, T)$ is the lattice of $1$-parameter subgroups,
         \item the perfect pairing $\langle \alpha, \lambda \rangle$ is given by taking the degree of the composition $\alpha \circ \lambda : \GG_m \to \GG_m$,
         \item the roots $\Phi$ are all non-zero $\alpha \in X^*$ for which
-        \[ \mathfrak{g}_\alpha = \{ x \in \mathfrak{g} \mid \textup{Ad}(t) x = \alpha(t) x \textup{ for all } t \in T \} \]
+        \[ \mathfrak{g}_\alpha = \{ x \in \mathfrak{g} \mid \textup{Ad}_G(t) x = \alpha(t) x \textup{ for all } t \in T \} \]
         is non-zero, where $\mathfrak{g}$ denotes the Lie algebra of $G$,
         \item for each $\alpha \in \Phi$, it can be shown there exists a unique $\alpha^\vee \in X_*$ satisfying some sufficient conditions. This determines $\Phi^\vee$, and the bijection $\Phi \to \Phi^\vee$.
     \end{itemize}
-    
     It is a theorem that for every root datum, there exists up to isomorphism a unique reductive algebraic group $G$ with that root datum.
 \end{example}
 

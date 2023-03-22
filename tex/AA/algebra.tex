@@ -110,6 +110,11 @@
         \item Let $A$ be a finite field extension of $k$, and $\varepsilon : A \to k$ any non-zero $k$-linear map. Then $A$ with the pairing $\beta : A \otimes_k A \to k, a \otimes b \mapsto \varepsilon(ab)$ is a Frobenius algebra.
         \item The ring $\textup{Mat}_n(k)$ of $n \times n$ matrices over $k$, with pairing $A \otimes B \mapsto \operatorname{tr}(AB)$, is a Frobenius algebra.
         \item The complex numbers $\CC$ are a Frobenius algebra over $\RR$ with pairing $\beta(z_1 \otimes z_2) = \operatorname{Re}(z_1 z_2)$. The map $\gamma : \RR \to \CC \otimes_\RR \CC$ is given by $\gamma(1) = 1 \otimes 1 - i \otimes i$.
+        \item The \tref{RT:representation-ring}{representation ring} $R_\CC(G)$ of a finite \tref{GT:group}{group} $G$ is a Frobenius algebra over $\CC$, where multiplication is given by convolution
+        \[ (a * b)(g) = \sum_{h \in G} a(h) b(h^{-1} g) \quad \textup{ for } a, b \in R_\CC(G) \]
+        and the bilinear form $\beta$ is given by the usual \tref{RT:first-orthogonality-theorem}{inner product}
+        \[ \beta(a \otimes b) = \frac{1}{|G|} \sum_{g \in G} a(g) b(g^{-1}) \quad \textup{ for } a, b \in R_\CC(G) . \]
+        The map $\gamma$ is given by $\gamma(1) = \sum_{\chi \in \hat{G}} \chi \otimes \chi$ where $\hat{G}$ denotes the set of \tref{RT:irreducible-representation}{irreducible representations} of $G$.
     \end{itemize}
 \end{example}
 

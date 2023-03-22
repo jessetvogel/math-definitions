@@ -1,15 +1,15 @@
 \begin{topic}{topological-quantum-field-theory}{Topological Quantum Field Theory (TQFT)}
     Let $(\textbf{Bd}_n, \sqcup, \varnothing)$ be the \tref{CT:monoidal-category}{monoidal category} of (diffeomorphism classes of) $n$-dimensional (\tref{DG:orientable-manifold}{oriented}) \tref{DG:bordism}{bordisms}, and let $k$ be a \tref{AA:ring}{commutative ring}. An $n$-dimensional \textbf{Topological Quantum Field Theory (TQFT)} over $k$ is a \tref{CT:monoidal-functor}{monoidal functor}
-    \[ Z : \textbf{Bd}_n \to k\textup{-}\textbf{Mod} , \]
-    where the monoidal structure on $k\textup{-}\textbf{Mod}$ is given by the \tref{AA:tensor-product}{tensor product}.
+    \[ Z : \textbf{Bd}_n \to \textbf{Mod}_k , \]
+    where the monoidal structure on $\textbf{Mod}_k$ is given by the \tref{AA:tensor-product}{tensor product}.
 \end{topic}
 
 % \begin{example}{topological-quantum-field-theory}
-%     Let $Z : \textbf{Bd}_1 \to k\textup{-}\textbf{Mod}$ be a $1$-dimensional TQFT. Since the objects of $\textbf{Bd}_1$ consist of finitely many points, the value of $Z$ on objects is completely determined by $Z(\star)$, as $Z(k \textup{ points}) = Z(\star)^{\otimes k}$. 
+%     Let $Z : \textbf{Bd}_1 \to \textbf{Mod}_k$ be a $1$-dimensional TQFT. Since the objects of $\textbf{Bd}_1$ consist of finitely many points, the value of $Z$ on objects is completely determined by $Z(\star)$, as $Z(k \textup{ points}) = Z(\star)^{\otimes k}$. 
 % \end{example}
 
 \begin{example}{topological-quantum-field-theory}
-    Let $Z : \textbf{Bd}_n \to k\textup{-}\textbf{Mod}$ be an $n$-dimensional TQFT over a field $k$. For any closed oriented $(n - 1)$-dimensional manifold $M$, let $\overline{M}$ be the manifold with reversed orientation. Consider the bordisms
+    Let $Z : \textbf{Bd}_n \to \textbf{Mod}_k$ be an $n$-dimensional TQFT over a field $k$. For any closed oriented $(n - 1)$-dimensional manifold $M$, let $\overline{M}$ be the manifold with reversed orientation. Consider the bordisms
     \[ U_M : M \sqcup \overline{M} \to \varnothing \quad \textup{ and } \quad U_M^\dag : \varnothing \to \overline{M} \sqcup M \]
     given by the cylinder $M \times [0, 1]$.
     Note that $Z(U_M)(1) = \sum_{i = 1}^{m} v_i \otimes \overline{v}_i$ for some $v_i \in Z(M)$ and $\overline{v}_i \in Z(\overline{M})$, and moreover we can pick such $v_i$ linearly independent and $\overline{v}_i$ linearly independent.

@@ -177,7 +177,7 @@
 \end{example}
 
 \begin{example}{proper-morphism}
-    The morphism $\AA_k^1 \to \Spec k$ is not proper as it is not universally closed. Namely, the projection $\AA^1_k \times \AA^1_k \to \AA^1_k$ sends the closed set $\{ xy - 1 \}$ to $\AA^1_k \setminus \{ 0 \}$ and thus cannot be a closed mapping. However, the morphism is clearly of finite type, and also separated as the diagonal $\Delta : \AA^1_k \to \AA^1_k \times \AA^1_k$ is closed, it is given by $\{ x - y = 0 \}$.
+    The morphism $\AA_k^1 \to \Spec k$ is not proper as it is not universally closed. Namely, the projection $\AA^1_k \times \AA^1_k \to \AA^1_k$ sends the closed set $\{ xy - 1 = 0 \}$ to $\AA^1_k \setminus \{ 0 \}$ and thus cannot be a closed mapping. However, the morphism is clearly of finite type, and also separated as the diagonal $\Delta : \AA^1_k \to \AA^1_k \times \AA^1_k$ is closed, it is given by $\{ x - y = 0 \}$.
 \end{example}
 
 \begin{example}{proper-morphism}
@@ -1363,3 +1363,12 @@
     \[ R \iHom(R f_* \mathcal{E}, \mathcal{F}) \isom R f_* R \iHom(\mathcal{E}, f^! \mathcal{F}) \]
     for all $\mathcal{E} \in \textbf{D}^\textup{b}(X)$ and $\mathcal{F} \in \textbf{D}^\textup{b}(Y)$. In particular, there is an \tref{CT:adjunction}{adjunction} $R f_* \dashv f^!$.
 \end{topic}
+
+\begin{topic}{dimension-scheme}{dimension scheme}
+    The \textbf{dimension} of a \tref{scheme}{scheme} $X$ is the supremum of the lengths $n$ of chains of \tref{TO:irreducible-space}{irreducible} closed subsets
+    \[ \varnothing \ne X_0 \subsetneq X_1 \subsetneq \cdots \subsetneq X_n \subset X . \]
+\end{topic}
+
+\begin{example}{dimension-scheme}
+    If $X = \Spec(R)$ is an \tref{affine-scheme}{affine scheme}, then $\dim X$ is equal to the \tref{AA:krull-dimension}{Krull dimension} of $R$.
+\end{example}

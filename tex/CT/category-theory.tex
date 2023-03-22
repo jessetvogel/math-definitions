@@ -1067,3 +1067,11 @@
 
     Dually, a \textbf{cokernel} of $f$ is a \tref{equalizer}{coequalizer} of $f$ and $X \to 0 \to Y$.
 \end{topic}
+
+\begin{topic}{torsor}{torsor}
+    Let $\mathcal{C}$ be a \tref{site}{site} and let $\mathcal{G}$ be a \tref{sheaf}{sheaf} of \tref{GT:group}{groups} on $\mathcal{C}$. A \textbf{$\mathcal{G}$-torsor} on $\mathcal{C}$ is a sheaf of sets $\mathcal{F}$ together with an action $\mathcal{G} \times \mathcal{F} \to \mathcal{F}$ such that
+    \begin{itemize}
+        \item for every $U \in \mathcal{C}$ with $\mathcal{F}(U) \neq \varnothing$, the action $\mathcal{G}(U) \times \mathcal{F}(U) \to \mathcal{F}(U)$ is \tref{GT:free-group-action}{free} and \tref{GT:transitive-group-action}{transitive},
+        \item for every $U \in \mathcal{C}$, there exists a covering $\{ U_i \to U \}_{i \in I}$ of $U$ such that $\mathcal{F}(U_i) \neq \varnothing$ for all $i \in I$.
+    \end{itemize}
+\end{topic}
