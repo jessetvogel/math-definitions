@@ -172,7 +172,7 @@
 \end{example}
 
 \begin{topic}{bruhat-decomposition}{Bruhat decomposition}
-    Let $G$ be a \tref{TO:connected-space}{connected}, \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$, let $B \subset G$ be a \tref{borel-subgroup}{Borel subgroup}, and let $W$ be the \tref{LA:weyl-group}{Weyl group} of $G$ corresponding to a maximal \tref{algebraic-torus}{torus} of $T$. The \textbf{Bruhat decomposition} of $G$ is the decomposition
+    Let $G$ be a \tref{TO:connected-space}{connected}, \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$, let $B \subset G$ be a \tref{borel-subgroup}{Borel subgroup}, and let $W$ be the \tref{LA:weyl-group}{Weyl group} of $G$ corresponding to a maximal \tref{algebraic-torus}{torus} $T$ of $B$. The \textbf{Bruhat decomposition} of $G$ is the decomposition
     \[ G = BWB = \bigsqcup_{w \in W} BwB . \]
 \end{topic}
 
@@ -183,9 +183,9 @@
 \end{example}
 
 \begin{topic}{langs-theorem}{Lang's theorem}
-    Let $G$ be an \tref{algebraic-group}{algebraic group} over a finite field $\FF_q$, and let $F : G \to G$ be the \tref{AA:frobenius-morphism}{Frobenius map}. The \textbf{Lang map} is the morphism
-    \[ L : G \to G, \quad g \mapsto g^{-1} F(g) , \]
-    and note that $\ker L = G^F$. \textbf{Lang's theorem} states that if $G$ is \tref{TO:connected-space}{connected}, then $L$ is surjective.
+    Let $G_0$ be an \tref{algebraic-group}{algebraic group} over a finite field $\FF_q$ and let $G = G_0 \times_{\FF_q} \overline{\FF}_q$. Denote by $F : G \to G$ the morphism induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $F : \overline{\FF}_q \to \overline{\FF}_q, x \mapsto x^q$. The \textbf{Lang map} is the morphism
+    \[ L : G \to G, \quad g \mapsto g^{-1} F(g) . \]
+    Note that the points of $G$ fixed by $F$ is given by $\ker L$. \textbf{Lang's theorem} states that if $G$ is \tref{TO:connected-space}{connected}, then $L$ is surjective.
 \end{topic}
 
 \begin{example}{langs-theorem}
@@ -264,3 +264,24 @@
     Let $\Gamma$ be a \tref{GT:group}{group} and $k$ be a \tref{AA:field}{field}. Consider the collection of pairs $(G, \varphi_G)$ consisting of an \tref{affine-scheme}{affine} \tref{group-scheme}{group scheme} $G$ over $k$ and a group morphism $\varphi_G : \Gamma \to G(k)$. Define a partial order on this collection by setting $(G, \varphi_G) \le (H, \varphi_H)$ if there exists a morphism $f : G \to H$ such that $\varphi_H = f \circ \varphi_G$. The \textbf{pro-algebraic completion} of $\Gamma$ is the \tref{CT:inverse-limit}{inverse limit}
     \[ \widehat{\Gamma}^\textup{alg} = \varprojlim_{(G, \varphi_G)} G . \]
 \end{topic}
+
+\begin{topic}{deligne-lustzig-variety}{Deligne--Lustzig variety}
+    Let $G_0$ be a \tref{TO:connected-space}{connected} \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over $\FF_q$ and let $G = G_0 \times_{\FF_q} \overline{\FF}_q$. Let $B \subset G$ be a \tref{borel-subgroup}{Borel subgroup} and let $W$ be the \tref{LA:weyl-group}{Weyl group} of $G$ corresponding to a maximal \tref{algebraic-torus}{torus} $T$ of $B$.
+    
+    The \tref{bruhat-decomposition}{Bruhat decomposition} provides an isomorphism
+    \[ \mathcal{O} : W \xrightarrow{\sim} \{ G\textup{-orbits in } G/B \times G/B \}, \quad w \mapsto \{ (g_1 B, g_2 B) \mid g_1^{-1} g_2 \in B w B \} . \]
+    For any $w \in W$, the \textbf{Deligne--Lustzig variety} $X(w)$ is the intersection of $\mathcal{O}(w)$ with the graph $\Gamma_F$ of the Frobenius morphism $F : G/B \to G/B$ induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $F : \overline{\FF}_q \to \overline{\FF}_q, x \mapsto x^q$. That is,
+    \[ X(w) = \mathcal{O}(w) \cap \Gamma_F = \{ g B \in G/B \mid B g^{-1} F(g B) = B w B \} . \]
+\end{topic}
+
+\begin{example}{deligne-lustzig-variety}
+    Let $G = \textup{SL}_2$ with $B \subset G$ any Borel subgroup invariant under $F$. The Weyl group $W$ is isomorphic to $\ZZ/2\ZZ = \{ 1, \sigma \}$, and the Deligne--Lustzig varieties are given by
+    \[ X(1) = \mathcal{O}(1) \cap \Gamma_F = G^F / B^F = \PP^1(\FF_q) \]
+    and
+    \[ X(\sigma) = \mathcal{O}(\sigma) \cap \Gamma_F = \PP^1 \setminus \PP^1(\FF_q) . \]
+    Note that the latter is isomorphic to $\{ x^q y - x y^q = 1 \}$.
+\end{example}
+
+\begin{example}{deligne-lustzig-variety}
+    The Deligne--Lustzig varieties $X(w)$ are non-empty for all $w \in W$. Namely, by \tref{langs-theorem}{Lang's theorem} there exists some $g \in G$ such that $g^{-1} F(g)$ represents $w$, so that $(g B, F(g B)) \in X(w)$.
+\end{example}

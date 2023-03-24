@@ -31,7 +31,9 @@
 \end{topic}
 
 \begin{topic}{stalk}{stalk}
-    Let $\mathcal{F}$ be a \tref{sheaf}{presheaf} on a topological space $X$, and take a point $x \in X$. The \textbf{stalk} $\mathcal{F}_x$ of $\mathcal{F}$ at $x$ is defined as the direct limit of the groups $\mathcal{F}(U)$ for all open sets $U$ containing $x$, via the restriction maps.
+    Let $\mathcal{F}$ be a \tref{sheaf}{presheaf} on a topological space $X$, and take a point $x \in X$. The \textbf{stalk} of $\mathcal{F}$ at $x$ is the \tref{CT:direct-limit}{direct limit}
+    \[ \mathcal{F}_x = \varinjlim_{U \ni x} \mathcal{F}(U) , \]
+    over all open sets $U$ containing $x$, via the restriction maps.
 \end{topic}
 
 \begin{topic}{associated-sheaf}{associated sheaf}
@@ -53,7 +55,7 @@
 
 \begin{topic}{inverse-image-sheaf}{inverse image sheaf}
     Let $f : X \to Y$ be a map of topological spaces, and let $\mathcal{G}$ be a \tref{sheaf}{sheaf} on $Y$. The \textbf{inverse image sheaf} $f^
-    {-1}\mathcal{G}$ on $X$ is defined as the \tref{associated-sheaf}{sheaf associated} to the presheaf given by $U \mapsto \lim_{V \supset f(U)} \mathcal{G}(V)$ for any open set $U \subset X$.
+    {-1}\mathcal{G}$ on $X$ is defined as the \tref{associated-sheaf}{sheaf associated} to the presheaf given by $U \mapsto \varinjlim_{V \supset f(U)} \mathcal{G}(V)$ for any open set $U \subset X$.
     
     This construction yields the \textbf{inverse image functor}
     \[ f^{-1} : \textup{Sh}(Y) \to \textup{Sh}(X) . \]
