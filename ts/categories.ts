@@ -16,7 +16,7 @@ const categories = {
     "LA": "Linear Algebra",
     "LO": "Logic",
     "MT": "Measure Theory",
-    "NT": "Number Theory", 
+    "NT": "Number Theory",
     "RT": "Representation Theory",
     "ST": "Set Theory",
     "TO": "Topology",

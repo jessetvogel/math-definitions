@@ -5,6 +5,7 @@
 -- Go through document and fix missing tref's
 -- Support \begin{align*?} ... \end{align*?}
 -- Use \dfn or \emph instead of \textbf, and for html use <dfn> for custom styling
+-- Searching for `irreducible` should match with `(ir)reducible`
 
 ---- Theory ----
 

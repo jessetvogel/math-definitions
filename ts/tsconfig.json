@@ -1,0 +1,26 @@
+{
+    "version": "2.0.2",
+    "compilerOptions": {
+        "lib": [
+            "es5",
+            "es2015.promise",
+            "dom",
+            "es2020",
+            "ES2021.String",
+        ],
+        "target": "es2017",
+        "module": "amd",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true,
+        "declaration": false,
+        "sourceMap": true,
+        "outDir": "../js",
+        "outFile": "../js/script.js"
+    },
+    "include": [
+        "*.ts"
+    ]
+}
