@@ -657,3 +657,18 @@
 \begin{topic}{torelli-group}{Torelli group}
     Let $X$ be a \tref{topological-space}{topological space}. There is an action of the \tref{mapping-class-group}{mapping class group} $\textup{MCG}(X)$ of $X$ on the \tref{AT:singular-homology}{homology} of $X$ since automorphisms of $X$ \tref{isotopy}{isotopic} to the identity act trivially on homology. The \textbf{Torelli group} of $X$ is the subgroup $\textup{Tor}(X) \subset \textup{MCG}(X)$ which acts trivially on the homology of $X$.
 \end{topic}
+
+\begin{topic}{stratification}{stratification}
+    Let $X$ be a \tref{topological-space}{topological space}. A \textbf{stratification} of $X$ is a family $\{ X_i \}_{i \in I}$ of locally closed subsets of $X$ and a \tref{ST:partial-order}{partial order} on $I$ such that
+    \begin{itemize}
+        \item $X = \bigcup_{i \in I} X_i$,
+        \item $X_i \cap X_j = \varnothing$ whenever $i \ne j$,
+        \item $\overline{X}_i \subset \bigcup_{j \le i} X_j$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{stratification}
+    Let $X = \RR^2$ with the Euclidean topology. A stratification of $X$ is given by
+    \[ X_1 = \{ (0, 0) \}, \quad X_2 = (\RR \setminus \{ 0 \}) \times \{ 0 \}, \quad X_3 = \RR \times (\RR \setminus \{ 0 \}) \]
+    where $i \le j$ if $X_i \subset \overline{X}_j$.
+\end{example}

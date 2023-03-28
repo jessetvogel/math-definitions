@@ -634,9 +634,7 @@
 
 \begin{example}{toric-variety}
     One way to construct toric varieties is using \tref{LA:fan}{fans}. Let $N \isom \ZZ^n$ be a finitely generated free abelian group, and let $\Delta$ be a fan in $N_\RR = N \otimes_\ZZ \RR$. For every cone $\sigma \in \Delta$, consider the \tref{AA:monoid}{commutative monoid} $S_\sigma = \sigma^\vee \cap M$, where $\sigma^\vee$ is denotes the \tref{LA:dual-cone}{dual cone}, and $M = \Hom_\ZZ(N, \ZZ)$. Furthermore, let $k$ be a commutative ring, and write $U_\sigma = \Spec(k[S_\sigma])$.
-    
     Now for every face $\tau \subset \sigma$, there exists some $u \in \sigma^\vee$ such that $\tau = \sigma \cap u^\perp$, and hence $S_\tau = S_\sigma + \ZZ_{\ge 0} \cdot (-u)$. So, the natural map $k[S_\sigma] \to k[S_\tau]$ is a \tref{AA:localization}{localization} given by inverting $u$, which induces a \tref{principal-open-subset}{principal open subset} $\Spec(k[S_\tau]) \to \Spec(k[S_\sigma])$.
-    
     One constructs a toric variety $X(\Delta)$ from $\Delta$ by taking all $U_\sigma$, and gluing $U_{\sigma_1}$ and $U_{\sigma_2}$ along $U_\tau$ whenever $\tau = \sigma_1 \cap \sigma_2$ is a face of both cones $\sigma_1, \sigma_2 \in \Delta$.
     
     As an example, take $N = \ZZ^2$ and $\Delta$ the fan as described by the picture below.
@@ -676,7 +674,21 @@
     \end{tikzpicture} \]
     One computes
     \[ U_{\sigma_1} = \Spec(k[x, y]), \quad U_{\sigma_2} = \Spec(k[x^{-1}, yx^{-1}]), \quad U_{\sigma_3} = \Spec(k[y^{-1}, xy^{-1}]) , \]
-    and gluing gives $X(\Delta) \isom \PP_k^2$.    
+    and gluing gives $X(\Delta) \isom \PP_k^2$.
+
+    Conversely, given a toric variety $X$ with torus $T$, one construct a fan $\Delta \subset N_\RR$ with $N = \Hom(\GG_m, T)$ the lattice of one-parameter subgroups and $M = \Hom(T, \GG_m)$ the character lattice of $T$. For any one-parameter subgroup $\lambda : \GG_m \to T$, denote by $\lim_{t \to 0} \lambda(t)$ the limit point in $X$ if it exists. Partitioning $N_\RR$ based on the limit points yields a fan $\Delta$ (after taking closures), such that the corresponding toric variety $X(\Delta)$ is isomorphic to $X$.
+
+    In the example of $X = \PP^2_k$ with maximal torus $T = \GG_m^2$, the one-parameter subgroups of $T$ are given by $\lambda^{a, b}(t) = (t^a, t^b)$ for $a, b \in \ZZ$. The limit points are
+    \[ \lim_{t \to 0} \lambda^{a, b}(t) = \left\{ \begin{array}{cl}
+        (0 : 0 : 1) & \textup{ if } a, b > 0, \\
+        (1 : 0 : 0) & \textup{ if } a < 0 \textup{ and } a < b, \\
+        (0 : 1 : 0) & \textup{ if } b < 0 \textup{ and } a > b, \\
+        (1 : 0 : 1) & \textup{ if } a = 0 \textup{ and } b > 0, \\
+        (0 : 1 : 1) & \textup{ if } b = 0 \textup{ and } a > 0, \\
+        (1 : 1 : 0) & \textup{ if } a = b < 0, \\
+        (1 : 1 : 1) & \textup{ if } a = 0 = 0.
+    \end{array} \right. \]
+    Indeed, this corresponds to the fan as given above.
 \end{example}
 
 \begin{example}{toric-variety}
@@ -1098,7 +1110,7 @@
 \begin{example}{blowup}
     \begin{itemize}
         \item Consider the cusp $C$ in the affine plane given by $y^2 - x^3 = 0$. Blowing up at the origin $(0, 0)$, i.e. the ideal $(x, y)$, gives
-        \[ \textup{Bl}_{(0, 0)}(C) = \{ ((x, y), (u : v)) \in C \times \PP^1 : xv = uy \} . \]
+        \[ \textup{Bl}_{\{ (0, 0) \}}(C) = \overline{\{ ((x, y), (u : v)) \in (C \setminus \{ (0, 0) \}) \times \PP^1 \mid xv = uy \}} . \]
         We can cover this blowup by two affine charts
         \[ U_x = \{ \tilde{y}^2 - x = 0, \; y = \tilde{y} x \}, \qquad U_y = \{ y - \tilde{x}^3 = 0, \; x = \tilde{x} y \} \]
         with the obvious transition maps and projection maps to $C$.
@@ -1372,3 +1384,7 @@
 \begin{example}{dimension-scheme}
     If $X = \Spec(R)$ is an \tref{affine-scheme}{affine scheme}, then $\dim X$ is equal to the \tref{AA:krull-dimension}{Krull dimension} of $R$.
 \end{example}
+
+\begin{topic}{spherical-variety}{spherical variety}
+    Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over a field $k$. A \textbf{spherical variety} for $G$ is a \tref{variety}{variety} $X$ over $k$ equipped with an action of $G$ containing an open \tref{TO:dense-set}{dense} $B$-orbit for some \tref{borel-subgroup}{Borel subgroup} $B$ of $G$.
+\end{topic}

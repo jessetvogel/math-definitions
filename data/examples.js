@@ -196,6 +196,7 @@ const examples = [
   "AG:kempf-ness-theorem",
   "AG:hilbert-mumford-weight",
   "AG:hilbert-mumford-criterion",
+  "AG:HKKN-stratification",
   "AG:invertible-sheaf",
   "AG:coherent-sheaf",
   "AG:sheaf-cohomology",
@@ -274,6 +275,7 @@ const examples = [
   "CT:grothendieck-construction",
   "CT:internal-category",
   "CT:image",
+  "CT:waldhausen-category",
   "CT:strongly-cartesian-morphism",
   "CT:category-fibered-in-groupoids",
   "CT:inertia-stack",
@@ -536,5 +538,6 @@ const examples = [
   "TO:ultraconnected-space",
   "TO:isolated-point",
   "TO:mapping-class-group",
+  "TO:stratification",
   "UN:topological-quantum-field-theory",
 ];

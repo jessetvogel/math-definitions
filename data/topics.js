@@ -435,6 +435,7 @@ const topics = {
   "AG:weak-factorization-theorem": "weak factorization theorem",
   "AG:grothendieck-verdier-duality": "Grothendieck–Verdier duality",
   "AG:dimension-scheme": "dimension scheme",
+  "AG:spherical-variety": "spherical variety",
   "AG:categorical-quotient": "categorical quotient",
   "AG:geometric-quotient": "geometric quotient",
   "AG:affine-git-quotient": "affine GIT quotient",
@@ -444,6 +445,7 @@ const topics = {
   "AG:kempf-ness-theorem": "Kempf–Ness theorem",
   "AG:hilbert-mumford-weight": "Hilbert–Mumford weight",
   "AG:hilbert-mumford-criterion": "Hilbert–Mumford criterion",
+  "AG:HKKN-stratification": "HKKN stratification",
   "AG:sheaf": "sheaf",
   "AG:constant-sheaf": "constant sheaf",
   "AG:stalk": "stalk",
@@ -470,6 +472,7 @@ const topics = {
   "AG:sheaf-cohomology": "sheaf cohomology",
   "AG:local-cohomology": "local cohomology",
   "AG:extension-by-zero": "extension by zero",
+  "AG:constructible-sheaf": "constructible sheaf",
   "AG:log-scheme": "Log scheme",
   "AG:fine-log-scheme": "fine log scheme",
   "AG:log-smooth-morphism": "log smooth morphism",
@@ -668,6 +671,7 @@ const topics = {
   "CT:image": "(co)image",
   "CT:kernel": "(co)kernel",
   "CT:torsor": "torsor",
+  "CT:waldhausen-category": "Waldhausen category",
   "CT:fiber-category": "fiber category",
   "CT:strongly-cartesian-morphism": "strongly cartesian morphism",
   "CT:fibered-category": "fibered category",
@@ -1367,5 +1371,6 @@ const topics = {
   "TO:neighborhood-basis": "neighborhood basis",
   "TO:mapping-class-group": "mapping class group",
   "TO:torelli-group": "Torelli group",
+  "TO:stratification": "stratification",
   "UN:topological-quantum-field-theory": "Topological Quantum Field Theory (TQFT)"
 }

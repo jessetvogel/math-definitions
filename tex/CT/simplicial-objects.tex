@@ -35,7 +35,7 @@
 \end{topic}
 
 \begin{example}{nerve}
-    Concretely, $N_n(\mathcal{C})$ is the set of all composable sequences of morphisms
+    Concretely, $\textup{N}_n(\mathcal{C})$ is the set of all composable sequences of morphisms
     \[ C_0 \xrightarrow{f_1} C_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} C_n \]
     of length $n$ in $\mathcal{C}$. Applying the face map $d_{n, i}$ to this sequence gives
     \[ C_0 \xrightarrow{f_1} \cdots \xrightarrow{f_{i - 1}} C_{i - 1} \xrightarrow{f_{i + 1} \circ f_i} \cdots C_{i + 1} \xrightarrow{f_{i + 2}} \cdots \xrightarrow{f_n} C_n , \]
@@ -48,7 +48,7 @@
 \end{example}
 
 \begin{example}{nerve}
-    Consider a \tref{GT:group}{group} $G$ as a category with one object. Note that any $f \in N_n(G)$ can be described by the images $f(k - 1 \le k) \in G$ for $1 \le k \le n$, so that $N_n(G) \isom G^n$. Hence, the nerve $N_\bdot(G)$ is the simplicial set
+    Consider a \tref{GT:group}{group} $G$ as a category with one object. Note that any $f \in \textup{N}_n(G)$ can be described by the images $f(k - 1 \le k) \in G$ for $1 \le k \le n$, so that $\textup{N}_n(G) \isom G^n$. Hence, the nerve $\textup{N}_\bdot(G)$ is the simplicial set
     \[ \cdots G \times G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \rightrightarrows * \]
     with face and degeneracy maps given by
     \[ d_{n, i} : G^n \to G^{n - 1}, \quad (g_1, \ldots, g_n) \mapsto \left\{ \begin{array}{cl}
@@ -57,7 +57,7 @@
         (g_1, \ldots, g_{n - 1}) & \textup{ for } i = n,
     \end{array} \right. \]
     \[ s_{n, i} : G^n \to G^{n + 1}, \quad (g_1, \ldots, g_n) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n) \quad \textup{ for } 0 \le i \le n . \]
-    More generally, a group $G$ acting on a set $X$ can be viewed as a category $[X/G]$ whose objects are points of $X$, and a morphism $x \to gx$ for every $x \in X$ and $g \in G$. Similar to the above, we have $N_n([X/G]) \isom G^n \times X$, so the nerve $N_\bdot([X/G])$ is the simplicial set
+    More generally, a group $G$ acting on a set $X$ can be viewed as a category $[X/G]$ whose objects are points of $X$, and a morphism $x \to gx$ for every $x \in X$ and $g \in G$. Similar to the above, we have $\textup{N}_n([X/G]) \isom G^n \times X$, so the nerve $\textup{N}_\bdot([X/G])$ is the simplicial set
     \[ \cdots G \times G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times X \rightrightarrows X \]
     with face and degeneracy maps given by
     \[ d_{n, i} : G^n \times X \to G^{n - 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto \left\{ \begin{array}{cl}
