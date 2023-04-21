@@ -9,6 +9,8 @@
 
 ---- Theory ----
 
+TO: monodromy group (with example)
+
 HA/AG?: Perverse sheaf (https://www.ams.org/notices/201005/rtx100500632p.pdf, https://web.math.princeton.edu/~smorel/faisceaux_pervers.pdf)
 
 RT: Steinberg representation (https://www.ams.org/journals/bull/1987-16-02/S0273-0979-1987-15512-1/S0273-0979-1987-15512-1.pdf)
@@ -69,7 +71,6 @@ DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
-AG: D-module
 AG: Abel--Jacobi theorem
 AG: natural log structure on toric varieties
 AG: Serre intersection formula

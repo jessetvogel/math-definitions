@@ -248,7 +248,7 @@
 \begin{topic}{unramified-morphism}{unramified morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{unramified} if
     \begin{itemize}
-        \item it is \tref{finite-presentation}{locally of finite presentation},
+        \item it is \tref{finite-type}{locally of finite type},
         \item the residue field $k(x)$ is a \tref{AA:separable-field-extension}{separable algebraic extension} of $k(f(x))$, for all $x \in X$,
         \item $f^\#(\mathfrak{m}_{f(x)}) \mathcal{O}_{X, x} = \mathfrak{m}_x$ for all $x \in X$.
     \end{itemize}
@@ -892,13 +892,18 @@
 \end{topic}
 
 \begin{example}{grothendieck-ring-of-varieties}
-    Consider the variety $\textup{SL}_2 = \Spec k[a, b, c, d] / (ad - bc - 1)$ over a field $k$. Its class in $\textup{K}(\textbf{Var}/k)$ is given by
-    \[ \begin{array}{ccccc}
-        [\textup{SL}_2] & = & [\{ (a, b, c, d) \in \AA^4_k \mid a = 0, \; bc = -1 \}] & + & [\{ (a, b, c, d) \in \AA^4_k \mid a \ne 0, \; d = (1 + bc) / a \}] \\
-            & = & \mathbb{L} (\mathbb{L} - 1) & + & \mathbb{L}^2 (\mathbb{L} - 1) \\
-            & = & \mathbb{L}^3 - \mathbb{L} , &
-    \end{array} \]
-    where $\mathbb{L} = [\AA^1_k]$.
+    \begin{itemize}
+        \item Denote by $\mathbb{L}$ the class of the affine line $\AA^1_k$. Then $[\AA^n_k] = \mathbb{L}^n$.
+        \item From the relation $\PP^n_k \setminus \PP^{n - 1}_k \cong \AA^n_k$ one shows inductively that $[\PP^n_k] = \mathbb{L}^n + \cdots + \mathbb{L} + 1$ for all $n > 0$.
+        \item Consider the variety $\textup{SL}_2 = \Spec k[a, b, c, d] / (ad - bc - 1)$. Then
+        \[ \def\arraystretch{1.5}
+        \begin{array}{ccccc}
+            [\textup{SL}_2] & = & [\{ (a, b, c, d) \in \AA^4_k \mid a = 0, \; bc = -1 \}] & + & [\{ (a, b, c, d) \in \AA^4_k \mid a \ne 0, \; d = (1 + bc) / a \}] \\
+                & = & \mathbb{L} (\mathbb{L} - 1) & + & \mathbb{L}^2 (\mathbb{L} - 1) \\
+                & = & \mathbb{L}^3 - \mathbb{L} . &
+        \end{array} \]
+    \end{itemize}
+    
 \end{example}
 
 \begin{topic}{excellent-scheme}{(quasi-)excellent scheme}

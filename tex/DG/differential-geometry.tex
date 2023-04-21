@@ -1068,3 +1068,32 @@
     Consider $M = \RR^3$ with the standard Riemannian metric. The gradient of a function $f(x, y, z)$ is given by
     \[ \nabla f = \frac{\partial f}{\partial x} \partial_x + \frac{\partial f}{\partial y} \partial_y + \frac{\partial f}{\partial z} \partial_z . \]
 \end{example}
+
+\begin{topic}{knot}{knot}
+    A \textbf{knot} is an \tref{embedding}{embedding} $K : S^1 \to \RR^3$ from the circle $S^1$ to $\RR^3$.
+
+    Two knots $K_1$ and $K_2$ are \textit{equivalent} if there exists a smooth map
+    \[ H : [0, 1] \times \RR^3 \to \RR^3 \]
+    such that $H(0, -) = \id_{\RR^3}$, $H(1, -) \circ K_1 = K_2$ and $H(t, -)$ is a \tref{diffeomorphism}{diffeomorphism} for all $t \in [0, 1]$.
+\end{topic}
+
+\begin{topic}{jones-polynomial}{Jones polynomial}
+    The \textbf{Jones polynomial} of a \tref{knot}{knot} $K$ is a polynomial $J(K) \in \ZZ[q^{\pm 1/2}]$, uniquely determined by the properties
+    \begin{itemize}
+        \item equivalent knots have the same Jones polynomial,
+        \item the Jones polynomial of the unknot is $1$,
+        \item for every crossing of the knot, replacing this crossing by other possible crossings yields different knots whose Jones polynomials are related according to
+        \[ q^{-1} J \left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex] 
+            \draw [-to] (0, 0) -- (1, 1);
+            \draw (1, 0) -- (0.6, 0.4);
+            \draw [-to] (0.4, 0.6) -- (0, 1);
+        \end{tikzpicture} \right) - q J \left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex]
+            \draw (0, 0) -- (0.4, 0.4);
+            \draw [-to] (0.6, 0.6) -- (1, 1);
+            \draw [-to] (1, 0) -- (0, 1);
+        \end{tikzpicture} \right) + (q^{-1/2} - q^{1/2}) J \left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex]
+            \draw [-to] (0, 0) -- (0, 1);
+            \draw [-to] (1, 0) -- (1, 1);
+        \end{tikzpicture} \right) = 0 . \]
+    \end{itemize}
+\end{topic}
