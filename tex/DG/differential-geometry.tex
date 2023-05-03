@@ -424,10 +424,12 @@
     where ${\Gamma^k}_{ij}$ denote the \tref{christoffel-symbols}{Christoffel symbols}.
 \end{example}
 
-\begin{topic}{de-rham-isomorphism}{de Rham isomorphism}
-    The \textbf{de Rham isomorphism} is the isomorphism given by
-    \[ H_{\textup{dR}}^k(X) \xrightarrow{\sim} H^k(X; \RR) : [ \omega ] \mapsto \int_{(-)} \omega . \]
-    The exterior product endows the direct sum of these groups with a ring structure. A further result of the theorem is that the two cohomology rings are isomorphic (as \tref{AA:graded-ring}{graded rings}), where the analogous product on \tref{AT:singular-homology}{singular cohomology} is the \tref{AT:cup-product}{cup product}.
+\begin{topic}{de-rham-theorem}{de Rham's theorem}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. \textbf{De Rham's theorem} states that the map
+    \[ H_{\textup{dR}}^k(M) \xrightarrow{\sim} \Hom(H_k(M; \RR), \RR) \cong H^k(M; \RR), \quad [ \omega ] \mapsto \int_{(-)} \omega \]
+    between the \tref{de-rham-cohomology}{De Rham cohomology} and the \tref{AT:singular-homology}{singular cohomology} with coefficients in $\RR$, is an isomorphism. Moreover, these maps define an isomorphism of \tref{AA:graded-ring}{graded rings}
+    \[ H_{\textup{dR}}^*(M) \cong H^*(M; \RR) \]
+    where the product on the left is given by the exterior product, and on the right by the \tref{AT:cup-product}{cup product}.
 \end{topic}
 
 \begin{topic}{poincare-duality}{Poincaré duality}
@@ -591,7 +593,7 @@
     for $\alpha, \beta \in \Omega^k(M)$, where $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}.
 \end{topic}
 
-\begin{topic}{de-rham-complex}{de Rham complex}
+\begin{topic}{de-rham-cohomology}{de Rham cohomology}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{de Rham complex} of $M$ is the \tref{HA:chain-complex}{cochain complex}
     \[ 0 \to \Omega^0(M) \xrightarrow{d} \Omega^1(M) \xrightarrow{d} \Omega^2(M) \xrightarrow{d} \cdots \]
     where $\Omega^k(M)$ denotes the space of \tref{differential-form}{differential $k$-forms}, and $d$ the \tref{exterior-derivative}{exterior derivative}.
@@ -703,7 +705,7 @@
 \end{topic}
 
 \begin{topic}{poincare-lemma}{Poincaré lemma}
-    The \textbf{Poincaré lemma} states that on a \tref{AT:contractible-space}{contractible} \tref{smooth-manifold}{smooth manifold} $M$, every \tref{closed-form}{closed $k$-form} is \tref{exact-form}{exact} for $k \ge 1$. In particular, the \tref{de-rham-complex}{de Rham cohomology groups} $H^k_\textup{dR}(M) = 0$ for all $k \ge 1$.
+    The \textbf{Poincaré lemma} states that on a \tref{AT:contractible-space}{contractible} \tref{smooth-manifold}{smooth manifold} $M$, every \tref{closed-form}{closed $k$-form} is \tref{exact-form}{exact} for $k \ge 1$. In particular, the \tref{de-rham-cohomology}{de Rham cohomology groups} $H^k_\textup{dR}(M) = 0$ for all $k \ge 1$.
 \end{topic}
 
 \begin{topic}{serre-swan-theorem}{Serre--Swan theorem}
@@ -1096,4 +1098,11 @@
             \draw [-to] (1, 0) -- (1, 1);
         \end{tikzpicture} \right) = 0 . \]
     \end{itemize}
+\end{topic}
+
+\begin{topic}{hodge-cycle}{Hodge cycle}
+    Let $M$ be a \tref{TO:compact-space}{compact} \tref{kahler-manifold}{Kähler manifold} of dimension $2n$.  Its \tref{de-rham-cohomology}{cohomology} admits a \tref{LA:pure-hodge-structure}{pure Hodge structure}
+    \[ H^k(M; \CC) = \bigoplus_{p + q = k} H^{p, q}(M) . \]
+    The group of \textbf{Hodge cycles} of degree $2k$ is the group of rational cycles of type $(k, k)$, that is,
+    \[ \textup{Hdg}^k(M) = H^{2k}(M; \QQ) \cap H^{k, k}(M) . \]
 \end{topic}

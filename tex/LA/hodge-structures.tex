@@ -9,11 +9,16 @@
 \end{topic}
 
 \begin{example}{pure-hodge-structure}
-    For any $H_\ZZ$, taking $H^{k,k} = H_\CC$ and $H^{p, q} = 0$ when $(p, q) \ne (k, k)$ gives the \textit{trivial Hodge structure} of weight $2k$.
+    \begin{itemize}
+        \item For any $H_\ZZ$, taking $H^{k,k} = H_\CC$ and $H^{p, q} = 0$ when $(p, q) \ne (k, k)$ gives the \textit{trivial Hodge structure} of weight $2k$.
+        \item Take $H_\ZZ = 2 \pi i \ZZ \subset \CC$ and $H_\CC = H^{-1, -1}$. This is a pure Hodge structure of weight $-2$. In fact, is the unique $1$-dimensional pure Hodge structure of weight $-2$ up to isomorphism, and it is called the \textit{Tate Hodge structure}, often denoted by $\ZZ(1)$.
+    \end{itemize}
 \end{example}
 
 \begin{example}{pure-hodge-structure}
-    Take $H_\ZZ = 2 \pi i \ZZ \subset \CC$ and $H_\CC = H^{-1, -1}$. This is a pure Hodge structure of weight $-2$. In fact, is the unique $1$-dimensional pure Hodge structure of weight $-2$ up to isomorphism, and it is called the \textit{Tate Hodge structure}, often denoted by $\ZZ(1)$.
+    Let $M$ be a \tref{DG:kahler-manifold}{Kahler manifold} of dimension $2n$. It follows from the Hodge theorem that its \tref{DG:de-rham-cohomology}{De Rham cohomology} carries a pure Hodge structure
+    \[ H_\textup{dR}^k(M) \otimes_\RR \CC \cong \bigoplus_{p + q = k} H^{p, q}(M) , \]
+    where $H^{p, q}(M)$ are the cohomology classes whose \textit{harmonic representative} is of type $(p, q)$.
 \end{example}
 
 \begin{topic}{hodge-filtration}{Hodge filtration}

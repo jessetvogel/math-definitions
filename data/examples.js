@@ -541,5 +541,6 @@ const examples = [
   "TO:isolated-point",
   "TO:mapping-class-group",
   "TO:stratification",
+  "TO:monodromy-group",
   "UN:topological-quantum-field-theory",
 ];

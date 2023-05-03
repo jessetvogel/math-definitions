@@ -219,7 +219,7 @@
 \end{topic}
 
 \begin{topic}{variety}{variety}
-    An (abstract) \textbf{variety} is a \tref{reduced-scheme}{reduced} \tref{separated-morphism}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over a \tref{AA:field}{field} $k$.
+    A \textbf{variety} is a \tref{reduced-scheme}{reduced} \tref{separated-morphism}{separated} \tref{scheme}{scheme} of \tref{finite-type}{finite type} over a \tref{AA:field}{field} $k$.
 \end{topic}
 
 \begin{topic}{complete-variety}{complete variety}
@@ -1106,13 +1106,26 @@
 % \end{topic}
 
 \begin{topic}{blowup}{blowup}
-    Let $X \subset \AA^n_k$ be an \tref{affine-variety}{affine variety}, and $Z \subset X$ a closed subvariety given by the vanishing locus of $f_1, \ldots, f_r \in \mathcal{O}_X(X)$. Writing
-    \[ f : (X \setminus Z) \to \PP^{r - 1}, \quad x \mapsto (f_1(x) : \cdots : f_r(x)) , \]
-    the \textbf{blowup} of $X$ at $Z$ is the closure of the graph $\Gamma_f \subset X \times \PP^{r - 1}$,
-    \[ \pi : \textup{Bl}_Z(X) := \overline{\Gamma_f} \to X . \]
+    Let $X$ be a \tref{scheme}{scheme} and $Z \subset X$ a \tref{closed-immersion}{closed subscheme} given by a \tref{sheaf-of-ideals}{sheaf of ideals} $\mathcal{I} \subset \mathcal{O}_X$. A \textbf{blowup} of $X$ along $Z$ is a morphism of schemes
+    \[ \pi : \textup{Bl}_Z(X) \to X \]
+    with the universal property that for every morphism $f : Y \to X$ such that $f^* \mathcal{I}$ is \tref{invertible-sheaf}{invertible}, there exists a unique morphism $g : Y \to \textup{Bl}_Z(X)$ such that $\pi \circ g = f$.
+
+    When the closed immersion $Z \to X$ is \tref{finite-presentation}{of finite presentation}, a blowup of $X$ along $Z$ exists and is given by
+    \[ \textup{Bl}_Z(X) = \underline{\Proj}_X \left( \bigoplus_{n \ge 0} \mathcal{I}^n \right) . \]
 \end{topic}
 
 \begin{example}{blowup}
+    For any scheme $X$, it follows directly from the universal property that
+    \[ \textup{Bl}_\varnothing(X) = X \quad \textup{ and } \quad \textup{Bl}_X(X) = \varnothing . \]
+\end{example}
+
+\begin{example}{blowup}
+    Let $X \subset \AA^n_k$ be an \tref{affine-variety}{affine variety}, and $Z \subset X$ a closed subvariety given by the vanishing locus of $f_1, \ldots, f_r \in \mathcal{O}_X(X)$. Writing
+    \[ f : (X \setminus Z) \to \PP^{r - 1}, \quad x \mapsto (f_1(x) : \cdots : f_r(x)) , \]
+    the blowup of $X$ at $Z$ is the closure of the graph $\Gamma_f \subset X \times \PP^{r - 1}$,
+    \[ \pi : \textup{Bl}_Z(X) := \overline{\Gamma}_f \to X . \]
+
+    In particular, consider the following examples:
     \begin{itemize}
         \item Consider the cusp $C$ in the affine plane given by $y^2 - x^3 = 0$. Blowing up at the origin $(0, 0)$, i.e. the ideal $(x, y)$, gives
         \[ \textup{Bl}_{\{ (0, 0) \}}(C) = \overline{\{ ((x, y), (u : v)) \in (C \setminus \{ (0, 0) \}) \times \PP^1 \mid xv = uy \}} . \]
@@ -1130,6 +1143,10 @@
         \[ U_x = \{ 1 - \tilde{y}^2 z, \; y = \tilde{y} x \}, \qquad U_y = \{ \tilde{x}^2 - z, \; x = \tilde{x} y \} . \]
     \end{itemize}
 \end{example}
+
+\begin{topic}{strict-transform}{strict transform}
+    Let $X$ be a \tref{scheme}{scheme} with \tref{closed-immersion}{closed subscheme} $Z \subset X$ and \tref{blowup}{blowup} $\pi : \textup{Bl}_Z(X) \to X$. The \textbf{strict transform} of a closed subscheme $Y \subset X$ is the closure of $\pi^{-1}(Y \setminus Z)$ inside $\textup{Bl}_Z(X)$.
+\end{topic}
 
 \begin{topic}{resolution-of-singularities}{resolution of singularities}
     Let $X$ be a \tref{variety}{variety}. A \textbf{resolution of singularities} of $X$ is a \tref{proper-morphism}{proper} \tref{birational-map}{birational morphism} $\widetilde{X} \to X$, where $\widetilde{X}$ is a \tref{nonsingular-variety}{nonsingular variety}.
@@ -1227,7 +1244,7 @@
 \end{example}
 
 \begin{topic}{stably-birational}{stably birational}
-    Two varieties $X$ and $Y$ over a field $k$ are \textbf{stably birational} if $X \times \PP^m_k$ is \tref{birational-map}{birational} to $Y \times \PP^n_k$ for some $m, n \ge 0$.
+    Two \tref{variety}{varieties} $X$ and $Y$ over a field $k$ are \textbf{stably birational} if $X \times \PP^m_k$ is \tref{birational-map}{birational} to $Y \times \PP^n_k$ for some $m, n \ge 0$.
 \end{topic}
 
 \begin{topic}{larsen-lunts-theorem}{Larsen--Lunts theorem}
@@ -1392,4 +1409,8 @@
 
 \begin{topic}{spherical-variety}{spherical variety}
     Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over a field $k$. A \textbf{spherical variety} for $G$ is a \tref{variety}{variety} $X$ over $k$ equipped with an action of $G$ containing an open \tref{TO:dense-set}{dense} $B$-orbit for some \tref{borel-subgroup}{Borel subgroup} $B$ of $G$.
+\end{topic}
+
+\begin{topic}{crepant-resolution}{crepant resolution}
+    Let $X$ be a \tref{variety}{variety} over a field $k$. A \tref{resolution-of-singularities}{resolution} $\pi : \widetilde{X} \to X$ is \textbf{crepant} if the canonical isomorphism $\pi^* K_U \cong K_{\pi^{-1}(U)}$ extends to an isomorphism $\pi^* K_X \cong K_{\widetilde{X}}$, where $U \subset X$ is a non-singular open subset such that $\pi : \pi^{-1}(U) \to U$ is an isomorphism.
 \end{topic}
