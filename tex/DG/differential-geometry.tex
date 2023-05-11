@@ -310,9 +310,11 @@
 \end{topic}
 
 \begin{example}{bianchi-identity}
-    Note that for any section $s$ of $E$,
-    \[ \nabla^3 s = \nabla (F_\nabla s) = (\nabla F_\nabla) s + F_\nabla (\nabla s) , \]
-    and since $F_\nabla = \nabla^2$, it follows that $\nabla F_\nabla s = 0$.
+    \begin{proof}
+        For any section $s$ of $E$,
+        \[ \nabla^3 s = \nabla (F_\nabla s) = (\nabla F_\nabla) s + F_\nabla (\nabla s) , \]
+        and since $F_\nabla = \nabla^2$, it follows that $(\nabla F_\nabla) s = 0$. Therefore, $\nabla F_\nabla = 0$.
+    \end{proof}
 \end{example}
 
 \begin{topic}{flat-connection}{flat connection}
@@ -675,6 +677,11 @@
     where $c_k(E) \in \Omega^{2k}(M)$ is the \textbf{$k$-th Chern form}. The Chern forms are \tref{closed-form}{closed}, and the cohomology class $[c_k(E)] \in H_\textup{dR}^{2k}(M)$ is called the \textbf{$k$-th Chern class} of $E$. These classes are independent on the choice of connection.
 \end{topic}
 
+% \begin{topic}{chern-simons-form}{Chern--Simons form}
+%     Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $\pi : E \to M$ a trivial \tref{vector-bundle}{vector bundle}. A \textbf{Chern--Simons $k$-form} is a \tref{differential-form}{$k$-form} $\omega_{2k - 1}$ such that
+%     \[ d \omega_{2k - 1} = \tr \left( \underbrace{F_\nabla \wedge \cdots \wedge F_\nabla}_{k \textup{ times}} \right) . \]
+% \end{topic}
+
 \begin{topic}{chern-character}{Chern character}
     Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle}, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The \textbf{Chern character} of $E$ is given by
     \[ \textup{ch}(E) = \operatorname{tr} \exp \left(\frac{F_\nabla}{2 \pi i} \right) = \sum_{k = 0}^{\infty} \frac{1}{k!} \operatorname{tr} \left(\frac{F_\nabla}{2 \pi i}\right)^k . \]
@@ -923,25 +930,39 @@
 \end{example}
 
 \begin{topic}{yang-mills-theory}{Yang--Mills theory}
-    Let $(M, g)$ be a \tref{riemannian-manifold}{pseudo-Riemannian manifold}, $G$ a \tref{lie-group}{Lie group} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$, and $\pi : P \to M$ a \tref{TO:principal-bundle}{principal $G$-bundle} on $M$.
-    
-    A \tref{connection}{connection} $\nabla$ on $P$ is a \textbf{Yang--Mills field} if the \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(P \times_G \mathfrak{g})$, a $2$-form with values in the \tref{adjoint-bundle}{adjoint bundle}, satisfies the \textbf{Yang--Mills equations}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{pseudo-Riemannian manifold}, $G$ a \tref{lie-group}{Lie group} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$, and $\pi : E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with \tref{TO:structure-group}{structure group} $G$.
+
+    A \tref{connection}{connection} $\nabla$ on $E$ is a \textit{$G$-connection} if locally $\nabla = d + A$ with $A \in \Omega^1(M; \mathfrak{g})$, considering $\mathfrak{g} \subset \operatorname{End}(E)$. A $G$-connection is a \textbf{Yang--Mills field} if its \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \mathfrak{g})$ satisfies the \textbf{Yang--Mills equations}
     \[ \nabla F_\nabla = 0 \quad \textup{ and } \quad \star \nabla \star F_\nabla = J , \]
-    where $J \in \Omega^1(P \times_G \mathfrak{g})$ is a \textit{current}, and $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}. Note that the first equation is the \tref{bianchi-identity}{Bianchi identity}, which is always satisfied.
+    where $J \in \Omega^1(M; \mathfrak{g})$ is a \textit{Yang--Mills current}, and $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}. The first equation, also known as \tref{bianchi-identity}{Bianchi's identity}, is always satisfied.
 \end{topic}
 
-% \begin{example}{yang-mills-theory}
-%     Let $M = \RR^4$ with the Minkowski metric $\eta = (-1, 1, 1, 1)$, and take $G = U(1)$ with $\mathfrak{g} = i\RR$, and $P = G \times M$. A connection $\nabla$ can be written as
-%     \[ \nabla = d + A \]
-%     with $A \in \Omega^1(\mathfrak{g} \times M) \isom \Omega^1(M)$.
+\begin{example}{yang-mills-theory}
+    Suppose $M = \RR \times S$ with metric $g = -dt^2 + g_S$, where $t$ is the coordinate on $\RR$ and $g_S$ a metric on $S$. Intuitively, we decompose spacetime into space and time. For any $G$-connection $\nabla$ on $E$, we can write
+    \[ F_\nabla = B + E \wedge dt \]
+    for some $B \in \Omega^2(S; \mathfrak{g})$, the \textit{Yang--Mills magnetic field}, and $E \in \Omega^1(S; \mathfrak{g})$, the \textit{Yang--Mills electric field}. Also, we can write
+    \[ J = j - \rho dt \]
+    for some $j \in \Omega^1(S; \mathfrak{g})$, the \textit{Yang--Mills electric current}, and $\rho \in \Omega^0(S; \mathfrak{g})$, the \textit{Yang--Mills charge density}. Let us split the connection into two parts,
+    \[ \nabla_t : \Omega^k(M; E) \to \Omega^k(S; E) \quad \textup{ and } \quad \nabla_S : \Omega^k(M; E) \to \Omega^{k + 1}(S; E) , \]
+    such that $\nabla \omega = \nabla_t \omega \wedge dt + \nabla_S \omega$ for all $\omega \in \Omega^k(M; E)$. The first Yang--Mills equation, that is, Bianchi's identity, reduces to
+    \[ \nabla F_\nabla = \nabla_S B + (\nabla_t B + \nabla_S E) \wedge dt = 0, \]
+    that is,
+    \[ \nabla_S B = 0 \quad \textup{ and } \quad \nabla_t B + \nabla_S E = 0 . \]
+    Writing $\star_S$ for the Hodge star on $S$, we have $\star F = \star_S E - \star_S B \wedge dt$, so the second Yang--Mills equation becomes
+    \[ \star \nabla \star F = - \nabla_t E - \star_S \nabla_S \star_S E \wedge dt + \star_S \nabla_S \star_S B = j - \rho dt , \]
+    that is,
+    \[ \star_S \nabla_S \star_S E = \rho \quad \textup{ and } \quad - \nabla_t E + \star_S \nabla_S \star_S B = j . \]
     
-%     Since $U(1)$ is abelian, we get
-%     \[ F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu . \]
-    
-%     The Yang--Mills equation reduce to
-    
-%     Also known as \textit{Maxwell's equations}.
-% \end{example}
+    Specializing even more, now assume $S = \RR^n$. Since every vector bundle $E$ on $M = \RR^{n + 1}$ is trivial, we can assume $\nabla = d + A$ globally. We can choose a gauge such that $\nabla_t = \partial_t$ and $\nabla_i = \partial_i + A_i$ for $i = 1, \ldots, n$ (known as \textit{temporal gauge}). The Yang--Mills electric and magnetic field can now be expressed as
+    \[ E = E_i dx^i \quad \textup{ and } \quad B = \frac{1}{2} \epsilon_{ijk} B^i dx^j \wedge dx^k \]
+    where
+    \[ E_i = - \partial_t A_i \quad \textup{ and } \quad B^i = \epsilon^{ijk} ( \partial_j A_k - \partial_k A_j + [A_j, A_k] ) . \]
+    Bianchi's identity reduces to
+    \[ \partial^i B_i + [A^i, B_i] = 0 \quad \textup{ and } \quad \partial_t B^i + \epsilon^{ijk} (\partial_j E_k + [A_j, E_k]) = 0 \]
+    and the second Yang--Mills equation reduces to
+    \[ \partial^i E_i + [A^i, E_i] = \rho \quad \textup{ and } \quad - \partial_t E^i + \epsilon^{ijk} (\partial_j B_k + [A_j, B_k]) = j^i . \]
+    When the group $G$ is abelian, e.g. $G = \textup{U}(1)$, the commutators vanish, and we obtain \textit{Maxwell's equations}. Note that there is a direct relation between the nonabelian nature of the gauge group and the nonlinear nature of the corresponding gauge theory equations.
+\end{example}
 
 \begin{topic}{orbifold}{orbifold}
     Let $X_1 \rightrightarrows X_0$ be a \tref{lie-algebroid}{Lie algebroid}. It is called \textit{étale} if the source and target maps $s, t : X_1 \to X_0$ are \tref{diffeomorphism}{local diffeomorphisms}, and called \textit{proper} if the map $X_1 \xrightarrow{(s, t)} X_0 \times X_0$ is \tref{TO:proper-map}{proper}. An \textbf{orbifold} is a proper étale Lie algebroid.
@@ -1097,6 +1118,27 @@
             \draw [-to] (0, 0) -- (0, 1);
             \draw [-to] (1, 0) -- (1, 1);
         \end{tikzpicture} \right) = 0 . \]
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{alexander-conway-polynomial}{Alexander--Conway polynomial}
+    The \textbf{Alexander--Conway polynomial} of a \tref{knot}{knot} $K$ is a polynomial $\nabla_K(z) \in \ZZ[z^{\pm 1}]$, uniquely determined by the properties
+    \begin{itemize}
+        \item equivalent knots have the same Alexander--Conway polynomial,
+        \item the Alexander--Conway polynomial of the unknot is $1$,
+        \item for every crossing of the knot, replacing this crossing by other possible crossings yields different knots whose Alexander--Conway polynomials are related according to
+        \[ \nabla_{\left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex] 
+            \draw [-to] (0, 0) -- (1, 1);
+            \draw (1, 0) -- (0.6, 0.4);
+            \draw [-to] (0.4, 0.6) -- (0, 1);
+        \end{tikzpicture} \right)}(z) - \nabla_{\left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex]
+            \draw (0, 0) -- (0.4, 0.4);
+            \draw [-to] (0.6, 0.6) -- (1, 1);
+            \draw [-to] (1, 0) -- (0, 1);
+        \end{tikzpicture} \right)}(z) = z \nabla_{\left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex]
+            \draw [-to] (0, 0) -- (0, 1);
+            \draw [-to] (1, 0) -- (1, 1);
+        \end{tikzpicture} \right)}(z) . \]
     \end{itemize}
 \end{topic}
 

@@ -1,0 +1,24 @@
+<div class="example">Suppose <span class="math inline">\(M = \RR \times S\)</span> with metric <span class="math inline">\(g = -dt^2 + g_S\)</span>, where <span class="math inline">\(t\)</span> is the coordinate on <span class="math inline">\(\RR\)</span> and <span class="math inline">\(g_S\)</span> a metric on <span class="math inline">\(S\)</span>. Intuitively, we decompose spacetime into space and time. For any <span class="math inline">\(G\)</span>-connection <span class="math inline">\(\nabla\)</span> on <span class="math inline">\(E\)</span>, we can write
+<span class="math display">\[ F_\nabla = B + E \wedge dt \]</span>
+for some <span class="math inline">\(B \in \Omega^2(S; \mathfrak{g})\)</span>, the <i>Yang–Mills magnetic field</i>, and <span class="math inline">\(E \in \Omega^1(S; \mathfrak{g})\)</span>, the <i>Yang–Mills electric field</i>. Also, we can write
+<span class="math display">\[ J = j - \rho dt \]</span>
+for some <span class="math inline">\(j \in \Omega^1(S; \mathfrak{g})\)</span>, the <i>Yang–Mills electric current</i>, and <span class="math inline">\(\rho \in \Omega^0(S; \mathfrak{g})\)</span>, the <i>Yang–Mills charge density</i>. Let us split the connection into two parts,
+<span class="math display">\[ \nabla_t : \Omega^k(M; E) \to \Omega^k(S; E) \quad \textup{ and } \quad \nabla_S : \Omega^k(M; E) \to \Omega^{k + 1}(S; E) , \]</span>
+such that <span class="math inline">\(\nabla \omega = \nabla_t \omega \wedge dt + \nabla_S \omega\)</span> for all <span class="math inline">\(\omega \in \Omega^k(M; E)\)</span>. The first Yang–Mills equation, that is, Bianchi’s identity, reduces to
+<span class="math display">\[ \nabla F_\nabla = \nabla_S B + (\nabla_t B + \nabla_S E) \wedge dt = 0, \]</span>
+that is,
+<span class="math display">\[ \nabla_S B = 0 \quad \textup{ and } \quad \nabla_t B + \nabla_S E = 0 . \]</span>
+Writing <span class="math inline">\(\star_S\)</span> for the Hodge star on <span class="math inline">\(S\)</span>, we have <span class="math inline">\(\star F = \star_S E - \star_S B \wedge dt\)</span>, so the second Yang–Mills equation becomes
+<span class="math display">\[ \star \nabla \star F = - \nabla_t E - \star_S \nabla_S \star_S E \wedge dt + \star_S \nabla_S \star_S B = j - \rho dt , \]</span>
+that is,
+<span class="math display">\[ \star_S \nabla_S \star_S E = \rho \quad \textup{ and } \quad - \nabla_t E + \star_S \nabla_S \star_S B = j . \]</span><br/>
+Specializing even more, now assume <span class="math inline">\(S = \RR^n\)</span>. Since every vector bundle <span class="math inline">\(E\)</span> on <span class="math inline">\(M = \RR^{n + 1}\)</span> is trivial, we can assume <span class="math inline">\(\nabla = d + A\)</span> globally. We can choose a gauge such that <span class="math inline">\(\nabla_t = \partial_t\)</span> and <span class="math inline">\(\nabla_i = \partial_i + A_i\)</span> for <span class="math inline">\(i = 1, \ldots, n\)</span> (known as <i>temporal gauge</i>). The Yang–Mills electric and magnetic field can now be expressed as
+<span class="math display">\[ E = E_i dx^i \quad \textup{ and } \quad B = \frac{1}{2} \epsilon_{ijk} B^i dx^j \wedge dx^k \]</span>
+where
+<span class="math display">\[ E_i = - \partial_t A_i \quad \textup{ and } \quad B^i = \epsilon^{ijk} ( \partial_j A_k - \partial_k A_j + [A_j, A_k] ) . \]</span>
+Bianchi’s identity reduces to
+<span class="math display">\[ \partial^i B_i + [A^i, B_i] = 0 \quad \textup{ and } \quad \partial_t B^i + \epsilon^{ijk} (\partial_j E_k + [A_j, E_k]) = 0 \]</span>
+and the second Yang–Mills equation reduces to
+<span class="math display">\[ \partial^i E_i + [A^i, E_i] = \rho \quad \textup{ and } \quad - \partial_t E^i + \epsilon^{ijk} (\partial_j B_k + [A_j, B_k]) = j^i . \]</span>
+When the group <span class="math inline">\(G\)</span> is abelian, e.g. <span class="math inline">\(G = \textup{U}(1)\)</span>, the commutators vanish, and we obtain <i>Maxwell’s equations</i>. Note that there is a direct relation between the nonabelian nature of the gauge group and the nonlinear nature of the corresponding gauge theory equations.
+</div>

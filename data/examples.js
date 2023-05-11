@@ -315,6 +315,7 @@ const examples = [
   "DG:teichmuller-space",
   "DG:hairy-ball-theorem",
   "DG:einstein-manifold",
+  "DG:yang-mills-theory",
   "DG:orbifold",
   "DG:orbifold-euler-characteristic",
   "DG:conformal-map",
@@ -543,4 +544,5 @@ const examples = [
   "TO:stratification",
   "TO:monodromy-group",
   "UN:topological-quantum-field-theory",
+  "UN:path-ordered-exponential",
 ];

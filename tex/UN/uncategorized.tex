@@ -21,3 +21,18 @@
     for all $\overline{v} \in Z(\overline{M})$, so $Z(\overline{M})$ is finite-dimensional as well, and $\{ \overline{v}_1, \ldots, \overline{v}_m \}$ is a basis for $Z(\overline{M})$. Moreover, this shows that $Z(\overline{M})$ can be identified as the \tref{LA:dual-vector-space}{dual} to $Z(M)$, with $\{ \overline{v}_1, \ldots, \overline{v}_m \}$ as the dual basis of $\{ v_1, \ldots, v_m \}$ with respect to the non-degenerate pairing
     \[ Z(M) \otimes_k Z(\overline{M}) \to k, \quad v \otimes \overline{v} \mapsto Z(U_M^\dagger)(v \otimes \overline{v}) . \]
 \end{example}
+
+\begin{topic}{path-ordered-exponential}{path-ordered exponential}
+    Let $A$ be a real or complex \tref{AA:algebra}{algebra} and $a : \RR \to A$ a \tref{TO:continuous-map}{continuous function}. The \textbf{path-ordered exponential} of $a$ is the function $\textup{P} \exp [a](t) : \RR \to A$ given by
+    \[ \textup{P} \exp [a] (t) = \sum_{n = 0}^\infty \int_0^t \int_0^{t'_n} \int_0^{t'_{n - 1}} \cdots \int_0^{t'_2} a(t'_n) \cdots a(t'_1) d t'_1 \cdots d t'_{n - 2} d t'_{n - 1} d t'_n . \]
+\end{topic}
+
+\begin{example}{path-ordered-exponential}
+    The path-ordered exponential is the unique solution to the initial value problem of finding an $f : \RR \to A$ satisfying
+    \[ \frac{d}{dt} f(t) = a(t) f(t) \quad \textup{ with } \quad f(0) = 1 . \]
+\end{example}
+
+\begin{example}{path-ordered-exponential}
+    When $A$ is commutative or $a$ is constant, the path-ordered exponential reduces to the ordinary exponential
+    \[ \textup{P} \exp[a](t) = \exp \left( \int_0^t a(s) ds \right) . \]
+\end{example}

@@ -378,7 +378,7 @@
 \end{topic}
 
 \begin{topic}{canonical-sheaf}{canonical sheaf}
-    Let $X$ be a non-singular \tref{variety}{variety} over $k$ of dimension $n$. The \textbf{canonical sheaf} of $X$ is defined to be
+    Let $X$ be a \tref{non-singular-variety}{non-singular} \tref{variety}{variety} over $k$ of dimension $n$. The \textbf{canonical sheaf} of $X$ is defined to be
     \[ \omega_X = \wedge^n \Omega_{X/k} . \]
 \end{topic}
 
@@ -931,9 +931,11 @@
     A \textbf{del Pezzo surface} is a two-dimensional \tref{fano-variety}{Fano variety}.
 \end{topic}
 
-% \begin{topic}{kodaira-dimension}{Kodaira dimension}
-%     The \textbf{Kodaira dimension} of a \tref{projective-variety}{projective variety} $X$ is 
-% \end{topic}
+\begin{topic}{kodaira-dimension}{Kodaira dimension}
+    Let $X$ be a \tref{projective-variety}{projective variety} over a field $k$. The \textbf{Kodaira dimension} $\kappa(X)$ of $X$ is the \tref{AA:transcendence-degree}{transcendence degree} over $k$ of the ring
+    \[ \bigoplus_{n \ge 0} H^0(X, \omega_X^{\otimes n}) \]
+    minus $1$, where $\omega_X$ is the \tref{canonical-sheaf}{canonical sheaf} of $X$.
+\end{topic}
 
 \begin{topic}{rational-curve}{rational curve}
     A \textbf{rational curve} is an \tref{algebraic-curve}{algebraic curve} which is \tref{birational-map}{birationally equivalent} to the projective line.
@@ -1149,13 +1151,13 @@
 \end{topic}
 
 \begin{topic}{resolution-of-singularities}{resolution of singularities}
-    Let $X$ be a \tref{variety}{variety}. A \textbf{resolution of singularities} of $X$ is a \tref{proper-morphism}{proper} \tref{birational-map}{birational morphism} $\widetilde{X} \to X$, where $\widetilde{X}$ is a \tref{nonsingular-variety}{nonsingular variety}.
+    Let $X$ be a \tref{variety}{variety}. A \textbf{resolution of singularities} of $X$ is a \tref{proper-morphism}{proper} \tref{birational-map}{birational morphism} $\widetilde{X} \to X$, where $\widetilde{X}$ is a \tref{non-singular-variety}{non-singular variety}.
 \end{topic}
 
-\begin{topic}{nonsingular-variety}{nonsingular variety}
-    A \tref{variety}{variety} $X$ over a field $k$ is \textbf{nonsingular at a point $x \in X$} if the local ring $\mathcal{O}_{X, x}$ is \tref{AA:regular-ring}{regular}. The variety $X$ is \textbf{nonsingular} if it is nonsingular at all points $x \in X$.
+\begin{topic}{non-singular-variety}{non-singular variety}
+    A \tref{variety}{variety} $X$ over a field $k$ is \textbf{non-singular at a point $x \in X$} if the local ring $\mathcal{O}_{X, x}$ is \tref{AA:regular-ring}{regular}. The variety $X$ is \textbf{non-singular} if it is non-singular at all points $x \in X$.
     
-    Equivalently, $X$ is nonsingular if and only if the structure morphism $X \to \Spec k$ is \tref{smooth-morphism}{smooth}.
+    Equivalently, $X$ is non-singular if and only if the structure morphism $X \to \Spec k$ is \tref{smooth-morphism}{smooth}.
 \end{topic}
 
 \begin{topic}{chow-lemma}{Chow's lemma}
@@ -1183,13 +1185,13 @@
 \end{example}
 
 \begin{topic}{hasse-weil-bound}{Hasse--Weil bound}
-    Let $C$ be a \tref{nonsingular-variety}{smooth} \tref{projective-variety}{projective} \tref{algebraic-curve}{curve} over a finite field $\FF_q$ of \tref{geometric-genus}{genus} $g$. The \textbf{Hasse--Weil bound} states that
+    Let $C$ be a \tref{non-singular-variety}{smooth} \tref{projective-variety}{projective} \tref{algebraic-curve}{curve} over a finite field $\FF_q$ of \tref{geometric-genus}{genus} $g$. The \textbf{Hasse--Weil bound} states that
     \[ | \#C(\FF_q) - q - 1 | \le 2 g \sqrt{q} . \]
 \end{topic}
 
 \begin{topic}{analytification}{analytification}
-    Let $X$ be a \tref{nonsingular-variety}{nonsingular} \tref{variety}{variety} over $\CC$. 
-    The set of complex points $X(\CC)$ naturally has a \tref{TO:topological-space}{topology}, such that for any affine open $U \subset X$ the topology on $U(\CC) \subset \CC^n$ is given by the \tref{TO:subspace-topology}{subspace topology} of the Euclidean topology on $\CC^n$. These charts give $X(\CC)$ the structure of a \tref{DG:complex-manifold}{complex manifold} $X^\textup{an}$, called the \textbf{analytification} of $X$. Moreover, a morphism of nonsingular complex varieties $f : X \to Y$ induces a holomorphic map $f^\textup{an} : X^\textup{an} \to Y^\textup{an}$, and this construction yields the \textit{analytification functor}
+    Let $X$ be a \tref{non-singular-variety}{non-singular} \tref{variety}{variety} over $\CC$. 
+    The set of complex points $X(\CC)$ naturally has a \tref{TO:topological-space}{topology}, such that for any affine open $U \subset X$ the topology on $U(\CC) \subset \CC^n$ is given by the \tref{TO:subspace-topology}{subspace topology} of the Euclidean topology on $\CC^n$. These charts give $X(\CC)$ the structure of a \tref{DG:complex-manifold}{complex manifold} $X^\textup{an}$, called the \textbf{analytification} of $X$. Moreover, a morphism of non-singular complex varieties $f : X \to Y$ induces a holomorphic map $f^\textup{an} : X^\textup{an} \to Y^\textup{an}$, and this construction yields the \textit{analytification functor}
     \[ (-)^\textup{an} : \textbf{SmVar}_\CC \to \textbf{Mfld}_\CC . \]
 \end{topic}
 
@@ -1248,14 +1250,14 @@
 \end{topic}
 
 \begin{topic}{larsen-lunts-theorem}{Larsen--Lunts theorem}
-    Let $\textup{SB}$ be the set of \tref{stably-birational}{stably birational} equivalence classes of \tref{nonsingular-variety}{smooth} \tref{proper-morphism}{proper} \tref{variety}{varieties} over $\CC$. The \textbf{Larsen--Lunts theorem} states that there exists a unique ring morphism
+    Let $\textup{SB}$ be the set of \tref{stably-birational}{stably birational} equivalence classes of \tref{non-singular-variety}{smooth} \tref{proper-morphism}{proper} \tref{variety}{varieties} over $\CC$. The \textbf{Larsen--Lunts theorem} states that there exists a unique ring morphism
     \[ \phi : \textup{K}(\textbf{Var}_\CC) \to \ZZ[\textup{SB}] , \]
     from the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}, such that $\phi([X])$ is the class of $X$ in $\textup{SB}$ for any smooth proper $X$. Moreover, the kernel of $\phi$ is the ideal generated by $\mathbb{L} = [\AA^1_\CC]$, so that
     \[ \textup{K}(\textbf{Var}_\CC) / (\mathbb{L}) \isom \ZZ[\textup{SB}] . \]
 \end{topic}
 
 \begin{topic}{riemann-hurwitz-formula}{Riemann--Hurwitz formula}
-    Let $f : C' \to C$ be a morphism between \tref{nonsingular-variety}{smooth} \tref{projective-variety}{projective} \tref{algebraic-curve}{curves} $C'$ and $C$. The \textbf{Riemann--Hurwitz formula} states that
+    Let $f : C' \to C$ be a morphism between \tref{non-singular-variety}{smooth} \tref{projective-variety}{projective} \tref{algebraic-curve}{curves} $C'$ and $C$. The \textbf{Riemann--Hurwitz formula} states that
     \[ \chi(S') = \deg(f) \cdot \chi(S) - \sum_{P \in S'} (e_P - 1) , \]
     where $\chi$ denotes the \tref{AT:euler-characteristic}{Euler characteristic}, and $e_P$ denotes the ramification index of $f$ at $P$.
 \end{topic}
@@ -1270,25 +1272,38 @@
     for some $n \ge 2$.
 \end{topic}
 
-\begin{topic}{motivic-integration}{motivic integration}
-    Let $X$ be a \tref{nonsingular-variety}{smooth} complex \tref{variety}{variety} of dimension $n$. Define
-    \[ \begin{array}{cc}
-        \Delta_m = \Spec \CC[t] / (t^{m + 1}), & \Delta_\infty = \Spec \CC \llbracket t \rrbracket \\[10pt]
-        X_m = \Hom_\CC(\Delta_m, X), & X_\infty = \Hom_\CC(\Delta_\infty, X) .
-    \end{array} \]
-    and \textit{truncation maps} $\pi^k_m : X_k \to X_m$ for $k \ge m$ and $\psi_m : X_\infty \to X_m$, induced by the natural maps $\Delta_m \to \Delta_k$ and $\Delta_\infty \to \Delta_m$, respectively.
+% \begin{topic}{motivic-integration}{motivic integration}
+%     Let $X$ be a \tref{non-singular-variety}{smooth} complex \tref{variety}{variety} of dimension $n$. Define
+%     \[ \begin{array}{cc}
+%         \Delta_m = \Spec \CC[t] / (t^{m + 1}), & \Delta_\infty = \Spec \CC \llbracket t \rrbracket \\[10pt]
+%         X_m = \Hom_\CC(\Delta_m, X), & X_\infty = \Hom_\CC(\Delta_\infty, X) .
+%     \end{array} \]
+%     and \textit{truncation maps} $\pi^k_m : X_k \to X_m$ for $k \ge m$ and $\psi_m : X_\infty \to X_m$, induced by the natural maps $\Delta_m \to \Delta_k$ and $\Delta_\infty \to \Delta_m$, respectively.
     
-    For any $C \subset X_\infty$, which can be written as $C = \psi_m^{-1}(C_m)$ for some \tref{TO:constructible-set}{constructible} $C_m \subset X_m$, the \textbf{motivic measure} of $C$ is
-    \[ \mu(C) = \frac{[C_m]}{\mathbb{L}^{n(m + 1)}} \in \textup{K}(\textbf{Var}_\CC)[\mathbb{L}^{-1}] \]
-    as an element in the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties} localized by the Lefschetz motive $\mathbb{L} = [\AA^1_\CC]$.
-    This is well-defined, because if $C = \psi_m^{-1}(C_m) = \psi_k^{-1}(C_k)$ for some $k > m$, then $C_k = (\pi_m^k)^{-1}(C_m)$ is an $\AA_\CC^{n(k - m)}$-bundle over $C_m$, so $[C_k] = [C_m] \cdot \mathbb{L}^{n(k - m)}$.
-    The \textbf{motivic measure} of $X$ is defined as
-    \[ \mu(X) = \mu(X_\infty) = \frac{[X]}{\mathbb{L}^n} . \]
+%     For any $C \subset X_\infty$, which can be written as $C = \psi_m^{-1}(C_m)$ for some \tref{TO:constructible-set}{constructible} $C_m \subset X_m$, the \textbf{motivic measure} of $C$ is
+%     \[ \mu(C) = \frac{[C_m]}{\mathbb{L}^{n(m + 1)}} \in \textup{K}(\textbf{Var}_\CC)[\mathbb{L}^{-1}] \]
+%     as an element in the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties} localized by the Lefschetz motive $\mathbb{L} = [\AA^1_\CC]$.
+%     This is well-defined, because if $C = \psi_m^{-1}(C_m) = \psi_k^{-1}(C_k)$ for some $k > m$, then $C_k = (\pi_m^k)^{-1}(C_m)$ is an $\AA_\CC^{n(k - m)}$-bundle over $C_m$, so $[C_k] = [C_m] \cdot \mathbb{L}^{n(k - m)}$.
+%     The \textbf{motivic measure} of $X$ is defined as
+%     \[ \mu(X) = \mu(X_\infty) = \frac{[X]}{\mathbb{L}^n} . \]
+% \end{topic}
+
+\begin{topic}{motivic-integration}{motivic integration}
+    Let $X$ be a \tref{non-singular-variety}{smooth} complex \tref{variety}{variety} of dimension $n$. Denote by $J_\infty(X) = \Hom(\Spec(\CC \llbracket t \rrbracket), X)$ the space of \textit{formal arcs} on $X$. For any \tref{weil-divisor}{prime divisor} $D \subset X$, define the function
+    \[ F_D : J_\infty(X) \to \ZZ_{\ge 0} \cup \{ \infty \} \]
+    that sends a formal arc $\gamma$ to the order of vanishing of the power series $g(\gamma(t))$ at $t = 0$, where $g$ is a local defining equation for $D$ around $\gamma(0) \in X$. For an \tref{weil-divisor}{effective divisor} $D = \sum_{i = 1}^{r} a_i D_i$ with simple normal crossings on $X$, define
+    \[ F_D = \sum_{i = 1}^{r} a_i F_{D_i} . \]
+    The \textbf{motivic integral} of the pair $(X, D)$ is
+    \[ \int_{J_\infty(X)} F_D \; d \mu = \sum_{J \subset \{ 1, \ldots, r \}} \frac{[D_J^\circ]}{\mathbb{L}^n} \prod_{j \in J} \frac{\mathbb{L} - 1}{\mathbb{L}^{a_j + 1} - 1} \]
+    as an element in the \tref{AA:completion}{completed} \tref{AA:localization}{localized} \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties} $\widehat{\textup{K}(\textbf{Var}_\CC)[\mathbb{L}^{-1}]}$, where $\mathbb{L} = [\AA^1_\CC]$ and $D_J^\circ = \bigcap_{j \in J} D_j \mathbin{\big\backslash} \bigcup_{i \in \{ 1, \ldots, r \} \setminus J} D_i$.
+
+    For a complex variety $X$ with at worst Gorenstein canonical singularities, the \textbf{motivic integral} of $X$ is the motivic integral of $(Y, D)$, where $\varphi : Y \to X$ is any \tref{resolution-of-singularities}{resolution of singularities} for which $D = K_Y - \varphi^* K_X$ has only simple normal crossings.
 \end{topic}
 
 \begin{example}{motivic-integration}
-    For any $n \ge 0$, we have
-    \[ \mu(\AA^n) = \frac{[\AA^n]}{\mathbb{L}^n} = 1 . \]
+    \begin{itemize}
+        \item For $X$ a smooth complex variety and $D = 0$, the motivic integral of $(X, D)$ is $[D_\varnothing^\circ] / \mathbb{L}^{\dim X} = [X] / \mathbb{L}^{\dim X}$.
+    \end{itemize}
 \end{example}
 
 \begin{topic}{nisnevich-morphism}{Nisnevich morphism}
@@ -1381,7 +1396,7 @@
 \end{example}
 
 \begin{topic}{weak-factorization-theorem}{weak factorization theorem}
-    Let $\phi : X \dashrightarrow Y$ be a \tref{birational-map}{birational map} between \tref{complete-variety}{complete} \tref{nonsingular-variety}{nonsingular} \tref{TO:connected-space}{connected} \tref{variety}{varieties} over a \tref{AA:field}{field} $k$ of characteristic zero, and let $U \subset X$ be an open subset where $\phi$ is an isomorphism.
+    Let $\phi : X \dashrightarrow Y$ be a \tref{birational-map}{birational map} between \tref{complete-variety}{complete} \tref{non-singular-variety}{non-singular} \tref{TO:connected-space}{connected} \tref{variety}{varieties} over a \tref{AA:field}{field} $k$ of characteristic zero, and let $U \subset X$ be an open subset where $\phi$ is an isomorphism.
     The \textbf{weak factorization theorem} states that $\phi$ can be factored as a composition of birational maps
     \[ X = V_0 \overset{\phi_1}{\dashrightarrow} V_1 \overset{\phi_2}{\dashrightarrow} \cdots \overset{\phi_n}{\dashrightarrow} V_n = Y \]
     such that each $\phi_i$ is an isomorphism over $U$ and $\phi_i : V_{i - 1} \dashrightarrow V_i$ or $\phi_i^{-1} : V_i \dashrightarrow V_{i - 1}$ is obtained by \tref{blowup}{blowing up} a smooth center disjoint from $U$.

@@ -394,6 +394,7 @@ const topics = {
   "AG:elliptic-curve": "elliptic curve",
   "AG:fano-variety": "Fano variety",
   "AG:del-pezzo-surface": "del Pezzo surface",
+  "AG:kodaira-dimension": "Kodaira dimension",
   "AG:rational-curve": "rational curve",
   "AG:zariski-main-theorem": "Zariski’s main theorem",
   "AG:brauer-group": "Brauer group",
@@ -411,7 +412,7 @@ const topics = {
   "AG:blowup": "blowup",
   "AG:strict-transform": "strict transform",
   "AG:resolution-of-singularities": "resolution of singularities",
-  "AG:nonsingular-variety": "nonsingular variety",
+  "AG:non-singular-variety": "non-singular variety",
   "AG:chow-lemma": "Chow’s lemma",
   "AG:normal-crossings-divisor": "normal crossings divisor",
   "AG:hasse-weil-bound": "Hasse–Weil bound",
@@ -816,6 +817,7 @@ const topics = {
   "DG:gradient": "gradient",
   "DG:knot": "knot",
   "DG:jones-polynomial": "Jones polynomial",
+  "DG:alexander-conway-polynomial": "Alexander–Conway polynomial",
   "DG:hodge-cycle": "Hodge cycle",
   "DG:symplectic-manifold": "symplectic manifold",
   "DG:symplectomorphism": "symplectomorphism",
@@ -1381,5 +1383,6 @@ const topics = {
   "TO:torelli-group": "Torelli group",
   "TO:stratification": "stratification",
   "TO:monodromy-group": "monodromy group",
-  "UN:topological-quantum-field-theory": "Topological Quantum Field Theory (TQFT)"
+  "UN:topological-quantum-field-theory": "Topological Quantum Field Theory (TQFT)",
+  "UN:path-ordered-exponential": "path-ordered exponential"
 }

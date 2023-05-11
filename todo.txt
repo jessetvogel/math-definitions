@@ -8,6 +8,12 @@
 
 ---- Theory ----
 
+DG: example: correspondence between vector bundle with structure group and principal bundle with representation?
+
+DG: Reidemeister moves
+AA: Quantum group (as deformed universal algebra)
+DG: Chern--Simons form (k-form)
+
 AG: Étale fundamental group example: P^1_k has trivial étale fundamental group
                                     for elliptic curve, étale morphisms are isogenies, so étale fundamental group is [...]
 AG: Example: Spec k[[t]] \to Spec k is regular but not smooth
@@ -68,7 +74,6 @@ DG: Atiyah--Singer theorem
 DG: Floer homology (https://math.berkeley.edu/~auroux/papers/lec-nantes.pdf, https://walkerstern.gitlab.io/Notes/Fukaya/Notes_Fukaya.pdf)
 DG: Fukaya category (https://en.wikipedia.org/wiki/Fukaya_category) 
 DG: Atiyah-Bott symplectic form
-DG: Yang--Mills theory (Example U(1))
 DG: Hermitian connection / Chern connection
 
 -- Algebraic Geometry
@@ -82,7 +87,6 @@ AG: Examples Borel subgroups:
     - relation Borel subgroups to flag varieties
     - All are conjugate (over algebraically closed field k)
 AG: parabolic vector bundle
-AG: Kodaira dimension
 AG: D-affine variety
 AG: k-univariant / uniruled ?
 AG: non-ablian Hodge theorem (https://www.ma.imperial.ac.uk/~jbm18/introductiontohiggsbundles.pdf)
@@ -147,7 +151,6 @@ NT: conductor (abelian extensions?)
     - Reflection equation algebra from R-matrix
 - Mirror symmetry ??? What is this all about ??
     - Kontsevich Homological Mirror Symmetry
-- Path-ordered exponential
 - Intersection cohomology
 
 -- Probability Theory / Statistics
