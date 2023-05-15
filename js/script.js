@@ -306,7 +306,8 @@ function checkUrlFragment() {
     }
 }
 function typeset(elem) {
-    renderMathInElement(elem, KaTeXOptions);
+    if ('renderMathInElement' in window)
+        renderMathInElement(elem, KaTeXOptions);
     function setImageMargin(img) {
         const margin = 0.5 * img.height * 0.33 + 16;
         img.style.marginTop = img.style.marginBottom = `${margin}px`;

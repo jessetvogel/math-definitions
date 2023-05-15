@@ -121,6 +121,14 @@
     Equivalently, an extension is Galois if and only if it is \tref{normal-field-extension}{normal} and \tref{separable-field-extension}{separable}.
 \end{topic}
 
+\begin{example}{galois-extension}
+    \begin{itemize}
+        \item The field extension $\FF_2[\sqrt{t}] \supset \FF_2[t]$ is normal, since any field extension of degree $2$ is normal, but not separable. Namely, the minimal polynomial of $\sqrt{t}$ is $x^2 - t = (x - \sqrt{t})^2$, which is not separable.
+        \item The field extension $\QQ(\sqrt[3]{2}) \supset \QQ$ is separable, since any field extension over characteristic zero is separable, but not normal. Namely, the conjugates of $\sqrt[3]{2}$ are $\zeta_3 \sqrt[3]{2}$ and $\zeta_3^2 \sqrt[3]{2}$, which do not lie in $\QQ(\sqrt[3]{2})$.
+        \item Its normal closure, $\QQ(\sqrt[3]{2}, \zeta_3)$, is normal, and hence a Galois extension of $\QQ$.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{abelian-extension}{abelian extension}
     An \tref{algebraic-field-extension}{algebraic} \tref{field-extension}{field extension} $\ell \supset k$ is called an \textbf{abelian extension} if it is a \tref{galois-extension}{Galois extension} whose \tref{galois-group}{Galois group} $\textup{Gal}(\ell/k)$ is \tref{GT:abelian-group}{abelian}.
 \end{topic}

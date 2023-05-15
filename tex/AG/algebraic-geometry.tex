@@ -1196,20 +1196,26 @@
 \end{topic}
 
 \begin{topic}{etale-fundamental-group}{étale fundamental group}
-    Let $X$ be a \tref{scheme}{scheme} over a field $k$, and let $\overline{x} \to X$ be a \tref{geometric-point}{geometric point} of $X$. Let $\textbf{FÉt}/X$ be the category of \tref{finite-morphism}{finite} \tref{etale-morphism}{étale morphisms} $\pi : Y \to X$ over $X$. The functor
+    Let $X$ be a \tref{scheme}{scheme} over a field $k$, and let $\overline{x} \to X$ be a \tref{geometric-point}{geometric point} of $X$. Let $\textbf{FÉt}/X$ be the category of \tref{finite-morphism}{finite} \tref{etale-morphism}{étale} coverings $\pi : Y \to X$ over $X$. The functor
     \[ F : \textbf{FÉt}/X \to \textbf{Set}, \quad Y \mapsto \Hom_X(\overline{x}, Y) \]
     is \tref{CT:pro-representable-functor}{pro-representable}, meaning there exists a \tref{CT:direct-limit}{direct system} $\tilde{X} = (X_i)_{i \in I}$ in $\textbf{FÉt}/X$ such that $F(Y) = \varinjlim_{i \in I} \Hom_X(X_i, Y)$ functorially in $Y$. Moreover, each $X_i$ can be chosen \tref{galois-cover}{Galois} over $X$, so that the order of $\textup{Aut}_X(X_i)$ equal the degree of $X_i$ over $X$.
     
     The \textbf{étale fundamental group} of $X$ at $\overline{x}$ is the \tref{TO:topological-group}{topological group} given by the \tref{CT:inverse-limit}{inverse limit}
-    \[ \pi_1(X, \overline{x}) = \varprojlim_{i \in I} \textup{Aut}_X(X_i) , \]
+    \[ \pi_1^\textup{ét}(X, \overline{x}) = \varprojlim_{i \in I} \textup{Aut}_X(X_i) , \]
     with the natural topology as an inverse limit of finite discrete groups.
 \end{topic}
 
 \begin{example}{etale-fundamental-group}
-    Let $X = \AA^1_k \setminus \{ 0 \}$ over a field $k$, and take $\overline{x} = 1$. A direct system pro-representing $F$ is given by
+    For $X = \Spec k$, the functor $F$ is actually representable by $\tilde{X} = \Spec k^\textup{sep}$, where $k^\textup{sep}$ denotes the \tref{AA:separable-closure}{separable closure} of $k$. The étale fundamental group of $X$ is
+    \[ \pi_1^\textup{ét}(X, \overline{x}) \cong \operatorname{Aut}_X(\tilde{X}) = \operatorname{Gal}(k^\textup{sep}/k) , \]
+    which is the absolute Galois group of $k$.
+\end{example}
+
+\begin{example}{etale-fundamental-group}
+    Let $X = \AA^1_k \setminus \{ 0 \}$ over $k = \CC$, and take $\overline{x} = 1$. A direct system pro-representing $F$ is given by
     \[ \pi_n : X_n = \AA^1_k \setminus \{ 0 \} \to X, \quad x \mapsto x^n , \]
     for each integer $n \ge 1$, with a morphism $X_m \to X_n$, $x \mapsto x^{m/n}$ whenever $n$ divides $m$. Note that $\textup{Aut}_X(X_n) \isom \ZZ/n\ZZ$, where $k \mod n$ corresponds to the automorphism $X_n \to X_n$ given by $x \mapsto \zeta_n^k x$. The étale fundamental group of $X$ at $\overline{x}$ is now
-    \[ \pi_1(X, \overline{x}) = \varprojlim_{n \ge 1} \ZZ/n\ZZ = \hat{\ZZ} , \]
+    \[ \pi_1^\textup{ét}(X, \overline{x}) = \varprojlim_{n \ge 1} \ZZ/n\ZZ = \hat{\ZZ} , \]
     the \tref{GT:profinite-group}{profinite completion} of $\ZZ$.
 \end{example}
 
@@ -1429,3 +1435,14 @@
 \begin{topic}{crepant-resolution}{crepant resolution}
     Let $X$ be a \tref{variety}{variety} over a field $k$. A \tref{resolution-of-singularities}{resolution} $\pi : \widetilde{X} \to X$ is \textbf{crepant} if the canonical isomorphism $\pi^* K_U \cong K_{\pi^{-1}(U)}$ extends to an isomorphism $\pi^* K_X \cong K_{\widetilde{X}}$, where $U \subset X$ is a non-singular open subset such that $\pi : \pi^{-1}(U) \to U$ is an isomorphism.
 \end{topic}
+
+\begin{topic}{riemann-existence-theorem}{Riemann existence theorem}
+    Let $X$ be a \tref{TO:connected-space}{connected} \tref{non-singular-variety}{non-singular} \tref{variety}{variety} over $\CC$. The \textbf{Riemann existence theorem} states there is an \tref{CT:equivalence-of-categories}{equivalence of categories}
+    \[ \textbf{FÉt}/X \simeq \textbf{FCov}(X(\CC)), \quad (\pi : Y \to X) \mapsto (\pi : Y(\CC) \to X(\CC)) \]
+    between the category of \tref{finite-morphism}{finite} \tref{etale-morphism}{étale} coverings over $X$ and the category of finite \tref{TO:covering-space}{covering spaces} of the \tref{analytification}{analytification} $X(\CC)$.
+\end{topic}
+
+\begin{example}{riemann-existence-theorem}
+    The Riemann existence theorem relates the \tref{etale-fundamental-group}{étale fundamental group} of $X$ with the \tref{AT:fundamental-group}{fundamental group} of $X(\CC)$. Namely, for any $x \in X(\CC)$,
+    \[ \pi^\textup{ét}_1(X, x) = \varprojlim_{i \in I} \operatorname{Aut}_X(X_i) \cong \varprojlim_{i \in I} \operatorname{Aut}_{X(\CC)}(X_i(\CC)) = \widehat{\pi_1(X(\CC), x)} . \]
+\end{example}

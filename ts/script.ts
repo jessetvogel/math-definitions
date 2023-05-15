@@ -87,7 +87,8 @@ function checkUrlFragment(): void {
 
 function typeset(elem: HTMLElement): void {
     // Typeset math
-    renderMathInElement(elem, KaTeXOptions);
+    if ('renderMathInElement' in window)
+        renderMathInElement(elem, KaTeXOptions);
 
     // Make sure the svg images have correct margin
     function setImageMargin(img: HTMLImageElement) {

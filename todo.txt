@@ -8,6 +8,7 @@
 
 ---- Theory ----
 
+NT: (examples inertia/decomposition group: what happens to the splitting of the primes, e = ... , f = ...)
 DG: example: correspondence between vector bundle with structure group and principal bundle with representation?
 
 DG: Reidemeister moves
