@@ -12,12 +12,7 @@ NT: (examples inertia/decomposition group: what happens to the splitting of the 
 DG: example: correspondence between vector bundle with structure group and principal bundle with representation?
 
 DG: Reidemeister moves
-AA: Quantum group (as deformed universal algebra)
 DG: Chern--Simons form (k-form)
-
-AG: Étale fundamental group example: P^1_k has trivial étale fundamental group
-                                    for elliptic curve, étale morphisms are isogenies, so étale fundamental group is [...]
-AG: Example: Spec k[[t]] \to Spec k is regular but not smooth
 
 HA/AG?: Perverse sheaf (https://www.ams.org/notices/201005/rtx100500632p.pdf, https://web.math.princeton.edu/~smorel/faisceaux_pervers.pdf)
 

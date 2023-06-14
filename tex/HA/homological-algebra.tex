@@ -231,9 +231,9 @@
 
 % Homological lemmas
 \begin{topic}{five-lemma}{five lemma}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and consider the following commutative diagram.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and let
     \[ \begin{tikzcd} A \arrow{r}{f} \arrow{d}{a} & B \arrow{r}{g} \arrow{d}{b} & C \arrow{r}{h} \arrow{d}{c} & D \arrow{r}{i} \arrow{d}{d} & E \arrow{d}{e} \\ A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \arrow{r}{h'} & D \arrow{r}{i'} & E' \end{tikzcd} \]
-    Suppose that both rows are exact. The \textbf{five lemma} states that
+    be a commutative diagram in $\mathcal{A}$, such that both rows are exact. The \textbf{five lemma} states that
     \begin{itemize}
         \item if $b$ and $d$ are injective and $a$ is surjective, then $c$ is injective.
         \item if $b$ and $d$ are surjective and $e$ is injective, then $c$ is surjective.
@@ -252,9 +252,9 @@
 \end{example}
 
 \begin{topic}{snake-lemma}{snake lemma}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and consider the following commutative diagram.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and let
     \[ \begin{tikzcd} & A \arrow{d}{a} \arrow{r}{f} & B \arrow{d}{b} \arrow{r}{g} & C \arrow{d}{c} \arrow{r} & 0 \\ 0 \arrow{r} & A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \end{tikzcd} \]
-    Suppose that the rows are exact. The \textbf{snake lemma} states that there is an exact sequence of kernels and cokernels
+    be a commutative diagram in $\mathcal{A}$, such that the rows are exact. The \textbf{snake lemma} states that there is an exact sequence of kernels and cokernels
     \[ \ker a \rightarrow \ker b \rightarrow \ker c \xrightarrow{d} \coker a \rightarrow \coker b \rightarrow \coker c \]
     where $d$ is known as the \textit{connecting homomorphism}. Furthermore, if $f$ is \tref{CT:monomorphism}{mono} then so is $\ker a \to \ker b$, and if $g'$ is \tref{CT:epimorphism}{epi} then so is $\coker b \to \coker c$.
 \end{topic}
@@ -733,4 +733,21 @@
     \[ 0 \to \bigoplus_{p + q = n} H_p(C_\bdot) \otimes H_q(D_\bdot) \to H_n(C_\bdot \otimes D_\bdot) \to \bigoplus_{p + q = n - 1} \textup{Tor}_1^k(H_p(C_\bdot), H_q(D_\bdot)) \to 0 , \]
     known as the \textbf{Künneth formula}. In particular, if $H_n(C_\bdot)$ or $H_n(D_\bdot)$ are \tref{AA:projective-module}{projective} $k$-modules for all $n$, there is an isomorphism
     \[ \bigoplus_{p + q = n} H_p(C_\bdot) \otimes H_q(D_\bdot) \isom H_n(C_\bdot \otimes D_\bdot) . \]
+\end{topic}
+
+\begin{topic}{nine-lemma}{nine lemma}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and let
+    \[ \begin{tikzcd}
+        & 0 \arrow{d} & 0 \arrow{d} & 0 \arrow{d} & \\
+        0 \arrow{r} & A' \arrow{r} \arrow{d} & B' \arrow{r} \arrow{d} & C' \arrow{r} \arrow{d} & 0 \\
+        0 \arrow{r} & A \arrow{r} \arrow{d} & B \arrow{r} \arrow{d} & C \arrow{r} \arrow{d} & 0 \\
+        0 \arrow{r} & A'' \arrow{r} \arrow{d} & B'' \arrow{r} \arrow{d} & C'' \arrow{r} \arrow{d} & 0 \\
+        & 0 & 0 & 0
+    \end{tikzcd} \]
+    be a commutative diagram in $\mathcal{A}$, such that all columns are exact. Then the \textbf{nine lemma} states that
+    \begin{itemize}
+        \item if the two bottom rows are exact, so is the top row,
+        \item if the top two rows are exact, so is the bottom row,
+        \item if the top and bottom row are exact and the composition $A \to B \to C$ is zero, then the middle row is exact.
+    \end{itemize}
 \end{topic}

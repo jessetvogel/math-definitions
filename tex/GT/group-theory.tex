@@ -681,3 +681,7 @@
         \item Every element in the quaternion group $Q_8 = \langle -1, i, j, k \mid (-1)^2 = 1 \textup{ and } i^2 = j^2 = k^2 = ijk = -1 \rangle$ is real, but not all elements are strongly real. For example, $j$ is real since $i j i^{-1} = -j = j^{-1}$, but $j$ is not strongly real since the only element in $Q_8$ of order $2$ is $-1$, but $(-1) j (-1)^{-1} = j \ne j^{-1}$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{action-groupoid}{action groupoid}
+    Let $G$ be a \tref{group}{group} \tref{group-action}{acting} on a set $X$. The \textbf{action groupoid} of this action is the \tref{CT:groupoid}{groupoid} whose objects are elements of $X$ and morphisms $x \to y$ are given by elements $g \in G$ such that $y = g \cdot x$. The composition of morphisms $g : x \to y$ and $h : y \to z$ is $hg : x \to z$, and the identity morphism of any $x \in X$ is given by $1 \in G$.
+\end{topic}
