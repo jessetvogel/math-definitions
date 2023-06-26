@@ -539,27 +539,20 @@
 \end{topic}
 
 \begin{topic}{group-scheme}{group scheme}
-    Let $S$ be a \tref{scheme}{scheme}. A \textbf{group scheme} over $S$ is a \tref{scheme}{scheme} $G$ over $S$ together with morphisms $\mu : G \times_S G \to G$ (multiplication), $\beta : G \to G$ (inversion), $e : S \to G$ (unit) such that
+    Let $S$ be a \tref{scheme}{scheme}. A \textbf{group scheme} over $S$ is a \tref{CT:group-object}{group object} in the category of schemes over $S$. That is, a scheme $G$ over $S$ together with morphisms $m : G \times G \to G$ (\textit{multiplication}), $e : 1 \to G$ (\textit{group unit}) and $i : G \to G$ (\textit{inversion}), such that
     \begin{itemize}
-        \item \textit{(associativity)}
-        \[ \begin{tikzcd}
-            G \times_S G \times_S G \arrow{r}{\id_G \times \mu} \arrow[swap]{d}{\mu \times \id_G} & G \times_S G \arrow{d}{\mu} \\ G \times_S G \arrow{r}{\mu} & G
-        \end{tikzcd} \]
-        commutes,
-        \item \textit{(inverses)}
-        \[ \begin{tikzcd} G \arrow{r}{\Delta} & G \times_S G \arrow[shift left=0.25em]{r}{\id_G \times \beta} \arrow[swap, shift right=0.25em]{r}{\beta \times \id_G} & G \times_S G \arrow{r}{\mu} & G \end{tikzcd} \]
-        both equal $e \circ (G \to S)$, where $\Delta$ is the diagonal.
-        \item \textit{(unit)} The compositions
-        \[ \begin{tikzcd}[row sep=0.5em, column sep=1.5em] & S \times_S G \arrow{dr}{e \times \id_G} & & \\ G \arrow[equal]{ur} \arrow[equal]{dr} & & G \times_S G \arrow{r}{\mu} & G \\ & G \times_S S \arrow[swap]{ur}{\id_G \times e} & & \end{tikzcd} \]
-        both equal $\id_G$.
+        \item (\textit{associativity}) $m \circ (m \times \id_G) = m \circ (\id \times m)$,
+        \item (\textit{unit}) $m \circ (\id_G \times e) = \id_G$ and $m \circ (e \times \id_G) = \id_G$, where we identified $G \times 1 \isom G$,
+        \item (\textit{inversion}) $m \circ (\id_G \times i) \circ \Delta = m \circ (i \times \id_G) \circ \Delta = e_G$, where $\Delta : G \to G \times G$ is the diagonal map, and $e_G : G \to G$ is the composition of $e$ with the unique morphism $G \to 1$.
     \end{itemize}
 \end{topic}
 
 \begin{example}{group-scheme}
     \begin{itemize}
-        \item For any \tref{GT:group}{group} $G$, the scheme $G_S = \bigsqcup_{g \in G} S$, with multiplication, inversion and the unit given by $G$, is a group scheme, called the \textit{constant group scheme}.
+        \item For any \tref{GT:group}{group} $G$, the scheme $G_S = \bigsqcup_{g \in G} S$, with multiplication, inversion and the unit given by those of $G$, is a group scheme, called the \textit{constant group scheme}.
         \item The scheme $\GG_m = \Spec \ZZ[t^{\pm 1}]$ with multiplication $t \mapsto t \otimes t$, inversion $t \mapsto t^{-1}$ and unit $t \mapsto 1$, is a group scheme over $S = \Spec \ZZ$, called the \textit{multiplicative group scheme}.
         \item The scheme $\GG_m = \Spec \ZZ[x]$ with multiplication $x \mapsto x \otimes 1 + 1 \otimes x$, inversion $x \mapsto -x$ and unit $x \mapsto 0$, is a group scheme over $S = \Spec \ZZ$, called the \textit{additive group scheme}.
+        \item The scheme $\operatorname{GL}_n = \Spec \ZZ[x_{ij} : 1 \le i, j \le n]$ with matrix multiplication is a group scheme, called the \textit{general linear group} of rank $n$.
     \end{itemize}
 \end{example}
 

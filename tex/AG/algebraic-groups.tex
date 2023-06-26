@@ -1,14 +1,14 @@
 \begin{topic}{algebraic-group}{algebraic group}
-    An \textbf{algebraic group} is a \tref{variety}{variety} $G$ which is also a \tref{GT:group}{group}, such that the multiplication map $G \times G \to G$ and the inversion map $G \to G$ are morphisms of varieties.
+    Let $S$ be a \tref{scheme}{scheme}. An \textbf{algebraic group} over $S$ is a \tref{group-scheme}{group scheme} of \tref{finite-type}{finite type} over $S$.
 \end{topic}
 
-\begin{example}{algebraic-group}
-    \begin{itemize}
-        \item Linear groups such as $\textup{GL}_n(k)$ and $\textup{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
-        \item Finite groups can be realized as a disjoint union of points, that is, $\Spec (k^G)$.
-        \item Elliptic curves, or more generally \tref{abelian-variety}{abelian varieties}.
-    \end{itemize}
-\end{example}
+% \begin{example}{algebraic-group}
+%     \begin{itemize}
+%         \item Linear groups such as $\textup{GL}_n(k)$ and $\textup{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
+%         \item Finite groups can be realized as a disjoint union of points, that is, $\Spec (k^G)$.
+%         \item Elliptic curves, or more generally \tref{abelian-variety}{abelian varieties}.
+%     \end{itemize}
+% \end{example}
 
 \begin{topic}{radical-algebraic-group}{radical algebraic group}
     The \textbf{radical} of an \tref{algebraic-group}{algebraic group} is the identity component of its maximal \tref{GT:normal-subgroup}{normal} \tref{GT:solvable-group}{solvable} \tref{GT:subgroup}{subgroup}.
@@ -151,6 +151,12 @@
     The \textbf{Kummer sequence} is the short exact sequence of \tref{algebraic-group}{algebraic groups}
     \[ 0 \to \mu_n \xrightarrow{i} \GG_m \xrightarrow{(-)^n} \GG_m \to 0 , \]
     where $\GG_m = \ZZ[x^{\pm 1}]$ is the multiplicative group, and $\mu_n = \ZZ[x] / (x^n - 1)$ the group of units of order $n$.
+\end{topic}
+
+\begin{topic}{artin-schreier-sequence}{Artin--Schreier sequence}
+    Let $p$ be a prime number, and let $X$ be a \tref{scheme}{scheme} in characteristic $p$. The \textbf{Artin--Schreier sequence} is the short exact sequence of group schemes over $X$ given by
+    \[ 0 \to \ZZ/p\ZZ \to \GG_a \xrightarrow{F - 1} \GG_a \to 0 \]
+    where $F - 1$ is the map $x \mapsto x^p - x$.
 \end{topic}
 
 \begin{topic}{split-reductive-group}{split reductive group}

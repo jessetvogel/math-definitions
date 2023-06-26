@@ -609,16 +609,15 @@
     where $T([m])$ has the \tref{TO:discrete-topology}{discrete topology}. Now the coend $\int^c S(c, c)$ of $S$ is the \tref{HT:geometric-realization}{geometric realization} of $T$.
 \end{example}
 
-\begin{topic}{span}{(co)span}
-    In a \tref{category}{category} $\mathcal{C}$, a \textbf{span} from an object $X$ to an object $Y$ is a diagram of the form
-    \[ X \longleftarrow W \longrightarrow Y . \]
-    If the category $\mathcal{C}$ has \tref{pullback}{pullbacks}, we can compose spans
+\begin{topic}{correspondence}{correspondence}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{correspondence} from an object $X$ to an object $Y$ in $\mathcal{C}$ is a diagram
+    \[ X \longleftarrow W \longrightarrow Y \]
+    in $\mathcal{C}$. If $\mathcal{C}$ has \tref{pullback}{pullbacks}, correspondences can be composed as
     \[ \begin{tikzcd}[row sep=0.5em] && W \times_Y V \arrow{dl} \arrow{dr}  && \\ & W \arrow{dl} \arrow{dr} & & V \arrow{dl} \arrow{dr} & \\ X && Y && Z \end{tikzcd} \]
-    and form the \textit{category of spans} $\textup{Span}(\mathcal{C})$. In fact this is naturally a $2$-category, where a $2$-morphism from $X \leftarrow W \rightarrow Y$ to $X \leftarrow V \rightarrow Y$ is given by a morphism $W \to V$ such that
+    and one can form the \textit{category of correspondences} $\textup{Corr}(\mathcal{C})$. This category is naturally a $2$-category, where a $2$-morphism from $X \leftarrow W \rightarrow Y$ to $X \leftarrow V \rightarrow Y$ is given by a morphism $W \to V$ such that
     \[ \begin{tikzcd}[row sep=0.5em] & W \arrow{dd} \arrow{dl} \arrow{dr} & \\ X && Y \\ & V \arrow{ul} \arrow{ur} \end{tikzcd} \]
     commutes.
-    
-    Dually, a \textbf{cospan} from an object $X$ to an object $Y$ is a diagram of the form $X \rightarrow W \leftarrow Y$, and similarly if $\mathcal{C}$ has \tref{pushout}{pushouts}, one can form the \textit{$2$-category of cospans} $\textup{Span}^\textup{op}(\mathcal{C})$.
+    % Dually, a \textbf{cospan} from an object $X$ to an object $Y$ is a diagram of the form $X \rightarrow W \leftarrow Y$, and similarly if $\mathcal{C}$ has \tref{pushout}{pushouts}, one can form the \textit{$2$-category of cospans} $\textup{Span}^\textup{op}(\mathcal{C})$.
 \end{topic}
 
 \begin{topic}{balanced-category}{balanced category}

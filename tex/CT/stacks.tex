@@ -63,14 +63,16 @@
 \end{topic}
 
 \begin{topic}{inertia-stack}{inertia stack}
-    Let $\pi : \mathfrak{X} \to \mathfrak{S}$ and $\pi' : \mathfrak{X}' \to \mathfrak{S}$ be \tref{category-fibered-in-groupoids}{categories fibered in groupoids} over $\mathfrak{S}$, and let $f : \mathfrak{X} \to \mathfrak{X}'$ be a morphism of fibered categories over $\mathfrak{S}$. The \textbf{relative inertia} of $\mathfrak{X}$ over $\mathfrak{X}'$ is the category $\mathcal{I}_{\mathfrak{X}/\mathfrak{X}'}$ over $\mathfrak{S}$ whose
+    Let $\pi : \mathfrak{X} \to \mathfrak{S}$ be a \tref{category-fibered-in-groupoids}{category fibered in groupoids} over $\mathfrak{S}$. The \textbf{inertia} of $\mathfrak{X}$ is the fiber product
+    \[ \mathcal{I}_\mathfrak{X} = \mathfrak{X} \times_{\mathfrak{X} \times \mathfrak{X}} \mathfrak{X} . \]
+    More generally, for a morphism $f : \mathfrak{X} \to \mathfrak{Y}$ of fibered categories over $\mathfrak{S}$, the \textbf{relative inertia} of $\mathfrak{X}$ over $\mathfrak{Y}$ is the fiber product
+    \[ \mathcal{I}_{\mathfrak{X}/\mathfrak{Y}} = \mathfrak{X} \times_{\mathfrak{X} \times_\mathfrak{Y} \mathfrak{X}} \mathfrak{X} . \]
+    Explicitly, it can be described as the category fibered in groupoids over $\mathfrak{S}$ whose
     \begin{itemize}
         \item objects over $S \in \mathfrak{S}$ are pairs $(x, \alpha)$ with $x \in \mathfrak{X}_S$ and $\alpha : x \to x$ a morphism with $f(\alpha) = \id_{f(x)}$,
-        \item morphisms $(x, \alpha) \to (y, \beta)$ over $g : S \to T$ are given by morphisms $\phi : x \to y$ such that $\pi(\phi) = g$ and $\phi \circ \alpha = \beta \circ \phi$.
-    \end{itemize}
-    The \textbf{inertia} of $\mathfrak{X}$ is $\mathcal{I}_\mathfrak{X} = \mathcal{I}_{\mathfrak{X}/\mathfrak{S}}$.
-    
-    If $\mathfrak{X}$ and $\mathfrak{X}'$ are \tref{stack}{stacks} over $\mathfrak{S}$, the relative inertia $\mathcal{I}_{\mathfrak{X}/\mathfrak{X}'}$ is also a stack, called the \textbf{relative inertia stack} of $\mathfrak{X}$ over $\mathfrak{X}'$.
+        \item morphisms $(x, \alpha) \to (y, \beta)$ over $g : T \to S$ are given by morphisms $\phi : x \to y$ such that $\pi(\phi) = g$ and $\phi \circ \alpha = \beta \circ \phi$.
+    \end{itemize}    
+    If $\mathfrak{X}$ and $\mathfrak{Y}$ are \tref{stack}{stacks} over $\mathfrak{S}$, then so are $\mathcal{I}_\mathfrak{X}$ and $\mathcal{I}_{\mathfrak{X}/\mathfrak{Y}}$, called the \textbf{inertia stack} of $\mathfrak{X}$ and the \textbf{relative inertia stack} of $\mathfrak{X}$ over $\mathfrak{Y}$, respectively.
 \end{topic}
 
 \begin{example}{inertia-stack}

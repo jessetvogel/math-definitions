@@ -105,3 +105,30 @@
         \item Given a cofibrantly generated \tref{HT:model-category}{model category} $\mathcal{C}$, one can endow $\mathcal{C}^I$ with the projective model structure for any $I \in \textbf{Cat}$. The functor $\mathbb{D}_\mathcal{C}$ which sends $I$ to the \tref{HT:homotopy-category}{homotopy category} $\operatorname{Ho}(\mathcal{C}^I)$ is a prederivator.
     \end{itemize}
 \end{example}
+
+\begin{topic}{six-functor-formalism}{six-functor formalism}
+    Let $\mathcal{C}$ be a \tref{CT:category}{category} which has all finite \tref{CT:limit}{limits}, and let $E$ be a class of morphisms of $\mathcal{C}$ stable under pullback and composition and containing all isomorphisms.
+    Let $\operatorname{Corr}(\mathcal{C}, E)$ be the \tref{CT:symmetric-monoidal-category}{symmetric monoidal} \tref{CT:infinity-category}{$\infty$-category} whose objects are the objects of $\mathcal{C}$ and whose morphisms are \tref{CT:correspondence}{correspondences} $X \xleftarrow{f} W \xrightarrow{g} Y$ with $g \in E$. The symmetric monoidal structure on $\operatorname{Corr}(\mathcal{C}, E)$ is the cartesian symmetric monoidal structure of $\mathcal{C}$.
+
+    A \textbf{three-functor formalism} is a \tref{CT:monoidal-functor}{lax symmetric monoidal functor}
+    \[ D : \operatorname{Corr}(\mathcal{C}, E) \to \textbf{Cat}_\infty . \]
+    Such a functor encodes the three functors $\otimes, f^*$ and $f_!$ and their relations:
+    \begin{itemize}
+        \item On objects, $D$ defines an association $X \mapsto D(X)$.
+        \item For any morphism $f : X \to Y$ in $\mathcal{C}$, the correspondence $Y \xleftarrow{f} X \xrightarrow{\id_X} X$ defines the pullback functor $f^* : D(Y) \to D(X)$.
+        \item For any morphism $f : X \to Y$ in $E$, the correspondence $X \xleftarrow{\id_X} X \xrightarrow{f} Y$ defines the functor $f_! : D(X) \to D(Y)$.
+        \item As $D$ is lax monoidal, there is a natural morphism $D(X) \otimes D(X) \to D(X \times X)$ which, when composed with pullback along the diagonal $\Delta_X^* : D(X \times X) \to D(X)$, defines the tensor product $\otimes$ on $D(X)$.
+    \end{itemize}
+    A \textbf{six-functor formalism} is a three-functor formalism for which the functors $(-) \otimes A, f^*$ and $f_!$ admit \tref{CT:adjunction}{right adjoints}.
+\end{topic}
+
+\begin{example}{six-functor-formalism}
+    Let $f : X \to Y$ be a morphism in $E$. Let us prove the \textit{projection formula}:
+    \[ f_! A \otimes B \cong f_! (A \otimes f^* B) \]
+    in $D(Y)$ for any $A \in D(X)$ and $B \in D(Y)$.
+    \begin{proof}
+        The correspondence $X \times Y \xleftarrow{(\id_X, f)} X \xrightarrow{f} Y$ can be seen as a composition of correspondences in two different ways:
+        \[ \begin{tikzcd}[row sep=0.5em, column sep=1.5em] & & X \arrow[swap]{dl}{(\id_X, f)} \arrow{dr}{f} & & \\ & X \times Y \arrow[equals]{dl} \arrow{dr}{f \times \id_Y} & & Y \arrow[swap]{dl}{\Delta} \arrow[equals]{dr} & \\ X \times Y & & Y \times Y & & Y \end{tikzcd} \textup{ or } \begin{tikzcd}[row sep=0.5em, column sep=1.5em] & & X \arrow[equals]{dl} \arrow[equals]{dr} & & \\ & X \arrow[swap]{dl}{(\id_X, f)} \arrow[equals]{dr} & & X \arrow[equals]{dl} \arrow{dr}{f} & \\ X \times Y & & X & & Y \end{tikzcd} \]
+        For any $A \in D(X)$ and $B \in D(Y)$, the first composition maps $(A, B) \mapsto (f_! A, B) \mapsto f_! A \otimes B$, while the latter maps $(A, B) \mapsto A \otimes f^* B \mapsto f_!(A \otimes f^* B)$.
+    \end{proof}
+\end{example}

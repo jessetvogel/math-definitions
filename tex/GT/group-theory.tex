@@ -685,3 +685,26 @@
 \begin{topic}{action-groupoid}{action groupoid}
     Let $G$ be a \tref{group}{group} \tref{group-action}{acting} on a set $X$. The \textbf{action groupoid} of this action is the \tref{CT:groupoid}{groupoid} whose objects are elements of $X$ and morphisms $x \to y$ are given by elements $g \in G$ such that $y = g \cdot x$. The composition of morphisms $g : x \to y$ and $h : y \to z$ is $hg : x \to z$, and the identity morphism of any $x \in X$ is given by $1 \in G$.
 \end{topic}
+
+\begin{topic}{divisible-group}{divisible group}
+    A \textbf{divisible group} is an \tref{abelian-group}{abelian group} $G$ such that for every integer $n \ge 1$ and element $g \in G$, there exists an element $h \in G$ such that $n \cdot h = g$.
+\end{topic}
+
+\begin{example}{divisible-group}
+    \begin{itemize}
+        \item The rational numbers $\QQ$ form a divisible group under addition.
+        \item The integers $\ZZ$ are not a divisible group under addition.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{reduced-group}{reduced group}
+    A \textbf{reduced group} is an \tref{abelian-group}{abelian group} whose only \tref{divisible-group}{divisible} \tref{subgroup}{subgroup} is the trivial subgroup.
+\end{topic}
+
+\begin{example}{reduced-group}
+    The integers $\ZZ$ form a reduced group under addition.
+\end{example}
+
+\begin{topic}{slender-group}{slender group}
+    A \textbf{slender group} is a \tref{AA:torsion-free-module}{torsion-free} \tref{abelian-group}{abelian group} $G$ such that every \tref{group-homomorphism}{group homomorphism} $\ZZ^\NN \to G$ maps all but finitely many $e_n \in \ZZ^\NN$ to the identity element, where $e_n$ for $n \in \NN$ is given by $e_n(m) = 0$ for $m \ne n$ and $e_n(n) = 1$.
+\end{topic}
