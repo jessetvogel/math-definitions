@@ -17,6 +17,7 @@ const categories = {
     "LO": "Logic",
     "MT": "Measure Theory",
     "NT": "Number Theory",
+    "PT": "Probability Theory",
     "RT": "Representation Theory",
     "ST": "Set Theory",
     "TO": "Topology",

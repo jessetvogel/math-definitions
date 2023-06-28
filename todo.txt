@@ -152,11 +152,11 @@ NT: conductor (abelian extensions?)
 - Intersection cohomology
 
 -- Probability Theory / Statistics
-PT: random variables, pdf, cdf, central limit theorem, ...
-PT: probability space (events), conditional probability, independent events, partition theorem, Bayes' theorem,
+MT: Lebesgue integration
+PT: Proof central limit theorem using Fourier transform https://mast.queensu.ca/~murty/handout.pdf
+PT: probability space (events), conditional probability, partition theorem, Bayes' theorem,
     (discrete/continuous) random variable, probability mass function,
 PT: distributions: Bernoulli, Binomial, Poisson, Geometric, exponential, uniform, 
 PT: expected value, variance, independent random variables, probability generating function, moments,
-PT: distribution function, 
-    
+PT: distribution function
 PT: "Probability - Geoffrey Grimmett & Dominic Welsh"

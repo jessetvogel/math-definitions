@@ -1,0 +1,73 @@
+\begin{topic}{probability-space}{probability space}
+    A \textbf{probability space} is a \tref{MT:measure-space}{measure space} $(\Omega, \mathcal{A}, \PP)$ such that $\PP$ is a \textit{probability measure}, that is, a measure such that $\PP(\Omega) = 1$. Measurable sets $A \in \mathcal{A}$ are called \textit{events}, and the value $\PP(A)$ is called the \textit{probability} of $A$.
+\end{topic}
+
+\begin{topic}{random-variable}{random variable}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. A \textbf{random variable} on $\Omega$ is a \tref{MT:measurable-function}{measurable function} $X : \Omega \to \RR$, where $\RR$ is equipped with the \tref{MT:borel-sigma-algebra}{Borel $\sigma$-algebra}.
+    
+    More generally, if $(E, \mathcal{E})$ is a \tref{MT:measurable-space}{measurable space}, then an \textbf{($E$-valued) random variable} on $\Omega$ is a measurable function $X : \Omega \to E$.
+\end{topic}
+
+\begin{topic}{probability-distribution}{probability distribution}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to (E, \mathcal{E})$ a \tref{random-variable}{random variable}. The \textbf{probability distribution} of $X$ is the \tref{MT:pushforward-measure}{pushforward} $X_* \PP$ on $\mathcal{E}$.
+\end{topic}
+
+\begin{topic}{probability-density-function}{probability density function}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to (E, \mathcal{E})$ a \tref{random-variable}{random variable}. A \textbf{probability density function} for $X$, with respect to a reference measure $\mu$ on $(E, \mathcal{E})$, is a measurable function $f : E \to \RR$ such that
+    \[ \PP(X \in A) = \int_A f d \mu \]
+    for all $A \in \mathcal{A}$.
+\end{topic}
+
+\begin{topic}{expected-value}{expected value}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{expected value} of $X$ is the Lebesgue integral
+    \[ \EE(X) = \int_\Omega X d \PP . \]
+\end{topic}
+
+\begin{topic}{variance}{variance}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{variance} of $X$ is
+    \[ \operatorname{Var}(X) = \EE((X - \EE(X))^2) = \EE(X^2) - \EE(X)^2 . \]
+\end{topic}
+
+\begin{topic}{independent-random-variables}{independent random variables}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. A sequence of \tref{random-variable}{random variables} $X_i : \Omega \to (E_i, \mathcal{E}_i)$ for $i = 1, 2, \ldots, n$ is \textbf{independent} if
+    \[ \PP(X_i \in A_i \textup{ for all } i = 1, 2, \ldots, n) = \prod_{i = 1}^{n} \PP(X_i \in A_i) \]
+    for all $A_i \in \mathcal{E}_i$.
+\end{topic}
+
+\begin{topic}{convergence-in-probability}{convergence in probability}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. A sequence of \tref{random-variable}{random variables} $X_n : \Omega \to \RR$ is said to \textbf{converge in probability} to a random variable $X : \Omega \to \RR$, denoted $X_n \xrightarrow{\PP} X$, if
+    \[ \lim_{n \to \infty} \PP(|X_n - X| > \varepsilon) = 0 . \]
+    for any $\varepsilon > 0$.
+\end{topic}
+
+\begin{topic}{almost-sure-convergence}{almost sure convergence}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. A sequence of \tref{random-variable}{random variables} $X_n : \Omega \to \RR$ is said to \textbf{converge almost surely} to a random variable $X : \Omega \to \RR$, denoted $X_n \xrightarrow{\textup{a.s.}} X$, if
+    \[ \PP(\lim_{n \to \infty} X_n = X) = 1 . \]
+\end{topic}
+
+\begin{topic}{law-of-large-numbers}{law of large numbers}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X_1, X_2, \ldots : \Omega \to \RR$ be an \tref{independent-random-variables}{independent sequence} of \tref{random-variable}{random variables} having a common (finite) \tref{expected-value}{expectation} $\EE(X_i) = a$ and a common (finite) \tref{variance}{variance} $\operatorname{Var}(X_i) = b$. The \textbf{law of large numbers} states that the sequence $\overline{X}_n = \frac{1}{n} (X_1 + \cdots + X_n)$ \tref{almost-sure-convergence}{converges almost surely}
+    \[ \overline{X}_n \xrightarrow{\textup{a.s.}} a \]
+    to the constant random variable $a$.
+\end{topic}
+
+\begin{topic}{identically-distributed-random-variables}{identically distributed random variables}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. Two random variables $X$ and $Y$ on $\Omega$ are \textbf{identically distributed} if they have the same \tref{probability-distribution}{probability distribution}.
+\end{topic}
+
+\begin{topic}{cumulative-distribution-function}{cumulative distribution function (CDF)}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. The \textbf{cumulative distribution function (CDF)} of a \tref{random-variable}{random variable} $X : \Omega \to \RR$ is the function
+    \[ F_X : \RR \to [0, 1], \quad x \mapsto \PP(X \le x) . \]
+\end{topic}
+
+\begin{topic}{convergence-in-distribution}{convergence in distribution}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. A sequence $X_1, X_2, \ldots : \Omega \to \RR$ of \tref{random-variable}{random variables} \textbf{converges in distribution} to a random variable $X : \Omega \to \RR$ if
+    \[ \lim_{n \to \infty} F_{X_n}(x) = F_X(x) \]
+    for every $x \in \RR$ at which $F_X$, the \tref{cumulative-distribution-function}{CDF} of $X$, is \tref{TO:continuous-map}{continuous}. 
+\end{topic}
+
+\begin{topic}{central-limit-theorem}{central limit theorem}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. Let $X_1, X_2, \ldots : \Omega \to \RR$ be a sequence of \tref{independent-random-variables}{independent} \tref{identically-distributed-random-variables}{identically distributed} \tref{random-variable}{random variables} with \tref{expected-value}{expected value} $\EE(X_i) = \mu < \infty$ and \tref{variance}{variance} $\operatorname{Var}(X_i) = \sigma^2 < \infty$. The \textbf{central limit theorem} states that the sequence
+    \[ Z_n = \frac{(X_1 + \cdots + X_n) - n \mu}{\sigma \sqrt{n}} \]
+    \tref{convergence-in-distribution}{convergence in distribution} to the standard normal distribution $\mathcal{N}(0, 1)$.
+\end{topic}
