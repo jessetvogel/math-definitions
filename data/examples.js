@@ -31,6 +31,7 @@ const examples = [
   "AA:associated-prime",
   "AA:plethystic-exponential",
   "AA:witt-vectors",
+  "AA:ax-grothendieck-theorem",
   "AA:saturated-monoid",
   "AA:sharp-monoid",
   "AA:semiring",
