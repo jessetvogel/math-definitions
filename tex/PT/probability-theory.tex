@@ -71,3 +71,13 @@
     \[ Z_n = \frac{(X_1 + \cdots + X_n) - n \mu}{\sigma \sqrt{n}} \]
     \tref{convergence-in-distribution}{convergence in distribution} to the standard normal distribution $\mathcal{N}(0, 1)$.
 \end{topic}
+
+\begin{topic}{moment}{(central) moment}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{$n$-th moment} of $X$ is the \tref{expected-value}{expected value} of its $n$-th power, that is, $\EE(X^n)$, if it exists. The \textbf{$n$-th central moment} of $X$ is the expected value $\EE((X - \EE(X))^n)$, if it exists. 
+\end{topic}
+
+\begin{topic}{moment-generating-function}{moment generating function}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{moment generating function} of $X$ is the function
+    \[ M_X(t) = \EE(\exp(t X)) \]
+    provided it exists for $t \in (-\varepsilon, \varepsilon)$ for some $\varepsilon > 0$.
+\end{topic}

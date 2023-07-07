@@ -74,10 +74,11 @@
 \setlength{\topsep}{0pt}
 
 \newenvironment{example}[1]%
-{\begin{framed}\textbf{Example \nameref{topic:\cat:#1}}.}{\end{framed}}
+{\begin{framed}\textbf{Example (\nameref{topic:\cat:#1})}.}{\end{framed}}
 
 % Topic reference
-\newcommand{\tref}[2]{\textbf{#2} (\textbf{\IfSubStr{#1}{:}{\nameref{topic:#1}}{\nameref{topic:\cat:#1}}})}%
+% \newcommand{\tref}[2]{\textbf{#2} (\textbf{\IfSubStr{#1}{:}{\nameref{topic:#1}}{\nameref{topic:\cat:#1}}})}%
+\newcommand{\tref}[2]{\IfSubStr{#1}{:}{\hyperref[topic:#1]{#2}}{\hyperref[topic:\cat:#1]{#2}}}%
 
 % Proof environment
 \renewenvironment{proof}{\hfill \break \textbf{Proof}.}{\qed}

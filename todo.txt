@@ -157,6 +157,5 @@ PT: Proof central limit theorem using Fourier transform https://mast.queensu.ca/
 PT: probability space (events), conditional probability, partition theorem, Bayes' theorem,
     (discrete/continuous) random variable, probability mass function,
 PT: distributions: Bernoulli, Binomial, Poisson, Geometric, exponential, uniform, 
-PT: expected value, variance, independent random variables, probability generating function, moments,
-PT: distribution function
+PT: probability generating function
 PT: "Probability - Geoffrey Grimmett & Dominic Welsh"

@@ -445,6 +445,7 @@ const examples = [
   "LA:minkowski-theorem",
   "LA:root-system",
   "LA:weyl-group",
+  "LA:weyl-chamber",
   "LA:root-datum",
   "LA:weight-lattice",
   "LA:polyhedral-cone",
