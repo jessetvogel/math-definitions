@@ -478,13 +478,22 @@
 
 \begin{topic}{coxeter-group}{Coxeter group}
     A \textbf{Coxeter group} is a \tref{group}{group} with a presentation
-    \[ W = \langle r_1, r_2, \ldots, r_n \mid (r_i r_j)^{m_{ij}} = 1 \rangle , \]
-    where $m_{ii} = 1$ and $m_{ij} \in \{ 2, 3, \ldots \} \cup \{ \infty \}$ for $i \ne j$, where $m_{ij} = \infty$ means no relation of the form $(r_i r_j)^m = 1$ is imposed.
+    \[ W = \langle s_1, s_2, \ldots, s_n \mid (s_i s_j)^{m_{ij}} = 1 \rangle , \]
+    where $m_{ii} = 1$ and $m_{ij} \in \{ 2, 3, \ldots \} \cup \{ \infty \}$ for $i \ne j$, where $m_{ij} = \infty$ means no relation of the form $(s_i s_j)^m = 1$ is imposed.
     
-    A \textbf{Coxeter system} is a pair $(W, S)$, where $W$ is a Coxeter group, and $S = \{ r_1, r_2, \ldots, r_n \}$ a set of generators.
+    A \textbf{Coxeter system} is a pair $(W, S)$, where $W$ is a Coxeter group, and $S = \{ s_1, s_2, \ldots, s_n \}$ a set of generators.
     
     The \textbf{Coxeter matrix} if a Coxeter system is the $n \times n$ symmetric matrix with entries $m_{ij}$.
 \end{topic}
+
+\begin{example}{coxeter-group}
+    For any $n \ge 1$, the \tref{symmetric-group}{symmetric group} $S_n$ is a Coxeter group with $S = \{ s_1, \ldots, s_{n - 1} \}$, where $s_i$ exchanges $i$ and $i + 1$, and the relations are given by
+    \[ \begin{aligned}
+        s_i^2 &= 1, && \textup{ for } 1 \le i \le n - 1, \\
+        s_i s_j &= s_j s_i, && \textup{ for } |i - j| \ge 2 , \\
+        (s_i s_{i + 1})^3 &= 1, && \textup{ for } 1 \le i \le n - 2 .
+    \end{aligned} \]
+\end{example}
 
 \begin{topic}{burnside-ring}{Burnside ring}
     Let $G$ be a finite \tref{group}{group}. The \textbf{Burnside ring} of $G$, denoted $A(G)$, is the \tref{free-group}{free abelian group} on isomorphism classes of finite $G$-sets, modulo the relations $[X \sqcup Y] = [X] + [Y]$ for every finite $G$-sets $X$ and $Y$. Multiplication is defined by the cartesian product
@@ -707,4 +716,12 @@
 
 \begin{topic}{slender-group}{slender group}
     A \textbf{slender group} is a \tref{AA:torsion-free-module}{torsion-free} \tref{abelian-group}{abelian group} $G$ such that every \tref{group-homomorphism}{group homomorphism} $\ZZ^\NN \to G$ maps all but finitely many $e_n \in \ZZ^\NN$ to the identity element, where $e_n$ for $n \in \NN$ is given by $e_n(m) = 0$ for $m \ne n$ and $e_n(n) = 1$.
+\end{topic}
+
+\begin{topic}{fox-derivative}{Fox derivative}
+    Let $F_S$ be a \tref{free-group}{free group} on a set $S$. For every $x \in S$, the \textbf{Fox derivative} with respect to $x$ is the unique function
+    \[ \frac{\partial}{\partial x} : F_S \to \ZZ[F_S] \]
+    satisfying
+    \[ \frac{\partial}{\partial x}(y) = \left\{ \begin{array}{cl} 1 & \textup{ if } y = x \\ 0 & \text{ if } y \ne x \end{array} \right. \quad \textup{ and } \quad \frac{\partial}{\partial x}(g h) = \frac{\partial}{\partial x}(g) + g \frac{\partial}{\partial x}(h) \]
+    for all $y \in S$ and $g, h \in G$.
 \end{topic}

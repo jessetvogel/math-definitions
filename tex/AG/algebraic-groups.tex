@@ -271,23 +271,29 @@
     \[ \widehat{\Gamma}^\textup{alg} = \varprojlim_{(G, \varphi_G)} G . \]
 \end{topic}
 
-\begin{topic}{deligne-lustzig-variety}{Deligne--Lustzig variety}
-    Let $G_0$ be a \tref{TO:connected-space}{connected} \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over $\FF_q$ and let $G = G_0 \times_{\FF_q} \overline{\FF}_q$. Let $B \subset G$ be a \tref{borel-subgroup}{Borel subgroup} and let $W$ be the \tref{LA:weyl-group}{Weyl group} of $G$ corresponding to a maximal \tref{algebraic-torus}{torus} $T$ of $B$.
+\begin{topic}{deligne-lustzig-theory}{Deligne--Lustzig theory}
+    Let $G$ be a \tref{TO:connected-space}{connected} \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over $\FF_q$ and let $T \subset G$ be a maximal \tref{algebraic-torus}{torus}. The maximal torus $\overline{T} = T \times_{\FF_q} \overline{\FF}_q$ of $\overline{G} = G \times_{\FF_q} \overline{\FF}_q$ is contained inside a \tref{borel-subgroup}{Borel subgroup} $\overline{B} = \overline{U} \rtimes \overline{T} \subset \overline{G}$, where $\overline{U}$ is the unipotent radical of $\overline{B}$.
+    The \textbf{Deligne--Lustzig variety} $X_T$ is the variety over $\overline{\FF_q}$ given by
+    \[ \begin{aligned}
+        X_T &= \{ g \overline{U} \in \overline{G} / \overline{U} \mid g \overline{U} \cap F(g U) \ne \varnothing \} \\
+            &= \{ g \overline{U} \in \overline{G} / \overline{U} \mid g^{-1} F(g) \in \overline{U} F(\overline{U}) \} \\
+            &\cong \{ g \in G \mid g^{-1} F(g) \in \overline{U} F(\overline{U}) \} / (\overline{U} \cap F(\overline{U}))
+    \end{aligned} \]
+    where $F : \overline{G} \to \overline{G}$ denotes the \tref{AA:frobenius-morphism}{Frobenius morphism}.
     
-    The \tref{bruhat-decomposition}{Bruhat decomposition} provides an isomorphism
-    \[ \mathcal{O} : W \xrightarrow{\sim} \{ G\textup{-orbits in } G/B \times G/B \}, \quad w \mapsto \{ (g_1 B, g_2 B) \mid g_1^{-1} g_2 \in B w B \} . \]
-    For any $w \in W$, the \textbf{Deligne--Lustzig variety} $X(w)$ is the intersection of $\mathcal{O}(w)$ with the graph $\Gamma_F$ of the Frobenius morphism $F : G/B \to G/B$ induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $F : \overline{\FF}_q \to \overline{\FF}_q, x \mapsto x^q$. That is,
-    \[ X(w) = \mathcal{O}(w) \cap \Gamma_F = \{ g B \in G/B \mid B g^{-1} F(g B) = B w B \} . \]
+    Note that $G(\FF_q) \times T(\FF_q)$ acts on $X_T$ via $(g, t) \cdot x = g x t^{-1}$. For any irreducible character $\theta$ of $T(\FF_q)$ over $\overline{\QQ}_\ell$, for some prime number $\ell$ coprime to $q$, the \textbf{Deligne--Lustzig representation} $R^G_T(\theta)$ is the virtual representation
+    \[ R^G_T(\theta) = \sum_{i \ge 0} (-1)^i H_c^i(X_T, \overline{\QQ}_\ell) \otimes_{\overline{\QQ}_\ell[T(\FF_q)]} \theta \]
+    inside the \tref{RT:representation-ring}{representation ring} $R_{\overline{\QQ}_\ell}(G(\FF_q))$.
 \end{topic}
 
-\begin{example}{deligne-lustzig-variety}
-    Let $G = \textup{SL}_2$ with $B \subset G$ any Borel subgroup invariant under $F$. The Weyl group $W$ is isomorphic to $\ZZ/2\ZZ = \{ 1, \sigma \}$, and the Deligne--Lustzig varieties are given by
-    \[ X(1) = \mathcal{O}(1) \cap \Gamma_F = G^F / B^F = \PP^1(\FF_q) \]
-    and
-    \[ X(\sigma) = \mathcal{O}(\sigma) \cap \Gamma_F = \PP^1 \setminus \PP^1(\FF_q) . \]
-    Note that the latter is isomorphic to $\{ x^q y - x y^q = 1 \}$.
-\end{example}
+% \begin{example}{deligne-lustzig-theory}
+%     Let $G = \textup{SL}_2$ with $B \subset G$ any Borel subgroup invariant under $F$. The Weyl group $W$ is isomorphic to $\ZZ/2\ZZ = \{ 1, \sigma \}$, and the Deligne--Lustzig varieties are given by
+%     \[ X(1) = \mathcal{O}(1) \cap \Gamma_F = G^F / B^F = \PP^1(\FF_q) \]
+%     and
+%     \[ X(\sigma) = \mathcal{O}(\sigma) \cap \Gamma_F = \PP^1 \setminus \PP^1(\FF_q) . \]
+%     Note that the latter is isomorphic to $\{ x^q y - x y^q = 1 \}$.
+% \end{example}
 
-\begin{example}{deligne-lustzig-variety}
-    The Deligne--Lustzig varieties $X(w)$ are non-empty for all $w \in W$. Namely, by \tref{langs-theorem}{Lang's theorem} there exists some $g \in G$ such that $g^{-1} F(g)$ represents $w$, so that $(g B, F(g B)) \in X(w)$.
-\end{example}
+% \begin{example}{deligne-lustzig-theory}
+%     The Deligne--Lustzig varieties $X(w)$ are non-empty for all $w \in W$. Namely, by \tref{langs-theorem}{Lang's theorem} there exists some $g \in G$ such that $g^{-1} F(g)$ represents $w$, so that $(g B, F(g B)) \in X(w)$.
+% \end{example}

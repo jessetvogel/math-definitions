@@ -532,10 +532,16 @@
     When $E = TM$, the \tref{tangent-bundle}{tangent bundle}, the frame bundle $F(TM)$ is called the \textbf{tangent frame bundle}.
 \end{topic}
 
-\begin{topic}{spin-structure}{spin structure}
-    Let $(M, g)$ be an $n$-dimensional orientable \tref{riemannian-manifold}{Riemannian manifold}. A \textbf{spin structure} on $M$ is a \tref{TO:principal-bundle}{principal $\textup{Spin}(n)$-bundle} $P \to M$ together with a bundle morphism $f : P \to F_{\textup{SO}(n)}(M)$ to the oriented orthonormal \tref{frame-bundle}{tangent frame bundle}, equivariant with respect to the double cover $\textup{Spin}(n) \to \textup{SO}(n)$.
-    % Can be generalized to any vector bundle
+\begin{topic}{spin-manifold}{spin manifold}
+    Let $(M, g)$ be an $n$-dimensional \tref{orientable-manifold}{oriented} \tref{riemannian-manifold}{Riemannian manifold}. A \textbf{spin structure} on $M$ is a \tref{TO:principal-bundle}{principal $\textup{Spin}(n)$-bundle} $P \to M$ together with an oriented, isometric vector bundle isomorphism $\psi : P \times_{\textup{Spin}(n)} \RR^n \to TM$, where $\textup{Spin}(n)$ acts on $\RR^n$ via $\textup{SO}(n)$.
+    
+    A \textbf{spin manifold} is a Riemannian manifold together with a spin structure.
 \end{topic}
+
+\begin{example}{spin-manifold}
+    The sphere $S^n \cong \textup{SO}(n + 1) / \textup{SO}(n)$ has a spin structure with $P = \textup{Spin}(n + 1)$, where the double covering map $\textup{Spin}(n + 1) \to \textup{SO}(n + 1)$ induces
+    \[ \psi : \textup{Spin}(n + 1) \times_{\textup{Spin}(n)} \RR^n \to \textup{SO}(n + 1) \times_{\textup{SO}(n)} \RR^n \cong T S^n . \]
+\end{example}
 
 \begin{topic}{first-stiefel-whitney-class}{first Stiefel--Whitney class}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. There exists a bijection between real line bundles $E \to M$ which can be trivialized over an open cover $\mathcal{U}$ and $\check{H}^1(M, C^\infty(M, \RR^*); \mathcal{U})$, in terms of the transition functions. The group isomorphism
@@ -594,6 +600,10 @@
     \[ (\alpha, \beta) = \int_X \alpha \wedge \star \beta = \int_X g(\alpha, \beta) \; \textup{vol}_g \]
     for $\alpha, \beta \in \Omega^k(M)$, where $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}.
 \end{topic}
+
+% \begin{topic}{hodge-theorem}{Hodge theorem}
+    
+% \end{topic}
 
 \begin{topic}{de-rham-cohomology}{de Rham cohomology}
     Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{de Rham complex} of $M$ is the \tref{HA:chain-complex}{cochain complex}
@@ -1147,4 +1157,71 @@
     \[ H^k(M; \CC) = \bigoplus_{p + q = k} H^{p, q}(M) . \]
     The group of \textbf{Hodge cycles} of degree $2k$ is the group of rational cycles of type $(k, k)$, that is,
     \[ \textup{Hdg}^k(M) = H^{2k}(M; \QQ) \cap H^{k, k}(M) . \]
+\end{topic}
+
+\begin{topic}{transverse-intersection}{transverse intersection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. Two submanifolds $L_1, L_2 \subset M$ \textbf{intersect transversally}, denoted $L_1 \pitchfork L_2$, if $T_p M = T_p L_1 + T_p L_2$ for all $p \in L_1 \cap L_2$.
+\end{topic}
+
+\begin{topic}{frobenius-manifold}{Frobenius manifold}
+    A \textbf{Frobenius manifold} is a tuple $(M, g, \mu, \eta)$ consisting of a \tref{complex-manifold}{complex manifold} $M$, a (complex) symmetric nondegenerate bilinear form $g \in \Gamma(TM^{\otimes 2})$, a tensor $\mu \in \Gamma({TM^*}^{\otimes 2} \otimes TM)$, and a \tref{vector-field}{vector field} $\eta \in \Gamma(TM)$, such that:
+    \begin{itemize}
+        \item For every $p \in M$, the tangent space $T_p M$ is a \tref{AA:frobenius-algebra}{Frobenius algebra} with unit $\eta_p$, multiplication given by $v \cdot w = \mu_p(v, w)$ for all $u, v \in T_p M$, and bilinear form $g_p$.
+        \item The vector field $\eta$ is flat for the \tref{levi-civita-connection}{Levi-Civita connection} $\nabla$, that is, $\nabla \eta = 0$.
+        \item If $c(X, Y, Z) = g(X \cdot Y, Z)$, then the $4$-tensor $(\nabla_W c)(X, Y, Z)$ is completely symmetric.
+    \end{itemize}
+    An \textbf{Euler field} on a Frobenius manifold is a vector field $\mathcal{E}$ on $M$ such that
+    \begin{itemize}
+        \item $\mathcal{E} \cdot g(\alpha, \beta) - g([\mathcal{E}, X], Y) - g(X, [\mathcal{E}, Y]) = D g(X, Y)$ for some constant $D$,
+        \item $[\mathcal{E}, X \cdot Y] - [\mathcal{E}, X] \cdot Y - X \cdot [\mathcal{E}, Y] = d_1 X \cdot Y$ for some constant $d_1$,
+        \item $\nabla (\nabla \mathcal{E}) = 0$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{hermitian-vector-bundle}{Hermitian vector bundle}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Hermitian vector bundle} on $M$ is a complex \tref{vector-bundle}{vector bundle} $E \to M$ with a section $h \in \Gamma((E \otimes \overline{E})^*)$, called a \textit{Hermitian metric}, such that $h_p$ is an \tref{LA:inner-product}{inner product} on $E_p$ for all $p \in M$.
+
+    One often writes $\langle s, t \rangle = h(s, t)$ for $s, t \in \Gamma(E)$.
+\end{topic}
+
+\begin{topic}{hermitian-connection}{Hermitian connection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and let $E \to M$ be a \tref{hermitian-vector-bundle}{Hermitian vector bundle}. A \textbf{Hermitian connection} on $E$ is a \tref{connection}{connection} $\nabla$ on $E$ such that
+    \[ X \langle s, t \rangle = \langle \nabla_X s, t \rangle + \langle s, \nabla_X t \rangle \]
+    for all \tref{vector-field}{vector fields} $X$ and all $s, t \in \Gamma(E)$.
+\end{topic}
+
+\begin{topic}{clifford-action}{Clifford action}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold} and $E \to M$ a complex \tref{vector-bundle}{vector bundle}. A \textbf{Clifford action} on $E$ is a vector bundle morphism $c : T^*M \to \operatorname{End}(E)$ such that
+    \[ c(\xi)^2 = - g(\xi, \xi) \id_E \]
+    for all $p \in M$ and $\xi \in T^*_p M$.
+\end{topic}
+
+\begin{topic}{clifford-connection}{Clifford connection}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold} and let $c$ be a \tref{clifford-action}{Clifford action} on a complex \tref{vector-bundle}{vector bundle} $E \to M$. A \textbf{Clifford connection} on $E$ is a \tref{hermitian-connection}{Hermitian connection} on $E$ such that
+    \[ \nabla_X c(Y) s = c(Y) \nabla_X s + c(\nabla^{\textup{LC}}_X Y) s \]
+    for all \tref{vector-field}{vector fields} $X$ and $Y$ and all $s \in \Gamma(E)$, where $\nabla^{\textup{LC}}$ denotes the \tref{levi-civita-connection}{Levi-Civita} connection on $M$.
+\end{topic}
+
+\begin{topic}{dirac-operator}{Dirac operator}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold} and $E \to M$ be a complex \tref{vector-bundle}{vector bundle}. A \textbf{Dirac operator} on $E$ is a first order linear differential operator $D : \Gamma(E) \to \Gamma(E)$ on $E$ such that
+    \[ \sigma_D(\xi)^2 = - g(\xi, \xi) \id_E \]
+    for all $\xi \in T^*M$, where $\sigma_D : T^*M \to \operatorname{End}(E)$ denotes the \textit{principal symbol} of $D$ given by $\sigma_D(df) = [D, f]$ for all $f \in C^\infty(M)$.
+\end{topic}
+
+\begin{example}{dirac-operator}
+    Consider $M = \RR^n$ with the Euclidean metric, and $E = M \times \CC$ the trivial complex vector bundle. Then $D = \sum_{j = 1}^{n} i \partial_{x_j}$ is a Dirac operator for $E$, because
+    \[ \sigma_D(dx_j) = [D, x_j] = [i \partial_{x_j}, x_j] = i \]
+    so $\sigma_D(dx_j)^2 = -1 = - g(dx_j, dx_j)$ for all $k = 1, \ldots, n$.
+\end{example}
+
+\begin{topic}{hodge-dirac-operator}{Hodge--Dirac operator}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}, and let $E = \bigwedge T^*M \otimes \CC \to M$ be the complex \tref{vector-bundle}{vector bundle} given by the exterior algebra of the \tref{cotangent-bundle}{cotangent bundle}. The \tref{exterior-derivative}{exterior derivative} $d$ defines a first order linear differential operator $d : \Gamma(E) \to \Gamma(E)$. Under the \tref{hodge-inner-product}{Hodge inner product}, it has a formal adjoint $d^*$ given by $d^* \omega = (-1)^{nk + 1} \star d \star \omega$ for $\omega \in \Omega^k(M; \CC)$, where $\star$ is the \tref{hodge-star-operator}{Hodge star operator}. The \textbf{Hodge--Dirac operator} is the \tref{dirac-operator}{Dirac operator} on $E$ given by
+    \[ D = d + d^* . \]
+    Its square $\Delta = D^2$ is the \textit{Hodge--Laplace operator}.
+\end{topic}
+
+\begin{topic}{spinor-bundle}{spinor bundle}
+    Let $P$ be a \tref{spin-manifold}{$\textup{Spin}(n)$-structure}, with $n$ even, on a \tref{riemannian-manifold}{Riemannian manifold} $(M, g)$. The associated \textbf{spinor bundle} is the \tref{TO:associated-bundle}{associated bundle}
+    \[ S_P = P \times_{\textup{Spin}(n)} \Delta_n \to M \]
+    where $\Delta_n \cong \CC^{2^{n/2}}$ is acted on via $\textup{Spin}(n) \hookrightarrow \textup{Cl}_n \hookrightarrow \textup{Cl}_n \otimes \CC \cong \operatorname{End}(\CC^{2^{n/2}})$.
 \end{topic}

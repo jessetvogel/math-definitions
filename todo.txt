@@ -8,7 +8,21 @@
 
 ---- Theory ----
 
-AA: Puiseux series (algebraic closure of Laurent series)
+DG: principal symbol
+    / ✅ Dirac operator (Example: construction from Clifford connection. Note: they are self-adjoint.) 
+    / ✅ Hodge--Dirac operator (complexification of \Wedge T^*M)
+    / ✅ Clifford action (Example: c(\xi) = (\xi \wedge (-) - \iota_{\xi^*}(-)) on S = \Wedge T^* M)
+    / ✅ Hermitian connection
+    / ✅ Clifford connection
+    / ✅ Spinor bundle (associated to a spin structure)
+    / Hodge theorem (https://ncatlab.org/nlab/show/Hodge+theorem, `Subjects in Math`) (build up: harmonic forms, ...)
+    / Spin-Dirac operator (follow the construction)
+    / (https://gqt.nl/wp-content/uploads/sites/229/2023/08/Dirac-operators-GQT-Peter-Hochs.pdf)
+
+DG: Morse homology (https://web.ma.utexas.edu/users/gdavtor/notes/morse.pdf)
+DG: Floer homology
+
+CT: dualizable object (example: for modules, dualizable <=> finitely generated and projective)
 
 NT: (examples inertia/decomposition group: what happens to the splitting of the primes, e = ... , f = ...)
 DG: example: correspondence between vector bundle with structure group and principal bundle with representation?
@@ -114,7 +128,6 @@ DAG: derived ring
 
 -- Algebraic Topology
 AT: Dold--Thom theorem example: SP(S^1) = S^1 and homotopy groups/homology groups (https://people.brandeis.edu/~tbl/dold-thom.pdf)
-AT: Gysin sequence
 AT: Bockstein sequence
 AT: Borel--Moore homology
 

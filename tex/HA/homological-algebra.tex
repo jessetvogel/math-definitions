@@ -260,18 +260,17 @@
 \end{topic}
 
 \begin{topic}{spectral-sequence}{spectral sequence}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{spectral sequence} in $\mathcal{A}$ is a collection of objects
-    \[ (E_r^{p, q}, E^n) \qquad n, p, q, r \in \ZZ, r \ge 1 \]
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{spectral sequence} in $\mathcal{A}$ (starting at page $a \in \ZZ$) is a collection of objects
+    \[ (E_r^{p, q}, E^n) \qquad n, p, q, r \in \ZZ, r \ge a \]
     and morphisms
     \[ d_r^{p, q} : E_r^{p, q} \to E_r^{p + r, q - r + 1} \]
     satisfying
     \begin{itemize}
-        \item $d_r^2 = 0$ (i.e. the $E_r^{p + \bdot r, q - \bdot r + \bdot}$ are complexes),
-        \item there are isomorphisms (which are part of the data)
-        \[ E_{r + 1}^{p, q} \isom H^0(E_r^{p + \bdot r, q - \bdot r + \bdot}), \]
-        \item for any $(p, q)$ there exists an $r_0$ such that $d_r^{p, q} = d_r^{p - r, q + r - 1} = 0$ for all $r \ge r_0$. In particular, $E_r^{p, q} \isom E_{r_0}^{p, q}$ for all $r \ge r_0$, and this object is denoted by $E_\infty^{p, q}$.
+        \item $d_r^2 = 0$, that is, the $E_r^{p + \bdot r, q - \bdot r + \bdot}$ are complexes,
+        \item there are isomorphisms $E_{r + 1}^{p, q} \isom H^0(E_r^{p + \bdot r, q - \bdot r + \bdot})$, which are part of the data,
+        \item for any $(p, q)$ there exists an $r_0 \ge a$ such that $d_r^{p, q} = d_r^{p - r, q + r - 1} = 0$ for all $r \ge r_0$. In particular, $E_r^{p, q} \isom E_{r_0}^{p, q}$ for all $r \ge r_0$, and this object is denoted by $E_\infty^{p, q}$.
         \item There is a decreasing filtration
-        \[ 0 \subset \cdots \subset F^{p + 1} E^n \subset F^p E^n \subset \cdots E^n , \]
+        \[ 0 \subset \cdots \subset F^{p + 1} E^n \subset F^p E^n \subset \cdots \subset E^n , \]
         with $\cap_p F^p E^n = 0$ and $\cup_p F^p E^n = E^n$, and isomorphisms
         \[ E_\infty^{p, q} \isom F^p E^{p + q} / F^{p + 1} E^{p + q} . \]
     \end{itemize}
@@ -285,7 +284,7 @@
     \[ E_0^{p, q} = C^{p, q} \Rightarrow H^{p + q}(C^\bdot) , \]
     and by symmetry also
     \[ E_0^{p, q} = C^{q, p} \Rightarrow H^{p + q}(C^\bdot) . \]
-    These spectral sequences can be used to prove the \tref{snake-lemma}{Snake lemma}. Consider the diagram
+    These spectral sequences can be used to prove the \tref{snake-lemma}{snake lemma}. Consider the diagram
     \[ \begin{tikzcd}
         0 \arrow{r} & A' \arrow{r}{f'} & B' \arrow{r}{g'} & C' \arrow{r} & 0 \\
         0 \arrow{r} & A \arrow{r}{f} \arrow{u}{a} & B \arrow{r}{g} \arrow{u}{b} & C \arrow{r} \arrow{u}{c} & 0

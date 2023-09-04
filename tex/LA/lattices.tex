@@ -37,10 +37,11 @@
 \begin{topic}{root-subsystem}{closed root subsystem}
     Let $(V, \Phi)$ be a \tref{root-system}{root system}. A \textbf{closed subsystem} of $(V, \Phi)$ is a subset $\Phi' \subset \Phi$ such that
     \begin{itemize}
+        \item (\textit{subsystem}) if $\alpha, \beta \in \Phi'$, then $\beta - \frac{2 \langle \alpha, \beta \rangle}{\langle \alpha, \alpha \rangle} \alpha \in \Phi'$,
         \item (\textit{closed}) if $\alpha, \beta \in \Phi'$ and $\alpha + \beta \in \Phi$, then $\alpha + \beta \in \Phi'$,
-        \item (\textit{symmetric}) if $\alpha \in \Phi'$, then $-\alpha \in \Phi'$.
+        % \item (\textit{symmetric}) if $\alpha \in \Phi'$, then $-\alpha \in \Phi'$.
     \end{itemize}
-    If $\Phi'$ only satisfies the first condition, it is simply called a \textbf{closed subset} of $(V, \Phi)$.
+    If $\Phi'$ only satisfies the second condition, it is simply called a \textbf{closed subset} of $(V, \Phi)$.
 \end{topic}
 
 \begin{topic}{weyl-group}{Weyl group}

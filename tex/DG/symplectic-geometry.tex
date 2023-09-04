@@ -335,3 +335,11 @@
     \[ g_t = \exp(t v + \mathcal{O}(t^2)) \]
     on $G$, with $v \in \mathfrak{g}$. This is the case when $u(\alpha) = \textup{Ad}(\phi(\alpha))(v) - v$, that is, when $u$ is a principal homomorphism. Therefore, the tangent space $T_\phi X$ is precisely the first cohomology group $H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)})$.
 \end{example}
+
+\begin{topic}{lagrangian-correspondence}{Lagrangian correspondence}
+    Let $(M_1, \omega_1)$ and $(M_2, \omega_2)$ be \tref{symplectic-manifold}{symplectic manifolds}. A \textbf{Lagrangian correspondence} from $(M_1, \omega_1)$ to $(M_2, \omega_2)$ is a \tref{lagrangian-submanifold}{Lagrangian submanifold} of the product $(M_1 \times M_2, \pi_1^* \omega_1 - \pi_2^* \omega_2)$.
+\end{topic}
+
+\begin{example}{lagrangian-correspondence}
+    Let $f : M_1 \to M_2$ be a diffeomorphism. Then the graph $\Gamma_f \subset M_1 \times M_2$ of $f$ is a Lagrangian correspondence if and only if $f$ is a \tref{symplectomorphism}{symplectomorphism}. Namely, the restriction of $\pi_1^* \omega_1 - \pi_2^* \omega_2$ to $\Gamma_f \cong M_1$ is precisely $\omega_1 - f^* \omega_2$, so $\Gamma_f$ is Lagrangian if and only if $f^* \omega_2 = \omega_1$, that is, $f$ is symplectic.
+\end{example}

@@ -7,17 +7,28 @@
 \end{topic}
 
 \begin{topic}{tangent-obstruction-theory}{tangent-obstruction theory}
-    A \textbf{tangent-obstruction theory} for a \tref{deformation-functor}{deformation functor} $D$ consists of finite-dimensional $k$-vector spaces $T_1$ (called the \textit{tangent space}) and $T_2$ (called the \textit{obstruction space}) such that
+    Let $D$ be a \tref{deformation-functor}{deformation functor}. A \textit{small extension} of local Artin $k$-algebras is an extension $0 \to M \to B \to A \to 0$ such that $\mathfrak{m}_B M = 0$. A \textbf{tangent-obstruction theory} for $D$ consists of finite-dimensional $k$-vector spaces $T_1$ (called the \textit{tangent space}) and $T_2$ (called the \textit{obstruction space}) and sequences
+    \[ T_1 \otimes_k M \to D(B) \to D(A) \xrightarrow{\textup{ob}} T_2 \otimes_k M \]
+    functorial in small extensions $0 \to M \to B \to A \to 0$, such that
     \begin{itemize}
-        \item for all small extensions $0 \to M \to B \to A \to 0$, there exists an exact sequence of sets
-        \[ T_1 \otimes_k M \to D(B) \to D(A) \xrightarrow{\textup{ob}} T_2 \otimes_k M , \]
-        \item when $A = k$ the sequence becomes
-        \[ 0 \to T_1 \otimes_k M \to D(B) \to D(k) \xrightarrow{\textup{ob}} T_2 \otimes_k M , \]
-        \item and these sequences are functorial in small extensions.
+        \item $\textup{ob}(a) = 0$ if and only if $a$ lifts to $D(A)$, for all $a \in D(A)$,
+        \item if $a \in D(A)$ lifts to $D(B)$, then $T_1 \otimes M$ acts transitively on the set of lifts,
+        \item if $A = k$, then the action is free and transitive.
     \end{itemize}
-    
-    One obtains a \textbf{generalized tangent-obstruction theory} by removing the condition of finite-dimensionality.
+    Removing the condition of finite-dimensionality, one obtains a \textbf{generalized tangent-obstruction theory}.
 \end{topic}
+
+\begin{example}{tangent-obstruction-theory}
+    Let $R$ be a complete local $k$-algebra with residue field $k$ such that $d = \dim_k(\mathfrak{m}_R/\mathfrak{m}_R^2)$ is finite. We will construct a tangent-obstruction theory for the deformation functor $D : \textbf{Art}_k \to \textbf{Set}$ given by $D(A) = \Hom_k(R, A)$.
+
+    \textbf{Tangent space}. Suppose $\beta, \beta' \in D(B)$ are both lifts of some $\alpha \in D(A)$. Using that $B$ is a small extension of $A$, one can show that $\beta - \beta'$ is a \tref{AA:derivation}{derivation} in $\operatorname{Der}_k(R, M)$. In particular, $\operatorname{Der}_k(R, M) = (\mathfrak{m}_R/\mathfrak{m}_R^2)^\vee \otimes_k M$ acts transitively on the set of lifts of $\alpha$ to $D(B)$.
+
+    \textbf{Obstruction space}. Pick a surjection $S = k\llbracket x_1, \ldots, x_d \rrbracket \xrightarrow{\pi} R$ with kernel $I$. Given $\alpha \in D(A)$, pick any lift $\varphi : S \to B$ of $\alpha \circ \pi$, which exists as $S$ is free. For any other choice $\varphi'$ we have $(\varphi - \varphi')(I) = 0$ since $I \subset \mathfrak{m}_S^2$ and $\varphi - \varphi' \in \operatorname{Der}_k(S, M)$. Hence, $\varphi|_I$ does not depend on the choice of $\varphi$. Furthermore, $\varphi(\mathfrak{m}_S I) \in \mathfrak{m}_B M = 0$. Therefore, $\alpha$ admits a lift to $D(B)$ precisely if the induced map $\varphi|_I : I / \mathfrak{m}_S I \to M$ equals zero.
+
+    Summarizing, we have a tangent-obstruction theory
+    \[ (\mathfrak{m}_R/\mathfrak{m}_R^2)^\vee \otimes_k M \to D(B) \to D(A) \to (I/\mathfrak{m}_S I)^\vee \otimes_k M . \]
+    Note that the obstruction theory is not canonical since it depended on the choice of $S$ and $\pi$. This is typical for obstruction spaces.
+\end{example}
 
 \begin{topic}{schlessingers-criteria}{Schlessinger's criteria}
     Let $F : \textbf{Art}_k \to \textbf{Set}$ be a \tref{deformation-functor}{deformation functor}. The following conditions are known as \textbf{Schlessinger's criteria}:
