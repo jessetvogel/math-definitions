@@ -580,7 +580,7 @@
 \end{topic}
 
 \begin{example}{volume-form}
-    When $M$ is a \tref{riemannian-manifold}{Riemannian manifold} with metric $g$, there is a natural volume form on $M$. In local coordinates $x_1, \ldots, x_n$ it is given by
+    When $M$ is an oriented \tref{riemannian-manifold}{Riemannian manifold} with metric $g$, there is a natural volume form on $M$. In local coordinates $x_1, \ldots, x_n$ it is given by
     \[ \textup{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge dx_2 \wedge \cdots \wedge dx_n , \]
     which is indeed independent of the choice of local coordinates.
 \end{example}
@@ -1225,3 +1225,27 @@
     \[ S_P = P \times_{\textup{Spin}(n)} \Delta_n \to M \]
     where $\Delta_n \cong \CC^{2^{n/2}}$ is acted on via $\textup{Spin}(n) \hookrightarrow \textup{Cl}_n \hookrightarrow \textup{Cl}_n \otimes \CC \cong \operatorname{End}(\CC^{2^{n/2}})$.
 \end{topic}
+
+\begin{topic}{rough-laplacian}{rough Laplacian}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}, $E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with \tref{connection}{connection} $\nabla$. The \textbf{rough Laplacian} on $E$ is the operator
+    \[ \Delta : \Gamma(E) \to \Gamma(E), \quad s \mapsto \operatorname{tr}(\nabla^2 s) \]
+    where $\nabla^2 s \in \Gamma(E \otimes T^*M \otimes T^*M) \cong \Gamma(E \otimes \operatorname{End}(TM))$ via the metric $g$, and $\operatorname{tr}$ takes the trace.
+\end{topic}
+
+\begin{topic}{whitney-stratification}{Whitney stratification}
+    Let $X$ be a closed subspace $\RR^n$. A \textbf{Whitney stratification} of $X$ is a decomposition of $X$ into finitely many connected locally closed submanifolds $S_\alpha \subset X$, satisfying \textit{Whitney's conditions}:
+    \begin{enumerate}[(A)]
+        \item Given two strata $S_\alpha$ and $S_\beta$ and a sequence $x_i \in S_\alpha$ converging to some $y \in S_\beta$ such that the sequence of tangent planes $T_{x_i} S_\alpha$ converges to a plane $T$, then $T$ should contain $T_y S_\beta$.
+        \item Given two strata $S_\alpha$ and $S_\beta$ and sequences $x_i \in S_\alpha$ and $y_j \in S_\beta$, both converging to $y \in S_\beta$, such that the sequence of secant lines $L_i$ from $x_i$ to $y_i$ converges to to a line $L$, and the sequence of tangent planes $T_{x_i} S_\alpha$ converges to a plane $T$, then $L$ should be contained in $T$.
+    \end{enumerate}
+    In fact, condition (B) implies condition (A).
+\end{topic}
+
+\begin{example}{whitney-stratification}
+    Consider Whitney's umbrella $W = \{ (u, v, w) \in \RR^3 \mid u^2 - v^2 w = 0 \}$ with stratification $S_1 = \{ u = v = 0 \}$ and $S_0 = W \setminus S_1$. Consider the sequence $x_i = (0, 1/i, 0)$ in $S_0$ converging to $y = (0, 0, 0)$ in $S_1$. However, the tangent spaces $T_{x_i} S_0$ converge to the $uv$-plane, which does not contain $T_y S_1$, which is the $w$-axis. Therefore, this stratification does not satisfy Whitney's condition (A).
+\end{example}
+
+\begin{example}{whitney-stratification}
+    Consider Whitney's cusp $C = \{ (u, v, w) \in \RR^3 \mid v^2 + w^3 - w^2 u^2 = 0 \}$ with stratification $S_1 = \{ v = w = 0 \}$ and $S_0 = C \setminus S_1$.
+    Consider the sequences $x_i = (1/i, 0, 1/i^2)$ in $S_0$ and $y_i = (1/i, 0, 0)$ in $S_1$, both converging to $y = (0, 0, 0)$ in $S_1$. However, the secant lines $L_i$ converge to $L$, which is the $w$-axis, that is not contained in the limit $T$ of the $T_{x_i} S_0$. Therefore, this stratification does not satisfy Whitney's condition (A).
+\end{example}

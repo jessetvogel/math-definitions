@@ -233,7 +233,8 @@ const KaTeXOptions = {
         "\\sslash": "\\mathbin{/\\mkern-6mu/}",
         "\\mod": "\\text{ mod }",
         "\\mapsfrom": "\\leftarrow\\mathrel{\\mkern-3.2mu\\raisebox{.7mu}{$\\shortmid$}}",
-        "\\isom": "\\cong"
+        "\\isom": "\\cong",
+        "\\iHom": "\\underline{\\Hom}"
     }
 };
 window.onload = function () {

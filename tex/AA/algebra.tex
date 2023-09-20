@@ -380,3 +380,9 @@
     \[ T_1(z) = \left\{ \begin{array}{cl} 1 & \textup{ if } z \in B , \\ 0 & \textup{ if } z \in B w B , \end{array} \right. \quad \textup{ and } \quad T_2(z) = \left\{ \begin{array}{cl} 0 & \textup{ if } z \in B , \\ 1 & \textup{ if } z \in B w B , \end{array} \right. \]
     A straight-forward computation shows that $T_1$ is the unit for this algebra, and $T_2 * T_2 = (q - 1) T_2 + q T_1$. Therefore, $\mathcal{H}(G, B) \cong \mathcal{H}_q(W, \{ w \})$. (There is a theorem which states that such a relation holds more generally.)
 \end{example}
+
+\begin{topic}{double-centralizer-theorem}{double centralizer theorem}
+    Let $k$ be a \tref{field}{field} and $V$ a finite-dimensional \tref{LA:vector-space}{vector space} over $k$. The \textbf{double centralizer theorem} states that for any semisimple $k$-subalgebra $A$ of $\operatorname{End}_k(V)$,
+    \[ A = \operatorname{End}_B V \quad \textup{ for } B = \operatorname{End}_A V , \]
+    that is, $A$ is equal to the centralizer of its centralizer in $\operatorname{End}_k(V)$.
+\end{topic}

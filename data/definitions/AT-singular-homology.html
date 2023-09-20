@@ -1,16 +1,14 @@
-Let <span class="math inline">\(X\)</span> be a <a href="#TO:topological-space">topological space</a> and <span class="math inline">\(A\)</span> an <a href="#GT:abelian-group">abelian group</a>. A <b>singular <span class="math inline">\(n\)</span>-simplex</b> in <span class="math inline">\(X\)</span> is a <a href="#TO:continuous-map">continuous map</a>
-<span class="math display">\[ \sigma : \Delta^n \to X , \]</span>
-where 
-<span class="math display">\[ \Delta^n = \left\{ (x_0, \ldots, x_n) \in \RR^{n + 1} : \text{all } x_i \ge 0 \text{ and } \sum_{i = 0}^n x_i = 1 \right\} \]</span>
+Let <span class="math inline">\(X\)</span> be a <a href="#TO:topological-space">topological space</a> and <span class="math inline">\(A\)</span> an <a href="#GT:abelian-group">abelian group</a>. A <b>singular <span class="math inline">\(n\)</span>-simplex</b> in <span class="math inline">\(X\)</span> is a <a href="#TO:continuous-map">continuous map</a> <span class="math inline">\(\sigma : \Delta^n \to X\)</span>, where 
+<span class="math display">\[ \Delta^n = \left\{ (x_0, \ldots, x_n) \in \RR^{n + 1} \;\middle|\; \text{all } x_i \ge 0 \text{ and } \sum_{i = 0}^n x_i = 1 \right\} \]</span>
 denotes the <i>standard <span class="math inline">\(n\)</span>-simplex</i>. The set of all singular <span class="math inline">\(n\)</span>-simplices in <span class="math inline">\(X\)</span> is denoted <span class="math inline">\(\mathcal{S}(X)_n\)</span>.<br/>
-The <b>singular chain complex</b> of <span class="math inline">\(X\)</span> with coefficients in <span class="math inline">\(A\)</span> is the <a href="#HA:chain-complex">chain complex</a> given by
-<span class="math display">\[ C_n(X; A) = A[\mathcal{S}(X)_n] , \]</span>
-(<span class="math inline">\(C_n(X; A) = 0\)</span> for <span class="math inline">\(n < 0\)</span>) and the differentials <span class="math inline">\(d_n : C_n(X; A) \to C_{n - 1}(X; A)\)</span> are induced from
-<span class="math display">\[ \mathcal{S}(X)_n \to \mathcal{S}(X)_{n - 1} : \sigma \mapsto \sum_{i = 1}^{n} (-1)^i \; \sigma \circ \delta_i , \]</span>
+The <b>singular chain complex</b> of <span class="math inline">\(X\)</span> with coefficients in <span class="math inline">\(A\)</span> is the <a href="#HA:chain-complex">chain complex</a> <span class="math inline">\(C_\bdot(X; A)\)</span> given by
+<span class="math display">\[ C_n(X; A) = A[\mathcal{S}(X)_n] \]</span>
+and the boundary maps <span class="math inline">\(\partial_n : C_n(X; A) \to C_{n - 1}(X; A)\)</span> are induced from
+<span class="math display">\[ \partial_n : \mathcal{S}(X)_n \to \mathcal{S}(X)_{n - 1}, \quad \sigma \mapsto \sum_{i = 1}^{n} (-1)^i \, \sigma \circ \delta_i , \]</span>
 where <span class="math inline">\(\delta_i : \Delta^{n - 1} \to \Delta^n\)</span> maps to the <span class="math inline">\(i\)</span>-th face.<br/>
-The <a href="#HA:homology-object">homology groups</a> of <span class="math inline">\(C_\bullet(X; A)\)</span> are called the <b>singular homology groups</b>, and denoted
-<span class="math display">\[ H_n(X; A) . \]</span><br/>
-Dually, there is the <b>singular cochain complex</b>
-<span class="math display">\[ C^n(X; A) = \Hom_\ZZ(C_n(X; \ZZ), A) \]</span>
-The cohomology groups of <span class="math inline">\(C^\bullet(X; A)\)</span> are called the <b>singular cohomology groups</b>, and denoted
-<span class="math display">\[ H^n(X; A) . \]</span>
+The <b>singular homology groups</b> of <span class="math inline">\(X\)</span> with coefficients in <span class="math inline">\(A\)</span> are the <a href="#HA:homology-object">homology groups</a> of <span class="math inline">\(C_\bullet(X; A)\)</span>, and are denoted
+<span class="math display">\[ H_n(X; A) = H_n(C_\bdot(X; A)) . \]</span>
+Dually, there is the <b>singular cochain complex</b> of <span class="math inline">\(X\)</span> with coefficients in <span class="math inline">\(A\)</span> is the cochain complex <span class="math inline">\(C^\bdot(X; A)\)</span> given by
+<span class="math display">\[ C^n(X; A) = \Hom_\ZZ(C_n(X; \ZZ), A) . \]</span>
+Its cohomology groups are called the <b>singular cohomology groups</b> of <span class="math inline">\(X\)</span> with coefficients in <span class="math inline">\(A\)</span>, and are denoted
+<span class="math display">\[ H^n(X; A) = H^n(C^\bdot(X; A)) . \]</span>

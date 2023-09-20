@@ -10,19 +10,13 @@
 
 DG: principal symbol
     / ✅ Dirac operator (Example: construction from Clifford connection. Note: they are self-adjoint.) 
-    / ✅ Hodge--Dirac operator (complexification of \Wedge T^*M)
     / ✅ Clifford action (Example: c(\xi) = (\xi \wedge (-) - \iota_{\xi^*}(-)) on S = \Wedge T^* M)
-    / ✅ Hermitian connection
-    / ✅ Clifford connection
-    / ✅ Spinor bundle (associated to a spin structure)
     / Hodge theorem (https://ncatlab.org/nlab/show/Hodge+theorem, `Subjects in Math`) (build up: harmonic forms, ...)
     / Spin-Dirac operator (follow the construction)
     / (https://gqt.nl/wp-content/uploads/sites/229/2023/08/Dirac-operators-GQT-Peter-Hochs.pdf)
 
 DG: Morse homology (https://web.ma.utexas.edu/users/gdavtor/notes/morse.pdf)
 DG: Floer homology
-
-CT: dualizable object (example: for modules, dualizable <=> finitely generated and projective)
 
 NT: (examples inertia/decomposition group: what happens to the splitting of the primes, e = ... , f = ...)
 DG: example: correspondence between vector bundle with structure group and principal bundle with representation?
@@ -37,12 +31,9 @@ RT: Steinberg representation (https://www.ams.org/journals/bull/1987-16-02/S0273
 ??: BN-pair
 ?AG: Beilinson theorem (https://johncalab.github.io/stuff/beilinson.pdf)
 FA: Schauder basis (example: Fourier series)
-DG: Whitney stratification
 CP: Monomial order and Gröbner basis for \oplus S
 
-AG: direct image with compact support f_!
 AG: exceptional inverse image f^!
-AG: (complete) linear system
 
 AA: Levi decomposition (Levi theorem, Levi subalgebra, https://link.springer.com/content/pdf/10.1007/978-3-642-74334-4_6.pdf) (example: parabolic subgroup of GL_n)
 AG: GAGA (equivalence of categories)
@@ -50,7 +41,6 @@ AG: universal torsor (for smooth projective varieties?)
 AG: Lang's theorem => H^1_ét(Spec FF_q, G) = 0 for G connected, so any G-bundle on Spec FF_q is trivial
 AA: Weyl dimension/character formula (Lie algebras)
 ??: Skein algebras
-AA: tilting modules/functors/algebras
 
 -- Complex Analysis
 CA: meromorphic function
@@ -162,7 +152,6 @@ NT: conductor (abelian extensions?)
     - Reflection equation algebra from R-matrix
 - Mirror symmetry ??? What is this all about ??
     - Kontsevich Homological Mirror Symmetry
-- Intersection cohomology
 
 -- Probability Theory / Statistics
 MT: Lebesgue integration
@@ -170,5 +159,4 @@ PT: Proof central limit theorem using Fourier transform https://mast.queensu.ca/
 PT: probability space (events), conditional probability, partition theorem, Bayes' theorem,
     (discrete/continuous) random variable, probability mass function,
 PT: distributions: Bernoulli, Binomial, Poisson, Geometric, exponential, uniform, 
-PT: probability generating function
 PT: "Probability - Geoffrey Grimmett & Dominic Welsh"

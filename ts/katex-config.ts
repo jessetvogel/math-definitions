@@ -25,6 +25,7 @@ const KaTeXOptions = {
         "\\sslash": "\\mathbin{/\\mkern-6mu/}",
         "\\mod": "\\text{ mod }",
         "\\mapsfrom": "\\leftarrow\\mathrel{\\mkern-3.2mu\\raisebox{.7mu}{$\\shortmid$}}", // \\mathrel{\\unicode{x21a4}}
-        "\\isom": "\\cong"
+        "\\isom": "\\cong",
+        "\\iHom": "\\underline{\\Hom}"
     }
 };
