@@ -691,6 +691,10 @@
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An object $A$ of $\mathcal{A}$ is \textbf{simple} if it is non-zero and its only subobjects are $0$ and itself. An object of $\mathcal{A}$ is \textbf{semisimple} if it is a direct sum of simple objects.
 \end{topic}
 
+\begin{topic}{semisimple-category}{semisimple category}
+    An \tref{abelian-category}{abelian category} is \textbf{semisimple} if every object is \tref{HA:simple-object}{semisimple}.
+\end{topic}
+
 \begin{topic}{deligne-tensor-product}{Deligne tensor product}
     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{finite-abelian-category}{finite} \tref{abelian-category}{abelian categories} over a field $k$. The \textbf{Deligne tensor product} of $\mathcal{A}$ and $\mathcal{B}$ is a finite abelian category $\mathcal{A} \boxtimes \mathcal{B}$ together with a bifunctor $\boxtimes : \mathcal{A} \times \mathcal{B} \to \mathcal{A} \boxtimes \mathcal{B}$ that is \tref{exact-functor}{right exact} in both variables, which is universal in the sense that for every bifunctor $F : \mathcal{A} \times \mathcal{B} \to \mathcal{C}$ which is right exact in both variables, there exists a unique right exact functor $G : \mathcal{A} \boxtimes \mathcal{B} \to \mathcal{C}$ and a unique \tref{CT:natural-transformation}{natural} isomorphism that $F \isom G \circ \boxtimes$.
     \[ \begin{tikzcd}
