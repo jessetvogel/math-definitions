@@ -179,3 +179,11 @@
 \begin{topic}{fusion-category}{fusion category}
     A \textbf{fusion category} is a \tref{monoidal-category}{monoidal category} which is \tref{rigid-monoidal-category}{rigid}, \tref{HA:linear-category}{$k$-linear} for some \tref{AA:field}{field} $k$, \tref{HA:semisimple-category}{semisimple}, and which has only finitely many \tref{HA:simple-object}{simple objects} up to isomorphism.
 \end{topic}
+
+\begin{topic}{category-center}{category center}
+    The \textbf{center} of a \tref{monoidal-category}{monoidal category} $(\mathcal{C}, \otimes, \textbf{1})$ is the category $Z(\mathcal{C})$ defined as follows.
+    \begin{itemize}
+        \item Its objects are pairs $(X, \mu)$ with $X$ an object of $\mathcal{C}$ and $\mu : X \otimes (-) \Rightarrow (-) \otimes X$ a \tref{natural-transformation}{natural isomorphism}, such that $\mu_{Y \otimes Z} = (\id_Y \otimes \mu_Z) \circ (\mu_Y \otimes \id_Z)$ for all objects $Y$ and $Z$ of $\mathcal{C}$.
+        \item A morphism from $(X, \mu)$ to $(Y, \nu)$ is a morphism $f : X \to Y$ in $\mathcal{C}$ such that $\nu_Z \circ (f \otimes \id_Z) = (\id_Z \otimes f) \circ \mu_Z$ for all objects $Z$ of $\mathcal{C}$.
+    \end{itemize}
+\end{topic}

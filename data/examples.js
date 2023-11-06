@@ -283,6 +283,7 @@ const examples = [
   "CT:internal-category",
   "CT:image",
   "CT:waldhausen-category",
+  "CT:reflective-subcategory",
   "CT:strongly-cartesian-morphism",
   "CT:category-fibered-in-groupoids",
   "CT:inertia-stack",

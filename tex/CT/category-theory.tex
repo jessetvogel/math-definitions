@@ -1105,3 +1105,14 @@
     \[ K(\mathcal{C}) = \Omega |\textup{N}_\bdot(w S_\bdot \mathcal{C})| , \]
     where $\Omega$ denotes the \tref{AT:loop-space}{loop space functor} and $|\cdot|$ the realization of a bisimplicial set.
 \end{example}
+
+\begin{topic}{reflective-subcategory}{reflective subcategory}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \tref{full-subcategory}{full subcategory} $\mathcal{C}'$ of $\mathcal{C}$ is \textbf{reflective} if the inclusion functor $i : \mathcal{C}' \to \mathcal{C}$ has a \tref{adjunction}{left adjoint} $T : \mathcal{C} \to \mathcal{C}'$, called the \textit{reflector}.
+\end{topic}
+
+\begin{example}{reflective-subcategory}
+    \begin{itemize}
+        \item The full subcategory of \tref{GT:abelian-group}{abelian groups} in the category of \tref{GT:group}{groups} is reflective, with reflector given by \tref{GT:abelianization}{abelianization}.
+        \item The full subcategory of \tref{AG:affine-scheme}{affine schemes} in the category of \tref{AG:scheme}{schemes} is reflective, with reflector $X \mapsto \Spec \Gamma(X, \mathcal{O}_X)$.
+    \end{itemize}
+\end{example}
