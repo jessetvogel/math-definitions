@@ -280,6 +280,29 @@
 \end{topic}
 
 \begin{example}{spectral-sequence}
+    Let $C^\bdot$ be a filtered \tref{chain-complex}{cochain complex} in an abelian category $\mathcal{A}$. That is, for every degree $n$, we have a finite (decreasing) filtration
+    \[ C^n \supset \cdots \supset F^p C^n \supset F^{p + 1} C^n \supset \cdots \supset 0 \]
+    such that $d(F^p C^n) \subset F^p C^{n + 1}$.
+
+    The \textit{spectral sequence of the filtered complex} $C^\bdot$, used to approximate the cohomology $H^n(C^\bdot)$, is defined as follows. On page $r = 0$, one puts
+    \[ E_0^{p, q} = \operatorname{Gr}_F^p(C^{p + q}) \]
+    with differential $d_0 : E_0^{p, q} \to E_0^{p, q + 1}$ given by the differential $d$ of $C^\bdot$. On page $r \ge 1$, one puts
+    \[ \begin{aligned}
+        Z_r^{p, q} &= \ker (d : F^p C^{p + q} \to C^{p + q + 1} / F^{p + r} C^{p + q + 1}) \\
+        B_r^{p, q} &= F^{p + 1} C^{p + q} + d(F^{p - r + 1} C^{p + q - 1}) \\
+        E_r^{p, q} &= Z_r^{p, q} / (B_r^{p, q} \cap Z_r^{p, q})
+    \end{aligned} \]
+    with differential $d_r$ induced by the differential $d : Z_r^{p, q} \to Z_r^{p + r, q - r + 1}$. On page $r = \infty$, one puts
+    \[ \begin{aligned}
+        Z_\infty^{p, q} &= \ker(d : F^p C^{p + q} \to K^{p + q + 1}) \\
+        B_\infty^{p, q} &= F^{p + 1} C^{p + q} + d(K^{p + q + 1}) \\
+        E_\infty^{p, q} &= Z_\infty^{p, q} / (B_\infty^{p, q} \cap Z_\infty^{p, q}) .
+    \end{aligned} \]
+    There is an induced filtration on the cohomology $E^n = H^n(C^\bdot)$ given by
+    \[ F^p H^n(C^\bdot) = \im \left( H^n(F^p C^\bdot) \to H^n(C^\bdot) \right) . \]
+\end{example}
+
+\begin{example}{spectral-sequence}
     Let $C^{\bdot, \bdot}$ be a \tref{double-complex}{double complex} in $\mathcal{A}$ with \tref{total-complex}{total complex} $C^\bdot$. It is a theorem that there exists the \textit{double complex spectral sequence}
     \[ E_0^{p, q} = C^{p, q} \Rightarrow H^{p + q}(C^\bdot) , \]
     and by symmetry also
@@ -753,4 +776,14 @@
         \item if the top two rows are exact, so is the bottom row,
         \item if the top and bottom row are exact and the composition $A \to B \to C$ is zero, then the middle row is exact.
     \end{itemize}
+\end{topic}
+
+\begin{topic}{hypercohomology}{hypercohomology}
+    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{exact-functor}{exact functor} between \tref{abelian-category}{abelian categories}, and suppose $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}. For any \tref{chain-complex}{cochain complex} $A^\bdot$ in $\mathcal{A}$, the \textbf{hypercohomology} of $A^\bdot$, denoted
+    \[ \mathbb{H}^i(A^\bdot) \]
+    is given by the \tref{homology-object}{cohomology} $H^i(F(I^\bdot))$ for any injective resolution $I^\bdot$ of $A^\bdot$, that is, $I^\bdot$ is a complex of injective objects in $\mathcal{A}$ which is \tref{quasi-isomorphism}{quasi-isomorphic} to $A^\bdot$.
+\end{topic}
+
+\begin{topic}{freyd-mitchell-embedding-theorem}{Freyd--Mitchell embedding theorem}
+    Let $\mathcal{A}$ be a \tref{CT:small-category}{small} \tref{abelian-category}{abelian category}. The \textbf{Freyd--Mitchell embedding theorem} states that there exists a \tref{CT:full-functor}{full} and \tref{CT:faithful-functor}{faithful} \tref{exact-functor}{exact functor} $\mathcal{A} \to \cat{Mod}_R$ from $\mathcal{A}$ to the category of \tref{AA:module}{left $R$-modules} for some \tref{AA:ring}{ring} $R$.
 \end{topic}

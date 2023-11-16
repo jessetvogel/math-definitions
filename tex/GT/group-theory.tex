@@ -725,3 +725,13 @@
     \[ \frac{\partial}{\partial x}(y) = \left\{ \begin{array}{cl} 1 & \textup{ if } y = x \\ 0 & \text{ if } y \ne x \end{array} \right. \quad \textup{ and } \quad \frac{\partial}{\partial x}(g h) = \frac{\partial}{\partial x}(g) + g \frac{\partial}{\partial x}(h) \]
     for all $y \in S$ and $g, h \in G$.
 \end{topic}
+
+\begin{topic}{nielsen-schreier-theorem}{Nielsen--Schreier theorem}
+    The \textbf{Nielsen--Schreier theorem} states that every \tref{subgroup}{subgroup} of a \tref{free-group}{free group} is again free.
+\end{topic}
+
+\begin{example}{nielsen-schreier-theorem}
+    \begin{proof}
+        Any free group $F_S$ is, by the \tref{AT:seifert-van-kampen-theorem}{Seifert--van Kampen theorem}, the \tref{AT:fundamental-group}{fundamental group} of a bouquet of circles $(X, x) = \coprod_{s \in S} (S^1, *)$. In particular, $(X, x)$ is a (pointed) connected $1$-dimensional \tref{AT:cw-complex}{CW-complex}. By the theory of \tref{TO:covering-space}{covering spaces}, the subgroups $H \subset \pi_1(X, x) = F_S$ are in bijection with isomorphism classes of connected covering spaces $p : (Y, y) \to (X, x)$ with $\pi_1(Y, y) \cong H$. Now, a covering space of a connected $1$-dimensional CW-complex is again a connected $1$-dimensional CW-complex, and hence \tref{AT:homotopy-equivalence}{homotopy equivalent} to a bouquet of circles, whose fundamental group is free. Therefore, $H$ is free.
+    \end{proof}
+\end{example}

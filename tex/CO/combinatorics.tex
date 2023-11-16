@@ -5,3 +5,19 @@
     
     The elements of $V$ are called \textit{vertices} and the elements of $E$ are called \textit{edges}.
 \end{topic}
+
+\begin{topic}{matroid}{matroid}
+    A \textbf{(finite) matroid} is a finite set $E$, called the \textit{ground set}, together with a set $I$ of subsets of $E$, known as the \textit{independent subsets}, such that
+    \begin{itemize}
+        \item $\varnothing \in I$,
+        \item if $B \in I$ and $A \subset B$, then $A \in I$,
+        \item if $A, B \in I$ and $|B| > |A|$, then there exists an $b \in B$ such that $A \cup \{ b \} \in I$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{matroid}
+    \begin{itemize}
+        \item Let $E$ be a \tref{LA:vector-space}{vector space}, and $I$ the set of \tref{LA:linearly-independent}{linearly independent} subsets of $E$. Then $(E, I)$ is a matroid.
+        \item Let $G$ be a finite \tref{graph}{graph}, and $E$ its set of edges. Let $I$ be the set of subsets of edges that are a \textit{forest}, that is, subsets of edges that do not contain a cycle. Then $(E, I)$ is a matroid.
+    \end{itemize}
+\end{example}

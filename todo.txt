@@ -8,6 +8,8 @@
 
 ---- Theory ----
 
+??: Polarized Hodge structure
+
 DG: principal symbol
     / ✅ Dirac operator (Example: construction from Clifford connection. Note: they are self-adjoint.) 
     / ✅ Clifford action (Example: c(\xi) = (\xi \wedge (-) - \iota_{\xi^*}(-)) on S = \Wedge T^* M)
