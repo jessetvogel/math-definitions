@@ -1334,7 +1334,7 @@ const topics = {
   "ST:heyting-algebra": "Heyting algebra",
   "ST:binary-relation": "binary relation",
   "ST:modular-lattice": "modular lattice",
-  "ST:filter": "filter",
+  "ST:filter": "(ultra)filter",
   "ST:de-morgan-laws": "De Morgan’s laws",
   "ST:power-set": "power set",
   "ST:cantor-theorem": "Cantor’s theorem",

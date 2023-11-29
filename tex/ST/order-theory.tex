@@ -103,13 +103,14 @@
     Indeed, for any $x \in A + (B \cap C)$, we can write $x = a + y$ with $a \in A$ and $y \in B \cap C$. Since $A \subset C$, we have $a \in A \cap C$, so $x \in (A + B) \cap C$. Conversely, for any $x \in (A + B) \cap C$, we can write $x = a + b$ with $a \in A$ and $b \in B$ and $a + b \in C$. Since $a \in A \subset C$, also $b = (a + b) - a \in C$, so $x \in A + (B \cap C)$.
 \end{example}
 
-\begin{topic}{filter}{filter}
+\begin{topic}{filter}{(ultra)filter}
     Let $(P, \le)$ be a \tref{partial-order}{partially ordered set}. A \textbf{filter} on $P$ is a subset $F \subset P$ such that
     \begin{itemize}
         \item (\textit{non-empty}) $F$ is non-empty,
         \item (\textit{downward directed}) for every $x, y \in F$ there exists some $z \in F$ with $z \le x$ and $z \le y$,
         \item (\textit{upward-closed}) for all $x \in F$ and $y \in P$ with $x \le y$, also $y \in F$.
     \end{itemize}
+    An \textbf{ultrafilter} on $P$ is a filter $F \subsetneq P$ such that there exists no filter $F'$ with $F \subsetneq F' \subsetneq P$.
 \end{topic}
 
 \begin{example}{filter}

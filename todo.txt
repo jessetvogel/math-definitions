@@ -8,7 +8,7 @@
 
 ---- Theory ----
 
-??: Polarized Hodge structure
+LA: polarized Hodge structure (see Peters & Steenbrink)
 
 DG: principal symbol
     / ✅ Dirac operator (Example: construction from Clifford connection. Note: they are self-adjoint.) 
@@ -45,7 +45,6 @@ AA: Weyl dimension/character formula (Lie algebras)
 ??: Skein algebras
 
 -- Complex Analysis
-CA: meromorphic function
 CA: Residue theorem
 CA: Schwarz lemma
 CA: Riemann mapping theorem
