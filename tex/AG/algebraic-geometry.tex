@@ -1332,6 +1332,15 @@
     \[ \int_{J_\infty(X)} \mathbb{L}^{-\alpha} d \mu = \sum_{k \ge 0} (\mathbb{L} - 1) \mathbb{L}^{-(k + 1)} \mathbb{L}^{-k} = \frac{\mathbb{L}}{\mathbb{L} + 1} . \]
 \end{example}
 
+\begin{example}{motivic-integration}
+    Let $X \subset \AA^2_\CC$ be the closed subvariety given by the equation $xy = 0$. The formal arc space of $X$ is given by
+    \[ J_\infty(X) = \{ (\gamma_1, \gamma_2) \in \CC \llbracket t \rrbracket^2 \mid \gamma_1 \gamma_2 = 0 \} . \]
+    Note that $\gamma_1 \gamma_2 = 0$ implies $\gamma_1 = 0$ or $\gamma_2 = 0$. Therefore, the image of $J_\infty(X)$ under $\pi_m$ is not equal to $J_m(X)$ but rather is given by
+    \[ \pi_m(J_\infty(X)) = \{ (\gamma_1, \gamma_2) \in (\CC[t] / (t^{m + 1})^2 \mid \gamma_1 = 0 \textup{ or } \gamma_2 = 0 \} , \]
+    whose virtual class is $[\pi_m(J_\infty(X))] = 2 \mathbb{L}^{m + 1} - 1$. It follows, for $\alpha = 0$, that
+    \[ \int_{J_\infty(X)} \mathbb{L}^{-\alpha} d \mu = \mu(J_\infty(X)) = \lim_{m \to \infty} [\pi_m(J_\infty(X))] / \mathbb{L}^{m + 1} = 2 . \]
+\end{example}
+
 \begin{topic}{nisnevich-morphism}{Nisnevich morphism}
     A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{Nisnevich} if it is \tref{etale-morphism}{étale} and for every point $y \in Y$, there exists a point $x \in X$ with $f(x) = y$ such that the induced map on residue fields $k(y) \to k(x)$ is an isomorphism.
 \end{topic}

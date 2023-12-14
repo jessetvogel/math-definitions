@@ -854,6 +854,7 @@ const topics = {
   "DG:spinor-bundle": "spinor bundle",
   "DG:rough-laplacian": "rough Laplacian",
   "DG:whitney-stratification": "Whitney stratification",
+  "DG:stereographic-projection": "stereographic projection",
   "DG:symplectic-manifold": "symplectic manifold",
   "DG:symplectomorphism": "symplectomorphism",
   "DG:tautological-one-form": "tautological 1-form",

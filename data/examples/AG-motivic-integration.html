@@ -2,4 +2,10 @@
 <span class="math display">\[ \pi_m(\alpha^{-1}(k)) = \left\{ \gamma \in \CC[t] / (t^{m + 1}) \mid \gamma = a_k t^k + \cdots a_m t^m \textup{ with } a_k \ne 0 \right\} \]</span>
 for any <span class="math inline">\(m \ge k\)</span>, and so <span class="math inline">\(\mu(\alpha^{-1}(k)) = (\mathbb{L} - 1) /  \mathbb{L}^{k + 1}\)</span>. Therefore,
 <span class="math display">\[ \int_{J_\infty(X)} \mathbb{L}^{-\alpha} d \mu = \sum_{k \ge 0} (\mathbb{L} - 1) \mathbb{L}^{-(k + 1)} \mathbb{L}^{-k} = \frac{\mathbb{L}}{\mathbb{L} + 1} . \]</span>
+</div><div class="example">Let <span class="math inline">\(X \subset \AA^2_\CC\)</span> be the closed subvariety given by the equation <span class="math inline">\(xy = 0\)</span>. The formal arc space of <span class="math inline">\(X\)</span> is given by
+<span class="math display">\[ J_\infty(X) = \{ (\gamma_1, \gamma_2) \in \CC \llbracket t \rrbracket^2 \mid \gamma_1 \gamma_2 = 0 \} . \]</span>
+Note that <span class="math inline">\(\gamma_1 \gamma_2 = 0\)</span> implies <span class="math inline">\(\gamma_1 = 0\)</span> or <span class="math inline">\(\gamma_2 = 0\)</span>. Therefore, the image of <span class="math inline">\(J_\infty(X)\)</span> under <span class="math inline">\(\pi_m\)</span> is not equal to <span class="math inline">\(J_m(X)\)</span> but rather is given by
+<span class="math display">\[ \pi_m(J_\infty(X)) = \{ (\gamma_1, \gamma_2) \in (\CC[t] / (t^{m + 1})^2 \mid \gamma_1 = 0 \textup{ or } \gamma_2 = 0 \} , \]</span>
+whose virtual class is <span class="math inline">\([\pi_m(J_\infty(X))] = 2 \mathbb{L}^{m + 1} - 1\)</span>. It follows, for <span class="math inline">\(\alpha = 0\)</span>, that
+<span class="math display">\[ \int_{J_\infty(X)} \mathbb{L}^{-\alpha} d \mu = \mu(J_\infty(X)) = \lim_{m \to \infty} [\pi_m(J_\infty(X))] / \mathbb{L}^{m + 1} = 2 . \]</span>
 </div>

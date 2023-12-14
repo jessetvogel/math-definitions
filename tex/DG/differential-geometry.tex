@@ -903,7 +903,7 @@
 \begin{topic}{hopf-fibration}{Hopf fibration}
     The \textbf{Hopf fibration} is a non-trivial \tref{TO:fiber-bundle}{fiber bundle} over $S^2$ with fiber $S^1$, whose total space is $S^3$.
     \[ S^1 \hookrightarrow S^3 \to S^2 \]
-    Identifying $S^3 \isom \{ (z_0, z_1) \in \CC^2 : |z_0|^2 + |z_1|^2 = 1 \}$ and $S^2 \isom \CC P^2$, the Hopf fibration is given by
+    Identifying $S^3 \isom \{ (z_0, z_1) \in \CC^2 : |z_0|^2 + |z_1|^2 = 1 \}$ and $S^2 \isom \CC P^1$, the Hopf fibration is given by
     \[ S^3 \to S^2, \quad (z_0, z_1) \mapsto (z_0 : z_1) . \]
 \end{topic}
 
@@ -1249,3 +1249,10 @@
     Consider Whitney's cusp $C = \{ (u, v, w) \in \RR^3 \mid v^2 + w^3 - w^2 u^2 = 0 \}$ with stratification $S_1 = \{ v = w = 0 \}$ and $S_0 = C \setminus S_1$.
     Consider the sequences $x_i = (1/i, 0, 1/i^2)$ in $S_0$ and $y_i = (1/i, 0, 0)$ in $S_1$, both converging to $y = (0, 0, 0)$ in $S_1$. However, the secant lines $L_i$ converge to $L$, which is the $w$-axis, that is not contained in the limit $T$ of the $T_{x_i} S_0$. Therefore, this stratification does not satisfy Whitney's condition (A).
 \end{example}
+
+\begin{topic}{stereographic-projection}{stereographic projection}
+    Let $S^n = \{ (x_0, \ldots, x_n) \in \RR^{n + 1} \mid x_0^2 + \cdots x_n^2 = 1 \}$ be the $n$-sphere. For any point $p \in S^n$, \textbf{stereographic projection} is a \tref{diffeomorphism}{diffeomorphism} $S^n \setminus \{ p \} \to \RR^n$. For $p = (1, 0, \ldots, 0)$, it is given by
+    \[ S^n \setminus \{ p \} \to \RR^n, \quad (x_0, \ldots, x_n) \mapsto \left(\frac{x_1}{1 - x_0}, \ldots, \frac{x_n}{1 - x_0}\right) \]
+    with inverse
+    \[ \RR^n \to S^n \setminus \{ p \}, \quad (y_1, \ldots, y_n) \mapsto \left(\frac{y_1^2 + \cdots + y_n^2 - 1}{y_1^2 + \cdots + y_n^2 + 1}, \frac{2 y_1}{y_1^2 + \cdots + y_n^2 + 1}, \ldots, \frac{2 y_n}{y_1^2 + \cdots + y_n^2 + 1}\right) . \]
+\end{topic}
