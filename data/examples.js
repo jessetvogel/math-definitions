@@ -432,6 +432,7 @@ const examples = [
   "HA:effaceable-functor",
   "HA:finite-abelian-category",
   "HA:deligne-tensor-product",
+  "HA:hereditary-category",
   "HA:derived-category",
   "HA:fourier-mukai-transform",
   "HA:serre-functor",

@@ -21,3 +21,9 @@
         \item Let $G$ be a finite \tref{graph}{graph}, and $E$ its set of edges. Let $I$ be the set of subsets of edges that are a \textit{forest}, that is, subsets of edges that do not contain a cycle. Then $(E, I)$ is a matroid.
     \end{itemize}
 \end{example}
+
+\begin{topic}{tutte-polynomial}{Tutte polynomial}
+    Let $G = (V, E)$ be a \tref{graph}{graph}. The \textbf{Tutte polynomial} of $G$ is the polynomial, in two variables $x$ and $y$, given by
+    \[ T_G(x, y) = \sum_{E' \subset E} (x - 1)^{k(E') - k(E)} (y - 1)^{k(E') + |E'| - |V|} \]
+    where $k(E')$ denotes the number of connected components of the graph $(V, E')$.
+\end{topic}
