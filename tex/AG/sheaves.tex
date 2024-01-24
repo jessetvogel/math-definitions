@@ -266,3 +266,16 @@
     \[ (f_! \mathcal{F})(V) = \{ s \in \mathcal{F}(f^{-1}(V)) \mid f_{\operatorname{supp}(s)} : \operatorname{supp}(s) \to V \textup{ is proper} \} \]
     for any open set $V \subset Y$ (indeed this presheaf is a sheaf).
 \end{topic}
+
+\begin{topic}{perverse-sheaf}{perverse sheaf}
+    Let $X$ be a \tref{variety}{variety} over a field $k$, and denote by $\textbf{D}^b_c(X, F)$ the \tref{CT:full-subcategory}{full subcategory} of the \tref{HA:derived-category}{derived category} $\textbf{D}^b(X, F)$ of sheaves of $F$-vector spaces on $X$, for some field $F$, of complexes whose \tref{HA:homology-object}{cohomology} is \tref{constructible-sheaf}{constructible}.
+
+    A \tref{HA:t-structure}{$t$-structure} on $\textbf{D}^b_c(X, F)$ is given by
+    \[ \begin{aligned}
+        D^{\le 0} &= \{ K \in \textbf{D}^b_c(X, F) \mid \dim \operatorname{supp} H^i(K) \le -i \textup{ for all } i \in \ZZ \} \\
+        D^{\ge 0} &= \{ K \in \textbf{D}^b_c(X, F) \mid K^\vee \in D^{\le 0} \}
+    \end{aligned} \]
+    where $K^\vee = R\iHom(K, \pi^! F)$ denotes the dual of $K$, with $\pi : X \to \Spec k$. The heart of this $t$-structure
+    \[ \operatorname{Perv}(X, F) = D^\heartsuit = D^{\le 0} \cap D^{\ge 0} \]
+    is the \tref{HA:abelian-category}{abelian category} of \textbf{perverse sheaves}.
+\end{topic}
