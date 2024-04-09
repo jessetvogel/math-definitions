@@ -268,7 +268,7 @@
 \end{example}
 
 \begin{topic}{category-of-elements}{category of elements}
-    The \textbf{category of elements} of a \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is the \tref{category}{category} $\int^{\mathcal{C}} F$ whose
+    The \textbf{category of elements} of a \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is the \tref{category}{category} $\int_\mathcal{C} F$ whose
     \begin{itemize}
         \item objects are pairs $(C, x)$ with $C$ an object of $\mathcal{C}$ and $x \in F(C)$,
         \item morphisms $(C, x) \to (C', x')$ are morphisms $f : C \to C'$ with $F(f)(x) = x'$.
@@ -1098,7 +1098,7 @@
         \item $F(i, i) = 0$,
         \item $F(i, j) \to F(i, k)$ is a cofibration for all $i \le j \le k$,
         \item the diagram
-        \[ \begin{tikzcd} F(i, i) \arrow{r} \arrow{d} & F(i, k) \arrow{d} \\ F(j, j) = 0 \arrow{r} & F(j, k) \end{tikzcd} \]
+        \[ \begin{tikzcd} F(i, j) \arrow{r} \arrow{d} & F(i, k) \arrow{d} \\ F(j, j) = 0 \arrow{r} & F(j, k) \end{tikzcd} \]
         is a pushout square for all $i \le j \le k$.
     \end{enumerate}
     This yields a simplicial category $S_\bdot \mathcal{C}$ where the face maps $d_{n, i} : S_n \mathcal{C} \to S_{n - 1} \mathcal{C}$ delete the $i$-th row and $i$-th column, and the degeneracy maps insert identity maps at the appropriate places. Let $w S_n \mathcal{C}$ be the subcategory of $S_n \mathcal{C}$ where morphisms are given by levelwise weak equivalences. This yields the simplicial category $w S_\bdot \mathcal{C}$, and taking levelwise \tref{nerve}{nerves} yields the bisimplicial category $\textup{N}_\bdot(w S_\bdot \mathcal{C})$. Now, the \textit{algebraic $K$-theory space} of $\mathcal{C}$ is defined as

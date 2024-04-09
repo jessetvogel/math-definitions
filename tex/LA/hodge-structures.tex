@@ -1,31 +1,29 @@
 \begin{topic}{hodge-structure}{Hodge structure}
-    A \textbf{Hodge structure of weight $k \in \ZZ$} is a pair $H = (H_\ZZ, \{ H^{p, q} \})$ consisting of a $\ZZ$-module $H_\ZZ$ and a direct sum decomposition of the complexification $H_\CC = H_\ZZ \otimes \CC$,
+    Let $R$ be $\ZZ, \QQ$ or $\RR$. An \textbf{$R$-Hodge structure} of weight $k \in \ZZ$ is a pair $H = (H_R, \{ H^{p, q} \})$ consisting of an \tref{AA:module}{$R$-module} $H_R$ of finite rank and a direct sum decomposition of the complexification $H_\CC = H_R \otimes_R \CC$,
     \[ H_\CC = \bigoplus_{p + q = k} H^{p, q} \]
     such that $H^{q, p} = \overline{H^{p, q}}$.
 
-    Equivalently, a \textbf{Hodge structure of weight $k \in \ZZ$} is a pair $H = (H_\ZZ, F^\bdot)$ consisting of a $\ZZ$-module $H_\ZZ$ and a decreasing filtration $F_\bdot$ on $H_\CC$, called the \textit{Hodge filtration},
+    Equivalently, an \textbf{$R$-Hodge structure} of weight $k \in \ZZ$ is a pair $H = (H_R, F^\bdot)$ consisting of an $R$-module $H_R$ of finite rank and a decreasing filtration $F_\bdot$ on $H_\CC$, called the \textit{Hodge filtration},
     \[ H_\CC \supset \cdots \supset F^p \supset F^{p + 1} \supset \cdots \supset 0 \]
     such that $H_\CC = F^p \oplus \overline{F^q}$ for all $p + q = k + 1$.
 
     The two descriptions are related via
     \[ F^p = \bigoplus_{r \ge p} H^{r, k - r} \quad \textup{ and } \quad H^{p, q} = F^p \cap \overline{F^q} . \]
 
-    A \textbf{morphism of Hodge structures} $f : H \to H'$ is a morphism $f : H_\ZZ \to H'_\ZZ$ of $\ZZ$-modules whose complexification $f_\CC$ preserves type, that is, $f_\CC\left(H^{p, q}\right) \subset (H')^{p, q}$.
+    A \textbf{morphism of $R$-Hodge structures} $f : H \to H'$ is a morphism $f : H_R \to H'_R$ of $R$-modules whose complexification $f_\CC$ preserves type, that is, $f_\CC\left(H^{p, q}\right) \subset (H')^{p, q}$.
     
-    One speaks of \textit{rational} or \textit{real} Hodge structures when replacing $H_\ZZ$ by a rational or real vector space.
-        
     The numbers $h^{p, q}(H) := \dim_\CC H^{p, q}$ are called the \textbf{Hodge numbers} of the Hodge structure.
 \end{topic}
 
 \begin{example}{hodge-structure}
     \begin{itemize}
-        \item For any $H_\ZZ$, taking $H^{k, k} = H_\CC$ and $H^{p, q} = 0$ when $(p, q) \ne (k, k)$ gives the \textit{trivial Hodge structure} of weight $2k$.
+        \item For any $H_R$, taking $H^{k, k} = H_\CC$ and $H^{p, q} = 0$ when $(p, q) \ne (k, k)$ gives the \textit{trivial Hodge structure} of weight $2k$.
         \item Take $H_\ZZ = 2 \pi i \ZZ \subset \CC$ and $H_\CC = H^{-1, -1}$. This is a Hodge structure of weight $-2$. In fact, is the unique $1$-dimensional Hodge structure of weight $-2$ up to isomorphism, and it is called the \textit{Tate Hodge structure}, often denoted by $\ZZ(1)$.
     \end{itemize}
 \end{example}
 
 \begin{example}{hodge-structure}
-    Let $M$ be a \tref{TO:compact-space}{compact} \tref{DG:kahler-manifold}{Kähler manifold} of dimension $2n$. The \textit{Hodge decomposition theorem} states that the \tref{DG:de-rham-cohomology}{de Rham cohomology} of $M$ carries a Hodge structure
+    Let $M$ be a \tref{TO:compact-space}{compact} \tref{DG:kahler-manifold}{Kähler manifold} of dimension $2n$. The \textit{Hodge decomposition theorem} states that the \tref{DG:de-rham-cohomology}{de Rham cohomology} of $M$ carries an $\RR$-Hodge structure
     \[ H_\textup{dR}^k(M) \otimes_\RR \CC \cong \bigoplus_{p + q = k} H^{p, q}(M) , \]
     where $H^{p, q}(M)$ are the cohomology classes whose \textit{harmonic representative} is of type $(p, q)$.
 \end{example}
@@ -37,13 +35,24 @@
 \end{topic}
 
 \begin{topic}{mixed-hodge-structure}{mixed Hodge structure}
-    A \textbf{mixed Hodge structure} is a triple $H = (H_\ZZ, W_\bdot, F^\bdot)$ consisting of a $\ZZ$-module $H_\ZZ$, an increasing filtration $W_\bdot$ on $H_\QQ = H_\ZZ \otimes \QQ$,
+    Let $R$ be $\ZZ, \QQ$ or $\RR$. An \textbf{$R$-mixed Hodge structure} is a triple $H = (H_R, W_\bdot, F^\bdot)$ consisting of an $R$-module $H_R$, an increasing filtration $W_\bdot$ on $H_{R \otimes \QQ} = H_R \otimes \QQ$,
     \[ 0 \subset \cdots \subset W_k \subset W_{k + 1} \cdots \subset H_\QQ \]
-    and a decreasing filtration $F^\bdot$ on $H_\CC = H_\ZZ \otimes \CC$,
+    and a decreasing filtration $F^\bdot$ on $H_\CC = H_R \otimes \CC$,
     \[ H_\CC \supset \cdots \supset F^p \supset F^{p + 1} \supset \cdots \supset 0 \]
-    such that the induced filtrations (obtained by intersections) of $F^\bdot$ on the graded pieces $\left(\textup{Gr}^W_k H_\QQ\right) \otimes_\QQ \CC := \left(W_k H_\QQ / W_{k - 1} H_\QQ\right) \otimes_\QQ \CC$ are \tref{hodge-structure}{rational Hodge structures} of weight $k$.
+    such that the induced filtrations (obtained by intersections) of $F^\bdot$ on the graded pieces $\left(\textup{Gr}^W_k H_\QQ\right) \otimes_\QQ \CC := \left(W_k H_\QQ / W_{k - 1} H_\QQ\right) \otimes \CC$ are \tref{hodge-structure}{rational Hodge structures} of weight $k$.
     
-    A \textbf{morphism of mixed Hodge structures} is a morphism $f : H_\ZZ \to H'_\ZZ$ of $\ZZ$-modules compatible with the two filtrations $W_\bdot$ and $F^\bdot$.
+    A \textbf{morphism of $R$-mixed Hodge structures} is a morphism $f : H_R \to H'_R$ of $R$-modules compatible with the two filtrations $W_\bdot$ and $F^\bdot$.
     
-    The numbers $h^{p, q}(H) := \dim_\CC \textup{Gr}_F^p \textup{Gr}^W_{p + q}(H_\CC)$ are called the \textbf{mixed Hodge numbers} of the mixed Hodge structure $H$.
+    The numbers $h^{p, q}(H) \coloneqq \dim_\CC \textup{Gr}_F^p \textup{Gr}^W_{p + q}(H_\CC)$ are called the \textbf{mixed Hodge numbers} of the mixed Hodge structure $H$.
+\end{topic}
+
+\begin{topic}{polarized-hodge-structure}{polarized Hodge structure}
+    Let $R$ be $\ZZ$, $\QQ$ or $\RR$. A \textbf{polarization} of an \tref{hodge-structure}{$R$-Hodge structure} $(H_R, F^\bdot)$ of weight $k$ is an $R$-valued bilinear form
+    \[ Q : H_R \otimes_R H_R \to R \]
+    such that
+    \begin{itemize}
+        \item $Q(v, w) = (-1)^k Q(w, v)$ for all $v, w \in H_R$,
+        \item the orthogonal complement of $F^m$ is $F^{k - m + 1}$ for all $m \in \ZZ$,
+        \item the Hermitian form on $H_\CC = H_R \otimes \CC$ given by $v \otimes w \mapsto Q(C u, \overline{v})$, where $C$ is the \textit{Weil operator} $C|_{H^{p, q}} = i^{p - q}$, is \tref{LA:definite-matrix}{positive-definite}.
+    \end{itemize}
 \end{topic}

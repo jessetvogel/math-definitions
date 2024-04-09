@@ -1149,6 +1149,7 @@ const topics = {
   "LA:hodge-structure": "Hodge structure",
   "LA:hodge-polynomial": "Hodge polynomial",
   "LA:mixed-hodge-structure": "mixed Hodge structure",
+  "LA:polarized-hodge-structure": "polarized Hodge structure",
   "LA:vector-space": "vector space",
   "LA:linear-subspace": "linear subspace",
   "LA:linearly-independent": "linearly independent",
