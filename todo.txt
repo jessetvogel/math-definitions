@@ -143,6 +143,7 @@ NT: Example Hensel's lemma for root finding reduces to Newton's method! (See Cor
 NT?: Hasse principle
 NT: example: fractional ideals are invertible sheaves over O_K the ring of integers
 NT: conductor (abelian extensions?)
+NT: Hodge--Tate representation
 
 -- Uncategorized
 - Proofs of theorems
