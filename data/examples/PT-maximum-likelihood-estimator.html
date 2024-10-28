@@ -1,0 +1,6 @@
+<div class="example">Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a random sample from a <a href="#PT:bernoulli-distribution">Bernoulli distribution</a> with parameter <span class="math inline">\(0 \le p \le 1\)</span>. The likelihood function is
+<span class="math display">\[ L(p; x_1, \ldots, x_n) = \prod_{i = 1}^{n} p^{x_i} (1 - p)^{n - x_i} = p^y (1 - p)^{n - y} \]</span>
+where <span class="math inline">\(y = x_1 + \cdots + x_n\)</span>. A trick for finding the maximum of <span class="math inline">\(L(p; x_1, \ldots, x_n)\)</span> is to maximize the <i>log likelihood function</i>
+<span class="math display">\[ \log L(p; x_1, \ldots, x_n) = y \log p + (n - y) \log (1 - p) \]</span>
+instead. One easily checks that a maximum is obtained for <span class="math inline">\(\hat{p} = y / n\)</span>, which is therefore the MLE for <span class="math inline">\(p\)</span>.
+</div>

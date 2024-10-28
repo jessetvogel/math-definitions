@@ -1,0 +1,8 @@
+<div class="example">Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a random sample from a <a href="#PT:uniform-distribution">uniform distribution</a> on the interval <span class="math inline">\([0, \theta]\)</span> with parameter <span class="math inline">\(\theta \in \RR\)</span> unknown. The statistic <span class="math inline">\(Y = \max \{ X_1, \ldots, X_n \}\)</span> has <a href="#PT:cumulative-distribution-function">CDF</a>
+<span class="math display">\[ F_Y(y; \theta) = \PP(Y \le y) = \prod_{i = 1}^{n} \PP(X_i \le y) = (y / \theta)^n \]</span>
+and its derivative is the <a href="#PT:probability-density-function">PDF</a> of <span class="math inline">\(Y\)</span>,
+<span class="math display">\[ f_Y(y; \theta) = n y^{n - 1} / \theta^n . \]</span>
+Hence, the expected value of <span class="math inline">\(Y\)</span> is
+<span class="math display">\[ \EE(Y) = \int_0^\theta y f_Y(y; \theta) dy = \int_0^\theta n y^n / \theta^n dy = \frac{n}{n + 1} \theta . \]</span>
+In particular, <span class="math inline">\(\frac{n + 1}{n} Y\)</span> is an unbiased estimator for <span class="math inline">\(\theta\)</span>.
+</div>

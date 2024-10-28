@@ -1,0 +1,12 @@
+<div class="example">Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a random sample from a <a href="#PT:bernoulli-distribution">Bernoulli distribution</a> with parameter <span class="math inline">\(0 \le p \le 1\)</span>. We claim that <span class="math inline">\(T(X_1, \ldots, X_n) = X_1 + \ldots + X_n\)</span> is a sufficient statistic for <span class="math inline">\(p\)</span>. Note that <span class="math inline">\(Y\)</span> follows a <a href="#PT:binomial-distribution">binomial distribution</a>, so we find that
+<span class="math display">\[ \begin{aligned}
+        \PP((X_1, \ldots, X_n) = (x_1, \ldots, x_n) \mid T(X_1, \ldots, X_n) = t)
+            &= \frac{\PP((X_1, \ldots, X_n) = (x_1, \ldots, x_n))}{\PP(T(X_1, \ldots, X_n) = t)} \\
+            &= \frac{\prod_{i = 1}^{n} p^{x_i} (1 - p)^{1 - x_i}}{\binom{n}{t} p^t (1 - p)^{n - t}} \\
+            &= \frac{1}{\binom{n}{t}}
+    \end{aligned} \]</span>
+for all <span class="math inline">\((x_1, \ldots, x_n) \in \{ 0, 1 \}^n\)</span>, where <span class="math inline">\(t = T(x_1, \ldots, x_n) = x_1 + \ldots + x_n\)</span>. This conditional probability is independent of <span class="math inline">\(p\)</span>, so <span class="math inline">\(T(X_1, \ldots, X_n)\)</span> is indeed a sufficient statistic for <span class="math inline">\(p\)</span>.
+</div><div class="example">The <i>factorization theorem</i> states that a statistic <span class="math inline">\(T(X_1, \ldots, X_n)\)</span> is sufficient for the parameter <span class="math inline">\(\theta\)</span> if the joint <a href="#PT:probability-density-function">PDF</a> <span class="math inline">\(f\)</span> for <span class="math inline">\((X_1, \ldots, X_n)\)</span> factors as a product
+<span class="math display">\[ f(x_1, \ldots, x_n; \theta) = g(t; \theta) h(x_1, \ldots, x_n) \]</span>
+where only <span class="math inline">\(g(t; \theta)\)</span> depends on the parameter <span class="math inline">\(\theta\)</span>.
+</div>

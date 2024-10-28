@@ -1,0 +1,182 @@
+\begin{topic}{bernoulli-distribution}{Bernoulli distribution}
+    The \textbf{Bernoulli distribution} with parameter $0 \le p \le 1$ is the \tref{probability-distribution}{probability distribution} $F$ on the discrete space $\{ 0, 1 \}$ given by
+    \[ F(0) = 1 - p \quad \textup{ and } \quad F(1) = p . \]
+\end{topic}
+
+\begin{example}{bernoulli-distribution}
+    A \tref{random-variable}{random variable} $X$ with Bernoulli distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = p$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = p (1 - p)$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{binomial-distribution}{binomial distribution}
+    The \textbf{binomial distribution} with parameters $n \in \ZZ_{\ge 0}$ and $0 \le p \le 1$ is the \tref{probability-distribution}{probability distribution} $F$ on the discrete space $\{ 0, 1, \ldots, n \}$ given by
+    \[ F(k) = \binom{n}{k} p^k (1 - p)^{n - k} \]
+    for $k = 0, 1, \ldots, n$.
+\end{topic}
+
+\begin{example}{binomial-distribution}
+    A \tref{random-variable}{random variable} $X$ with binomial distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = n p$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = n p (1 - p)$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{negative-binomial-distribution}{negative binomial distribution}
+    The \textbf{negative binomial distribution} with parameters $r \in \ZZ_{> 0}$ and $0 \le p \le 1$ is the \tref{probability-distribution}{probability distribution} $F$ on the discrete space $\{ 0, 1, \ldots \}$ given by
+    \[ F(k) = \binom{k + r + 1}{k} (1 - p)^k p^r \]
+    for $k = 0, 1, \ldots$.
+\end{topic}
+
+\begin{example}{negative-binomial-distribution}
+    A \tref{random-variable}{random variable} $X$ with negative binomial distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = r (1 - p) / p$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = r (1 - p) / p^2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{geometric-distribution}{geometric distribution}
+    The \textbf{geometric distribution} with parameter $0 \le p \le 1$ is the \tref{probability-distribution}{probability distribution} $F$ on the discrete space $\{ 1, 2, \ldots \}$ given by
+    \[ F(k) = p (1 - p)^{k - 1} \]
+    for $k = 1, 2, \ldots$.
+\end{topic}
+
+\begin{example}{geometric-distribution}
+    A \tref{random-variable}{random variable} $X$ with geometric distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = 1 / p$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = (1 - p) / p^2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{poisson-distribution}{Poisson distribution}
+    The \textbf{Poisson distribution} with parameter $\lambda \ge 0$ is the \tref{probability-distribution}{probability distribution} $F$ on the discrete space $\{ 0, 1 \}$ given by
+    \[ F(k) = \exp(-\lambda) \frac{\lambda^k}{k!} \]
+    for $k = 0, 1, 2, \ldots$.
+\end{topic}
+
+\begin{example}{poisson-distribution}
+    A \tref{random-variable}{random variable} $X$ with Poisson distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = \lambda$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = \lambda$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{exponential-distribution}{exponential distribution}
+    The \textbf{exponential distribution} with parameter $\beta > 0$ is the \tref{probability-distribution}{probability distribution} on $[0, \infty)$ with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{1}{\beta} \exp(-x / \beta) \]
+    for $x \in [0, \infty)$.
+\end{topic}
+
+\begin{example}{exponential-distribution}
+    A \tref{random-variable}{random variable} $X$ with exponential distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = \beta$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = \beta^2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{gamma-distribution}{gamma distribution}
+    The \textbf{gamma distribution} with parameters $\alpha, \beta > 0$ is the \tref{probability-distribution}{probability distribution} on $[0, \infty)$ with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{1}{\Gamma(\alpha) \beta^\alpha} x^{\alpha - 1} \exp(-x / \beta) \]
+    for $x \in [0, \infty)$, where $\Gamma$ denotes the \tref{GM:gamma-function}{gamma function}.
+\end{topic}
+
+\begin{example}{gamma-distribution}
+    A \tref{random-variable}{random variable} $X$ with gamma distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = \alpha \beta$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = \alpha \beta^2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{beta-distribution}{beta distribution}
+    The \textbf{beta distribution} with parameters $\alpha, \beta > 0$ is the \tref{probability-distribution}{probability distribution} on $[0, 1]$ with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x)^{\beta - 1} \]
+    for $x \in [0, 1]$, where $\Gamma$ denotes the \tref{GM:gamma-function}{gamma function}.
+\end{topic}
+
+\begin{example}{beta-distribution}
+    A \tref{random-variable}{random variable} $X$ with beta distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = \alpha / (\alpha + \beta)$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{normal-distribution}{normal distribution}
+    The \textbf{normal distribution} with parameters $\mu$ and $\sigma^2 > 0$ is the \tref{probability-distribution}{probability distribution} $\mathcal{N}(\mu, \sigma^2)$ on $\RR$ with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp( -(x - \mu)^2 / 2 \sigma^2) \]
+    for $x \in \RR$.
+
+    The \textbf{standard normal distribution} is the normal distribution with $\mu = 0$ and $\sigma^2 = 1$.
+\end{topic}
+
+\begin{example}{normal-distribution}
+    A \tref{random-variable}{random variable} $X$ with normal distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = \mu$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = \sigma^2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{uniform-distribution}{uniform distribution}
+    The \textbf{uniform distribution} on the interval $[a, b] \subset \RR$ is the \tref{probability-distribution}{probability distribution} with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{1}{b - a} \]
+    for $x \in [a, b]$.
+\end{topic}
+
+\begin{example}{uniform-distribution}
+    A \tref{random-variable}{random variable} $X$ with uniform distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = \frac{b + a}{2}$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = \frac{(b - a)^2}{12}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{chi-squared-distribution}{chi-squared distribution}
+    The \textbf{$\chi^2$-distribution} with $n \in \ZZ_{\ge 0}$ degrees of freedom is the \tref{probability-distribution}{probability distribution} of a sum of squares of $n$ \tref{independent-random-variables}{mutually independent} \tref{normal-distribution}{standard normal distributions}.
+    
+    Explicitly, it is the probability distribution on $[0, \infty)$ with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{1}{2^{n / 2} \Gamma(n / 2)} x^{n / 2 - 1} \exp(-x / 2) \]
+    for $x \in [0, \infty)$, where $\Gamma$ denotes the \tref{GM:gamma-function}{gamma function}.
+\end{topic}
+
+\begin{example}{chi-squared-distribution}
+    A \tref{random-variable}{random variable} $X$ with $\chi^2$-squared distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = n$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = 2n$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{student-t-distribution}{Student's t-distribution}
+    The \textbf{Student's $t$-distribution} with $n - 1$ degrees of freedom is the \tref{probability-distribution}{probability distribution} of $(\overline{X} - \mu) / (S / \sqrt{n})$ where $\overline{X} = \frac{1}{n} \sum_{i = 1}^{n} X_i$ and $S = \sqrt{\frac{1}{n - 1} \sum_{i = 1}^{n} (X_i - \overline{X})^2}$ for a \tref{random-sample}{random sample} $X_1, \ldots, X_n$ of \tref{normal-distribution}{normal distributions} $\mathcal{N}(\mu, \sigma^2)$.
+    
+    Explicitly, it is the probability distribution on $\RR$ with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{\Gamma((\nu + 1) / 2)}{\sqrt{\pi \nu} \Gamma(\nu / 2)} (1 + x^2 / \nu)^{-(\nu + 1) / 2} \]
+    for $x \in \RR$, where $\nu = n - 1$ and $\Gamma$ denotes the \tref{GM:gamma-function}{gamma function}.
+\end{topic}
+
+\begin{example}{student-t-distribution}
+    A \tref{random-variable}{random variable} $X$ with Student's $t$-distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = 0$, provided $\nu > 1$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = \nu / (\nu - 2)$, provided $\nu > 2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{cauchy-distribution}{Cauchy distribution}
+    The \textbf{Cauchy distribution} with parameters $x_0 \in \RR$ and $\gamma > 0$ is the \tref{probability-distribution}{probability distribution} on $\RR$ with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{1}{\pi \gamma (1 + ((x - x_0) / \gamma)^2)} \]
+    for $x \in \RR$.
+\end{topic}
+
+% \begin{example}{cauchy-distribution}
+    
+% \end{example}

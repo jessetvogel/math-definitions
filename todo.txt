@@ -6,6 +6,8 @@
 -- Support \begin{align*?} ... \end{align*?}
 -- Use \dfn or \emph instead of \textbf, and for html use <dfn> for custom styling
 
+-- (: for functions to \colon)
+
 ---- Theory ----
 
 DG: principal symbol
@@ -158,5 +160,19 @@ MT: Lebesgue integration
 PT: Proof central limit theorem using Fourier transform https://mast.queensu.ca/~murty/handout.pdf
 PT: probability space (events), conditional probability, partition theorem, Bayes' theorem,
     (discrete/continuous) random variable, probability mass function,
-PT: distributions: Bernoulli, Binomial, Poisson, Geometric, exponential, uniform, 
+
 PT: "Probability - Geoffrey Grimmett & Dominic Welsh"
+
+PT: "Statistical Inference - George Casella & Roger L. Berger"
+
+PT: MGF identities (compute MGF of Binomial as in https://stats.libretexts.org/Courses/Saint_Mary's_College_Notre_Dame/MATH_345__-_Probability_(Kuter)/3%3A_Discrete_Random_Variables/3.8%3A_Moment-Generating_Functions_(MGFs)_for_Discrete_Random_Variables#Example_.5C(.5CPageIndex.7B3.7D.5C))
+
+PT: Understand 'almost convergence'
+    - Example: sequence that converges in probability but not almost surely [Example 5.3.3 of SI]
+
+PT: Snedecor F-distribution [Def 5.4.2]
+
+PT: Probability mass function (PMF)
+
+PT: maximum likelihood estimator (MLE) [Def 7.2.1]
+    - example [Example 7.2.5]

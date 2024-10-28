@@ -10,13 +10,22 @@
 
 \begin{topic}{probability-distribution}{probability distribution}
     Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to (E, \mathcal{E})$ a \tref{random-variable}{random variable}. The \textbf{probability distribution} of $X$ is the \tref{MT:pushforward-measure}{pushforward} $X_* \PP$ on $\mathcal{E}$.
+
+    More generally, a probability distribution on a \tref{MT:measurable-space}{measurable space} $(E, \mathcal{E})$ is a probability measure on $\mathcal{E}$.
 \end{topic}
 
-\begin{topic}{probability-density-function}{probability density function}
-    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to (E, \mathcal{E})$ a \tref{random-variable}{random variable}. A \textbf{probability density function} for $X$, with respect to a reference measure $\mu$ on $(E, \mathcal{E})$, is a measurable function $f : E \to \RR$ such that
+\begin{topic}{probability-density-function}{probability density function (PDF)}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to (E, \mathcal{E})$ a \tref{random-variable}{random variable}. A \textbf{probability density function (PDF)} for $X$, with respect to a reference measure $\mu$ on $(E, \mathcal{E})$, is a measurable function $f : E \to \RR$ such that
     \[ \PP(X \in A) = \int_A f d \mu \]
     for all $A \in \mathcal{A}$.
 \end{topic}
+
+\begin{topic}{probability-mass-function}{probability mass function (PMF)}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to (E, \mathcal{E})$ a \tref{random-variable}{random variable} which is discrete, that is, such that $E$ is countable and $\mathcal{E}$ contains all singletons. The \textbf{probability mass function (PMF} of $X$ is the function $f_X : E \to \RR$ given by
+    \[ f_X(x) = \PP(X^{-1}(\{ x \})) \quad \textup{ for all } x \in E . \]
+    
+\end{topic}
+
 
 \begin{topic}{expected-value}{expected value}
     Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{expected value} of $X$ is the Lebesgue integral
@@ -28,8 +37,32 @@
     \[ \operatorname{Var}(X) = \EE((X - \EE(X))^2) = \EE(X^2) - \EE(X)^2 . \]
 \end{topic}
 
+\begin{topic}{covariance}{covariance}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X, Y : \Omega \to \RR$ two \tref{random-variable}{random variables}. The \textbf{covariance} of $X$ and $Y$ is
+    \[ \operatorname{Cov}(X, Y) = \EE((X - \EE(X) (Y - \EE(Y)) = \EE(XY) - \EE(X) \EE(Y) . \]
+\end{topic}
+
+\begin{topic}{correlation}{correlation}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X, Y : \Omega \to \RR$ two \tref{random-variable}{random variables}. The \textbf{correlation} of $X$ and $Y$ is
+    \[ \operatorname{Cor}(X, Y) = \frac{\operatorname{Cov}(X, Y)}{\sqrt{\operatorname{Var}(X) \operatorname{Var}(Y)}} , \]
+    where $\operatorname{Cov}(X, Y)$ is the \tref{covariance}{covariance} of $X$ and $Y$, and $\operatorname{Var}$ denotes the \tref{variance}{variance}.
+\end{topic}
+
+\begin{example}{correlation}
+    \begin{itemize}
+        \item If $X$ and $Y$ are \tref{independent-random-variables}{independent}, then $\operatorname{Cor}(X, Y) = 0$.
+        \item One has $-1 \le \operatorname{Cor}(X, Y) \le 1$ with equality if and only if $\PP(Y = a X + b)$ for some $a \ne 0$ and $b$ ($+1$ for $a > 0$ and $-1$ for $a < 0$).
+    \end{itemize}
+\end{example}
+
+\begin{topic}{standard-deviation}{standard deviation}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{standard deviation} of $X$ is
+    \[ \sigma_X = \sqrt{\operatorname{Var}(X)} \]
+    where $\operatorname{Var}(X)$ is the \tref{variance}{variance} of $X$.
+\end{topic}
+
 \begin{topic}{independent-random-variables}{independent random variables}
-    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. A sequence of \tref{random-variable}{random variables} $X_i : \Omega \to (E_i, \mathcal{E}_i)$ for $i = 1, 2, \ldots, n$ is \textbf{independent} if
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. A sequence of \tref{random-variable}{random variables} $X_i : \Omega \to (E_i, \mathcal{E}_i)$ for $i = 1, 2, \ldots, n$ is \textbf{(mutually) independent} if
     \[ \PP(X_i \in A_i \textup{ for all } i = 1, 2, \ldots, n) = \prod_{i = 1}^{n} \PP(X_i \in A_i) \]
     for all $A_i \in \mathcal{E}_i$.
 \end{topic}
@@ -69,15 +102,37 @@
 \begin{topic}{central-limit-theorem}{central limit theorem}
     Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. Let $X_1, X_2, \ldots : \Omega \to \RR$ be a sequence of \tref{independent-random-variables}{independent} \tref{identically-distributed-random-variables}{identically distributed} \tref{random-variable}{random variables} with \tref{expected-value}{expected value} $\EE(X_i) = \mu < \infty$ and \tref{variance}{variance} $\operatorname{Var}(X_i) = \sigma^2 < \infty$. The \textbf{central limit theorem} states that the sequence
     \[ Z_n = \frac{(X_1 + \cdots + X_n) - n \mu}{\sigma \sqrt{n}} \]
-    \tref{convergence-in-distribution}{convergence in distribution} to the standard normal distribution $\mathcal{N}(0, 1)$.
+    \tref{convergence-in-distribution}{convergence in distribution} to the \tref{normal-distribution}{standard normal distribution} $\mathcal{N}(0, 1)$.
 \end{topic}
 
 \begin{topic}{moment}{(central) moment}
     Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{$n$-th moment} of $X$ is the \tref{expected-value}{expected value} of its $n$-th power, that is, $\EE(X^n)$, if it exists. The \textbf{$n$-th central moment} of $X$ is the expected value $\EE((X - \EE(X))^n)$, if it exists. 
 \end{topic}
 
+\begin{example}{moment}
+    \begin{itemize}
+        \item The first moment of a random variable is its \tref{expected-value}{expected value}.
+        \item The second central moment of a random variable is its \tref{variance}{variance}.
+    \end{itemize}
+\end{example}
+
 \begin{topic}{moment-generating-function}{moment generating function}
     Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X : \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{moment generating function} of $X$ is the function
     \[ M_X(t) = \EE(\exp(t X)) \]
     provided it exists for $t \in (-\varepsilon, \varepsilon)$ for some $\varepsilon > 0$.
+\end{topic}
+
+\begin{example}{moment-generating-function}
+    If the moment generating function $M_X(t)$ exists, then the $n$-th \tref{moment}{moment} of $X$ is given by 
+    \[ \EE(X^n) = \left. \frac{d^r}{dt^r} M_X(t) \right|_{t = 0} . \]
+\end{example}
+
+\begin{topic}{conditional-probability-distribution}{conditional probability distribution}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}. Given events $A, B \in \mathcal{A}$ with $\PP(B) > 0$, the \textbf{conditional probability} of $A$ given $B$ is defined as
+    \[ \PP(A \mid B) = \frac{\PP(A \cap B)}{\PP(B)} . \]
+    Given a \tref{random-variable}{random variable} $X : \Omega \to (E, \mathcal{E})$, the \textbf{conditional probability distribution} of $X$ given $B$ is the probability measure $\mu_{X \mid B}$ on $E$ given by
+    \[ \mu_{X \mid B}(A) = \PP(X^{-1}(A) \mid B) \quad \textup{ for } A \in \mathcal{E} . \]
+    Given a sub-$\sigma$-algebra $\mathcal{B} \subset \mathcal{A}$, a \textbf{conditional probability} of an event $A \in \mathcal{A}$ given $\mathcal{B}$ is a $\mathcal{B}$-measurable function $\PP(A \mid \mathcal{B}) : \Omega \to \RR$ such that
+    \[ \int_B \PP(A \mid \mathcal{B}) d \PP = \PP(A \cap B) \quad \textup{ for all } B \in \mathcal{B} . \]
+    For any $A \in \mathcal{E}$, define $\mu_{X \mid \mathcal{B}}(A \mid \mathcal{B}) = \PP(X^{-1}(A) \mid \mathcal{B})$. For any outcome $\omega \in \Omega$, the function $\mu_{X \mid \mathcal{B}}(- \mid \mathcal{B})(\omega) : \mathcal{E} \to \RR$ is called the \textbf{conditional probability distribution} of $X$ given $\mathcal{B}$. If it is a probability measure on $\mathcal{E}$, it is called \textbf{regular}.
 \end{topic}
