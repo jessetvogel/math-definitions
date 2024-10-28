@@ -538,6 +538,7 @@ const examples = [
   "PT:maximum-likelihood-estimator",
   "PT:unbiased-estimator",
   "PT:rao-blackwell-theorem",
+  "PT:likelihood-ratio-test",
   "RT:representation-ring",
   "RT:schur-lemma",
   "RT:projective-representation",

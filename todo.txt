@@ -176,3 +176,5 @@ PT: Probability mass function (PMF)
 
 PT: maximum likelihood estimator (MLE) [Def 7.2.1]
     - example [Example 7.2.5]
+
+PT: p-value

@@ -175,3 +175,48 @@
     \[ \lim_{n \to \infty} \frac{\operatorname{Var}_\theta W_n(X_1, \ldots, X_n)}{\left( \frac{ \left( \frac{d}{d \theta} \tau(\theta) \right)^2}{n \EE_\theta \left( \left( \frac{\partial}{\partial \theta} \log f(X_i; \theta) \right)^2 \right) } \right)} = 1 , \]
     that is, $W_n$ achieves the \tref{cramer-rao-bound}{Cramer--Rao bound} as $n$ tends to $\infty$.
 \end{topic}
+
+\begin{topic}{hypothesis-test}{hypothesis test}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$ in a parameter space $\Theta$.
+    A \textit{hypothesis testing problem} for $\theta$ is a partition of $\Theta$ into a subset $\Theta_0 \subseteq \Theta$ and its complement $\Theta \setminus \Theta_0$.
+    The \textit{null hypothesis}, denoted $H_0$, states that $\theta \in \Theta_0$, and the \textit{alternative hypothesis}, denoted $H_1$, states that $\theta \in \Theta \setminus \Theta_0$.
+    
+    A \textbf{hypothesis test} is a rule that specifies:
+    \begin{enumerate}[(i)]
+        \item for which sample values of $X = (X_1, \ldots, X_n)$ the decision is made to accept $H_0$ as true,
+        \item for which sample values of $X$ the decision is made to reject $H_0$ and accept $H_1$ as true.
+    \end{enumerate}
+    The first subset of sample values is called the \textit{acceptance region} and the second subset of sample values is called the \textit{rejection region}.
+\end{topic}
+
+\begin{topic}{likelihood-ratio-test}{likelihood ratio test}
+    A \textbf{likelihood ratio test} is any \tref{hypothesis-test}{hypothesis test} that has a rejection region of the form $\{ x \mid \lambda(x) \le c \}$ for some constant $0 \le c \le 1$, where $\lambda(x)$ denotes the \textit{likelihood ratio test statistic}
+    \[ \lambda(x) = \frac{\sup_{\theta \in \Theta_0} L(\theta; x)}{\sup_{\theta \in \Theta} L(\theta; x)} \]
+    and where $L(\theta; x)$ denotes the \tref{likelihood-function}{likelihood function}.
+\end{topic}
+
+\begin{example}{likelihood-ratio-test}
+    Let $X_1, \ldots, X_n$ be a random sample from a \tref{normal-distribution}{normal distribution} $\mathcal{N}(\theta, 1)$. Consider testing $H_0 : \theta = \theta_0$ versus $H_1 : \theta \ne \theta_0$.
+    Since the \tref{maximum-likelihood-estimator}{MLE} for $\theta$ is given by the sample mean $\overline{X} = \frac{1}{n} \sum_{i = 1}^{n} X_i$, the likelihood ratio test statistic reduces to
+    \[ \begin{aligned}
+        \lambda(x) &= \frac{(2 \pi)^{-n/2} \exp \left( - \sum_{i = 1}^{n} (x_i - \theta_0)^2 / 2 \right)}{(2 \pi)^{-n/2} \exp \left( - \sum_{i = 1}^{n} (x_i - \overline{x})^2 / 2 \right)} \\
+        &= \exp \left( \left( - \sum_{i = 1}^{n} (x_i - \theta_0)^2 + \sum_{i = 1}^{n} (x_i - \overline{x})^2 \right) / 2 \right) \\ 
+        &= \exp \left( - n (\overline{x} - \theta_0)^2 / 2 \right) .
+    \end{aligned} \]
+    Hence, the rejection region $\{ x \mid \lambda(x) \le c \}$ can be expressed as
+    \[ \{ x \mid |\overline{x} - \theta_0| \ge \sqrt{- 2 (\log c) / n} \} . \]
+\end{example}
+
+\begin{topic}{power-function-hypothesis-test}{power function of hypothesis test}
+    The \textbf{power function} of a \tref{hypothesis-test}{hypothesis test} with rejection region $R$ is the function $\beta : \Theta \to \RR$ on the parameter space $\Theta$ given by
+    \[ \beta(\theta) = \PP_\theta(X^{-1}(R)) . \]
+    The hypothesis test is said to have \textit{size $\alpha$} if $\sup_{\theta \in \Theta_0} \beta(\theta) = \alpha$.
+
+    The hypothesis test is said to have \textit{level $\alpha$} if $\sup_{\theta \in \Theta_0} \beta(\theta) \le \alpha$.
+\end{topic}
+
+\begin{topic}{unbiased-hypothesis-test}{unbiased hypothesis test}
+    A \tref{hypothesis-test}{hypothesis test} is \textbf{unbiased} if
+    \[ \beta(\theta) \le \beta(\theta') \]
+    for all $\theta \in \Theta_0$ and $\theta' \in \Theta \setminus \Theta_0$, where $\beta$ denotes the \tref{power-function-hypothesis-test}{power function} of the hypothesis test.
+\end{topic}

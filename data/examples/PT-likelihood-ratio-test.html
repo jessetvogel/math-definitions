@@ -1,0 +1,10 @@
+<div class="example">Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a random sample from a <a href="#PT:normal-distribution">normal distribution</a> <span class="math inline">\(\mathcal{N}(\theta, 1)\)</span>. Consider testing <span class="math inline">\(H_0 : \theta = \theta_0\)</span> versus <span class="math inline">\(H_1 : \theta \ne \theta_0\)</span>.
+Since the <a href="#PT:maximum-likelihood-estimator">MLE</a> for <span class="math inline">\(\theta\)</span> is given by the sample mean <span class="math inline">\(\overline{X} = \frac{1}{n} \sum_{i = 1}^{n} X_i\)</span>, the likelihood ratio test statistic reduces to
+<span class="math display">\[ \begin{aligned}
+        \lambda(x) &= \frac{(2 \pi)^{-n/2} \exp \left( - \sum_{i = 1}^{n} (x_i - \theta_0)^2 / 2 \right)}{(2 \pi)^{-n/2} \exp \left( - \sum_{i = 1}^{n} (x_i - \overline{x})^2 / 2 \right)} \\
+        &= \exp \left( \left( - \sum_{i = 1}^{n} (x_i - \theta_0)^2 + \sum_{i = 1}^{n} (x_i - \overline{x})^2 \right) / 2 \right) \\ 
+        &= \exp \left( - n (\overline{x} - \theta_0)^2 / 2 \right) .
+    \end{aligned} \]</span>
+Hence, the rejection region <span class="math inline">\(\{ x \mid \lambda(x) \le c \}\)</span> can be expressed as
+<span class="math display">\[ \{ x \mid |\overline{x} - \theta_0| \ge \sqrt{- 2 (\log c) / n} \} . \]</span>
+</div>
