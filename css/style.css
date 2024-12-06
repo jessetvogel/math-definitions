@@ -173,7 +173,7 @@ header {
     width: 100%;
     background-color: var(--clr-background-input);
     max-height: 400px;
-    overflow: scroll;
+    overflow: auto;
     scroll-snap-type: y proximity;
 }
 
@@ -302,7 +302,7 @@ span.math.inline {
 span.math.display {
     font-size: 15px;
     display: block;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .example span.math.display {
