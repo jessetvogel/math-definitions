@@ -1,9 +1,0 @@
-Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a <a href="#PT:random-sample">random sample</a> from a population <span class="math inline">\(F_\theta\)</span> depending on some parameters <span class="math inline">\(\theta = (\theta_1, \ldots, \theta_m)\)</span>. The <a href="#PT:moment">moments</a> of the <span class="math inline">\(X_i\)</span> can be expressed in terms of the parameters <span class="math inline">\(\theta\)</span>,
-<span class="math display">\[ \EE(X_i^k) = \mu_k(\theta_1, \ldots, \theta_m) \]</span>
-for some functions <span class="math inline">\(\mu_1, \ldots, \mu_m\)</span>. The <b>method of moments estimator</b> <span class="math inline">\(\hat{\theta} = (\hat{\theta}_1, \ldots, \hat{\theta}_m)\)</span> is the <a href="#PT:point-estimator">estimator</a> for <span class="math inline">\(\theta\)</span> obtained by solving the system of equations
-<span class="math display">\[ \begin{aligned}
-        \frac{1}{n} \sum_{i = 1}^{n} X_i &= \mu_1(\hat{\theta}_1, \ldots, \hat{\theta}_k) \\ 
-        & \vdots \\ 
-        \frac{1}{n} \sum_{i = 1}^{n} X_i^m &= \mu_m(\hat{\theta}_1, \ldots, \hat{\theta}_m) .
-    \end{aligned} \]</span>    
-This method for constructing estimators for the parameters <span class="math inline">\(\theta\)</span> is known as the <b>method of moments</b>.

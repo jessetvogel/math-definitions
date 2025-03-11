@@ -1,8 +1,0 @@
-<div class="example"><div class="proof">Given <span class="math inline">\(g : B \to B\)</span>, let <span class="math inline">\(p : 1 \to B^A\)</span> be the transpose of the composition
-<span class="math display">\[ A \xrightarrow{\Delta} A \times A \xrightarrow{f \times \id_A} B^A \times A \xrightarrow{\textup{eval}} B \xrightarrow{g} B . \]</span>
-Since <span class="math inline">\(f\)</span> is point-surjective, there exists <span class="math inline">\(q : 1 \to A\)</span> such that <span class="math inline">\(p = f \circ q\)</span>. Now,
-<span class="math display">\[ (f \circ q)^T \circ q = p^T \circ q = g \circ \textup{eval} \circ (f \times \id_A) \circ \Delta \circ q = g \circ (f \circ q)^T \circ q , \]</span>
-so <span class="math inline">\((f \circ q)^T \circ q : 1 \to B\)</span> is a fixed-point of <span class="math inline">\(g\)</span>.
-</div>
-</div><div class="example"><a href="#ST:cantor-theorem">Cantor’s theorem</a> immediately follows from Lawvere’s fixed-point theorem. Namely, the category of sets is cartesian closed, and the map <span class="math inline">\(g : \{ 0, 1 \} \to \{ 0, 1 \}\)</span> defined by <span class="math inline">\(g(0) = 1\)</span> and <span class="math inline">\(g(1) = 0\)</span> has no fixed points, so there can not exist any surjective morphism <span class="math inline">\(A \to \{ 0, 1 \}^A \cong P(A)\)</span> from a set <span class="math inline">\(A\)</span> to its <a href="#ST:power-set">power set</a> <span class="math inline">\(P(A)\)</span>.
-</div>

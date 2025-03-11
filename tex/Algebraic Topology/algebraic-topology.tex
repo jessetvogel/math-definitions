@@ -1,0 +1,628 @@
+\begin{topic}{singular-homology}{singular (co)homology}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and $A$ an \tref{GT:abelian-group}{abelian group}. A \textbf{singular $n$-simplex} in $X$ is a \tref{TO:continuous-map}{continuous map} $\sigma : \Delta^n \to X$, where 
+    \[ \Delta^n = \left\{ (x_0, \ldots, x_n) \in \RR^{n + 1} \;\middle|\; \text{all } x_i \ge 0 \text{ and } \sum_{i = 0}^n x_i = 1 \right\} \]
+    denotes the \textit{standard $n$-simplex}. The set of all singular $n$-simplices in $X$ is denoted $\mathcal{S}(X)_n$.
+    
+    The \textbf{singular chain complex} of $X$ with coefficients in $A$ is the \tref{HA:chain-complex}{chain complex} $C_\bdot(X; A)$ given by
+    \[ C_n(X; A) = A[\mathcal{S}(X)_n] \]
+    and the boundary maps $\partial_n : C_n(X; A) \to C_{n - 1}(X; A)$ are induced from
+    \[ \partial_n : \mathcal{S}(X)_n \to \mathcal{S}(X)_{n - 1}, \quad \sigma \mapsto \sum_{i = 1}^{n} (-1)^i \, \sigma \circ \delta_i , \]
+    where $\delta_i : \Delta^{n - 1} \to \Delta^n$ maps to the $i$-th face.
+    
+    The \textbf{singular homology groups} of $X$ with coefficients in $A$ are the \tref{HA:homology-object}{homology groups} of $C_\bullet(X; A)$, and are denoted
+    \[ H_n(X; A) = H_n(C_\bdot(X; A)) . \]
+    Dually, there is the \textbf{singular cochain complex} of $X$ with coefficients in $A$ is the cochain complex $C^\bdot(X; A)$ given by
+    \[ C^n(X; A) = \Hom_\ZZ(C_n(X; \ZZ), A) . \]
+    Its cohomology groups are called the \textbf{singular cohomology groups} of $X$ with coefficients in $A$, and are denoted
+    \[ H^n(X; A) = H^n(C^\bdot(X; A)) . \]
+\end{topic}
+
+\begin{example}{singular-homology}
+    \begin{itemize}
+        \item The homology groups of the $n$-sphere $S^n$, with $n \ge 1$, is given by
+        \[ H_i(S^n; \ZZ) = \left\{ \begin{array}{cl} \ZZ & \textup{ if } i = 0 \textup{ or } i = n , \\ 0 & \textup{ otherwise}. \end{array} \right. \]
+    \end{itemize}
+\end{example}
+
+\begin{topic}{fundamental-group}{fundamental group}
+    Let $X$ be a \tref{TO:topological-space}{topological space}, and take a point $x_0 \in X$. The \textbf{fundamental group} of $X$ w.r.t. the basepoint $x_0$ is given by
+    \[ \pi_1(X, x_0) = \{ \text{continuous } f : [0, 1] \to X : f(0) = x_0 = f(1) \} / \sim{} , \]
+    where $f \sim{} g$ if the paths are homotopic.
+    
+    It is a \tref{GT:group}{group}, whose multiplication is given by concatenating of paths, and inversion is given by inverting paths. Generally, the fundamental group is not abelian.
+\end{topic}
+
+\begin{topic}{relative-homology}{relative homology}
+    Let $X$ be a \tref{TO:topological-space}{topological space}, $X' \subset X$ a subspace, and $A$ an abelian group. The \textbf{relative chain complex} of $(X, X')$ is defined as the quotient complex
+    \[ C_n(X, X'; A) = C_n(X; A) / C_n(X'; A) .  \]
+    Its \tref{HA:homology-object}{homology groups}
+    \[ H_n(X, X'; A) = H_n(C_\bullet(X, X; A)) \]
+    are called \textbf{relative homology groups} of $(X, X')$.
+    
+    From the exact sequence
+    \[ 0 \to C_\bdot(X'; A) \to C_\bdot(X; A) \to C_\bdot(X, X'; A) \to 0 \]
+    follows the long exact sequence in homology
+    \[ \cdots \to H_n(X; A) \to H_n(X, X'; A) \xrightarrow{\delta} H_{n - 1}(X'; A) \to \cdots \to H_0(X, X'; A) \to 0 . \]
+\end{topic}
+
+\begin{topic}{excision-theorem}{excision theorem}
+    Let $X$ be a \tref{TO:topological-space}{topological space}, $X' \subset X$ a subpace, and $Y \subset X'$ a subspace such that the \tref{TO:closure}{closure} $\overline{Y}$ is contained in \tref{TO:interior}{interior} $\textup{int}(X')$. The \textbf{excision theorem} states that the inclusion $X \setminus Y \hookrightarrow X$ induces isomorphisms of \tref{relative-homology}{relative homology groups}
+    \[ H_n(X \setminus Y, X' \setminus Y; A) \xrightarrow{\sim} H_n(X, X'; A) \]
+    for all $n \in \ZZ$ and coefficient groups $A$.
+\end{topic}
+
+\begin{topic}{mayer-vietoris-sequence}{Mayer–Vietoris sequence}
+    Let $X$ be a \tref{TO:topological-space}{topological space}, and $U, V \subset X$ two subsets with $X = \textup{interior}(U) \cup \textup{interior}(V)$. Then there is a long exact sequence of homology groups (with coefficients in $A$)
+    \[ \cdots \longrightarrow H_n(U \cap V; A) \overset{i}{\longrightarrow} H_n(U; A) \oplus H_n(V; A) \overset{p}{\longrightarrow} H_n(X; A) \overset{\delta}{\longrightarrow} H_{n - 1}(U \cap V; A) \longrightarrow \cdots \]
+    where $i$ is induced by the inclusions $U \cap V \hookrightarrow U$ and $U \cap V \hookrightarrow V$, and $p = i_*^U - i_*^V$. The map $\delta$ is a connecting morphism. This sequence is called the \textbf{Mayer--Vietoris sequence}.
+    
+    Dually, there is one for cohomology
+    \[ \cdots \longrightarrow H^n(X; A) \overset{r}{\longrightarrow} H^n(U; A) \oplus H^n(V; A) \overset{\Delta}{\longrightarrow} H^n(U \cap V; A) \overset{\delta}{\longrightarrow} H^{n + 1}(X; A) \longrightarrow \cdots \]
+\end{topic}
+
+\begin{example}{mayer-vietoris-sequence}
+    Consider the \tref{TO:wedge-sum}{wedge sum} $X = S^1 \vee S^1$ with the natural open covering $X = U \cup V$, where $U = S^1$ and $V = S^1$ are the two circles. Since the cohomology of $S^1$ and $U \cap V = \star$ is known,
+    \[ H^n(S^1; A) = \left\{ \begin{array}{cl} A & \textup{ if } n = 0, \\ 0 & \textup{ otherwise}, \end{array} \right. \quad \textup{ and } \quad H^n(\star; A) = \left\{ \begin{array}{cl} A & \textup{ if } n = 0, 1, \\ 0 & \textup{ otherwise}, \end{array} \right. \]
+    the Mayer--Vietoris sequence can be written as
+    \[ 0 \to H^0(X; A) \to A \oplus A \xrightarrow{\Delta} A \to H^1(X; A) \to A \oplus A \to 0 \to H^2(X; A) \to 0 \to \cdots \]
+    where $\Delta : A \oplus A \to A$ is given by $(a, b) \mapsto a + b$. Now we can read off that $H^0(X; A) = \ker(\Delta) \isom A$ and $H^1(X; A) \isom A \oplus A$ and $H^n(X; A) = 0$ for $n \ge 2$.
+\end{example}
+
+\begin{example}{mayer-vietoris-sequence}
+    The Mayer--Vietoris sequence can be used to compute the homology of the $n$-spheres $S^n$. We will take coefficients in $\ZZ$, and let it be clear that $H_0(S^n) = \ZZ$ for all $n \ge 1$. For $n = 1$, cover $S^1$ by two copies of $D^1$ with intersection $D^1 \sqcup D^1$ to obtain the exact sequence
+    \[ \cdots \to H_1(D^1) \oplus H_1(D^1) \to H_1(S^1) \to H_0(D^1 \sqcup D^1) \to H_0(D^1) \oplus H_0(D^1) \to H_0(S^1) \to 0 \]
+    which equals
+    \[ \cdots \to 0 \to H_1(S^1) \to \ZZ \oplus \ZZ \xrightarrow{(a, b) \mapsto (a + b, a + b)} \ZZ \oplus \ZZ \xrightarrow{(a, b) \mapsto a - b} \ZZ \to 0 . \]
+    It follows that $H_1(S^1) = \ZZ$. For $n > 1$, cover $S^n$ by two copies of $D^n$ with intersection $S^{n - 1} \times D^1$ to obtain the exact sequence
+    \[ \cdots \to H_i(D^n) \oplus H_i(D^n) \to H_i(S^n) \to H_{i - 1}(S^{i - 1} \times D^1) \to H_{i - 1}(D^n) \oplus H_{i - 1}(D^n) \to \cdots \]
+    \[ \cdots \to H_1(D^n) \oplus H_1(D^n) \to H_1(S^n) \to H_0(S^{n - 1} \times D^1) \to H_0(D^n) \oplus H_0(D^n) \to H_0(S^n) \to 0 \]
+    where $i > 1$, which equals
+    \[ \cdots \to 0 \to H_i(S^n) \to H_{i - 1}(S^{n - 1} \times D^1) \to 0 \to \cdots \to 0 \to H_1(S^n) \to \ZZ \xrightarrow{a \mapsto (a, a)} \ZZ \oplus \ZZ \xrightarrow{(a, b) \mapsto a - b} \ZZ \to 0 . \]
+    It follows that $H_i(S^n) = H_{i - 1}(S^{n - 1} \times D^1) = H_{i - 1}(S^{n - 1})$ for all $i > 1$, and that $H_1(S^n) = 0$. Now by induction on $n$ we find that
+    \[ H_i(S^n) = \left\{ \begin{array}{cl} \ZZ & \textup{ if } i = 0 \textup{ or } i = n , \\ 0 & \textup{ otherwise}. \end{array} \right. \]
+\end{example}
+
+\begin{topic}{deformation-retract}{(strong) deformation retract}
+    A \textbf{deformation retraction} of a \tref{TO:topological-space}{topological space} $X$ onto a subspace $A$ is a continuous map
+    \[ F : X \times [0, 1] \to X \]
+    such that 
+    \[ F(x, 0) = x, \quad F(x, 1) \in A \quad \text{ and } \quad F(a, 1) = a \]
+    for all $x \in X$ and $a \in A$.
+    It is a \textbf{strong deformation retraction} if moreover
+    \[ F(a, t) = a \qquad \text{ for all } t \in [0, 1] . \]
+\end{topic}
+
+\begin{example}{deformation-retract}
+    The $n$-sphere $S^n$ is a strong deformation retract of $\RR^{n + 1} - \{ 0 \}$, given by the map
+    \[  F(x, t) = (1 - t) x + \frac{t x}{\norm{x}} . \]
+\end{example}
+
+\begin{topic}{cup-product}{cup product}
+    The \textbf{cup product} is a product on the \tref{singular-homology}{singular cohomology} of a \tref{TO:topological-space}{topological space} $X$. Given a commutative \tref{AA:ring}{ring} $R$, it is the product
+    \[ (-) \smile (-) : C^p(X; R) \times C^q(X; R) \to C^{p + q}(X; R) \]
+    given by
+    \[ (f \smile g)(\sigma) = f(\sigma \circ i_p^\text{front}) \cdot g(\sigma \circ i_q^\text{back}) \]
+    where $i_p^\text{front} : \Delta^{p} \to \Delta^{p + q}$ sends vertex $i$ to vertex $i$, and $i_q^\text{back}$ sends vertex $i$ to vertex $n - q + i$.
+    
+    The cup product descents to a product on the cohomology groups
+    \[ (-) \smile (-) : H^p(X; R) \times H^q(X; R) \to H^{p + q}(X; R), \qquad ([f], [g]) \mapsto [f \smile g] , \]
+    making $H^*(X; R)$ into a graded commutative $R$-algebra (that is, $[f] \smile [g] = (-1)^{pq} [g] \smile [f]$).
+    
+    The cup product satisfies the following properties:
+    \begin{itemize}
+        \item (\textit{Leibniz rule}) $d(f \smile g) = df \smile g + (-1)^p f \smile dg$,
+        \item (\textit{functorial}) for every map $\varphi : X \to Y$, $\varphi^*(f \smile g) = \varphi^* f \smile \varphi^* g$,
+        \item (\textit{associative}) $f \smile (g \smile h) = (f \smile g) \smile h$,
+        \item (\textit{unital}) $f \smile 1 = f = 1 \smile f$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{cap-product}{cap product}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. Given a commutative \tref{AA:ring}{ring} $R$, the \textbf{cap product} is the following bilinear map on \tref{singular-homology}{singular (co)homology}
+    \[ (-) \frown (-) : C^q(X; R) \times C_{p + q}(X; R) \to C_p(X; R) \]
+    induced by sending $f : \mathcal{S}(X)_q \to R$ and $\sigma \in \mathcal{S}(X)_{p + q}$ to
+    \[ f \frown \sigma = (-1)^{pq} f(\sigma \circ i_q^\text{back}) \cdot (\sigma \circ i_p^\text{front})  \]
+    where $i_p^\text{front} : \Delta^{p} \to \Delta^{p + q}$ sends vertex $i$ to vertex $i$, and $i_q^\text{back}$ sends vertex $i$ to vertex $n - q + i$.
+    
+    The cup product descents to a product on the cohomology groups
+    \[ (-) \frown (-) : H^q(X; R) \times H_{p + q}(X; R) \to H_q(X; R), \qquad ([f], [g]) \mapsto [f \frown g] . \]
+\end{topic}
+
+\begin{topic}{homotopy}{homotopy}
+    A \textbf{homotopy} between \tref{TO:continuous-map}{continuous maps} $f, g : X \to Y$ is a continuous map
+    \[ H : X \times [0, 1] \to Y \]
+    such that $H(x, 0) = f(x)$ and $H(x, 1) = g(x)$ for all $x \in X$. If such a homotopy exists, $f$ and $g$ are called \textbf{homotopic}.
+\end{topic}
+
+\begin{topic}{homotopy-equivalence}{homotopy equivalence}
+    A \textbf{homotopy equivalence} between two \tref{TO:topological-space}{topological spaces} $X$ and $Y$ is a pair of \tref{TO:continuous-map}{continuous maps} $f : X \to Y$ and $g : Y \to X$ such that $g \circ f$ is \tref{homotopy}{homotopic} to $\id_X$ and $f \circ g$ is homotopic to $\id_Y$. If such a pair exists, then $X$ and $Y$ are said to be \textbf{homotopy equivalent}.
+\end{topic}
+
+\begin{example}{homotopy-equivalence}
+    The $n$-sphere $S^n \subset \RR^{n + 1}$ is homotopic to $\RR^{n + 1} \setminus \{ 0 \}$. Namely, consider the inclusion $i : S^n \to \RR^{n + 1}$ and the map
+    \[ f : \RR^{n + 1} \setminus \{ 0 \} \to S^n, \quad x \mapsto \frac{x}{\|x\|} . \]
+    Then $f \circ i = \id_{S^n}$, and $i \circ f$ is homotopic to $\id_{\RR^{n + 1}}$ since
+    \[ H : \RR^{n + 1} \times [0, 1] \to \RR^{n + 1}, \quad (x, t) \mapsto (1 - t) x + \frac{tx}{\|x\|} \]
+    satisfies $H(-, 0) = i \circ f$ and $H(-, 1) = \id_{\RR^{n + 1}}$.
+\end{example}
+
+\begin{topic}{weak-homotopy-equivalence}{weak homotopy equivalence}
+    A \textbf{weak homotopy equivalence} is a continuous map $f : X \to Y$ if it induces bijections
+    \[ f_* : \pi_n(X, x) \to \pi_n(Y, f(x)) \]
+    for all $n \ge 0$ and all basepoints $x \in X$.
+\end{topic}
+
+\begin{topic}{null-homotopic}{null homotopic}
+    A continuous map $f : X \to Y$ between \tref{TO:topological-space}{topological spaces} is \textbf{null-homotopic} if it is homotopic to a constant map.
+\end{topic}
+
+\begin{topic}{homotopy-group}{homotopy group}
+    For any $n \ge 0$, the \textbf{$n$-th homotopy group} of a \tref{TO:topological-space}{topological space} $X$ with basepoint $x_0 \in X$ is the set
+    \[ \pi_n(X, x_0) = [(S^n, s_0), (X, x_0)]_* \]
+    of basepoint preserving homotopy classes of based continuous maps $S^n \to X$.
+    
+    For $n \ge 1$ it has a group structure.
+\end{topic}
+
+\begin{topic}{betti-number}{Betti number}
+    The \textbf{$n$-th Betti number} $b_n(X)$ of a \tref{TO:topological-space}{topological space} $X$ is the rank of the $n$-th \tref{singular-homology}{singular homology group} $H_n(X)$.
+\end{topic}
+
+\begin{topic}{cohomology-compact-support}{cohomology with compact support}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. The \textbf{cohomology of $X$ with compact support} $H_c^n(X; R)$ is given by the cohomology of the following subcomplex of the singular cohomology complex
+    \[ C_c^n(X; R) = \big\{ f : \mathcal{S}(X)_n \to R : \text{ there is a compact $K \subset X$ with $f(\sigma) = 0$ for all $\sigma \in \mathcal{S}(X \setminus K)_n$} \big\} . \]
+    
+    Alternatively,
+    \[ H_c^n(X; R) = \varinjlim H^n(X, X \setminus K; R) \]
+    where the direct limit is taken over all compact $K \subset X$ w.r.t. inclusions.
+\end{topic}
+
+\begin{topic}{fundamental-groupoid}{fundamental groupoid}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and $A \subset X$ a subset. The \textbf{fundamental groupoid of $X$ with respect to $A$}, denoted $\Pi(X, A)$, is the \tref{CT:groupoid}{groupoid category} whose objects are elements of $A$ and whose morphisms $a \to b$ are homotopy classes of paths from $a$ to $b$. Composition of morphisms is given by concatenation of paths.
+    
+    This construction only depends on the homotopy type of $(X, A)$. In particular, if $A = \{ x_0 \}$ is a single point, the fundamental groupoid $\Pi(X, A)$ equals the \tref{fundamental-group}{fundamental group} $\pi_1(X, x_0)$.
+\end{topic}
+
+\begin{topic}{seifert-van-kampen-theorem}{Seifert--van Kampen theorem}
+    The \textbf{Seifert--van Kampen theorem} states that for every \tref{TO:path-connected-space}{path-connected} \tref{TO:topological-space}{topological space} $X$ and path-connected subsets $U, V \subset X$ such that the intersection $U \cap V$ is path-connected and the \tref{TO:interior}{interiors} $\overset{\circ}{U}$ and $\overset{\circ}{V}$ cover $X$, the diagram of \tref{fundamental-group}{fundamental groups}
+    \[ \svg \begin{tikzcd} \pi_1(U \cap V, x) \arrow{d} \arrow{r} & \pi_1(U, x) \arrow{d} \\ \pi_1(V, x) \arrow{r} & \pi_1(X, x) \end{tikzcd} \]
+    is a pushout square in the category of groups, for every $x \in U \cap V$.
+
+    Similarly, there is a \textbf{Seifert--van Kampen theorem for groupoids}, which states that for every topological space $X$ with subset $A \subset X$, and subsets $U, V$ such that the interiors $\overset{\circ}{U}$ and $\overset{\circ}{V}$ cover $X$, and $A$ intersects each connected component of $U, V$ and $U \cap V$, the diagram of \tref{fundamental-groupoid}{fundamental groupoids}
+    \[ \svg \begin{tikzcd} \Pi(U \cap V, U \cap V \cap A) \arrow{d} \arrow{r} & \Pi(U, U \cap A) \arrow{d} \\ \Pi(V, V \cap A) \arrow{r} & \Pi(X, A) \end{tikzcd} \]
+    is a \tref{CT:pushout}{pushout} square in the category of \tref{CT:groupoid}{groupoids}.
+\end{topic}
+
+\begin{example}{seifert-van-kampen-theorem}
+    Consider the \tref{TO:wedge-sum}{wedge sum} $S^1 \vee S^1$, and let $U = S^1$ and $V = S^1$ be the obvious cover of $X$. Take as basepoint $x_0$ the intersection of $U$ and $V$. By the Seifert--van Kampen theorem we find that $\pi_1(S^1 \vee S^1, x_0)$ is the pushout of $1 \to \ZZ$ and $1 \to \ZZ$ since $\pi_1(x_0, x_0) = 1$ and $\pi_1(S^1, x_0) = \ZZ$. This pushout is \tref{GT:free-group}{free group} $F_2$ on two elements.
+\end{example}
+
+\begin{example}{seifert-van-kampen-theorem}
+    Consider the circle $S^1$ with two opposite basepoints $x_0$ and $x_1$, and let $U, V$ be two U-shaped subsets, both containing $x_0$ and $x_1$, covering $S^1$. By the Seifert--van Kampen theorem we find that $\Pi(S^1, \{ x_0, x_1 \})$ is the pushout of $\textbf{2} \to \hat{\textbf{2}}$, where $\textbf{2} \simeq \Pi(U \cap V, \{ x_0, x_1 \})$ is the discrete category with two objects, and $\hat{\textbf{2}} \simeq \Pi(U, \{ x_0, x_1 \}) \simeq \Pi(V, \{ x_0, x_1 \})$ is the category with two objects and a single isomorphism between them. The objects of this pushout are $x_0$ and $x_1$, and there are isomorphisms $f, g : x_0 \to x_1$ such that all morphisms are compositions of $f, f^{-1}, g$ and $g^{-1}$.
+    
+    In particular, the fundamental group $\pi_1(S^1, x_0) \isom \ZZ$.
+\end{example}
+
+\begin{example}{seifert-van-kampen-theorem}
+    Let $G$ be any group, generated by a set of generators $\Gamma$, subject to a set of relations $R$ (i.e. words in elements of $\Gamma$). We can construct a space whose fundamental group is $G$. First, consider the `bouquet of circles' $Y = \bigvee_{\gamma \in \Gamma} S^1$ with distinguished basepoint $y$. Then, for each relation $r \in R$ we can construct a map $f_r : S^1 \to Y$ which travels through the circles corresponding to the letters of the word $r$. Let $X$ be the space obtained by attaching a $2$-cells to $Y$ along $f_r$ for each relation $r \in R$. We claim that $\pi_1(X, y) \isom G$.
+    
+    For each $r \in R$, pick a point $x_r$ in the interior of the $2$-cell corresponding to $r$, and let $V = X - \bigcup_{r \in R} x_r$. Let $U$ be the union of small disks around the $x_r$, small enough to still be contained in the interiors of the $2$-cells. For each $r \in R$, pick a point $a_r \in U \cap V$ in the interior of the $2$-cell corresponding to $r$, and put $A = \{ a_r : r \in R \} \cup \{ y \}$.
+    
+    Now $V$ deformation retracts to $Y$, so $\Pi(V, V \cap A)$ is equivalent (as a groupoid) to the free group $F_\Gamma$. Furthermore, $U$ is a union of disks, so $\Pi(U, U \cap A)$ is trivial (that is, a discrete groupoid). Finally, $\Pi(U \cap V, U \cap V \cap A)$ is equivalent to $\bigsqcup_{r \in R} \ZZ$ since $U \cap V$ deformation retracts to a disjoint union of circles. Since $\Pi(U \cap V, U \cap V \cap A) \to \Pi(V, V \cap A)$ sends the generator of the copy of $\ZZ$ corresponding to $r$ to the relation $r$ in $F_\Gamma$, we have that $\Pi(X, A)$ is equivalent to the group generated by $\Gamma$, subject to the relations $R$, that is $G$. Hence, $\pi_1(X, y) \isom G$.
+\end{example}
+
+\begin{topic}{homotopy-extension-property}{homotopy extension property}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and $A \subset X$ a subspace. Then the pair $(X, A)$ has the \textbf{homotopy extension property} (HEP) if for any topological space $Z$, continuous map $f : X \to Z$ and homotopy $F : A \times [0, 1] \to Z$ with $F|_{A \times \{ 0 \}} = f|_A$, there exists a homotopy $H : X \times [0, 1] \to Z$ with $H|_{X \times \{ 0 \}} = f$ and $H|_{A \times [0, 1]} = F$.
+    \[ \svg \begin{tikzcd}[column sep=4em]
+        X \times \{ 0 \} \cup A \times [0, 1] \arrow[hookrightarrow]{d} \arrow{r}{f \cup F} & Z \\ X \times [0, 1] \arrow[swap, dashed]{ur}{H} &
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{homotopy-lifting-property}{homotopy lifting property}
+    Let $p : E \to B$ be a \tref{TO:continuous-map}{continuous map}, and let $A \subset X$ be a pair of topological spaces. Then $p$ is said to have the \textbf{homotopy lifting property} (HLP) for $(X, A)$ if for any continuous map $f : X \to E$, homotopy $F : A \times [0, 1] \to E$ with $F|_{A \times \{ 0 \}} = f|_A$, and homotopy $G : X \times [0, 1] \to B$ with $G|_{X \times \{ 0 \}} = p \circ f$ and $G|_{A \times [0, 1]} = p \circ F$, there exists a homotopy $H : X \times [0, 1] \to E$ such that $H|_{A \times [0, 1]} = F$, $H|_{X \times \{ 0 \}} = f$ and $p \circ H = G$.
+    \[ \svg \begin{tikzcd}[column sep=4em]
+        X \times \{ 0 \} \cup A \times [0, 1] \arrow[hookrightarrow]{d} \arrow{r}{f \cup F} & E \arrow{d}{p} \\ X \times [0, 1] \arrow[swap]{r}{G} \arrow[swap, dashed]{ur}{H} & B
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{hurewicz-fibration}{Hurewicz fibration}
+    A \tref{TO:continuous-map}{continuous map} $p : E \to B$ is a \textbf{Hurewicz fibration} if it has the \tref{homotopy-lifting-property}{homotopy lifting property} with respect to all topological spaces $X$.
+\end{topic}
+
+\begin{example}{hurewicz-fibration}
+    Any map of the form $\pi_B : B \times F \to B$ is a Hurewicz fibration. Namely, for any $f : X \to B \times F$ and $G : X \times [0, 1] \to B$ with $G|_{X \times \{ 0 \}} = f$ we can simply take $H : X \times [0, 1] \to B \times F$ given by $H(x, t) = (G(x, t), \pi_F(f(x)))$.
+\end{example}
+
+\begin{topic}{serre-fibration}{Serre fibration}
+    A \tref{TO:continuous-map}{continuous map} $p : E \to B$ is a \textbf{Serre fibration} if it has the \tref{homotopy-lifting-property}{homotopy lifting property} with respect to all $n$-disks $D^n$ for $n \ge 0$.
+    
+    It can be shown that this is equivalent to having the HLP for all relative CW-complexes $(X, A)$.
+\end{topic}
+
+\begin{example}{serre-fibration}
+    Any \tref{hurewicz-fibration}{Hurewicz fibration} is a Serre fibration.
+    
+    Any \tref{TO:fiber-bundle}{fiber bundle} is a Serre fibration.
+\end{example}
+
+\begin{topic}{eilenberg-maclane-space}{Eilenberg--MacLane space}
+    An \textbf{Eilenberg--MacLane space} is a \tref{TO:topological-space}{topological space} with a single nontrivial \tref{homotopy-group}{homotopy group}.
+\end{topic}
+
+\begin{example}{eilenberg-maclane-space}
+    The spaces $S^1, \RR P^\infty$ and $\CC P^\infty$ are all Eilenberg--MacLane spaces, since
+    \[ \begin{aligned}
+        \pi_n(S^1) &= \left\{ \begin{array}{cl} \ZZ & \text{if } n = 1 \\ 0 & \text{otherwise} \end{array} \right. \\
+        \pi_n(\RR P^\infty) &= \left\{ \begin{array}{cl} \ZZ/2\ZZ & \text{if } n = 1 \\ 0 & \text{otherwise} \end{array} \right. \\
+        \pi_n(\CC P^\infty) &= \left\{ \begin{array}{cl} \ZZ & \text{if } n = 2 \\ 0 & \text{otherwise} . \end{array} \right.
+    \end{aligned} \]
+\end{example}
+
+\begin{example}{eilenberg-maclane-space}
+    It is a theorem that for any $n \ge 0$ and group $G$ (abelian if $n \ge 1$), there exists an Eilenberg--MacLane space $X$ with $\pi_n(X) \isom G$. This space is usually denoted by $K(G, n)$. It can be shown that any two $K(G, n)$'s are \tref{weak-homotopy-equivalence}{weakly homotopy equivalent}.
+\end{example}
+
+\begin{topic}{contractible-space}{contractible space}
+    A \tref{TO:topological-space}{topological space} $X$ is \textbf{contractible} if the identity map $\id_X$ is \tref{null-homotopic}{null homotopic}, that is, if it is homotopic to some constant map.
+\end{topic}
+
+\begin{topic}{cw-complex}{CW-complex}
+    Let $A$ be a \tref{TO:topological-space}{topological space}. A \textbf{CW-complex} relative to $A$ is a topological space $X$ together with a sequence of subspaces
+    \[ A = X_{-1} \subset X_0 \subset X_1 \subset \cdots \subset X \]
+    such that
+    \begin{itemize}
+        \item for every $n \ge 0$, the space $X_n$ arises from $X_{n - 1}$ by \textit{attaching $n$-cells}, that is, there is a pushout square
+        \[ \svg \begin{tikzcd}
+            J_n \times \partial D^n \arrow{r}{f_n} \arrow[hook]{d} & X_{n - 1} \arrow{d} \\ J_n \times D^n \arrow{r} & X_n
+        \end{tikzcd} \]
+        with $J_n$ an indexing set and where $f_n$ is called the \textit{attaching map}.
+        \item $X = \bigcup_{n \ge -1} X_n$, and a subset $U \subset X$ is open if and only if $U \cap X_n$ is open in $X_n$ for all $n \ge -1$.
+    \end{itemize}
+    
+    The subspace $X_n \subset X$ is called the \textit{$n$-skeleton} of $(X, A)$.
+    
+    A CW-complex is \textbf{absolute} if it is relative to the empty space $\varnothing$.
+    
+    A CW-complex is \textbf{finite dimensional} if $X = X_n$ for some $n \ge 0$.
+    
+    A CW-complex is \textbf{finite} if it is finite dimensional and the indexing sets $J_n$ are finite for each $n$.
+\end{topic}
+
+\begin{example}{cw-complex}
+    \begin{itemize}
+        \item The surface of a cube has the structure of an absolute CW-complex where the $0$-cells are the $8$ vertices, the $1$-cells are the $12$ edges, and the $2$-cells are the $6$ faces.
+        \item The $n$-sphere $S^n$ has the structure of an absolute CW-complex with one $0$-cell and one $n$-cell.
+        \item The real projective space $\PP_\RR^n$ has the structure of an absolute CW-complex having a single $k$-cell for each $0 \le k \le n$.
+\end{itemize}
+\end{example}
+
+\begin{topic}{cellular-map}{cellular map}
+    A map $f : (X, A) \to (Y, B)$ of \tref{cw-complex}{relative CW-complexes} is called \textbf{cellular} if $f(X_n) \subset Y_n$ for all $n \ge -1$. Here $X_n$ denotes the $n$-skeleton of $X$.
+\end{topic}
+
+\begin{topic}{cellular-approximation}{cellular approximation}
+    The \textbf{cellular approximation theorem} states that every map $f : (X, A) \to (Y, B)$ of \tref{cw-complex}{relative CW-complexes} is \tref{homotopy}{homotopic} relative to $A$ to a \tref{cellular-map}{cellular map}.
+    
+    That is, there exists a continuous map $H : X \times [0, 1] \to Y$ such that $H(x, 0) = f(x)$ for all $x \in X$, the map $x \mapsto = H(x, 1)$ is cellular, and $H(a, t) = f(a)$ for all $a \in A$ and $t \in [0, 1]$.
+\end{topic}
+
+\begin{topic}{whitehead-theorem}{Whitehead theorem}
+    The \textbf{Whitehead theorem} states that any \tref{weak-homotopy-equivalence}{weak homotopy equivalence} $f : X \to Y$ between \tref{cw-complex}{CW-complexes} is a \tref{homotopy-equivalence}{homotopy equivalence}.
+\end{topic}
+
+\begin{topic}{loop-space}{loop space}
+    The \textbf{loop space} of a \tref{TO:topological-space}{topological space} $X$ with basepoint $x \in X$ is the \tref{TO:mapping-space}{mapping space}
+    \[ \Omega_x X = \textup{Map}((S^1, \textup{pt}), (X, x)) . \]
+    
+    Without basepoints, one speaks of the \textbf{free loop space} $\mathcal{L} X$.
+\end{topic}
+
+\begin{example}{loop-space}
+    For any pointed spaces $X, Y$, there is a natural bijection
+    \[ [\Sigma X, Y] \isom [X, \Omega Y], \]
+    where $[A, B]$ denotes the set of homotopy classes of maps $A \to B$, and $\Sigma X$ is the \tref{TO:suspension}{suspension} of $X$.
+    In particular, this yields
+    \[ \pi_k(\Omega X) = [ S^k, \Omega X ] \isom [ \Sigma S^k, X ] \isom [ S^{k + 1}, X ] = \pi_{k + 1}(X) , \]
+    which is in fact an isomorphism of groups for $k \ge 1$.
+\end{example}
+
+\begin{topic}{path-space}{path space}
+    The \textbf{path space} of a \tref{TO:topological-space}{topological space} $X$ with basepoint $x \in X$ is the subspace of the \tref{TO:mapping-space}{mapping space} $\textup{Map}([0, 1], X)$ of paths starting at $x$.
+    \[ P_x X = \{ \gamma \in \textup{Map}([0, 1], X) : \gamma(0) = x \} \]
+\end{topic}
+
+\begin{topic}{homotopy-fiber}{homotopy fiber}
+    Let $f : X \to Y$ be a \tref{TO:continuous-map}{continuous map} of pointed spaces $X, Y$ with basepoints $x \in X$ and $y \in Y$. Then the \textbf{homotopy fiber} of $f$ is the space
+    \[ \textup{hofib}(f) = X \times_Y P Y = \{ (x, \gamma) \in X \times P Y : f(x) = \gamma(1) \} , \]
+    where $P Y$ denotes the \tref{path-space}{path space} of $Y$.
+\end{topic}
+
+\begin{example}{homotopy-fiber}
+    The map $f : X \to Y$ can be factorized as
+    \[ X \xrightarrow{i} P_f \xrightarrow{p} Y , \]
+    where $i(x) = (x, \textup{const}_y)$ is a \tref{homotopy-equivalence}{homotopy equivalence}, and $p(x, \gamma) = \gamma(0)$ a \tref{hurewicz-fibration}{Hurewicz fibration}. Note that the fiber of $p$ is precisely the homotopy fiber $\textup{hofib}(f)$. Hence, we obtain a long exact sequence
+    \[ \cdots \to \pi_n(\textup{hofib}(f)) \to \pi_n P_f \to \pi_n Y \to \pi_{n - 1}(\textup{hofib}(f)) \to \cdots \]
+    where $\pi_n P_f \isom \pi_n X$ since $i$ is a homotopy equivalence.
+    
+    Now the point is that the homotopy fibers of two maps that are (weakly) homotopy equivalent, are (weakly) homotopy equivalent as well. That is, given a commutative square
+    \[ \svg \begin{tikzcd} X \arrow[swap]{d}{f} \arrow["g"']{r}{\sim} & X' \arrow{d}{f'} \\ Y \arrow["h"']{r}{\sim} & Y' \end{tikzcd} \]
+    where the horizontal arrows are \tref{weak-homotopy-equivalence}{weak homotopy equivalences}, the induced map
+    \[ \textup{hofib}(f) \to \textup{hofib}(f'), \quad (x, \gamma) \mapsto (g(x), h \circ \gamma) \]
+    is a weak homotopy equivalence as well. This follows directly from the two long exact sequences corresponding to $f$ and $f'$ as above, and the \tref{HA:five-lemma}{five lemma}.
+\end{example}
+
+\begin{topic}{homotopy-cofiber}{homotopy cofiber}
+    Let $f : X \to Y$ be a \tref{TO:continuous-map}{continuous map} of pointed spaces $X, Y$ with basepoints $x \in X$ and $y \in Y$. Then the \textbf{homotopy cofiber} of $f$ is the space
+    \[ C(f) = Y \cup_X CX , \]
+    where $CX = X \times [0, 1] / (X \times \{ 1 \} \cup \{ x \} \times [0, 1])$ denotes the \textit{reduced cone} of $X$, and $X$ is identified with $X \times \{ 0 \}$.
+\end{topic}
+
+\begin{topic}{postnikov-tower}{Postnikov tower}
+    Let $X$ be a \tref{TO:path-connected-space}{path-connected} pointed \tref{TO:topological-space}{space}. A \textbf{Postnikov tower} of $X$ is a commutative diagram of pointed spaces
+    \[ \svg \begin{tikzcd}
+        & \vdots \arrow{d} \\ & P_3 X \arrow{d} \\ & P_2 X \arrow{d} \\ X \arrow{r} \arrow{ru} \arrow{ruu} & P_1 X
+    \end{tikzcd} \]
+    such that for every $n \ge 1$,
+    \begin{itemize}
+        \item the map $X \to P_n X$ induces isomorphisms $\pi_k X \to \pi_k P_n X$ for all $k \le n$,
+        \item $\pi_k P_n X = 0$ for all $k > n$.
+    \end{itemize}
+    It is a theorem that a Postnikov tower of $X$ exists, and it is unique up to \tref{weak-homotopy-equivalence}{weak homotopy equivalence}.
+\end{topic}
+
+\begin{topic}{whitehead-tower}{Whitehead tower}
+    Let $X$ be a \tref{TO:path-connected-space}{path-connected} pointed \tref{TO:topological-space}{space}. A \textbf{Whitehead tower} of $X$ is a commutative diagram of pointed spaces
+    \[ \svg \begin{tikzcd}
+        \vdots \arrow{d} & \\ W_3 X \arrow{d} \arrow{ddr} & \\ W_2 X \arrow{d} \arrow{dr} & \\ W_1 X \arrow{r} & X
+    \end{tikzcd} \]
+    such that for every $n \ge 1$,
+    \begin{itemize}
+        \item the map $W_n X \to X$ induces isomorphisms $\pi_k W_n X \to \pi_k X$ for all $k > n$,
+        \item $\pi_k W_n X = 0$ for all $k \le n$.
+    \end{itemize}
+    It is a theorem that a Whitehead tower of $X$ exists, and it is unique up to \tref{weak-homotopy-equivalence}{weak homotopy equivalence}. In fact, one can take $W_n X$ to be the \tref{homotopy-fiber}{homotopy fiber} $\textup{hofib}(X \to P_n X)$ for a \tref{postnikov-tower}{Postnikov tower} $P_n X$.
+\end{topic}
+
+\begin{topic}{cofibration}{cofibration}
+    A map $i : A \to X$ of \tref{TO:topological-space}{topological spaces} is a \textbf{cofibration} if for any space $Y$ and map $f$ as in the diagram
+    \[ \svg \begin{tikzcd} X \times \{ 0 \} \cup A \times [0, 1] \arrow{r}{f} \arrow{d} & Y \\ X \times [0, 1] \arrow[dashed]{ur}{g} \end{tikzcd} \]
+    there exists an extension $g : X \times [0, 1] \to Y$. That is, the map $i$ satisfies the \tref{homotopy-extension-property}{homotopy extension property}.
+\end{topic}
+
+\begin{topic}{well-pointed-space}{well-pointed space}
+    A pointed \tref{TO:topological-space}{topological space} $X$ with basepoint $x_0$ is \textbf{well-pointed} if the inclusion $\{ x_0 \} \to X$ is a \tref{cofibration}{cofibration}.
+\end{topic}
+
+\begin{topic}{hurewicz-homomorphism}{Hurewicz homomorphism}
+    Let $X$ be a pointed \tref{TO:topological-space}{topological space}, $n \ge 1$ an integer, and $\iota_n \in H_n(S^n) \isom \ZZ$ a generator. Then the \textbf{Hurewicz homomorphism} is the \tref{GT:group-homomorphism}{group homomorphism}
+    \[ \pi_n(X) \to H_n(X), \quad [f] \mapsto f_* \iota_n . \]
+\end{topic}
+
+\begin{topic}{hurewicz-theorem}{Hurewicz theorem}
+    Let $n \ge 1$ be a fixed number, and suppose $X$ is a pointed \tref{TO:topological-space}{topological space} with $\pi_i(X) = 0$ for $i < n$. The \textbf{Hurewicz theorem} states that the \tref{reduced-homology}{reduced homology} $\tilde{H}_i(X) = 0$ for $i < n$ and the \tref{hurewicz-homomorphism}{Hurewicz homomorphism} induces an isomorphism
+    \[ H_n(x) \isom \left\{ \begin{array}{ll} \pi_1(X) / [\pi_1(X), \pi_1(X)] & \text{ if } n = 1 , \\ \pi_n(X) & \text{ if } n > 1 . \end{array} \right. \]
+\end{topic}
+
+\begin{topic}{reduced-homology}{reduced homology}
+    Let $X$ be a \tref{TO:topological-space}{topological space} and $A$ an abelian group. The \textbf{reduced homology} of $X$ with coefficients in $A$ is defined by
+    \[ \tilde{H}_n(X; A) = \left\{ \begin{array}{ll} \ker(H_0(X; A) \to H_0(\star; A)) & \text{ if } n = 0 , \\ H_n(X; A) & \text{ if } n > 0 , \end{array} \right. \]
+    where $H_0(X; A) \to H_0(\star; A)$ is the map induced by the map $X \to \star$ to the one-point space.
+\end{topic}
+
+\begin{topic}{reduced-cohomology}{reduced cohomology}
+    Let $X$ be a \tref{TO:topological-space}{topological space} with basepoint $x_0 \in X$ and $A$ an abelian group. The \textbf{reduced cohomology} of $X$ with coefficients in $A$ is defined by $\tilde{H}^n(X; A) = H^n(X, \{ x_0 \}; A)$.
+\end{topic}
+
+\begin{topic}{generalized-cohomology-theory}{generalized cohomology theory}
+    A \textbf{generalized cohomology theory} is a sequence of contravariant \tref{CT:functor}{functors} $h^i$, indexed by $i \in \ZZ$, from the category of \tref{cw-complex}{CW-pairs} $(X, A)$ to the category of \tref{GT:abelian-group}{abelian groups}, together with a \tref{CT:natural-transformation}{natural transformation} $d^i : h^i(A) \to h^{i + 1}(X, A)$ called the \textit{boundary morphism} (writing $h^i(A)$ for $h^i(A, \varnothing)$). These should satisfy the following axioms:
+    \begin{itemize}
+        \item (\textit{homotopy}) \tref{homotopy}{homotopic} maps induce the same map on cohomology,
+        \item (\textit{exactness}) each pair $(X, A)$ induces a long exact sequence, via the inclusions $i : A \to X$ and $j : (X, \varnothing) \to (X, A)$,
+        \[ \cdots \rightarrow h^i(X, A) \xrightarrow{j_*} h^i(X) \xrightarrow{i_*} h^i(A) \xrightarrow{d} h^{i + 1}(X, A) \rightarrow \cdots \]
+        \item (\textit{excision}) if $X$ is the union of subcomplexes $A$ and $B$, then the inclusion $f : (A, A \cap B) \to (X, B)$ induces isomorphisms
+        \[ h^i(X, B) \xrightarrow{f_*} h^i(A, A \cap B) \]
+        for every $i$.
+        \item (\textit{additivity}) if $(X, A)$ is the disjoint union of $(X_\alpha, A_\alpha)$, then the natural map
+        \[ h^i(X, A) \to \prod_\alpha h^i(X_\alpha, A_\alpha) \]
+        is an isomorphism for every $i$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{poincare-polynomial}{Poincaré polynomial}
+    The \textbf{Poincaré polynomial} of a \tref{TO:topological-space}{topological space} $X$ is the generating function of its \tref{betti-number}{Betti numbers},
+    \[ P(X) = \sum_{n = 0}^\infty b_n(X) t^n . \]
+\end{topic}
+
+\begin{example}{poincare-polynomial}
+    \begin{itemize}
+        \item $P(\text{contractible space}) = 1$,
+        \item $P(S^n) = 1 + t^n$, where $S^n$ is the $n$-sphere,
+        \item $P(\mathbb{T}^n) = (1 + t)^n$, where $\mathbb{T}^n$ is an $n$-torus,
+        \item $P(\Sigma_g) = 1 + 2gt + t^2$, where $\Sigma_g$ is a compact surface of genus $g$,
+        \item $P(\RR \PP^{2n}) = 1$ and $P(\RR \PP^{2n + 1}) = 1 + t^n$ and $P(\CC \PP^n) = 1 + t^2 + \cdots + t^{2n}$,
+        \item $P(X \sqcup Y) = P(X) + P(Y)$,
+        \item $P(X \times Y) = P(X) P(Y)$,
+        \item $P(X \vee Y) = P(X) + P(Y) - 1$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{cellular-homology}{cellular homology}
+    Let $X$ be a \tref{cw-complex}{CW-complex}, and write $X_n$ for the $n$-skeleton, $J_n$ for the indexing set of $n$-cells, and $f_n^i : \partial D^n \to X_{n - 1}$ for the attaching map of cell $i \in J_n$. The \textbf{cellular complex} $\tilde{C}_\bdot(X; A)$ of $X$ with coefficients in an \tref{GT:abelian-group}{abelian group} $A$ is given by the \tref{relative-homology}{relative homology groups}
+    \[ \tilde{C}_n(X; A) = H_n(X_n, X_{n - 1}; A) , \]
+    with differentials $\tilde{\partial}_n : \tilde{C}_n(X; A) \to \tilde{C}_{n - 1}(X; A)$ given by the connecting homomorphism of the long exact sequence of the triple $X_{n - 2} \subset X_{n - 1} \subset X_n$. The \textbf{cellular homology} of $X$ with coefficients in $A$ is then given
+    \[ H_n(X; A) = H_n(\tilde{C}_\bdot(X; A)) . \]
+    More practically, the cellular complex can be expressed as
+    \[ \tilde{C}_n(X; A) \isom A[J_n] \quad \textup{ with } \quad \tilde{\partial}_n(e_n^i) = \sum_{j \in J_{n - 1}} \deg(\chi_n^{ij}) e_{n - 1}^j , \]
+    where $e_n^i$ denotes the generator corresponding to the $n$-cell $i \in J_n$, and $\chi_n^{ij} : S^{n - 1} \to S^{n - 1}$ denotes the composition
+    \[ S^{n - 1} \isom \partial e_n^i \xrightarrow{f_n^i} X_{n - 1} \xrightarrow{q} X_{n - 1} / (X_{n - 1} \setminus e_{n - 1}^j) \isom S^{n - 1} . \]
+\end{topic}
+
+\begin{example}{cellular-homology}
+    The torus $\mathbb{T}^2 = \RR^2 / \ZZ^2$ can be realized as a CW-complex with one $0$-cell $p$, two $1$-cells $v$ and $w$, and one $2$-cell $u$.
+    \[ \begin{tikzpicture}[scale=2.0]
+        \draw (0, 0) -- (1, 0) -- (1, 1) -- (0, 1) -- (0, 0);
+        \draw[black,fill=black] (0,0) circle (.2ex);
+        \draw[black,fill=black] (0,1) circle (.2ex);
+        \draw[black,fill=black] (1,0) circle (.2ex);
+        \draw[black,fill=black] (1,1) circle (.2ex);
+        \node at (-0.1, -0.1) {$p$};
+        \node at (-0.1, 1.1) {$p$};
+        \node at (1.1, -0.1) {$p$};
+        \node at (1.1, 1.1) {$p$};
+        \node at (-0.1, 0.5) {$v$};
+        \node at (1.1, 0.5) {$v$};
+        \node at (0.5, -0.1) {$w$};
+        \node at (0.5, 1.1) {$w$};
+        \node at (0.5, 0.5) {$u$};
+        \draw[-{Latex}] (0.5,0) -- +(0.1,0);
+        \draw[-{Latex}] (0.5,1) -- +(0.1,0);
+        \draw[-{Latex}] (0,0.5) -- +(0,0.1);
+        \draw[-{Latex}] (1,0.5) -- +(0,0.1);
+    \end{tikzpicture} \]
+    Hence, the cellular complex $\tilde{C}_\bdot(\mathbb{T}^2; \ZZ)$ has the form
+    \[ 0 \to \ZZ \cdot e_2^u \xrightarrow{\tilde{\partial}_2} \ZZ \cdot e_1^v \oplus \ZZ \cdot e_1^w \xrightarrow{\tilde{\partial}_1} \ZZ \cdot e_0^p \to 0 . \]
+    Since the $1$-cells $v$ and $w$ begin and end at the same point, we have $\tilde{\partial}_1(v) = \tilde{\partial}_1(w) = e_0^p - e_0^p = 0$. To compute $\tilde{\partial}_2(e_2^u)$, note that the attaching map $f_2^u$ runs through $v$, then $w$, then backwards through $v$ and backwards through $w$. Hence, $\tilde{\partial}_2(e_2^u) = 0$ as well. In conclusion,
+    \[ H_n(\mathbb{T}^2; \ZZ) = \left\{ \begin{array}{cl} \ZZ & \textup{ if } n = 0, 2 , \\ \ZZ \oplus \ZZ & \textup{ if } n = 1 , \\ 0 & \textup{ otherwise.}  \end{array} \right. \]
+\end{example}
+
+\begin{topic}{factorization-homology}{factorization homology}
+    Let $\textbf{Mfld}_n^\textup{fr}$ be the \tref{CT:symmetric-monoidal-category}{symmetric monoidal} \tref{CT:infinity-category}{$\infty$-category} of \tref{DG:parallelizable-manifold}{framed manifolds} under the disjoint union operator, whose $1$-morphisms are given by \tref{DG:embedding}{embeddings}, whose $2$-morphisms are given by \tref{TO:isotopy}{isotopies}, etc. Let $\textbf{Disk}_n$ be the \tref{CT:full-subcategory}{full subcategory} of $\textbf{Mfld}_n^\textup{fr}$ consisting of disjoint unions of $n$-disks. An \tref{HT:en-algebra}{$E_n$-algebra} $\mathcal{E}$ of a symmetric monoidal $\infty$-category $\mathcal{C}$ can be regarded as a functor $\mathcal{E} : \textbf{Disk}_n \to \mathcal{C}$, and the \textbf{factorization homology} with coefficients in $\mathcal{E}$ is defined as the \tref{CT:kan-extension}{left Kan extension} of $\mathcal{E}$ along the inclusion $i : \textbf{Disk}_n \to \textbf{Mfld}_n^\textup{fr}$, also denoted by $\int_{(-)} \mathcal{E}$.
+    \[ \svg \begin{tikzcd} \textbf{Disk}_n \arrow[swap]{d}{i} \arrow{r}{\mathcal{E}} & \mathcal{C} \\ \textbf{Mfld}_n^\textup{fr} \arrow[dashed, swap]{ur}{\int_{(-)} \mathcal{E}} \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{factorization-homology}
+    \begin{itemize}
+        \item Let $A$ be an \tref{GT:abelian-group}{abelian group} and $M$ a smooth manifold, then $\int_M A \isom H_\bdot(M; A)$, the \tref{AT:singular-homology}{singular homology} of $A$ with coefficients in $A$.
+        \item Let $A$ be an associative algebra, then $\int_{S^1} A \isom HH_\bdot(A)$, the \tref{AA:hochschild-homology}{Hochschild homology} of $A$. Indeed, from $S^1 = D^1 \sqcup_{D^1 \times S^0} D^1$ follows that
+        \[ \int_{S^1} A \isom \int_{D^1} A \mathbin{\mathop{\overset{\textup{L}}{\otimes}}\limits_{\int_{D^1 \times S^0} A}} \int_{D^1} A \isom A \mathbin{\mathop{\overset{\textup{L}}{\otimes}}\limits_{A \otimes A^\textup{op}}} A \isom \textup{Tor}^{A^\textup{e}}_*(A, A) \isom HH_\bdot(A) . \]
+    \end{itemize}    
+\end{example}
+
+\begin{topic}{spectrum}{spectrum}
+    A \textbf{spectrum} is a sequence $E = (E_n)_{n \ge 0}$ of pointed spaces (sometimes taken to be \tref{cw-complex}{CW-complexes}), together with maps $\Sigma E_n \to E_{n + 1}$, where $\Sigma$ denotes the \tref{TO:suspension}{reduced suspension}.
+\end{topic}
+
+% \begin{topic}{spectrum}{spectrum}
+%     A \textbf{spectrum} is a sequence of pointed \tref{TO:topological-space}{topological spaces} $E = (E_n)_{n \ge 0}$ equipped with \tref{weak-homotopy-equivalence}{weak homotopy equivalences} $E_n \xrightarrow{\sim} \Omega E_{n + 1}$, where $\Omega E_{n + 1}$ denotes the \tref{loop-space}{loop space} of $E_{n + 1}$.
+% \end{topic}
+
+\begin{example}{spectrum}
+    \begin{itemize}
+        \item For any pointed topological space $X$, its \textit{suspension spectrum} $\Sigma^\infty X$ is the spectrum where $(\Sigma^\infty X)_n = \Sigma^n X$ is the $n$-fold reduced suspension of $X$, together with the identity maps
+        \[ \Sigma \Sigma^n X \to \Sigma^{n + 1} X . \]
+        \item For a fixed \tref{GT:abelian-group}{abelian group} $G$, the sequence $E_n = K(G, n)$ of \tref{eilenberg-maclane-space}{Eilenberg--MacLane spaces} defines a spectrum.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{euler-characteristic}{Euler characteristic}
+    Let $X$ be a \tref{TO:topological-space}{topological space}. The \textbf{Euler characteristic} of $X$ is alternating sum of its \tref{betti-number}{Betti numbers},
+    \[ \chi(X) = \sum_{n \ge 0} (-1)^n \dim_\QQ H_n(X; \QQ) , \]
+    provided the sum is finite.
+\end{topic}
+
+\begin{example}{euler-characteristic}
+    \begin{itemize}
+        \item Since $H_i(S^n; \QQ)$ is non-trivial only for $i = 0$ and $i = n$, we find
+        \[ \chi(S^n) = \dim_\QQ H_0(S^n; \QQ) + (-1)^n \dim_\QQ H_n(S^n; \QQ) = 1 + (-1)^n = \left\{ \begin{array}{cl} 0 & \textup{ if $n$ odd}, \\ 2 & \textup{ if $n$ even}. \end{array} \right. \]
+        \item From the relation $\chi(X \times Y) = \chi(X) \chi(Y)$ follows that $\chi(\mathbb{T}^n) = 0$ for all tori $\mathbb{T}^n = (S^1)^n$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{brouwer-fixed-point-theorem}{Brouwer fixed point theorem}
+    Let $f : D^n \to D^n$ be a \tref{TO:continuous-map}{continuous map} where $D^n = \{ x \in \RR^n \mid \norm{x} \le 1 \}$ is the $n$-disk. Then \textbf{Brouwer's fixed point theorem} states that there exists some $x \in D^n$ with $f(x) = x$.
+\end{topic}
+
+\begin{example}{brouwer-fixed-point-theorem}
+    \begin{proof}
+        Suppose for a contradiction that $f(x) \ne x$ for all $x \in D^n$. Then there exists a unique line from $f(x)$ to $x$, and we let $r(x) \in \partial D^n$ be the point where this line intersects the boundary of $D^n$ (closer to $x$ than to $f(x)$). The resulting map $r : D^n \to \partial D^n$ can be shown to be continuous, and since clearly $r(x) = x$ for all $x \in \partial D^n$, the map $r$ is a \tref{CT:retraction}{retraction} of the inclusion $i : \partial D^n \to D^n$, that is, $r \circ i = \id_{\partial D^n}$. Looking at \tref{singular-homology}{singular homology} $H_{n - 1}(-; \ZZ)$, we find that the composition
+        \[ H_{n - 1}(\partial D^n; \ZZ) \xrightarrow{i_*} H_{n - 1}(D^n; \ZZ) \xrightarrow{r_*} H_{n - 1}(\partial D^n; \ZZ) , \]
+        must equal the identity. However, $H_{n - 1}(\partial D^n; \ZZ) = H_{n - 1}(S^{n - 1}; \ZZ) \isom \ZZ$ and $H_{n - 1}(D^n; \ZZ) = 0$, and clearly the identity $\id : \ZZ \to \ZZ$ cannot factor through $0$, so we have a contradiction.
+    \end{proof}
+\end{example}
+
+\begin{topic}{lefschetz-fixed-point-theorem}{Lefschetz fixed point theorem}
+    Let $X$ be a \tref{cw-complex}{finite CW-complex}, and $f : X \to X$ be a \tref{TO:continuous-map}{continuous map}. The \textbf{Lefschetz number} of $f$ is defined as
+    \[ \Lambda_f = \sum_{k \ge 0} (-1)^k \tr \left(f_* : H_k(X; \QQ) \to H_k(X; \QQ) \right) , \]
+    the alternating (finite) sum of traces of the maps induced by $f$ on the \tref{singular-homology}{singular homology} of $X$. \textbf{Lefschetz fixed point theorem} states that if $\Lambda_f \ne 0$, then there exists some $x \in X$ with $f(x) = x$.
+\end{topic}
+
+\begin{example}{lefschetz-fixed-point-theorem}
+    \tref{brouwer-fixed-point-theorem}{Brouwer's fixed point theorem} follows from Lefschetz fixed point theorem. Namely, let $f : D^n \to D^n$ be a continuous map. Note that $H_0(D^n; \QQ) = \QQ$ and $H_i(D^n; \QQ) = 0$ for all $i > 0$. Since $f_* : H_0(D^n; \QQ) \to H_0(D^n; \QQ)$ is the identity map, it follows that $\Lambda_f = 1 \ne 0$, so $f$ has a fixed point.
+\end{example}
+
+\begin{topic}{aspherical-space}{aspherical space}
+    A \tref{TO:topological-space}{topological space} $X$ is \textbf{aspherical} if its \tref{homotopy-group}{homotopy groups} $\pi_n(X)$ are zero for all $n > 1$. 
+\end{topic}
+
+\begin{topic}{dold-thom-theorem}{Dold--Thom theorem}
+    Let $X$ be a \tref{TO:connected-space}{connected} \tref{cw-complex}{CW-complex} with basepoint $x \in X$. The symmetric products $\operatorname{SP}^n(X) = X^n / S_n$ admit embeddings $\operatorname{SP}^n(X) \to \operatorname{SP}^{n + 1}(X)$ via $(x_1, \ldots, x_n) \mapsto (x_1, \ldots, x_n, x)$. The infinite symmetric product of $X$ is the colimit
+    \[ \operatorname{SP}^\infty(X) = \colim_{n \ge 0} \operatorname{SP}^n(X) . \]
+    The \textbf{Dold--Thom theorem} states that the \tref{homotopy-group}{homotopy groups} of $\operatorname{SP}^\infty(X)$ are isomorphic to the \tref{reduced-homology}{reduced homology} of $X$,
+    \[ \pi_n(\operatorname{SP}^\infty(X)) \isom \tilde{H}_n(X; \ZZ) . \]
+\end{topic}
+
+\begin{topic}{universal-bundle}{universal bundle}
+    Let $G$ be a \tref{TO:topological-group}{topological group}. A \textbf{universal $G$-bundle} is a \tref{TO:principal-bundle}{principal $G$-bundle} $\pi : EG \to BG$ whose total space $EG$ is \tref{contractible-space}{contractible}.
+    
+    It has the property that for any principal $G$-bundle $P \to X$, there exists a map $X \to BG$ such that $P \isom X \times_{BG} EG$.
+    \[ \svg \begin{tikzcd}
+        P \arrow{d} \arrow{r} & EG \arrow{d}{\pi} \\
+        X \arrow{r} & BG
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{universal-bundle}
+    \begin{itemize}
+        \item For $G = \{ 1 \}$, the map $\star \to \star$ is a universal $G$-bundle.
+        \item For $G = \CC^*$, the map $\CC^\infty \setminus \{ 0 \} \to \CC \PP^\infty$ is a universal $G$-bundle.
+        \item For $G = S^1$, the map $S^\infty \to \CC \PP^\infty$ is a universal $G$-bundle.
+        \item For $G = \textup{GL}_n(\CC)$, the map
+        \[ M \to \textup{Gr}(n, \CC^\infty) \]
+        is a universal $G$-bundle, where $\textup{Gr}(n, \CC^\infty)$ denotes the \tref{LA:grassmannian}{Grassmanian} of $n$-dimensional subspaces in $\CC^\infty$, and $M$ denotes the space of $\infty \times n$ matrices of full rank $n$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{equivariant-cohomology}{equivariant cohomology}
+    Let $G$ be a \tref{TO:topological-group}{topological group} \tref{GT:group-action}{acting} on a \tref{TO:topological-space}{topological space} $X$, and $A$ an \tref{GT:abelian-group}{abelian group}. The \textbf{equivariant cohomology} of $X$ with coefficients in $A$ is
+    \[ H_G^\bdot(X; A) = H^\bdot(EG \times_G X; A), \]
+    that is, the \tref{AT:singular-homology}{singular cohomology} of $EG \times_G X = (EG \times X) / G$, where $EG$ denotes a \tref{universal-bundle}{universal $G$-bundle} and $G$ acts diagonally on $EG \times X$.
+\end{topic}
+
+\begin{topic}{classifying-space}{classifying space}
+    Let $G$ be a \tref{TO:topological-group}{topological group}. A \textbf{classifying space} $BG$ of $G$ is the \tref{TO:quotient-topology}{quotient} $EG/G$ of a \tref{universal-bundle}{universal $G$-bundle} $EG \to BG$.
+\end{topic}
+
+\begin{topic}{freudenthal-suspension-theorem}{Freudenthal suspension theorem}
+    Let $X$ be a pointed \tref{TO:n-connected-space}{$n$-connected} \tref{cw-complex}{CW-complex}. The natural map $X \to \Omega (\Sigma X)$, coming from the unit of the adjunction $\Sigma \dashv \Omega$ between the \tref{loop-space}{loop space} $\Omega$ and \tref{TO:suspension}{suspension} $\Sigma$, induces a morphism
+    \[ \pi_k(X) \to \pi_k(\Omega(\Sigma X)) \isom \pi_{k + 1}(\Sigma X) . \]
+    The \textbf{Freudenthal suspension theorem} states that this map is an \tref{CT:isomorphism}{isomorphism} for $k \le 2n$ and surjective for $k = 2n + 1$.
+\end{topic}
+
+\begin{topic}{thom-gysin-sequence}{Thom--Gysin sequence}
+    Let $R$ be a \tref{AA:ring}{commutative ring}. Let $\pi : E \to B$ be a \tref{serre-fibration}{Serre fibration}  with fiber $S^n$, where $B$ is a \tref{TO:simply-connected-space}{simply connected} \tref{cw-complex}{CW-complex}. The \textbf{Thom--Gysin sequence} is the long exact sequence of homology groups
+    \[ \cdots \to H^k(B; R) \xrightarrow{\pi^*} H^k(E; R) \to H^{k - n}(B; R) \xrightarrow{e \cup (-)} H^{k + 1}(B; R) \to \cdots \]
+    for an element $e \in H^{n + 1}(B; R)$ called the \textit{Euler class} of $\pi$.
+\end{topic}
+
+\begin{topic}{intersection-homology}{intersection homology}
+    Let $X$ be a \textit{topologically pseudomanifold} of dimension $m$, that is, a \tref{TO:paracompact-space}{paracompact space} with a filtration by closed subspaces
+    \[ X = X_m \supset X_{m - 1} \supset \cdots \supset X_0 \supset X_{-1} = \varnothing \]
+    with $X_{m - 1} = X_{m - 2}$, such that for all $x \in X_k \setminus X_{k - 1}$, there exists a neighborhood $N_x$ of $x$ in $X$, a compact topologically pseudomanifold $L = L_{m - k - 1} \supset \cdots \supset L_0$ of dimension $m - k - 1$, and a homeomorphism $\phi : N_x \to \RR^k \times C(L)$ (with $C(L)$ the open cone of $L$) such that \textit{(i)} $\phi$ takes $N_x \cap X_{k + i + 1}$ homeomorphically to $\RR^k \times C(L_i)$ for $0 \le i \le m - k - 1$, and \textit{(ii)} $\phi$ takes $N_x \cap X_k$ homeomorphically to $\RR^k \times \{ \textup{vertex} \}$.
+
+    A \textbf{perversity} is a function $p : \ZZ_{\ge 2} \to \ZZ$ such that $p(2) = 0$ and $p(k + 1) - p(k) \in \{ 0, 1 \}$ for all $k \ge 2$.
+
+    Given a perversity $p$, a \tref{singular-homology}{singular $i$-simplex} $\sigma : \Delta^i \to X$ is \textbf{$p$-allowable} if $\sigma^{-1}(X_{m - k} \setminus X_{m - k - 1})$ is contained in the $(i - k + p(k))$-skeleton of $\Delta^i$ for all $k \ge 2$. A singular $i$-chain $\xi = \sum_j a_j \sigma_j$ is \textbf{$p$-allowable} if all singular $i$-simplices (with non-zero coefficient) appearing in $\xi$ or $\partial \xi$ are $p$-allowable.
+
+    The \textbf{intersection chain complex} of $X$ (with perversity $p$ and coefficients in $A$) is the subcomplex $I^p C_\bdot(X; A) \subset C_\bdot(X; A)$ of $p$-allowable singular simplices. The \textbf{intersection homology} of $X$ are the \tref{HA:homology-object}{homology groups} of this complex,
+    \[ I^p H_i(X; A) = H_i(I^p C_\bdot(X; A)) . \]
+\end{topic}
+
+\begin{example}{intersection-homology}
+    Let $X$ be the \tref{TO:suspension}{suspension} of two disjoint circles (think of two bananas whose ends are connected). The singular homology of $X$ is given by
+    \[ H_0(X; \QQ) = \QQ, \quad H_1(X; \QQ) = \QQ, \quad H_2(X; \QQ) = \QQ \oplus \QQ . \]
+    Indeed, $X$ has one connected component, $H_1(X; \QQ)$ is generated by the loop along both bananas, and $H_2(X; \QQ)$ is generated by the $2$-chains given by the bananas.
+
+    In contrast, let us consider the intersection homology of $X = X_2 \supset X_1 = X_0 = \{ a, b \}$, where $a$ and $b$ are the points connecting the two bananas. Since we only need $p(2) = 0$, the choice of perversity does not matter. The $p$-allowable singular $0$-simplices are those points that are not $a$ and $b$. The $p$-allowable singular $1$-simplices are those that do not hit $a$ and $b$. The $p$-allowable singular $2$-simplices are those $\sigma : \Delta^2 \to X$ such that $\sigma^{-1}(\{ a, b \})$ only contains the vertices of $\Delta^2$. Therefore, one finds
+    \[ I^p H_0(X; \QQ) = \QQ \oplus \QQ, \quad I^p H_1(X; \QQ) = 0, \quad I^p H_2(X; \QQ) = \QQ \oplus \QQ \]
+    where $I^p H_0(X; \QQ)$ is generated by a point on each banana, and $I^p H_2(X; \QQ)$ is the same as $H_2(X; \QQ)$. Note that the singular $1$-chain which goes along both bananas is no longer allowed. Also, two points on different bananas cannot be connected by an (allowable) $1$-chain anymore.
+\end{example}

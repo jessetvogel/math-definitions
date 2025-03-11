@@ -1,0 +1,656 @@
+\begin{topic}{vector-space}{vector space}
+    A \textbf{vector space} over a \tref{AA:field}{field} $k$ is a \tref{AA:module}{$k$-module}. Its elements are called \textit{vectors}.
+    Concretely, a vector space over $k$ is a set $V$ with a distinguished object $0 \in V$ and two operations
+    \[ + : V \times V \to V, \quad \cdot : k \times V \to V \]
+    satisfying
+    \begin{itemize}
+        \item (\textit{commutativity}) $x + y = y + x$ for all $x, y \in V$,
+        \item (\textit{associativity}) $(x + y) + z = x + (y + z)$ for all $x, y, z \in V$,
+        \item (\textit{zero vector}) $x + 0 = x = 0 + x$ for all $x \in V$,
+        \item (\textit{negatives}) for all $x \in V$ there exists some $-x \in V$ such that $x + (-x) = 0$,
+        \item (\textit{associativity}) $\lambda \cdot (\mu \cdot x) = (\lambda \mu) \cdot x$ for all $x \in V$ and $\lambda, \mu \in k$,
+        \item (\textit{unit}) $1 \cdot x = x$ for all $x \in V$,
+        \item (\textit{distributivity 1}) $\lambda \cdot (x + y) = (\lambda \cdot x) + (\lambda \cdot y)$ for all $x, y \in V$ and $\lambda \in k$,
+        \item (\textit{distributivity 2}) $(\lambda + \mu) \cdot x = (\lambda \cdot x) + (\mu \cdot x)$ for all $x \in V$ and $\lambda, \mu \in k$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{linear-subspace}{linear subspace}
+    Let $V$ be a \tref{vector-space}{vector space} over a field $k$. A \textbf{linear subspace} of $V$ is a subset $W \subset V$ which is closed under addition and scalar multiplication: $w_1 + w_2 \in W$ for all $w_1, w_2 \in W$ and $\lambda w \in W$ for all $w \in W$ and $\lambda \in k$.
+\end{topic}
+
+\begin{topic}{linearly-independent}{linearly independent}
+    Let $V$ be a \tref{vector-space}{vector space}. A set of vectors $S \subset V$ is said to be \textbf{linearly independent} if for any relation
+    \[ \sum_{i = 1}^{n} a_i v_i = 0, \qquad \textup{with $v_i \in S$ distinct and $a_i \in k$,} \]
+    it follows that $a_1 = \ldots = a_n = 0$.
+\end{topic}
+
+\begin{topic}{span}{span}
+    Let $V$ be a \tref{vector-space}{vector space}, and $S \subset V$ a subset. The \textbf{span} of $S$ is the \tref{linear-subspace}{subspace} of all linear combinations of vectors in $S$.
+    \[ \textup{span}(S) = \left\{ \sum_{i = 1}^{n} a_i v_i \textup{ for any } v_i \in S \textup{ and } a_i \in k \right\} \]
+\end{topic}
+
+\begin{topic}{basis}{basis}
+    Let $V$ be a \tref{vector-space}{vector space}. A set of vectors in $V$ is a \textbf{basis} for $V$ if it \tref{span}{spans} $V$ and is \tref{linearly-independent}{linearly independent}.
+    
+    Equivalently, a set is a basis if each vector in $V$ can be expressed uniquely as a linear combination of vectors in the set.
+\end{topic}
+
+\begin{topic}{dimension}{dimension}
+    Let $V$ be a \tref{vector-space}{vector space}. The \textbf{dimension} of $V$ is the cardinality of any \tref{basis}{basis} of $V$. It is often denoted by $\dim(V)$.
+\end{topic}
+
+\begin{topic}{linear-map}{linear map}
+    A \textbf{linear map} is a map $f : V \to W$ between \tref{vector-space}{vector spaces} such that
+    \begin{itemize}
+        \item $f(u + v) = f(u) + f(v)$,
+        \item $f(\lambda v) = \lambda f(v)$,
+    \end{itemize}
+    for all vectors $u, v \in V$ and scalars $\lambda \in k$.
+\end{topic}
+
+\begin{topic}{matrix}{matrix}
+    Let $f : V \to W$ be a \tref{linear-map}{linear map} between finite-dimensional \tref{vector-space}{vector spaces}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are ordered \tref{basis}{bases} for $V$ and $W$, respectively, then the $m \times n$ \textbf{matrix} representing $f$ with respect to these bases is
+    \[ A = \begin{pmatrix} a_{11} & a_{21} & \cdots & a_{n1} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix} \]
+    where $a_{ij}$ is the $i$-th component of $f(v_j)$ with respect to the basis for $W$.
+\end{topic}
+
+\begin{topic}{matrix-multiplication}{matrix multiplication}
+    Let $A = (a_{ij})$ be an $m \times n$ matrix, and $B = (b_{ij})$ be an $n \times \ell$ matrix. The \textbf{matrix product} $AB$ is the $m \times \ell$ matrix $C = (c_{ij})$ given by
+    \[  c_{ij} = \sum_{k = 1}^{n} a_{ik} b_{kj} . \]
+\end{topic}
+
+\begin{topic}{matrix-transpose}{matrix transpose}
+    The \textbf{transpose} of a matrix $A = (a_{ij})$ is the matrix $A^T = (b_{ij})$ given by $b_{ij} = a_{ji}$.
+\end{topic}
+
+\begin{topic}{invertible-matrix}{invertible matrix}
+    An $n \times n$ \tref{matrix}{matrix} $A$ is \textbf{invertible} if there exists an $n \times n$ matrix $B$ such that $AB = BA = I$. In this case, $B$ is called the \textbf{inverse} of $A$, and is the unique matrix with this property.
+    
+    If $A$ is not invertible, it is called \textbf{singular}.
+\end{topic}
+
+\begin{example}{invertible-matrix}
+    When $n = 2$, we have
+    \[ \begin{pmatrix} a & b \\ c & d \end{pmatrix} = \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix} . \]
+\end{example}
+
+\begin{topic}{matrix-rank}{matrix rank}
+    The \textbf{rank} of an $m \times n$ matrix $A$ the \tref{dimension}{dimension} of its \textit{row space} $\im A$.
+\end{topic}
+
+\begin{topic}{kernel}{kernel}
+    The \textbf{kernel}, or \textbf{nullspace}, of a \tref{linear-map}{linear transformation} $T : V \to W$ is the subspace
+    \[ \ker T = \left\{ v \in V : T(v) = 0 \right\} \subset V . \]
+\end{topic}
+
+\begin{topic}{projection}{projection}
+    A \textbf{projection} is a \tref{linear-map}{linear transformation} $P : V \to V$ with $P^2 = P$.
+\end{topic}
+
+\begin{topic}{determinant}{determinant}
+    The \textbf{determinant} of an $n \times n$ matrix $A$ is the scalar given by
+    \[ \det(A) = \sum_{\sigma \in S_n} \left( \textup{sign}(\sigma) \prod_{i = 1}^{n} a_{i, \sigma(i)} \right) , \]
+    where $\textup{sign}(\sigma)$ denotes the \tref{GT:permutation-sign}{sign} of the \tref{GT:symmetric-group}{permutation} $\sigma \in S_n$. The determinant has the property that $A$ is \tref{invertible-matrix}{invertible} if and only if $\det(A) \ne 0$.
+    
+    Alternatively, the determinant of $A$ is the scalar corresponding to the map induced on the top exterior power of $V$,
+    \[ \wedge^n A : \wedge^n V \to \wedge^n V . \]
+\end{topic}
+
+\begin{example}{determinant}
+    When $n = 2$,
+    \[ \det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc . \]
+    When $n = 3$,
+    \[ \det \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} = a(ei - fh) - b(di - fg) + c(dh - eg) . \]
+\end{example}
+
+\begin{topic}{trace}{trace}
+    The \textbf{trace} of an $n \times n$ matrix $A$ is the sum of its diagonal entries,
+    \[ \operatorname{tr}(A) = \sum_{i = 1}^{n} a_{ii} . \]
+\end{topic}
+
+\begin{example}{trace}
+    The trace is cyclic in the sense that for any $A, B \in \textup{Mat}_{n \times n}(k)$ it holds that
+    \[ \operatorname{tr}(AB) = \sum_{i, j = 1}^{n} A_{ij} B_{ji} = \sum_{i, j = 1}^{n} B_{ji} A_{ij} = \operatorname{tr}(BA) . \]
+\end{example}
+
+\begin{topic}{cofactor-matrix}{cofactor matrix}
+    Let $A = (a_{ij})$ be an $n \times n$ matrix. The \textbf{cofactor} of an entry $a_{ij}$ of $A$ is
+    \[ a'_{ij} = (-1)^{i + j} \det(A_{ij}), \]
+    where $A_{ij}$ is the matrix obtained from $A$ by removing the $i$-th row and $j$-th column. The \textbf{cofactor matrix} of $A$ is then the $n \times n$ matrix $A' = (a'_{ij})$.
+\end{topic}
+
+\begin{topic}{adjoint-matrix}{adjoint matrix}
+    Let $A$ be an $n \times n$ matrix. The \textbf{adjoint} of $A$ is the \tref{matrix-transpose}{transpose} of its \tref{cofactor-matrix}{cofactor matrix}:
+    \[ \textup{adj}(A) = (A')^T . \]
+    It has the property that
+    \[ \textup{adj}(A) A = \det(A) I , \]
+    so in particular, when $\det(A) \ne 0$, one has
+    \[ A^{-1} = \frac{1}{\det(A)} \textup{adj}(A) . \]
+\end{topic}
+
+\begin{topic}{eigenvalue}{eigenvalue/eigenvector}
+    Let $A : V \to V$ be a \tref{linear-map}{linear map}. A scalar $\lambda$ is an \textbf{eigenvalue} of $A$ if there exists a nonzero vector $v \in V$ such that $A v = \lambda v$. The vector $v$ is then an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
+\end{topic}
+
+\begin{topic}{characteristic-polynomial}{characteristic polynomial}
+    Let $A$ be an $n \times n$ matrix. The \textbf{characteristic polynomial} of $A$ is the polynomial of degree $n$ given by
+    \[ p_A(\lambda) = \det(\lambda I - A) . \]
+    Its roots are precisely the \tref{eigenvalue}{eigenvalues} of $A$.
+\end{topic}
+
+\begin{example}{characteristic-polynomial}
+    The coefficients of the characteristic polynomial are given by
+    \[ p_A(\lambda) = \sum_{k = 0}^{n} \lambda^{n - k} (-1)^k \textup{tr}(\wedge^k A) , \]
+    where $\wedge^k A : \wedge^k k^n \to \wedge^k k^n$ is the \tref{AA:exterior-algebra}{$k$-th exterior power} of $A$.
+    In particular, the constant coefficient is the \tref{determinant}{determinant} of $A$.
+\end{example}
+
+\begin{topic}{diagonalizable-matrix}{diagonalizable matrix}
+    An $n \times n$ \tref{matrix}{matrix} $A$ is \textbf{diagonalizable} if there exists an \tref{invertible-matrix}{invertible matrix} $P$ and a diagonal matrix $D$ such that
+    \[ A = P D P^{-1} . \]
+    Such a decomposition is called a \textbf{diagonalization}.
+\end{topic}
+
+\begin{example}{diagonalizable-matrix}
+    Let $A$ be a diagonalizable matrix, that is, we can write
+    \[ A P = P D , \]
+    with $P$ invertible and $D$ diagonal. From this expression it is clear that the columns of $P$ must be \tref{eigenvalue}{eigenvectors} of $A$, and that $D$ contains the corresponding eigenvalues. The matrix $P$ being invertible means that $A$ has $n$ linearly independent eigenvectors.
+\end{example}
+
+\begin{topic}{algebraic-geometric-multiplicity}{algebraic/geometric multiplicity}
+    Let $A$ be an $n \times n$ matrix. The \textbf{algebraic multiplicity} of an eigenvalue $\lambda$ of $A$ is its multiplicity as a root of the \tref{characteristic-polynomial}{characteristic polynomial} of $A$.
+    
+    The \textbf{geometric multiplicity} is the \tref{dimension}{dimension} of the corresponding \textit{eigenspace}
+    \[ E_\lambda(A) = \{ v \in V \mid A v = \lambda v \} . \]
+\end{topic}
+
+\begin{example}{algebraic-geometric-multiplicity}
+    Consider the matrix
+    \[ A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix} . \]
+    Its characteristic polynomial is $p_A(\lambda) = (2 - \lambda)^2 (3 - \lambda)$, so its eigenvalues are $\lambda = 2$ (with alg. multiplicity $2$) and $\lambda = 3$ (with alg. multiplicity $1$). However, both have a geometric multiplicity of $1$ as
+    \[ E_2 = \ker(A - 2I) = \textup{span}(1, 0, 0) \quad \textup{ and } \quad E_3 = \ker(A - 3I) = \textup{span}(0, 0, 1) . \]
+\end{example}
+
+\begin{topic}{dual-vector-space}{dual vector space}
+    Given a \tref{vector-space}{vector space} $V$, the \textbf{dual vector space} $V^*$ is defined as the vector space of all \tref{linear-map}{linear maps} $f : V \to k$.
+\end{topic}
+
+\begin{example}{dual-vector-space}
+    For any vector space $V$, there is a canonical linear map from $V$ to the double dual $V^{**}$ given by
+    \[ V \to V^{**}, \quad v \mapsto (f \mapsto f(v)) . \tag{$(*)$} \]
+    This map is injective since $f(v) = 0$ for all $f \in V^*$ implies $v = 0$. For finite-dimensional $V$ this map is also surjective. Namely, let $e_1, \ldots, e_n$ be a basis for $V$, then $f_1, \ldots, f_n \in V^*$ given by $f_i(e_j) = \delta_{ij}$ form a basis for $V^*$. Now for any $\varphi \in V^{**}$, the element
+    \[ v = \sum_{i = 1}^{n} \varphi(f_i) e_i \]
+    maps under $(*)$ to $\varphi$. In particular, $V^{**}$ is canonically isomorphic to $V$.
+    
+    If $V$ is not finite-dimensional, the map $(*)$ need not be surjective. Namely, let $V$ be a vector space with an infinite basis $e_1, e_2, \ldots$, and define $f_1, f_2, \ldots \in V^*$ by $f_i(e_j) = \delta_{ij}$. Furthermore, take $\varphi \in V^{**}$ to be any map such that $\varphi(f_i) = 1$. Since any $v \in V$ can be written as a finite sum $v = \sum_{i = 1}^{N} v_i e_i$, we have $f_{N + 1}(v) = 0 \ne 1 = \varphi(f_{N + 1})$, which shows that $(*)$ is not surjective.
+\end{example}
+
+\begin{topic}{grassmannian}{Grassmannian}
+    Given a \tref{LA:vector-space}{vector space} $V$, and $r \ge 0$, the \textbf{Grassmannian} $\textup{Gr}(r, V)$ is a space that parametrizes all $r$-dimensional \tref{linear-subspace}{linear subspaces} of $V$.
+\end{topic}
+
+\begin{example}{grassmannian}
+    When $r = 1$, the Grassmanian $\textup{Gr}(1, V)$ parametrizes all lines in $V$ through the origin, that is, $\textup{Gr}(1, V) = \PP(V)$.
+\end{example}
+
+\begin{topic}{general-linear-group}{general linear group}
+    The \textbf{general linear group} of degree $n$ over a field $k$, denoted $\textup{GL}_n(k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{invertible-matrix}{invertible matrices} with the operation of matrix multiplication.
+\end{topic}
+
+\begin{topic}{special-linear-group}{special linear group}
+    The \textbf{special linear group} of degree $n$ over a field $k$, denoted $\textup{SL}_n(k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{invertible-matrix}{invertible matrices} with \tref{determinant}{determinant} $1$, with the operation of matrix multiplication.
+\end{topic}
+
+\begin{topic}{orthogonal-matrix}{orthogonal matrix}
+    An $n \times n$ matrix $A$ is \textbf{orthogonal} if $A A^T = I$, where $A^T$ denotes the \tref{matrix-transpose}{transpose} of $A$.
+\end{topic}
+
+\begin{topic}{orthogonal-group}{(special) orthogonal group}
+    The \textbf{orthogonal group} of degree $n$ over a field $k$, denoted $\textup{O}(n, k)$, is the \tref{GT:group}{group} of $n \times n$ \tref{orthogonal-matrix}{orthogonal matrices} with the operation of matrix multiplication.
+    
+    The \textbf{special orthogonal group} is the \tref{GT:subgroup}{subgroup} $\textup{SO}(n, k) \subset \textup{O}(n, k)$ of matrices with \tref{determinant}{determinant} $1$.
+\end{topic}
+
+\begin{topic}{unitary-matrix}{unitary matrix}
+    An $n \times n$ matrix $U$ over $\CC$ is \textbf{unitary} if $UU^H = I$, where $U^H$ is its conjugate \tref{matrix-transpose}{transpose}.
+\end{topic}
+
+\begin{topic}{unitary-group}{(special) unitary group}
+    The \textbf{unitary group} of degree $n$, denoted $\textup{U}(n)$, is the \tref{GT:group}{group} of $n \times n$ \tref{unitary-matrix}{unitary matrices} with the operation of matrix multiplication.
+    
+    The \textbf{special unitary group} is the \tref{GT:subgroup}{subgroup} $\textup{SU}(n) \subset \textup{U}(n)$ of matrices with \tref{determinant}{determinant} $1$.
+\end{topic}
+
+\begin{topic}{symplectic-matrix}{symplectic matrix}
+    A $2n \times 2n$ matrix $M$ is \textbf{symplectic} if $M^T \Omega M = \Omega$, where $\Omega = \begin{pmatrix} 0 & I_n \\ -I_n & 0 \end{pmatrix}$.
+\end{topic}
+
+\begin{topic}{symplectic-group}{symplectic group}
+    The \textbf{symplectic group} of degree $2n$ over a field $k$, denoted $\textup{Sp}_{2n}(k)$, is the \tref{GT:group}{group} of $2n \times 2n$ \tref{symplectic-matrix}{symplectic matrices} with the operation of matrix multiplication.
+\end{topic}
+
+\begin{topic}{hermitian-matrix}{Hermitian matrix}
+    An $n \times n$ complex matrix $A$ is \textbf{Hermitian} if it is equal to its conjugate \tref{matrix-transpose}{transpose}, that is $A = A^H$.
+\end{topic}
+
+\begin{example}{hermitian-matrix}
+    A Hermitian matrix $A$ always has real eigenvalues. Namely, if $Av = \lambda v$, then
+    \[ \lambda \norm{v} = v^H A v = v^H A^H v = (A v)^H v = \overline{\lambda} v^H v = \overline{\lambda} \norm{v} , \]
+    which shows $\lambda$ is real.
+    
+    Moreover, if $\lambda$ and $\mu$ are distinct eigenvalues, with respective eigenvectors $v$ and $w$, then $v$ and $w$ are orthogonal. Namely,
+    \[ \mu \langle v^H, w \rangle = \langle v^H, A w \rangle = \langle v^H A^H, w \rangle = \lambda \rangle v^H, w \rangle , \]
+    which shows $\langle v^H, w \rangle = 0$ as $\lambda - \mu \ne 0$.
+\end{example}
+
+\begin{topic}{pin-group}{pin group}
+    The \textbf{pin group} $\textup{Pin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\textup{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_k$ with $q(v_i) = 1$.
+    
+    As a special case, $\textup{Pin}(n) = \textup{Pin}(\RR^n, \norm{\cdot}^2)$.
+\end{topic}
+
+\begin{topic}{spin-group}{spin group}
+    The \textbf{spin group} $\textup{Spin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\textup{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_{2k}$ with $q(v_i) = 1$.
+
+    As a special case, $\textup{Spin}(n) = \textup{Spin}(\RR^n, \norm{\cdot}^2)$.
+    
+    For $n \ge 3$, the spin group $\textup{Spin}(n)$ is the universal (double) cover of the \tref{orthogonal-group}{special orthogonal group} $\textup{SO}(n)$.
+\end{topic}
+
+\begin{example}{spin-group}
+    Let $\{ e_i \}$ be an orthonormal basis for $V$ w.r.t. $q$. Define an \textit{antiautomorphism} $t : \textup{Cl}(V, q) \to \textup{Cl}(V, q)$ by $(e_i e_j \cdots e_k)^t = e_k \cdots e_j e_i$ and extending linearly. Then define the automorphism $\alpha : \textup{Cl}(V, q) \to \textup{Cl}(V, q)$ by $\alpha(v) = -v$ for $v \in V$. Let $a^*$ denote $\alpha(a)^t$ for $a \in \textup{Cl}(V, q)$.
+    
+    With this notation, an explicit double cover of $\textup{O}(V, q)$ by $\textup{Pin}(V, q)$ is given by
+    \[ \rho : \textup{Pin}(V, q) \to \textup{O}(V, q), \quad \rho(a) v = a v a^* . \]
+    Restricting $\rho$ to $\textup{Spin}(V, q)$ gives a double cover of $\textup{SO}(V, q)$.
+\end{example}
+
+\begin{topic}{clifford-algebra}{Clifford algebra}
+    The \textbf{Clifford algebra} of a \tref{vector-space}{vector space} $V$ over a field $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the algebra over $k$ given by
+    \[ \textup{Cl}(V, q) = T(V) / (v \otimes v - q(v)) , \]
+    where $T(V)$ denotes the \tref{AA:tensor-algebra}{tensor algebra} of $V$.
+\end{topic}
+
+\begin{example}{clifford-algebra}
+    Let $V$ be an $n$-dimensional vector space with basis vectors $e_1, \ldots, e_n$, which are orthogonal in the sense that $\langle e_i, e_j \rangle = \delta_{ij}$, where $\langle \cdot, \cdot \rangle$ is the bilinear form corresponding to the quadratic form $q$. Then $e_i \otimes e_i = q(e_i)$, and for $i \ne j$ we find
+    \[ q(e_i) + q(e_j) = q(e_i + e_j) = (e_i + e_j) \otimes (e_i + e_j) = q(e_i) + e_i \otimes e_j + e_j \otimes e_i + q(e_j) , \]
+    from which follows that $e_i \otimes e_j = - e_j \otimes e_i$. This shows that
+    \[ \{ e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k} : 1 \le i_1 < \cdots < i_k \le n \textup{ and } 0 \le k \le n  \} \]
+    is a basis for $\textup{Cl}(V, q)$, and in particular
+    \[ \dim_k \textup{Cl}(V, q) = \sum_{k = 0}^{n} \binom{n}{k} = 2^n . \]
+\end{example}
+
+\begin{example}{clifford-algebra}
+    Let $V = \RR^4$ with quadratic form given by $q(t, x, y, z) = t^2 - x^2 - y^2 - z^2$. The corresponding Clifford algebra $\textup{Cl}_{1,3}(\RR)$ is generated (as an algebra) by the standard basis vectors $\gamma^0, \gamma^1, \gamma^2, \gamma^3$ satisfying
+    \[ \{ \gamma^\mu, \gamma^\nu \} := \gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu = 2 \eta^{\mu \nu} , \qquad \text{ where } \eta^{\mu \nu} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1 \end{pmatrix} . \]
+    This Clifford algebra can be represented as a matrix algebra, with
+    \[
+        \gamma^0 = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1 \end{pmatrix} , \quad
+        \gamma^1 = \begin{pmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & -1 & 0 & 0 \\ -1 & 0 & 0 & 0 \end{pmatrix} , \]
+    \[
+        \gamma^2 = \begin{pmatrix} 0 & 0 & 0 & -i \\ 0 & 0 & i & 0 \\ 0 & i & 0 & 0 \\ -i & 0 & 0 & 0 \end{pmatrix} , \quad
+        \gamma^3 = \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ -1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix} .
+    \]
+\end{example}
+
+\begin{topic}{quadratic-form}{quadratic form}
+    A \textbf{quadratic form} on a \tref{vector-space}{vector space} over $k$ is a function $q : V \to k$ such that
+    \begin{itemize}
+        \item $q(av) = a^2 v$ for all $a \in k$ and $v \in V$,
+        \item the \textit{polarization map} $V \times V \to k : (v, w) \mapsto \frac{1}{2}\left( q(v + w) - q(v) - q(w) \right)$ is a bilinear form.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{quadratic-form}
+    On $V = \RR^n$, the standard quadratic form is the norm-function,
+    \[ \norm{\cdot} : \RR^n \to \RR, \quad v \mapsto \norm{v} . \]
+\end{example}
+
+\begin{topic}{generalized-eigenspace}{generalized eigenspace}
+    Let $A : V \to V$ be a \tref{linear-map}{linear map}, and $\lambda$ an \tref{eigenvalue}{eigenvalue} of $A$. The \textbf{generalized eigenspace} corresponding to $\lambda$ is the subspace
+    \[ V_\lambda(A) = \{ v \in V \mid (A - \lambda I)^n v = 0 \textup{ for some } n \ge 1 \} , \]
+    whose elements are called \textbf{generalized eigenvector} of $A$ corresponding to $\lambda$.
+\end{topic}
+
+\begin{topic}{matrix-exponential}{matrix exponential}
+    The \textbf{exponential} of an $n \times n$ matrix $A$ is defined as
+    \[ \exp(A) = \sum_{k = 0}^{\infty} \frac{A^k}{k!} . \]
+\end{topic}
+
+\begin{example}{matrix-exponential}
+    For a diagonal matrix $D = \begin{pmatrix} d_1 & & \\ & d_2 & \\ & & d_3 \end{pmatrix}$ we have $\exp(D t) = \begin{pmatrix} e^{d_1 t} & & \\ & e^{d_2 t} & \\ & & e^{d_3 t} \end{pmatrix}$.
+    
+    For a Jordan block $J = \begin{pmatrix} \lambda & 1 & \\ & \lambda & 1 \\ & & \lambda \end{pmatrix}$ we have $\exp(J t) = \begin{pmatrix} e^{\lambda t} & t e^{\lambda t} & \tfrac{1}{2} t^2 e^{\lambda t} \\ & e^{\lambda t} & t e^{\lambda t} \\ & & e^{\lambda t} \end{pmatrix}$.
+\end{example}
+
+\begin{topic}{lorentz-group}{Lorentz group}
+    The \textbf{Lorentz group} $O(3, 1)$ is the \tref{GT:group}{group} of orthogonal $4 \times 4$ matrices with respect to the bilinear form
+    \[ \langle (t, x, y, z), (t', x', y', z') \rangle = - tt' + xx' + yy' + zz' . \]
+\end{topic}
+
+\begin{topic}{poincare-group}{Poincaré group}
+    The \textbf{Poincaré group} is the full symmetry group (including translations) of $\RR^4$ with respect to the bilinear form
+    \[ \langle (t, x, y, z), (t', x', y', z') \rangle = - tt' + xx' + yy' + zz' . \]
+\end{topic}
+
+\begin{topic}{heisenberg-group}{Heisenberg group}
+    The \textbf{Heisenberg group} is the \tref{GT:group}{group} of $3 \times 3$ upper triangular matrices of the form $\begin{pmatrix} 1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 \end{pmatrix}$.
+\end{topic}
+
+\begin{topic}{lie-product-formula}{Lie product formula}
+    The \textbf{Lie product formula} states that for (real or complex) $n \times n$ matrices $A$ and $B$,
+    \[ e^{A + B} = \lim_{n \to \infty} \left( e^{A/n} e^{B/n} \right)^n . \]
+\end{topic}
+
+\begin{topic}{pfaffian}{Pfaffian}
+    Let $A$ be a $2n \times 2n$ skew-symmetric matrix. The \textbf{Pfaffian} of $A$ is given by
+    \[ \operatorname{pf} A = \frac{1}{2^n n!} \sum_{\sigma \in S_{2n}} \textup{sign}(\sigma) \prod_{i = 1}^{n} a_{\sigma(2i - 1), \sigma(2i)} . \]
+    It satisfies
+    \[ (\operatorname{pf} A)^2 = \det A . \]
+    The Pfaffian of an $n \times n$ skew symmetric matrix $A$ with $n$ odd is defined to be zero, as the determinant of such a matrix is zero:
+    \[ \det A = \det A^T = \det (-A) = (-1)^n \det A = -\det A . \]
+\end{topic}
+
+\begin{example}{pfaffian}
+    For $n = 2$,
+    \[ \operatorname{pf} \begin{pmatrix} 0 & a \\ -a & 0 \end{pmatrix} = a \]
+    and for $n = 4$,
+    \[ \operatorname{pf} \begin{pmatrix} 0 & a & b & c \\ -a & 0 & d & e \\ -b & -c & 0 & f \\ -d & -e & -f & 0 \end{pmatrix} = af - be + dc . \]
+\end{example}
+
+\begin{topic}{symmetric-matrix}{symmetric matrix}
+    A matrix $M$ is \textbf{symmetric} if $M = M^T$, where $M^T$ is the \tref{matrix-transpose}{tranpose} of $M$.
+\end{topic}
+
+\begin{topic}{definite-matrix}{definite matrix}
+    A real \tref{symmetric-matrix}{symmetric-matrix} $M$ is
+    \begin{itemize}
+        \item \textbf{positive-definite} if $x^T M x > 0$ for all non-zero vectors $x$,
+        \item \textbf{negative-definite} if $x^T M x < 0$ for all non-zero vectors $x$,
+        \item \textbf{positive semi-definite} if $x^T M x \ge 0$ for all vectors $x$,
+        \item \textbf{negative semi-definite} if $x^T M x \le 0$ for all vectors $x$.
+    \end{itemize}
+    Similarly, a \tref{hermitian-matrix}{Hermitian matrix} $H$ is
+    \begin{itemize}
+        \item \textbf{positive-definite} if $x^* M x > 0$ for all non-zero vectors $x$,
+        \item \textbf{negative-definite} if $x^* M x < 0$ for all non-zero vectors $x$,
+        \item \textbf{positive semi-definite} if $x^* M x \ge 0$ for all vectors $x$,
+        \item \textbf{negative semi-definite} if $x^* M x \le 0$ for all vectors $x$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{cayley-hamilton-theorem}{Cayley--Hamilton theorem}
+    The \textbf{Cayley--Hamilton theorem} states that any $n \times n$ matrix $A$ is a root of its own \tref{characteristic-polynomial}{characteristic polynomial}, that is, $p_A(A) = 0$.
+\end{topic}
+
+\begin{example}{cayley-hamilton-theorem}
+    Take $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ with characteristic polynomial $p_A(\lambda) = \det \begin{pmatrix} \lambda - 1 & -2 \\ -3 & \lambda - 4 \end{pmatrix} = (\lambda - 1)(\lambda - 4)  + 6 = \lambda^2 - 5 \lambda + 6$. Then
+    \[ p_A(A) = A^2 - 5A + 6I = \begin{pmatrix} 7 & 10 \\ 15 & 22 \end{pmatrix} - \begin{pmatrix} 5 & 10 \\ 15 & 20 \end{pmatrix} + \begin{pmatrix} 6 & 0 \\ 0 & 6 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} . \]
+\end{example}
+
+\begin{example}{cayley-hamilton-theorem}
+    \begin{proof}
+        For \tref{diagonalizable-matrix}{diagonalizable} matrices $A = PDP^{-1}$, with $D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}$, the proof is easy:
+        \[ p_A(A) = p_A(PDP^{-1}) = P p_A(D) P^{-1} = P \begin{pmatrix} p_A(\lambda_1) & & \\ & \ddots & \\ & & p_A(\lambda_n) \end{pmatrix} P^{-1} = 0 , \]
+        since all eigenvalues $\lambda_i$ are roots of $p_A$. In other words, the function
+        \[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
+        is zero on the set of diagonalizable complex matrices, which is \tref{TO:dense-set}{dense} in $\textup{Mat}_{n \times n}(\CC)$. Hence by continuity of $\varphi$, we must have $\varphi(A) = 0$ for all $A \in \textup{Mat}_{n \times n}(\CC)$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{monomial-matrix}{monomial matrix}
+    A \textbf{monomial matrix} is an $n \times n$ matrix such that every row and every column has exactly one non-zero entry.
+\end{topic}
+
+\begin{example}{monomial-matrix}
+    The following $4 \times 4$ matrix is a monomial matrix:
+    \[ \begin{pmatrix} 0 & 11 & 0 & 0 \\ 0 & 0 & 0 & \frac{5}{2} \\ 0 & 0 & \sqrt{7} & 0 \\ -3 & 0 & 0 & 0 \end{pmatrix} \]
+\end{example}
+
+\begin{topic}{permutation-matrix}{permutation matrix}
+    A \textbf{permutation matrix} is an $n \times n$ matrix such that every row and every column has exactly one entry with a $1$, and all other entries zero.
+\end{topic}
+
+\begin{example}{permutation-matrix}
+    The following $4 \times 4$ matrix is a permutation matrix:
+    \[ \begin{pmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 \end{pmatrix} \]
+\end{example}
+
+\begin{topic}{vandermonde-matrix}{Vandermonde matrix}
+    A \textbf{Vandermonde matrix} is an $m \times n$ matrix of the form
+    \[ \begin{pmatrix} 1 & x_1 & x_1^2 & \cdots & x_1^{n - 1} \\ 1 & x_2 & x_2^2 & \cdots & x_2^{n - 1} \\ 1 & x_3 & x_3^2 & \cdots & x_3^{n - 1} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 1 & x_m & x_m^2 & \cdots & x_m^{n - 1} \end{pmatrix} \]
+    for some $x_1, \ldots, x_m$.
+\end{topic}
+
+\begin{topic}{cramer-rule}{Cramer's rule}
+    Let $A$ be an \tref{invertible-matrix}{invertible} $n \times n$ matrix, and $b \in \RR^n$ a vector. Then \textbf{Cramer's rule} says that the solution $x \in \RR^n$ for $Ax = b$ is given by
+    \[ x_i = \frac{\det(A_i)}{\det(A)} \quad \textup{ for } i = 1, \ldots, n, \]
+    where $A_i$ is the matrix formed by replacing the $i$-th column of $A$ by the column vector $b$.
+\end{topic}
+
+\begin{example}{cramer-rule}
+    Let $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $b = \begin{pmatrix} 6 \\ 8 \end{pmatrix}$. Then the solution to $Ax = b$ is given by
+    \[ x_1 = \frac{\det \begin{pmatrix} 6 & 2 \\ 8 & 4 \end{pmatrix}}{\det \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}} = \frac{8}{-2} = -4, \quad \textup{ and} \quad x_2 = \frac{\det \begin{pmatrix} 1 & 6 \\ 3 & 8 \end{pmatrix}}{\det \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}} = \frac{-10}{-2} = 5 . \]
+    And indeed, now we find
+    \[ Ax = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} -4 \\ 5 \end{pmatrix} = \begin{pmatrix} 6 \\ 8 \end{pmatrix} = b . \]
+\end{example}
+
+\begin{example}{cramer-rule}
+    Given an invertible $n \times n$ matrix $A$, Cramer's rule can be used to compute the inverse $A^{-1}$ as
+    \[ \left( A^{-1} \right)_{ij} = \frac{\det(A_{i, j})}{\det(A)} , \]
+    where $A_{i, j}$ denotes the matrix formed by replacing the $j$-th column of $A$ by the standard basis vector $e_j$. While this is an inefficient way to compute the inverse $A^{-1}$, it shows that the inversion map
+    \[ (-)^{-1} : \textup{GL}_n(k) \to \textup{GL}_n(k) \]
+    is algebraic and infinitely differentiable, since the determinant of a matrix can be expressed as a polynomial in its entries.
+\end{example}
+
+\begin{topic}{cartan-matrix}{Cartan matrix}
+    A \textbf{generalized Cartan matrix} is a square matrix $A$ with integral entries $a_{ij} \in \ZZ$ such that
+    \[ a_{ii} = 2, \quad a_{ij} \le 0 \textup{ if } i \ne j, \quad a_{ij} = 0 \textup{ if and only if } a_{ji} = 0 . \]
+    A generalized Cartan matrix $A$ is \textbf{symmetrizable} if $A = DS$ for some diagonal matrix $D$ and symmetric matrix $S$. If, moreover, $D$ can be chosen with positive diagonal entries and $S$ \tref{definite-matrix}{positive definite}, then $A$ is called a \textbf{Cartan matrix}.
+\end{topic}
+
+% \begin{example}{cartan-matrix}
+%     The following matrices are Cartan.
+%     \[ \begin{pmatrix} 2 & -3 \\ -1 & 2 \end{pmatrix}, \quad \begin{pmatrix} 2 & -1 & 0 & 0 & 0 \\ -1 & 2 & -1 & 0 & 0 \\ 0 & -1 & 2 & -1 & -1 \\ 0 & 0 & -1 & 2 & 0 \\ 0 & 0 & -1 & 0 & 2 \end{pmatrix} . \]
+% \end{example}
+
+\begin{example}{cartan-matrix}
+    Any $2 \times 2$ Cartan matrix must have the form $A = \begin{pmatrix} 2 & -a \\ -b & 2 \end{pmatrix}$ with $a, b \ge 0$ and $\det(A) = 4 - ab > 0$. Therefore, the only $2 \times 2$ Cartan matrices are the matrices
+    \[ \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}, \quad \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}, \quad \begin{pmatrix} 2 & -1 \\ -2 & 2 \end{pmatrix}, \quad \begin{pmatrix} 2 & -1 \\ -3 & 2 \end{pmatrix} , \]
+    and their \tref{LA:matrix-transpose}{transposes}.
+\end{example}
+
+\begin{example}{cartan-matrix}
+    The Cartan matrix $A$ of a \tref{AA:simple-lie-algebra}{semisimple Lie algebra} $\mathfrak{g}$ is given by
+    \[ a_{ij} = 2 \frac{\langle r_i, r_j \rangle}{\langle r_i, r_i \rangle} , \]
+    where the $r_i$ is a set of simple roots of $\mathfrak{g}$. One can take
+    \[ D_{ij} = \frac{\delta_{ij}}{\langle r_i, r_i \rangle} \quad \textup{ and } \quad S_{ij} = 2 \langle r_i, r_j \rangle . \]
+\end{example}
+
+\begin{topic}{complementary-subspaces}{complementary subspaces}
+    Let $V$ be a \tref{vector-space}{vector space}. Two \tref{linear-subspace}{subspaces} $U_1, U_2 \subset V$ are \textbf{complementary} in $V$ if $U_1 \cap U_2 = \{ 0 \}$ and $U_1 + U_2 = V$.
+\end{topic}
+
+\begin{example}{complementary-subspaces}
+    Let $V = \textup{Map}(\RR, \RR)$ be the space of continuous functions from $\RR$ to $\RR$, and let
+    \[ \begin{aligned}
+        U_+ &= \{ f : \RR \to \RR \mid f(-x) = f(x) \textup{ for all } x \in \RR \}, \\
+        U_- &= \{ f : \RR \to \RR \mid f(-x) = -f(x) \textup{ for all } x \in \RR \}
+    \end{aligned} \]
+    be the subspaces of even and odd functions, respectively. Then $U_+ \cap U_- = \{ 0 \}$ since for any $f \in U_+ \cap U_-$ we have $f(x) = f(-x) = -f(x)$ for all $x \in \RR$. Furthermore, $V = U_+ + U_-$ since for any $f : \RR \to \RR$ we have
+    \[ f(x) = \underbrace{\frac{f(x) + f(-x)}{2}}_{\in U_+} + \underbrace{\frac{f(x) - f(-x)}{2}}_{\in U_-} . \]
+    Hence, $U_+$ and $U_-$ are complementary subspaces of $V$.
+\end{example}
+
+\begin{topic}{projective-linear-group}{projective linear group}
+    The \textbf{projective linear group} of degree $n$ over a field $k$, denoted $\textup{PGL}_n(k)$, is the \tref{GT:quotient-group}{quotient}
+    \[ \textup{PGL}_n(k) = \textup{GL}_n(k) / k^* , \]
+    where $\textup{GL}_n(k)$ denotes the \tref{general-linear-group}{general linear group}, and $k^*$ the subgroup of all non-zero scalar matrices.
+\end{topic}
+
+\begin{topic}{perron-frobenius-theorem}{Perron--Frobenius theorem}
+    Let $A$ be an $n \times n$ matrix whose entries are positive real numbers. The \textbf{Perron--Frobenius theorem} states that
+    \begin{enumerate}[label=(\roman*)]
+        \item $A$ has a positive real \tref{eigenvalue}{eigenvalue} $r$, called the \textit{Perron--Frobenius eigenvalue}, such that $r > |\lambda|$ for any other (possibly complex) eigenvalue $\lambda$ of $A$,
+        \item the \tref{algebraic-geometric-multiplicity}{algebraic multiplicity} of $r$ is $1$,
+        \item there exists an eigenvector $v = (v_1, \ldots, v_n)$ of $A$ with eigenvalue $r$ such that all components $v_i$ are positive.
+    \end{enumerate}
+\end{topic}
+
+\begin{topic}{spectral-radius}{spectral radius}
+    Let $A$ be an $n \times n$ real or complex matrix with eigenvalues $\lambda_1, \ldots, \lambda_n \in \CC$. The \textbf{spectral radius} of $A$ is 
+    \[ \rho(A) = \max \{ |\lambda_1|, \ldots, |\lambda_n| \} . \]
+\end{topic}
+
+\begin{topic}{steinitz-exchange-lemma}{Steinitz exchange lemma}
+    Let $V$ be a \tref{vector-space}{vector space} over a field $k$, and $S \subset V$ a subset. Then \textbf{Steinitz exchange lemma} states that, if $v \in \textup{span}(S)$ with $v \not\in \textup{span}(S \setminus \{ w \})$ for some $w \in S$, then
+    \[ \textup{span}(S) = \textup{span}((S \setminus \{ w \}) \cup \{ v \}) . \]
+\end{topic}
+
+\begin{topic}{hilbert-matrix}{Hilbert matrix}
+    The \textbf{Hilbert matrix} of size $n$ is the $n \times n$ matrix with entries $H_{ij} = \frac{1}{i + j - 1}$.
+    \[ H = \begin{pmatrix} 1 & \frac{1}{2} & \frac{1}{3} & \cdots & \frac{1}{n} \\ \frac{1}{2} & \frac{1}{3} & \frac{1}{4} & \cdots & \frac{1}{n + 1} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ \frac{1}{n} & \frac{1}{n + 1} & \frac{1}{n + 2} & \cdots & \frac{1}{2n - 1} \end{pmatrix} \]
+\end{topic}
+
+\begin{topic}{rank-nullity-theorem}{rank--nullity theorem}
+    Let $T : V \to W$ be a \tref{linear-map}{linear map} between \tref{vector-space}{vector spaces}. The \textbf{rank--nullity theorem} states that
+    \[ \dim V = \dim (\im T) + \dim (\ker T) . \]
+\end{topic}
+
+\begin{topic}{defective-matrix}{defective matrix}
+    An $n \times n$ matrix $A$ is \textbf{defective} if it has an \tref{eigenvalue}{eigenvalue} whose \tref{algebraic-geometric-multiplicity}{geometric multiplicity} is less than its \tref{algebraic-geometric-multiplicity}{algebraic multiplicity}.
+\end{topic}
+
+\begin{example}{defective-matrix}
+    The matrix
+    \[ \begin{pmatrix} 3 & 1 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 2 \end{pmatrix} \]
+    is defective, since the eigenvalue $3$ has geometric multiplicity $1$ but algebraic multiplicity $2$.
+\end{example}
+
+\begin{topic}{row-echelon-form}{(reduced) row echelon form}
+    An $m \times n$ matrix $A$ is said to be in \textbf{row echelon form} if
+    \begin{itemize}
+        \item the zero rows of $A$ are below the nonzero rows of $A$, and
+        \item the \textit{pivot} of each nonzero row, i.e. its first nonzero entry, is strictly to the right of the pivots of the rows above.
+    \end{itemize}
+    The matrix $A$ is said to be in \textbf{reduced row echelon form} if in addition
+    \begin{itemize}
+        \item the pivot of each nonzero row is equal to $1$,
+        \item the pivot of each nonzero row is the only nonzero entry in its column.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{row-echelon-form}
+    Consider the matrices
+    \[ A = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix}, \quad
+       B = \begin{pmatrix} 0 & 3 & 0 & 7 \\ 0 & 0 & 5 & 8 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \quad
+       C = \begin{pmatrix} 0 & 1 & 0 & 3 \\ 0 & 0 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{pmatrix} . \]
+    The matrices $B$ and $C$ are in row echelon form, and only $C$ is in reduced row echelon form. Matrix $A$ is not in row echelon form.
+\end{example}
+
+\begin{topic}{hessenberg-matrix}{Hessenberg matrix}
+    An \textbf{upper Hessenberg matrix} is an $n \times n$ matrix $A = (a_{ij})$ such that $a_{ij} = 0$ for $i > j + 1$.
+    
+    A \textbf{lower Hessenberg matrix} is an $n \times n$ matrix $A = (a_{ij})$ such that $a_{ij} = 0$ for $j > i + 1$.
+\end{topic}
+
+\begin{example}{hessenberg-matrix}
+    The matrices
+    \[ \begin{pmatrix} 2 & 3 & 5 & 7 \\ 11 & 13 & 17 & 19 \\ 0 & 23 & 29 & 31 \\ 0 & 0 & 37 & 41 \end{pmatrix} \quad \textup { and } \begin{pmatrix} 1 & 1 & 0 & 0 \\ 2 & 3 & 5 & 0 \\ 8 & 13 & 21 & 34 \\ 55 & 89 & 144 & 233 \end{pmatrix} \]
+    are upper Hessenberg and lower Hessenberg, respectively.
+\end{example}
+
+\begin{topic}{singular-value-decomposition}{singular value decomposition}
+    Let $A$ be a real or complex $m \times n$ matrix. A \textbf{singular value decomposition} of $A$ is a factorization $A = U \sigma V^*$, where $U$ is an $m \times m$ \tref{unitary-matrix}{unitary} matrix, $V$ an $n \times n$ unitary matrix, and $\Sigma$ a diagonal $m \times n$ matrix. The diagonal entries $\sigma_i = \Sigma_{ii}$ are uniquely determined, and called the \textbf{singular values} of $A$.
+    
+    If $A$ is a real matrix, $U$ and $V$ can be chosen to be real \tref{orthogonal-matrix}{orthogonal} matrices.
+\end{topic}
+
+\begin{topic}{lu-decomposition}{LU decomposition}
+    Let $A$ be an $n \times n$ matrix. An \textbf{LU decomposition} of $A$ is a factorization $A = LU$, where $L$ is a lower triangular matrix and $U$ an upper triangular matrix.
+\end{topic}
+
+\begin{topic}{gram-matrix}{Gram matrix}
+    Let $V$ be a real or complex \tref{vector-space}{vector space} with \tref{inner-product}{inner product} $\langle \cdot, \cdot \rangle$. The \textbf{Gram matrix} of a list of vectors $v_1, \ldots, v_n \in V$ is the \tref{hermitian-matrix}{Hermitian} matrix
+    \[ G_{ij} = \begin{pmatrix}
+        \langle v_1, v_1 \rangle & \langle v_1, v_2 \rangle & \cdots & \langle v_1, v_n \rangle \\
+        \langle v_2, v_1 \rangle & \langle v_2, v_2 \rangle & \cdots & \langle v_2, v_n \rangle \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \langle v_n, v_1 \rangle & \langle v_n, v_2 \rangle & \cdots & \langle v_n, v_n \rangle
+    \end{pmatrix} . \]
+\end{topic}
+
+\begin{example}{gram-matrix}
+    The Gram matrix corresponding to an orthogonal set of vectors is the identity matrix.
+\end{example}
+
+\begin{topic}{gram-schmidt-orthogonalization}{Gram--Schmidt orthogonalization}
+    Let $V$ be a real or complex \tref{vector-space}{vector space} with \tref{inner-product}{inner product} $\langle \cdot, \cdot \rangle$ and \tref{basis}{basis} $\{ v_1, \ldots, v_n \}$. Define
+    \[ \begin{aligned}
+        u_1 &= v_1, \\
+        u_2 &= v_2 - \frac{\langle u_2, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1, \\
+        u_3 &= v_3 - \frac{\langle u_3, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 - \frac{\langle u_3, v_2 \rangle}{\langle v_2, v_2 \rangle} v_2, \\
+        & \vdots \\
+        u_n &= v_n - \sum_{i = 1}^{n - 1} \frac{\langle u_n, v_i \rangle}{\langle v_i, v_i \rangle} .
+    \end{aligned} \]
+    Then $\{ u_1, \ldots, u_n \}$ forms an orthogonal basis of $V$, and the calculation of the $u_i$ is known as \textbf{Gram--Schmidt orthogonalization}.
+\end{topic}
+
+\begin{topic}{unimodular-matrix}{(totally) unimodular matrix}
+    A $n \times n$ matrix $M$, with coefficients in $\ZZ$, is \textbf{unimodular} if its \tref{determinant}{determinant} is $+1$ or $-1$.
+    
+    An $m \times n$ matrix $M$, with coefficients in $\ZZ$, is \textbf{totally unimodular} if every square submatrix of $M$ has determinant $-1$, $0$ or $+1$.
+\end{topic}
+
+\begin{example}{unimodular-matrix}
+    The matrices
+    \[ \begin{pmatrix} 2 & 3 \\ 1 & 1 \end{pmatrix} \quad \textup{ and } \quad \begin{pmatrix} 1 & 0 & 1 \\ 0 & -1 & 1 \end{pmatrix} \]
+    are unimodular and totally unimodular, respectively.
+\end{example}
+
+\begin{topic}{companion-matrix}{companion matrix}
+    Let $f = x^n + a_{n - 1} x^{n - 1} + \cdots + a_1 x + a_0 \in k[x]$ be a \tref{AA:monic-polynomial}{monic polynomial} over a \tref{AA:field}{field} $k$. The \textbf{companion matrix} of $f$ is the $n \times n$ \tref{matrix}{matrix}
+    \[ \begin{pmatrix}
+        0 & 0 & \cdots & 0 & -a_0 \\
+        1 & 0 & \cdots & 0 & -a_1 \\
+        0 & 1 & \cdots & 0 & -a_2 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 1 & -a_{n - 1}
+    \end{pmatrix} . \]
+    In particular, $f$ is the \tref{characteristic-polynomial}{characteristic polynomial} of this matrix.
+\end{topic}
+
+\begin{topic}{jordan-normal-form}{Jordan normal form}
+    An $n \times n$ \tref{matrix}{matrix} $A$ is said to be in \textbf{Jordan normal form} if it is block diagonal with blocks of the form
+    \[ B(\lambda, m) = \begin{pmatrix}
+        \lambda & 1 & 0 & \cdots & 0 & 0 \\
+        0 & \lambda & 1 & \cdots & 0 & 0 \\
+        0 & 0 & 1 & \cdots & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & 0 & \cdots & \lambda & 1 \\
+        0 & 0 & 0 & \cdots & 0 & \lambda
+    \end{pmatrix} \]
+    for some $\lambda$ and $m$.
+\end{topic}
+
+\begin{example}{jordan-normal-form}
+    Let $V$ be a finite-dimensional \tref{vector-space}{vector space} and $f : V \to V$ a \tref{linear-map}{linear map}, whose \tref{characteristic-polynomial}{characteristic polynomial} splits into linear factors
+    \[ p_f(x) = (x - \lambda_1)^{m_1} \cdots (x - \lambda_k)^{m_k} , \]
+    with $\lambda_i$ distinct. Then there exists a basis for $V$ such that the matrix representing $f$ is in Jordan normal form.
+\end{example}
+
+\begin{topic}{general-affine-group}{general affine group}
+    The \textbf{general affine group} of degree $n$ over a field $k$ is the \tref{GT:semidirect-product}{semidirect product}
+    \[ \textup{AGL}_n(k) = k^n \rtimes \textup{GL}_n(k) , \]
+    where the \tref{general-linear-group}{general linear group} $\textup{GL}_n(k)$ acts on $k^n$ by matrix multiplication.
+\end{topic}
+
+\begin{example}{general-affine-group}
+    In terms of matrices, the general affine group $\textup{AGL}_n(k)$ can be identified with the subgroup of matrices
+    \[ \textup{AGL}_n(k) = \left\{ \left(\begin{array}{c|c} A & v \\ \hline 0 & 1 \end{array}\right) : A \in \textup{GL}_n(k), v \in k^n \right\} . \]
+\end{example}
+
+\begin{topic}{normal-matrix}{normal matrix}
+    An $n \times n$ complex \tref{matrix}{matrix} $A$ is \textbf{normal} if $A A^H = A^H A$, where $A^H$ denotes the conjugate \tref{matrix-transpose}{transpose} of $A$.
+\end{topic}

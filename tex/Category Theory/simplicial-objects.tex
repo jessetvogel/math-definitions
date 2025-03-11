@@ -1,0 +1,120 @@
+\begin{topic}{simplex-category}{simplex category}
+    The \textbf{simplex category}, often denoted by $\Delta$, is the \tref{CT:category}{category} whose objects are sets of the form
+    \[ [n] = \{ 0, 1, 2, \ldots, n \}, \qquad \text{ with } n \ge 0 , \]
+    and whose morphisms are order-preserving functions between these sets.
+\end{topic}
+
+\begin{topic}{simplicial-object}{simplicial object}
+    A \textbf{simplicial object} in a \tref{CT:category}{category} $\mathcal{C}$ is a \tref{CT:functor}{functor}
+    \[ X : \Delta^\textup{op} \to \mathcal{C} , \]
+    where $\Delta$ denotes the \tref{simplex-category}{simplex category}. Concretely, a simplicial object consists of a family of objects $X_n$ in $\mathcal{C}$ and a morphism $X_m \to X_n$ for each function $f : [n] \to [m]$, which compose nicely.
+    
+    The \textit{face maps} are the maps $d_{n, i} : X_n \to X_{n - 1}$ corresponding to the function $\delta^{n, i} : [n - 1] \to [n]$ that misses $i$.
+    
+    The \textit{degeneracy maps} are the maps $s_{n, i} : X_n \to X_{n + 1}$ corresponding to the function $\sigma^{n, i} : [n + 1] \to [n]$ that repeat $i$.
+\end{topic}
+
+\begin{example}{simplicial-object}
+    Let $X$ be a topological space. The \textbf{singular simplicial set} of a topological space is the simplicial set $\mathcal{S}(X)_\bdot$ given by
+    \[ \mathcal{S}(X)_n = \{ \text{cont. maps } \Delta^n \to X \} . \]
+    Every $[n] \to [m]$ induces a map $\Delta^n \to \Delta^m$ by labelling the vertices, which in turn induces a map $\mathcal{S}(X)_m \to \mathcal{S}(X)_m$. Also see \tref{AT:singular-homology}{singular homology}.
+\end{example}
+
+\begin{example}{simplicial-object}
+    The \textit{standard simplicial set} $\Delta^n$ is given by $\Hom_\Delta(-, [n])$. By the \tref{yoneda-lemma}{Yoneda lemma}, we can identify
+    \[ X_n = X([n]) \isom \Hom_{\textbf{Set}_\Delta}(\Delta^n, X) . \]
+\end{example}
+
+\begin{topic}{nerve}{nerve}
+    The \textbf{nerve} of a \tref{CT:category}{category} $\mathcal{C}$ is the \tref{simplicial-object}{simplicial set} $\textup{N}_\bdot(\mathcal{C})$, where $\textup{N}_n(\mathcal{C})$ is the set of \tref{CT:functor}{functors} from $[n] = \{ 0, 1, \ldots, n \}$ (viewed as category: a unique morphism from $i$ to $j$ iff $i \le j$) to $\mathcal{C}$.
+    Indeed, for any non-decreasing map $\alpha : [m] \to [n]$, precomposition with $\alpha$ gives a map $\textup{N}_n(\mathcal{C}) \to \textup{N}_m(\mathcal{C})$.
+    
+    It can be shown that the \textit{nerve functor}
+    \[ \textup{N}_\bdot : \textbf{Cat} \to \textbf{Set}_\Delta \]
+    is \tref{CT:full-functor}{fully} \tref{CT:faithful-functor}{faithful}.
+\end{topic}
+
+\begin{example}{nerve}
+    Concretely, $\textup{N}_n(\mathcal{C})$ is the set of all composable sequences of morphisms
+    \[ C_0 \xrightarrow{f_1} C_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} C_n \]
+    of length $n$ in $\mathcal{C}$. Applying the face map $d_{n, i}$ to this sequence gives
+    \[ C_0 \xrightarrow{f_1} \cdots \xrightarrow{f_{i - 1}} C_{i - 1} \xrightarrow{f_{i + 1} \circ f_i} \cdots C_{i + 1} \xrightarrow{f_{i + 2}} \cdots \xrightarrow{f_n} C_n , \]
+    while the degeneracy map $s_{n, i}$ maps it to
+    \[ C_0 \xrightarrow{f_1} \cdots \xrightarrow{f_i} C_i \xrightarrow{\id} C_i \xrightarrow{f_{i + 1}} \cdots \xrightarrow{f_n} C_n . \]
+\end{example}
+
+\begin{example}{nerve}
+    The standard simplicial set $\Delta^n = \Hom_\Delta(-, [n])$ can be seen as the nerve of $[n]$.
+\end{example}
+
+\begin{example}{nerve}
+    Consider a \tref{GT:group}{group} $G$ as a category with one object. Note that any $f \in \textup{N}_n(G)$ can be described by the images $f(k - 1 \le k) \in G$ for $1 \le k \le n$, so that $\textup{N}_n(G) \isom G^n$. Hence, the nerve $\textup{N}_\bdot(G)$ is the simplicial set
+    \[ \cdots G \times G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \rightrightarrows * \]
+    with face and degeneracy maps given by
+    \[ d_{n, i} : G^n \to G^{n - 1}, \quad (g_1, \ldots, g_n) \mapsto \left\{ \begin{array}{cl}
+        (g_2, \ldots, g_n) & \textup{ for } i = 0, \\
+        (g_1, \ldots, g_{i + 1} g_i, \ldots, g_n) & \textup{ for } 0 < i < n, \\
+        (g_1, \ldots, g_{n - 1}) & \textup{ for } i = n,
+    \end{array} \right. \]
+    \[ s_{n, i} : G^n \to G^{n + 1}, \quad (g_1, \ldots, g_n) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n) \quad \textup{ for } 0 \le i \le n . \]
+    More generally, a group $G$ acting on a set $X$ can be viewed as a category $[X/G]$ whose objects are points of $X$, and a morphism $x \to gx$ for every $x \in X$ and $g \in G$. Similar to the above, we have $\textup{N}_n([X/G]) \isom G^n \times X$, so the nerve $\textup{N}_\bdot([X/G])$ is the simplicial set
+    \[ \cdots G \times G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times X \rightrightarrows X \]
+    with face and degeneracy maps given by
+    \[ d_{n, i} : G^n \times X \to G^{n - 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto \left\{ \begin{array}{cl}
+        (g_2, \ldots, g_n, x) & \textup{ for } i = 0, \\
+        (g_1, \ldots, g_{i + 1} g_i, \ldots, g_n, x) & \textup{ for } 0 < i < n, \\
+        (g_1, \ldots, g_{n - 1}, g_n x) & \textup{ for } i = n,
+    \end{array} \right. \]
+    \[ s_{n, i} : G^n \times X \to G^{n + 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n, x) \quad \textup{ for } 0 \le i \le n . \]
+\end{example}
+
+\begin{topic}{infinity-category}{infinity category}
+    An \textbf{$\infty$-category} is a \tref{simplicial-object}{simplicial set} $\mathcal{C}$ such that every map of simplicial sets $\Lambda^n_i \to \mathcal{C}$ with $0 < i < n$ can be extended to a map $\Delta^n \to \mathcal{C}$.
+    \[ \svg \begin{tikzcd} \Lambda^n_i \arrow{r} \arrow{d} & \mathcal{C} \\ \Delta^n \arrow[dashed]{ur} & \end{tikzcd} \]
+    One thinks of the vertices $\mathcal{C}_0$ as the objects, the edges $\mathcal{C}_1$ as the $1$-morphisms (with $\id_x = s_0(x)$ and $d_0(f) = \textup{cod}(f)$ and $d_1(f) = \textup{dom}(f)$), the triangles $\mathcal{C}_2$ as a $2$-morphism from $g \circ f$ to $h$, etc.
+    
+    A \textit{functor} between $\infty$-categories is a map of simplicial sets.
+    
+    An \textbf{$(\infty, r)$-category} is an $\infty$-category for which all $k$-morphisms with $k > r$ are invertible.
+\end{topic}
+
+\begin{example}{infinity-category}
+    \begin{itemize}
+        \item Any \tref{HT:kan-complex}{Kan complex} is an $\infty$-category.
+        \item The \tref{nerve}{nerve} $N_\bdot(\mathcal{C})$ of a \tref{CT:category}{category} $\mathcal{C}$ is an $\infty$-category.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{cech-nerve}{Čech nerve}
+    Let $\mathcal{C}$ be a \tref{category}{category} with \tref{pullback}{pullbacks}. The \textbf{Čech nerve} of a morphism $U \to X$ is the \tref{simplicial-object}{simplicial object} $C(U/X)$ in $\mathcal{C}$ given by
+    \[ \cdots U \times_X U \times_X U \times_X U \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; U \times_X U \times_X U \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; U \times_X U \rightrightarrows U \]
+    where the face and degeneracy maps are given by
+    \[ \begin{aligned}
+        d_{n, i}(u_0, \ldots, u_n) &= (u_0, \ldots, u_{i - 1}, u_{i + 1}, \ldots, u_n), \\
+        s_{n, i}(u_0, \ldots, u_n) &= (u_0, \ldots, u_i, u_i, \ldots, u_n) .
+    \end{aligned} \]
+\end{topic}
+
+\begin{topic}{simplicial-skeleton}{simplicial (co)skeleton}
+    Let $\Delta_{\le n}$ be the \tref{full-subcategory}{full subcategory} of the \tref{simplex-category}{simplex category} $\Delta$ with objects $[0], [1], \ldots, [n]$. The inclusion $\Delta_{\le n} \to \Delta$ induces a \textit{truncation functor}
+    \[ \operatorname{tr}_n : \textbf{Set}_\Delta \to \textbf{Set}_{\Delta_{\le n}} , \]
+    which has a left and right \tref{adjunction}{adjoint}
+    \[ \operatorname{sk}_n \dashv \operatorname{tr}_n \dashv \operatorname{cosk}_n , \]
+    called the \textbf{$n$-skeleton} and \textbf{$n$-coskeleton} functor, respectively, which are given by the left and right \tref{kan-extension}{Kan extension}, respectively.
+    
+    The $n$-skeleton yields a simplicial set which is freely filled with degenerate simplices above degree $n$. The $n$-coskeleton yields a simplicial set having a simplex of degree $m > n$ whenever there is a compatible family of $m$-faces.
+    
+    One defines $\textbf{sk}_n = \operatorname{sk}_n \circ \operatorname{tr}_n$ and $\textbf{cosk}_n = \operatorname{cosk}_n \circ \operatorname{tr}_n$ and has an adjunction $\textbf{sk}_n \dashv \textbf{cosk}_n$.
+\end{topic}
+
+\begin{topic}{hypercover}{hypercover}
+    Let $\mathcal{C}$ be a \tref{site}{site} with finite \tref{pullback}{fiber products}. A \textbf{hypercovering} of an object $X$ in $\mathcal{C}$ is a \tref{simplicial-object}{simplicial object} $U_\bdot$ in $\mathcal{C}$ with a covering morphism $U_0 \to X$ such that, for all $n \ge 0$, the natural map
+    \[ U_{n + 1} \to (\textbf{cosk}_n(\textbf{sk}_n(U)))_{n + 1} \]
+    is a covering morphism, where $\textbf{cosk}_n$ and $\textbf{sk}_n$ denote the \tref{simplicial-skeleton}{simplicial (co)skeleton} functors.
+\end{topic}
+
+\begin{example}{hypercover}
+    Let $U \to X$ be a covering morphism in $\mathcal{C}$. Then the \tref{cech-nerve}{Čech nerve}
+    \[ C(U/X) = \left[ \cdots U \times_X U \times_X U \times_X U \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; U \times_X U \times_X U \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; U \times_X U \rightrightarrows U \right] \]
+    is a hypercovering of $X$.
+\end{example}

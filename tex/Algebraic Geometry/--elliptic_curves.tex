@@ -1,0 +1,47 @@
+\subsection{Elliptic curves}
+
+- Use Elliptic Curves from Silverman
+
+- \href{https://esc.fnwi.uva.nl/thesis/centraal/files/f1118947783.pdf}{use this?}
+
+\begin{lemma}
+    Let $C$ be a curve of genus one, and let $P, Q \in C$. Then
+    \[ (P) \sim{} (Q) \qquad \iff \qquad P = Q . \]
+\end{lemma}
+\begin{proof}
+    Suppose $(P) \sim{} (Q)$ and take $f \in \overline{k}(C)$ such that $\text{div}(f) = (P) - (Q)$. Then $f \in \mathcal{L}((Q))$. The Riemann--Roch theorem tells us that $\dim \mathcal{L}((Q)) = 1$, which must be the constant functions. Hence $f$ is constant, and thus $P = Q$.
+\end{proof}
+
+\begin{proposition}
+    Let $(E, O)$ be an elliptic curve.
+    \begin{enumerate}[label=(\roman*)]
+        \item For every degree zero divisor $D$ there exists a unique point $P \in E$ such that $D \sim{} (P) - (O)$.
+        
+        \item Defining $\sigma : \text{Div}^0(E) \to E$ the associated map. Then $\sigma$ is surjective.
+        
+        \item Let $D_1, D_2$ be degree zero divisors. Then
+        \[ \sigma(D_1) = \sigma(D_2) \qquad \iff \qquad D_1 \sim{} D_2 , \]
+        so $\sigma$ induces a bijection of sets $\text{Pic}^0(E) \to E$.
+        
+        \item The group laws on $E$ and on $\text{Pic}^0(E)$ coincide, using $\sigma$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}[label=(\roman*)]
+        \item The Riemann--Roch theorem says that $\dim \mathcal{L}(D + (O)) = 1$, so let $f \in \mathcal{L}(D + (O))$ be a generator. Since
+        \[ \text{div}(f) + D + (O) \ge 0 \qquad \text{and} \qquad \deg(\text{div}(f) + D + (O)) = 1, \]
+        we must have $\text{div}(f) + D + (O) = (P)$ for some $P \in E$. Hence $D \sim{} (P) - (O)$. The above lemma shows this $P$ is unique.
+        
+        \item Indeed, $\sigma((P) - (O)) = P$.
+        
+        \item By definition of $\sigma$, we have $(\sigma(D_1)) - (\sigma(D_2)) \sim{} D_1 - D_2$. So if $\sigma(D_1) = \sigma(D_2)$, indeed $D_1 \sim{} D_2$.
+        
+        \item \todo{see which proof is nicest}
+    \end{enumerate}
+\end{proof}
+
+Elliptic Integrals : See VI.1 of Silvermann
+
+\subsection{Jacobians of curves}
+
+See part 3 of Algebraic Curves, Algebraic Manifolds and Schemes.

@@ -1,0 +1,25 @@
+\begin{topic}{diaconescu-theorem}{Diaconescu's theorem}
+    \textbf{Diaconescu's theorem} states that the \tref{ST:axiom-of-choice}{axiom of choice} implies the law of the excluded middle.
+\end{topic}
+
+\begin{example}{diaconescu-theorem}
+    \begin{proof}
+        Let $P$ be any proposition. Define the sets
+        \[ A = \{ x \in \{ 0, 1 \} \mid (x = 0) \lor P \} \quad \textup{ and } \quad B = \{ x \in \{ 0, 1 \} \mid (x = 1) \lor P \} . \]
+        By the axiom of choice, there exists a function $f : \{ A, B \} \to A \cup B$ such that $f(A) \in A$ and $f(B) \in B$. By definition of $A$ and $B$, this means that
+        \[ (f(A) = 0) \lor P \quad \textup{ and } \quad (f(B) = 1) \lor P , \]
+        which is equivalent to
+        \[ (f(A) \ne f(B)) \lor P . \]
+        Now, since $P \Rightarrow (A = B) \Rightarrow (f(A) = f(B))$, it follows that $(f(A) \ne f(B)) \Rightarrow \neg P$, which shows that $\neg P \lor P$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{lefschetz-principle}{Lefschetz principle}
+    Let $\phi$ be a sentence in the language $\mathcal{L} = \{ 0, 1, +, -, \cdot \}$ for rings. The \textbf{Lefschetz principle} states that the following are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\phi$ is true in every algebraically closed field of characteristic $0$.
+        \item $\phi$ is true in some algebraically closed field of characteristic $0$.
+        \item $\phi$ is true in algebraically closed fields of characteristic $p$ for arbitrary large primes $p$.
+        \item $\phi$ is true in algebraically closed fields of characteristic $p$ for sufficiently large primes $p$.
+    \end{enumerate}
+\end{topic}

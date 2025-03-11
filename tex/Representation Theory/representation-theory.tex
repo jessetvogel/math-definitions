@@ -1,0 +1,521 @@
+\begin{topic}{representation}{representation}
+    A \textbf{representation} of a \tref{GT:group}{group} $G$ on a \tref{LA:vector-space}{vector space} $V$ over a \tref{AA:field}{field} $k$ is a \tref{GT:group-homomorphism}{group homomorphism}
+    \[ \rho : G \to \textup{GL}(V) . \]
+    The vector space $V$ is called the \textit{representation space} and $\dim_k V$ the \textit{dimension} of the representation.
+\end{topic}
+
+\begin{topic}{irreducible-representation}{(ir)reducible representation}
+    A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is \textbf{reducible} if there exists a non-zero proper invariant subspace $W \subset V$, that is, $\rho(g) w \in W$ for all $w \in W$ and $g \in G$. If no such subspace exists, the representation is \textbf{irreducible}. % If $\rho$ can be written as a direct sum $\rho_1 \oplus \rho_2$, then it is called \textbf{reducible}.
+\end{topic}
+
+\begin{topic}{faithful-representation}{faithful representation}
+    A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is \textbf{faithful} if $\rho$ is injective.
+\end{topic}
+
+\begin{topic}{unitary-representation}{unitary representation}
+    A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ over $\CC$ is \textbf{unitary} if $\rho(g)$ is unitary for all $g \in G$, that is $\rho(g)^\dagger \rho(g) = \rho(g) \rho(g)^\dagger = \id_V$.
+\end{topic}
+
+\begin{topic}{character-representation}{character representation}
+    The \textbf{character} of a finite-dimensional \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is the function
+    \[ \chi_\rho : G \to k, \quad g \mapsto \textup{tr}(\rho(g)) . \]
+    Note that $\chi_\rho$ is constant on conjugacy classes.
+\end{topic}
+
+\begin{topic}{representation-ring}{representation ring}
+    Given a \tref{GT:group}{group} $G$ and a \tref{AA:field}{field} $k$, the \textbf{representation ring} $R_k(G)$ is the \tref{GT:free-group}{free abelian group} on isomorphism classes of finite-dimensional \tref{representation}{$k$-representations} of $G$. For the ring structure, addition is given by the direct sum of representations, and multiplication by their tensor product over $k$.
+    
+    Equivalently, the representation ring $R_k(G)$ is the \tref{HA:grothendieck-group}{Grothendieck ring} of the category of finite-dimensional representations of $G$.
+\end{topic}
+
+\begin{example}{representation-ring}
+    \begin{itemize}
+        \item Any representation of $G = \textup{GL}_1(\CC) = \CC^*$ is a direct sum of $1$-dimensional representations of the form $\rho_n : \CC^* \to \CC^*, z \mapsto z^n$ for some character $n \in \ZZ$. Hence the representation ring of $G$ is $R_\CC(G) = \ZZ[t, t^{-1}]$, where $t$ corresponds to $\rho_1$.
+        
+        \item Any representation of the cyclic group $G = \ZZ/n\ZZ$ is a direct sum of $1$-dimensional representations which sends $1 \textup{ mod } n$ to an $n$-th root of unity. Hence the (complex) representation ring of $G$ is $R_\CC(G) = \ZZ[t]/(t^n - 1)$, where $t$ corresponds to the representation $1 \mapsto \zeta_n$, a primitive root of unity.
+        
+        \item The complex irreducible representations of a product of finite groups $G \times H$ are given by the tensor products $\rho \otimes \tau$, where $\rho$ and $\tau$ are irreducible representations of $G$ and $H$, respectively. Therefore, there is a natural isomorphism $R_\CC(G) \otimes R_\CC(H) \isom R_\CC(G \times H)$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{equivalent-representations}{equivalent representations}
+    Two \tref{representation}{representations} $\rho : G \to \textup{GL}(V)$ and $\rho' : G \to \textup{GL}(W)$ are called \textbf{equivalent}, or \textbf{isomorphic}, if there exists a linear isomorphism $A : V \to W$ such that $\rho'(g) = A \rho(g) A^{-1}$ for all $g \in G$.
+\end{topic}
+
+\begin{topic}{schur-lemma}{Schur's lemma}
+    Let $G$ be a \tref{GT:group}{group}. \textbf{Schur's lemma} states:
+    \begin{enumerate}[label=(\roman*)]
+        \item If $\rho : G \to \textup{GL}(V)$ and $\rho' : G \to \textup{GL}(W)$ are two \tref{equivalent-representations}{inequivalent} \tref{irreducible-representation}{irreducible} \tref{representation}{representations}, and $A : V \to W$ is a linear map such that $A \rho(g) = \rho'(g) A$ for all $g \in G$, then $A = 0$.
+        \item If $\rho : G \to \textup{GL}(V)$ is an irreducible representation over an \tref{AA:algebraically-closed-field}{algebraically closed field $k$}, and $A : V \to V$ is a linear map such that $A \rho(g) = \rho(g) A$ for all $g \in G$, then $A$ is a scalar multiple of the identity map.
+    \end{enumerate}
+\end{topic}
+
+\begin{example}{schur-lemma}
+    \begin{proof}
+    \begin{enumerate}[label=(\roman*)]
+        \item For any vector $v \in V$ and $g \in G$ we have
+        \[ A \rho(g) v = \rho'(g) A v . \]
+        This shows that $\im A$ is invariant under $\rho'$, and $\ker A$ is invariant under $\rho$. Since both $\rho$ and $\rho'$ are irreducible, it follows that $\im A$ equal to $0$ or $W$, and $\ker A$ equal to $0$ or $V$. If $A \ne 0$, then we must have $\im A = W$ and $\ker A = 0$, implying that $A$ is invertible. But then $\rho'(g) = A \rho(g) A^{-1}$, contradicting the inequivalence of representations.
+        \item Let $v \in V$ be an eigenvector of $A$ with eigenvalue $\lambda \in k$. Then for all $g \in G$,
+        \[ A \rho(g) v = \rho(g) A v = \lambda \rho(g) v , \]
+        so $\rho(g) v$ is again an eigenvector of $A$ with eigenvalue $\lambda$. This shows that the eigenspace of $A$ corresponding to $\lambda$ is invariant under $\rho$. Since $\rho$ is irreducible, this eigenspace must be $0$ or $V$, and since it contains $v$ already, it must be $V$. We conclude that $A = \lambda I$.
+    \end{enumerate}
+    \end{proof}
+\end{example}
+
+\begin{topic}{clebsch-gordan-series}{Clebsch--Gordan series}
+    Let $G$ be a finite \tref{GT:group}{group}, and $\rho_i, \rho_j$ two \tref{irreducible-representation}{irreducible} \tref{representation}{representations} of $G$. The tensor product $\rho_i \otimes \rho_j$ is generally reducible, and can be written as
+    \[ \rho_i \otimes \rho_j = A \left( \bigoplus_k a^k_{ij} \rho_k \right) A^{-1} , \]
+    for some invertible $A$. The coefficients $a^k_{ij}$ are called the \textbf{Clebsch--Gordan series}. The matrix entries of $A$ in some standard basis are called the \textbf{Clebsch--Gordan coefficients}.
+\end{topic}
+
+\begin{topic}{projective-representation}{projective representation}
+    A \textbf{projective representation} of a \tref{GT:group}{group} $G$ on a \tref{LA:vector-space}{vector space} $V$ over a field $k$ is a \tref{GT:group-homomorphism}{group homomorphism}
+    \[ \rho : G \to \textup{PGL}(V) , \]
+    where $\textup{PGL}(V) = \textup{GL}(V) / k^*$ is the \tref{LA:projective-linear-group}{projective linear group} of $V$.
+\end{topic}
+
+\begin{example}{projective-representation}
+    The universal (double) cover of the \tref{LA:orthogonal-group}{special orthogonal group} $\textup{SO}(3)$ is the \tref{LA:unitary-group}{special unitary group} $\textup{SU}(2)$. Hence, any representation $\rho : \textup{SU}(2) \to \textup{GL}(V)$ descends to a projective representation $\pi : \textup{SO}(3) \to \textup{PGL}(V)$, which can be lifted to an honest representation if and only if the dimension of $V$ is odd. For example, the standard representation $\textup{SU}(2) \to \textup{GL}_2(\CC)$ induces a projective representation
+    \[ \textup{SO}(3) \to \textup{PGL}_2(\CC) \]
+    which cannot be lifted to an honest representation.
+\end{example}
+
+% \begin{example}{projective-representation}
+%     Any representation $\rho : G \to \textup{GL}(V)$ can be composed with $\textup{GL}(V) \to \textup{PGL}(V)$ to give a projective representation, but the converse is not true. Consider $G = \textup{SO}(3)$ and $\rho : G \to \textup{PGL}_2(\CC)$ induced by
+%     \[ \mathfrak{so}(3) \to \textup{GL}_2(\CC), \quad \sigma_1 \mapsto \begin{pmatrix}  \end{pmatrix}, \quad \sigma_2 \mapsto \begin{pmatrix} \end{pmatrix}, \quad \sigma_3 \mapsto \begin{pmatrix} \end{pmatrix} . \]
+% \end{example}
+
+\begin{topic}{dual-representation}{dual representation}
+    The \textbf{dual representation} of a \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is the representation on the \tref{LA:dual-vector-space}{dual vector space} $V^*$ given by
+    \[ \rho^* : G \to \textup{GL}(V^*), \quad g \mapsto \rho(g^{-1})^T = (-) \circ \rho(g^{-1}) . \]
+\end{topic}
+
+\begin{example}{dual-representation}
+    If the character $\chi$ of $\rho$ only takes real values, then the dual representation $\rho^*$ is isomorphic to $\rho$ itself. Namely, denote by $\chi^*$ the character of $\rho^*$, then
+    \[ \langle \chi, \chi^* \rangle = \frac{1}{|G|} \sum_{g \in G} \chi(g) \chi(g^{-1}) = \frac{1}{|G|} \sum_{g \in G} \chi(g) \chi(g) = 1 , \]
+    so the result follows from the \tref{first-orthogonality-theorem}{first orthogonality theorem}.
+\end{example}
+
+\begin{topic}{first-orthogonality-theorem}{first orthogonality theorem}
+    Let $G$ be a finite \tref{GT:group}{group} and let $\rho_1 : G \to \textup{GL}(V)$ and $\rho_2 : G \to \textup{GL}(W)$ be two \tref{irreducible-representation}{irreducible representations} over $\CC$ with corresponding \tref{character-representation}{characters} $\chi_1$ and $\chi_2$. Then the \textbf{first orthogonality theorem} states that
+    \[ \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \overline{\chi_2(g)} = \left\{ \begin{array}{cl} 1 & \textup{ if } \rho_1 \isom \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\isom \rho_2 , \end{array} \right. \]
+    where $\isom$ denotes \tref{equivalent-representations}{equivalence}.
+\end{topic}
+
+\begin{example}{first-orthogonality-theorem}
+    \begin{proof}
+        Let $A : W \to V$ be an arbitrary linear map, and take
+        \[ B = \sum_{g \in G} \rho_1(g) A \rho_2(g^{-1}) . \]
+        Note that
+        \[ \rho_1(h) B = \sum_{g \in G} \rho_1(hg) A \rho_2(g^{-1}) = \sum_{g' \in G} \rho_1(g') A \rho_2(g'^{-1} h) = B \rho_2(h) . \]
+        If $\rho_1 \isom \rho_2$, then \tref{schur-lemma}{Schur's first lemma} implies $B = \lambda I$ for some $\lambda \in \CC$, and if $\rho_1 \not\isom \rho_2$, then \tref{schur-lemma}{Schur's second lemma} yields $B = 0$. Now taking $A_{\ell m} = \delta_{\ell r} \delta_{ms}$, in terms of some basis for $V$ and $W$, gives
+        \[ \sum_{g \in G} (\rho_1(g))_{ir} (\rho_2(g^{-1}))_{sj} = \left\{ \begin{array}{cl} \lambda_{rs} \delta_{ij} & \textup{ if } \rho_1 \isom \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\isom \rho_2 . \end{array} \right. \]
+        Whenever $\rho_1 \isom \rho_2$, we can set $i = j$ and sum over $i$ to obtain $|G| \delta_{rs} = \lambda_{rs} \dim_\CC(V)$. Substituting this into the above, setting $r = i$ and $s = j$ and summing over $i$ and $j$ now gives
+        \[ \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) = \left\{ \begin{array}{cl} |G| & \textup{ if } \rho_1 \isom \rho_2 , \\ 0 & \textup{ if } \rho_1 \not\isom \rho_2 , \end{array} \right. \]
+        as desired.
+    \end{proof}
+\end{example}
+
+\begin{example}{first-orthogonality-theorem}
+    Define an inner product on the characters of $G$,
+    \[ \langle \chi_1, \chi_2 \rangle = \frac{1}{|G|} \sum_{g \in G} \chi_1(g) \chi_2(g^{-1}) . \]
+    The first orthogonality theorem now says that $\langle \chi, \chi \rangle = 1$ for any character $\chi$, and that inequivalent characters are orthogonal. In particular, two irreducible representations $\rho_1$ and $\rho_2$ are equivalent if and only if their characters are equal. Namely, if $\rho_1 \not\isom \rho_2$, then $\langle \chi_1, \chi_2 \rangle = 0$, and since $\langle \chi_1, \chi_1 \rangle = 1$, we must have $\chi_1 \ne \chi_2$.
+\end{example}
+
+\begin{topic}{character-group}{character group}
+    Let $G$ be a \tref{GT:group}{group}, and $k$ a ground field. A \textbf{character} of a $G$ is a group homomorphism $\chi : G \to k^\times$, and the \textbf{character group} of $G$ is set of characters
+    \[ \Hom(G, k^\times) , \]
+    whose group structure is given by $(\chi_1 \chi_2)(g) = \chi_1(g) \chi_2(g)$.
+\end{topic}
+
+\begin{topic}{regular-representation}{regular representation}
+    Let $G$ be a \tref{GT:group}{group}, and let $C(G)$ denote the $\CC$-vector space of complex-valued functions on $G$. The \textbf{regular representation} of $G$ is the \tref{representation}{representation}
+    \[ \rho : G \to \textup{GL}(C(G)) , \]
+    given by $(\rho(g) \cdot f)(x) = f(g^{-1} x)$ for all $f \in C(G)$ and $g, x \in G$.
+\end{topic}
+
+\begin{example}{regular-representation}
+    Let $G$ be a finite group, with irreducible representations $\rho_1, \ldots, \rho_n$. Then the regular representation $\rho$ decomposes as
+    \[ \rho = \bigoplus_{i = 1}^{n} \rho_i^{\oplus \dim \rho_i} . \]
+    Namely, if we take the elements of $G$ as a basis for $C(G)$, all $\rho(g)$ are \tref{LA:permutation-matrix}{permutation matrices}. In particular, it is easy to see that $\chi(g) := \tr(\rho(g))$ equals the number of elements that are fixed by $g$. Hence, $\chi(1) = |G|$ and $\chi(g) = 0$ if $g \ne 1$. Using \tref{first-orthogonality-theorem}{character theory}, we find that
+    \[ \rho = \bigoplus_{i = 1}^{n} \rho_i^{\oplus a_i} \quad \textup{ with } \quad a_i = \langle \chi, \chi_i \rangle = \frac{1}{|G|} \sum_{g \in G} \chi(g) \overline{\chi_i(g)} = \chi_i(1) = \dim \rho_i . \]
+    In particular, we obtain
+    \[ |G| = \chi(1) = \sum_{i = 1}^{n} (\dim \rho_i)^2 . \]
+\end{example}
+
+\begin{topic}{tannakian-category}{Tannakian category}
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{CT:rigid-monoidal-category}{rigid} \tref{HA:linear-category}{$k$-linear} \tref{HA:abelian-category}{abelian} \tref{CT:monoidal-category}{monoidal category}, such that $\textup{End}(\textbf{1}) = k$, and let $\omega : \mathcal{C} \to \textbf{Vect}_k$ be an \tref{HA:exact-functor}{exact} \tref{CT:faithful-functor}{faithful} $k$-linear \tref{CT:monoidal-functor}{monoidal} \tref{CT:functor}{functor}. The pair $(\mathcal{C}, \omega)$ is called a \textbf{Tannakian category}. Then \textbf{Tannaka duality} states that
+    \begin{enumerate}[label=(\roman*)]
+        \item The group $\textup{Aut}^\otimes(\omega)$ of \tref{CT:natural-transformation}{natural automorphisms} of $\omega$ that preserve the monoidal structure, is naturally represented by an affine group scheme $G$.
+        \item The functor $\mathcal{C} \to \textbf{Rep}_k(G)$, induced by $\omega$, from $\mathcal{C}$ to the category of finite-dimensional \tref{representation}{representations} of $G$ over $k$, is an \tref{CT:equivalence-of-categories}{equivalence of categories}.
+    \end{enumerate}
+    In particular, an affine group scheme is uniquely determined up to isomorphism by its category of finite-dimensional representations $\textbf{Rep}_k(G)$ together with its forgetful functor $\textbf{Rep}_k(G) \to \textbf{Vect}_k$.
+\end{topic}
+
+\begin{example}{tannakian-category}
+    Let us prove that for a finite group $G$, the natural morphism
+    \[ T : G \to \textup{Aut}^\otimes(\omega), \quad T(g)_\rho = \rho(g) , \]
+    is an isomorphism.
+    
+    For notation, let $\tau : G \to \textup{GL}(k^G)$ be the \tref{regular-representation}{regular representation} of $G$, and for any $g \in G$, let $I_g \in k^G$ be the indicator function given by $I_g(g) = 1$ and $I_g(h) = 0$ for $h \ne g$. Note that $\tau(h)(I_g) = I_{hg}$.
+    
+    We first show that $T$ is injective. Suppose $g \in G$ is such that $T(g) = \id_\omega$, then in particular $T(g)_\tau = \id_{k^G}$, so that $I_1 = T(g)_\tau(I_1) = \tau(g)(I_1) = I_g$, and hence $g = 1$.
+    
+    To show $T$ is surjective, take any $\alpha \in \textup{Aut}^\otimes(\omega)$. Since $\alpha$ respects the tensor product, it commutes with the multiplication map $\mu : k^G \otimes k^G \to k^G$, implying $\alpha_\tau$ is a morphism of $k$-algebras. Composing with evaluation, also $\textup{ev}_1 \circ \alpha_\tau : k^G \to k$ is a morphism of $k$-algebras, and thus must be of the form $\textup{ev}_s$ for some unique $s \in G$. Now we claim that $\alpha_\tau = \tau(s^{-1})$. Namely, for any $f \in k^G$ and $t \in G$,
+    \[ \begin{aligned}
+        \alpha(f)(t)
+            &= \alpha \left( \sum_{g \in G} f(g) I_g \right) (t) \\
+            &= \sum_{g \in G} f(g) \alpha(I_g) (t) \\
+            &= \sum_{g \in G} f(g) I_{gt^{-1}}(s) \\
+            &= f(st) \\
+            &= \tau(s^{-1})(f)(t) ,
+    \end{aligned} \]
+    where $\alpha(I_g)(t) = I_{gt^{-1}}(s)$ using naturality of $\alpha$ and that the map $\gamma_t : k^G \to k^G$ given by $\gamma_t(f)(x) = f(xt)$ is a morphism of representations. Now surjectiveness of $T$ follows from the final claim: if $\alpha, \beta \in \textup{Aut}^\otimes(\omega)$ with $\alpha_\tau = \beta_\tau$, then $\alpha = \beta$. Indeed, for any other representation $\rho : G \to \textup{GL}(V)$ and $v \in V$, we can define
+    \[ \phi : k^G \to V, \quad f \mapsto \sum_{g \in G} f(g) \rho(g) v , \]
+    which is a morphism of representations. By naturality of $\alpha$ and $\beta$, we find that
+    \[ \alpha_\rho(v) = \alpha_\rho(\phi(I_1)) = \phi(\alpha_\tau(I_1)) = \phi(\beta_\tau(I_1)) = \beta_\rho(\phi(I_1)) = \beta_\rho(v) , \]
+    so $\alpha = \beta$. We apply this to $\beta = T(s^{-1})$.
+\end{example}
+
+\begin{example}{tannakian-category}
+    Let $\mathcal{C}$ be the category of \tref{LA:hodge-structure}{real Hodge structures} $(H_\RR, \{ H^{p, q} \})$, and let $\omega : \mathcal{C} \to \textbf{Vect}_\RR$ be the forgetful functor that sends $(H, \{ H^{p, q} \})$ to $H$.
+    One can check that $(\mathcal{C}, \omega)$ is indeed a Tannakian category.
+    
+    We claim that the corresponding (real) affine group scheme $\textup{Aut}^\otimes(\omega)$ is given by $\mathbb{S} = \textup{Res}_{\CC/\RR}(\GG_m)$, that is, $\mathbb{S}(A) = \GG_m(A \otimes_\RR \CC) = (A \otimes_\RR \CC)^\times$ for all $\RR$-algebras $A$. First of all, we see that the real and complex points of $\mathbb{S}$ can be identified as
+    \[ \mathbb{S}(\RR) = \left\{ \left(\begin{smallmatrix} x & y \\ -y & x \end{smallmatrix}\right) \in \textup{GL}_2(\RR) \right\} \quad \textup{ and } \quad \mathbb{S}(\CC) = \left\{ \left(\begin{smallmatrix} x & y \\ -y & x \end{smallmatrix}\right) \in \textup{GL}_2(\CC) \right\} \cong \CC^\times \times \CC^\times \]
+    where the latter isomorphism is given by $\left(\begin{smallmatrix} x & y \\ -y & x \end{smallmatrix}\right) \mapsto (x + iy, x - iy)$. Note that complex conjugation on $\mathbb{S}(\CC)$ corresponds to $(\alpha, \beta) \mapsto (\overline{\beta}, \overline{\alpha})$.
+    
+    Now, if $V$ is a representation of $\mathbb{S}$, then $\mathbb{S}(\CC) = \CC^\times \times \CC^\times$ acts on $V_\CC$, yielding a decomposition $V_\CC = \bigoplus_{p, q} V^{p, q}$, where $V^{p, q} = \{ v \in V \mid (\alpha, \beta) \cdot v = \alpha^p \beta^q v \textup{ for all } (\alpha, \beta) \in \mathbb{S}(\CC) \}$. Furthermore, for any $v \in V^{p, q}$ we have
+    \[ (\alpha, \beta) \cdot \overline{v} = \overline{\overline{(\alpha, \beta)} \cdot v} = \overline{(\overline{\beta}, \overline{\alpha}) \cdot v} = \overline{\overline{\beta}^p \overline{\alpha}^q v} = \alpha^q \beta^p \overline{v} \]
+    so $\overline{V^{p, q}} = V^{q, p}$. This construction yields a functor $\textbf{Rep}_\RR(\mathbb{S}) \to \mathcal{C}$ compatible with the forgetful functors to $\textbf{Vect}_\RR$.
+    Conversely, given a pair $(H, \{ H^{p, q} \})$, we define an action of $\mathbb{S}(\CC)$ on $H_\CC$ where $(\alpha, \beta) \in \mathbb{S}(\CC)$ acts on $H^{p, q}$ as multiplication by $\alpha^p \beta^q$. The condition $\overline{H^{p, q}} = H^{q, p}$ implies that this complex representation comes from a real representation $\mathbb{S}(\RR) \to \textup{GL}(H)$ by extension of scalars. This construction yields a quasi-inverse $\mathcal{C} \to \textbf{Rep}_\RR(\mathbb{S})$, establishing the equivalence of categories.
+\end{example}
+
+\begin{example}{tannakian-category}
+    Note that the group $G$ cannot be determined from the \tref{representation-ring}{representation ring} alone, or even from the character table. Consider the \tref{GT:dihedral-group}{dihedral group} $D_4$ and the quaternion group $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Although they are not isomorphic, both have character table given by
+    \[ \begin{array}{c|c|c|c|c}
+        1 & 1 & 1 & 1 & 1 \\ \hline
+        1 & 1 & 1 & -1 & -1 \\ \hline
+        1 & 1 & -1 & 1 & -1 \\ \hline
+        1 & 1 & -1 & -1 & 1 \\ \hline
+        2 & -2 & 0 & 0 & 0
+    \end{array} \]
+    The difference between the groups is reflected in the fact that $\textbf{Rep}_k(D_4)$ and $\textbf{Rep}_k(Q_8)$ are not isomorphic as monoidal categories.
+\end{example}
+
+\begin{topic}{maschke-theorem}{Maschke's theorem}
+    Let $G$ be a finite \tref{GT:group}{group} and $k$ a field of \tref{AA:characteristic}{characteristic} coprime to $|G|$. \textbf{Maschke's theorem} states that every \tref{representation}{representations} $\rho : G \to \textup{GL}(V)$ of $G$ over $k$ with a subrepresentation $W \subset V$ splits. That is, there exists another subrepresentation $U \subset V$ such that $V = W \oplus U$.
+\end{topic}
+
+\begin{example}{maschke-theorem}
+    \begin{proof}
+        Since $G$ is finite, there exists an inner product on $V$ for which $\rho$ is unitary, i.e. $\rho(g)$ is \tref{LA:unitary-matrix}{unitary} for all $g \in G$. Let $U = W^\perp$ with respect to this inner product, then for any $u \in U$ and $w \in W$ and $g \in G$, we have
+        \[ \langle w, \rho(g) u \rangle = \langle \rho(g^{-1}) w, u \rangle = 0 \]
+        since $\rho(g^{-1}) w \in W$, so $\rho(g) u \in U$. Hence, $U \subset V$ is an invariant subspace as well. To obtain the desired inner product, one can take
+        \[ \langle u, v \rangle = \frac{1}{|G|} \sum_{g \in G} \langle \rho(g) u, \rho(g) v \rangle^\times , \]
+        for any inner product $\langle \cdot, \cdot \rangle^\times$ on $V$.
+    \end{proof}
+\end{example}
+
+\begin{example}{maschke-theorem}
+    If $G$ is infinite, representations of $G$ need not be fully reducible. Consider the following representation of $\ZZ$,
+    \[ \rho : \ZZ \to \textup{GL}_2(\CC), \quad n \mapsto \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix} . \]
+    Then $\CC \cdot (1, 0)$ is an invariant subrepresentation, but $\rho$ does not split.
+\end{example}
+
+\begin{example}{maschke-theorem}
+    When $\operatorname{char}(k)$ is not coprime to $|G|$, the representation need not be fully reducible. Namely, take $G = \ZZ/p\ZZ$ with $k = \FF_p$ and consider the representation
+    \[ \rho : G \to \textup{GL}(k^2), \quad x \mapsto \begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} . \]
+    It has the $1$-dimensional subrepresentation $k \cdot (1, 0)$, but there is no invariant complement.
+\end{example}
+
+\begin{topic}{induced-representation}{induced representation}
+    Let $G$ be a \tref{GT:group}{group}, $H \subset G$ a \tref{GT:subgroup}{subgroup}, and $\rho : H \to \textup{GL}(V)$ a \tref{representation}{representation} of $H$ over a field $k$. The \textbf{induced representation} of $V$ is the natural representation of $G$ on
+    \[ \textup{Ind}_H^G (\rho) = k[G] \otimes_{k[H]} V , \]
+    where $k[G]$ denotes the \tref{AA:group-ring}{group ring} of $G$. Indeed, $V$, being a representation of $H$, is a left $k[H]$-module, and $k[G]$ is naturally a $k[G]$-$k[H]$-\tref{AA:bimodule}{bimodule}.
+\end{topic}
+
+\begin{example}{induced-representation}
+    Let $G$ be a group, $H \subset G$ a subgroup, and let $\tau : H \to \textup{GL}(k)$ the trivial representation. Then the induced representation
+    \[ \textup{Ind}_H^G(\tau) = k[G] \otimes_{k[H]} k \isom k[G/H] \]
+    is the representation of $G$ corresponding to the action of $G$ on the (left) \tref{GT:coset}{cosets} of $H$ in $G$.
+    
+    In particular, for $H = G$ we obtain the trivial representation, and for $H = \{ 1 \}$ the \tref{regular-representation}{regular representation}.
+\end{example}
+
+\begin{example}{induced-representation}
+    The induced representation yields a functor $\textup{Ind}_H^G : \textbf{Rep}_k(H) \to \textbf{Rep}_k(G)$ which is \tref{CT:adjunction}{left adjoint} to the restriction functor $\textup{Res}_H^G : \textbf{Rep}_k(G) \to \textbf{Rep}_k(H)$. See \tref{frobenius-reciprocity}{Frobenius reciprocity}.
+\end{example}
+
+\begin{topic}{frobenius-reciprocity}{Frobenius reciprocity}
+    Let $G$ be a \tref{GT:group}{group}, $H \subset G$ a \tref{GT:subgroup}{subgroup} and $k$ any field. \textbf{Frobenius reciprocity} states there is an \tref{CT:adjunction}{adjunction}
+    \[ \textup{Ind}_H^G \dashv \textup{Res}_H^G \]
+    between the \tref{induced-representation}{induced representation} functor $\textup{Ind}_H^G : \textbf{Rep}_k(H) \to \textbf{Rep}_k(G)$ and the forgetful functor $\textup{Res}_H^G : \textbf{Rep}_k(G) \to \textbf{Rep}_k(H)$ between categories of $k$-representations of $H$ and $G$. It can be seen a particular case of the adjunction between restriction and extension of scalars.
+\end{topic}
+
+\begin{example}{frobenius-reciprocity}
+    For any pair of representations $\rho : H \to \textup{GL}(V)$ and $\tau : G \to \textup{GL}(W)$, Frobenius reciprocity yields a natural bijection
+    \[ \Hom_{\textbf{Rep}_k(G)}(\textup{Ind}_H^G(\rho), \tau) \isom \Hom_{\textbf{Rep}_k(H)}(\rho, \textup{Res}_H^G(\tau)) . \]
+    Assuming $k = \CC$ and comparing dimensions, we find using \tref{schur-lemma}{Schur's lemmas} that
+    \[ \langle \textup{Ind}_H^G(\rho), \tau \rangle_G \isom \langle \rho, \textup{Res}_H^G(\tau) \rangle_H . \]
+\end{example}
+
+\begin{example}{frobenius-reciprocity}
+    When $G$ is finite, there is also an adjunction $\textup{Res}_H^G \dashv \textup{Ind}_H^G$.
+\end{example}
+
+\begin{topic}{artin-theorem}{Artin's theorem}
+    Let $G$ be a finite \tref{GT:group}{group}, $X$ a family of \tref{GT:subgroup}{subgroups} of $G$, and $k$ a field of characteristic zero. \textbf{Artin's theorem} states that the following are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $G = \bigcup_{H \in X} \bigcup_{g \in G} g H g^{-1}$,
+        \item the map $\textup{Ind} : \bigoplus_{H \in X} R_k(H) \to R_k(G)$ on \tref{representation-ring}{representation rings} induced by the \tref{induced-representation}{induced representations} $\textup{Ind}_H^G : R_k(H) \to R_k(G)$ has a finite cokernel,
+        \item for each \tref{character-representation}{character} $\chi$ of $G$, there exist $f_H \in R_k(H)$ and $d \ge 1$ such that
+        \[ d \cdot \chi = \sum_{H \in X} \textup{Ind}_H^G(f_H) . \]
+    \end{enumerate}
+    In particular, the set $X$ of all \tref{GT:cyclic-group}{cyclic} subgroups of $G$ satisfies $(i)$.
+\end{topic}
+
+\begin{example}{artin-theorem}
+    \begin{proof}
+        $(i \Rightarrow ii)$ Note that $\textup{Ind}$ has a finite cokernel if and only if
+        \[ \CC \otimes \textup{Ind} : \bigoplus_{H \in X} \CC \otimes R_k(H) \to \CC \otimes R_k(G) \]
+        is surjective. By \tref{frobenius-reciprocity}{Frobenius reciprocity}, this is equivalent to the injectivity of the adjoint map
+        \[ \CC \otimes \textup{Res} : \CC \otimes R_k(G) \to \bigoplus_{H \in X} \CC \otimes R_k(H) . \]
+        Now indeed, any class function $f \in \CC \otimes R_k(G)$ which vanishes on all subgroups $H$, must vanish on the union of all conjugates of $H$, and thus by $(i)$, on the whole of $G$.
+        
+        $(ii \Rightarrow i)$ Note that for any $f \in R_k(H)$, the induced $\textup{Ind}_H^G(f) \in R_k(G)$ is given by
+        \[ \textup{Ind}_H^G(f)(x) = \frac{1}{|H|} \sum_{\substack{g \in G \textup{ s.t.} \\ g^{-1} x g \in H }} f(g^{-1} x g) . \]
+        In particular, $\textup{Ind}_H^G(f)(x) = 0$ for all $x \not\in \bigcup_{g \in G} g H g^{-1}$. Now, for any $s \in G$, pick any $f \in \QQ \otimes R_k(G)$ with $f(s) \ne 0$. By $(ii)$, we can write $f$ as a sum $\sum_{H \in X} \textup{Ind}_H^G(f_H)$ for some $f_H \in \QQ \otimes R_k(H)$. Now, since $f(s) \ne 0$, we must have that $s \in g H g^{-1}$ for some $g \in G$, which proves $(i)$.
+        
+        $(ii \Leftrightarrow iii)$ Follows from tensoring the map $\textup{Ind}$ with $\QQ$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{permutation-representation}{permutation representation}
+    Let $G$ be a \tref{GT:group}{group} with an \tref{GT:group-action}{action} on a finite set $X$. The \textbf{permutation representation} of the action over a field $k$ is the \tref{representation}{representation} of $G$,
+    \[ \rho : G \to \textup{GL}\left( \bigoplus_{x \in X} k \right), \quad \rho(g)\left( (a_x)_{x \in X} \right) = \left( a_{g^{-1} \cdot x} \right)_{x \in X} . \]
+\end{topic}
+
+\begin{example}{permutation-representation}
+    Note that $\rho(g)$ is a \tref{LA:permutation-matrix}{permutation matrix} for any $g \in G$, and hence the \tref{LA:trace}{trace} of $\rho(g)$ is equal to the number of elements $x \in X$ that are fixed by $g$. In particular, the \tref{character-representation}{character} of $\rho$ is given by
+    \[ \chi(g) = |\{ x \in X \mid g \cdot x = x \}| . \]
+\end{example}
+
+\begin{topic}{mackey-irreducibility-condition}{Mackey's irreducibility condition}
+    Let $G$ be a finite \tref{GT:group}{group}, $H \subset G$ a \tref{GT:subgroup}{subgroup}, and $\rho : H \to \textup{GL}(V)$ a complex \tref{representation}{representation} of $H$. \textbf{Mackey's irreducibility condition} states that the \tref{induced-representation}{induced representation} $\textup{Ind}_H^G(\rho)$ is \tref{irreducible-representation}{irreducible} if and only if $\rho$ is irreducible and for all $s \in G \setminus H$ the two representations
+    \[ \begin{aligned}
+        \rho^s &: s H s^{-1} \cap H \to \textup{GL}(V), \quad \rho^s(g) = \rho(s^{-1} g s) \\
+        \textup{Res}_{H_s}^{H}(\rho) &: s H s^{-1} \cap H \to \textup{GL}(V) , \quad \textup{Res}_{H_s}^{H}(\rho)(g) = \rho(g)
+    \end{aligned} \]
+    have no irreducible components in common.
+\end{topic}
+
+% \begin{example}{mackey-irreducibility-condition}
+%     \begin{proof}
+%         See page 59 of Linear Representations of Finite Groups by Serre.
+%     \end{proof}
+% \end{example}
+
+\begin{topic}{standard-representation}{standard representation}
+    For any $n \ge 1$ and $k$ a field with $n! \nmid \operatorname{char}(k)$, let $\rho : S_n \to \textup{GL}_n(k)$ be the \tref{representation}{representation} of the \tref{GT:symmetric-group}{symmetric group} $S_n$ which permutes the basis vectors. The \textbf{standard representation} of $S_n$ is the quotient of $\rho$ by the one-dimensional subrepresentation spanned by the sum of the basis vectors. Alternatively, the standard representation of $S_n$ is the subrepresentation of $\rho$ corresponding to the subspace of $k^n$ where the sum of coordinates is zero.
+    
+    The standard representation is \tref{irreducible-representation}{irreducible}.
+\end{topic}
+
+\begin{example}{standard-representation}
+    For $n = 3$, the standard representation $\rho : S_3 \to \textup{GL}_2(k)$ is given, in terms of the basis $\{ e_1 - e_2, e_2 - e_3 \}$ , by
+    \[ \begin{array}{ccc}
+        \rho(1) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, &
+        \rho(1 \; 2 \; 3) = \begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}, &
+        \rho(1 \; 3 \; 2) = \begin{pmatrix} -1 & 1 \\ -1 & 0 \end{pmatrix}, \\ & & \\
+        \rho(1 \; 2) = \begin{pmatrix} -1 & 1 \\ 0 & 1 \end{pmatrix}, &
+        \rho(1 \; 3) = \begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}, &
+        \rho(2 \; 3) = \begin{pmatrix} 1 & 0 \\ 1 & -1 \end{pmatrix} .
+    \end{array} \]
+\end{example}
+
+\begin{topic}{alternating-representation}{alternating representation}
+    The \textbf{alternating representation} of the \tref{GT:symmetric-group}{symmetric group} $S_n$ is the $1$-dimensional \tref{representation}{representation}
+    \[ S_n \to \textup{GL}_1(k), \quad \sigma \mapsto \operatorname{sign}(\sigma), \]
+    where $\operatorname{sign}(\sigma)$ denotes the \tref{GT:permutation-sign}{sign} of $\sigma$.
+\end{topic}
+
+\begin{topic}{jacquet-module}{Jacquet module}
+    Let $G$ be a \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ a \tref{representation}{representation}. The \textbf{Jacquet module} of $V$ is the subspace of invariants
+    \[ V^G = \{ v \in V \mid \rho(g) v = v \textup{ for all } g \in G \} \subset V . \]
+\end{topic}
+
+\begin{example}{jacquet-module}
+    Consider a \tref{GT:semidirect-product}{semidirect product} $G = N \rtimes H$, and representations $\rho : G \to \textup{GL}(U)$ and $\tau : H \to \textup{GL}(V)$. The representation $\tau$ can be extended to $\tau' : G \to \textup{GL}(V)$ by setting $\tau'(nh) = \tau(h)$ for all $n \in N$ and $h \in H$. Also, since $N \subset G$ is normal, we have that $U^N$ is naturally an $H$-representation. Now we have a natural bijection
+    \[ \Hom_G(U, V) \isom \Hom_H(U^N, V) , \]
+    since any $H$-equivariant morphism $\phi : U \to V$ is $G$-equivariant if and only if $\phi(U/U^N) = 0$. In particular, this gives an \tref{CT:adjunction}{adjunction}
+    \[ (-)^N \dashv (-)' \quad \textup{ where } \quad (-)^N : \textbf{Rep}_k(G) \to \textbf{Rep}_k(H), \quad (-)' : \textbf{Rep}_k(H) \to \textbf{Rep}_k(G) . \]
+\end{example}
+
+\begin{topic}{witten-zeta-function}{Witten zeta function}
+    Let $G$ be a \tref{TO:compact-space}{compact} \tref{DG:lie-group}{Lie group} with \tref{AA:simple-lie-algebra}{semisimple} \tref{AA:lie-algebra}{Lie algebra}. The \textbf{Witten zeta function} of $G$ is given by
+    \[ \zeta_G(s) = \sum_{\rho} \dim_\CC (\rho)^{-s} , \]
+    where the sum runs over the unitary irreducible representations of $G$.
+\end{topic}
+
+\begin{example}{witten-zeta-function}
+    \begin{itemize}
+        \item The irreducible representations of $\textup{SU}(2)$ are indexed by a non-negative integer $m$ and have dimension $m + 1$, so the Witten zeta function of $\textup{SU}(2)$ is $\zeta_{SU(2)}(s) = \sum_{m \ge 0} (m + 1)^{-s}$, which coincides with the Riemann zeta function.
+        \item The zeta function of $\textup{SU}(3)$ is given by $\zeta_{\textup{SU}(3)}(s) = \sum_{x = 1}^{\infty} \sum_{y = 1}^{\infty} \frac{1}{(xy(x + y) / 2)^s}$.
+        % \item When $G$ is connected and simply-connected, \tref{DG:lie-theorems}{Lie's theorems} give a correspondence between the representations of $G$ and those of its Lie algebra $\mathfrak{g}$. These can be expressed in terms of the \tref{AA:root-system-lie-algebra}{root system} $\Phi$ of $\mathfrak{g}$, and it can be shown that
+        % \[ \zeta_G(s) = \sum_{m_1, \ldots, m_r > 0} \prod_{\alpha \in \Phi^+} \langle \alpha^\vee, m_1 \lambda_1 + \ldots + m_r \lambda_r \rangle^{-s} , \]
+        % where $r$ is the rank of $\mathfrak{g}$ and $\Phi^+$ a choice of positive roots.
+        \item The finite group $G = S_3$ has two irreducible representation of degree $1$, and one of degree $2$, so $\zeta_{S_3}(s) = 2 + 2^{-s}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{pseudoreal-representation}{(pseudo)real representation}
+    Let $G$ be a \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ a complex \tref{representation}{representation}. The representation $\rho$ is called
+    \begin{itemize}
+        \item \textbf{real} if $\rho = \tau \otimes_\RR \CC$ for some real representation $\tau : G \to \textup{GL}(U)$,
+        \item \textbf{pseudoreal} if it is not real, but $\rho$ is isomorphic to its complex conjugate $\overline{\rho} : G \to \textup{GL}(\overline{V})$,
+        \item \textit{complex} if it is neither real nor pseudoreal.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{pseudoreal-representation}
+    \begin{itemize}
+        \item All representations of the \tref{GT:symmetric-group}{symmetric groups} $S_n$ are real.
+        \item The $2$-dimensional irreducible representation of $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, \; i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$, given by
+        \[ \rho(\overline{e}) = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}, \quad \rho(i) = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}, \quad \rho(j) = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad \rho(k) = \begin{pmatrix} 0 & -i \\ -i & 0 \end{pmatrix} , \]
+        is pseudoreal. Namely, $A \rho(g) A^{-1} = \overline{\rho}(g)$ for $A = \left(\begin{smallmatrix} 0 & -1 \\ 1 & 0 \end{smallmatrix}\right)$, but $\rho$ is not real: if we have $A = \left(\begin{smallmatrix} a & b \\ c & d \end{smallmatrix}\right) \in \textup{SL}_2(\CC)$ such that $\rho'(g) = A \rho(g) A^{-1}$ is real, then
+        \[ \rho'(i) = A \rho(i) A^{-1} = i \begin{pmatrix} ad + bc & -2ab \\ 2cd & -(ad + bc) \end{pmatrix} \textup{ and } \rho'(j) = A \rho(j) A^{-1} = \begin{pmatrix} ad + bc & -a^2 - b^2 \\ c^2 + d^2 & -(ad + bc) \end{pmatrix} , \]
+        which implies $ad + bc = 0$, hence $ad = -bc = \tfrac{1}{2}$. Furthermore, from $\rho'(i)$ we see that $ab, cd \in i \RR^*$. But now,
+        \[ \begin{pmatrix} 0 & (2ab)^2 (c^2 + d^2) \\ (2cd)^2 (a^2 + b^2) & 0 \end{pmatrix} = \rho'(i) \rho'(j) \rho'(i)^{-1} = - \rho'(j) = \begin{pmatrix} 0 & a^2 + b^2 \\ -(c^2 + d^2) & 0 \end{pmatrix} . \]
+        As $(2ab)^2, (2cd)^2 < 0$, comparing the top right entries tell us $a^2 + b^2$ and $c^2 + d^2$ have opposite signs, while the bottom left entries tell us they have equal sign, contradiction.
+    \end{itemize}
+    % \item Every pseudoreal representation is \tref{quaternionic-representation}{quaternionic}.
+\end{example}
+
+% \begin{topic}{quaternionic-representation}{quaternionic representation}
+%     https://en.wikipedia.org/wiki/Quaternionic_representation
+% \end{topic}
+
+% \begin{example}{quaternionic-representation}
+    % Quaternionic representation of Q_8: https://math.ou.edu/~kmartin/repthy/lecRCQ.pdf
+% \end{example}
+
+\begin{topic}{frobenius-schur-indicator}{Frobenius--Schur indicator}
+    Let $G$ be a finite \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ an \tref{irreducible-representation}{irreducible representation} with \tref{character-representation}{character} $\chi$. The \textbf{Frobenius--Schur indicator} of $\rho$ is
+    \[ \frac{1}{|G|} \sum_{g \in G} \chi(g^2) . \]
+    The Frobenius--Schur indicator is equal to $1$, $0$ or $-1$, corresponding to $\rho$ being \tref{pseudoreal-representation}{real}, complex or pseudoreal, respectively.
+\end{topic}
+
+\begin{example}{frobenius-schur-indicator}
+    Consider $G = \ZZ/n\ZZ$ with the $1$-dimensional representation $\rho(k \mod n) = \zeta_n^k$. Its Frobenius--Schur indicator is
+    \[ \frac{1}{n} \left(1 + \zeta_n + \cdots + \zeta_n^{n - 1} \right) = 0 , \]
+    so $\rho$ is complex.
+\end{example}
+
+\begin{example}{frobenius-schur-indicator}
+    Let $G$ be a group of odd order $n$. Then $2 \mod n$ is invertible in $(\ZZ/n\ZZ)^*$, so $\{ g^2 : g \in G \}$ is precisely $G$. Hence, the Frobenius--Schur indicator of any irreducible representation $\rho$ is
+    \[ \frac{1}{|G|} \sum_{g \in G} \chi(g^2) = \frac{1}{|G|} \sum_{g \in G} \chi(g) = \left\{ \begin{array}{cl} 1 & \textup{ if $\rho$ is trivial} , \\ 0 & \textup{ otherwise} . \end{array} \right. \]
+\end{example}
+
+\begin{topic}{frobenius-formula}{Frobenius formula}
+    Let $\chi_\lambda$ be a complex \tref{character-representation}{character} of the \tref{GT:symmetric-group}{symmetric group} $S_n$ corresponding to a \tref{GM:integer-partition}{partition} $\lambda = (\lambda_1, \ldots, \lambda_k)$ of $n \ge 1$. Let $C_i$ be the conjugacy class of permutations of cycle type $i = (i_1, i_2, \ldots, i_n)$, that is, those permutations that have $i_1$ $1$-cycles, $i_2$ $2$-cycles, ..., and $i_n$ $n$-cycles. The \textbf{Frobenius formula} states that $\chi_\lambda(C_i)$ equals the coefficient of $x_1^{\ell_1} \cdots x_k^{\ell_k}$ in
+    \[ \prod_{1 \le i < j \le k} (x_i - x_j) \prod_{j = 1}^{n} (x_1^j + \cdots + x_k^j)^{i_j} , \]
+    where $\ell_j = \lambda_j + k - j$.
+\end{topic}
+
+\begin{example}{frobenius-formula}
+    \begin{itemize}
+        \item For $\lambda = (n)$, corresponding to the trivial representation, we have $\ell_1 = n$. Note that $1 \cdot \prod_{j = 1}^{n} (x_1^j)^{i_j} = x_1^n$ as $\sum_{j = 1}^{n} j \cdot i_j = n$, so $\chi_\lambda(C_i) = 1$ as expected.
+        \item For $\lambda = (n - 1, 1)$, corresponding to the \tref{standard-representation}{standard representation}, we have $\ell_1 = n$ and $\ell_2 = 1$. The coefficient of $x_1^n x_2$ in $(x_1 - x_2) \prod_{j = 1}^{n} (x_1^j + x_2^j)^{i_j}$ is $i_1 - 1$, so $\chi_\lambda(C_i) = i_1 - 1$. % This makes sense, since it is one less than the number of elements fixed by any $g \in C_i$.
+        \item For $\lambda = (1, 1, \ldots, 1)$, corresponding to the \tref{alternating-representation}{alternating representation}, we have $\ell_j = n + 1 - j$. The coefficient of $x_1^{\ell_1} \cdots x_n^{\ell_n}$ in $\prod_{1 \le i < j \le n} (x_i - x_j) \prod_{j = 1}^{n} (x_1^j + \cdots x_n^j)^{i_j}$ should be $(-1)^{(i_2 + i_4 + \cdots)}$ as $\chi_\lambda(C_i) = (-1)^{(i_2 + i_4 + \cdots)}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{permutation-module}{permutation module}
+    Let $G$ be a finite \tref{GT:group}{group}. A \tref{AA:module}{$\ZZ[G]$-module} $M$ is a \textbf{permutation module} if $M$ is \tref{GT:free-group}{free} as an abelian group and has a $\ZZ$-basis permuted by $G$.
+\end{topic}
+
+\begin{example}{permutation-module}
+    For any subgroup $H \subset G$, the $\ZZ[G]$-module $\ZZ[G/H]$, where $G$ acts by permuting the cosets, is a permutation module. Moreover, any permutation module $M$ can be written as a direct sum
+    \[ \bigoplus_{i \in I} \ZZ[G/H_i] , \]
+    for some subgroups $H_i \subset G$.
+\end{example}
+
+\begin{topic}{monomial-representation}{monomial representation}
+    Let $G$ be a \tref{GT:group}{group}. A \tref{representation}{representation} $\rho : G \to \textup{GL}(V)$ is \textbf{monomial} if it is isomorphic to the \tref{induced-representation}{induced representation} $\operatorname{Ind}_H^G(\tau)$ of some $1$-dimensional representation $\tau : H \to \textup{GL}(k)$ of some subgroup $H \subset G$ of finite \tref{GT:index-subgroup}{index}.
+\end{topic}
+
+\begin{topic}{brauer-theorem}{Brauer's theorem}
+    Let $G$ be a finite \tref{GT:group}{group}. \textbf{Brauer's theorem} states that every (complex) \tref{character-representation}{character} of $G$ is a linear combination with integer coefficients of characters \tref{induced-representation}{induced} from characters of \tref{GT:elementary-group}{elementary} subgroups of $G$.
+\end{topic}
+
+\begin{topic}{fourier-transform-finite-groups}{Fourier transform finite groups}
+    Let $G$ be a finite \tref{GT:group}{group} and $\widehat{G}$ the set of \tref{character-representation}{characters} of \tref{irreducible-representation}{irreducible representations} of $G$. Let $C(G)$ be the $\CC$-vector space of functions $f : G \to \CC$ which are constant on conjugacy classes, and $C(\widehat{G})$ the $\CC$-vector space of functions on $\widehat{G}$.
+    
+    The \textbf{Fourier transform} on $G$ is given by
+    \[ \mathcal{F} : C(G) \to C(\widehat{G}), \quad \mathcal{F}(f)(\chi) = \sum_{g \in G} f(g) \frac{\chi(g)}{\chi(1)} , \]
+    and the \textbf{inverse Fourier transform} by
+    \[ \widehat{\mathcal{F}} : C(\widehat{G}) \to C(G), \quad \widehat{\mathcal{F}}(F)(g) = \sum_{\chi \in \widehat{G}} F(\chi) \chi(1) \overline{\chi(g)} . \]
+    These operations are inverse to each other in the sense that
+    \[ \widehat{\mathcal{F}} \circ \mathcal{F} = |G| \cdot \id_{C(G)} \quad \textup{ and } \quad \mathcal{F} \circ \widehat{\mathcal{F}} = |G| \cdot \id_{C(\widehat{G})} \]
+\end{topic}
+
+\begin{example}{fourier-transform-finite-groups}
+    The \textit{convolution} of two functions $f_1, f_2 \in C(G)$ is given by
+    \[ (f_1 * f_2)(g) = \sum_{xy = g} f_1(x) f_2(y) , \]
+    and pointwise multiplication of $F_1, F_2 \in C(\widehat{G})$ by
+    \[ (F_1 \cdot F_2)(\chi) = F_1(\chi) F_2(\chi) . \]
+    It can be verified that $\mathcal{F}(f_1 * f_2) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2)$. Namely, the
+    \[ \sum_{g \in G} \sum_{xy = g} f_1(x) f_2(y) \frac{\rho(g)}{\chi(1)} = \sum_{x, y \in G} f_1(x) f_2(y) \frac{\rho(xy)}{\chi(1)} = \frac{1}{\chi(1)} \left( \sum_{x \in G} f_1(x) \rho(x) \right) \left( \sum_{y \in G} f_2(y) \rho(y) \right) . \]
+    By Schur's lemma, both factors are scalar matrices, so the trace of this quantity equals
+    \[ \left( \sum_{x \in G} f_1(x) \frac{\chi(x)}{\chi(1)} \right) \left( \sum_{y \in G} f_2(y) \frac{\chi(y)}{\chi(1)} \right) = \mathcal{F}(f_1) \cdot \mathcal{F}(f_2) . \]
+\end{example}
+
+\begin{topic}{coinduced-representation}{coinduced representation}
+    Let $G$ be a \tref{GT:group}{group}, $H \subset G$ a \tref{GT:subgroup}{subgroup}, and $\rho : H \to \textup{GL}(V)$ a \tref{representation}{representation} of $H$ over a field $k$. The \textbf{coinduced representation} of $V$ is the natural representation of $G$ on
+    \[ \operatorname{Coind}_H^G(V) = \Hom_{k[H]}(k[G], V) , \]
+    where $k[G]$ denotes the \tref{AA:group-ring}{group ring} of $G$.
+\end{topic}
+
+\begin{example}{coinduced-representation}
+    For any groups $H \subset G$, there is an \tref{CT:adjunction}{adjunction}
+    \[ \operatorname{Res}_H^G \dashv \operatorname{Coind}_H^G , \]
+    which is a special case of the natural bijection
+    \[ \begin{aligned}
+        \Hom_B(M, N) &\isom \Hom_A(M, \Hom_B(A, N)) \\
+        \varphi &\mapsto (m \mapsto (a \mapsto \varphi(a \cdot m))) \\
+        (m \mapsto \psi(m)(1)) &\mapsfrom \psi
+    \end{aligned} \]
+    for $A = k[G]$ and $B = k[H]$.
+\end{example}
+
+\begin{example}{coinduced-representation}
+    If the \tref{GT:index-subgroup}{index} $[G : H]$ is finite and invertible in $k$, then the coinduced representation $\operatorname{Coind}_H^G(V)$ is naturally isomorphic to the \tref{induced-representation}{induced representation} via
+    \[ \begin{aligned}
+        \operatorname{Ind}_H^G(V) = k[G] \otimes_{k[H]} V &\to \Hom_{k[H]}(k[G], V) = \operatorname{Coind}_H^G(V) \\
+        g \otimes v &\mapsto \left(g' \mapsto \left\{ \begin{array}{cl} g'g v & \textup{ if } g'g \in H, \\ 0 & \textup{ otherwise}. \end{array} \right. \right)
+    \end{aligned} \]
+\end{example}
+
+\begin{topic}{clifford-theorem}{Clifford's theorem}
+    Let $G$ be a \tref{GT:group}{group} with \tref{GT:normal-subgroup}{normal subgroup} $N \subset G$ of finite \tref{GT:index-subgroup}{index}, and let $V$ be a \tref{irreducible-representation}{irreducible} \tref{representation}{representation} of $G$ over a field $k$. Then \textbf{Clifford's theorem} states the restriction of $V$ to $N$ decomposes as a direct sum
+    \[ \textup{Res}^G_N(V) \isom W_1^r \oplus \cdots \oplus W_n^r \]
+    for some $n, r \ge 0$ and distinct irreducible representations $W_i$ of $N$, such that
+    \begin{enumerate}[label=(\roman*)]
+        \item the action of $G$ acts permutes the summands $W_i^r$ transitively,
+        \item all $W_i$ have the same dimension,
+        \item $V$ is isomorphic to the \tref{induced-representation}{induced representation} $\operatorname{Ind}_{H_i}^G(W_i^r)$ with $H_i = \{ g \in G \mid g W_i = W_i \}$, for all $i$.
+    \end{enumerate}
+\end{topic}
+
+\begin{topic}{schur-index}{Schur index}
+    Let $k$ be a \tref{AA:field}{field} with \tref{AA:algebraic-closure}{algebraic closure} $\overline{k}$, let $G$ be a finite \tref{GT:group}{group}, and let $V$ be an \tref{irreducible-representation}{irreducible representation} of $G$ over $\overline{k}$ with \tref{character-representation}{character} $\chi$. Write $k(\chi)$ for the \tref{AA:field-extension}{field extension} of $k$ obtained by adjoining the values $\chi(g)$ for all $g \in G$.
+    The \textbf{Schur index} $m_k(V)$ of $V$ is the minimal positive integer $m$ such that there exists a field extension $\ell / k(\chi)$ of degree $m$ and a representation $W$ of $G$ over $\ell$ such that $V \cong W \otimes_\ell \overline{k}$.
+\end{topic}
+
+\begin{example}{schur-index}
+    Let $k = \QQ$ and take $G$ to be the quaternion group $Q_8 = \langle \overline{e}, i, j, k \mid \overline{e}^2 = 1, i^2 = j^2 = k^2 = ijk = \overline{e} \rangle$. Consider the complex representation $V$ of $Q_8$ given by
+    \[ \overline{e} \mapsto \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}, \quad i \mapsto \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}, \quad j \mapsto \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad k \mapsto \begin{pmatrix} 0 & -i \\ -i & 0 \end{pmatrix} . \]
+    Computing the traces of all matrices, one sees that $k(\chi) = \QQ$. Now, since $V$ cannot be realized over $\QQ$, but it can be realized over $\QQ(i)$, the Schur index of $V$ is $m_\QQ(V) = 2$.
+\end{example}

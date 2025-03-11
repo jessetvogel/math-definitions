@@ -1,0 +1,203 @@
+\begin{topic}{triangulated-category}{triangulated category}
+    Let $\mathcal{D}$ be an \tref{additive-category}{additive category}. The structure of a \textbf{triangulated category} on $\mathcal{D}$ is given by an additive equivalence
+    \[ [1] : \mathcal{D} \to \mathcal{D} \qquad \text{(the shift functor)} \]
+    and a set of \textbf{distinguished triangles}
+    \[ A \to B \to C \to A[1] \]
+    such that
+    \begin{enumerate}[label=(\arabic*)]
+        \item \begin{itemize}
+            \item Any $A \to A \to 0 \to A[1]$ is distinguished.
+            \item Any triangle isomorphic to a distinguished triangle is distinguished.
+            \item Any morphism $f : A \to B$ can be completed to a distinguished triangle $A \overset{f}{\to} B \to C \to A[1]$.
+        \end{itemize}
+        \item A triangle
+        \[ A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} A[1] \]
+        is distinguished if and only if
+        \[ B \xrightarrow{g} C \xrightarrow{h} A[1] \xrightarrow{-f[1]} B[1] \]
+        is.
+        \item Given a commutative diagram of distinguished triangles with vertical $f$ and $g$,
+        \[ \svg \begin{tikzcd}
+            A \arrow{r} \arrow{d}{f} & B \arrow{r} \arrow{d}{g} & C \arrow{r} \arrow[dashed]{d}{h} & A[1] \arrow{d}{f[1]} \\
+            A' \arrow{r} & B' \arrow{r} & C' \arrow{r} & A'[1]
+        \end{tikzcd} \]
+        there exists an $h : C \to C'$ completing the diagram. Note: this $h$ may be non-unique.
+        \item (\textit{octahedron axiom}) Given exact triangles
+        \[ X \xrightarrow{u} Y \xrightarrow{j} Z' \xrightarrow{k} X[1] \]
+        \[ Y \xrightarrow{v} Z \xrightarrow{\ell} X' \xrightarrow{i} Y[1] \]
+        \[ X \xrightarrow{vu} Z \xrightarrow{m} Y' \xrightarrow{n} X[1] , \]
+        there exists an exact triangle
+        \[ Z' \xrightarrow{f} Y' \xrightarrow{g} X' \xrightarrow{h} Z'[1] , \]
+        such that 
+        \[ \ell = gm, \quad k = nf, \quad h = j[1]i, \quad ig = u[1]n \quad \text{ and } \quad fj = mv . \]
+        \[ \svg \begin{tikzcd}[row sep=4em, column sep=5em] & Y' \arrow{rd}{g} & \\ Z' \arrow{ur}{f} \arrow[d, swap,"k","{[}1{]}"'] \ar[from=ddr, crossing over]{}{j} & & X' \arrow[ddl, swap, "i", "{[}1{]}"'] \arrow[ll, "h"',"{[}1{]}"] \\ X \arrow[swap]{dr}{u} \arrow[crossing over]{rr}{vu} \arrow[swap, from=uur, crossing over, "n", "{[}1{]}"'] & & Z \arrow[swap]{u}{\ell} \arrow[crossing over, swap]{uul}{m} \\ & Y \arrow[swap]{ur}{v} & \end{tikzcd} \]
+    \end{enumerate}
+\end{topic}
+
+\begin{topic}{exact-functor-triangulated}{exact functor of triangulated categories}
+    An \tref{additive-functor}{additive functor} between \tref{triangulated-category}{triangulated categories} $F : \mathcal{D} \to \mathcal{D}'$ is \textbf{exact} if
+    \begin{itemize}
+        \item there exists a natural isomorphism $F \circ [1]_\mathcal{D} \xrightarrow{\sim} [1]_{\mathcal{D}'} \circ F$,
+        \item $F$ maps distinguished triangles to distinguished triangles.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{triangulated-subcategory}{triangulated subcategory}
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. Then a subcategory $\mathcal{S} \subset \mathcal{T}$ is a \textbf{triangulated subcategory} if it admits the structure of a triangulated category such that the inclusion is \tref{exact-functor-triangulated}{exact}.
+\end{topic}
+
+\begin{topic}{admissible-subcategory}{admissible subcategory}
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A full \tref{triangulated-subcategory}{triangulated subcategory} $\mathcal{S} \subset \mathcal{T}$ is \textbf{right admissible} (resp. \textbf{left admissible}) if the inclusion $i : \mathcal{S} \to \mathcal{T}$ has a right (resp. left) adjoint $\pi : \mathcal{T} \to \mathcal{S}$. If it is both left and right admissible, it is called \textbf{admissible}.
+\end{topic}
+
+\begin{example}{admissible-subcategory}
+    The following are equivalent.
+    \begin{enumerate}[label=(\roman*)]
+        \item The full triangulated subcategory $\mathcal{S} \subset \mathcal{T}$ is right admissible.
+        \item For all $X \in \mathcal{T}$ there exists a distinguished triangle
+        \[ A \to X \to B \to A[1] \]
+        with $A \in \mathcal{S}$ and $B \in {\mathcal{S}}^\perp$, the \tref{orthogonal-complement}{orthogonal complement}.
+    \end{enumerate}
+    \begin{proof}
+        $(i \Rightarrow ii)$ Let $\pi : \mathcal{T} \to \mathcal{S}$ be a right adjoint and take $A = \pi(X)$. The transpose of $\id_{\pi(X)}$ under the adjunction is a morphism $A \to X$, and fits into some exact triangle $A \to X \to B \to A[1]$. Now for any $D \in \mathcal{S}$ we have
+        \[ \Hom_\mathcal{T}(D, A) = \Hom_{\mathcal{S}'}(D, \pi(X)) \isom \Hom_\mathcal{T}(i(D), X) = \Hom_\mathcal{T}(D, X) , \]
+        so from the long exact sequence
+        \[ \cdots \to \Hom_\mathcal{T}(D, A) \to \Hom_\mathcal{T}(D, X) \to \Hom_\mathcal{T}(D, B) \to \Hom_\mathcal{T}(D, A[1]) \to \cdots \]
+        follows that $\Hom_\mathcal{T}(D, B) = 0$, that is, $B \in \mathcal{S}^\perp$.
+        $(ii \Rightarrow i)$ For each $X \in \mathcal{T}$, choose an exact triangle $A_X \to X \to B_X \to A_X[1]$ as described. Define a functor $\pi : \mathcal{T} \to \mathcal{S}$ by $\pi(X) = A_X$. For a morphism $f : X \to Y$, note that $\Hom_\mathcal{T}(A_X, A_Y) \isom \Hom_\mathcal{T}(A_X, Y)$ since $B_Y \in \mathcal{S}^\perp$ (again use the long exact sequence). Hence, there is a unique morphism $f' : A_X \to A_Y$ making the obvious square commute, and we set $\pi(f) = f'$. One can check that this indeed gives a functor, and that $\pi$ is right adjoint to $i$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{orthogonal-complement}{orthogonal complement}
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. The (right) \textbf{orthogonal complement} of a subcategory $\mathcal{S} \subset \mathcal{T}$ is the full subcategory $\mathcal{S}^\perp$ of all objects $A \in \mathcal{T}$ such that $\Hom_\mathcal{T}(B, A) = 0$ for all $B \in \mathcal{S}$.
+\end{topic}
+
+\begin{topic}{spanning-class}{spanning class}
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A collection $\Omega$ of objects in $\mathcal{T}$ is a \textbf{spanning class} (or spans $\mathcal{T}$) if for all $B \in \mathcal{T}$,
+    \begin{itemize}
+        \item $\Hom(A, B[i]) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \isom 0$,
+        \item $\Hom(B[i], A) = 0$ for all $A \in \Omega$ and $i \in \ZZ$ implies $B \isom 0$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{exceptional-sequence}{exceptional sequence}
+    Let $\mathcal{D}$ be a $k$-linear \tref{triangulated-category}{triangulated category}. An object $E \in \mathcal{D}$ is called \textbf{exceptional} if
+    \[ \Hom_\mathcal{D}(E, E[\ell]) = \left\{\begin{array}{cl} k & \text{ if } \ell = 0, \\ 0 & \text{ otherwise.} \end{array}\right. \]
+    An \textbf{exceptional sequence} is a sequence $E_1, \ldots, E_n$ of exceptional objects such that
+    \[ \Hom_\mathcal{D}(E_i, E_j[\ell]) = 0 \qquad \textup{for $i > j$ and all $\ell$}. \]
+    Such an exceptional sequence is \textbf{strong} if moreover
+    \[ \Hom_\mathcal{D}(E_i, E_j[\ell]) = 0 \qquad \textup{for all $i, j$ and $\ell \ne 0$}. \]
+    If $\mathcal{D}$ is a \tref{triangulated-category}{triangulated category}, such an exceptional sequence is \textbf{full} if the objects $E_1, \ldots, E_n$ generate $\mathcal{D}$.
+\end{topic}
+
+% \begin{example}{exceptional-sequence}
+%     Let $X$ be a connected smooth projective variety, and $\mathcal{D} = \textbf{D}^\textup{b}(X)$. Then any line bundle $\mathcal{L}$ over $X$ is exceptional, since
+%     \[ \Hom_{\mathcal{O}_X}(\mathcal{L}, \mathcal{L}) = k \]
+%     and
+%     \[ \textup{Ext}^i(\mathcal{L}, \mathcal{L}) = 0 \]
+%     for $i > 0$ since $\mathcal{L}$ is locally free.
+% \end{example}
+
+\begin{example}{exceptional-sequence}
+    For $\mathcal{D} = \textbf{D}^\textup{b}(\textbf{FinVect}_k)$, the bounded derived category of finite vector spaces over $k$, the one-dimensional vector space $k$ is exceptional, and moreover, it generates $\mathcal{D}$ as a triangulated category.
+
+    For general $\mathcal{D}$, the subcategory $\langle E \rangle$ generated by an exceptional object $E \in \mathcal{D}$ is equivalent to $\textbf{D}^\textup{b}(\textbf{FinVect}_k)$. For example, every object in $\langle E \rangle$ is isomorphic to a direct sum of shifts of $E$.
+\end{example}
+
+\begin{topic}{semi-orthogonal-decomposition}{semi-orthogonal decomposition}
+    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A sequence of full \tref{admissible-subcategory}{admissible} \tref{triangulated-subcategory}{triangulated subcategories} $\mathcal{D}_1, \mathcal{D}_2, \ldots, \mathcal{D}_n \subset \mathcal{D}$ is \textbf{semi-orthogonal} if
+    \[ \mathcal{D}_i \subset \mathcal{D}_j^\perp \qquad \text{for all $i < j$}. \]
+    Such a sequence defines a \textbf{semi-orthogonal decomposition} of $\mathcal{D}$ if $\mathcal{D}$ is generated by the $\mathcal{D}_i$. In this case one writes
+    \[ \mathcal{D} = \langle \mathcal{D}_1, \mathcal{D}_2, \ldots, \mathcal{D}_n \rangle . \]
+\end{topic}
+
+\begin{example}{semi-orthogonal-decomposition}
+    Given an \tref{exceptional-sequence}{exceptional sequence} $E_1, \ldots, E_n$ in $\mathcal{D}$, the subcategories
+    \[ \mathcal{D}_1 = \langle E_1 \rangle, \ldots, \mathcal{D}_n = \langle E_n \rangle , \]
+    form a semi-orthogonal sequence, and if the $E_i$ generate $\mathcal{D}$, then they form a semi-orthogonal decomposition.
+\end{example}
+
+\begin{example}{semi-orthogonal-decomposition}
+    The \tref{derived-category}{derived category} $\textbf{D}^\textup{b}(\PP^n)$ of coherent sheaves on projective space has a semi-orthogonal decomposition
+    \[ \textbf{D}^\textup{b}(\PP^n) = \langle \mathcal{O}(-n), \mathcal{O}(-n + 1), \ldots, \mathcal{O}(-1), \mathcal{O} \rangle . \]
+    Indeed, the sequence $\mathcal{O}(-n), \ldots, \mathcal{O}$ is exceptional since
+    \[ \textup{Ext}^r(\mathcal{O}(i), \mathcal{O}(j)) \isom \textup{Ext}^r(\mathcal{O}, \mathcal{O}(j - i)) \isom H^r(\PP^n, \mathcal{O}(j - i)) = \left\{ \begin{array}{cl}
+         k & \textup{ if } r = 0, i \le j , \\
+         k & \textup{ if } r = n, i - j < n + 1 , \\
+         0 & \textup{ otherwise}.
+    \end{array} \right. \]
+    Furthermore, any coherent sheaf on $\PP^n$ has a finite resolution by direct sums of sheaves $\mathcal{O}(i)$, and combined with the Koszul complex (and tensor products with $\mathcal{O}(i)$ thereof),
+    \[ 0 \to \mathcal{O} \to \cdots \to \mathcal{O}(i)^{\binom{n + 1}{n + 1 - i}} \to \cdots \to \mathcal{O}(n)^{n + 1} \to \mathcal{O}(n + 1) \to 0 , \]
+    it follows that the sheaves $\mathcal{O}(-n), \ldots, \mathcal{O}$ generate $\textbf{D}^\textup{b}(\PP^n)$.
+\end{example}
+
+\begin{topic}{thick-subcategory}{thick subcategory}
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A \textbf{thick subcategory} $\mathcal{S}$ is a \tref{CT:full-subcategory}{full} \tref{triangulated-subcategory}{triangulated subcategory} which is closed under taking direct summands.
+\end{topic}
+
+\begin{topic}{verdier-quotient}{Verdier quotient}
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category} and $\mathcal{S} \subset \mathcal{T}$ a \tref{triangulated-subcategory}{triangulated subcategory}. The \textbf{Verdier quotient} $\mathcal{T}/\mathcal{S}$ is a triangulated category equipped with an \tref{additive-functor}{additive} and \tref{exact-functor-triangulated}{exact} quotient functor
+    \[ Q : \mathcal{T} \to \mathcal{T}/\mathcal{S} , \]
+    which is universal among all functors $\mathcal{T} \to \mathcal{D}$ which send objects of $\mathcal{S}$ to objects isomorphic to zero.
+    \[ \svg \begin{tikzcd} \mathcal{T} \arrow{r}{Q} \arrow{rd} & \mathcal{T} / \mathcal{S} \arrow[dashed]{d} \\ & \mathcal{D} \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{verdier-quotient}
+    Let $\mathcal{S} \subset \mathcal{T}$ be a \tref{admissible-subcategory}{right admissible subcategory}. We will show that the quotient $\mathcal{T}/\mathcal{S}$ is equivalent to the \tref{orthogonal-complement}{orthogonal complement} $S^\perp$. Since $\mathcal{S}$ is right admissible, any object $X$ of $\mathcal{T}$ fits in an exact triangle
+    \[ \pi(X) \to X \to Q(X) \to \pi(X)[1] , \]
+    where $\pi : \mathcal{T} \to \mathcal{S}$ denotes a \tref{CT:adjunction}{right adjoint} to the inclusion $i : \mathcal{S} \to \mathcal{T}$, and $Q(X)$ lies in $\mathcal{S}^\perp$. Moreover, for any morphism $f : X \to Y$ we obtain an exact sequence
+    \[ 0 = \Hom(\pi(X)[1], Q(Y)) \to \Hom(Q(X), Q(Y)) \to \Hom(X, Q(Y)) \to \Hom(\pi(X), Q(Y)) = 0 \]
+    which shows there is a unique morphism $Q(f) : Q(X) \to Q(Y)$ making the natural square commute.
+    Now by uniqueness of $Q(f)$, we obtain a functor
+    \[ Q : \mathcal{T} \to S^\perp , \]
+    which is easily seen to be additive and exact.
+    
+    Universality is easily verified: any other additive and exact $F : \mathcal{T} \to \mathcal{D}$ that sends objects of $\mathcal{S}$ to zero, yields $\mathcal{S}^\perp \to \mathcal{D}$ by the restricting $F$ to $S^\perp$. And indeed, applying $F$ to the above exact triangle gives $F(X) \isom F(Q(X))$.
+\end{example}
+
+\begin{topic}{tensor-triangulated-category}{tensor triangulated category}
+    A \textbf{tensor triangulated category} is a \tref{triangulated-category}{triangulated category} $\mathcal{T}$ with a \tref{CT:symmetric-monoidal-category}{symmetric monoidal structure} $\otimes : \mathcal{T} \times \mathcal{T} \to \mathcal{T}$ such that $X \otimes (-)$ and $(-) \otimes X$ are \tref{exact-functor-triangulated}{exact functors} for all $X$ in $\mathcal{T}$.
+\end{topic}
+
+\begin{topic}{t-structure}{t-structure}
+    Let $\mathcal{D}$ be a \tref{triangulated-category}{triangulated category}. A \textbf{$t$-structure} on $\mathcal{D}$ is a pair $(\mathcal{D}_{\ge 0}, \mathcal{D}_{\le 0})$ of \tref{CT:full-subcategory}{full subcategories}, stable under isomorphisms, such that
+    \begin{itemize}
+        \item $\mathcal{D}_{\ge 0}[1] \subset \mathcal{D}_{\ge 0}$ and $\mathcal{D}_{\le 0}[-1] \subset \mathcal{D}_{\le 0}$,
+        \item $\Hom_\mathcal{D}(X, Y[-1]) = 0$ for all $X \in \mathcal{D}_{\ge 0}$ and $Y \in \mathcal{D}_{\le 0}$,
+        \item for all $Y \in \mathcal{D}$, there exists a distinguished triangle
+        \[ X \to Y \to Z \to X[1] \]
+        with $X \in \mathcal{D}_{\ge 0}$ and $Z \in \mathcal{D}_{\le 0}[-1]$.
+    \end{itemize}
+    One writes $\mathcal{D}_{\ge n} = \mathcal{D}_{\ge 0}[n]$ and $\mathcal{D}_{\le n} = \mathcal{D}_{\le 0}[n]$ for all $n \in \ZZ$.
+    
+    The \textbf{heart} of the $t$-structure is the full subcategory $\mathcal{D}^\heartsuit = \mathcal{D}_{\ge 0} \cap \mathcal{D}_{\le 0}$, and is \tref{abelian-category}{abelian}.
+    
+    A $t$-structure is \textbf{non-degenerate} if the intersections $\cap_{n \in \ZZ} \mathcal{D}_{\ge n}$ and $\cap_{n \in \ZZ} \mathcal{D}_{\le n}$ consist only of zero objects.
+\end{topic}
+
+\begin{example}{t-structure}
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $\textbf{D}(\mathcal{A})$ its \tref{derived-category}{derived category}. The natural $t$-structure on $\textbf{D}(\mathcal{A})$ is given by the pair
+    \[ \begin{aligned}
+        \textbf{D}(\mathcal{A})_{\ge 0} &= \{ A_\bdot \in \textbf{D}(\mathcal{A}) \mid H_i(A_\bdot) = 0 \textup{ for all } i < 0 \} , \\
+        \textbf{D}(\mathcal{A})_{\le 0} &= \{ A_\bdot \in \textbf{D}(\mathcal{A}) \mid H_i(A_\bdot) = 0 \textup{ for all } i > 0 \} .
+    \end{aligned} \]
+    Indeed, the first condition is trivial, and the second condition holds since $\textup{Ext}_\mathcal{A}^{-1}(A, B) = 0$ for all $A, B$. Finally, for any complex $A_\bdot$, there is a distinguished triangle given by
+    \[ A_{\ge 0} \to A_\bdot \to A_{\le -1} \to A_{\ge 0}[1] \]
+    where $A_{\ge 0}$ and $A_{\le -1}$ denote the truncations of $A^\bdot$.
+    
+    Furthermore, the heart $\textbf{D}(\mathcal{A})^\heartsuit = \{ A_\bdot \in \textbf{D}(\mathcal{A}) \mid H_i(A_\bdot) = 0 \textup{ for all } i \ne 0 \}$ is equivalent to $\mathcal{A}$ via the functor $H_0$.
+\end{example}
+
+\begin{topic}{tilting-object}{tilting object}
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. An object $X$ of $\mathcal{T}$ is \textbf{tilting} if
+    \begin{itemize}
+        \item $X$ generates $\mathcal{T}$ as triangulated category,
+        \item $\Hom_\mathcal{T}(X, X[\ell]) = 0$ for $\ell \ne 0$,
+        \item the category of $\Hom_{\mathcal{T}}(X, X)$-modules has finite \tref{homological-dimension}{global dimension}.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{tilting-object}
+    If $E_1, \ldots, E_n$ is a \tref{exceptional-sequence}{full strong exceptional sequence} then $X = \bigoplus_{i = 1}^{n} E_i$ is a tilting object. Namely, $X$ generates $\mathcal{T}$ as $E_1, \ldots, E_n$ generate $\mathcal{T}$, and
+    \[ \Hom_\mathcal{T}(X, X[\ell]) = \bigoplus_{i, j = 1}^{n} \Hom_\mathcal{T}(E_i, E_j[\ell]) = 0 \]
+    for $\ell \ne 0$ by strongness of the sequence. Finally, the global dimension of the category of $\Hom_\mathcal{T}(X, X)$-modules is at most $n$, by the exceptionality of the sequence.
+\end{example}

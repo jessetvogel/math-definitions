@@ -1,0 +1,684 @@
+\begin{topic}{topological-space}{topological space}
+    A \textbf{topological space} is a set $X$ together with family $\mathcal{T}$ of subsets of $X$ satisfying
+    \begin{itemize}
+        \item $X, \varnothing \in \mathcal{T}$,
+        \item the intersection of any two sets in $\mathcal{T}$ is in $\mathcal{T}$,
+        \item the union of any collection of sets in $\mathcal{T}$ is in $\mathcal{T}$.
+    \end{itemize}
+    The family $\mathcal{T}$ is called a \textbf{topology} for $X$, and the members of $\mathcal{T}$ are referred to as \textbf{open sets}. A subset $V \subset X$ is called \textbf{closed} if its complement $X \setminus V$ is open.
+\end{topic}
+
+\begin{topic}{discrete-topology}{discrete topology}
+    The \textbf{discrete topology} on a set $X$ is the \tref{topological-space}{topology} where all subsets of $X$ are open.
+\end{topic}
+
+\begin{topic}{indiscrete-topology}{indiscrete topology}
+    The \textbf{indiscrete topology} on a set $X$ is the \tref{topological-space}{topology} where only $\varnothing$ and $X$ are open.
+\end{topic}
+
+\begin{topic}{coarser}{coarser/finer topology}
+    Given two \tref{topological-space}{topologies} $\mathcal{T}_1$ and $\mathcal{T}_2$ on the same set. Then $\mathcal{T}_1$ is called \textbf{coarser} than $\mathcal{T}_2$ if $\mathcal{T}_1 \subset \mathcal{T}_2$. Equivalently, $\mathcal{T}_2$ is called \textbf{finer} than $\mathcal{T}_1$.
+\end{topic}
+
+\begin{topic}{continuous-map}{continuous map}
+    A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is \textbf{continuous} if for every open subset $V \subset Y$, the inverse image $f^{-1}(V)$ is open in $X$.
+\end{topic}
+
+\begin{topic}{homeomorphism}{homeomorphism}
+    A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is a \textbf{homeomorphism} if it is \tref{continuous-map}{continuous}, bijective and its inverse is continuous as well.
+\end{topic}
+
+\begin{topic}{closure}{closure}
+    Let $X$ be a \tref{topological-space}{topological space}, and $A \subset X$ a subset. A point $x \in X$ is a \textbf{point of closure} of $A$ if $U \cap A \ne \varnothing$ for any open subset $U \subset X$ with $x \in U$. The \textbf{closure} $\overline{A}$ of $A$ is the set of points of closure of $A$.
+    
+    Equivalently, $\overline{A}$ is the smallest closed subset of $X$ containing $A$.
+    % In particular, $\overline{A}$ is closed, $A \subset \overline{A}$ and $\overline{\overline{A}} = \overline{A}$.
+\end{topic}
+
+\begin{topic}{interior}{interior}
+    Let $X$ be a \tref{topological-space}{topological space}, and $A \subset X$ a subset. A point $x \in X$ is an \textbf{interior point} of $A$ if there exists an open set $U \subset A$ with $x \in U$. The \textbf{interior} $\overset{\circ}{A}$ of $A$ is the set of interior points of $A$.
+    
+    Equivalently, $\overset{\circ}{A}$ is the largest open subset of $X$ contained in $A$.
+\end{topic}
+
+\begin{topic}{boundary}{boundary}
+    The \textbf{boundary} $\partial A$ of a subset $A$ of a \tref{topological-space}{topological space} $X$ is the set $\overline{A} \setminus \overset{\circ}{A}$, where $\overline{A}$ denotes the \tref{closure}{closure} of $A$, and $\overset{\circ}{A}$ the \tref{interior}{interior} of $A$.
+\end{topic}
+
+\begin{topic}{neighborhood}{neighborhood}
+    A \textbf{neighborhood} of a point $x$ in a \tref{topological-space}{topological space} $X$ is a subset $N \subset X$ that contains an open set $U \subset X$ containing $x$.
+\end{topic}
+
+\begin{topic}{basis}{basis}
+    Given a \tref{topological-space}{topological space} $X$ with topology $\mathcal{T}$, a \textbf{basis} for $\mathcal{T}$ is a subfamily $\mathcal{B} \subset \mathcal{T}$ such that every set in $\mathcal{T}$ is a union of sets from $\mathcal{B}$.
+\end{topic}
+
+\begin{topic}{subbasis}{subbasis}
+    Given a \tref{topological-space}{topological space} $X$ with topology $\mathcal{T}$, a \textbf{subbasis} for $\mathcal{T}$ is a subfamily $\mathcal{B} \subset \mathcal{T}$ such that $\mathcal{B}$ \textit{generates} $\mathcal{T}$. That is, every open set in $\mathcal{T}$ is a union of finite intersections of sets of $\mathcal{B}$.
+\end{topic}
+
+\begin{topic}{first-countable-space}{first countable space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{first countable} if for every point $x \in X$, there exists a sequence of \tref{neighborhood}{neighborhoods} $N_1, N_2, \ldots$ of $x$ such that every neighborhood $N$ of $x$ contains some $N_i$.
+\end{topic}
+
+\begin{topic}{second-countable-space}{second countable space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{second countable} if it admits a countable \tref{basis}{basis}.
+\end{topic}
+
+\begin{topic}{dense-set}{dense set}
+    A subset $A$ of a \tref{topological-space}{topological space} $X$ is \textbf{dense} if its \tref{closure}{closure} $\overline{A}$ equals $X$.
+\end{topic}
+
+\begin{topic}{specialization}{specialization / generalization}
+    Let $X$ be a \tref{topological-space}{topological space}. If $x, y \in X$ then we say $y$ is a \textbf{specialization} of $x$, (sometimes that $x$ is a \textbf{generalization} of $y$) if $y \in \overline{\{ x \}}$, i.e. $y$ lies in the \tref{closure}{closure} of $x$. This is denoted as $x \leadsto y$.
+    
+    A subset $T \subset X$ is said to be \textbf{stable under specialization} if for all $x \in T$ and every specialization $x \leadsto y$ we have $y \in T$.
+    
+    Similarly, a subset $T \subset X$ is said to be \textbf{stable under generalization} if for all $y \in T$ and every generalization $x \leadsto y$ we have $x \in T$.
+\end{topic}
+
+\begin{topic}{closed-map}{closed map}
+    A \tref{continuous-map}{continuous map} $f : X \to Y$ is a \textbf{closed map} if for all closed subsets $Z \subset X$, the image $f(Z)$ is closed in $Y$.
+\end{topic}
+
+\begin{topic}{universally-closed}{universally closed}
+    A continuous map $f : X \to Y$ is \textbf{universally closed} if for all $g : Z \to Y$ the pullback $X \times_Y Z \to Z$ is \tref{closed-map}{closed}.
+\end{topic}
+
+\begin{topic}{irreducible-space}{(ir)reducible space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{irreducible} if it is non-empty and cannot be written as a union $X = Z_1 \cup Z_2$ of two closed proper subsets $Z_1, Z_2 \subsetneq X$. Otherwise, $X$ is \textbf{reducible}.
+\end{topic}
+
+\begin{topic}{subspace-topology}{subspace topology}
+    Let $X$ be a \tref{topological-space}{topological space} with topology $\mathcal{T}$, and let $A$ be a subset of $X$. The \textbf{subspace topology} on $A$ is
+    \[ \mathcal{T}_A = \{ A \cap U : U \in \mathcal{T} \} . \]
+    It is the \tref{coarser}{coarsest} topology on $A$ such that the inclusion map $i : A \to X$ continuous.
+\end{topic}
+
+\begin{topic}{product-topology}{product topology}
+    Given two \tref{topological-space}{topological spaces} $X$ and $Y$ with topologies $\mathcal{T}_X$ and $\mathcal{T}_Y$, respectively, the \textbf{product topology} on the Cartesian product $X \times Y$ is the topology with basis
+    \[ \mathcal{B} = \{ U \times V : U \in \mathcal{T}_X, \; V \in \mathcal{T}_Y \} . \]
+    Note that this does not imply that all open sets of $X \times Y$ are of the form $U \times V$!
+    
+    In particular, this makes the projection maps $p_X : X \times Y \to X$ and $p_Y : X \times Y \to Y$ continuous.
+\end{topic}
+
+\begin{topic}{quotient-topology}{quotient topology}
+    Let $X$ be a \tref{topological-space}{topological space} with an equivalence relation $\sim{}$, denote the set of equivalence classes by $X / \sim{}$, and let $\pi : X \to X / \sim{}$ be the natural map. The \textbf{quotient topology} on $X / \sim{}$ is given by
+    \[ \tilde{\mathcal{T}} = \{ U \subset X / \sim{} : \pi^{-1}(U) \text{ open in } X \} . \]
+    This is the \tref{coarser}{finest} topology that makes $\pi$ continuous.
+\end{topic}
+
+\begin{topic}{graph}{graph}
+    Let $f : X \to Y$ be a continuous map of \tref{topological-space}{topological spaces}. The \textbf{graph} of $f$ is the space
+    \[ G_f = \{ (x, y) \in X \times Y : f(x) = y \} \]
+    whose topology is induced by the \tref{product-topology}{product topology} on $X \times Y$.
+    
+    The map $x \mapsto (x, f(x))$ defines a \tref{homeomorphism}{homeomorphism} from $X$ to $G_f$.
+\end{topic}
+
+\begin{topic}{compact-space}{compact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{compact} if every open covering of $X$ has a finite subcover.
+\end{topic}
+
+\begin{topic}{connected-space}{connected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{connected} if the only subsets of $X$ that are both open and closed are $\varnothing$ and $X$ itself. Otherwise, $X$ is \textbf{disconnected}.
+\end{topic}
+
+\begin{topic}{path-connected-space}{path-connected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{path-connected} if for every two points $x, y \in X$, there exists a continuous map $f : [0, 1] \to X$ (a \textit{path}) with $f(0) = x$ and $f(1) = y$.
+\end{topic}
+
+\begin{example}{path-connected-space}
+    Every path-connected space is \tref{connected-space}{connected}, but not conversely. Namely, consider
+    \[ X = \{ (x, \sin \tfrac{1}{x}) : x \in (0, 1] \} \cup \{ (0, 0) \} \subset \RR^2 , \]
+    with the topology induced from the Euclidean plane. Then $X$ is connected, since it is the closure of the image of $\gamma : (0, 1] \to X$, $x \mapsto (x, \sin \tfrac{1}{x})$. However, there is no way to connect $(0, 0)$ with any other point via a path.
+\end{example}
+
+\begin{topic}{suspension}{suspension}
+    The \textbf{suspension} of a \tref{topological-space}{topological space} $X$ is the \tref{quotient-topology}{quotient space}
+    \[ S X = X \times [0, 1] / \sim{} , \]
+    where the equivalence relation is generated by $(x_1, 0) \sim{} (x_2, 0)$ and $(x_1, 1) \sim{} (x_2, 1)$.
+    
+    If $X$ has a basepoint $x \in X$, the \textbf{reduced suspension} of $X$ is quotient space
+    \[ \Sigma X = (X \times [0, 1]) / (X \times \{ 0, 1 \} \cup \{ x \} \times [0, 1]) , \]
+    which is the same as the \tref{smash-product}{smash product} $X \wedge S^1$.
+\end{topic}
+
+\begin{topic}{cone}{cone}
+    The \textbf{cone} of a \tref{topological-space}{topological space} $X$ is the quotient space
+    \[ CX = X \times [0, 1] / (X \times \{ 0 \}) . \]
+\end{topic}
+
+\begin{topic}{join}{join}
+    The \textbf{join} of two \tref{topological-space}{topological spaces} $X$ and $Y$ is the quotient space
+    \[ X \star Y = (X \times Y \times [0, 1]) / \sim{} , \]
+    where the equivalence relation is generated by
+    \[ (x, y_1, 0) \sim{} (x, y_2, 0) \text{ for all } x \in X \text{ and } y_1, y_2 \in Y , \]
+    \[ (x_1, y, 1) \sim{} (x_2, y, 1) \text{ for all } x_1, x_2 \in X \text{ and } y \in Y . \]
+\end{topic}
+
+\begin{topic}{wedge-sum}{wedge sum}
+    If $X$ and $Y$ are \tref{topological-space}{topological spaces} with basepoints $x_0 \in X$ and $y_0 \in Y$, the \textbf{wedge sum} of $X$ and $Y$ is \tref{quotient-topology}{quotient space}
+    \[ X \vee Y = (X \sqcup Y) / \sim{} \]
+    where $x_0 \sim{} y_0$.
+\end{topic}
+
+\begin{topic}{fiber-bundle}{fiber bundle}
+    A \tref{continuous-map}{continuous map} $p : E \to B$ is a \textbf{fiber bundle} with fiber $F$, if for each $b \in B$ there is an open neighborhood $U$ and a \tref{homeomorphism}{homeomorphism} $\varphi : p^{-1}(U) \to U \times F$ over $U$, that is,
+    \[ \svg \begin{tikzcd}
+        p^{-1}(U) \arrow{rr}{\varphi} \arrow[swap]{dr}{p} && U \times F \arrow{ld}{\pi_U} \\ & U &
+    \end{tikzcd} \]
+    commutes.
+    
+    To denote $p$ is a fiber bundle with fiber $F$, one often writes
+    \[ F \to B \xrightarrow{p} E . \]
+\end{topic}
+
+\begin{topic}{covering-space}{covering space}
+    A \textbf{covering space} of a \tref{topological-space}{topological space} $X$ is a continuous map $p : Y \to X$ such that each $x \in X$ has an open neighborhood $U$ such that $p^{-1}(U)$ decomposes as a union of $V_i$ such that the restrictions $p|_{V_i} \to U$ are \tref{homeomorphism}{homeomorphisms}.
+\end{topic}
+
+\begin{example}{covering-space}
+    For any topological space $X$ and discrete space $I$, the projection $\pi : X \times I \to X$ is the \textit{trivial covering space}.
+\end{example}
+
+\begin{topic}{smash-product}{smash product}
+    Given \tref{topological-space}{topological spaces} $X$ and $Y$ with basepoints $x \in X$ and $y \in Y$, their \textbf{smash product} $X \wedge Y$ is the \tref{quotient-topology}{quotient}
+    \[ X \wedge Y = (X \times Y) / (X \times \{ y \} \cup \{ x \} \times Y) . \]
+\end{topic}
+
+\begin{topic}{mapping-space}{mapping space}
+    Given \tref{topological-space}{topological spaces} $X$ and $Y$, the \textbf{mapping space} from $X$ to $Y$ is the space
+    \[ \textup{Map}(X, Y) = \{ f : X \to Y \text{ continuous} \} , \]
+    equipped with the \textit{compact-open topology}, that is, the topology generated by the \tref{subbasis}{subbasis} of sets
+    \[ W(K, O) = \{ f : X \to Y \text{ such that } f(K) \subset O \} \]
+    for $K \subset X$ \tref{compact-space}{compact} and $O \subset Y$ open.
+    
+    If $X$ and $Y$ have basepoints $x \in X$ and $y \in Y$, one restricts to the subspace
+    \[ \text{Map}((X, x), (Y, y)) = \{ f : X \to Y \text{ with } f(x) = y \} \]
+    whose basepoint is the constant map $\textup{const}_y$.
+\end{topic}
+
+\begin{topic}{T0-space}{T0 (Kolmogorov) space}
+    A \textbf{T0 space} is a \tref{topological-space}{topological space} $X$ such that for all distinct $x, y \in X$, at least one of them has an open neighborhood $U \subset X$ not containing the other.
+\end{topic}
+
+\begin{topic}{T1-space}{T1 (Fréchet) space}
+    A \textbf{T1 space} is a \tref{topological-space}{topological space} $X$ such that for all distinct $x, y \in X$ there exists an open neighborhood $U \subset X$ of $x$ not containing $y$.
+\end{topic}
+
+\begin{topic}{hausdorff-space}{T2 (Hausdorff) space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Hausdorff} if for any two distinct points $x, y \in X$ there exist disjoint open sets $U, V \subset X$ such that $x \in U$ and $y \in V$.
+    
+    Equivalently, this is the case if the diagonal $\Delta = \{ (x, x) \in X \times X : x \in X \}$ is closed in $X \times X$.
+\end{topic}
+
+\begin{topic}{T3-space}{T3 (regular Hausdorff) space}
+    A \textbf{T3 space} is a \tref{topological-space}{topological space} $X$ which is both \tref{regular-space}{regular} and \tref{T1-space}{T1}. Equivalently, it is a topological space which is both regular and \tref{hausdorff-space}{Hausdorff}.
+\end{topic}
+
+\begin{topic}{T4-space}{T4 (normal Hausdorff) space}
+    A \textbf{T4 space} is a \tref{topological-space}{topological space} which is \tref{normal-space}{normal} and \tref{hausdorff-space}{Hausdorff}.
+\end{topic}
+
+\begin{topic}{T5-space}{T5 (completely normal Hausdorff) space}
+    A \textbf{T5 space} is a \tref{topological-space}{topological space} $X$ which is completely normal and \tref{hausdorff-space}{Hausdorff}. Equivalently, every subspace of $X$ is a \tref{T4-space}{T4 space}.
+\end{topic}
+
+\begin{topic}{T6-space}{T6 (perfectly normal Hausdorff space) space}
+    A \textbf{T6 space} is a \tref{topological-space}{topological space} $X$ which is \tref{hausdorff-space}{Hausdorff} such that for every two disjoint closed subsets $Y, Z \subset X$, there exists a \tref{continuous-map}{continuous function} $f : [0, 1] \to X$ with $f^{-1}(0) = Y$ and $f^{-1}(1) = Z$.
+\end{topic}
+
+\begin{topic}{simply-connected-space}{simply connected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{simply connected} if it is \tref{path-connected-space}{path-connected} and every loop $f : S^1 \to X$ can be contracted to a point, i.e. there exists map $F : D^2 \to X$ which restricts to $f$ on $S^1$.
+    
+    A topological space $X$ is \textbf{locally simply connected} if it admits a \tref{basis}{basis} of simply connected sets.
+\end{topic}
+
+\begin{topic}{galois-cover}{Galois cover}
+    Let $X$ be a \tref{topological-space}{topological space}. A \tref{covering-space}{cover} $p : Y \to X$ of $X$ is \textbf{Galois} if $Y$ is \tref{connected-space}{connected} and the map $\overline{p}$ in the factorization
+    \[ Y \to Y / \textup{Aut}(Y|X) \xrightarrow{\overline{p}} X \]
+    of $p$ is a \tref{homeomorphism}{homeomorphism}.
+\end{topic}
+
+\begin{example}{galois-cover}
+    A connected cover $p : Y \to X$ is Galois if and only if $\textup{Aut}(Y|X)$ acts transitively on each fiber of $p$. Indeed, $\overline{p}$ is one-to-one precisely if the orbit of each $y \in Y$ is the whole fiber $p^{-1}(p(y))$, that is, if $\textup{Aut}(Y|X)$ acts transitively on all the fibers of $p$.
+\end{example}
+
+\begin{example}{galois-cover}
+    Let $X = Y = \CC - \{ 0 \}$ and $p_n : Y \to X, y \mapsto y^n$ for some $n \in \ZZ_{\ge 1}$. This is an $n : 1$ cover with $\textup{Aut}(Y|X) = \ZZ/n\ZZ$, generated by $\sigma : Y \to Y, y \mapsto \zeta_n \cdot y$ for some primitive $n$-th root of unity $\zeta_n$. Clearly $\textup{Aut}(Y|X)$ acts transitively on each fiber, as any two points in a fiber differ by an $n$-th root unity, so $p_n$ is a Galois cover.
+\end{example}
+
+\begin{topic}{proper-map}{proper map}
+    A \tref{continuous-map}{continuous map} $f : X \to Y$ is \textbf{proper} if $f^{-1}(K) \subset X$ is \tref{compact-space}{compact} for all compact subsets $K \subset Y$.
+\end{topic}
+
+\begin{topic}{noetherian-topological-space}{noetherian topological space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{noetherian} if it satisfies the \textit{descending chain condition} for closed subsets. That is, for any sequence $Y_1 \supset Y_2 \supset \cdots$ of closed subsets $Y_i$ of $X$, there is an integer $n$ such that $Y_n = Y_{n + 1} = \cdots$.
+\end{topic}
+
+\begin{topic}{n-connected-space}{n-connected space}
+    A \tref{topological-space}{topological space} $X$ is called \textbf{$n$-connected} if the \tref{AT:homotopy-group}{homotopy groups} $\pi_i(X) = 0$ for all $i \le n$.
+    
+    In particular, being $0$-connected is the same as being \tref{path-connected-space}{path-connected}, and being $1$-connected is the same as being \tref{simply-connected-space}{simply connected}.
+\end{topic}
+
+\begin{topic}{universal-covering-space}{universal covering space}
+    A \textbf{universal covering space} of a \tref{topological-space}{topological space} $X$ is a \tref{covering-space}{covering space} $\pi : \tilde{X} \to X$ which is \tref{simply-connected-space}{simply connected}. It has the universal property that for any other connected covering $p : Y \to X$ there exists a unique covering map $f : \tilde{X} \to Y$ such that $\pi = p \circ f$.
+    \[ \svg \begin{tikzcd} \tilde{X} \arrow[swap]{d}{\pi} \arrow[dashed]{r}{f} & Y \arrow{dl}{p} \\ X & \end{tikzcd} \]
+    A universal cover can explicitly be constructed as follows. Let $x \in X$ be a basepoint, and let $\tilde{X}_x$ be the set of homotopy classes of paths $\gamma : [0, 1] \to X$ starting at $x$, with $\pi : \tilde{X}_x \to X$ given by $\gamma \mapsto \gamma(1)$. There is a suitable topology on $\tilde{X}_x$ such that $\pi : \tilde{X}_x \to X$ is continuous and a universal covering space of $X$.
+\end{topic}
+
+\begin{example}{universal-covering-space}
+    \begin{itemize}
+        \item The universal covering space of the circle $S^1$ is the line $\RR$.
+        \item The $n$-sphere $S^n$ is a double cover of projective space $\RR P^n$, and universal for $n > 1$.
+        \item The universal covering space of the group $\textup{SO}(3)$ is $\textup{SU}(2)$. 
+    \end{itemize}    
+\end{example}
+
+\begin{topic}{metric-space}{metric space}
+    A \textbf{metric space} is a set $X$ together with a \textbf{metric} $d$ on $X$, that is, a function $d : X \times X \to \RR$ such that
+    \begin{itemize}
+        \item (\textit{indiscernibility}) $d(x, y) = 0$ if and only if $x = y$,
+        \item (\textit{symmetry}) $d(x, y) = d(y, x)$ for all $x, y \in X$,
+        \item (\textit{triangle inequality}) $d(x, z) \le d(x, y) + d(y, z)$ for all $x, y, z \in X$.
+    \end{itemize}
+    A metric $d$ naturally induces a \tref{topological-space}{topology} on $X$, given by a \tref{basis}{basis} of open balls
+    \[ B_\varepsilon(x) = \{ y \in X \mid d(x, y) < \varepsilon \} \]
+    for all $x \in X$ and $\varepsilon > 0$.
+\end{topic}
+
+\begin{example}{metric-space}
+    Take $X = \RR^n$ with $d(x, y) = \norm{x - y}$. This is a metric space since (i) $\norm{x - y} = 0$ if and only if $x = y$, (ii) $d(x, y) = \norm{x - y} = \norm{y - x} = d(x, y)$ and (iii) $\norm{x - z} \le \norm{x - y} + \norm{y - z}$ is the usual triangle inequality.
+\end{example}
+
+\begin{example}{metric-space}
+    Non-negativity of the metric follows directly from the axioms as
+    \[ d(x, y) = \frac{1}{2} (d(x, y) + d(y, x)) \ge \frac{1}{2} d(x, x) = 0 \]
+    for all $x, y \in X$.
+\end{example}
+
+\begin{example}{metric-space}
+    Any metric space is naturally a \tref{topological-space}{topological space}, where a basis of the topology is given by the set of \textit{open balls}
+    \[ B(x, r) = \{ y \in X : d(x, y) < r \} \]
+    for $x \in X$ and $r > 0$.
+\end{example}
+
+\begin{topic}{principal-bundle}{principal bundle}
+    Let $X$ be a \tref{topological-space}{topological space} and $G$ a \tref{topological-group}{topological group}. A \textbf{principal $G$-bundle} on $X$ is a \tref{fiber-bundle}{fiber bundle} $\pi : P \to X$ with a \tref{GT:free-group-action}{free} and \tref{GT:transitive-group-action}{transitive} \tref{GT:group-action}{action} of $G$ on $P$, preserving the fibers of $P$, such that for any $x \in X$ and $y \in P_x$ the map $G \to P_x, g \mapsto g \cdot y$ is a \tref{homeomorphism}{homeomorphism}.
+\end{topic}
+
+\begin{topic}{associated-bundle}{associated bundle}
+    Let $X$ be a \tref{topological-space}{topological space}, let $\pi : P \to X$ be a \tref{principal-bundle}{principal $G$-bundle}, and let $\rho : G \to \textup{Aut}(F)$ be a continuous right action of $G$ on a space $F$. There is a left action of $G$ on $P \times F$ given by $g \cdot (p, f) = (g \cdot p, f \cdot \rho(g^{-1}))$, and the \tref{quotient-topology}{quotient} $(P \times F) / G$ is called the \textbf{associated bundle} to $P$ of $\rho$.
+\end{topic}
+
+\begin{example}{associated-bundle}
+    Let $M$ be an $n$-dimensional \tref{DG:smooth-manifold}{smooth manifold}, and let $F(TM)$ be the \tref{DG:frame-bundle}{frame bundle} of $M$, which is a principal $\textup{GL}_n(\RR)$-bundle. Given a \tref{RT:representation}{representation} $\rho : \textup{GL}_n(\RR) \to \textup{GL}(V)$, we can form the associated (\tref{DG:vector-bundle}{vector}) bundle
+    \[ F(TM) \times_\rho V \to M . \]
+\end{example}
+
+\begin{topic}{structure-group}{structure group}
+    Let $p : E \to B$ be a \tref{fiber-bundle}{fiber bundle} with fiber $F$, and let $G$ be a \tref{topological-group}{topological group} acting continuously and \tref{GT:faithful-group-action}{faithfully} on $F$. Then $G$ is called a \textbf{structure group} of the bundle if there exists a trivialization $\{ (U_i, \varphi_i : E|_{U_i} \xrightarrow{\sim} U_i \times F) \}$ such that the transition functions $\varphi_i \circ \varphi_j^{-1}$ take values in $G$. 
+    
+    In physics, the group $G$ is called the \textit{gauge group} of the bundle.
+\end{topic}
+
+% \begin{topic}{principal-homogeneous-space}{principal homogeneous space}
+%     Let $G$ be a \tref{GT:group}. A left (resp. right) \textbf{$G$-principal homogeneous space} is a \tref{topological-space}{topological space} $X$ with a left (resp. right) continuous action of $G$ such that
+%     \[ G \times X \to X \times X, \quad (x, g) \mapsto (g \cdot x, x) \]
+%     is an isomorphism.
+% \end{topic}
+
+\begin{topic}{complete-metric-space}{complete metric space}
+    A \tref{metric-space}{metric space} $X$ is \textbf{complete} if every Cauchy sequence converges in $X$.
+    
+    A sequence $x_1, x_2, \ldots$ is \textit{Cauchy} if for all $\varepsilon > 0$ there exists some $N > 0$ such that $m, n \ge N$ implies $d(x_m, x_n) < \varepsilon$.
+\end{topic}
+
+\begin{topic}{cauchy-sequence}{Cauchy sequence}
+    A sequence of points $x_1, x_2, \ldots$ in a \tref{metric-space}{metric space} $(X, d)$ is \textbf{Cauchy} if for every $\varepsilon > 0$ there exists an integer $N \ge 0$ such that $d(x_m, x_n) < \varepsilon$ for every $m, n \ge N$.
+\end{topic}
+
+\begin{example}{cauchy-sequence}
+    Every convergent sequence is Cauchy. Namely, if $x = \lim_{n \to \infty} x_n$, then given an $\varepsilon > 0$, there exists an $N \ge 0$ such that $d(x, x_n) < \varepsilon / 2$ for all $n \ge N$. In particular for $m, n \ge N$ we have
+    \[ d(x_m, x_n) \le d(x_m, x) + d(x, x_n) < \varepsilon/2 + \varepsilon/2 = \varepsilon . \]
+\end{example}
+
+\begin{topic}{constructible-set}{constructible set}
+    A subset $Y$ of a \tref{topological-space}{topological space} $X$ is \textbf{constructible} if it is a finite union of \textit{locally closed sets} (a locally closed set is the intersection of an open set and a closed set).
+\end{topic}
+
+\begin{topic}{locally-compact-space}{locally compact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{locally compact} if every point $x \in X$ has a compact neighborhood, i.e. there exists an open set $U \subset X$ and a \tref{compact-space}{compact} set $K \subset X$ such that $x \in U \subset K$.
+\end{topic}
+
+\begin{example}{locally-compact-space}
+    \begin{itemize}
+        \item Any \tref{compact-space}{compact space} is locally compact.
+        \item Euclidean space $\RR^n$ is locally compact, but not compact.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{normal-space}{normal space}
+    A \tref{topological-space}{topological space} is \textbf{normal} if every two disjoint closed sets have disjoint open neighborhoods.
+\end{topic}
+
+\begin{topic}{urysohn-lemma}{Urysohn's lemma}
+    Let $X$ be a \tref{topological-space}{topological space}. \textbf{Urysohn's lemma} states that $X$ is \tref{normal-space}{normal} if and only if for any two disjoint closed subsets $Z_0, Z_1 \subset X$ there exists a \tref{continuous-map}{continuous map} $f : [0, 1] \to X$ such that $f(Z_0) = 0$ and $f(Z_1) = 1$.
+\end{topic}
+
+\begin{topic}{paracompact-space}{paracompact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{paracompact} if every open cover of $X$ has an open \tref{cover-refinement}{refinement} that is locally finite. An open cover is \textit{locally finite} if any point has an open neighborhood where only finitely many sets of the open cover intersect.
+\end{topic}
+
+\begin{topic}{topological-group}{topological group}
+    A \textbf{topological group} is a \tref{GT:group}{group} $G$ which is also a \tref{topological-space}{topological space}, such that multiplication $G \times G \to G, (x, y) \mapsto xy$ and inversion $G \to G, x \mapsto x^{-1}$ are \tref{continuous-map}{continuous}.
+\end{topic}
+
+\begin{topic}{sequentially-compact-space}{sequentially compact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{sequentially compact} if every sequence of points $(x_n)_{n \in \NN}$ in $X$ has a \tref{convergent-sequence}{convergent} subsequence.
+\end{topic}
+
+\begin{topic}{convergent-sequence}{convergent sequence}
+    Let $X$ be a \tref{topological-space}{topological-space}. A sequence of points $(x_n)_{n \in \NN}$ in $X$ is \textbf{convergent} if there exists a point $x \in X$ such that for any open neighborhood $U$ of $x$, there exists some $N \in \NN$ such that $x_n \in U$ for every $n \ge N$. The point $x$ is called a \textit{limit point} of the sequence.
+\end{topic}
+
+\begin{topic}{coherent-topology}{coherent topology}
+    Let $X$ be a \tref{topological-space}{topological space} and $C = \{ X_i : i \in I \}$ a family of subsets $X_i \subset X$ with the \tref{subspace-topology}{subspace topology}. Then $X$ is \textbf{coherent with $C$} if $X$ has the \tref{coarser}{finest topology} such that the inclusions $\iota_i : X_i \to X$ are continuous.
+    
+    There are two equivalent definitions:
+    \begin{itemize}
+        \item A subset $A \subset X$ is closed if and only if $A \cap X_i$ is closed for all $i$.
+        \item A subset $A \subset X$ is open if and only if $A \cap X_i$ is open for all $i$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{compactly-generated-space}{compactly generated space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{compactly generated} if it is \tref{coherent-topology}{coherent} with the family of all \tref{compact-space}{compact} subspaces. That is, if a subset $A \subset X$ is closed if and only if $A \cap K$ is closed for all compact subsets $K \subset X$.
+\end{topic}
+
+\begin{topic}{separable-space}{separable space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{separable} if it contains a countable \tref{dense-set}{dense} subset.
+\end{topic}
+
+\begin{topic}{baire-space}{Baire space}
+    A \tref{topological-space}{topological space} $X$ is a \textbf{Baire space}, if for any countable collection $(X_n)_{n \in \NN}$ of subsets of $X$ with empty \tref{interior}{interior}, the union $\bigcup_{n \in \NN} X_n$ also has empty interior.
+    
+    Equivalently, $X$ is a Baire space if the intersection of a countable number of \tref{dense-set}{dense} subsets of $X$ is again dense.
+\end{topic}
+
+\begin{example}{baire-space}
+    \begin{itemize}
+        \item Every \tref{locally-compact-space}{locally compact} \tref{hausdorff-space}{Hausdorff space} is a Baire space.
+        \item Every \tref{complete-metric-space}{complete metric space} is a Baire space.
+        \item Every \tref{DG:smooth-manifold}{smooth manifold} is a Baire space.
+        \item Let $X = \QQ \subset \RR$ with the subspace topology, and consider the family of singleton sets $(\{ q \})_{q \in }$. Indeed each $\{ q \}$ has empty interior, but interior of the union $\bigcup_{q \in \QQ} \{ q \} = \QQ$ is $\QQ$ itself.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{mapping-cone}{mapping cone}
+    Let $f : X \to Y$ be a \tref{continuous-map}{continuous map} of \tref{topological-space}{topological spaces}. The \textbf{mapping cone} of $f$ is defined as the \tref{quotient-topology}{quotient space}
+    \[ C_f = ( (X \times [0, 1]) \sqcup Y ) / \sim{} , \]
+    where $(x, 0) \sim (x', 0)$ and $(x, 1) \sim f(x)$ for all $x, x' \in X$.
+\end{topic}
+
+\begin{example}{mapping-cone}
+    \begin{itemize}
+        \item The mapping cone of the identity of the $n$-sphere, $C_{\id_S^{n}}$, is homeomorphic to $D^{n + 1}$.
+        \item If $f : S^n \to D^{n + 1}$ is the standard inclusion of the boundary, then $C_f$ is homeomorphic to $S^{n + 1}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{mapping-cylinder}{mapping cylinder}
+    Let $f : X \to Y$ be a \tref{continuous-map}{continuous map} of \tref{topological-space}{topological spaces}. The \textbf{mapping cylinder} of $f$ is defined as the \tref{quotient-topology}{quotient space}
+    \[ M_f = ( (X \times [0, 1]) \sqcup Y ) / \sim{} , \]
+    where $(x, 1) \sim f(x)$ for all $x \in X$.
+\end{topic}
+
+\begin{topic}{embedding}{embedding}
+    A \tref{continuous-map}{continuous map} $f : X \to Y$ between \tref{topological-space}{topological spaces} is an \textbf{embedding} if it is a \tref{homeomorphism}{homeomorphism} onto its image.
+\end{topic}
+
+\begin{topic}{isotopy}{isotopy}
+    Let $X$ and $Y$ be \tref{topological-space}{topological spaces}, and let $f, g : X \to Y$ be two \tref{embedding}{embeddings}. An \textbf{isotopy} from $f$ to $g$ is a \tref{AT:homotopy}{homotopy} $H : X \times [0, 1] \to Y$ from $f$ to $g$ such that $H(-, t) : X \to Y$ is an embedding for all $t \in [0, 1]$. If such an isotopy exists, $f$ and $g$ are called \textbf{isotopic}.
+\end{topic}
+
+\begin{example}{isotopy}
+    Every isotopy is a homotopy, but not conversely. Namely, let $X = Y = [0, 1]$ and $f, g : X \to Y$ given by $f(x) = x$ and $g(x) = 1 - x$. Then there is a homotopy from $f$ to $g$ given by
+    \[ H(x, t) = (1 - t) x - t (1 - x) . \]
+    However, no isotopy from $f$ to $g$ can exist, since for any homotopy from $f$ to $g$ the endpoints must cross for some $t$.
+\end{example}
+
+\begin{topic}{sober-space}{sober space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{sober} if for every \tref{irreducible-space}{irreducible} $Y \subset X$, there exists a unique point $y \in Y$, called the \textit{generic point} of $Y$, such that $Y = \overline{\{ y \}}$.
+\end{topic}
+
+\begin{topic}{pullback-topology}{pullback topology}
+    Let $X$ be a \tref{topological-space}{topological space} and $f : Y \to X$ a map of sets. The \textbf{pullback topology} on $Y$ induced by $f$ is the topology on $Y$ given by
+    \[ \mathcal{T}_Y = \{ f^{-1}(U) \;:\; U \subset X \textup{ open} \} . \]
+    It is the \tref{coarser}{coarsest} topology on $Y$ for which $f$ is continuous.
+\end{topic}
+
+\begin{topic}{alexandroff-topology}{Alexandroff topology}
+    Let $(P, \le)$ be a \tref{ST:partial-order}{partially ordered set}. The \textbf{Alexandroff topology} on $P$ is the \tref{topological-space}{topology} on $P$ given by
+    \[ \mathcal{T}_P = \{ U \subset P \mid x \in U \textup{ and } x \le y \textup{ implies } y \in U \textup{ for all } x, y \in P \} . \]
+\end{topic}
+
+\begin{example}{alexandroff-topology}
+    Let $\textbf{Pos}$ be the \tref{CT:category}{category} of partially ordered sets and monotone maps. Then the Alexandroff topology defines a functor
+    \[ A : \textbf{Pos} \to \textbf{Top} . \]
+    Namely, let $f : P \to Q$ be a monotone map of partially ordered sets, and let $V \subset Q$ be an open subset. Then, for any $x \in f^{-1}(V)$ and $y \in P$ such that $x \le y$, we have $f(x) \in V$ and $f(x) \le f(y)$, so $f(y) \in V$, and hence $y \in f^{-1}(V)$ as well. Therefore, $f : P \to Q$ is continuous. Furthermore, $A$ trivially respects composition and the identity morphism.
+\end{example}
+
+\begin{topic}{tychonoff-theorem}{Tychonoff's theorem}
+    Let $(X_i)_{i \in I}$ be a family of \tref{compact-space}{compact} \tref{topological-space}{topological spaces}. \textbf{Tychonoff's theorem} states that the product
+    \[ \prod_{i \in I} X_i \]
+    with the \tref{product-topology}{product topology} is also compact.
+\end{topic}
+
+\begin{topic}{local-system}{local system}
+    Let $X$ be a \tref{topological-space}{topological space}. A \textbf{local system} (of abelian groups, modules, ...) on $X$ is a \tref{AG:constant-sheaf}{locally constant sheaf} (of abelian groups, modules, ...) $\mathcal{L}$ on $X$.
+\end{topic}
+
+\begin{example}{local-system}
+    Let $X$ be a \tref{connected-space}{connected} and \tref{simply-connected-space}{locally simply connected} topological space, $x \in X$ a point, and $k$ a \tref{AA:ring}{commutative ring}. Then the category of local systems of \tref{AA:module}{$k$-modules} on $X$ is \tref{CT:equivalence-of-categories}{equivalent} to the category of $k[\pi_1(X, x)]$-modules.
+\end{example}
+
+\begin{topic}{deck-transformation}{deck transformation}
+    Let $X$ be a \tref{topological-space}{topological space} and $p : Y \to X$ a \tref{covering-space}{covering space}. A \textbf{deck transformation} of $p$ is an automorphism of $p$ as covering spaces, that is, a \tref{homeomorphism}{homeomorphism} $f : Y \to Y$ such that $p \circ f = p$.
+\end{topic}
+
+\begin{example}{deck-transformation}
+    Let $X = Y = \CC \setminus \{ 0 \}$, and consider the covering space $p : Y \to X$ given by $z \mapsto z^n$ for some $n \ge 1$. Then for every $1 \le k \le n$, the map $f_k : Y \to Y$ given by $f_k(z) = \zeta_n^k \cdot z$ is a deck transformation of $p$.
+\end{example}
+
+\begin{topic}{totally-disconnected-space}{totally disconnected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{totally disconnected} if every \tref{connected-space}{connected} subset of $X$ consists of one point.
+\end{topic}
+
+\begin{example}{totally-disconnected-space}
+    \begin{itemize}
+        \item Any \tref{discrete-topology}{discrete} space is totally disconnected.
+        \item The rational numbers $\QQ$ with Euclidean topology is totally disconnected. Namely, for any $A \subset \QQ$ containing at least two distinct $q_1, q_2 \in A$, there exists an irrational number $r$ with $q_1 < r < q_2$, so that
+        \[ A = \{ q \in A \mid q < r \} \sqcup \{ q \in A \mid q > r \} , \]
+        which shows $A$ is disconnected.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{totally-separated-space}{totally separated space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{totally separated} if for any distinct $x, y \in X$ there exist disjoint open sets $U, V \subset X$ such that $x \in U$, $y \in V$ and $X = U \cup V$.
+\end{topic}
+
+\begin{example}{totally-separated-space}
+    Any \tref{totally-disconnected-space}{totally disconnected space} is totally separated, but the converse does not hold. Namely, let $X$ be the \tref{quotient-topology}{quotient} of $\QQ \sqcup \QQ$ (with Euclidean topology) by $\QQ \setminus \{ 0 \}$. Then $X$ is totally disconnected, but considering the two copies of zero, $X$ is not totally separated.
+\end{example}
+
+\begin{topic}{topologically-distinguishable}{topologically distinguishable}
+    Let $X$ be a \tref{topological-space}{topological space}. Two points $x, y \in X$ are \textbf{topologically distinguishable} if there exists an open set $U \subset X$ such that $U$ contains $x$ or $y$, but not both.
+\end{topic}
+
+\begin{topic}{arc-connected-space}{arc-connected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{arc-connected} if for every two \tref{topologically-distinguishable}{topologically distinguishable} points $x, y \in X$, there exists an \tref{embedding}{embedding} $f : [0, 1] \to X$ such that $f(0) = x$ and $f(1) = y$.
+\end{topic}
+
+\begin{example}{arc-connected-space}
+    Every arc-connected space is path-connected, but not conversely. Let $X$ be the line with two origins, that is, $X = (\RR \times \{ 0 \}) \sqcup (\RR \times \{ 1 \}) / \sim{}$ where $(x, 0) \sim{} (x, 1)$ for all $x \ne 0$. Then the two origins $(0, 0)$ and $(0, 1)$ are topologically distinguishable, and even though there exist paths $f : [0, 1] \to X$ connecting them, such an $f$ is never an embedding as there are points which it hits at least twice.
+\end{example}
+
+\begin{topic}{preregular-space}{preregular space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{preregular} if for every two \tref{topologically-distinguishable}{topologically distinguishable} points $x, y \in X$, there exist disjoint open subsets $U, V \subset X$ such that $x \in U$ and $y \in V$.
+\end{topic}
+
+\begin{topic}{regular-space}{regular space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{regular} if for every closed set $Y \subset X$ and every point $x \in X \setminus Y$, there exist disjoint open subsets $U, V \subset X$ such that $Y \subset U$ and $x \in V$.
+\end{topic}
+
+\begin{topic}{lindelof-space}{Lindelöf space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Lindelöf} if every open cover of $X$ has a countable subcover.
+\end{topic}
+
+\begin{topic}{hemicompact-space}{hemicompact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{hemicompact} if there exists a sequence $Y_1, Y_2, \ldots$ of \tref{compact-space}{compact} subsets of $X$, such that every compact subset $Y \subset X$ is contained in some $Y_i$.
+\end{topic}
+
+\begin{topic}{alexandrov-space}{Alexandrov space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Alexandrov} if arbitrary intersections $\bigcap_{i \in I} U_i$ of open subsets are again open.
+\end{topic}
+
+\begin{topic}{meager-set}{meager set}
+    Let $X$ be a \tref{topological-space}{topological space}. A subset $A \subset X$ is called \textit{nowhere dense} if its \tref{closure}{closure} has an empty \tref{interior}{interior}. A subset $B \subset X$ is called \textbf{meager} if it is a countable union of nowhere dense subsets of $X$.
+    
+    The topological space $X$ is called \textbf{meager} if it is a meager subset of itself.
+\end{topic}
+
+\begin{topic}{pseudocompact-space}{pseudocompact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{pseudocompact} if for every \tref{continuous-map}{continuous map} $f : X \to \RR$, the image $f(X) \subset \RR$ is bounded.
+\end{topic}
+
+\begin{topic}{cover-refinement}{cover refinement}
+    Let $X$ be a \tref{topological-space}{topological space}. A cover $\{ V_j : j \in J \}$ of $X$ is a \textbf{refinement} of a cover $\{ U_i : i \in I \}$ of $X$ if for every $j \in J$ there exists some $i \in I$ such that $V_j \subset U_i$.
+\end{topic}
+
+\begin{topic}{metacompact-space}{metacompact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{metacompact} if for every open cover $\{ U_i : i \in I \}$ of $X$, there exists a \tref{cover-refinement}{refinement} $\{ V_j : j \in J \}$ which is again an open cover of $X$, such that every point $x \in X$ is contained in only finitely many $V_j$.
+\end{topic}
+
+\begin{topic}{tychonoff-space}{Tychonoff space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Tychonoff} if for every closed set $Y \subset X$ and every point $x \in X \setminus Y$, there exists a \tref{continuous-map}{continuous map} $f : X \to \RR$ such that $f(x) = 1$ and $f(y) = 0$ for all $y \in Y$.
+\end{topic}
+
+\begin{topic}{metrizable-space}{metrizable space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{metrizable} if it is \tref{homeomorphism}{homeomorphic} to a \tref{metric-space}{metric space}.
+\end{topic}
+
+\begin{topic}{ultraconnected-space}{ultraconnected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{ultraconnected} if $Y \cap Z \ne \varnothing$ for every two non-empty closed subsets $Y, Z \subset X$.
+\end{topic}
+
+\begin{example}{ultraconnected-space}
+    \begin{itemize}
+        \item Any \tref{indiscrete-topology}{indiscrete space} is ultraconnected.
+        \item The set $X = \{ a, b \}$ with topology $\mathcal{T} = \{ \varnothing, \{ a \}, \{ a, b \} \}$ is ultraconnected.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{hyperconnected-space}{hyperconnected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{hyperconnected} if $U \cap V \ne \varnothing$ for every two non-empty open subsets $U, V \subset X$.
+\end{topic}
+
+\begin{topic}{rothberger-space}{Rothberger space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Rothberger} if for every sequence of open covers $\mathcal{U}_1, \mathcal{U}_2, \ldots$ for $X$, there are open sets $U_1 \in \mathcal{U}_1, U_2 \in \mathcal{U}_2, \ldots$ such that $\{ U_i : i \ge 0 \}$ is an open cover for $X$.
+\end{topic}
+
+\begin{topic}{menger-space}{Menger space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Menger} if for every sequence of open covers $\mathcal{U}_1, \mathcal{U}_2, \ldots$ for $X$, there are finite subsets $\mathcal{F}_1 \in \mathcal{U}_1, \mathcal{F}_2 \in \mathcal{U}_2, \ldots$ such that $\mathcal{F}_1 \cup \mathcal{F}_2 \cup \cdots$ is an open cover for $X$.
+\end{topic}
+
+\begin{topic}{sequential-space}{sequential space}
+    Let $X$ be a \tref{topological-space}{topological space}. A subset $A \subset X$ is \textit{sequentially closed} if every point $x \in X$ which is the limit of a \tref{convergent-sequence}{convergent sequence} $(a_n)_{n \in \NN}$ in $A$, is contained in $A$. The space $X$ is \textbf{sequential} if every sequentially closed subset of $X$ is closed.
+\end{topic}
+
+\begin{topic}{frechet-urysohn-space}{Fréchet--Urysohn space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{Fréchet--Urysohn} if for every subset $A \subset X$ and $x \in \overline{A}$ there exists a sequence $(a_n)_{n \in \NN}$ in $A$ \tref{convergent-sequence}{converging} to $x$.
+\end{topic}
+
+\begin{topic}{isolated-point}{isolated point}
+    Let $X$ be a \tref{topological-space}{topological space}. An \textbf{isolated point} of a subset $A \subset X$ is a point $a \in A$ for which there exists an open subset $U \subset X$ such that $U \cap A = \{ a \}$.
+\end{topic}
+
+\begin{example}{isolated-point}
+    Let $X = \RR$ with the Euclidean topology. Then $0$ is an isolated point of $A = \{ 0 \} \cup [1, 2]$ since the open subset $U = (-\tfrac{1}{2}, \tfrac{1}{2}) \subset X$ intersects $A$ only in $0$.
+\end{example}
+
+\begin{topic}{scattered-space}{scattered space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{scattered} if every non-empty subset $A \subset X$ has an \tref{isolated-point}{isolated point}.
+\end{topic}
+
+\begin{topic}{extremally-disconnected-space}{extremally disconnected space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{extremally disconnected} if the \tref{closure}{closure} of every open set is open.
+\end{topic}
+
+\begin{topic}{sigma-compact-space}{sigma-compact space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{$\sigma$-compact} if there is a sequence $K_1, K_2, \ldots$ of \tref{compact-space}{compact} subsets $K_n \subset X$ such that $X = \bigcup_{n \ge 1} K_i$.
+    
+    A topological space $X$ is is \textbf{$\sigma$-locally compact} if it is $\sigma$-compact and \tref{locally-compact-space}{locally compact}.
+\end{topic}
+
+\begin{topic}{stone-cech-compactification}{Stone--Čech compactification}
+    Let $X$ be a \tref{topological-space}{topological space}. A \textbf{Stone--Čech compactification} of $X$ is a \tref{compact-space}{compact} \tref{hausdorff-space}{Hausdorff} space $\beta(X)$ together with a \tref{continuous-map}{continuous map} $i : X \to \beta(X)$, such that for any continuous map $f : X \to K$, with $K$ a compact Hausdorff space, there exists a unique $g : \beta(X) \to K$ such that $f = g \circ i$.
+    \[ \svg \begin{tikzcd} X \arrow{r}{i} \arrow[swap]{dr}{f} & \beta(X) \arrow{d}{g} \\ & K \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{profinite-space}{profinite space}
+    A \tref{topological-space}{topological space} $X$ is \textbf{profinite} if it is \tref{compact-space}{compact} \tref{hausdorff-space}{Hausdorff} and \tref{totally-disconnected-space}{totally disconnected}.
+\end{topic}
+
+\begin{topic}{neighborhood-basis}{neighborhood basis}
+    Let $X$ be a \tref{topological-space}{topological space} with a point $x \in X$. A \textbf{neighborhood basis} at $x$ is a set $\mathcal{N}$ of \tref{neighborhood}{neighborhoods} of $x$ such that for every neighborhood $U$ of $x$, there exists an $N \in \mathcal{N}$ with $U \subset N$.
+\end{topic}
+
+\begin{topic}{mapping-class-group}{mapping class group}
+    Let $X$ be a \tref{topological-space}{topological space}, and let $\textup{Aut}(X)$ be the topological \tref{GT:group}{group} of automorphisms of $X$, whose topology is given by the \tref{mapping-space}{compact-open topology}. Then the \textbf{mapping class group} of $X$ is the \tref{GT:quotient-group}{quotient}
+    \[ \textup{MCG}(X) = \textup{Aut}(X) / \textup{Aut}_0(X) , \]
+    where $\textup{Aut}_0(X)$ is the path-component of the identity in $\textup{Aut}(X)$. Note that $f, g \in \textup{Aut}(X)$ define the same element in $\textup{MCG}(X)$ if and only if they are \tref{isotopy}{isotopic}.
+\end{topic}
+
+\begin{example}{mapping-class-group}
+    \begin{itemize}
+        \item The mapping class group of the $2$-sphere is $\textup{MCG}(S^2) \cong \ZZ/2\ZZ$, corresponding to maps of degree $\pm 1$.
+        \item The mapping class group of the $n$-torus is $\textup{MCG}(T^n) = \textup{GL}_n(\ZZ)$.
+        \item The mapping class group of the Klein bottle is $\textup{MCG}(K) = \ZZ/2\ZZ \times \ZZ/2\ZZ$ is the Klein four-group.
+        \item The mapping class group of the real projective plane is $\textup{MCG}(\RR \PP^2) = 1$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{torelli-group}{Torelli group}
+    Let $X$ be a \tref{topological-space}{topological space}. There is an action of the \tref{mapping-class-group}{mapping class group} $\textup{MCG}(X)$ of $X$ on the \tref{AT:singular-homology}{homology} of $X$ since automorphisms of $X$ \tref{isotopy}{isotopic} to the identity act trivially on homology. The \textbf{Torelli group} of $X$ is the subgroup $\textup{Tor}(X) \subset \textup{MCG}(X)$ which acts trivially on the homology of $X$.
+\end{topic}
+
+\begin{topic}{stratification}{stratification}
+    Let $X$ be a \tref{topological-space}{topological space}. A \textbf{stratification} of $X$ is a family $\{ X_i \}_{i \in I}$ of locally closed subsets of $X$ and a \tref{ST:partial-order}{partial order} on $I$ such that
+    \begin{itemize}
+        \item $X = \bigcup_{i \in I} X_i$,
+        \item $X_i \cap X_j = \varnothing$ whenever $i \ne j$,
+        \item $\overline{X}_i \subset \bigcup_{j \le i} X_j$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{stratification}
+    Let $X = \RR^2$ with the Euclidean topology. A stratification of $X$ is given by
+    \[ X_1 = \{ (0, 0) \}, \quad X_2 = (\RR \setminus \{ 0 \}) \times \{ 0 \}, \quad X_3 = \RR \times (\RR \setminus \{ 0 \}) \]
+    where $i \le j$ if $X_i \subset \overline{X}_j$.
+\end{example}
+
+\begin{topic}{monodromy-group}{monodromy group}
+    Let $X$ be a \tref{connected-space}{connected} and locally connected \tref{topological-space}{topological space} with basepoint $x \in X$, and $p : Y \to X$ a \tref{covering-space}{covering space} of $X$ with fiber $F = p^{-1}(x)$ over $x$. For any loop $\gamma : [0, 1] \to X$ based at $x$ and lift $x' \in F$ of $x$, there is a unique lift $\gamma' : [0, 1] \to Y$ of $\gamma$ starting at $x'$, and we denote the endpoint by $\gamma \cdot x' = \gamma'(1)$. This defines a \tref{GT:group-homomorphism}{homomorphism}
+    \[ \pi_1(X, x) \to \textup{Aut}(F), \quad \gamma \mapsto (x' \mapsto \gamma \cdot x') \]
+    from the \tref{AT:fundamental-group}{fundamental group} of $X$ to the automorphism group of $F$, called the \textbf{monodromy action} of $p$. The image of this homomorphism is the \textbf{monodromy group} of $p$.
+\end{topic}
+
+\begin{example}{monodromy-group}
+    For any integer $n \ge 1$, consider the covering space $p_n : \CC^\times \to \CC^\times$ given by $p(z) = z^n$. The fiber of the basepoint $x = 1$ is the set $F = \{ 1, \zeta_n, \ldots, \zeta_n^{n - 1} \}$ of $n$-th roots of unity. The fundamental group $\pi_1(\CC^\times, x) = \ZZ$ is freely generated by a loop $\gamma$ around the origin, suppose counterclockwise. One can show that $\gamma \cdot z = \zeta_n z$ for all $z \in F$, which shows that the monodromy group of $p_n$ is $\ZZ/n\ZZ$.
+\end{example}

@@ -1,0 +1,1118 @@
+\begin{topic}{category}{category}
+    A \textbf{category} $\mathcal{C}$ is given by a collection of \textit{objects} and \textit{morphisms}.
+    \begin{itemize}
+        \item Each morphism has a \textit{domain} and \textit{codomain}, which are objects. We write $f : X \to Y$ or $X \overset{f}{\to} Y$ if $X$ is the domain of $f$ and $Y$ the codomain. We also write $X = \textup{dom}(X)$ and $Y = \textup{cod}(Y)$.
+        
+        \item Given two morphisms $f$ and $g$ such that $\textup{cod}(f) = \textup{dom}(g)$, the \textbf{composition} of $f$ and $g$, written $g \circ f$, is defined and has domain $\textup{dom}(f)$ and codomain $\textup{cod}(g)$.
+        
+        \item Composition is associative, that is, $(f \circ g) \circ h = f \circ (g \circ h)$.
+        
+        \item For every object $X$ there is an \textit{identity} morphism $\id_X : X \to X$ satisfying $f \circ \id_X = f$ and $\id_X \circ g = g$ for all $f, g$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{full-subcategory}{full subcategory}
+    A \textbf{full subcategory} $\mathcal{C}'$ of a \tref{category}{category} $\mathcal{C}$ is a subcategory which has all morphisms between its objects, that is
+    \[ \Hom_{\mathcal{C}'}(X, Y) = \Hom_{\mathcal{C}}(X, Y) \]
+    for all $X, Y$ in $\mathcal{C}'$.
+\end{topic}
+
+\begin{topic}{functor}{functor}
+    Given two \tref{category}{categories} $\mathcal{C}$ and $\mathcal{D}$, a \textbf{functor} $F : \mathcal{C} \to \mathcal{D}$ assigns an object (resp. a morphism) in $\mathcal{D}$ to each object (resp. morphism) in $\mathcal{C}$, such that
+    \begin{itemize}
+        \item $F(f) : F(X) \to F(Y)$ for each $f : X \to Y$,
+        \item $F(gf) = F(g) F(f)$,
+        \item $F(\id_X) = \id_{F(X)}$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{monomorphism}{monomorphism}
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is a \textbf{monomorphism} if $f \circ g = f \circ h$ implies $g = h$.
+    \[ \svg \begin{tikzcd} W \arrow[shift left=0.25em]{r}{g} \arrow[shift right=0.25em, swap]{r}{h} & X \arrow{r}{f} & Y \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{epimorphism}{epimorphism}
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is a \textbf{epimorphism} if $g \circ f = h \circ f$ implies $g = h$.
+    \[ \svg \begin{tikzcd} X \arrow{r}{f} & Y \arrow[shift left=0.25em]{r}{g} \arrow[shift right=0.25em, swap]{r}{h} & Z \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{split-mono}{split monomorphism}
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is a \textbf{split monomorphism} if there exists a $g : Y \to X$ such that $gf = \id_X$. That is, it has a left-inverse. In particular, it is an \tref{monomorphism}{monomorphism}.
+    \[ \svg \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} & Y \arrow[shift left=0.25em]{l}{g} \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{split-epi}{split epimorphism}
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is a \textbf{split epimorphism} if there exists a $g : Y \to X$ such that $fg = \id_Y$. That is, it has a right-inverse. In particular, it is an \tref{epimorphism}{epimorphism}.
+    \[ \svg \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} & Y \arrow[shift left=0.25em]{l}{g} \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{isomorphism}{isomorphism}
+    A morphism $f : X \to Y$ in a \tref{category}{category} $\mathcal{C}$ is an \textbf{isomorphism} if there exists a morphism $g : Y \to X$ such that $fg = \id_Y$ and $gf = \id_X$. The morphism $g$ is called the \textbf{inverse} of $f$ and denoted $g = f^{-1}$. If it exists, it is unique.
+    
+    If an isomorphism between objects $X$ and $Y$ exists, the objects are called \textbf{isomorphic}.
+\end{topic}
+
+\begin{topic}{terminal-object}{terminal object}
+    An object $1$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{terminal} if for any object $X$ there is exactly one morphism $X \to 1$. Any two terminal objects are isomorphic.
+\end{topic}
+
+\begin{topic}{initial-object}{initial object}
+    An object $0$ in a \tref{category}{category} $\mathcal{C}$ is called \textbf{initial} if for any object $X$ there is exactly one morphism $0 \to X$. Any two initial objects are isomorphic.
+\end{topic}
+
+\begin{topic}{full-functor}{full functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{full} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
+    \[ F : \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\mathcal{D}}(F(X), F(Y)) \]
+    is surjective.
+\end{topic}
+
+\begin{topic}{faithful-functor}{faithful functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is called \textbf{faithful} if for every two objects $X$ and $Y$ of $\mathcal{C}$, the map
+    \[ F : \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\mathcal{D}}(F(X), F(Y)) \]
+    is injective.
+\end{topic}
+
+\begin{topic}{natural-transformation}{natural transformation}
+    A \textbf{natural transformation} between two \tref{functor}{functors} $F, G : \mathcal{C} \to \mathcal{D}$, denoted $\mu : F \Rightarrow G$, is a collection of morphisms $\mu_X : F(X) \to G(X)$ for each object $C$ in $\mathcal{C}$, such that for each morphism $f : X \to Y$ in $\mathcal{C}$ the diagram
+    \[ \svg \begin{tikzcd} F(X) \arrow{r}{\mu_X} \arrow[swap]{d}{F(f)} & G(X) \arrow{d}{G(f)} \\ F(Y) \arrow[swap]{r}{\mu_Y} & G(Y) \end{tikzcd} \]
+    commutes. 
+\end{topic}
+
+\begin{topic}{yoneda-embedding}{Yoneda embedding}
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Yoneda embedding} is the \tref{functor}{functor}
+    \[ y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\textup{op}} \]
+    which assigns to an object $X$ of $\mathcal{C}$ the functor
+    \[ y_X = \Hom_{\mathcal{C}}(-, X) , \]
+    and to a morphism $f : X \to Y$ the natural transformation
+    \[ y_f : y_X \Rightarrow y_Y , \]
+    given by $(y_f)_Z(g) = f \circ g$ for any object $Z$ and morphism $g : Z \to X$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{yoneda-lemma}{Yoneda lemma}
+    Let $\mathcal{C}$ be a \tref{category}{category} and $F : \mathcal{C}^\textup{op} \to \textbf{Set}$ a \tref{functor}{functor}. The \textbf{Yoneda lemma} states that for any object $X$ of $\mathcal{C}$ there is a bijection
+    \[ \Hom(y_X, F) \xrightarrow{\sim} F(X) , \]
+    where $y_{(-)}$ denotes the \tref{yoneda-embedding}{Yoneda embedding}, and that this bijection is natural in $X$ and $F$. That is, for any morphism $f : X \to Y$ in $\mathcal{C}$ and \tref{natural-transformation}{natural transformation} $\mu : F \Rightarrow G$, the diagram
+    \[ \svg \begin{tikzcd} \Hom(y_Y, F) \arrow{r}{\sim} \arrow[swap]{d}{\mu \circ (-) \circ y_f} & F(Y) \arrow{d}{G(f) \circ \mu_Y = \mu_X \circ F(f)} \\ \Hom(y_X, G) \arrow{r}{\sim} & G(X) \end{tikzcd} \]
+    commutes.
+\end{topic}
+
+\begin{example}{yoneda-lemma}
+    \begin{proof}
+        Any natural transformation $\nu : y_X \Rightarrow F$ induces an element $x = \nu_X(\id_X) \in F(X)$, and this element completely determines $\nu$ since for any $Y$ in $\mathcal{C}$ and $f \in y_X(Y) = \Hom_\mathcal{C}(Y, X)$ we have that
+        \[ \nu_{Y}(f) = \nu_{Y}(\id_X \circ f) = F(f)(\nu_X(\id_X)) = F(f)(x) . \]
+        Furthermore, any $x \in F(X)$ induces a natural transformation $\nu : y_X \Rightarrow F$ in this way. Namely, for any morphism $g : Y \to Z$ in $\mathcal{C}$ we have
+        \[ F(g)(\nu_Z(h)) = F(g)(F(h)(x)) = F(hg)(x) = \nu_Y(hg) = \nu_Y(y_g(h)) , \]
+        for all $h \in y_X(Z) = \Hom_\mathcal{C}(Z, X)$. This proves the bijection. To prove that this bijection is natural in $X$ and $F$, let $f : X \to Y$ be a morphism in $\mathcal{C}$, and $\mu : F \Rightarrow G$ a natural transformation. Then for any $\nu : y_Y \Rightarrow F$ we have that
+        \[ (\mu \circ \nu \circ y_f)_X(\id_X) = \mu_X(\nu_X(f)) = \mu_X(F(f)(\nu_Y(\id_Y))) , \]
+        which shows the bijection is indeed natural.
+    \end{proof}
+\end{example}
+
+\begin{example}{yoneda-lemma}
+    As a consequence, the Yoneda embedding $y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\textup{op}}$ is \tref{full-functor}{full} and \tref{faithful-functor}{faithful}. Namely, for any objects $X$ and $Y$ in $\mathcal{C}$ there is a natural bijection
+    \[ \Hom(y_X, y_Y) \isom y_Y(X) = \Hom_\mathcal{C}(X, Y) . \]
+\end{example}
+
+\begin{topic}{groupoid}{groupoid}
+    A \textbf{groupoid} is a \tref{category}{category} in which every morphism is an \tref{isomorphism}{isomorphism}.
+\end{topic}
+
+\begin{topic}{equivalence-of-categories}{equivalence of categories}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G : \mathcal{D} \to \mathcal{C}$ and \tref{natural-transformation}{natural isomorphisms} $\mu : \id_\mathcal{C} \Rightarrow GF$ and $\nu : \id_\mathcal{D} \Rightarrow FG$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
+\end{topic}
+
+\begin{example}{equivalence-of-categories}
+    A functor $F : \mathcal{C} \to \mathcal{D}$ is an equivalence of categories if and only if it is \tref{full-functor}{fully} \tref{faithful-functor}{faithful} and \tref{essentially-surjective-functor}{essentially surjective}.
+    \begin{proof}
+        $(\Rightarrow)$ For any morphism $f : X \to Y$ in $\mathcal{C}$, we have $GF(f) = \mu_Y \circ f \circ \mu_X^{-1}$, which shows that $\Hom_\mathcal{C}(X, Y) \xrightarrow{GF} \Hom_\mathcal{C}(GFX, GFY)$ is a bijection. Since this map factors through $\Hom_\mathcal{D}(FX, FY)$, we must have that $F$ is fully faithful. Furthermore, any object $D$ of $\mathcal{D}$ is isomorphic to $FG(D)$ via $\nu_D$, so $F$ is essentially surjective.
+        $(\Leftarrow)$ For any object $D$ of $\mathcal{D}$, there exists an object $C$ of $\mathcal{C}$ and an isomorphism $D \isom F(C)$. Put $G(D) = C$ and call the isomorphism $\nu_D$. For any morphism $f : A \to B$ in $\mathcal{D}$, we have the induced morphism $\nu_B \circ f \circ \nu_A^{-1} : FG(A) \to FG(B)$, and since $F$ is fully faithful, there exists a unique $g : G(A) \to G(B)$ with $F(g) = \nu_B \circ f \circ \nu_A^{-1}$. Put $G(f) = g$. Now clearly, $\nu_B \circ f = FG(f) \circ \nu_A$, so $\nu : \id_\mathcal{D} \Rightarrow FG$ is a natural isomorphism. To construct $\mu : \id_\mathcal{C} \Rightarrow GF$, take any $h : X \to Y$ in $\mathcal{C}$, and consider the isomorphism $\nu_{F(X)} : F(X) \xrightarrow{\sim} FGF(X)$. As $F$ is fully faithful, there exists a unique isomorphism $\mu_X : X \xrightarrow{\sim} GF(X)$ such that $F(\mu_X) = \nu_{F(X)}$. Now, since $F(\mu_Y) F(h) = FGF(h) F(\mu_X)$ by naturality of $\mu$, and $F$ is fully faithful, we have $\mu_Y \circ h = GF(h) \circ \mu_X$, so $\mu : \id_\mathcal{C} \Rightarrow GF$ is a natural isomorphism.
+    \end{proof}
+\end{example}
+
+\begin{topic}{essentially-surjective-functor}{essentially surjective functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{essentially surjective} if each object in $\mathcal{D}$ is isomorphic to $F(X)$ for some $X$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{equalizer}{(co)equalizer}
+    Let $f, g : X \to Y$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An \textbf{equalizer} of the pair $f, g$ is an object $E$ of $\mathcal{C}$ together with a morphism $e : E \to X$ such that $fe = ge$, and such that for any other $e' : E' \to X$ with $f \circ e' = g \circ e'$ there exists a unique morphism $h : E' \to E$ such that $e' = e \circ h$.
+    \[ \svg \begin{tikzcd} E \arrow{r}{e} & X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \\ E' \arrow[dashed]{u}{\exists!} \arrow[swap]{ur}{e'} && \end{tikzcd} \]
+    Dually, a \textbf{coequalizer} of the pair $f, g$ is an object $Q$ of $\mathcal{C}$ together with a morphism $q : Y \to Q$ such that $q \circ f = q \circ g$, and such that for any other $q' : Y \to Q'$ with $q' \circ f = q' \circ g$ there exists a unique morphism $h : Q \to Q'$ such that $q' = h \circ q$.
+    \[ \svg \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow{r}{q} \arrow[swap]{dr}{q'} & Q \arrow[dashed]{d}{\exists!} \\ && Q' \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{pullback}{pullback}
+    Let $f : X \to Z$ and $g : Y \to Z$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $W$ of $\mathcal{C}$ together with morphisms $\pi_X: W \to X$ and $\pi_Y : W \to Y$ is said to be a \textbf{pullback} of the pair $f, g$ if $f \circ \pi_X = g \circ \pi_Y$ and for any other such $W'$ with maps $\pi_X'$ and $\pi_Y'$ there exists a unique morphism $h : W' \to W$ such that $\pi_X' = \pi_X \circ h$ and $\pi_Y' = \pi_Y \circ h$.
+    \[ \svg \begin{tikzcd} W' \arrow[bend left=30]{rrd}{\pi_X'} \arrow[swap, bend right=30]{ddr}{\pi_Y'} \arrow[dashed]{rd}{\exists!} & & \\ & W \arrow{r}{\pi_X} \arrow[swap]{d}{\pi_Y} & X \arrow{d}{f} \\ & Y \arrow[swap]{r}{g} & Z \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{pushout}{pushout}
+    Let $f : X \to Y$ and $g : X \to Z$ be morphisms in a \tref{category}{category} $\mathcal{C}$. An object $W$ of $\mathcal{C}$ together with morphisms $i_Y: Y \to W$ and $i_Z : Z \to W$ is said to be a \textbf{pushout} of the pair $f, g$ if $i_Y \circ f = i_Z \circ g$ and for any other such $W'$ with maps $i'_Y$ and $i'_Z$ there exists a unique morphism $h : W \to W'$ such that $i'_Y = h \circ i_Y$ and $i'_Z = h \circ i_Z$.
+    \[ \svg \begin{tikzcd} X \arrow{r}{f} \arrow[swap]{d}{g} & Y \arrow{d}{i_Y} \arrow[bend left=30]{rdd}{i'_Y} & \\ Z \arrow[swap]{r}{i_Z} \arrow[swap, bend right=30]{drr}{i'_Z} & W \arrow[dashed]{rd}{\exists!} & \\ & & W' \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{regular-monomorphism}{regular monomorphism}
+    A \tref{monomorphism}{monomorphism} $f : X \to Y$ is called a \textbf{regular monomorphism} if fits into an \tref{equalizer}{equalizer} diagram:
+    \[ \svg \begin{tikzcd} X \arrow{r}{f} & Y \arrow[shift left=0.25em]{r} \arrow[shift right=0.25em]{r} & Z \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{regular-epimorphism}{regular epimorphism}
+    An \tref{epimorphism}{epimorphism} $f : X \to Y$ is called a \textbf{regular epimorphism} if fits into an \tref{equalizer}{coequalizer} diagram:
+    \[ \svg \begin{tikzcd} W \arrow[shift left=0.25em]{r} \arrow[shift right=0.25em]{r} & X \arrow{r}{f} & Y \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{adjunction}{adjunction}
+    Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be a pair of \tref{functor}{functors}. Then $F$ is \textbf{left adjoint} to $G$, or $G$ is \textbf{right adjoint} to $F$, or there is an \textbf{adjunction} $F \dashv G$, if there is a natural bijection
+    \[ \Hom_{\mathcal{D}}(F(C), D) \xrightarrow{\sim} \Hom_{\mathcal{C}}(C, G(D)) \]
+    for each object $C$ in $\mathcal{C}$ and $D$ in $\mathcal{D}$. Naturality means that for all $f : C \to C'$ in $\mathcal{C}$ and $g : D' \to D$ in $\mathcal{D}$, the following square commutes.
+    \[ \svg \begin{tikzcd}[row sep=3em] \Hom_{\mathcal{D}}(F(C), D) \arrow{r} & \Hom_{\mathcal{C}}(C, G(D)) \\ \Hom_{\mathcal{D}}(F(C'), D') \arrow{r} \arrow{u}{g \circ (-) \circ F(f)} & \Hom_{\mathcal{C}}(C', G(D')) \arrow[swap]{u}{G(g) \circ (-) \circ f} \end{tikzcd} \]
+    Two maps $f : F(C) \to D$ and $g : C \to G(D)$ which correspond to each other are called \textit{transposes}.
+\end{topic}
+
+\begin{example}{adjunction}
+    Let $U : \textbf{Grp} \to \textbf{Set}$ be the \textit{forgetful functor}, which sends a \tref{GT:group}{group} $G$ to its underlying set, and let $F : \textbf{Set} \to \textbf{Grp}$ be the \textit{free functor}, which sends a set $S$ to the \tref{GT:free-group}{free group} $F_S$. Given a group $G$ and set $S$, any function of sets $S \to G$ can uniquely be extended to a group morphism $F_S \to G$, and any such morphism comes uniquely from a function. This gives a bijection
+    \[ \Hom_{\textbf{Grp}}(F(S), G) \isom \Hom_{\textbf{Set}}(S, U(G)) , \]
+    which is natural in $S$ and $G$, or in other words, we have an adjunction $F \dashv U$.
+\end{example}
+
+\begin{example}{adjunction}
+    Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be adjoint functors, $F \dashv G$. Then for any object $C$ of $\mathcal{C}$, we have a natural bijection
+    \[ \Hom_{\mathcal{D}}(F(C), F(C)) \isom \Hom_{\mathcal{C}}(C, GF(C)) . \]
+    In particular, the identity morphism $\id_{F(C)}$ corresponds to some $\eta_C : C \to GF(C)$. Since this construction is natural in $C$, we obtain a \tref{natural-transformation}{natural transformation} $\eta : \id_\mathcal{C} \Rightarrow GF$, called the \textit{unit} of the adjunction.
+    Similarly, for any object $D$ of $\mathcal{D}$, the morphism $\id_{G(D)}$ corresponds to some $\varepsilon_D : FG(D) \to D$, which yields a natural transformation $\varepsilon : FG \Rightarrow \id_\mathcal{D}$, called the \textit{counit} of the adjunction.
+\end{example}
+
+\begin{example}{adjunction}
+    Consider the integers $\ZZ$ and the real numbers $\RR$ as categories, whose objects are the numbers, and there is a morphism from $x$ to $y$ if and only if $x \le y$. The inclusion $i : \ZZ \to \RR$ is a functor, and conversely, the \textit{floor} $\lfloor \cdot \rfloor : \RR \to \ZZ$ and \textit{ceil} $\lceil \cdot \rceil : \RR \to \ZZ$ functions are also functors. Note that
+    \[ n \le x \iff n \le \lfloor x \rfloor \qquad \textup{ and } \qquad \lceil x \rceil \le n \iff x \le n \]
+    for all $n \in \ZZ$ and $x \in \RR$. This shows that there are adjunctions
+    \[ \lceil \cdot \rceil \dashv i \dashv \lfloor \cdot \rfloor . \]
+\end{example}
+
+\begin{example}{adjunction}
+    If there is an adjunction $F \dashv G$ between functors $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$, then $G$ preserves all \tref{limit}{limits} which exist in $\mathcal{D}$, and $F$ preserves all colimits which exist in $\mathcal{C}$.
+    \begin{proof}
+        Suppose a functor $H : \mathcal{I} \to \mathcal{D}$ has a limiting cone $(D, \mu)$ in $\mathcal{D}$. Any cone $(C, \nu)$ for $GH$ in $\mathcal{C}$ consists of a family of morphisms $\nu_I : C \to GH(I)$ such that $\nu_J = GH(f) \circ \nu_I$ for all $f : I \to J$ in $\mathcal{I}$. Under the adjunction, this corresponds to a family of morphisms $\nu'_I : F(C) \to H(I)$ such that $\nu'_J = H(f) \circ \nu'_I$ for all $f : I \to J$ in $\mathcal{I}$. Hence, there exists a unique map of cones $(F(C), \nu') \to (D, \mu)$, which under the adjunction corresponds to a map of cones $(C, \nu) \to (G(D), \mu \circ G)$. Therefore, $(G(C), \mu \circ G)$ is a limiting cone for $GH$ in $\mathcal{C}$, which shows that $G$ preserves limits. Dually, one can show that $F$ preserves all colimits.
+    \end{proof}
+\end{example}
+
+\begin{topic}{retraction}{retraction}
+    A \textbf{retraction} of a morphism $i : X \to Y$ is a morphism $r : Y \to X$ such that $r \circ i = \id_X$.
+\end{topic}
+
+\begin{topic}{section}{section}
+    A \textbf{section} of a morphism $p : X \to Y$ is a morphism $s : Y \to X$ such that $p \circ s = \id_Y$.
+\end{topic}
+
+\begin{topic}{retract}{retract}
+    An object $X$ is called a \textbf{retract} of an object $Y$ if there are morphisms $i : X \to Y$ and $r : Y \to X$ such that $r \circ i = \id_X$, i.e. $r$ is a \tref{retraction}{retraction} of $i$.
+\end{topic}
+
+\begin{topic}{sieve}{sieve}
+    Let $\mathcal{C}$ be a \tref{category}{category}, and $C$ an object of $\mathcal{C}$. A \textbf{sieve} on $C$ is a set of morphisms $S = \{ f : C' \to C \}$ such that if $f : C' \to C$ is in $S$ and $g : C'' \to C'$ is arbitrary, then $f \circ g$ is in $S$.
+    
+    Equivalently, a sieve on $C$ is a subpresheaf of $y_C$, the \tref{yoneda-embedding}{Yoneda embedding}.
+\end{topic}
+
+\begin{topic}{grothendieck-topology}{Grothendieck topology}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{Grothendieck topology} on $\mathcal{C}$ consists of a family $\textup{Cov}(C)$ of \tref{sieve}{sieves} on $C$ for every object $C$ of $\mathcal{C}$, called \textit{covering sieves}, such that
+    \begin{itemize}
+        \item the maximal sieve $\textup{max}(C) = \{ \text{all } f : C' \to C \}$ is in $\textup{Cov}(C)$,
+        \item if $R \in \textup{Cov}(C)$ then for every $f : C' \to C$, $f^*(R) = \{ g : C'' \to C' \mid fg \in R \} \in \textup{Cov}(C')$,
+        \item if $R$ is any sieve on $C$ and $S$ is a covering sieve on $C$, such that for every $f : C' \to C$ from $S$ we have $f^*(R) \in \textup{Cov}(C')$, then $R \in \textup{Cov}(C)$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{site}{site}
+    A \textbf{site} is a small \tref{category}{category} $\mathcal{C}$ together with a \tref{grothendieck-topology}{Grothendieck topology} on it.
+\end{topic}
+
+\begin{topic}{grothendieck-topos}{Grothendieck topos}
+    A \textbf{Grothendieck topos} is a \tref{category}{category} of \tref{sheaf}{sheaves} on a \tref{site}{site}.
+\end{topic}
+
+\begin{topic}{sheaf}{sheaf}
+    A \tref{presheaf}{presheaf} $\mathcal{F} : \mathcal{C}^\textup{op} \to \textbf{Set}$ on a \tref{site}{site} $\mathcal{C}$ is a \textbf{sheaf} if for every covering sieve $\{ U_i \to U \}_{i \in I}$, the diagram
+    \[ \mathcal{F}(U) \to \prod_{i \in I} \mathcal{F}(U_i) \rightrightarrows \prod_{i, j \in I} \mathcal{F}(U_i \times_U U_j) \]
+    is an \tref{equalizer}{equalizer}.
+\end{topic}
+
+\begin{topic}{localization}{localization}
+    Let $\mathcal{C}$ be a \tref{category}{category}, and $W$ a collection of morphisms of $\mathcal{C}$. A \textbf{localization} of $\mathcal{C}$ by $W$ is a category $\mathcal{C}\left[\frac{1}{W}\right]$ with a functor $Q : \mathcal{C} \to \mathcal{C}\left[\frac{1}{W}\right]$ such that
+    \begin{itemize}
+        \item $Q(f)$ is an isomorphism for all $f \in W$,
+        \item for any category $\mathcal{D}$ and functor $F : \mathcal{C} \to \mathcal{D}$ such that $F(f)$ is an isomorphism for all $f \in W$, there exists a unique functor $G : \mathcal{C}\left[\frac{1}{W}\right] \to \mathcal{D}$ such that $F \isom G \circ Q$.
+        \[ \svg \begin{tikzcd} \mathcal{C} \arrow{r}{Q} \arrow[swap]{rd}{F} & \mathcal{C}\left[\frac{1}{W}\right] \arrow[dashed]{d}{G} \\ & \mathcal{D} \end{tikzcd} \]
+    \end{itemize}
+\end{topic}
+
+\begin{example}{localization}
+    A \tref{AA:ring}{ring} $R$ can be considered as an \tref{HA:additive-category}{additive category} $\mathcal{R}$ with one object $\bdot$ via $R = \textup{End}_\mathcal{R}(\bdot)$: multiplication is given by composition. Let $S$ is a multiplicatively closed subset of $R$ containing $1$. If $R$ is commutative, or more generally if $S$ is in the center of $R$, then the \tref{localization}{localization} $S^{-1} R$ can be defined, which corresponds precisely to the localization $\mathcal{R}\left[\frac{1}{S}\right]$.
+\end{example}
+
+\begin{topic}{limit}{(co)limit}
+    Given a \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$, a \textit{cone} for $F$ is an object $D$ of $\mathcal{D}$ together with a family of morphisms $\mu_C : D \to F(C)$ for all objects $C$ in $\mathcal{C}$, such that for all $f : C \to C'$ in $\mathcal{C}$,
+    \[ \svg \begin{tikzcd} & D \arrow[swap]{ld}{\mu_C} \arrow{rd}{\mu_{C'}} & \\ F(C) \arrow{rr}{F(f)} && F(C') \end{tikzcd} \]
+    commutes in $\mathcal{D}$. A map of cones $(D, \mu) \to (D', \mu')$ is a map $g : D \to D'$ such that $\mu'_C g = \mu_C$ for all $C$ in $\mathcal{C}$. A \textit{limiting cone} or a \textbf{limit} for $F$ is a \tref{terminal-object}{terminal} object in the category of cones for $F$.
+    
+    Dually, one can define a \textit{cocone} for $F$ and \textit{colimiting cocones} to define a \textbf{colimit} for $F$.
+\end{topic}
+
+\begin{example}{limit}
+    Let $\textbf{0}$ be the empty category. A limit for $! : \textbf{0} \to \mathcal{C}$ is a terminal object of $\mathcal{C}$, and a colimit is an initial object of $\mathcal{C}$.
+\end{example}
+
+\begin{example}{limit}
+    Let $\textbf{2}$ be the discrete category with two objects. A functor $\textbf{2} \to \mathcal{C}$ is a pair $(A, B)$ of objects of $\mathcal{C}$, and a cone for this functor is an object $C$ with maps $C \to A$ and $C \to B$. Such a cone is a limiting cone iff for any $D$ with morphisms $D \to A$ and $D \to B$ there is a unique morphism $D \to C$ such that
+    \[ \svg \begin{tikzcd} & D \arrow[dashed]{d} \arrow{ld} \arrow{rd} & \\ A & \arrow{l} C \arrow{r} & B \end{tikzcd} \]
+    commutes. In this case, $C$ is also known as the \textit{product} of $A$ and $B$, and denoted $A \times B$.
+\end{example}
+
+\begin{topic}{category-of-elements}{category of elements}
+    The \textbf{category of elements} of a \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is the \tref{category}{category} $\int_\mathcal{C} F$ whose
+    \begin{itemize}
+        \item objects are pairs $(C, x)$ with $C$ an object of $\mathcal{C}$ and $x \in F(C)$,
+        \item morphisms $(C, x) \to (C', x')$ are morphisms $f : C \to C'$ with $F(f)(x) = x'$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{small-category}{(locally) small category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{small} if its objects and morphisms form a set.
+    
+    A category $\mathcal{C}$ is \textbf{locally small} if for all objects $X, Y$, the hom-class $\Hom(X, Y)$ is a set.
+    
+    A category $\mathcal{C}$ is \textbf{essentially small} if it is \tref{equivalence-of-categories}{equivalent} to a small category.
+\end{topic}
+
+\begin{topic}{presheaf}{presheaf}
+    A \textbf{presheaf} on a \tref{category}{category} $\mathcal{C}$ is a \tref{functor}{functor} $F : \mathcal{C}^\textup{op} \to \textbf{Set}$.
+\end{topic}
+
+\begin{topic}{representable-functor}{representable functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is \textbf{representable} if it is \tref{natural-transformation}{naturally} isomorphic to $\Hom_\mathcal{C}(X, -)$ for some object $X$ of $\mathcal{C}$.
+    
+    Similarly, a functor $F : \mathcal{C}^\textup{op} \to \textbf{Set}$ (i.e. a \tref{presheaf}{presheaf}) is \textbf{representable} if it is naturally isomorphic to $\Hom_\mathcal{C}(-, X)$ for some object $X$ of $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{opposite-category}{opposite category}
+    The \textbf{opposite category} $\mathcal{C}^\textup{op}$ of a \tref{category}{category} $\mathcal{C}$ is formed by reversing the morphisms. That is, the objects of $\mathcal{C}^\textup{op}$ are the objects of $\mathcal{C}$, and there is a morphism $f^\textup{op} : Y \to X$ in $\mathcal{C}^\textup{op}$ for each morphism $f : X \to Y$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{zero-object}{zero object}
+    In a \tref{category}{category} $\mathcal{C}$, a \textbf{zero object} is an object which is both \tref{initial-object}{initial} and \tref{terminal-object}{terminal}.
+\end{topic}
+
+\begin{topic}{pointed-category}{pointed category}
+    A \textbf{pointed category} is a \tref{category}{category} with a \tref{zero-object}{zero object}.
+\end{topic}
+
+% \begin{topic}{fiber}{(co)fiber}
+%     Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{terminal-object}{terminal object} $1$. A \textbf{fiber} of a morphism $f : X \to Y$ in $\mathcal{C}$ is a \tref{pullback}{pullback diagram}
+%     \[ \svg \begin{tikzcd}
+%         X \times_Y 1 \arrow{r} \arrow{d} & X \arrow{d}{f} \\ 1 \arrow{r} & Y .
+%     \end{tikzcd} \]
+%     Dually, a \textbf{cofiber} of $f$ is a \tref{pushout}{pushout diagram}
+%     \[ \svg \begin{tikzcd}
+%         X \arrow{r}{f} \arrow{d} & Y \arrow{d} \\ 1 \arrow{r} & Y \amalg_X 1 .
+%     \end{tikzcd} \]
+% \end{topic}
+
+% \begin{example}{fiber}
+%     If $\mathcal{C}$ is an \tref{HA:additive-category}{additive category}, fibers are the same as kernels, and cofibers are the same as cokernels.
+% \end{example}
+
+\begin{topic}{slice-category}{slice category}
+    Given a \tref{category}{category} $\mathcal{C}$ over an object $X$, the \textbf{slice category} $\mathcal{C}/X$ is the category whose
+    \begin{itemize}
+        \item objects are morphisms $f : Y \to X$ of $\mathcal{C}$,
+        \item morphisms from $f : Y \to X$ to $f' : Y' \to X$ are morphisms $g : Y \to Y'$ such that $f' \circ g = f$.
+        \[ \svg \begin{tikzcd}[row sep=0em] Y \arrow{rd}{f} \arrow[swap]{dd}{g} & \\ & X \\ Y' \arrow[swap]{ur}{f'} & \end{tikzcd} \]
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{arrow-category}{arrow category}
+    Given a \tref{category}{category} $\mathcal{C}$, the \textbf{arrow category} $\mathcal{C}^\rightarrow$ is the category whose
+    \begin{itemize}
+        \item objects are morphisms $f : X \to Y$ of $\mathcal{C}$,
+        \item morphisms from $f : X \to Y$ to $f' : X' \to Y'$ are pairs $(g, h)$, where $g : X \to X'$ and $h : Y \to Y'$ such that $f' \circ g = h \circ f$.
+        \[ \svg \begin{tikzcd} X \arrow{r}{f} \arrow[swap]{d}{g} & Y \arrow{d}{h} \\ X' \arrow{r}{f'} & Y' \end{tikzcd} \]
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{comma-category}{comma category}
+    The \textbf{comma category} of two \tref{functor}{functors} $F : \mathcal{C} \to \mathcal{E}$ and $G : \mathcal{D} \to \mathcal{E}$ is the category $F \downarrow G$ whose
+    \begin{itemize}
+        \item objects are triples $(C, D, f)$ where $C, D$ are objects of $\mathcal{C}$ and $\mathcal{D}$, respectively, and $f : F(C) \to G(D)$ a morphism in $\mathcal{E}$,
+        \item morphisms from $(C, D, f)$ to $(C', D', f')$ are pairs $(g, h)$, where $g : C \to C'$ and $h : D \to D'$ are morphisms in $\mathcal{C}$ and $\mathcal{D}$, respectively, such that $f' \circ F(g) = G(h) \circ f$.
+        \[ \svg \begin{tikzcd}
+            F(C) \arrow{r}{F(g)} \arrow[swap]{d}{f} & F(C') \arrow{d}{f'} \\ G(D) \arrow{r}{G(h)} & G(D')
+        \end{tikzcd} \]
+    \end{itemize}
+\end{topic}
+
+\begin{example}{comma-category}
+    \begin{itemize}
+        \item When $F = \id_\mathcal{C}$ and $G : \textbf{1} \to \mathcal{C}$, given by $G(\star) = X$, the comma category $F \downarrow G$ is the same the \tref{slice-category}{slice category} $\mathcal{C}/X$.
+        \item When $F = G = \id_\mathcal{C}$, the comma category $F \downarrow G$ is the same the \tref{arrow-category}{arrow category} $\mathcal{C}^\rightarrow$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{inverse-limit}{inverse limit}
+    Let $\mathcal{C}$ be a \tref{category}{category}. An \textbf{inverse system} in $\mathcal{C}$ consists of a directed set $I$, an object $X_i$ for each $i \in I$, and a morphism $f_{ij} : X_j \to X_i$ for all $i \le j$, such that $f_{ii}$ is the identity on $X_i$ and
+    \[ f_{ij} \circ f_{jk} = f_{ik} \quad \text{for all } i \le j \le k . \]
+    An \textbf{inverse limit} of an inverse system is an object $X = \varprojlim_{i \in I} X_i$ in $\mathcal{C}$ with maps $\pi_i : X \to X_i$ for each $i \in I$ such that $\pi_i = f_{ij} \circ \pi_j$ for all $i \le j$, satisfying the universal property: for any other such object $Y$ with maps $p_i : Y \to Y_i$ there is a unique map $h : Y \to X$ such that $p_i = \pi_i \circ h$ for all $i \in I$.
+    \[ \svg \begin{tikzcd} Y \arrow[dashed, swap]{d}{h} \arrow{dr}{p_i} & \\ X \arrow{r}{\pi_i} & X_i \end{tikzcd} \]
+    Equivalently, an inverse system is a \tref{functor}{functor} $F : I^\textup{op} \to \mathcal{C}$ for a directed set $I$, and an inverse limit is a \tref{limit}{limit} for $F$.
+\end{topic}
+
+\begin{example}{inverse-limit}
+    When $\mathcal{C}$ is the category of sets, groups, rings or modules, an inverse limit can explicitly be described by
+    \[ \varprojlim_{i \in I} X_i = \left\{ (x_i)_{i \in I} \in \prod_{i \in I} X_i : f_{ij}(x_j) = x_i \text{ for all } i \le j \right\} . \]
+\end{example}
+
+\begin{topic}{direct-limit}{direct limit}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{direct system} in $\mathcal{C}$ consists of a directed set $I$, an object $X_i$ for each $i \in I$, and a morphism $f_{ij} : X_i \to X_j$ for all $i \le j$, such that $f_{ii}$ is the identity on $X_i$ and
+    \[ f_{jk} \circ f_{ij} = f_{ik} \quad \text{for all } i \le j \le k . \]
+    A \textbf{direct limit} of a direct system is an object $X = \varinjlim_{i \in I} X_i$ in $\mathcal{C}$ with maps $\iota_i : X_i \to X$ for each $i \in I$ such that $\iota_i = \iota_j \circ f_{ij}$ for all $i \le j$, satisfying the universal property: for any other such object $Y$ with maps $\iota'_i : Y_i \to Y$ there is a unique map $h : X \to Y$ such that $\iota'_i = h \circ \iota_i$ for all $i \in I$.
+    \[ \svg \begin{tikzcd} X_i \arrow{r}{\iota_i} \arrow[swap]{dr}{\iota'_i} & X \arrow[dashed]{d}{h} \\ & Y \end{tikzcd} \]
+    Equivalently, a direct system is a \tref{functor}{functor} $F : I \to \mathcal{C}$ for a directed set $I$, and a direct limit is a \tref{limit}{colimit} for $F$.
+\end{topic}
+
+\begin{example}{direct-limit}
+    When $\mathcal{C}$ is the category of sets, groups, rings or modules, a direct limit can     explicitly be described by
+    \[ \varinjlim_{i \in I} X_i = \bigsqcup_{i \in I} X_i / \sim{} , \]
+    where $x_i \in X_i$ is equivalent to $x_j \in X_j$ if and only if there exists some $k \in I$ with $i, j \le k$ such that $f_{ik}(x_i) = f_{jk}(x_j)$. That is, $x_i$ is equivalent to $x_j$ if they `eventually become equal'.
+\end{example}
+
+\begin{topic}{conservative-functor}{conservative functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{conservative} if it reflects \tref{isomorphism}{isomorphisms}. That is, if $F(f)$ is an isomorphism for some morphism $f$ in $\mathcal{C}$, then $f$ is an isomorphism as well.
+\end{topic}
+
+\begin{topic}{galois-category}{Galois category}
+    A \textbf{Galois category} is a \tref{category}{category} $\mathcal{C}$ with a \tref{functor}{functor} $F : \mathcal{C} \to \textbf{FSet}$ to the category of finite sets, such that
+    \begin{itemize}
+        \item $\mathcal{C}$ has finite \tref{limit}{(co)limits},
+        \item any morphism $f : X \to Y$ in $\mathcal{C}$ can be written as $f = m \circ e$ with $e$ an \tref{epimorphism}{epimorphism} and $m$ a \tref{monomorphism}{monomorphism} onto a direct summand of $Y$,
+        \item $F$ preserves finite (co)limits and \tref{conservative-functor}{reflects isomorphisms}.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{galois-category}
+    Let $X$ be a \tref{TO:connected-space}{connected} \tref{TO:topological-space}{topological space} and $x \in X$ a basepoint. The category $\textbf{FCov}_X$ of finite \tref{TO:covering-space}{coverings} $Y \to X$ together with the functor $F : \textbf{FCov}_X \to \textbf{FSet}$ which maps $Y \to X$ to the fiber $Y_x$ is a Galois category.
+\end{example}
+
+\begin{example}{galois-category}
+    Let $k$ be a field, and $\mathcal{C}$ the \tref{opposite-category}{opposite} of the category $\textbf{SAlg}_k$ of free separable $k$-algebras, with $F(A) = \textup{Alg}_k(A, k_s)$, where $k_s$ is a separable closure of $k$. Then $\mathcal{C}$ with $F$ is a Galois category.
+\end{example}
+
+\begin{example}{galois-category}
+    Let $\pi$ be a \tref{GT:profinite-group}{profinite group}. The category $\pi\textup{-}\textbf{set}$ of finite sets with a continuous $\pi$-action, and $F : \pi\textup{-}\textbf{set} \to \textbf{Set}$ the forgetful functor, is a Galois category.
+    
+    It is a theorem that any essentially small Galois category is equivalent to $\pi\textup{-}\textbf{set}$ for the uniquely determined profinite group $\pi = \textup{Aut}(F)$.
+\end{example}
+
+\begin{topic}{monad}{monad}
+    A \textbf{monad} on a \tref{category}{category} $\mathcal{C}$ is a \tref{functor}{functor} $T : \mathcal{C} \to \mathcal{C}$ together with two \tref{natural-transformation}{natural transformations} $\mu : T^2 \Rightarrow T$ and $\eta : \id_{\mathcal{C}} \Rightarrow T$, such that
+    \[ \svg \begin{tikzcd} T^3 \arrow{r}{T \mu} \arrow[swap]{d}{\mu T} & T^2 \arrow{d}{\mu} \\ T^2 \arrow{r}{\mu} & T \end{tikzcd} \qquad \text{and} \qquad \begin{tikzcd} T \arrow{r}{\eta T} \arrow[swap]{dr}{\id_T} & T^2 \arrow{d}{\mu} & \arrow[swap]{l}{T \eta} T \arrow{ld}{\id_T} \\ & T & \end{tikzcd} \]
+    commute.
+\end{topic}
+
+\begin{example}{monad}
+    Any \tref{adjunction}{adjunction} $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ gives rise to a monad with $T = GF$. The map $\eta : \id_{\mathcal{C}} \to T$ is the unit of the adjunction, and the map $\mu : T^2 \to T$ is $G \varepsilon F$, where $\varepsilon : FG \to \id_{\mathcal{D}}$ is the counit of the adjunction.
+    
+    Conversely, any monad can be found as an explicit adjunction of functors, using the \tref{eilenberg-moore-category}{Eilenberg--Moore category} or the \tref{kleisli-category}{Kleisli category}.
+\end{example}
+
+\begin{topic}{t-algebra}{T-algebra}
+    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. A \textbf{$T$-algebra} in $\mathcal{C}$ is a pair $(X, h)$ of an object $X$ in $\mathcal{C}$ and a morphism $h : TX \to X$, such that
+    \[ \svg \begin{tikzcd} T^2 X \arrow[swap]{d}{\mu_X} \arrow{r}{Th} & TX \arrow{d}{h} \\ TX \arrow{r}{h} & X \end{tikzcd} \qquad \text{and} \qquad \begin{tikzcd} X \arrow[swap]{dr}{\id_X} \arrow{r}{\eta_X} & TX \arrow{d}{h} \\ & X \end{tikzcd} \]
+    commute. Morphisms between $T$-algebras $(X, h) \to (Y, k)$ are morphisms $f : X \to Y$ in $\mathcal{C}$ for which
+    \[ \svg \begin{tikzcd} TX \arrow{r}{Tf} \arrow[swap]{d}{h} & TY \arrow{d}{k} \\ X \arrow{r}{f} & Y \end{tikzcd} \]
+    commutes.
+\end{topic}
+
+\begin{topic}{eilenberg-moore-category}{Eilenberg--Moore category}
+    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. The \textbf{Eilenberg--Moore category} $\mathcal{C}^T$ of the monad is the category of its \tref{t-algebra}{$T$-algebras}.
+\end{topic}
+
+\begin{example}{eilenberg-moore-category}
+    There is an \tref{adjunction}{adjunction} between $\mathcal{C}^T$ and $\mathcal{C}$ yielding the initial monad. The forgetful functor $U : \mathcal{C}^T \to \mathcal{C}$, mapping $(X, h)$ to $h$, has a left adjoint $F : \mathcal{C} \to \mathcal{C}^T$, mapping an object $X$ to the $T$-algebra $(TX, \mu_X)$, and a morphism $f : X \to Y$ to $Tf$. One can show $F \dashv U$ and clearly $T = UF$.
+\end{example}
+
+\begin{topic}{cartesian-closed-category}{cartesian closed category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{cartesian closed} if it has finite products, and for every object $X$ of $\mathcal{C}$ the product functor $(-) \times X$ has a \tref{adjunction}{right adjoint} $(-)^X$.
+\end{topic}
+
+\begin{example}{cartesian-closed-category}
+    The category \textbf{Set} is cartesian closed, where $Y^X = \Hom_\textbf{Set}(X, Y)$.
+\end{example}
+
+\begin{topic}{thin-category}{thin category}
+    A \tref{category}{category} is \textbf{thin} if there exists at most one morphism between any two given objects.
+\end{topic}
+
+\begin{topic}{exponential-object}{exponential object}
+    Let $\mathcal{C}$ be a \tref{category}{category} in which finite products exist, and let $X$ and $Y$ be objects of $\mathcal{C}$. An \textbf{exponential object} of $\mathcal{C}$ is an object $X^Y$ of $\mathcal{C}$ together with a morphism $\textup{ev} : X^Y \times Y \to X$, called \textit{evaluation}, such that for any object $Z$ of $\mathcal{C}$ and morphism $e : Z \times Y \to X$, there exists a unique morphism $u : Z \to X^Y$ such that $e = \textup{ev} \circ (u \times \id_Y)$.
+\end{topic}
+
+\begin{topic}{kleisli-category}{Kleisli category}
+    Let $(T, \mu, \eta)$ be a \tref{monad}{monad} on a \tref{category}{category} $\mathcal{C}$. The \textbf{Kleisli category} of $T$ is the category $\mathcal{C}_T$ whose objects are the objects of $\mathcal{C}$, and a morphism from $X$ to $Y$ in $\mathcal{C}_T$ is given by a morphism $X \to TY$ in $\mathcal{C}$. Composition is given by
+    \[ (Y \xrightarrow{g} TZ) \circ_T (X \xrightarrow{f} TY) = \mu_Z \circ Tg \circ f : X \to TY \to T^2 Z \to TZ . \]
+    The identity morphisms are given by $\id_X = \eta_X$.
+\end{topic}
+
+\begin{example}{kleisli-category}
+    Taking inspiration from functional programming (e.g. Haskell), let $\mathcal{C} = \texttt{Type}$ be the category of types, and $T : \mathcal{C} \to \mathcal{C}$ the endofunctor sending a type $\alpha$ to \texttt{[$\alpha$]}, the type of lists with elements in $\alpha$. Given a function $f : \alpha \to \beta$, the function $Tf : \texttt{[}\alpha\texttt{]} \to \texttt{[}\beta\texttt{]}$ works element-wise.
+    Multiplication $\mu$ is given by concatenation of lists, and $\eta$ sends an object $x$ of type $\alpha$ to the singleton list $\texttt{[}x\texttt{]}$.
+    
+    Possible morphisms in $\mathcal{C}_T$ are
+    \[ \begin{aligned}
+        \texttt{primes} &: \texttt{Int} \to \texttt{[Int]}, \quad n \mapsto \texttt{[}p : p \textup{ is a prime factor of } n\texttt{]} \\
+        \texttt{even} &: \texttt{Int} \to \texttt{[Int]}, \quad n \mapsto \left\{ \begin{array}{cl}
+         \texttt{[$n$]} & \text{if $n$ is even,} \\
+         \texttt{[]} & \text{otherwise.} \end{array} \right.
+    \end{aligned} \]
+    In this way, the composition $\texttt{even} \circ_T \texttt{primes}$ maps a number $n$ to the list of its even prime factors.
+    
+    More generally, Kleisli categories appear in Haskell as a way to encode monads.
+\end{example}
+
+\begin{example}{kleisli-category}
+    Using the Kleisli category, we can construct an adjunction that gives rise to the monad $T$. Let $F : \mathcal{C} \to \mathcal{C}_T$ be given by $FX = X$ and $F(X \xrightarrow{f} Y) = \eta_Y \circ f : X \to TY$, and conversely let $G : \mathcal{C}_T \to \mathcal{C}$ be given by $GX = TX$ and $G(X \xrightarrow{f} TY) = \mu_Y \circ Tf : TX \to TY$. It is not hard to show that $F$ is left adjoint to $G$, and that this adjunction gives rise to the monad $T = GF$.
+\end{example}
+
+\begin{topic}{profunctor}{profunctor}
+    A \textbf{profunctor} $\phi : \mathcal{C} \nrightarrow \mathcal{D}$ from a \tref{category}{category} $\mathcal{C}$ to a category $\mathcal{D}$ is a \tref{functor}{functor}
+    \[ \phi : \mathcal{C} \times \mathcal{D}^\textup{op} \to \textbf{Set} . \]
+\end{topic}
+
+\begin{topic}{dinatural-transformation}{dinatural transformation}
+    A \textbf{dinatural transformation} between two \tref{functor}{functors} $F, G : \mathcal{C}^\textup{op} \times \mathcal{C} \to \mathcal{D}$, denoted $\alpha : F \xrightarrow{\cdot\cdot} G$ is a collection of morphisms $\alpha_X : F(X, X) \to G(X, X)$, such that for every morphism $f : X \to Y$ the diagram
+    \[ \svg \begin{tikzcd} & F(X, X) \arrow{r}{\alpha_X} & G(X, X) \arrow{dr}{G(\id_X, f)} & \\ F(Y, X) \arrow{ur}{F(f, \id_X)} \arrow[swap]{dr}{F(\id_Y, f)} & & & G(X, Y) \\ & F(Y, Y) \arrow{r}{\alpha_Y} & G(Y, Y) \arrow[swap]{ur}{G(f, \id_Y)} & \end{tikzcd} \]
+    commutes.
+\end{topic}
+
+\begin{topic}{subobject}{subobject}
+    In a \tref{category}{category} $\mathcal{C}$, a \textbf{subobject} of an object $X$ is an equivalence class of \tref{monomorphism}{monomorphisms} $m : Y \to X$, where $m : Y \to X$ and $m' : Y' \to X$ are equivalent if there is an isomorphism $h : Y \to Y'$ with $m = m' \circ h$.
+\end{topic}
+
+\begin{topic}{subobject-classifier}{subobject classifier}
+    Let $\mathcal{C}$ be a \tref{category}{category} with finite \tref{limit}{limits}. A \textbf{subobject classifier} is a \tref{monomorphism}{monomorphism} $t : 1 \to \Omega$, where $1$ is a \tref{terminal-object}{terminal object}, with the property that for any monomorphism $m : A \to B$, there is a unique arrow $\phi : B \to \Omega$ such that there is a pullback diagram
+    \[ \svg \begin{tikzcd} A \arrow[swap]{d}{m} \arrow{r} & T \arrow{d}{t} \\ B \arrow{r}{\phi} & \Omega \end{tikzcd} \]
+    In particular, arrows $\phi : B \to \Omega$ classify \tref{subobject}{subobjects} of $B$, that is $\textup{Sub}(-) \isom \Hom_\mathcal{C}(-, \Omega)$.
+\end{topic}
+
+\begin{example}{subobject-classifier}
+    In \textbf{Set}, the inclusion $\{ 1 \} \hookrightarrow \{ 0, 1 \}$ is a subobject classifier. Namely, for any set $B$ and subset $A \subset B$, we have a unique \textit{characteristic function} $\phi_A : B \to \{ 0, 1 \}$ given by $\phi_A(x) = 1$ if $x \in A$ and $\phi_A(x) = 0$ otherwise.
+\end{example}
+
+\begin{example}{subobject-classifier}
+    Let's construct a subobject classifier $\Omega$ in $\textbf{Set}^{\mathcal{C}^\textup{op}}$. For a representable presheaf $y_C$ we must have that morphisms $y_C \to \Omega$ correspond one-to-one with subpresheaves of $y_C$, a.k.a. \tref{sieve}{sieves} on $C$. By the \tref{yoneda-lemma}{Yoneda lemma}, we define $\Omega(C) \isom \Hom(y_C, \Omega)$ to be the set of sieves on $C$. Naturally, for a morphism $f : C' \to C$ we define $\Omega(f)$ by sending a sieve $R$ on $C$ to the pullback $f^*(R) = \{ g : D \to C' : fg \in R \}$. The map $t : 1 \to \Omega$ sends, for each $C$, the unique element of $1(C)$ to the maximal sieve on $C$.
+    
+    To prove this is a subobject classifier, let $Y$ be a subpresheaf of $X$. For any $C$ and $x \in X(C)$, the set
+    \[ \phi_C(x) = \{ f : D \to C : X(f)(x) \in Y(D) \} \]
+    is a sieve on $C$, and defining $\phi : X \to \Omega$ this way gives a natural transformation: for $f : C' \to C$ we have
+    \[ \begin{aligned}
+        \phi_{C'}(X(f)(x))
+            &= \{ g : D \to C' : X(g)(X(f)(x)) \in Y(D) \} \\
+            &= \{ g : D \to C' : X(gf)(x) \in Y(D) \} \\
+            &= \{ g : D \to C' : fg \in \phi_C(x) \} \\
+            &= \Omega(f)(\phi_C(x)) .
+    \end{aligned} \]
+    If we take the pullback of $t$ along $\phi$, we get the subpresheaf of $X$ consisting of (at each object $C$) those elements $x$ for which $\id_C \in \phi_C(x)$, that is, we get $Y$.
+    
+    Conversely, if $\phi : X \to \Omega$ is a natural transformation such that the pullback of $t$ along $\phi$ gives $Y$, then for every $x \in X(C)$ we have that $x \in Y(C)$ if and only if $\id_C \in \phi_C(x)$. But then naturally for any $f : C' \to C$ we have that
+    \[ X(f)(x) \in Y(C') \iff \id_{C'} \in f^*(\phi_C(x)) \iff f \in \phi_C(x) \]
+    which shows that the classifying map $\phi$ is unique.
+\end{example}
+
+\begin{topic}{topos}{topos}
+    A \textbf{topos} is a \tref{category}{category} which is \tref{cartesian-closed-category}{cartesian closed}, has finite \tref{limit}{limits} and has a \tref{subobject-classifier}{subobject classifier}.
+\end{topic}
+
+\begin{example}{topos}
+    The category \textbf{Set}, and more generally $\textbf{Set}^{\mathcal{C}^\textup{op}}$, is a topos.
+\end{example}
+
+\begin{topic}{kan-extension}{Kan extension}
+    Let $F : \mathcal{C} \to \mathcal{D}$ and $K : \mathcal{C} \to \mathcal{E}$ be \tref{functor}{functors}. The \textbf{right Kan extension} of $F$ along $K$ is a functor $R : \mathcal{E} \to \mathcal{D}$ with a \tref{natural-transformation}{natural transformation} $\varepsilon : R \circ K \Rightarrow F$, which is universal in the sense that for any other functor $R' : \mathcal{E} \to \mathcal{D}$ with $\varepsilon' : R' \circ K \Rightarrow F$, there exists a unique natural transformation $\sigma : R' \Rightarrow R$ such that $\varepsilon' = \varepsilon \circ (\sigma K)$.
+    \[ \svg \begin{tikzcd}[row sep=5em, column sep=5em] \mathcal{E} \arrow[swap, bend right=25]{dr}[name=R1]{R} \arrow[bend left=25]{dr}[name=R2]{R'} \\ \mathcal{C} \arrow[swap]{r}{F} \arrow{u}{K} & \mathcal{D} \arrow[shorten <=2pt,shorten >=2pt,Rightarrow,to path={(R2) -- node[label=right:$\sigma$] {} (R1)}]{}\end{tikzcd} \]
+    The right Kan extension, if it exists, is denoted $\textup{Ran}_K F$.
+
+    Similarly, a \textbf{left Kan extension} of $F$ along $K$ is a functor $L : \mathcal{E} \to \mathcal{D}$ with a natural transformation $\eta : F \Rightarrow L \circ K$, which is universal in the sense that for any other $L' : \mathcal{E} \to \mathcal{D}$ with $\eta' : F \Rightarrow L' \circ K$ there exists a unique $\sigma : L \Rightarrow L'$ such that $\eta' = (\sigma \circ K) \circ \eta$.
+    \[ \svg \begin{tikzcd}[row sep=5em, column sep=5em] \mathcal{C} \arrow{r}{F} \arrow[swap]{d}{K} & \mathcal{D} \\ \mathcal{E} \arrow[bend left=25]{ur}[name=L1]{L} \arrow[swap, bend right=25]{ur}[name=L2]{L'} \arrow[shorten <=2pt,shorten >=2pt,Rightarrow,to path={(L1) -- node[label=right:$\sigma$] {} (L2)}]{} \end{tikzcd} \]
+    The left Kan extension, if it exists, is denoted $\textup{Lan}_K F$.
+\end{topic}
+
+\begin{example}{kan-extension}
+    \tref{limit}{Limits} (and colimits) can be expressed in terms of Kan extensions. The limit of a functor $F : \mathcal{C} \to \mathcal{D}$ is the same as $\textup{Ran}_K F$, where $K : \mathcal{C} \to \textbf{1}$ is the (unique) functor from $\mathcal{C}$ to $\textbf{1}$, the category with one object and one morphism. Similarly, the colimit $\textup{colim } F$ is the same as $\textup{Lan}_K F$.
+    
+    Conversely, whereas the limit functor $\lim : \mathcal{D}^\mathcal{C} \to \mathcal{D}$ (resp. colimit functor) is \tref{adjunction}{right adjoint} (resp. left adjoint) to the diagonal functor $\Delta : \mathcal{D} \to \mathcal{D}^\mathcal{C}$, the right Kan extension $\textup{Ran}_K : \mathcal{D}^\mathcal{C} \to \mathcal{D}^\mathcal{E}$ (resp. left Kan extension) is right adjoint (resp. left adjoint) to the precomposition functor $(-) \circ K : \mathcal{D}^\mathcal{E} \to \mathcal{D}^\mathcal{C}$.
+\end{example}
+
+\begin{topic}{regular-category}{regular category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{regular} if
+    \begin{itemize}
+        \item $\mathcal{C}$ has all finite \tref{limit}{limits},
+        \item for every pullback diagram
+        \[ \svg \begin{tikzcd} Z \arrow[swap]{d}{p_1} \arrow{r}{p_0} & X \arrow{d}{f} \\ X \arrow{r}{f} & Y \end{tikzcd} \]
+        the \tref{equalizer}{coequalizer} of $p_0$ and $p_1$ exists,
+        \item \tref{regular-epimorphism}{regular epimorphisms} are stable under pullback.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{regular-category}
+    \begin{itemize}
+        \item The categories \textbf{Set} and \textbf{Ring} are regular.
+        \item The category \textbf{Top} is not regular: it satisfies the first two conditions, but not the third. Namely, consider the topological spaces $X = \{ a, b, c, d \}$, $Y = \{ x, y, z \}$ and $Z = \{ \ell, m, n \}$ with topologies $\{ \varnothing, \{ a, b \}, X \}$, $\{ \varnothing, Y \}$, and $\{ \varnothing, \{ \ell, m \}, Z \}$, respectively. Consider the diagram
+        \[ \svg \begin{tikzcd} X \times_Z Y \arrow{r}{\pi_Z} \arrow{d}{\pi_X} & X \arrow{d}{f} \\ Z \arrow{r}{g} & Y \end{tikzcd} \]
+        with
+        \[ f(a) = x, \quad f(b) = f(c) = y, \quad f(d) = z, \quad g(\ell) = x, \quad g(m) = g(n) = z . \]
+        The map $f$ is a quotient map, but since the pullback $X \times_Z Y = \{ (a, \ell), (d, m), (d, n) \}$ has topology $\{ \varnothing, \{ (a, \ell) \}, \{ (a, \ell), (d, m) \} , X \times_Y Z \}$, the projection $\pi_X$ is not a quotient map: $\pi_X^{-1}(\{ \ell \}) = \{ (a, \ell) \}$ is open, but $\{ \ell \}$ is not.
+    \end{itemize}
+\end{example}
+
+\begin{example}{regular-category}
+    In a regular category, every morphism $f : X \to Y$ can be factored as $X \xrightarrow{e} Z \xrightarrow{m} Y$ with $m$ a monomorphism and $e$ an epimorphism, unique in the sense that for any other factorization $X \xrightarrow{e'} Z' \xrightarrow{m'} Y$ there exists an isomorphism $\sigma : Z \to Z'$ with $\sigma e = e'$ and $m' \sigma = m$.
+    % TODO: proof this
+\end{example}
+
+\begin{topic}{concrete-category}{concrete category}
+    A \textbf{concrete category} is a \tref{category}{category} $\mathcal{C}$ together with a \tref{faithful-functor}{faithful functor} $U : \mathcal{C} \to \textbf{Set}$, thought of as a \textit{forgetful functor}.
+\end{topic}
+
+\begin{example}{concrete-category}
+    The categories \textbf{Set}, \textbf{Group}, \textbf{Ring}, \textbf{Top} are all concrete, where the forgetful functor $U$ is the functor that maps an object to its underlying set.
+    
+    However, the category \textbf{hTop} of topological spaces where morphisms are \tref{AT:homotopy}{homotopy} classes of continuous maps, is not concrete. The obvious forgetful functor $U : \textbf{hTop} \to \textbf{Set}$ is not faithful, since homotopic maps need not be equal. Moreover, it is proven that \textbf{hTop} cannot be made into a concrete category.
+\end{example}
+
+\begin{topic}{end}{(co)end}
+    The \textbf{end} of a \tref{functor}{functor} $S : \mathcal{C}^\textup{op} \times \mathcal{C} \to \mathcal{E}$ is an object $e$ of $\mathcal{E}$ with a family of morphisms $\pi_c : e \to S(c, c)$ for $c$ in $\mathcal{C}$ such that the diagram
+    \[ \svg \begin{tikzcd} & e \arrow[swap]{ld}{\pi_a} \arrow{dr}{\pi_b} & \\ S(a, a) \arrow[swap]{dr}{S(\id_a, f)} && S(b, b) \arrow{ld}{S(f, \id_b)} \\ & S(a, b) & \end{tikzcd} \]
+    commutes for all $f : a \to b$ in $\mathcal{C}$ (the \textit{wedge condition}), which is universal in the sense that for any other such $(e', \pi')$ there exists a unique morphism $h : e' \to e$ such that $\pi'_c = \pi_c \circ h$ for all $c$ in $\mathcal{C}$. The end is denoted
+    \[ e = \int_c S(c, c) . \]
+    
+    Dually, one can define the \textbf{coend} of a functor $S : \mathcal{C} \times \mathcal{C}^\textup{op} \to \mathcal{E}$, denoted $\int^c S(c, c)$.
+\end{topic}
+
+\begin{example}{end}
+    Given functors $F, G : \mathcal{C} \to \mathcal{D}$, form the functor
+    \[ S = \Hom_\mathcal{D}(F(-), G(-)) : \mathcal{C}^\textup{op} \times \mathcal{C} \to \textbf{Set} . \]
+    The end of $S$ is the set of natural transformations $F \Rightarrow G$,
+    \[ \int_c \Hom_\mathcal{D}(F(c), G(c)) \isom \textup{Nat}(F, G) . \]
+    The components of any $\mu \in \int_c \Hom_\mathcal{D}(F(c), G(c))$ can be obtained via the projections $\pi_c$. The wedge condition precisely reduces to the naturality condition.
+\end{example}
+
+\begin{example}{end}
+    Let $T : \Delta^\textup{op} \to \textbf{Set}$ be a \tref{simplicial-object}{simplicial set} and let $\gamma : \Delta \to \textbf{Top}$ be the functor sending $[n]$ to the standard $n$-simplex in $\RR^{n + 1}$. Then form the functor
+    \[ S : \Delta^\textup{op} \times \Delta \to \textbf{Top}, \quad ([m], [n]) \mapsto T([m]) \times \gamma([n]) , \]
+    where $T([m])$ has the \tref{TO:discrete-topology}{discrete topology}. Now the coend $\int^c S(c, c)$ of $S$ is the \tref{HT:geometric-realization}{geometric realization} of $T$.
+\end{example}
+
+\begin{topic}{correspondence}{correspondence}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{correspondence} from an object $X$ to an object $Y$ in $\mathcal{C}$ is a diagram
+    \[ X \longleftarrow W \longrightarrow Y \]
+    in $\mathcal{C}$. If $\mathcal{C}$ has \tref{pullback}{pullbacks}, correspondences can be composed as
+    \[ \svg \begin{tikzcd}[row sep=0.5em] && W \times_Y V \arrow{dl} \arrow{dr}  && \\ & W \arrow{dl} \arrow{dr} & & V \arrow{dl} \arrow{dr} & \\ X && Y && Z \end{tikzcd} \]
+    and one can form the \textit{category of correspondences} $\textup{Corr}(\mathcal{C})$. This category is naturally a $2$-category, where a $2$-morphism from $X \leftarrow W \rightarrow Y$ to $X \leftarrow V \rightarrow Y$ is given by a morphism $W \to V$ such that
+    \[ \svg \begin{tikzcd}[row sep=0.5em] & W \arrow{dd} \arrow{dl} \arrow{dr} & \\ X && Y \\ & V \arrow{ul} \arrow{ur} \end{tikzcd} \]
+    commutes.
+    % Dually, a \textbf{cospan} from an object $X$ to an object $Y$ is a diagram of the form $X \rightarrow W \leftarrow Y$, and similarly if $\mathcal{C}$ has \tref{pushout}{pushouts}, one can form the \textit{$2$-category of cospans} $\textup{Span}^\textup{op}(\mathcal{C})$.
+\end{topic}
+
+\begin{topic}{balanced-category}{balanced category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{balanced} if every morphism which is a \tref{monomorphism}{monomorphism} and a \tref{epimorphism}{epimorphism} is also an \tref{isomorphism}{isomorphism}.
+\end{topic}
+
+\begin{example}{balanced-category}
+    \begin{itemize}
+        \item The category \textbf{Set} is balanced, as injective and surjective imply bijective.
+        
+        \item Any \tref{HA:abelian-category}{abelian category} is balanced. Since every monomorphism $f : A \to B$ is the kernel of some map $\pi : B \to C$, it is also the \tref{equalizer}{equalizer} of $\pi$ and $0$. If moreover $f$ is an epimorphism, then $\pi = 0$, implying $f$ is an isomorphism.
+    
+        \item The category \textbf{Ring} is not balanced. Namely, the inclusion $\ZZ \to \QQ$ is a monomorphism since it is injective, and an epimorphism since a morphism $\QQ \to R$ is determined by the image of $\ZZ$. However, it is clearly not an isomorphism.
+    
+        \item The category \textbf{Top} is not balanced. Namely, the map $\RR \to \RR$ from the \tref{TO:discrete-topology}{discrete topology} to the usual topology is a monomorphism and an epimorphism, but not an isomorphism.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{automorphism}{automorphism}
+    Let $\mathcal{C}$ be a \tref{category}{category}. An \textbf{automorphism} of an object $X$ of $\mathcal{C}$ is an \tref{isomorphism}{isomorphism} $f : X \to X$.
+\end{topic}
+
+\begin{topic}{endomorphism}{endomorphism}
+    Let $\mathcal{C}$ be a \tref{category}{category}. An \textbf{endomorphism} of an object $X$ of $\mathcal{C}$ is a morphism $f : X \to X$.
+\end{topic}
+
+\begin{topic}{group-object}{group object}
+    Let $\mathcal{C}$ be a \tref{category}{category} with finite products. A \textbf{group object} in $\mathcal{C}$ is an object $G$ of $\mathcal{C}$ together with morphisms $m : G \times G \to G$ (\textit{multiplication}), $e : 1 \to G$ (\textit{group unit}) and $i : G \to G$ (\textit{inversion}), such that
+    \begin{itemize}
+        \item (\textit{associativity}) $m \circ (m \times \id_G) = m \circ (\id \times m)$,
+        \item (\textit{unit}) $m \circ (\id_G \times e) = \id_G$ and $m \circ (e \times \id_G) = \id_G$, where we identified $G \times 1 \isom G$,
+        \item (\textit{inversion}) $m \circ (\id_G \times i) \circ \Delta = m \circ (i \times \id_G) \circ \Delta = e_G$, where $\Delta : G \to G \times G$ is the diagonal map, and $e_G : G \to G$ is the composition of $e$ with the unique morphism $G \to 1$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{group-object}
+    \begin{itemize}
+        \item A \tref{TO:topological-group}{topological group} is a group object in the category of \tref{TO:topological-space}{topological spaces}.
+        \item A \tref{AG:algebraic-group}{algebraic group} is a group object in the category of \tref{AG:variety}{varieties}.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{pro-representable-functor}{pro-representable functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \textbf{Set}$ is \textbf{pro-representable} if there is a \tref{natural-transformation}{natural} isomorphism
+    \[ \varinjlim_{i \in I} \Hom_\mathcal{C}(X_i, -) \isom F , \]
+    for some \tref{direct-limit}{direct system} $(X_i, f_{ij})$.
+\end{topic}
+
+\begin{topic}{filtered-category}{(co)filtered category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{filtered} if
+    \begin{itemize}
+        \item it is non-empty,
+        \item for every two objects $x, y$ in $\mathcal{C}$, there exists an object $z$ and arrows $x \to z$ and $y \to z$,
+        \item for every two morphisms $f, g : x \to y$ in $\mathcal{C}$, there exists an object $z$ and an arrow $h : x \to y$ with $hf = hg$.
+    \end{itemize}
+    Reversing arrows gives the definition of a \textbf{cofiltered category}.
+\end{topic}
+
+\begin{example}{filtered-category}
+    \begin{itemize}
+        \item Any category with a \tref{terminal-object}{terminal object} is filtered.
+        \item A \textit{lattice} (a partially ordered set where upper bounds exist), considered as a category, is filtered.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{strict-epimorphism}{strict epimorphism}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A morphism $f : X \to Y$ in $\mathcal{C}$ is a \textbf{strict epimorphism} if for all $g : X \to Z$ with the property that $fx = fy$ implies $gx = gy$ for all $x, y : W \to X$, there exists a unique $h : Y \to Z$ such that $g = hf$. In other words, $f$ is a split epimorphism if it is the \tref{limit}{colimit} of all parallel morphisms $x, y : X \to Y$ that it \tref{equalizer}{coequalizes}.
+\end{topic}
+
+\begin{example}{strict-epimorphism}
+    Any strict epimorphism $f : X \to Y$ is an \tref{epimorphism}{epimorphism}. Suppose that $\alpha, \beta : Y \to Z$ are morphisms with $\alpha f = \beta f$. Then pick $g = \alpha f = \beta f$ and note that $fx = fy$ implies $gx = gy$ for any $x, y : W \to X$. Hence there is a unique morphism $h : Y \to Z$ with $g = hf$. Since $\alpha$ and $\beta$ both satisfy this property, it follows that $\alpha = \beta$.
+\end{example}
+
+\begin{example}{strict-epimorphism}
+    In \textbf{Set}, any epimorphism (surjective map) is a strict epimorphism, this is easy to check. However, in the category \textbf{Top} of \tref{TO:topological-space}{topological spaces} this is not the case. Consider $X = [0, 1) \sqcup [1, 2]$ and $Y = [0, 2]$ and the epimorphism (continuous surjective map) $f : X \to Y, x \mapsto x$. Whenever two maps $k, \ell : W \to X$ satisfy $fk = f\ell$, it follows that $k = \ell$ as this can be checked on the level of sets. However, there does not exist a continuous map $h : Y \to X$ with $\id_X = hf$.
+\end{example}
+
+\begin{topic}{strict-monomorphism}{strict monomorphism}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A morphism $f : X \to Y$ in $\mathcal{C}$ is a \textbf{strict monomorphism} if for all $g : Z \to Y$ with the property that $xg = yg$ implies $xg = yg$ for all $x, y : Y \to W$, there exists a unique $h : Z \to X$ such that $g = fh$. In other words, $f$ is a split monomorphism if it is the \tref{limit}{limit} of all parallel morphisms $x, y : Y \to W$ that it \tref{equalizer}{equalizes}.
+\end{topic}
+
+\begin{example}{strict-monomorphism}
+    Any strict monomorphism $f : X \to Y$ is a \tref{monomorphism}{monomorphism}. Suppose that $\alpha, \beta : Z \to X$ are morphisms with $f \alpha = f \beta$. Then pick $g = f \alpha = f \beta$ and note that $xf = yf$ implies $xg = yg$ for any $x, y : Y \to W$. Hence there is a unique morphism $h : Z \to X$ with $g = fh$. Since $\alpha$ and $\beta$ both satisfy this property, it follows that $\alpha = \beta$.
+\end{example}
+
+\begin{topic}{idempotent-morphism}{(split) idempotent morphism}
+    Let $\mathcal{C}$ be a \tref{category}{category}. An endomorphism $e : X \to X$ in $\mathcal{C}$ is \textbf{idempotent} if $e \circ e = e$.
+    
+    An endomorphism $e : X \to X$ in $\mathcal{C}$ is \textbf{split idempotent} if there exist morphisms $f : X \to Y$ and $g : Y \to X$ such that $f \circ g = \id_Y$ and $g \circ f = e$.
+\end{topic}
+
+\begin{example}{idempotent-morphism}
+    \begin{itemize}
+        \item Let $R$ be a \tref{AA:ring}{commutative ring}, $e \in R$ an \tref{AA:idempotent-element}{idempotent element}, and $M$ an \tref{AA:module}{$R$-module}. Then $e$ induces an idempotent module morphism $e : M \to M$ by scalar multiplication by $e$. This idempotent morphism always splits with
+        \[ \begin{aligned}
+            f : M \to eM, \quad m \mapsto e \cdot m , \\
+            g : eM \to M, \quad m \mapsto m .
+        \end{aligned} \]
+        \item Let $X$ be a \tref{TO:topological-space}{topological space}, and $e : X \to X$ an idempotent morphism. Then $e$ splits with
+        \[ \begin{aligned}
+            f : X \to \im(e), \quad x \mapsto e(x) , \\
+            g : \im(e) \to X, \quad x \mapsto x .
+        \end{aligned} \]
+        \item Again, let $R$ be a commutative ring and $e \in R$ a (non-trivial) idempotent element. Viewing $R$ as a category with one object, its elements as arrows, and composition given by multiplication, the idempotent morphism $e$ does not split. Namely, in this case splitting amounts to elements $f, g \in R$ such that $f \cdot g = 1$ and $g \cdot f = e$, which is impossible.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{karoubi-envelope}{Karoubi envelope}
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{Karoubi envelope} (or \textbf{idempotent completion}) of $\mathcal{C}$ is the category defined as follows.
+    \begin{itemize}
+        \item Objects are pairs $(X, e)$, with $X$ an object of $\mathcal{C}$ and $e : X \to X$ an \tref{idempotent-morphism}{idempotent}.
+        \item A morphism from $(X, e)$ to $(X', e')$ is a morphism $f : X \to X'$ such that $e' \circ f = f = f \circ e$.
+        \item Composition of morphisms is the same as composition in $\mathcal{C}$.
+        \item The identity morphism of $(A, e)$ is $e$.
+    \end{itemize}
+    The Karoubi envelope has the property that every idempotent morphisms \tref{idempotent-morphism}{splits}, and is universal with this property.
+\end{topic}
+
+\begin{topic}{filtered-limit}{(co)filtered (co)limit}
+    A \textbf{filtered (co)limit} is a \tref{limit}{(co)limit} of a \tref{functor}{functor} $F : \mathcal{I} \to \mathcal{C}$, where $\mathcal{I}$ is a \tref{filtered-category}{filtered category}.
+    
+    A \textbf{cofiltered (co)limit} is a (co)limit of a functor $F : \mathcal{I} \to \mathcal{C}$, where $\mathcal{I}$ is a cofiltered category.
+\end{topic}
+
+\begin{topic}{compact-object}{compact object}
+    Let $\mathcal{C}$ be a \tref{small-category}{locally small} \tref{category}{category} in which \tref{filtered-limit}{filtered colimits} exist. An object $X$ of $\mathcal{C}$ is \textbf{compact} if
+    \[ \Hom_\mathcal{C}(X, -) : \mathcal{C} \to \textbf{Set} \]
+    preserves filtered colimits, that is, for every \tref{filtered-category}{filtered category} $\mathcal{I}$ and \tref{functor}{functor} $F : \mathcal{I} \to \mathcal{C}$, the natural morphism
+    \[ \varinjlim_{I \in \mathcal{I}} \Hom_\mathcal{C}(X, F(I)) \xrightarrow{\sim} \Hom_\mathcal{C}(X, \varinjlim_{I \in \mathcal{I}} F(I)) \]
+    is an isomorphism.
+\end{topic}
+
+\begin{example}{compact-object}
+    \begin{itemize}
+        \item The compact objects in $\textbf{Set}$ are finite sets.
+        \item The compact objects in $\textbf{Grp}$ are finitely presented groups.
+        \item For $X$ a \tref{TO:topological-space}{topological space}, the compact objects in the category of open subsets of $X$ with respect to inclusions, are the \tref{TO:compact-space}{compact} subsets.
+        \item The compact objects in $\textbf{Vect}_k$ are the finite-dimensional vector spaces.
+        \begin{proof}
+            Let $V$ be a compact vector space. Since $V$ is isomorphic to the filtered colimit of its finite-dimensional subspaces $W \subset V$, it follows that
+            \[ \underset{\textup{fd } W \subset V}{\operatorname{colim}} \Hom(V, W) \isom \Hom(V, V) . \]
+            In particular, there exists a finite-dimensional subspace $i : W \hookrightarrow V$ and a morphism $f : V \to W$ such that $i \circ f = \id_V$, which shows that $V \isom W$ is finite-dimensional. Conversely, for any finite-dimensional vector space $V$, there is an \tref{adjunction}{adjunction}
+            \[ \Hom(V, -) \dashv \Hom(V^*, -) , \]
+            where $V^*$ denotes the \tref{LA:dual-vector-space}{dual} of $V$. Therefore, $\Hom(V, - )$ preserves all colimits, so $V$ is compact.
+        \end{proof}
+    \end{itemize}
+\end{example}
+
+\begin{topic}{complete-category}{(co)complete category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{complete} if all \tref{small-category}{small} \tref{limit}{limits} exist in $\mathcal{C}$.
+    
+    Dually, a category $\mathcal{C}$ is \textbf{cocomplete} if all small colimits exist in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{continuous-functor}{(co)continuous functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{continuous} if it preserves all small \tref{limit}{limits} in $\mathcal{C}$, that is, if for every functor $G : \mathcal{I} \to \mathcal{C}$ with $\mathcal{I}$ a \tref{small-category}{small category}, there is an isomorphism
+    \[ F(\lim G) \isom \lim(F \circ G) . \]
+    Dually, a functor $F : \mathcal{C} \to \mathcal{D}$ is \textbf{cocontinuous} if it preserves all small colimits in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{ind-completion}{ind-completion}
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{ind-completion} of $\mathcal{C}$ is the category $\textup{Ind}(\mathcal{C})$ whose
+    \begin{itemize}
+        \item objects are \tref{functor}{functors} $F : \mathcal{I} \to \mathcal{C}$, with $\mathcal{I}$ a \tref{small-category}{small} \tref{filtered-category}{filtered category},
+        \item morphisms from $F : \mathcal{I} \to \mathcal{C}$ to $G : \mathcal{J} \to \mathcal{C}$ are given by
+        \[ \Hom_{\textup{Ind}(\mathcal{C})}(F, G) = \lim_{I \in \mathcal{I}} \colim_{J \in \mathcal{J}} \Hom_\mathcal{C}(F(I), G(J)) . \]
+    \end{itemize}
+    The category $\textup{Ind}(\mathcal{C})$ is thought of as adjoining to $\mathcal{C}$ all formal \tref{filtered-limit}{filtered colimits}. In particular,
+    \begin{itemize}
+        \item the embedding $\mathcal{C} \to \textup{Ind}(\mathcal{C})$ that sends an object $C$ to the corresponding diagram $\textbf{1} \to \mathcal{C}$ is \tref{full-functor}{fully} \tref{faithful-functor}{faithful},
+        \item every diagram $F : \mathcal{I} \to \mathcal{C}$ is the \tref{limit}{colimit} of itself, under the above embedding,
+        \item the objects of $\mathcal{C}$ are \tref{compact-object}{compact} in $\textup{Ind}(\mathcal{C})$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{pro-completion}{pro-completion}
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{pro-completion} of $\mathcal{C}$ is the category $\textup{Pro}(\mathcal{C})$ whose
+    \begin{itemize}
+        \item objects are \tref{functor}{functors} $F : \mathcal{I} \to \mathcal{C}$, with $\mathcal{I}$ a \tref{small-category}{small} \tref{filtered-category}{cofiltered category},
+        \item morphisms from $F : \mathcal{I} \to \mathcal{C}$ to $G : \mathcal{J} \to \mathcal{C}$ are given by
+        \[ \Hom_{\textup{Pro}(\mathcal{C})}(F, G) = \lim_{J \in \mathcal{J}} \colim_{I \in \mathcal{I}} \Hom_\mathcal{C}(F(I), G(J)) . \]
+    \end{itemize}
+    The category $\textup{Pro}(\mathcal{C})$ is thought of as adjoining to $\mathcal{C}$ all formal \tref{filtered-limit}{cofiltered limits}. In particular,
+    \begin{itemize}
+        \item the embedding $\mathcal{C} \to \textup{Pro}(\mathcal{C})$ that sends an object $C$ to the corresponding diagram $\textbf{1} \to \mathcal{C}$ is \tref{full-functor}{fully} \tref{faithful-functor}{faithful},
+        \item every diagram $F : \mathcal{I} \to \mathcal{C}$ is the \tref{limit}{limit} of itself, under the above embedding,
+        \item the objects of $\mathcal{C}$ are \tref{compact-object}{compact} in $\textup{Pro}(\mathcal{C})$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{monadic-adjunction}{monadic adjunction}
+    Let $F : \mathcal{C} \to \mathcal{D}$ and $G : \mathcal{D} \to \mathcal{C}$ be \tref{adjunction}{adjoint functors} with corresponding \tref{monad}{monad} $T = GF$. The functor $G$ factors through the \tref{eilenberg-moore-category}{Eilenberg--Moore category} $\mathcal{C}^T$
+    \[ \mathcal{D} \xrightarrow{\tilde{G}} \mathcal{C}^T \xrightarrow{\textup{forget}} \mathcal{C} , \]
+    with $\tilde{G}(D) = (G(D), (G \varepsilon) (D))$, where $\varepsilon : FG \Rightarrow \id_\mathcal{D}$ denotes the counit of the adjunction. The adjunction is \textbf{monadic} if $\tilde{G}$ is an \tref{equivalence-of-categories}{equivalence of categories}.
+    
+    More generally, a functor $G : \mathcal{D} \to \mathcal{C}$ is \textbf{monadic} if it has a left adjoint $F : \mathcal{C} \to \mathcal{D}$ forming a monadic adjunction.
+\end{topic}
+
+\begin{topic}{split-coequalizer}{split coequalizer}
+    A \tref{equalizer}{coequalizer diagram} $X \overset{f}{\underset{g}{\rightrightarrows}} Y \xrightarrow{q} Q$ in a \tref{category}{category} $\mathcal{C}$ is \textbf{split} if there are morphisms $s : Q \to Y$ and $t : Y \to X$ such that $qs = \id_Q$, $ft = \id_Y$ and $sq = gt$.
+    \[ \svg \begin{tikzcd} X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow{r}{q} \arrow[swap, bend right=45]{l}{t} & Q \arrow[swap, bend right=45]{l}{s} \end{tikzcd} \]
+\end{topic}
+
+\begin{topic}{beck-monadicity-theorem}{Beck's monadicity theorem}
+    \textbf{Beck's monadicity theorem} states that a functor $G : \mathcal{D} \to \mathcal{C}$ is \tref{monadic-adjunction}{monadic} if and only if
+    \begin{itemize}
+        \item $G$ has a \tref{adjunction}{left adjoint},
+        \item $G$ is \tref{conservative-functor}{conservative},
+        \item every parallel pair of morphisms $f, g : X \to Y$ in $\mathcal{D}$, which under $G$ has a \tref{split-coequalizer}{split coequalizers} in $\mathcal{C}$, has a coequalizer in $\mathcal{D}$, and $G$ preserves those coequalizers.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{skeleton}{skeleton}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \textbf{skeleton} of $\mathcal{C}$ is an \tref{equivalence-of-categories}{equivalent} category $\mathcal{D}$ in which no two objects are \tref{isomorphism}{isomorphic}. 
+\end{topic}
+
+\begin{example}{skeleton}
+    \begin{itemize}
+        \item Let $k$ be a field. Since \tref{LA:vector-space}{vector spaces} over $k$ are classified by their dimension, a skeleton of the category $\textbf{Vect}_k$ is given by the \tref{full-subcategory}{full subcategory} of the objects $k^{\alpha}$, with $\alpha$ a cardinal number.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{admissible-category}{admissible category}
+    A \tref{small-category}{locally small category} $\mathcal{C}$ is \textbf{$\kappa$-accessible}, for a regular cardinal $\kappa$, if
+    \begin{itemize}
+        \item $\mathcal{C}$ has \tref{filtered-limit}{$\kappa$-filtered colimits},
+        \item there exists a set of \tref{compact-object}{$\kappa$-compact objects} that generates $\mathcal{C}$ under $\kappa$-filtered colimits.
+    \end{itemize}
+    The category $\mathcal{C}$ is \textbf{accessible} if it is $\kappa$-accessible for some $\kappa$.
+\end{topic}
+
+\begin{topic}{presentable-category}{presentable category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{locally presentable} if
+    \begin{itemize}
+        \item it is \tref{small-category}{locally small},
+        \item it has all smalll \tref{limit}{colimits},
+        \item there exists a set $S$ of \tref{compact-object}{$\kappa$-compact objects} of $\mathcal{C}$ that generates $\mathcal{C}$ under \tref{filtered-limit}{$\kappa$-filtered colimits}, for some regular cardinal $\kappa$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{presentable-category}
+    The category $\textbf{Ab}$ of \tref{GT:abelian-group}{abelian groups} is \textit{large}: the objects (even up to isomorphism) form a proper class. However, it is determined by the smaller category of $\textbf{Ab}_\textup{fg}$ of finitely generated abelian groups, that is, $\textbf{Ab}$ is the \tref{ind-completion}{Ind-completion} of $\textbf{Ab}_\textup{fg}$. This is another way of saying that $\textbf{Ab}$ is locally presentable.
+\end{example}
+
+\begin{topic}{adjoint-functor-theorem}{adjoint functor theorem}
+    Let $\mathcal{D}$ be a \tref{small-category}{locally small} and \tref{complete-category}{complete} \tref{category}{category}. The \textbf{adjoint functor theorem} states that a \tref{functor}{functor} $G : \mathcal{D} \to \mathcal{C}$ has a \tref{adjunction}{left adjoint} if and only if it preserves all \tref{limit}{limits} and satisfies the \textit{solution set condition}:
+    for every object $C$ of $\mathcal{C}$, there exist objects $D_i$ in $\mathcal{D}$ and morphisms $f_i : C \to G(D_i)$ in $\mathcal{C}$, indexed by a set $I$, such that every morphism $h : C \to G(D)$ factors as $h = G(t) \circ f_i$ for some $t : D_i \to D$.
+\end{topic}
+
+\begin{topic}{natural-numbers-object}{natural numbers object}
+    Let $\mathcal{C}$ be a \tref{category}{category} with a \tref{terminal-object}{terminal object} $1$. A \textbf{natural numbers object} in $\mathcal{C}$ is a triple $(N, 0, S)$, where $N$ is an object of $\mathcal{C}$ and $1 \xrightarrow{0} N$ and $N \xrightarrow{S} N$ morphisms, such that for any other such triple $(N', 0', S')$, there is a unique map $\phi : N \to N'$ for which
+    \[ \svg \begin{tikzcd} 1 \arrow{r}{0} \arrow[swap]{rd}{0'} & N \arrow{d}{\phi} \arrow{r}{S} & N' \arrow{d}{\phi} \\ & N' \arrow{r}{S'} & N' \end{tikzcd} \]
+    commutes.
+\end{topic}
+
+\begin{example}{natural-numbers-object}
+    For $\mathcal{C} = \textbf{Set}$, the triple $(\NN, 0, S)$ with $S(n) = n + 1$ is a natural numbers object. Indeed, for any other triple $(N', 0', S')$, the map $\phi : \NN \to N'$ is uniquely determined by $\phi(n) = (S')^n(0')$.
+\end{example}
+
+\begin{topic}{connected-category}{connected category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{connected} if it contains at least one object, and for every two objects $X$ and $Y$ in $\mathcal{C}$, there exists a zigzag of morphisms
+    \[ X \rightarrow Z_1 \leftarrow Z_2 \rightarrow \cdots \leftarrow Z_n \rightarrow Y \]
+    connecting $X$ and $Y$.
+\end{topic}
+
+\begin{example}{connected-category}
+    \begin{itemize}
+        \item Any category with an \tref{initial-object}{initial} or \tref{terminal-object}{terminal object} is connected.
+        \item The discrete category $\textbf{n}$ with $n$ objects is not connected for any $n \ge 2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{wide-subcategory}{wide subcategory}
+    A \textbf{wide subcategory} of a \tref{category}{category} $\mathcal{C}$ is a subcategory of $\mathcal{C}$ containing all the objects of $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{setoid}{setoid}
+    A \textbf{setoid} is a \tref{thin-category}{thin} \tref{groupoid}{groupoid}.
+\end{topic}
+
+\begin{example}{setoid}
+    Let $X$ be a set with an \tref{GM:equivalence-relation}{equivalence relation} $\sim$. Then $X$ defines a setoid whose objects are elements of $X$, and morphisms $x \to y$ are given by relations $x \sim y$.
+\end{example}
+
+\begin{topic}{dagger-category}{dagger category}
+    A \textbf{dagger category} is a \tref{category}{category} $\mathcal{C}$ together with a map $(-)^\dagger : \Hom_\mathcal{C}(X, Y) \to \Hom_\mathcal{C}(Y, X)$ for all objects $X$ and $Y$ of $\mathcal{C}$, such that
+    \begin{itemize}
+        \item (\textit{involution}) $(f^\dagger)^\dagger = f$ for all morphisms $f$,
+        \item (\textit{identity}) $\id_X^\dagger = \id_X$ for all objects $X$,
+        \item (\textit{composition}) $(g \circ f)^\dagger = f^\dagger \circ g^\dagger$ for all morphisms $f : X \to Y$ and $g : Y \to Z$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{noetherian-object}{noetherian object}
+    Let $\mathcal{C}$ be a \tref{category}{category}. An object $X$ in $\mathcal{C}$ is \textbf{noetherian} if for every chain of \tref{subobject}{subobjects} of $X$,
+    \[ X_1 \xrightarrow{m_1} X_2 \xrightarrow{m_2} X_3 \xrightarrow{m_3} \cdots \]
+    there exists some $N \in \NN$ such that $m_n$ is an \tref{isomorphism}{isomorphism} for all $n \ge N$.
+\end{topic}
+
+\begin{topic}{noetherian-category}{noetherian category}
+    A \tref{category}{category} $\mathcal{C}$ is \textbf{noetherian} if it is \tref{small-category}{essentially small} and every object of $X$ is \tref{noetherian-object}{noetherian}.
+\end{topic}
+
+\begin{topic}{dense-functor}{dense functor}
+    A \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ is \textbf{dense} if every object $X$ of $\mathcal{D}$ is the \tref{limit}{colimit} of the functor
+    \[ F/X \xrightarrow{\pi_\mathcal{C}} \mathcal{C} \xrightarrow{F} \mathcal{D} , \]
+    where $F/X$ denotes the \tref{comma-category}{comma category} of $F$ and $X : \textbf{1} \to \mathcal{D}$.
+\end{topic}
+
+\begin{example}{dense-functor}
+    For every category $\mathcal{C}$, the \tref{yoneda-embedding}{Yoneda embedding} $y_{(-)} : \mathcal{C} \to \textbf{Set}^{\mathcal{C}^\textup{op}}$ is dense, by the \tref{density-theorem}{density theorem}.
+\end{example}
+
+\begin{topic}{dense-subcategory}{dense subcategory}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A subcategory $\mathcal{C'}$ of $\mathcal{C}$ is \textbf{dense} if the inclusion functor $i : \mathcal{C}' \to \mathcal{C}$ is \tref{dense-functor}{dense}.
+\end{topic}
+
+\begin{topic}{multiplicative-system}{multiplicative system}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A set of morphisms $S$ in $\mathcal{C}$ is a \textbf{left multiplicative system} if
+    \begin{itemize}
+        \item $\id_X \in S$ for all $X$, and $g \circ f \in S$ for all composable $f, g \in S$,
+        \item for all $f : X \to Y$ and $t : X \to Z$ in $\mathcal{C}$ with $t \in S$, there exists an object $W$ and morphisms $g : Z \to W$ and $s : Y \to W$ in $\mathcal{C}$, such that $s \in S$ and $s \circ f = g \circ t$.
+        \[ \svg \begin{tikzcd} X \arrow{r}{f} \arrow[swap]{d}{t} & Y \arrow[dashed]{d}{s} \\ Z \arrow[dashed]{r}{g} & W \end{tikzcd} \]
+        \item for all $f, g : X \to Y$ in $\mathcal{C}$ and $t : W \to X$ in $S$ with $f \circ t = g \circ t$, there exists an $s : Y \to Z$ with $s \circ f = s \circ g$.
+        \[ \svg \begin{tikzcd} W \arrow{r}{t} & X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow[dashed]{r}{s} & Z \end{tikzcd} \]
+    \end{itemize}
+    A set of morphisms $S$ in $\mathcal{C}$ is a \textbf{right multiplicative system} if
+    \begin{itemize}
+        \item $\id_X \in S$ for all $X$, and $g \circ f \in S$ for all composable $f, g \in S$,
+        \item for all $g : Z \to W$ and $s : Y \to W$ in $\mathcal{C}$ with $s \in S$, there exists an object $X$ and morphisms $f : X \to Y$ and $t : X \to Z$ in $\mathcal{C}$, such that $t \in S$ and $s \circ f = g \circ t$.
+        \[ \svg \begin{tikzcd} X \arrow[dashed]{r}{f} \arrow[dashed, swap]{d}{t} & Y \arrow{d}{s} \\ Z \arrow{r}{g} & W \end{tikzcd} \]
+        \item for all $f, g : X \to Y$ in $\mathcal{C}$ and $s : Y \to Z$ in $S$ with $s \circ f = s \circ g$, there exists an $t : W \to X$ with $f \circ t = g \circ t$.
+        \[ \svg \begin{tikzcd} W \arrow[dashed]{r}{t} & X \arrow[shift left=0.25em]{r}{f} \arrow[swap, shift right=0.25em]{r}{g} & Y \arrow{r}{s} & Z \end{tikzcd} \]
+    \end{itemize}
+    A set of morphisms $S$ in $\mathcal{C}$ is a \textbf{multiplicative system} if it is both a left and right multiplicative system.
+    
+    A multiplicative system $S$ in $\mathcal{C}$ is \textbf{saturated} if for all composable morphisms $f, g, h$ in $\mathcal{C}$ with $g \circ f \in S$ and $h \circ g \in S$, also $g \in S$.
+\end{topic}
+
+\begin{topic}{density-theorem}{density theorem}
+    Let $F : \mathcal{C}^\textup{op} \to \textbf{Set}$ be a \tref{presheaf}{presheaf} on a \tref{category}{category} $\mathcal{C}$. The \textbf{density theorem} states that $F$ is the \tref{limit}{colimit} of the composition
+    \[ \int^\mathcal{C} F \xrightarrow{\pi_\mathcal{C}} \mathcal{C} \xrightarrow{y_{(-)}} \textbf{Set}^{\mathcal{C}^\textup{op}} , \]
+    where $\int^\mathcal{C} F$ denotes the \tref{category-of-elements}{category of elements} of $F$, and $y_{(-)}$ the \tref{yoneda-embedding}{Yoneda embedding}.
+\end{topic}
+
+\begin{example}{density-theorem}
+    \begin{proof}
+        Let $T$ denote the composition $y_{(-)} \circ \pi_\mathcal{C}$. We will show that, for all presheaves $G : \mathcal{C} \to \textbf{Set}^\textup{op}$, there is a natural bijection $\Hom(T, \Delta_G) \isom \Hom_{\textbf{Set}^{\mathcal{C}^\textup{op}}}(F, G)$, where $\Delta_G$ denotes the constant functor.
+        
+        Take any $\alpha \in \Hom(T, \Delta_G)$, that is, a collection of maps $\alpha_{(C, x)} : y_C \to G$ such that $\alpha_{(C, x)} = \alpha_{(C', x')} \circ y_f$ for all $f : (C, x) \to (C', x')$ in $\int^\mathcal{C} F$. By the \tref{yoneda-lemma}{Yoneda lemma}, every $\alpha_{(C, x)}$ corresponds to an element $g_{(C, x)} \in G(C)$, and we have $G(f)(g_{(C', x')}) = g_{(C, x)}$ as $G(f)$ corresponds under the Yoneda lemma to $(-) \circ y_f$. Now, the maps $\mu_C : F(C) \to G(C)$ given by $x \mapsto g_{(C, x)}$ define a natural transformation $\mu : F \Rightarrow G$, since
+        \[ (G(f) \circ \mu_{C'})(x') = G(f)(g_{(C', x')}) = g_{(C, x)} = (\mu_C \circ F(C))(x') \]
+        for all $f : (C, x) \to (C', x')$. Clearly, the map $\alpha \mapsto \mu$ is invertible as $\alpha_{(C, x)}$ corresponds to $\mu_C(x)$ under the Yoneda lemma.
+    \end{proof}
+\end{example}
+
+\begin{topic}{lawvere-fixed-point-theorem}{Lawvere's fixed-point theorem}
+    Let $\mathcal{C}$ be a \tref{cartesian-closed-category}{Cartesian closed category}. A morphism $f : X \to Y$ is called \textit{point-surjective} if for every morphism $p : 1 \to Y$ there exists a morphism $q : 1 \to X$ such that $p = f \circ q$. \textbf{Lawvere's fixed-point theorem} states that, if $f : A \to B^A$ is a point-surjective morphism, then every morphism $g : B \to B$ has a \textit{fixed point}, that is, a morphism $p : 1 \to B$ such that $g \circ p = p$.
+\end{topic}
+
+\begin{example}{lawvere-fixed-point-theorem}
+    \begin{proof}
+        Given $g : B \to B$, let $p : 1 \to B^A$ be the transpose of the composition
+        \[ A \xrightarrow{\Delta} A \times A \xrightarrow{f \times \id_A} B^A \times A \xrightarrow{\textup{eval}} B \xrightarrow{g} B . \]
+        Since $f$ is point-surjective, there exists $q : 1 \to A$ such that $p = f \circ q$. Now,
+        \[ (f \circ q)^T \circ q = p^T \circ q = g \circ \textup{eval} \circ (f \times \id_A) \circ \Delta \circ q = g \circ (f \circ q)^T \circ q , \]
+        so $(f \circ q)^T \circ q : 1 \to B$ is a fixed-point of $g$.
+    \end{proof}
+\end{example}
+
+\begin{example}{lawvere-fixed-point-theorem}
+    \tref{ST:cantor-theorem}{Cantor's theorem} immediately follows from Lawvere's fixed-point theorem. Namely, the category of sets is cartesian closed, and the map $g : \{ 0, 1 \} \to \{ 0, 1 \}$ defined by $g(0) = 1$ and $g(1) = 0$ has no fixed points, so there can not exist any surjective morphism $A \to \{ 0, 1 \}^A \cong P(A)$ from a set $A$ to its \tref{ST:power-set}{power set} $P(A)$.
+\end{example}
+
+\begin{topic}{grothendieck-construction}{Grothendieck construction}
+    Let $F : \mathcal{C} \to \textbf{Cat}$ be a \tref{functor}{functor} from a \tref{category}{category} $\mathcal{C}$ to the category of \tref{small-category}{small} categories $\textbf{Cat}$. The \textbf{Grothendieck construction} for $F$ is the category $\int_\mathcal{C} F$ whose
+    \begin{itemize}
+        \item objects are pairs $(C, X)$ with $C$ an object of $\mathcal{C}$ and $X$ an object of $F(C)$,
+        \item morphisms from $(C, X)$ to $(C', X')$ are pairs $(f, g)$ where $f : C \to C'$ and $g : F(f)(X) \to X'$.
+    \end{itemize}
+    Composition in $\int_\mathcal{C} F$ is given by $(f, g) \circ (f', g') = (f \circ f', g \circ F(f)(g'))$.
+\end{topic}
+
+\begin{example}{grothendieck-construction}
+    Let $N$ and $H$ be \tref{GT:group}{groups} and let $\varphi : H \to \textup{Aut}(N)$ be a group homomorphism. Viewing $H$ as a category $\mathcal{C}_H$ with a single object, this defines a functor $F : \mathcal{C}_H \to \textbf{Cat}$, which sends the single object to $\mathcal{C}_N$ and sends $h \in H$ to $\varphi(h)$ seen as an endofunctor of $\mathcal{C}_N$. The category $\int_{\mathcal{C}_H} F$ has a single object, and morphisms are of the form $(h, n)$ with $h \in H$ and $n \in N$. Composition of morphisms is given by
+    \[ (h, n) \circ (h', n') = (h \circ h', n \circ \varphi(h)(n')) . \]
+    That is, $\int_{\mathcal{C}_H} F$ is the \tref{GT:semidirect-product}{semidirect product} $N \rtimes_\varphi H$ seen as a category with a single object.
+\end{example}
+
+\begin{topic}{internal-category}{internal category}
+    Let $\mathcal{C}$ be a \tref{category}{category} with \tref{pullback}{pullbacks}. A \textbf{category internal} to $\mathcal{C}$ consists of
+    \begin{itemize}
+        \item objects $C_0, C_1$ in $\mathcal{C}$,
+        \item morphisms $s, t : C_1 \to C_0$,
+        \item a morphism $e : C_0 \to C_1$,
+        \item a morphism $c : C_1 \times_{C_0} C_1 \to C_1$, where the pullback of $s$ and $t$ is taken,
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item (\textit{source/target identity}) $s \circ e = t \circ e = \id_{C_0}$,
+        \item (\textit{source/target composition}) $s \circ c = s \circ \pi_1$ and $t \circ c = t \circ \pi_2$,
+        \item (\textit{associativity}) $c \circ (\id_{C_1} \times_{C_0} c) = c \circ (c \times_{C_0} \id_{C_1})$,
+        \item (\textit{composition identity}) $e \times_{C_0} \id_{C_1} \circ c = \pi_2$ and $\id_{C_1} \times_{C_0} e \circ c = \pi_1$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{internal-category}
+    \begin{itemize}
+        \item A category internal to \textbf{Set} is the same as a \tref{small-category}{small category}.
+        \item A category internal to \textbf{Cat} is the same as a \tref{double-category}{double category}.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{double-category}{double category}
+    A \textbf{double category} is a \tref{internal-category}{category internal} to the \tref{category}{category} of categories  $\textbf{Cat}$.
+\end{topic}
+
+\begin{topic}{core-category}{core category}
+    Let $\mathcal{C}$ be a \tref{category}{category}. The \textbf{core} of $\mathcal{C}$ is the subcategory consisting of all objects and \tref{isomorphism}{isomorphisms} in $\mathcal{C}$. 
+\end{topic}
+
+\begin{topic}{involution}{involution}
+    Let $\mathcal{C}$ be a \tref{category}{category} and $X$ an object of $\mathcal{C}$. An \textbf{involution} of $X$ is a morphism $i : X \to X$ such that $i \circ i = \id_X$.
+\end{topic}
+
+\begin{topic}{image}{(co)image}
+    Let $\mathcal{C}$ be a \tref{category}{category} and $f : X \to Y$ a morphism in $\mathcal{C}$. A \textbf{image} of $f$ is a \tref{monomorphism}{monomorphism} $m : I \to Y$ with the universal property that there exists a morphism $g : X \to I$ such that $f = m \circ g$, and such that for every other monomorphism $m' : I' \to Y$ and morphism $g' : X \to I'$ with $f = m' \circ g'$, there exists a unique morphism $h : I \to I'$ such that $m = m' \circ h$.
+    \[ \svg \begin{tikzcd}
+        X \arrow{rr}{f} \arrow{dr}{g} \arrow[swap, bend right=15]{ddr}{g'} & & Y \\
+        & I \arrow{ur}{m} \arrow[dashed]{d}{h} & \\
+        & I' \arrow[swap, bend right=15]{uur}{m'}
+    \end{tikzcd} \]
+    Dually, a \textbf{coimage} of $f$ is an \tref{epimorphism}{epimorphism} $e : X \to C$ with the universal property that there exists a morphism $g : C \to Y$ such that $f = g \circ e$, and such that for every other epimorphism $e' : X \to C'$ and morphism $g' : C' \to Y$ with $f = g' \circ e'$, there exists a unique morphism $h : C' \to C$ such that $e = h \circ e'$.
+    \[ \svg \begin{tikzcd}
+        X \arrow{rr}{f} \arrow{dr}{e} \arrow[swap, bend right=15]{ddr}{e'} & & Y \\
+        & C \arrow{ur}{g} & \\
+        & C' \arrow[swap, bend right=15]{uur}{g'} \arrow[swap, dashed]{u}{h}
+    \end{tikzcd} \]
+\end{topic}
+
+\begin{example}{image}
+    In the categories $\textbf{Set}, \textbf{Grp}, \textbf{Ring}, \ldots$ the image and coimage of a morphism $f : X \to Y$ coincide and is given by $\{ f(x) : x \in X \}$ with the natural structure of a set, group, ring, etc.
+\end{example}
+
+\begin{topic}{kernel}{(co)kernel}
+    Let $\mathcal{C}$ be a \tref{category}{category} with \tref{zero-object}{zero object} $0$, and let $f : X \to Y$ be a morphism in $\mathcal{C}$. A \textbf{kernel} of $f$ is an \tref{equalizer}{equalizer} of $f$ and $X \to 0 \to Y$.
+
+    Dually, a \textbf{cokernel} of $f$ is a \tref{equalizer}{coequalizer} of $f$ and $X \to 0 \to Y$.
+\end{topic}
+
+\begin{topic}{torsor}{torsor}
+    Let $\mathcal{C}$ be a \tref{site}{site} and let $\mathcal{G}$ be a \tref{sheaf}{sheaf} of \tref{GT:group}{groups} on $\mathcal{C}$. A \textbf{$\mathcal{G}$-torsor} on $\mathcal{C}$ is a sheaf of sets $\mathcal{F}$ together with an action $\mathcal{G} \times \mathcal{F} \to \mathcal{F}$ such that
+    \begin{itemize}
+        \item for every $U \in \mathcal{C}$ with $\mathcal{F}(U) \neq \varnothing$, the action $\mathcal{G}(U) \times \mathcal{F}(U) \to \mathcal{F}(U)$ is \tref{GT:free-group-action}{free} and \tref{GT:transitive-group-action}{transitive},
+        \item for every $U \in \mathcal{C}$, there exists a covering $\{ U_i \to U \}_{i \in I}$ of $U$ such that $\mathcal{F}(U_i) \neq \varnothing$ for all $i \in I$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{waldhausen-category}{Waldhausen category}
+    A \textbf{Waldhausen category} is a \tref{category}{category} $\mathcal{C}$ together with two distinguished classes of morphisms, \textit{weak equivalences} and \textit{cofibrations}, such that
+    \begin{itemize}
+        \item $\mathcal{C}$ has a \tref{zero-object}{zero object} $0$,
+        \item all \tref{isomorphism}{isomorphisms} in $\mathcal{C}$ are both weak equivalences and cofibrations,
+        \item weak equivalences and cofibrations are both closed under composition,
+        \item the morphism $0 \to X$ is a cofibration for all objects $X$ of $\mathcal{C}$,
+        \item for any diagram $Z \leftarrow X \xrightarrow{f} Y$ with $f$ a cofibration, the \tref{pushout}{pushout} exists, and the induced morphism $Z \to Z \coprod_X Y$ is a cofibration,
+        \item for any diagram
+        \[ \svg \begin{tikzcd}
+            Z \arrow{d} & \arrow{l} X \arrow{r}{f} \arrow{d} & Y \arrow{d} \\
+            Z' & \arrow{l} X' \arrow{r}{f'} & Y'
+        \end{tikzcd} \]
+        where the vertical morphisms are weak equivalences and $f$ and $f'$ are cofibrations, the induced map $Z \coprod_X Y \to Z' \coprod_{X'} Y'$ is a weak equivalence.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{waldhausen-category}
+    Let $\mathcal{C}$ be a Waldhausen category. For any $n \ge 0$, let $\mathcal{I}_n$ be the category of pairs $(i, j)$ with $0 \le i \le j \le n$ with a morphism $(i, j) \to (i', j')$ whenever $i \le i'$ and $j \le j'$. Denote by $S_n \mathcal{C}$ the full subcategory of functors $F : \mathcal{I}_n \to \mathcal{C}$ such that
+    \begin{enumerate}[label=(\roman*)]
+        \item $F(i, i) = 0$,
+        \item $F(i, j) \to F(i, k)$ is a cofibration for all $i \le j \le k$,
+        \item the diagram
+        \[ \svg \begin{tikzcd} F(i, j) \arrow{r} \arrow{d} & F(i, k) \arrow{d} \\ F(j, j) = 0 \arrow{r} & F(j, k) \end{tikzcd} \]
+        is a pushout square for all $i \le j \le k$.
+    \end{enumerate}
+    This yields a simplicial category $S_\bdot \mathcal{C}$ where the face maps $d_{n, i} : S_n \mathcal{C} \to S_{n - 1} \mathcal{C}$ delete the $i$-th row and $i$-th column, and the degeneracy maps insert identity maps at the appropriate places. Let $w S_n \mathcal{C}$ be the subcategory of $S_n \mathcal{C}$ where morphisms are given by levelwise weak equivalences. This yields the simplicial category $w S_\bdot \mathcal{C}$, and taking levelwise \tref{nerve}{nerves} yields the bisimplicial category $\textup{N}_\bdot(w S_\bdot \mathcal{C})$. Now, the \textit{algebraic $K$-theory space} of $\mathcal{C}$ is defined as
+    \[ K(\mathcal{C}) = \Omega |\textup{N}_\bdot(w S_\bdot \mathcal{C})| , \]
+    where $\Omega$ denotes the \tref{AT:loop-space}{loop space functor} and $|\cdot|$ the realization of a bisimplicial set.
+\end{example}
+
+\begin{topic}{reflective-subcategory}{reflective subcategory}
+    Let $\mathcal{C}$ be a \tref{category}{category}. A \tref{full-subcategory}{full subcategory} $\mathcal{C}'$ of $\mathcal{C}$ is \textbf{reflective} if the inclusion functor $i : \mathcal{C}' \to \mathcal{C}$ has a \tref{adjunction}{left adjoint} $T : \mathcal{C} \to \mathcal{C}'$, called the \textit{reflector}.
+\end{topic}
+
+\begin{example}{reflective-subcategory}
+    \begin{itemize}
+        \item The full subcategory of \tref{GT:abelian-group}{abelian groups} in the category of \tref{GT:group}{groups} is reflective, with reflector given by \tref{GT:abelianization}{abelianization}.
+        \item The full subcategory of \tref{AG:affine-scheme}{affine schemes} in the category of \tref{AG:scheme}{schemes} is reflective, with reflector $X \mapsto \Spec \Gamma(X, \mathcal{O}_X)$.
+    \end{itemize}
+\end{example}

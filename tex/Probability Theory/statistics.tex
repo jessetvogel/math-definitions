@@ -1,0 +1,222 @@
+\begin{topic}{random-sample}{random sample}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}, and let $F$ be a \tref{probability-distribution}{probability distribution}. A \textbf{random sample} of size $n$ from the population $F$ is a sequence $X_1, X_2, \ldots, X_n$ of \tref{random-variable}{random variables} with probability distributions $F$ which are \tref{independent-random-variables}{mutually independent}.
+\end{topic}
+
+\begin{topic}{statistic}{statistic}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space}, and let $X_1, X_2, \ldots, X_n$ be a \tref{random-sample}{random sample} of size $n$. A \textbf{statistic} is a \tref{random-variable}{random variable} $Y = T(X_1, X_2, \ldots, X_n)$ for some function $T$.
+\end{topic}
+
+\begin{example}{statistic}
+    \begin{itemize}
+        \item The \textit{sample mean} is the statistic given by the average of the values in a random sample, that is,
+        \[ \overline{X} = \frac{X_1 + \cdots + X_n}{n} . \]
+        \item The \textit{sample variance} is the statistic given by
+        \[ S^2 = \frac{1}{n - 1} \sum_{i = 1}^{n} (X_i - \overline{X})^2 \]
+        and the \textit{sample standard deviation} is the statistic given by $S = \sqrt{S^2}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{sufficient-statistic}{sufficient statistic}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) : \Omega \to (E, \mathcal{E})$ is \textbf{sufficient} for $\theta$ if, for any $B \in \mathcal{E}$, the \tref{conditional-probability-distribution}{conditional probability distribution} of $(X_1, \ldots, X_n)$ given $B$ is independent of $\theta$.
+
+    A sufficient statistic $T(X_1, \ldots, X_n)$ for $\theta$ is \textbf{minimal sufficient} if, for any other sufficient statistic $T'(X_1, \ldots, X_n)$ for $\theta$, the statistic $T(X_1, \ldots, X_n)$ can be expressed as a function of $T'(X_1, \ldots, X_n)$.
+\end{topic}
+
+\begin{example}{sufficient-statistic}
+    Let $X_1, \ldots, X_n$ be a random sample from a \tref{bernoulli-distribution}{Bernoulli distribution} with parameter $0 \le p \le 1$. We claim that $T(X_1, \ldots, X_n) = X_1 + \ldots + X_n$ is a sufficient statistic for $p$. Note that $Y$ follows a \tref{binomial-distribution}{binomial distribution}, so we find that
+    \[ \begin{aligned}
+        \PP((X_1, \ldots, X_n) = (x_1, \ldots, x_n) \mid T(X_1, \ldots, X_n) = t)
+            &= \frac{\PP((X_1, \ldots, X_n) = (x_1, \ldots, x_n))}{\PP(T(X_1, \ldots, X_n) = t)} \\
+            &= \frac{\prod_{i = 1}^{n} p^{x_i} (1 - p)^{1 - x_i}}{\binom{n}{t} p^t (1 - p)^{n - t}} \\
+            &= \frac{1}{\binom{n}{t}}
+    \end{aligned} \]
+    for all $(x_1, \ldots, x_n) \in \{ 0, 1 \}^n$, where $t = T(x_1, \ldots, x_n) = x_1 + \ldots + x_n$. This conditional probability is independent of $p$, so $T(X_1, \ldots, X_n)$ is indeed a sufficient statistic for $p$.
+\end{example}
+
+\begin{example}{sufficient-statistic}
+    The \textit{factorization theorem} states that a statistic $T(X_1, \ldots, X_n)$ is sufficient for the parameter $\theta$ if the joint \tref{probability-density-function}{PDF} $f$ for $(X_1, \ldots, X_n)$ factors as a product
+    \[ f(x_1, \ldots, x_n; \theta) = g(t; \theta) h(x_1, \ldots, x_n) \]
+    where only $g(t; \theta)$ depends on the parameter $\theta$.
+\end{example}
+
+\begin{topic}{ancillary-statistic}{ancillary statistic}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) : \Omega \to (E, \mathcal{E})$ is \textbf{ancillary} for $\theta$ if its \tref{probability-distribution}{probability distribution} is independent of $\theta$.
+\end{topic}
+
+\begin{topic}{complete-statistic}{complete statistic}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) : \Omega \to (E, \mathcal{E})$ is \textbf{complete} for $\theta$ if, for all measurable functions $g : E \to \RR$,
+    \[ \EE_\theta(g(T)) = 0 \textup{ for all } \theta \textup{ implies } \PP_\theta(g(T) = 0) = 1 \textup{ for all } \theta . \]
+\end{topic}
+
+\begin{example}{complete-statistic}
+    Suppose $F_\theta$ is a \tref{bernoulli-distribution}{Bernoulli distribution} with parameter $0 < p = \theta < 1$, and let $T(X_1, \ldots, X_n) = \sum_i X_i$. Then $T$ follows a \tref{binomial-distribution}{binomial distribution} with parameters $n$ and $p$, and we claim that $T$ is a complete statistic for $\theta = p$. Namely, if $g$ is a measurable function such that $\EE_\theta(g(T)) = 0$ for all $\theta$, then
+    \[ \EE_\theta(g(T)) = \sum_{t = 0}^{n} g(t) \binom{n}{t} p^t (1 - p)^{n - t} = (1 - p)^n \sum_{t = 0}^{n} g(t) \binom{n}{t} \left(\frac{p}{1 - p}\right)^t = 0 \]
+    for all $0 < p < 1$. But this is a polynomial in $r = p / (1 - p) > 0$, so it can only be identically zero if all its coefficients are zero, that is, $g(t) = 0$ for all $t$. Hence, $g$ is identically zero and $T$ is a complete statistic for $\theta = p$.
+\end{example}
+
+\begin{topic}{likelihood-function}{likelihood function}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. If $f(x; \theta)$ is a \tref{probability-density-function}{PDF} of the sample $(X_1, \ldots, X_n)$, and given an outcome $x = (x_1, \ldots, x_n)$, then the function (of $\theta$)
+    \[ L(\theta; x) = f(x; \theta) \]
+    is called  the \textbf{likelihood function}.
+\end{topic}
+
+\begin{topic}{point-estimator}{point estimator}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some (unknown) parameter $\theta$ in a parameter space $\Theta$. A \textbf{point estimator} for $\theta$ is a function $\hat{\theta}(X_1, \ldots, X_n)$ that is used to estimate the value of $\theta$.
+\end{topic}
+
+\begin{topic}{method-of-moments}{method of moments}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameters $\theta = (\theta_1, \ldots, \theta_m)$. The \tref{moment}{moments} of the $X_i$ can be expressed in terms of the parameters $\theta$,
+    \[ \EE(X_i^k) = \mu_k(\theta_1, \ldots, \theta_m) \]
+    for some functions $\mu_1, \ldots, \mu_m$. The \textbf{method of moments estimator} $\hat{\theta} = (\hat{\theta}_1, \ldots, \hat{\theta}_m)$ is the \tref{point-estimator}{estimator} for $\theta$ obtained by solving the system of equations
+    \[ \begin{aligned}
+        \frac{1}{n} \sum_{i = 1}^{n} X_i &= \mu_1(\hat{\theta}_1, \ldots, \hat{\theta}_k) \\ 
+        & \vdots \\ 
+        \frac{1}{n} \sum_{i = 1}^{n} X_i^m &= \mu_m(\hat{\theta}_1, \ldots, \hat{\theta}_m) .
+    \end{aligned} \]    
+    This method for constructing estimators for the parameters $\theta$ is known as the \textbf{method of moments}.
+\end{topic}
+
+\begin{example}{method-of-moments}
+    Let $X_1, \ldots, X_n$ be a random sample from a \tref{normal-distribution}{normal distribution} $\mathcal{N}(\mu, \sigma^2)$. Since $\EE(X_i) = \mu$ and $\EE(X_i^2) = \mu^2 + \sigma^2$, the system of equations to solve is
+    \[ \frac{1}{n} \sum_{i = 1}^{n} X_i = \hat{\mu}, \quad \frac{1}{n} \sum_{i = 1}^{n} X_i^2 = \hat{\mu}^2 + \hat{\sigma}^2 . \]
+    Hence, the method of moments estimators are
+    \[ \hat{\mu} = \frac{1}{n} \sum_{i = 1}^{n} X_i = \overline{X}, \quad \hat{\sigma}^2 = \frac{1}{n} \sum_{i = 1}^{n} X_i^2 - \hat{\mu}^2 = \frac{1}{n} \sum_{i = 1}^{n} (X_i - \overline{X})^2 . \]
+\end{example}
+
+\begin{topic}{maximum-likelihood-estimator}{maximum likelihood estimator (MLE)}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$ in a parameter space $\Theta$. The \textbf{maximum likelihood estimator (MLE)} is the \tref{point-estimator}{estimator} $\hat{\theta}$ for $\theta$ given by
+    \[ \hat{\theta}(x) = \operatorname{argmax}_{\theta \in \Theta} L(\theta; x) \]
+    where $L(\theta; x)$ denotes the \tref{likelihood-function}{likelihood function}.
+\end{topic}
+
+\begin{example}{maximum-likelihood-estimator}
+    Let $X_1, \ldots, X_n$ be a random sample from a \tref{bernoulli-distribution}{Bernoulli distribution} with parameter $0 \le p \le 1$. The likelihood function is
+    \[ L(p; x_1, \ldots, x_n) = \prod_{i = 1}^{n} p^{x_i} (1 - p)^{n - x_i} = p^y (1 - p)^{n - y} \]
+    where $y = x_1 + \cdots + x_n$. A trick for finding the maximum of $L(p; x_1, \ldots, x_n)$ is to maximize the \textit{log likelihood function}
+    \[ \log L(p; x_1, \ldots, x_n) = y \log p + (n - y) \log (1 - p) \]
+    instead. One easily checks that a maximum is obtained for $\hat{p} = y / n$, which is therefore the MLE for $p$.
+\end{example}
+
+\begin{topic}{unbiased-estimator}{unbiased estimator}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. The \textbf{bias} of a \tref{point-estimator}{point estimator} $\hat{\theta}(X_1, \ldots, X_n)$ for $\theta$ is the difference
+    \[ \EE(\hat{\theta}) - \theta . \]
+    When the bias is zero (for all $\theta$), the estimator is called \textbf{unbiased}.
+
+    When the bias tends to zero as $n \to 0$, the estimator is called \textbf{asymptotically unbiased}.
+\end{topic}
+
+\begin{example}{unbiased-estimator}
+    Let $X_1, \ldots, X_n$ be a random sample from a \tref{uniform-distribution}{uniform distribution} on the interval $[0, \theta]$ with parameter $\theta \in \RR$ unknown. The statistic $Y = \max \{ X_1, \ldots, X_n \}$ has \tref{cumulative-distribution-function}{CDF}
+    \[ F_Y(y; \theta) = \PP(Y \le y) = \prod_{i = 1}^{n} \PP(X_i \le y) = (y / \theta)^n \]
+    and its derivative is the \tref{probability-density-function}{PDF} of $Y$,
+    \[ f_Y(y; \theta) = n y^{n - 1} / \theta^n . \]
+    Hence, the expected value of $Y$ is
+    \[ \EE(Y) = \int_0^\theta y f_Y(y; \theta) dy = \int_0^\theta n y^n / \theta^n dy = \frac{n}{n + 1} \theta . \]
+    In particular, $\frac{n + 1}{n} Y$ is an unbiased estimator for $\theta$.
+\end{example}
+
+\begin{topic}{cramer-rao-bound}{Cramér--Rao bound}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$, and assume that the joint \tref{probability-density-function}{PDF} $f(x; \theta)$ of $X = (X_1, \ldots, X_n)$ satisfies
+    \[ \frac{d}{d \theta} \int h(x) f(x; \theta) d \mu = \int h(x) \frac{\partial}{\partial \theta} f(x; \theta) d \mu \]
+    for any function $h(x)$ with $\EE_\theta |h(x)| < \infty$.
+    
+    Then the \textbf{Cramér--Rao bound} states that any \tref{point-estimator}{estimator} $W(X_1, \ldots, X_n)$ where $\EE_\theta(W(X_1, \ldots, X_n))$ is a differentiable function of $\theta$ satisfies
+    \[ \operatorname{Var}_\theta(W(X)) \ge \frac{\left( \frac{d}{d \theta} \EE_\theta(W(X)) \right)^2}{\EE_\theta\left(\left(\frac{\partial}{\partial \theta} \log f(X; \theta)\right)^2\right)} . \]
+\end{topic}
+
+\begin{topic}{rao-blackwell-theorem}{Rao--Blackwell theorem}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$, and write $X = (X_1, \ldots, X_n)$. Let $W(X)$ be an \tref{unbiased-estimator}{unbiased estimator} for some function $\tau(\theta)$ of $\theta$, and let $T(X)$ be a \tref{sufficient-statistic}{sufficient statistic} for $\theta$. Then the \textbf{Rao--Blackwell theorem} states that $W'(X) = \EE(W(X) \mid T(X))$ is also an unbiased estimator for $\tau(\theta)$, that is,
+    \[ \EE_\theta(W'(X)) = \tau(\theta) \]
+    with less \tref{variance}{variance} than $W(X)$, that is,
+    \[ \operatorname{Var}_\theta(W'(X)) \le \operatorname{Var}_\theta(W(X)) \]
+    for all $\theta$. In particular, $W'(X)$ is a `uniformly better unbiased estimator' for $\tau(\theta)$ than $W(X)$.
+
+    If $T(X)$ is a \tref{complete-statistic}{complete} sufficient statistic, then $W'(X) = \EE(W(X) \mid T(X))$ is the unique `best' unbiased estimator, that is, it has the lowest possible variance.
+\end{topic}
+
+\begin{example}{rao-blackwell-theorem}
+    Let $X_1, \ldots, X_n$ be a random sample from a \tref{binomial-distribution}{binomial distribution} with parameters $k \in \ZZ_{\ge 0}$ and $0 \le p \le 1$, with $\theta = p$ unknown. Suppose we want to estimate the probability of exactly one success from such a binomial distribution, that is, estimate the value of
+    \[ \tau(\theta) = \PP_\theta(X_i = 1) = k p (1 - p)^{k - 1} . \]
+    One checks that a very simple unbiased estimator is given by
+    \[ W(X) = \left\{ \begin{array}{cc} 1 & \textup{ if } X_1 = 1, \\ 0 & \textup{ otherwise} .
+    \end{array} \right. \]
+    To improve this estimator, we use that a complete and sufficient statistic for $\theta = p$ is given by
+    \[ T(X) = \sum_{i = 1}^{n} X_i . \]
+    Hence, the best unbiased estimator for $\tau(\theta)$ is given by $W'(X) = \EE(W(X) \mid T(X))$. Explicitly,
+    \[ \begin{aligned}
+         W'(x) &= \EE \left( W(X) \mid \sum_{i = 1}^{n} X_i = t \right) \\
+            &= \PP \left( X_1 = 1 \mid \sum_{i = 1}^{n} X_i = t \right) \\
+            &= \frac{\PP_\theta \left( X_1 = 1, \sum_{i = 1}^{n} X_i = t \right)}{\PP_\theta \left( \sum_{i = 1}^{n} X_i = t \right)} \\
+            &= \frac{\PP_\theta \left( X_1 = 1 \right) \PP_\theta \left( \sum_{i = 2}^{n} X_i = t - 1 \right)}{\PP_\theta \left( \sum_{i = 1}^{n} X_i = t \right)} \\
+            &= \frac{\left( kp (1 - p)^{k - 1} \right) \left( \binom{k(n - 1)}{t - 1} p^{t - 1} (1 - p)^{k(n - 1) - (t - 1)} \right)}{\binom{kn}{t} p^t (1 - p)^{kn - t}} \\
+            &= k \frac{\binom{k (n - 1)}{t - 1}}{\binom{kn}{t}}
+    \end{aligned} \]
+    for $t = \sum_{i = 1}^{n} x_i$, that is,
+    \[ W'(X) = k \frac{\binom{k (n - 1)}{\sum_{i = 1}^{n} X_i - 1}}{\binom{kn}{\sum_{i = 1}^{n} X_i}} . \]
+\end{example}
+
+\begin{topic}{consistent-sequence-of-estimators}{consistent sequence of estimators}
+    Let $X_1, X_2, \ldots$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$ in a parameter space $\Theta \subseteq \RR^N$. A sequence
+    \[ W_1(X_1), W_2(X_1, X_2), \ldots, W_n(X_1, \ldots, X_n), \ldots \]
+    of \tref{point-estimator}{estimators} for $\theta$ is \textbf{consistent} if, for every $\varepsilon > 0$ and every $\theta \in \Theta$,
+    \[ \lim_{n \to \infty} \PP_\theta(|W_n(X_1, \ldots, X_n) - \theta| < \varepsilon) = 1 . \]
+\end{topic}
+
+\begin{topic}{fisher-information}{Fisher information}
+    Let $X$ be a \tref{random-variable}{random variable} whose \tref{probability-distribution}{probability distribution} depends on a continuous parameter $\theta$. The \textbf{Fisher information} of $X$ is
+    \[ I_X(\theta) = \EE \left( \left( \frac{\partial}{\partial \theta} \log f(X; \theta) \right)^2 \right) \]
+    where $f(x; \theta)$ denotes the \tref{probability-density-function}{PDF} of $X$.
+\end{topic}
+
+\begin{topic}{asymptotically-efficient-sequence-of-estimators}{asymptotically efficient sequence of estimators}
+    Let $X_1, X_2, \ldots$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$ in a parameter space $\Theta \subseteq \RR^N$. A sequence
+    \[ W_1(X_1), W_2(X_1, X_2), \ldots, W_n(X_1, \ldots, X_n), \ldots \]
+    of \tref{point-estimator}{estimators} for a function $\tau(\theta)$ of $\theta$ is \textbf{asymptotically efficient} if, for all $\theta \in \Theta$,
+    \[ \lim_{n \to \infty} \frac{\operatorname{Var}_\theta W_n(X_1, \ldots, X_n)}{\left( \frac{ \left( \frac{d}{d \theta} \tau(\theta) \right)^2}{n \EE_\theta \left( \left( \frac{\partial}{\partial \theta} \log f(X_i; \theta) \right)^2 \right) } \right)} = 1 , \]
+    that is, $W_n$ achieves the \tref{cramer-rao-bound}{Cramer--Rao bound} as $n$ tends to $\infty$.
+\end{topic}
+
+\begin{topic}{hypothesis-test}{hypothesis test}
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$ in a parameter space $\Theta$.
+    A \textit{hypothesis testing problem} for $\theta$ is a partition of $\Theta$ into a subset $\Theta_0 \subseteq \Theta$ and its complement $\Theta \setminus \Theta_0$.
+    The \textit{null hypothesis}, denoted $H_0$, states that $\theta \in \Theta_0$, and the \textit{alternative hypothesis}, denoted $H_1$, states that $\theta \in \Theta \setminus \Theta_0$.
+    
+    A \textbf{hypothesis test} is a rule that specifies:
+    \begin{enumerate}[label=(\roman*)]
+        \item for which sample values of $X = (X_1, \ldots, X_n)$ the decision is made to accept $H_0$ as true,
+        \item for which sample values of $X$ the decision is made to reject $H_0$ and accept $H_1$ as true.
+    \end{enumerate}
+    The first subset of sample values is called the \textit{acceptance region} and the second subset of sample values is called the \textit{rejection region}.
+\end{topic}
+
+\begin{topic}{likelihood-ratio-test}{likelihood ratio test}
+    A \textbf{likelihood ratio test} is any \tref{hypothesis-test}{hypothesis test} that has a rejection region of the form $\{ x \mid \lambda(x) \le c \}$ for some constant $0 \le c \le 1$, where $\lambda(x)$ denotes the \textit{likelihood ratio test statistic}
+    \[ \lambda(x) = \frac{\sup_{\theta \in \Theta_0} L(\theta; x)}{\sup_{\theta \in \Theta} L(\theta; x)} \]
+    and where $L(\theta; x)$ denotes the \tref{likelihood-function}{likelihood function}.
+\end{topic}
+
+\begin{example}{likelihood-ratio-test}
+    Let $X_1, \ldots, X_n$ be a random sample from a \tref{normal-distribution}{normal distribution} $\mathcal{N}(\theta, 1)$. Consider testing $H_0 : \theta = \theta_0$ versus $H_1 : \theta \ne \theta_0$.
+    Since the \tref{maximum-likelihood-estimator}{MLE} for $\theta$ is given by the sample mean $\overline{X} = \frac{1}{n} \sum_{i = 1}^{n} X_i$, the likelihood ratio test statistic reduces to
+    \[ \begin{aligned}
+        \lambda(x) &= \frac{(2 \pi)^{-n/2} \exp \left( - \sum_{i = 1}^{n} (x_i - \theta_0)^2 / 2 \right)}{(2 \pi)^{-n/2} \exp \left( - \sum_{i = 1}^{n} (x_i - \overline{x})^2 / 2 \right)} \\
+        &= \exp \left( \left( - \sum_{i = 1}^{n} (x_i - \theta_0)^2 + \sum_{i = 1}^{n} (x_i - \overline{x})^2 \right) / 2 \right) \\ 
+        &= \exp \left( - n (\overline{x} - \theta_0)^2 / 2 \right) .
+    \end{aligned} \]
+    Hence, the rejection region $\{ x \mid \lambda(x) \le c \}$ can be expressed as
+    \[ \{ x \mid |\overline{x} - \theta_0| \ge \sqrt{- 2 (\log c) / n} \} . \]
+\end{example}
+
+\begin{topic}{power-function-hypothesis-test}{power function of hypothesis test}
+    The \textbf{power function} of a \tref{hypothesis-test}{hypothesis test} with rejection region $R$ is the function $\beta : \Theta \to \RR$ on the parameter space $\Theta$ given by
+    \[ \beta(\theta) = \PP_\theta(X^{-1}(R)) . \]
+    The hypothesis test is said to have \textit{size $\alpha$} if $\sup_{\theta \in \Theta_0} \beta(\theta) = \alpha$.
+
+    The hypothesis test is said to have \textit{level $\alpha$} if $\sup_{\theta \in \Theta_0} \beta(\theta) \le \alpha$.
+\end{topic}
+
+\begin{topic}{unbiased-hypothesis-test}{unbiased hypothesis test}
+    A \tref{hypothesis-test}{hypothesis test} is \textbf{unbiased} if
+    \[ \beta(\theta) \le \beta(\theta') \]
+    for all $\theta \in \Theta_0$ and $\theta' \in \Theta \setminus \Theta_0$, where $\beta$ denotes the \tref{power-function-hypothesis-test}{power function} of the hypothesis test.
+\end{topic}

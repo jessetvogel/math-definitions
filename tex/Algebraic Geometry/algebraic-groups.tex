@@ -1,0 +1,299 @@
+\begin{topic}{algebraic-group}{algebraic group}
+    An \textbf{algebraic group} over a \tref{AA:field}{field} $k$ is a \tref{group-scheme}{group scheme} of \tref{finite-type}{finite type} over $k$.
+\end{topic}
+
+% \begin{example}{algebraic-group}
+%     \begin{itemize}
+%         \item Linear groups such as $\textup{GL}_n(k)$ and $\textup{SL}_n(k)$ can be realized as subvarieties of $\AA^{n^2}$ where the determinant does not vanish, or is equal to one, respectively.
+%         \item Finite groups can be realized as a disjoint union of points, that is, $\Spec (k^G)$.
+%         \item Elliptic curves, or more generally \tref{abelian-variety}{abelian varieties}.
+%     \end{itemize}
+% \end{example}
+
+\begin{topic}{radical-algebraic-group}{radical algebraic group}
+    The \textbf{radical} of an \tref{algebraic-group}{algebraic group} is the identity component of its maximal \tref{GT:normal-subgroup}{normal} \tref{GT:solvable-group}{solvable} \tref{GT:subgroup}{subgroup}.
+\end{topic}
+
+\begin{topic}{reductive-algebraic-group}{(linearly) reductive algebraic group}
+    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{reductive} if its \tref{radical-algebraic-group}{radical} is a torus.
+    
+    The algebraic group $G$ is \textbf{linearly reductive} if every \tref{RT:representation}{representation} of $G$ is \tref{RT:irreducible-representation}{semisimple}.
+    
+    In characteristic zero, the two notions are equivalent.
+\end{topic}
+
+\begin{example}{reductive-algebraic-group}
+    \begin{itemize}
+        \item Any finite group is reductive.
+        \item The groups $\GG_m, \textup{GL}_n(\CC), \textup{SL}_n(\CC)$ and $\textup{PGL}_n(\CC)$ are all reductive. 
+        \item A group which is not reductive is $\GG_a$. Namely, since it is solvable (it is abelian) its radical is $\GG_a$, which is not a torus. Also, we see that it is not linearly reductive: take $V = k^2$ with $\GG_a$ acting via $t \cdot (x, y) = (x + ty, y)$. Then $U := k \cdot (1, 0) \subset V$ is a sub-$k[\GG_a]$-module, but $V \not\isom U \oplus (V / U)$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{algebraic-torus}{(split) algebraic torus}
+    An \textbf{algebraic torus} $T$ over a field $k$ is an \tref{algebraic-group}{algebraic group} which, over an \tref{AA:algebraic-closure}{algebraic closure} $\overline{k}$ of $k$, is isomorphic to a finite product of copies of $\GG_m = \Spec \overline{k}[t, t^{-1}]$, that is
+    \[ T \times_k \overline{k} \isom \Spec \overline{k}[t_1, t_1^{-1}, \ldots, t_r, t_r^{-1}] , \]
+    where $r$ is called the \textit{rank} of the algebraic torus $T$.
+    
+    The torus $T$ is \textbf{split} if it is isomorphic to a finite product of copies of $\GG_m$ over $k$.
+\end{topic}
+
+\begin{example}{algebraic-torus}
+    Over $k = \RR$, there are up to isomorphism two algebraic tori of rank one:
+    \begin{itemize}
+        \item the torus $\GG_m = \Spec \RR[t, t^{-1}]$,
+        \item the unitary group $U(1) = \Spec \RR[x, y] / (x^2 + y^2 - 1)$. Indeed we have
+        \[ U(1) \times_\RR \CC = \Spec \CC[x, y] / (x^2 + y^2 - 1) \isom \Spec \CC[z, z^{-1}] \]
+        via the isomorphism $z = x + iy$ and $z^{-1} = x - iy$.
+    \end{itemize}
+\end{example}
+
+\begin{example}{algebraic-torus}
+    There is an \tref{CT:equivalence-of-categories}{equivalence of categories} between the category of algebraic tori over $k$ and the (opposite) category of $\textup{Gal}(\overline{k}/k)$-lattices, that is, $\textup{Gal}(\overline{k}/k)$-modules which are free abelian groups of finite rank. The equivalence is given by the functors
+    \[ \begin{aligned}
+        \textbf{AlgTor}_k \to \left(\textup{Gal}(\overline{k}/k)\textbf{-Lat}\right)^\textup{op}, & \quad T \mapsto X^*(T) = \Hom_{\textbf{AlgGrp}}(\overline{T}, \GG_m) , \\
+        \left(\textup{Gal}(\overline{k}/k)\textbf{-Lat}\right)^\textup{op} \to \textbf{AlgTor}_k, & \quad M \mapsto \Spec(\overline{k}[M])^{\textup{Gal}(\overline{k}/k)} .
+    \end{aligned} \]
+\end{example}
+
+\begin{topic}{borel-subgroup}{Borel subgroup}
+    A \textbf{Borel subgroup} of an \tref{algebraic-group}{algebraic group} $G$ is a maximal \tref{TO:connected-space}{connected} \tref{GT:solvable-group}{solvable} \tref{GT:subgroup}{subgroup} of $G$.
+\end{topic}
+
+\begin{example}{borel-subgroup}
+    For $G = \textup{GL}_n(k)$, the subgroup of invertible upper triangular matrices is a Borel subgroup.
+\end{example}
+
+% \begin{example}{borel-subgroup}
+%     When the ground field $k$ is algebraically closed, all Borel subgroups are conjugate.
+% \end{example}
+
+\begin{topic}{parabolic-subgroup}{parabolic subgroup}
+    A \textbf{parabolic subgroup} of an \tref{algebraic-group}{algebraic group} $G$ is a \tref{GT:subgroup}{subgroup} $P \subset G$ containing a \tref{borel-subgroup}{Borel subgroup}.
+    
+    Equivalently, a subgroup $P \subset G$ is parabolic if the quotient space $G/P$ is a \tref{complete-variety}{complete variety}.
+\end{topic}
+
+\begin{topic}{lie-kolchin-theorem}{Lie--Kolchin theorem}
+    The \textbf{Lie--Kolchin theorem} states that any \tref{GT:solvable-group}{solvable}, \tref{smooth-morphism}{smooth}, \tref{TO:connected-space}{connected} \tref{algebraic-group}{algebraic group} $G$ over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$ is \tref{triangularizable-algebraic-group}{triangularizable}.
+\end{topic}
+
+\begin{example}{lie-kolchin-theorem}
+    The conditions in the above theorem are all necessary:
+    \begin{itemize}
+        \item (\textit{connected}) The algebraic group $G = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \right\} \isom \ZZ/2\ZZ$ is smooth and solvable, but not connected. Also $G$ is not triangularizable, since for the natural representation of $G$ on $k^2$, the two matrices have no common eigenvector.
+        \item (\textit{smooth}) Let $k$ be an (algebraically closed) field of characteristic $2$, and let $G \subset \textup{SL}_2$ be the algebraic group given by
+        \[ G(R) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \textup{Mat}_{2 \times 2}(R) : a^2 = d^2 = 1 \textup{ and } b^2 = c^2 = 0 \right\} . \]
+        Then $G$ is connected (topologically it is a point) but not smooth, and the exact sequence
+        \[ 1 \to \mu_2 \xrightarrow{a \mapsto \left(\begin{smallmatrix} a & 0 \\ 0 & a \end{smallmatrix}\right)} G \xrightarrow{\left(\begin{smallmatrix} a & b \\ c & d \end{smallmatrix}\right) \mapsto (ab, cd)} \alpha_2 \times \alpha_2 \to 1 \]
+        shows that $G$ is solvable. However, $G$ is not triangularizable since the natural action of $G$ on $k^2$ does not fix any line.
+        \item (\textit{solvable}) Any triangularizable group is solvable.
+        \item (\textit{algebraically closed}) Let $k = \RR$ and consider the algebraic group $G$ given by
+        \[ G(R) = \left\{ \begin{pmatrix} a & -b \\ b & a \end{pmatrix} \in \textup{Mat}_{2 \times 2}(R) : a^2 + b^2 = 1 \right\} . \]
+        Then $G$ is solvable (since it is abelian), connected and smooth. However it is not triangularizable since it does not have eigenvectors when acting naturally on $\RR^2$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{triangularizable-algebraic-group}{triangularizable algebraic group}
+    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{triangularizable} if every non-zero representation of $G$ has a one-dimensional subrepresentation.
+\end{topic}
+
+\begin{example}{triangularizable-algebraic-group}
+    The algebraic group $\mathbb{T}_n$ of upper triangular $n \times n$ matrices,
+    \[ \mathbb{T}_n = \left\{ \begin{pmatrix} * & * & \cdots & * \\ 0 & * & \cdots & * \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & * \end{pmatrix} \right\} , \]
+    is triangularizable, as well as any subgroup of $\mathbb{T}_n$.
+\end{example}
+
+\begin{example}{triangularizable-algebraic-group}
+    Triangularizable groups can be characterized in a number of ways. The following are all equivalent.
+    \begin{enumerate}[label=(\roman*)]
+        \item $G$ is triangularizable.
+        \item For every representation $(V, \rho)$ of $G$, there exists a basis of $V$ for which $\rho(G) \subset \mathbb{T}_n$, with $n = \dim V$.
+        \item $G$ is isomorphic to an algebraic subgroup of $\mathbb{T}_n$ for some $n$.
+        \item There exists a \tref{GT:normal-subgroup}{normal} \tref{unipotent-algebraic-group}{unipotent} algebraic subgroup $U$ of $G$ such that $G/U$ is diagonalizable.
+    \end{enumerate}
+    \begin{proof}
+        $(i \Rightarrow ii)$ Proof by induction on $n = \dim V$, where the case $n = 0$ is trivial. For $n > 0$, pick $e_1 \in V$ such that $\langle e_1 \rangle$ is a subrepresentation of $V$. The induction hypothesis on $V / \langle e_1 \rangle$ gives a basis $\overline{e}_2, \ldots, \overline{e}_n$ for $V / \langle e_1 \rangle$ such that $G$ acts via $\mathbb{T}_{n - 1}$. Lifting each $\overline{e}_i$ to some $e_i \in V$ gives a basis $e_1, \ldots, e_n$ of $V$ such that $G$ acts via $\mathbb{T}_n$.
+        
+        $(ii \Rightarrow iii)$ Apply $(ii)$ to a faithful finite-dimensional representation of $G$.
+        
+        $(iii \Rightarrow iv)$ Embed $G \subset \mathbb{T}_n$ and let $U = G \cap \mathbb{U}_n$. Then $U \subset G$ is normal and unipotent since $\mathbb{U}_n \subset \mathbb{T}_n$ is. Now $G/U$ injects into $\mathbb{T}_n/\mathbb{U}_n \isom \GG_m^n$, and a subgroup of a diagonalizable group is diagonalizable.
+        
+        $(iv \Rightarrow i)$ Take some $U \subset G$ as in $(iv)$ and a representation $(V, r)$ of $G$. Since $U$ is unipotent, we have $V^U \ne 0$, and since $U$ is normal in $G$, we have that $V^U$ is stable under $G$. Namely, for any $v \in V^U$ with $n \in U(k)$ and $g \in G(k)$ we find that
+        \[ r(n) r(g) v = r(ng) v = r(gn') v = r(g) r(n') v = r(g) v , \]
+        with $n' = g^{-1} n g \in U(k)$, so $r(g) v \in V^U$ as well. Hence $G/U$, which is diagonalizable, acts on $V^U$, so $V^U \ne 0$ is the sum of $1$-dimensional subrepresentations. In particular, there exists a one-dimensional subrepresentation of $V$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{unipotent-algebraic-group}{unipotent algebraic group}
+    An \tref{algebraic-group}{algebraic group} $G$ is \textbf{unipotent} if every non-zero representation of $G$ has a non-zero fixed vector.
+\end{topic}
+
+\begin{example}{unipotent-algebraic-group}
+    The algebraic group $\mathbb{U}_n$ of upper triangular $n \times n$ matrices with ones on the diagonal,
+    \[ \mathbb{U}_n = \left\{ \begin{pmatrix} 1 & * & * & \cdots & * \\ 0 & 1 & * & \cdots & * \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix} \right\} , \]
+    is unipotent, as well as any subgroup of $\mathbb{U}_n$.
+\end{example}
+
+\begin{topic}{special-algebraic-group}{special algebraic group}
+    A linear \tref{algebraic-group}{algebraic group} $G \subset \textup{GL}_n$ is \textbf{special} if every \tref{TO:principal-bundle}{principal $G$-bundle} is locally trivial in the Zariski topology.
+\end{topic}
+
+\begin{example}{special-algebraic-group}
+    \begin{itemize}
+        \item The groups $\GG_m, \GG_a, \textup{GL}_n, \textup{SL}_n, \textup{Sp}_{2n}$ are special algebraic groups.
+        \item Any extension of special algebraic groups is special. In particular, the groups of upper triangular matrices $\mathbb{T}_n$ are special as they can be obtained via extensions from $\GG_m$ and $\GG_a$.
+        \item The group $\ZZ/2\ZZ$ is not special, as the morphism $\Spec k[x, x^{-1}] \to \Spec k[y, y^{-1}]$ given by $y = x^2$ is a principal $\ZZ/2\ZZ$-bundle, which is not locally trivial in the Zariski topology.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{kummer-sequence}{Kummer sequence}
+    The \textbf{Kummer sequence} is the short exact sequence of \tref{algebraic-group}{algebraic groups}
+    \[ 0 \to \mu_n \xrightarrow{i} \GG_m \xrightarrow{(-)^n} \GG_m \to 0 , \]
+    where $\GG_m = \ZZ[x^{\pm 1}]$ is the multiplicative group, and $\mu_n = \ZZ[x] / (x^n - 1)$ the group of units of order $n$.
+\end{topic}
+
+\begin{topic}{artin-schreier-sequence}{Artin--Schreier sequence}
+    Let $p$ be a prime number, and let $X$ be a \tref{scheme}{scheme} in characteristic $p$. The \textbf{Artin--Schreier sequence} is the short exact sequence of group schemes over $X$ given by
+    \[ 0 \to \ZZ/p\ZZ \to \GG_a \xrightarrow{F - 1} \GG_a \to 0 \]
+    where $F - 1$ is the map $x \mapsto x^p - x$.
+\end{topic}
+
+\begin{topic}{split-reductive-group}{split reductive group}
+    A \tref{reductive-algebraic-group}{reductive algebraic group} $G$ is \textbf{split} if it contains a maximal \tref{algebraic-torus}{torus} which is \tref{algebraic-torus}{split}.
+\end{topic}
+
+\begin{topic}{langlands-dual-group}{Langlands dual group}
+    Let $G$ be a \tref{TO:connected-space}{connected} \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$. Then the \textbf{Langlands dual group} of $G$ is the complex connected reductive algebraic group $^L G$ whose \tref{LA:root-datum}{root datum} is dual to that of $G$.
+\end{topic}
+
+\begin{example}{langlands-dual-group}
+    The algebraic groups $\textup{SL}_2(\CC)$ and $\textup{PGL}_2(\CC)$ are each others Langlands dual. Indeed, the root datum of $\textup{SL}_2(\CC)$ is described as follows: the maximal torus $T = \left\{ \left( \begin{smallmatrix} t & 0 \\ 0 & t^{-1} \end{smallmatrix} \right) \right\} \subset \textup{SL}_2(\CC)$ acts on $\mathfrak{sl}_2$ by conjugation, that is,
+    \[ \begin{pmatrix} t & 0 \\ 0 & t^{-1} \end{pmatrix} \begin{pmatrix} a & b \\ c & -a \end{pmatrix} \begin{pmatrix} t^{-1} & 0 \\ 0 & t \end{pmatrix} = \begin{pmatrix} a & t^2 b \\ t^{-2} c & -a \end{pmatrix} . \]
+    Hence, the roots are $\alpha = \pm 2 \chi$, where $\chi : \left( \begin{smallmatrix} t & 0 \\ 0 & t^{-1} \end{smallmatrix} \right) \mapsto t$. The corresponding coroots are $\pm \lambda$, where $\lambda : t \mapsto \left( \begin{smallmatrix} t & 0 \\ 0 & t^{-1} \end{smallmatrix} \right)$, as $\langle 2 \chi, \lambda \rangle = \langle - 2 \chi, - \lambda \rangle = 2$. Hence, the root datum of $\textup{SL}_2(\CC)$ is $(\ZZ, \{ \pm 2 \}, \ZZ, \{ \pm 1 \})$.
+    
+    On the other hand, the root datum of $\textup{PGL}_2(\CC)$ is described as follows: the maximal torus $T = \left\{ \left( \begin{smallmatrix} t & 0 \\ 0 & 1 \end{smallmatrix} \right) \right\} \subset \textup{PGL}_2(\CC)$ acts on $\mathfrak{pgl}_2 = \mathfrak{gl}_2 / \{ \textup{scalars} \}$ by conjugation, that is,
+    \[ \begin{pmatrix} t & 0 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} t^{-1} & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} a & t b \\ t^{-1} c & d \end{pmatrix} . \]
+    Hence, the roots are $\alpha = \pm \chi$, where $\chi : \left( \begin{smallmatrix} t & 0 \\ 0 & 1 \end{smallmatrix} \right) \mapsto t$. The corresponding coroots are $\pm 2 \lambda$, where $\lambda : t \mapsto \left( \begin{smallmatrix} t & 0 \\ 0 & 1 \end{smallmatrix} \right)$, as $\langle \chi, 2 \lambda \rangle = \langle - \chi, - 2 \lambda \rangle = 2$. Hence, the root datum of $\textup{PGL}_2(\CC)$ is $(\ZZ, \{ \pm 1 \}, \ZZ, \{ \pm 2 \})$.
+\end{example}
+
+\begin{topic}{bruhat-decomposition}{Bruhat decomposition}
+    Let $G$ be a \tref{TO:connected-space}{connected}, \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$, let $B \subset G$ be a \tref{borel-subgroup}{Borel subgroup}, and let $W$ be the \tref{LA:weyl-group}{Weyl group} of $G$ corresponding to a maximal \tref{algebraic-torus}{torus} $T$ of $B$. The \textbf{Bruhat decomposition} of $G$ is the decomposition
+    \[ G = BWB = \bigsqcup_{w \in W} BwB . \]
+\end{topic}
+
+\begin{example}{bruhat-decomposition}
+    Let $G = \textup{GL}_n(\CC)$ with $B \subset G$ the subgroup of upper triangular matrices, $T \subset G$ the subgroup of diagonal matrices, and $W$ the \tref{GT:symmetric-group}{symmetric group} $S_n$. The Bruhat decomposition says that for any $A \in G$, we can write $A = U P V$ with $U, V \in B$ and $P$ a \tref{LA:permutation-matrix}{permutation matrix}. Rewriting as $P = U^{-1} A V^{-1}$, this says any invertible matrix $A$ can be brought into a permutation matrix via row and column operations, where we can only add row $i$ to row $j$ if $i > j$, and column $i$ to column $j$ if $i < j$.
+    
+    Essentially, this is how matrices are brought into \tref{LA:row-echelon-form}{reduced row echelon form}.
+\end{example}
+
+\begin{topic}{langs-theorem}{Lang's theorem}
+    Let $G_0$ be an \tref{algebraic-group}{algebraic group} over a finite field $\FF_q$ and let $G = G_0 \times_{\FF_q} \overline{\FF}_q$. Denote by $F : G \to G$ the morphism induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $F : \overline{\FF}_q \to \overline{\FF}_q, x \mapsto x^q$. The \textbf{Lang map} is the morphism
+    \[ L : G \to G, \quad g \mapsto g^{-1} F(g) . \]
+    Note that the points of $G$ fixed by $F$ is given by $\ker L$. \textbf{Lang's theorem} states that if $G$ is \tref{TO:connected-space}{connected}, then $L$ is surjective.
+\end{topic}
+
+\begin{example}{langs-theorem}
+    \begin{proof}
+        Note that $(dF)_1 = 0$ as $F(1) = 1$ and $q \ge 2$. Hence, $(dL)_1 = -1$ and in particular bijective. Therefore, the image $L(G)$ contains a (dense) open subset of $G$. Now, for any $x \in G$, let $L_x : G \to G$ be given by $g \mapsto g^{-1} x F(g)$. Then again, $(dL_x)_1$ is bijective, so $L_x(G)$ contains a (dense) open subset of $G$ as well. Therefore, $L(G) \cap L_x(G) \ne \varnothing$, so there exist $g, h \in G$ such that $g^{-1} F(g) = h^{-1} x F(h)$ and thus $x = hg^{-1} F(gh^{-1}) = L(gh^{-1})$, showing that $L$ is surjective.
+    \end{proof}
+\end{example}
+
+\begin{topic}{no-name-lemma}{no-name lemma}
+    Let $k$ be an \tref{AA:algebraically-closed-field}{algebraically closed field}, and $G$ a linear \tref{algebraic-group}{algebraic group} over $k$. Let $X$ be a \tref{variety}{variety} over $k$, with a $G$-action which is \textit{generically free}, i.e. there exists an open dense $U \subset X$ such that the stabilizer of any point $x \in U$ is trivial. Let $\pi : V \to X$ be a vector bundle of rank $r$, with a $G$-action on $V$ such that $\pi$ is $G$-equivariant and the action of any $g \in G$ restricts to a linear map $\pi^{-1}(x) \to \pi^{-1}(g \cdot x)$ for all $x \in X$. Then the \textbf{no-name lemma} states that there exists a $G$-equivariant \tref{birational-map}{birational map} $\phi : V \dashrightarrow X \times \AA^r_k$, where $G$ acts trivially on $\AA^r_k$, such that
+    \[ \svg \begin{tikzcd}
+        V \arrow[dashed]{rr}{\phi} \arrow[swap]{rd}{\pi} && X \times \AA^r_k \arrow{dl}{\pi_X} \\
+        & X &
+    \end{tikzcd} \]
+    commutes.
+\end{topic}
+
+\begin{topic}{kostant-rosenlicht-theorem}{Kostant--Rosenlicht theorem}
+    Let $G$ be a \tref{unipotent-algebraic-group}{unipotent algebraic group} acting on an affine \tref{variety}{variety}. The \textbf{Kostant--Rosenlicht theorem} states that every orbit in $X$ is closed.
+\end{topic}
+
+\begin{example}{kostant-rosenlicht-theorem}
+    \begin{proof}
+        Let $O$ be an orbit of $G$ in $X$. Replacing $X$ with the closure of $O$, we may assume that $O$ is dense in $X$. The closed complement $Z = X \setminus O$ is not equal to $X$ as $O \ne \varnothing$, so the ideal $I(Z)$ in $\mathcal{O}_X(X)$ is nonzero. As $Z$ is stable under $G$, so is the ideal $I(Z)$, and because $G$ is unipotent, there exists a nonzero $f \in I(Z)^G$. Because $f$ is fixed by $G$, it is constant on $O$, and by continuity also on $X$. Hence, $I(Z)$ contains a nonzero constant, so $Z$ is empty, and it follows that $O = X$ is closed.
+    \end{proof}
+\end{example}
+
+\begin{example}{kostant-rosenlicht-theorem}
+    Consider the unipotent group $\mathbb{U}_2(k) = \left\{ \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} \;:\; a \in k \right\}$ acting on the affine plane $\AA^2_k$ via
+    \[ \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x + ay \\ y \end{pmatrix} . \]
+    Then the orbits are given by the points $(x, 0)$ for $x \in k$ and the lines $L_y = \{ (x, y) \;:\; x \in k \}$ for $y \ne 0$, all of which are indeed closed.
+\end{example}
+
+\begin{topic}{isogeny}{isogeny}
+    Let $G$ and $H$ be \tref{algebraic-group}{algebraic groups}. An \textbf{isogeny} from $G$ to $H$ is a surjective morphism of algebraic groups $f : G \to H$ such that $\ker f$ is finite.
+\end{topic}
+
+\begin{example}{isogeny}
+    The natural map $\textup{SL}_n(\CC) \to \textup{PGL}_n(\CC)$ is an isogeny for any $n \ge 1$, as it is surjective, and its kernel has order $n$.
+\end{example}
+
+\begin{topic}{cartier-dual}{Cartier dual}
+    Let $G$ be a finite commutative \tref{group-scheme}{group scheme} over a field $k$, that is, $G = \Spec A$ for some finite-dimensional \tref{AA:hopf-algebra}{Hopf algebra} $A$ over $k$. The \textbf{Cartier dual} of $G$ is the group scheme $\hat{G} = \Spec A^*$ given by the dual Hopf algebra $A^*$.
+\end{topic}
+
+\begin{example}{cartier-dual}
+    \begin{itemize}
+        \item For any finite commutative group scheme $G$ over $k$, the Cartier dual of the Cartier dual of $G$ is isomorphic to $G$.
+        \item The Cartier dual of $\ZZ/n\ZZ$ is $\mu_n$.
+        \item Let $k$ be a field of characteristic $p$, and let $\alpha_p = \Spec k[t] / (t^p)$ as a subgroup of the additive group. Then the Cartier dual of $\alpha_p$ is itself.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{dual-abelian-variety}{dual abelian variety}
+    Let $X$ be an \tref{abelian-variety}{abelian variety} over a field $k$. The \textbf{dual abelian variety} $X^t$ of $X$ is the variety over $k$ representing the functor
+    \[ T \mapsto \operatorname{Pic}_{X/k}(T)^0 , \]
+    where $\operatorname{Pic}_{X/k}(T)$ is the \tref{picard-functor}{relative Picard functor}. There is a group law on $X^t$, given by the tensor product of line bundles, making $X^t$ into an abelian variety over $k$.
+\end{topic}
+
+\begin{topic}{poincare-bundle}{Poincaré bundle}
+    Let $X$ be an \tref{abelian-variety}{abelian variety} over a field $k$, and denote by $X^t$ its \tref{dual-abelian-variety}{dual}. The \textbf{Poincaré bundle} is the universal line bundle on $X \times_k X^t$, that is, the \tref{invertible-sheaf}{line bundle} $\mathcal{P} \in \operatorname{Pic}_{X/k}(X \times_k X^t)^0 = \Hom(X^t, X^t)$ corresponding to $\id_{X^t}$.
+\end{topic}
+
+\begin{topic}{wonderful-compactification}{wonderful compactification}
+    Let $G$ be a complex \tref{TO:connected-space}{connected} semisimple \tref{algebraic-group}{algebraic group} with trivial \tref{GT:group-center}{center} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$ and write $n = \dim G$. Consider the action of $G \times G$ on the \tref{LA:grassmannian}{Grassmanian} $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$ via the \tref{DG:adjoint-representation}{adjoint representation} $\textup{Ad}_{G \times G} : G \times G \to \textup{GL}(\mathfrak{g} \oplus \mathfrak{g})$. The \tref{GT:stabilizer}{stabilizer} of $\mathfrak{g}_\Delta = \{ (x, x) : x \in \mathfrak{g} \}$ in $G \times G$ is given by $G_\Delta = \{ (g, g) : g \in G \}$, so that $(G \times G) \cdot \mathfrak{g}_\Delta \cong (G \times G) / G_\Delta \cong G$.
+    The \textbf{wonderful compactification} of $G$ is
+    \[ \overline{G} = \overline{(G \times G) \cdot \mathfrak{g}_\Delta} \]
+    where the \tref{TO:closure}{closure} is taken in $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$. As $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$ is \tref{projective-variety}{projective}, also $\overline{G}$ is projective.
+\end{topic}
+
+\begin{example}{wonderful-compactification}
+    Consider the \tref{LA:projective-linear-group}{projective linear group} $G = \textup{PGL}_2(\CC)$. Its wonderful compactification is $\PP(\textup{Mat}_{2 \times 2}(\CC)) \cong \PP^3_\CC$.
+\end{example}
+
+\begin{topic}{pro-algebraic-completion}{pro-algebraic completion}
+    Let $\Gamma$ be a \tref{GT:group}{group} and $k$ be a \tref{AA:field}{field}. Consider the collection of pairs $(G, \varphi_G)$ consisting of an \tref{affine-scheme}{affine} \tref{group-scheme}{group scheme} $G$ over $k$ and a group morphism $\varphi_G : \Gamma \to G(k)$. Define a partial order on this collection by setting $(G, \varphi_G) \le (H, \varphi_H)$ if there exists a morphism $f : G \to H$ such that $\varphi_H = f \circ \varphi_G$. The \textbf{pro-algebraic completion} of $\Gamma$ is the \tref{CT:inverse-limit}{inverse limit}
+    \[ \widehat{\Gamma}^\textup{alg} = \varprojlim_{(G, \varphi_G)} G . \]
+\end{topic}
+
+\begin{topic}{deligne-lusztig-theory}{Deligne--Lusztig theory}
+    Let $G$ be a \tref{TO:connected-space}{connected} \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over $\FF_q$ and let $T \subset G$ be a maximal \tref{algebraic-torus}{torus}. The maximal torus $\overline{T} = T \times_{\FF_q} \overline{\FF}_q$ of $\overline{G} = G \times_{\FF_q} \overline{\FF}_q$ is contained inside a \tref{borel-subgroup}{Borel subgroup} $\overline{B} = \overline{U} \rtimes \overline{T} \subset \overline{G}$, where $\overline{U}$ is the unipotent radical of $\overline{B}$.
+    The \textbf{Deligne--Lusztig variety} $X_T$ is the variety over $\overline{\FF_q}$ given by
+    \[ \begin{aligned}
+        X_T &= \{ g \overline{U} \in \overline{G} / \overline{U} \mid g \overline{U} \cap F(g U) \ne \varnothing \} \\
+            &= \{ g \overline{U} \in \overline{G} / \overline{U} \mid g^{-1} F(g) \in \overline{U} F(\overline{U}) \} \\
+            &\cong \{ g \in G \mid g^{-1} F(g) \in \overline{U} F(\overline{U}) \} / (\overline{U} \cap F(\overline{U}))
+    \end{aligned} \]
+    where $F : \overline{G} \to \overline{G}$ denotes the \tref{AA:frobenius-morphism}{Frobenius morphism}.
+    
+    Note that $G(\FF_q) \times T(\FF_q)$ acts on $X_T$ via $(g, t) \cdot x = g x t^{-1}$. For any irreducible character $\theta$ of $T(\FF_q)$ over $\overline{\QQ}_\ell$, for some prime number $\ell$ coprime to $q$, the \textbf{Deligne--Lusztig representation} $R^G_T(\theta)$ is the virtual representation
+    \[ R^G_T(\theta) = \sum_{i \ge 0} (-1)^i H_c^i(X_T, \overline{\QQ}_\ell) \otimes_{\overline{\QQ}_\ell[T(\FF_q)]} \theta \]
+    inside the \tref{RT:representation-ring}{representation ring} $R_{\overline{\QQ}_\ell}(G(\FF_q))$.
+\end{topic}
+
+% \begin{example}{deligne-lusztig-theory}
+%     Let $G = \textup{SL}_2$ with $B \subset G$ any Borel subgroup invariant under $F$. The Weyl group $W$ is isomorphic to $\ZZ/2\ZZ = \{ 1, \sigma \}$, and the Deligne--Lusztig varieties are given by
+%     \[ X(1) = \mathcal{O}(1) \cap \Gamma_F = G^F / B^F = \PP^1(\FF_q) \]
+%     and
+%     \[ X(\sigma) = \mathcal{O}(\sigma) \cap \Gamma_F = \PP^1 \setminus \PP^1(\FF_q) . \]
+%     Note that the latter is isomorphic to $\{ x^q y - x y^q = 1 \}$.
+% \end{example}
+
+% \begin{example}{deligne-Lusztig-theory}
+%     The Deligne--Lusztig varieties $X(w)$ are non-empty for all $w \in W$. Namely, by \tref{langs-theorem}{Lang's theorem} there exists some $g \in G$ such that $g^{-1} F(g)$ represents $w$, so that $(g B, F(g B)) \in X(w)$.
+% \end{example}

@@ -1,0 +1,1258 @@
+\begin{topic}{topological-manifold}{topological manifold}
+    A \textbf{topological manifold of dimension $n$} is a \tref{TO:second-countable-space}{second countable} \tref{TO:hausdorff-space}{Hausdorff} \tref{TO:topological-space}{topological space} in which every point has an open neighborhood that is \tref{TO:homeomorphism}{homeomorphic} to an open subset of $\RR^n$.
+\end{topic}
+
+\begin{topic}{atlas}{atlas}
+    Let $M$ be a \tref{topological-manifold}{topological manifold}. A \textbf{chart} on $M$ is a pair $(U, \varphi)$ where $U$ is an open subset of $M$ and $\varphi : U \to \tilde{U}$ is a \tref{TO:homeomorphism}{homeomorphism} from $U$ to an open subset $\tilde{U} \subset \RR^n$. An \textbf{atlas} for $M$ is a collection of charts $\{ (U_\alpha, \varphi_\alpha) \}$ such that the $U_\alpha$ cover $M$.
+    
+    An atlas is \textbf{smooth} if any two charts $(U, \varphi)$ and $(V, \psi)$ are \textit{smoothly compatible}, that is, either $U \cap V = \varnothing$ or the \textit{transition map}
+    \[ \psi \circ \varphi^{-1} : \varphi(U \cap V) \to \psi(U \cap V) \]
+    is \textit{smooth}: all its continuous partial derivatives exist.
+    
+    A smooth atlas is \textbf{maximal} if it is not contained in any strictly larger smooth atlas.
+\end{topic}
+
+\begin{topic}{smooth-structure}{smooth structure}
+    A \textbf{smooth structure} on a \tref{topological-manifold}{topological manifold} $M$ is a \tref{atlas}{maximal smooth atlas} for $M$.
+\end{topic}
+
+\begin{example}{smooth-structure}
+    A topological manifold can have multiple different smooth structures. Namely, consider the (open) disk $M = \{ x \in \RR^n : |x| < 1 \}$ as a topological manifold, and define a family of homeomorphisms
+    \[ \varphi_k : M \to M, \quad \varphi_k(x) = |x|^{k - 1} x . \]
+    Then for every $k \ge 1$, the chart $(M, \varphi_k)$ defines a smooth structure on $M$. However, these charts are not smoothly compatible since
+    \[ \varphi_\ell \circ \varphi_k^{-1} (x) = |x|^{\ell/k - 1} x \]
+    is not smooth at the origin for $\ell < k$.
+\end{example}
+
+\begin{topic}{smooth-manifold}{smooth manifold}
+    A \textbf{smooth manifold} is \tref{topological-manifold}{topological manifold} $M$ together with a \tref{smooth-structure}{smooth structure} on $M$.
+\end{topic}
+
+\begin{topic}{smooth-map}{smooth map}
+    A map $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is \textbf{smooth} if for all \tref{atlas}{charts} $(U, \varphi)$ of $M$ and $(V, \psi)$ of $N$, the composition
+    \[ \psi \circ f \circ \varphi^{-1} : \varphi(f^{-1}(V) \cap U) \to \psi(V) \]
+    is \textit{smooth}, i.e. all its continuous partial derivatives exist.
+\end{topic}
+
+\begin{topic}{diffeomorphism}{(local) diffeomorphism}
+    A \textbf{diffeomorphism} is a \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} that has a smooth inverse $f^{-1} : N \to M$.
+    
+    A \textbf{local diffeomorphism} is a smooth map $f : M \to N$ for which every point $p \in M$ has a neighborhood $U \subset M$ such that $f(U)$ is open in $N$ and $f : U \to f(U)$ is a diffeomorphism.
+    
+    The manifolds $M$ and $N$ are called \textbf{diffeomorphic} if there exists diffeomorphism between them.
+\end{topic}
+
+\begin{topic}{submersion}{submersion}
+    A \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is a \textbf{submersion} if the derivative $df_p : T_p M \to T_{f(p)} N$ is surjective for all $p \in M$.
+\end{topic}
+
+\begin{topic}{immersion}{immersion}
+    A \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is an \textbf{immersion} if the derivative $df_p : T_p M \to T_{f(p)} N$ is injective for all $p \in M$.
+\end{topic}
+
+\begin{example}{immersion}
+    Every \tref{embedding}{embedding} is an immersion, but not conversely. For example, the map
+    \[ S^1 \to S^1, \quad \theta \mapsto 2 \theta  \]
+    is an immersion, but not embedding: it is not injective.
+\end{example}
+
+\begin{topic}{embedding}{embedding}
+    A \tref{smooth-map}{smooth map} $f : M \to N$ between \tref{smooth-manifold}{smooth manifolds} is an \textbf{embedding} if it is an \tref{immersion}{immersion} and a \tref{TO:homeomorphism}{homeomorphism} onto its image.
+\end{topic}
+
+\begin{topic}{tangent-space}{tangent space}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $p$ a point of $M$. A \textbf{derivation at $p$}, or a \textbf{tangent vector at $p$}, is a linear map $v : C^\infty(M) \to \RR$ satisfying
+    \[ v(fg) = f(p) v(g) + g(p) v(f) \]
+    for all $f, g \in C^\infty(M)$. The \textbf{tangent space} to $M$ at $p$ is the set of all derivations at $p$, denoted $T_p M$. It is a real \tref{LA:vector-space}{vector space} of the same dimension as the dimension of $M$.
+\end{topic}
+
+\begin{topic}{tangent-bundle}{tangent bundle}
+    Let $M$ be an $n$-dimensional \tref{smooth-manifold}{smooth manifold}. The \textbf{tangent bundle} of $M$, denoted $TM$, is defined as the disjoint union of the \tref{tangent-space}{tangent spaces} at all points of $M$,
+    \[ TM = \bigsqcup_{p \in M} T_p M . \]
+    It naturally has the structure of a $2n$-dimensional smooth manifold such that the projection map
+    \[ \pi : TM \to M, \quad (p, v) \mapsto p \]
+    is \tref{smooth-map}{smooth}.
+\end{topic}
+
+\begin{topic}{vector-field}{vector field}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{vector field} on $M$ is a section of the \tref{tangent-bundle}{tangent bundle} $\pi : TM \to M$, i.e. a map $X : M \to TM$ such that $X(p) \in T_p M$ for all $p \in M$.
+\end{topic}
+
+\begin{topic}{cotangent-space}{cotangent space}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{cotangent space} to $M$ at a point $p \in M$, denoted $T^*_p M$ is the \tref{LA:dual-vector-space}{dual} of the \tref{tangent-space}{tangent space} $T_p M$,
+    \[ T^*_p M = (T_p M)^* . \]
+    Elements of $\xi \in T^*_p M$ are called \textbf{tangent covectors} at $p$.
+\end{topic}
+
+\begin{topic}{cotangent-bundle}{cotangent bundle}
+    Let $M$ be an $n$-dimensional \tref{smooth-manifold}{smooth manifold}. The \textbf{cotangent bundle} of $M$, denoted $T^*M$, is defined as the disjoint union of the \tref{cotangent-space}{cotangent spaces} at all points of $M$,
+    \[ T^*M = \bigsqcup_{p \in M} T^*_p M . \]
+    It naturally has the structure of a $2n$-dimensional smooth manifold such that the projection map
+    \[ \pi : T^*M \to M, \quad (p, \xi) \mapsto p \]
+    is \tref{smooth-map}{smooth}.
+\end{topic}
+
+\begin{topic}{vector-bundle}{vector bundle}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{vector bundle of rank $k$} over $M$ is a smooth manifold $E$ together with a surjective \tref{smooth-map}{smooth map} $\pi : E \to M$ such that
+    \begin{itemize}
+        \item for each $p \in M$, the \textit{fiber} $E_p = \pi^{-1}(p)$ has the structure of a real \tref{LA:vector-space}{vector space},
+        \item for each $p \in M$, there exists a neighborhood $U \subset M$ of $p$ and a \tref{diffeomorphism}{diffeomorphism} $\Phi : \pi^{-1}(U) \to U \times \RR^k$ such that
+        \[ \svg \begin{tikzcd} \pi^{-1}(U) \arrow{rr}{\Phi} \arrow[swap]{dr}{\pi} && U \times \RR^k \arrow{dl}{\pi_U} \\ & U & \end{tikzcd} \]
+        commutes, and the restriction of $\Phi|_{E_p} : E_p \to \{ p \} \times \RR^k \isom \RR^k$ is a linear isomorphism.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{differential-form}{differential form}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{smooth differential $k$-form} is a smooth section of the $k$-th exterior power of the \tref{cotangent-bundle}{cotangent bundle} $\wedge^k T^* M$. The set of all smooth differential $k$-forms is a \tref{LA:vector-space}{vector space} denoted by $\Omega^k(M)$.
+\end{topic}
+
+\begin{topic}{exterior-derivative}{exterior derivative}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{exterior product} is the unique linear map $d : \Omega^k(M) \to \Omega^{k - 1}(M)$ between \tref{differential-form}{differential forms} satisfying
+    \begin{itemize}
+        \item for any smooth function $f$ (that is, a $0$-form), $df$ is the \textit{differential} of $f$, that is, $df(X) = X(f)$ for any \tref{vector-field}{vector field} $X$,
+        \item $d(df) = 0$ for all smooth functions $f$,
+        \item $d(\omega \wedge \eta) = d \omega \wedge \eta + (-1)^k (\omega \wedge d\eta)$ for all $k$-forms $\omega$ and $p$-forms $\eta$.
+    \end{itemize}
+    It can be shown that $d(d\omega) = 0$ for all $k$-forms $\omega$, which is commonly expressed as $d^2 = 0$.
+    
+    In local coordinates, if $\omega = \sum_I \omega_I dx^I$ (multi-index notation) then
+    \[ d \omega = \sum_I \sum_j \frac{\partial \omega_I}{\partial x^j} dx^j \wedge dx^I . \]
+\end{topic}
+
+\begin{example}{exterior-derivative}
+    Let $\omega = x^2 \; dy \wedge dz + yz \; dx \wedge dz$ be a $2$-form on $\RR^3$. Then
+    \[ \begin{aligned}
+        d\omega
+            &= 2x \; dx \wedge dy \wedge dz + z \; dy \wedge dx \wedge dz + y \; dz \wedge dx \wedge dz \\
+            &= (2x - z) \; dx \wedge dy \wedge dz .
+    \end{aligned} \]
+\end{example}
+
+\begin{example}{exterior-derivative}
+    Given $\omega \in \Omega^k$, we have
+    \[ \begin{aligned} (d\omega)(X_0, \ldots, X_k) &= \sum_{i = 0}^{k} X_i\left( \omega\left(X_0, \ldots, \widehat{X}_i, \ldots, X_k \right) \right) \\ &+ \sum_{0 \le i < j \le k + 1} (-1)^{i + j} \omega\left([X_i, X_j], X_0, \ldots, \widehat{X}_i, \ldots, X_k \right) , \end{aligned} \]
+    where $[X_i, X_j]$ denotes the \tref{lie-bracket-vector-fields}{Lie bracket for vector fields}, and $\hat{X}_i$ means we omit $X_i$ from the sequence.
+\end{example}
+
+\begin{topic}{interior-product}{interior product}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{interior product} is the \textit{contraction} of a \tref{differential-form}{differential form} with a \tref{vector-field}{vector field}. That is, if $X$ is a vector field on $M$, then
+    \[ \iota_X : \Omega^k(M) \to \Omega^{k - 1} \]
+    is the map defined by
+    \[ (\iota_X \omega)(Y_1, \ldots, Y_{k - 1}) = \omega(X, Y_1, \ldots, Y_{k - 1}) \]
+    for any vector fields $Y_1, \ldots, Y_{k - 1}$.
+\end{topic}
+
+\begin{example}{interior-product}
+    For $\alpha \in \Omega^k(M)$ and $\beta \in \Omega^\ell(M)$, the interior product satisfies
+    \[ \iota_X (\alpha \wedge \beta) = (\iota_X \alpha) \wedge \beta + (-1)^k \alpha \wedge (\iota_X \beta) . \]
+\end{example}
+
+\begin{topic}{lie-derivative}{Lie derivative}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Lie derivative} of a \tref{tensor-field}{tensor field} $T$ with respect to a \tref{vector-field}{vector field} $X$ is the tensor field $\mathcal{L}_X T$ (of the same type as $T$), given by
+    \[ (\mathcal{L}_X T)_p = \frac{d}{dt}\Big|_{t = 0} \left( \left(\varphi^t_X\right)^* T \right)_p \]
+    for all points $p \in M$. Here $\varphi^t_X$ denotes the flow of $X$.
+\end{topic}
+
+\begin{example}{lie-derivative}
+    When $f$ is a smooth function, we have
+    \[ \begin{aligned}
+        (\mathcal{L}_X f)(p)
+            &= \frac{d}{dt}\Big|_{t = 0} \left(\left(\varphi^t_X\right)^* f \right)(p) \\
+            &= \frac{d}{dt}\Big|_{t = 0} f \left(\varphi^t_X(p)\right) \\
+            &= df_p \left( \frac{d}{dt}\Big|_{t = 0} \varphi^t_X(p) \right) \\
+            &= df_p(X_p) \\
+            &= X(f)(p) .
+    \end{aligned} \]
+    
+\end{example}
+
+\begin{topic}{lie-bracket-vector-fields}{Lie bracket of vector fields}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Lie bracket} of two \tref{vector-field}{vector fields} $X, Y$ is defined as the vector field $[X, Y]$ given by
+    \[ [X, Y](f) = X(Y(f)) - Y(X(f)) \]
+    for all smooth functions $f$ on $M$.
+\end{topic}
+
+\begin{topic}{cartan-formula}{Cartan formula}
+    The \textbf{Cartan formula} relates the \tref{interior-product}{interior product}, \tref{exterior-derivative}{exterior derivative} and \tref{lie-derivative}{Lie derivative} via
+    \[ \mathcal{L}_X \omega = d(\iota_X \omega) + \iota_X d \omega . \]
+\end{topic}
+
+\begin{topic}{closed-form}{closed form}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \tref{differential-form}{differential form} $\omega$ is \textbf{closed} if its \tref{exterior-derivative}{exterior derivative} is zero, that is, if $dw = 0$.
+\end{topic}
+
+\begin{topic}{exact-form}{exact form}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \tref{differential-form}{differential form} $\omega$ is \textbf{exact} if it is the \tref{exterior-derivative}{exterior derivative} of another differential form $\eta$, that is, if $\omega = d \eta$.
+\end{topic}
+
+\begin{topic}{tensor-field}{tensor field}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{tensor bundle} on $M$ is any \tref{vector-bundle}{vector bundle} of the form
+    \[ \underbrace{TM \otimes \cdots TM}_{p \text{ times}} \otimes \underbrace{T^*M \otimes \cdots T^*M}_{q \text{ times}} . \]
+    A \textbf{tensor field} of \textit{type} $(p, q)$ is a section of this bundle.
+\end{topic}
+
+\begin{topic}{parallelizable-manifold}{parallelizable manifold}
+    A \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{parallelizable} if its \tref{tangent-bundle}{tangent bundle} $TM$ is trivial, that is, $TM$ is \tref{diffeomorphism}{diffeomorphic} to $M \times \RR^n$. A choice of trivialization is called a \textit{framing} of $M$.
+\end{topic}
+
+\begin{example}{parallelizable-manifold}
+    \begin{itemize}
+        \item Any \tref{lie-group}{Lie group} $G$ is parallelizable: any basis $v_1, \ldots, v_n$ for $T_e G$ gives a bundle isomorphism
+        \[ \Phi : G \times \RR^n \to TG, \quad (g, (x_1, \ldots, x_n)) \mapsto \left(g, (L_g)_* \sum_{i = 1}^{n} x_i v_i \right) , \]
+        where $L_g : G \to G$ denotes left multiplication $h \mapsto gh$.
+        \item For any $n \ge 1$, the $2n$-sphere $S^{2n}$ is not parallelizable by the \tref{hairy-ball-theorem}{hairy ball theorem}.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{inverse-function-theorem}{inverse function theorem}
+    The \textbf{inverse function theorem} states that if $f : M \to N$ is a \tref{smooth-map}{smooth map} between \tref{smooth-manifold}{smooth manifolds}, whose derivative $df_p : T_p M \to T_{f(p)} N$ at some point $p \in M$ is an isomorphism, then $f$ is a \tref{diffeomorphism}{local diffeomorphism} at $p$.
+\end{topic}
+
+\begin{topic}{partition-of-unity}{partition of unity}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{partition of unity} on $M$ is a set of smooth functions $\{ f_\alpha : M \to [0, 1] \}$ so that each point $p \in M$ has a neighborhood where only finitely many $f_\alpha$ are nonzero and $\sum_\alpha f_\alpha(p) = 1$.
+    
+    It is a theorem that for any open cover $\{ U_\alpha \}$ of $M$, there exists a partition of unity $\{ f_\alpha \}$ such that the support of $f_\alpha$ is contained in $U_\alpha$.
+\end{topic}
+
+\begin{topic}{whitney-embedding-theorem}{Whitney embedding theorem}
+    The \textbf{Whiteney embedding theorem} states that any \tref{smooth-manifold}{smooth $n$-dimensional manifold} can be \tref{embedding}{embedded} in $\RR^{2n}$, for all $n > 0$.
+\end{topic}
+
+\begin{example}{whitney-embedding-theorem}
+    The dimension $2n$ is a sharp lower bound: projective space $\RR P^n$ cannot be embedded in $\RR^{2n - 1}$ whenever $n$ is a power of $2$.
+\end{example}
+
+\begin{topic}{riemannian-manifold}{Riemannian manifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Riemannian metric} on $M$ is a smooth symmetric \tref{tensor-field}{$(0, 2)$-tensor field} $g$ that is positive definite at each point $p \in M$. The pair $(M, g)$ is called a \textbf{Riemannian manifold}.
+    
+    A \textbf{pseudo-Riemannian metric} on $M$ is a smooth symmetric $(0, 2)$-tensor field $g$ that is nondegenerate at each point $p \in M$. The pair $(M, g)$ is called a \textbf{pseudo-Riemannian manifold}.
+\end{topic}
+
+\begin{topic}{complex-manifold}{(almost) complex manifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost complex structure} on $M$ is a smooth \tref{tensor-field}{tensor field} $J \in \Gamma(TM \otimes T^*M)$ satisfying $J^2 = -1$ when viewed as a bundle isomorphism $J : TM \to TM$. The pair $(M, J)$ is called an \textbf{almost complex manifold}.
+    
+    A smooth manifold $M$ is \textbf{complex} if it has an \tref{atlas}{atlas} of charts to open subsets of $\CC^n$, such that the transition maps are \tref{CA:holomorphic-function}{holomorphic}. Any complex smooth manifold has an almost complex structure given by multiplication by $i$. If an almost complex structure arises in this way, it is called a \textbf{complex structure} or \textit{integrable}.
+ \end{topic}
+ 
+ \begin{example}{complex-manifold}
+    Any complex manifold is an almost complex manifold, but the converse does not hold. Consider the $6$-sphere inside the (imaginary) octonions
+     \[ S^6 = \left\{ \sum_{i = 1}^{7} x_i e_i \in \mathbb{O} : |x| = 1 \right\} , \]
+     and let $J : TS^6 \to TS^6$ be given at a point $p \in S^6$ by multiplication by $p$, where $T_p S^6 = p^\perp$. Then $J$ is defines an almost complex structure, but it is not integrable.
+ \end{example}
+
+\begin{topic}{kahler-manifold}{Kähler manifold}
+    A \textbf{Kähler manifold} is a \tref{smooth-manifold}{smooth manifold} $M$ with a \tref{complex-manifold}{complex structure} $J$, a \tref{riemannian-manifold}{Riemannian structure} $g$, and a \tref{symplectic-manifold}{symplectic structure} $\omega$, which are compatible in the sense that
+    \[ g(X, Y) = \omega(X, JY) \]
+    for all \tref{vector-field}{vector fields} $X, Y$ on $M$.
+    
+    Note that two-out-of-three structures determines the other structure.
+\end{topic}
+
+\begin{topic}{connection}{connection}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} over a \tref{smooth-manifold}{smooth manifold} $M$. A \textbf{connection} on $E$ is a linear differential operator
+    \[ \nabla : \Gamma(E) \to \Gamma(T^*M \otimes E) \]
+    satisfying the \textit{Leibniz rule}
+    \[ \nabla(fs) = df \otimes s + f \nabla s \]
+    for all smooth functions $f$ and sections $s \in \Gamma(E)$.
+\end{topic}
+
+\begin{example}{connection}
+    Let $\nabla$ and $\nabla'$ be two connections on $E$. Then for any $f \in C^\infty(M)$ and $s \in \Gamma(E)$,
+    \[ (\nabla' - \nabla) (fs) = df \otimes s + f \nabla' s - df \otimes s - f \nabla s = f(\nabla' - \nabla) s , \]
+    so $\nabla' - \nabla : \Gamma(E) \to \Gamma(T^*M \otimes E)$ is $C^\infty(M)$-linear and thus corresponds to a section of $\Hom(E, T^*M \otimes E) \isom T^*M \otimes \textup{End}(E)$. Hence, there exists some $A \in \Omega^1(M; \textup{End}(E))$ such that $\nabla' = \nabla + A$. This shows there are as many connections on $E$ as there are sections on $\Omega^1(M; \textup{End}(E))$. (Indeed there exists at least one connection on any $E$ using a partition of unity and the trivial connection.)
+\end{example}
+
+\begin{example}{connection}
+    Consider a trivialization $\Phi : E|_U \xrightarrow{\sim} U \times \RR^k$. The \textit{trivial connection} $\nabla^0$ on $E|_U$ is given by
+    \[ \nabla^0 \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} = \begin{pmatrix} df_1 \\ \vdots \\ df_k \end{pmatrix} . \]
+    Now by the above example, for any connection $\nabla$ on $E$, the induced connection $\nabla^\Phi$ on the trivialization has the form $\nabla^\Phi = \nabla^0 + A^\Phi$ for some $A^\Phi \in \Omega^1(U; \textup{End}(\RR^k))$. That is,
+    \[ \nabla^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} = \begin{pmatrix} df_1 \\ \vdots \\ df_k \end{pmatrix} + A^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} . \]
+    The matrix $A^\Phi$ is called the \textit{connection matrix} of $\nabla$ in the trivialization $\Phi$. Often one writes \[ \nabla = d + A^\Phi , \]
+    with the understanding that this only makes sense in a trivialization of $E$.
+\end{example}
+
+\begin{example}{connection}
+    Given a connection $\nabla_E$ on a vector bundle $E$, there are naturally induced connections:
+    \begin{itemize}
+        \item (\textit{Whitney sum}) $\nabla_{E \oplus F}$ on $E \oplus F$ given by
+        \[ \nabla_{E \oplus F}(s_E + s_F) = \nabla_E(s_E) + \nabla_F(s_F), \quad \textup{ for } s_E \in \Gamma(E), s_F \in \Gamma(F) . \]
+        \item (\textit{tensor product}) $\nabla_{E \otimes F}$ on $E \otimes F$ given by
+        \[ \nabla_{E \otimes F}(s_E \otimes s_F) = \nabla_E(s_E) \otimes s_F + s_E \otimes \nabla_F(s_F), \quad \textup{ for } s_E \in \Gamma(E), s_F \in \Gamma(F) . \]
+        \item (\textit{dual bundle}) $\nabla_{E^*}$ on the dual bundle $E^*$, given by
+        \[ d \langle \sigma, s \rangle = \langle \nabla_{E^*} (\sigma), s \rangle + \langle \sigma, \nabla_E(s) \rangle, \quad \textup{ for } \sigma \in \Gamma(E^*), s \in \Gamma(E) . \]
+        \item (\textit{hom bundle}) $\nabla_{\Hom(E, F)}$ on the bundle $\Hom(E, F)$, given by
+        \[ \nabla_F(\varphi(s)) = \nabla_{\Hom(E, F)}(\varphi)(s) + \varphi(\nabla_E(s)), \quad \textup{ for } \varphi : E \to F, s \in \Gamma(E) . \]
+    \end{itemize}
+    Furthermore, a connection $\nabla$ on $E$ extends uniquely to linear operators
+    \[ \nabla : \Omega^k(M; E) \to \Omega^{k + 1}(M; E), \quad \textup{ for all } k \ge 0,  \]
+    by requiring
+    \[ \nabla (\eta \otimes s) = d \eta \otimes s + (-1)^k \eta \otimes \nabla s \]
+    for all $\eta \in \Omega^k(M)$ and $s \in \Gamma(E)$.
+\end{example}
+
+\begin{topic}{curvature-connection}{curvature of a connection}
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The map $\nabla^2 : \Omega^0(M; E) \to \Omega^2(M; E)$ is $C^\infty(M)$-linear and hence induced by a section $F_\nabla \in \Omega^2(M; \textup{End}(E))$, called the \textbf{curvature} of $\nabla$.
+    
+    For any $k \ge 0$, the map $\nabla^2 : \Omega^k(M; E) \to \Omega^{k + 2}(M; E)$ is given by $\nabla^2 \omega = F_\nabla \wedge \omega$.
+\end{topic}
+
+\begin{example}{curvature-connection}
+    Let $\nabla$ and $\nabla' = \nabla + A$ be two connections on $E$, related by some $A \in \Omega^1(M; \textup{End}(E))$. Then their curvatures are related via
+    \[ F_{\nabla'} = F_\nabla + \nabla A + A \wedge A , \]
+    since
+    \[ (\nabla')^2 s = (\nabla + A)^2 s = \nabla^2 s + \nabla (As) + A \nabla s + A \wedge A s = (F_\nabla + \nabla A + A \wedge A) s . \]
+    In particular, in a local trivialization $\nabla = d + A$, we have $F_\nabla = da + A \wedge A$.
+\end{example}
+
+\begin{topic}{bianchi-identity}{Bianchi's identity}
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$, and $F_\nabla$ the corresponding \tref{curvature-connection}{curvature}. Then \textbf{Bianchi's identity} states that
+    \[ \nabla F_\nabla = 0 . \]
+\end{topic}
+
+\begin{example}{bianchi-identity}
+    \begin{proof}
+        For any section $s$ of $E$,
+        \[ \nabla^3 s = \nabla (F_\nabla s) = (\nabla F_\nabla) s + F_\nabla (\nabla s) , \]
+        and since $F_\nabla = \nabla^2$, it follows that $(\nabla F_\nabla) s = 0$. Therefore, $\nabla F_\nabla = 0$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{flat-connection}{flat connection}
+    A \tref{connection}{connection} $\nabla$ on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$ is \textbf{flat} if its \tref{curvature-connection}{curvature} is zero.
+\end{topic}
+
+\begin{topic}{curvature-form}{curvature form}
+    Let $\nabla$ be a \tref{connection}{connection} on a \tref{vector-bundle}{vector bundle} $\pi : E \to M$. The \textbf{curvature form} of $E$ is the $2$-form $k(E) = \frac{1}{2 \pi i} \tr F_\nabla \in \Omega^2(M)$, where $F_\nabla \in \Omega^2(M; \textup{End}(E))$ is the \tref{curvature-connection}{curvature} of $\nabla$. It is a \tref{closed-form}{closed form} and the corresponding cohomology class $\kappa(E) = [k(E)] \in H_\textup{dR}^2(M)$ is called the \textbf{curvature class} of $E$.
+\end{topic}
+
+\begin{topic}{torsion-connection}{torsion of connection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} with a \tref{connection}{connection} $\nabla$ on the \tref{tangent-bundle}{tangent bundle} $TM$ of $M$. The \textbf{torsion} of $\nabla$ is the tensor $T \in \Gamma(TM \otimes \wedge^2 T^* M)$ given by
+    \[ T_\nabla(X, Y) = \nabla_X Y  - \nabla_Y X - [X, Y] , \]
+    where $[X, Y]$ denotes the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}.
+    
+    The connection $\nabla$ is called \textit{torsion-free} if $T_\nabla = 0$.
+\end{topic}
+
+\begin{topic}{levi-civita-connection}{Levi-Civita connection}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Levi-Civita connection} is the unique \tref{connection}{connection} on the \tref{tangent-bundle}{tangent bundle} that preserves the metric $g$, i.e. $\nabla g = 0$, and is \tref{torsion-connection}{torsion-free}.
+\end{topic}
+
+\begin{topic}{christoffel-symbols}{Christoffel symbols}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Christoffel symbols} ${\Gamma^k}_{ij}$ are the connection coefficients (in a given coordinate basis) of the \tref{levi-civita-connection}{Levi-Civita connection}. That is, they are the unique coefficients such that
+    \[ \nabla_{\partial_i} \partial_j = {\Gamma^k}_{ij} \partial_k , \]
+    where the $\partial_i$ denote a local coordinate basis, and $\nabla$ the Levi-Civita connection.
+    
+    The Christoffel symbols can be computed from the metric $g$ via
+    \[ {\Gamma^k}_{ij} = \frac{1}{2} g^{k \ell} \left(\frac{\partial g_{\ell i}}{\partial x^j} + \frac{\partial g_{\ell j}}{\partial x^i} - \frac{\partial g_{ij}}{\partial x^\ell} \right) . \]
+\end{topic}
+
+\begin{example}{christoffel-symbols}
+    Consider the upper-plane Poincaré model
+    \[ \mathbb{H}^2 = \{ (x, y) \in \RR^2 \mid y > 0 \}  \]
+    with metric $g(x, y) = (dx^2 + dy^2) / y^2$. Then a straightforward computation shows that
+    \[ \begin{array}{cccc}
+        \Gamma_{xx}^x = 0, & \Gamma_{xx}^y = 1/y, & \Gamma_{xy}^x = -1/y, & \Gamma_{xy}^y = 0, \\
+        \Gamma_{yx}^x = -1/y, & \Gamma_{yx}^y = 0, & \Gamma_{yy}^x = 0, & \Gamma_{yy}^y = -1/y .
+    \end{array} \]
+\end{example}
+
+\begin{topic}{parallel-transport}{parallel transport}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}, and $E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with \tref{connection}{connection} $\nabla$. A section $s : M \to E$ is called \textbf{parallel} if $\nabla s = 0$.
+    
+    The problem of parallel transport asks, given a point $p \in M$ and vector $v \in E_p$, if there exists (locally) a section $s : U \to E$ such that $\nabla s = 0$ and $s(p) = v$, for some neighborhood $U \subset M$ of $p$. If it exists, this section is called the \textbf{parallel transport} of $v$. It is a theorem that this can be done for all $p$ and $v$ if and only if the \tref{curvature-connection}{curvature} $F_\nabla$ vanishes.
+\end{topic}
+
+\begin{example}{parallel-transport}
+    In particular, given a path $\gamma : [0, 1] \to M$, the connection $\gamma^* \nabla$ on $\gamma^* E$ must have zero curvature since $F_{\gamma^* \nabla}$ is a $2$-form. Therefore, for any starting vector $v \in E_{\gamma(0)}$ there is a unique section $s \in \Gamma(\gamma^* E)$ such that $s(0) = v$ and $(\gamma^* \nabla) s = 0$.
+\end{example}
+
+\begin{topic}{affine-connection}{affine connection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{affine connection} on $M$ is a \tref{connection}{connection} on the \tref{tangent-bundle}{tangent bundle} $TM$ of $M$.
+\end{topic}
+
+\begin{topic}{abelian-connection}{abelian connection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \tref{connection}{connection} $\nabla$ on a \tref{vector-bundle}{vector bundle} $E \to M$ is \textbf{abelian} if the induced connection on $\textup{End}(E)$ is \tref{flat-connection}{flat}.
+\end{topic}
+
+\begin{topic}{distribution}{distribution}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{distribution} on $M$ is a vector subbundle $\mathcal{D} \subset TM$.
+\end{topic}
+
+\begin{example}{distribution}
+    If $M$ has a nowhere vanishing vector field $X$, the subbundle $\mathcal{D} \subset TM$ generated (fiberwise) by $X$ is a rank one distribution.
+\end{example}
+
+\begin{example}{distribution}
+    Given a \tref{submersion}{submersion} $f : N \to M$, the subbundle $\ker(f_*) \subset TN$ is a distribution on $N$ of rank $\dim N - \dim M$.
+\end{example}
+
+\begin{topic}{integral-submanifold}{integral submanifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. Given a rank $k$ \tref{distribution}{distribution} $\mathcal{D} \subset TM$ and a point $p \in M$, an \textbf{integral submanifold} of $\mathcal{D}$ through $p$ is an \tref{immersion}{immersion} of a $k$-dimensional manifold $i : N \to M$ such that $p \in i(N)$ and for all $q \in N$ one has $i_*(T_q N) = \mathcal{D}_{i(q)}$.
+\end{topic}
+
+\begin{topic}{integrable-distribution}{integrable distribution}
+    A \tref{distribution}{distribution} $\mathcal{D} \subset TM$ on a \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{integrable} if for every $p \in M$ there exists an \tref{integral-submanifold}{integral submanifold} of $\mathcal{D}$ through $p$.
+\end{topic}
+
+\begin{topic}{involutive-distribution}{involutive distribution}
+    A \tref{distribution}{distribution} $\mathcal{D} \subset TM$ on a \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{involutive} if for all $X, Y \in \Gamma(\mathcal{D})$, the \tref{lie-bracket-vector-fields}{Lie bracket} $[X, Y] \in \Gamma(\mathcal{D})$.
+\end{topic}
+
+\begin{example}{involutive-distribution}
+    Every \tref{integrable-distribution}{integral distribution} is involutive. Indeed, at any point $p \in M$ there exists an \tref{integral-submanifold}{integral submanifold} $i : N \to M$, so that $X, Y \in \Gamma(\mathcal{D})$ can be viewed as vector fields on $N$. Hence, $[X, Y]$ is also a vector field on $N$.
+    
+    Conversely, it is a theorem by Frobenius that every involutive distribution is integrable.
+\end{example}
+
+\begin{topic}{vertical-distribution}{vertical distribution}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $p : E \to M$ a \tref{vector-bundle}{vector bundle} on $M$. Then the \textbf{vertical distribution} on $E$ is the \tref{distribution}{distribution} $\mathcal{V} = \ker(p_*) \subset TE$, whose rank is the rank of $E$.
+\end{topic}
+
+\begin{topic}{horizontal-distribution}{horizontal distribution}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $p : E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with a \tref{connection}{connection} $\nabla$. Then the \textbf{horizontal distribution} on $E$ is the \tref{distribution}{distribution} $\mathcal{H} \subset TE$ given by
+    \[ \mathcal{H}_x = \left\{ \frac{d}{dt}\Big|_{t = 0} s(t) : s : [-1, 1] \to E \text{ with } s(0) = x \text{ is a parallel section over } \gamma = p \circ s \right\} \]
+    for all points $x \in E$.
+    
+    That is, a section $s : M \to E$ is \tref{parallel-transport}{parallel} if and only if it is an \tref{integral-submanifold}{integral submanifold} of $\mathcal{H}$.
+\end{topic}
+
+\begin{topic}{geodesic}{geodesic}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $\nabla$ a \tref{connection}{connection} on $TM$. A \textbf{geodesic} is a curve $\gamma : I \to M$ such that $(\gamma^* \nabla) \gamma' = 0$. That is, a curve which \tref{parallel-transport}{parallel transports} its own tangent direction.
+\end{topic}
+
+\begin{example}{geodesic}
+    Suppose that $\nabla$ is the \tref{levi-civita-connection}{Levi-Civita connection} on $M$. Then in terms of local coordinates, the differential equation for a geodesic $\gamma : I \to M$ is given by
+    \[ \frac{d^2 x^k}{d t^2} + {\Gamma^k}_{ij} \frac{dx^i}{dt} \frac{dx^j}{dt} = 0 , \]
+    where ${\Gamma^k}_{ij}$ denote the \tref{christoffel-symbols}{Christoffel symbols}.
+\end{example}
+
+\begin{topic}{de-rham-theorem}{de Rham's theorem}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. \textbf{De Rham's theorem} states that the map
+    \[ H_{\textup{dR}}^k(M) \xrightarrow{\sim} \Hom(H_k(M; \RR), \RR) \cong H^k(M; \RR), \quad [ \omega ] \mapsto \int_{(-)} \omega \]
+    between the \tref{de-rham-cohomology}{De Rham cohomology} and the \tref{AT:singular-homology}{singular cohomology} with coefficients in $\RR$, is an isomorphism. Moreover, these maps define an isomorphism of \tref{AA:graded-ring}{graded rings}
+    \[ H_{\textup{dR}}^*(M) \cong H^*(M; \RR) \]
+    where the product on the left is given by the exterior product, and on the right by the \tref{AT:cup-product}{cup product}.
+\end{topic}
+
+\begin{topic}{poincare-duality}{Poincaré duality}
+    Let $X$ be a \tref{TO:compact-space}{compact} oriented $n$-dimensional \tref{smooth-manifold}{smooth manifold}. \textbf{Poincaré duality} states that there is a canonical isomorphism
+    \[ H^k(X; \ZZ) \xrightarrow{\sim} H_{n - k}(X; \ZZ) \]
+    which sends $\omega$ to the \tref{AT:cap-product}{cap product} $[X] \frown \omega$, where $[X] \in H_n(X; \ZZ)$ denotes the fundamental class of $X$. That is, $\omega$ is sent to
+    \[ (\eta \mapsto (\omega \smile \eta)([X])) \in \Hom(H^{n - k}(X; \ZZ), \ZZ) = H_{n - k}(X; \ZZ) . \]
+\end{topic}
+
+\begin{topic}{fundamental-class}{fundamental class}
+    The \textbf{fundamental class} of a closed orientable $n$-dimensional manifold $M$ is a homology class $[M] \in H_n(M; \ZZ)$ which is a generator of the homology group corresponding to the orientation of $M$.
+\end{topic}
+
+\begin{topic}{exponential-map}{exponential map}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} with a \tref{connection}{connection} $\nabla$ on the \tref{tangent-bundle}{tangent bundle} $TM$, and $p \in M$ a point. Any \tref{tangent-space}{tangent vector} $v \in T_p M$ induces a \tref{geodesic}{geodesic} $\gamma : [0, 1] \to M$ starting at $\gamma(0) = p$ with velocity $\gamma'(0) = v$. The \textbf{exponential map} at $p$ is the map
+    \[ \exp : T_p M \to M, \quad v \mapsto \gamma(1) . \]
+\end{topic}
+
+\begin{example}{exponential-map}
+    When $G$ is a \tref{lie-group}{Lie group}, the exponential map is the map
+    \[ \exp : \mathfrak{g} \to G \]
+    from Lie algebra $\mathfrak{g} = T_e G$ of $G$ to $G$, given by $\exp(v) = \gamma(1)$ where $\gamma : \RR \to G$ is the unique one-parameter subgroup of $G$ with $\gamma'(0) = v$.
+    
+    In particular, when $G = \textup{GL}_n(\RR)$ is the general linear group, we have $\mathfrak{g} = \textup{Mat}_{n \times n}(\RR)$ and
+    \[ \exp : \mathfrak{g} \to G, \quad A \mapsto \exp(A) = \sum_{k = 0}^{\infty} \frac{A^k}{k!} \]
+    is the usual \tref{LA:matrix-exponential}{exponential map}.
+\end{example}
+
+\begin{topic}{closed-manifold}{closed manifold}
+    A \textbf{closed manifold} is a \tref{smooth-manifold}{manifold} without boundary that is \tref{TO:compact-space}{compact}.
+\end{topic}
+
+\begin{topic}{bordism}{bordism}
+    Given two $(n - 1)$-dimensional \tref{closed-manifold}{closed} \tref{smooth-manifold}{smooth manifolds} $M$ and $M'$, a \textbf{bordism} from $M$ to $M'$ is an $n$-dimensional compact manifold $W$ with boundary together with inclusions
+    \[ M \xrightarrow{i} W \xleftarrow{i'} M' \]
+    such that $\partial W = i(M) \sqcup i(M')$.
+\end{topic}
+
+\begin{example}{bordism}
+    The following are visual examples of $2$-dimensional bordisms.
+    \[ \svg \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0) ellipse (0.2cm and 0.4cm); \draw (-1,0.4) -- (1,0.4); \draw (-1,-0.4) -- (1,-0.4); \draw (1,0) ellipse (0.2cm and 0.4cm); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (0,0.5) ellipse (0.2cm and 0.4cm); \draw (0,-0.5) ellipse (0.2cm and 0.4cm); \draw (0,0.9) arc (90:-90:1.1cm and 0.9cm); \draw (0,0.1) arc (90:-90:0.3cm and 0.1cm); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (0,0.5) ellipse (0.2cm and 0.4cm);\draw (0,-0.5) ellipse (0.2cm and 0.4cm); \draw (0,0.9) arc (90:270:1.1cm and 0.9cm); \draw (0,0.1) arc (90:270:0.3cm and 0.1cm); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0) ellipse (0.2cm and 0.4cm); \draw (-1,0.4) .. controls (-0.5,0.6) and (0.5,0.6) .. (1,0.4); \draw (-1,-0.4) .. controls (-0.5,-0.6) and (0.5,-0.6) .. (1,-0.4); \draw (-0.5,0.1) .. controls (-0.5,-0.125) and (0.5,-0.125) .. (0.5,0.1); \draw (-0.4,0.0) .. controls (-0.4,0.0625) and (0.4,0.0625) .. (0.4,0.0); \draw (1,0) ellipse (0.2cm and 0.4cm); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0.5) ellipse (0.2cm and 0.4cm); \draw (-1,-0.5) ellipse (0.2cm and 0.4cm); \draw (1,0) ellipse (0.2cm and 0.4cm); \draw (-1,0.9) .. controls (0,0.9) and (0,0.4) .. (1,0.4); \draw (-1,-0.9) .. controls (0,-0.9) and (0,-0.4) .. (1,-0.4); \draw (-1,0.1) .. controls (-0.2,0.1) and (-0.2,-0.1) .. (-1,-0.1); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0) ellipse (0.2cm and 0.4cm); \draw (1,0.5) ellipse (0.2cm and 0.4cm); \draw (1,-0.5) ellipse (0.2cm and 0.4cm); \draw (-1,0.4) .. controls (0,0.4) and (0,0.9) .. (1,0.9); \draw (-1,-0.4) .. controls (0,-0.4) and (0,-0.9) .. (1,-0.9); \draw (1,0.1) .. controls (0.2,0.1) and (0.2,-0.1) .. (1,-0.1); \end{scope} \end{tikzpicture}
+        \quad
+        \begin{tikzpicture}[semithick, scale=0.5, baseline=-0.5ex] \begin{scope} \draw (-1,0.5) ellipse (0.2cm and 0.4cm); \draw (-1,-0.5) ellipse (0.2cm and 0.4cm); \draw (1,0.5) ellipse (0.2cm and 0.4cm); \draw (1,-0.5) ellipse (0.2cm and 0.4cm); \draw (-1,0.9) .. controls (0,0.9) and (0,-0.1) .. (1,-0.1); \draw (-1,0.1) .. controls (0,0.1) and (0,-0.9) .. (1,-0.9); \draw (-1,-0.9) .. controls (0,-0.9) and (0,0.1) .. (1,0.1); \draw (-1,-0.1) .. controls (0,-0.1) and (0,0.9) .. (1,0.9); \end{scope} \end{tikzpicture} \]
+\end{example}
+
+\begin{example}{bordism}
+    Given bordisms $W : M \to M'$ and $W' : M' \to M''$, it can be shown that $W \sqcup_{M'} W'$ admits a smooth structure such that the inclusions $W \to W \sqcup_{M'} W'$ and $W' \to W \sqcup_{M'} W'$ are diffeomorphisms onto their images, which is unique up to (non-unique) diffeomorphism. Hence $W$ and $W'$ can be `composed' to produce a bordism $W' \circ W : M \to M''$, which is well-defined up to isomorphism.
+    
+    Using this composition rule, one can define the \textit{category of $n$-bordisms} $\textbf{Bord}_n$, where the objects are $(n - 1)$-dimensional closed manifolds and where the morphisms are bordsims are taken up to isomorphism. In particular, the identity morphism of an object $M$ is the cylinder $\id_M = M \times [0, 1]$.
+\end{example}
+
+\begin{topic}{lie-algebroid}{Lie algebroid}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Lie algebroid} over $M$ is a \tref{vector-bundle}{vector bundle} $L$ on $M$ together with a \tref{AA:lie-algebra}{Lie bracket} $[\cdot, \cdot]$ on its global sections $\Gamma(L)$ and a map of vector bundles $a : L \to TM$, called the \textit{anchor map}, to the \tref{tangent-bundle}{tangent bundle} of $M$, satisfying
+    \begin{itemize}
+        \item (\textit{Lie algebra homomorphism}) $a([X, Y]) = [a(X), a(Y)]$ for all $X, Y \in \Gamma(L)$,
+        \item (\textit{Leibniz rule}) $[X, fY] = f[X, Y] + (a(X)  f) Y$ for all $X, Y \in \Gamma(L)$ and $f \in C^\infty(M)$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{lie-algebroid}
+    The tangent bundle $TM$ itself is a Lie algebroid, with the anchor map the identity $\id : TM \to TM$, and Lie bracket the \tref{lie-bracket-vector-fields}{Lie bracket for vector fields}.
+\end{example}
+
+\begin{example}{lie-algebroid}
+    The action of a (real or complex) \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$ acting on $M$ can precisely be described by a Lie algebroid, called the \textit{action algebroid}, which is the trivial vector bundle $L = \mathfrak{g} \times M$ with anchor map
+    \[ a : \mathfrak{g} \times M \to TM, \quad (X, m) \mapsto X \cdot m . \]
+\end{example}
+
+\begin{example}{lie-algebroid}
+    Given a vector bundle $E \to M$, its \textit{general linear algebroid} is the vector bundle $\mathfrak{gl}(E) \to M$ whose sections are derivations $D : \Gamma(E) \to \Gamma(E)$ of $E$ admitting a vector field $X_D \in TM$ such that $D(f s) = f D(s) + (X_D f) s$ for all $s \in \Gamma(E)$ and $f \in C^\infty(M)$. The Lie bracket is the commutator of differential operators, and the anchor map is the map $D \mapsto X_D$.
+\end{example}
+
+\begin{topic}{foliation}{foliation}
+    Let $M$ be an $n$-dimensional \tref{smooth-manifold}{smooth manifold}. A $p$-dimensional \textbf{foliation} of $M$ is a decomposition of $M$ into a union of disjoint connected submanifolds
+    \[ M = \bigsqcup_{\alpha \in A} L_\alpha \]
+    such that each point $x \in M$ has a neighborhood $U$ with local coordinates $x^1, \ldots, x^n$ such that $x^{p + 1}, \ldots, x^n$ are constant on $U \cap L_\alpha$ for all $\alpha \in A$. The submanifolds $L_\alpha$ are called the \textbf{leaves} of the foliation, and the foliation is denoted as $\mathcal{F} = \{ L_\alpha \}_{\alpha \in A}$.
+\end{topic}
+
+\begin{topic}{higgs-bundle}{Higgs bundle}
+    Let $M$ be a \tref{complex-manifold}{complex manifold}. A \textbf{Higgs bundle} on $M$ is a holomorphic \tref{vector-bundle}{vector bundle} $E$ on $M$ together with a section $\phi \in \Omega^1(M; \textup{End}(E))$, called the \textbf{Higgs field}, satisfying $\phi \wedge \phi = 0$.
+\end{topic}
+
+\begin{topic}{frame-bundle}{(tangent) frame bundle}
+    The \textbf{frame bundle} of a \tref{vector-bundle}{vector bundle} $E \to M$ of rank $k$ is the vector bundle $F(E) \to M$ whose fibers $F_x$ at a point $x \in M$ is the vector space of ordered bases $\{ e_1, \ldots, e_k \}$ of $E_x$.
+    
+    There is a natural fiber-wise action of $\textup{GL}_k(\RR)$ on $F(E)$ given by change of basis: $\{ e_1, \ldots, e_k \} \cdot g = \{ f_1, \ldots, f_k \}$ where $f_i = \sum_j e_j g_{ji}$. This makes $F(E)$ into a \tref{TO:principal-bundle}{$\textup{GL}_k(\RR)$-principal bundle}.
+    
+    When $E = TM$, the \tref{tangent-bundle}{tangent bundle}, the frame bundle $F(TM)$ is called the \textbf{tangent frame bundle}.
+\end{topic}
+
+\begin{topic}{spin-manifold}{spin manifold}
+    Let $(M, g)$ be an $n$-dimensional \tref{orientable-manifold}{oriented} \tref{riemannian-manifold}{Riemannian manifold}. A \textbf{spin structure} on $M$ is a \tref{TO:principal-bundle}{principal $\textup{Spin}(n)$-bundle} $P \to M$ together with an oriented, isometric vector bundle isomorphism $\psi : P \times_{\textup{Spin}(n)} \RR^n \to TM$, where $\textup{Spin}(n)$ acts on $\RR^n$ via $\textup{SO}(n)$.
+    
+    A \textbf{spin manifold} is a Riemannian manifold together with a spin structure.
+\end{topic}
+
+\begin{example}{spin-manifold}
+    The sphere $S^n \cong \textup{SO}(n + 1) / \textup{SO}(n)$ has a spin structure with $P = \textup{Spin}(n + 1)$, where the double covering map $\textup{Spin}(n + 1) \to \textup{SO}(n + 1)$ induces
+    \[ \psi : \textup{Spin}(n + 1) \times_{\textup{Spin}(n)} \RR^n \to \textup{SO}(n + 1) \times_{\textup{SO}(n)} \RR^n \cong T S^n . \]
+\end{example}
+
+\begin{topic}{first-stiefel-whitney-class}{first Stiefel--Whitney class}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. There exists a bijection between real line bundles $E \to M$ which can be trivialized over an open cover $\mathcal{U}$ and $\check{H}^1(M, C^\infty(M, \RR^*); \mathcal{U})$, in terms of the transition functions. The group isomorphism
+    \[ C^\infty(M, \RR) \times \ZZ/2\ZZ \to C^\infty(M, \RR^*), \quad (f, \varepsilon) \mapsto \varepsilon e^f \]
+    yields an isomorphism of \tref{AG:cech-cohomology}{Čech cohomology} groups
+    \[ \check{H}^k(M; C^\infty(M, \RR); \mathcal{U}) \times \check{H}^k(M; \ZZ/2\ZZ; \mathcal{U}) \to \check{H}^k(M; C^\infty(M, \RR^*); \mathcal{U}) , \]
+    which for $k > 0$ specializes to an isomorphism
+    \[ \check{H}^k(M; \ZZ/2\ZZ; \mathcal{U}) \xrightarrow{\sim} \check{H}^k(M; C^\infty(M, \RR^*); \mathcal{U}) . \]
+    The \textbf{first Stiefel--Whitney class} of a real line bundle $E \to M$ is its corresponding class $w_1(E) \in \check{H}^1(M; \ZZ/2\ZZ; \mathcal{U})$.
+    
+    The \textbf{first Stiefel--Whitney class} of a rank $k$ real vector bundle $E \to M$ is the first Stiefel--Whitney class of $\wedge^k E$.
+\end{topic}
+
+\begin{topic}{first-chern-class}{first Chern class}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. There exists a bijection between complex line bundles $E \to M$ which can be trivialized over an open cover $\mathcal{U}$ and $\check{H}^1(M, C^\infty(M, \CC^*); \mathcal{U})$, in terms of the transition functions. The exponential sequence
+    \[ 0 \to \ZZ \xrightarrow{2 \pi i} C^\infty(M, \CC) \xrightarrow{\exp} C^\infty(M, \CC^*) \to 0 \]
+    yields a long exact sequence of \tref{AG:cech-cohomology}{Čech cohomology} groups
+    \[ \cdots \to \check{H}^k(M; \ZZ; \mathcal{U}) \to \check{H}^k(M; C^\infty(M, \CC); \mathcal{U}) \to \check{H}^k(M; C^\infty(M, \CC^*); \mathcal{U}) \to \check{H}^{k + 1}(M; \ZZ; \mathcal{U}) \to \cdots \]
+    which in particular gives an isomorphism
+    \[ \check{H}^1(M; C^\infty(M, \CC^*); \mathcal{U}) \xrightarrow{\sim} \check{H}^2(M; C^\infty(M, \ZZ; \mathcal{U}) . \]
+    The \textbf{first Chern class} of a complex line bundle $E \to M$ is its corresponding class $c_1(E) \in \check{H}^2(M; \ZZ; \mathcal{U})$.
+    
+    The \textbf{first Chern class} of a rank $k$ complex vector bundle $E \to M$ is the first Chern class of $\wedge^k E$.
+\end{topic}
+
+\begin{topic}{determinant-bundle}{determinant bundle}
+    The \textbf{determinant bundle} of a \tref{vector-bundle}{vector bundle} $E \to M$ of rank $k$ is the exterior power $\det(E) = \wedge^k E$.
+\end{topic}
+
+\begin{topic}{riemann-surface}{Riemann surface}
+    A \textbf{Riemann surface} is a \tref{TO:connected-space}{connected} \tref{complex-manifold}{complex manifold} of complex dimension one.
+\end{topic}
+
+\begin{topic}{volume-form}{volume form}
+    Let $M$ be an $n$-dimensional \tref{smooth-manifold}{smooth manifold}. A \textbf{volume form} on $M$ is an \tref{differential-form}{$n$-form} $\omega \in \Omega^n(M)$.
+\end{topic}
+
+\begin{example}{volume-form}
+    When $M$ is an oriented \tref{riemannian-manifold}{Riemannian manifold} with metric $g$, there is a natural volume form on $M$. In local coordinates $x_1, \ldots, x_n$ it is given by
+    \[ \textup{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge dx_2 \wedge \cdots \wedge dx_n , \]
+    which is indeed independent of the choice of local coordinates.
+\end{example}
+
+\begin{topic}{hodge-star-operator}{Hodge star operator}
+    Let $(M, g)$ be an $n$-dimensional \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Hodge star operators} are the maps
+    \[ \star : \Omega^k(M) \to \Omega^{n - k}(M) \]
+    for $0 \le k \le n$ defined by
+    \[ \alpha \wedge \star \beta = g(\alpha, \beta) \textup{vol}_g \]
+    for all $\alpha, \beta \in \Omega^k(M)$, where $\textup{vol}_g = \sqrt{|\det g|} \; dx_1 \wedge \cdots dx_n$ is the \tref{volume-form}{volume form} induced by $g$. Here $g$ is defined on $\Omega^k(M)$ by
+    \[ g(\alpha, \beta) = \det\left(g(\alpha_i, \beta_j)\right)_{i, j = 1}^{k} \]
+    for decomposable $\alpha = \alpha_1 \wedge \cdots \wedge \alpha_k$ and $\beta = \beta_1 \wedge \cdots \wedge \beta_k$ and extended linearly.
+\end{topic}
+
+\begin{topic}{hodge-inner-product}{Hodge inner product}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Hodge inner product} is the (global) inner product on the de Rham spaces $\Omega^k(M)$ given by
+    \[ (\alpha, \beta) = \int_X \alpha \wedge \star \beta = \int_X g(\alpha, \beta) \; \textup{vol}_g \]
+    for $\alpha, \beta \in \Omega^k(M)$, where $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}.
+\end{topic}
+
+% \begin{topic}{hodge-theorem}{Hodge theorem}
+    
+% \end{topic}
+
+\begin{topic}{de-rham-cohomology}{de Rham cohomology}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{de Rham complex} of $M$ is the \tref{HA:chain-complex}{cochain complex}
+    \[ 0 \to \Omega^0(M) \xrightarrow{d} \Omega^1(M) \xrightarrow{d} \Omega^2(M) \xrightarrow{d} \cdots \]
+    where $\Omega^k(M)$ denotes the space of \tref{differential-form}{differential $k$-forms}, and $d$ the \tref{exterior-derivative}{exterior derivative}.
+    
+    The \textbf{de Rham cohomology groups} $H_\textup{dR}^k(M)$ are the \tref{HA:homology-object}{cohomology groups} of $\Omega^\bdot(M)$.
+\end{topic}
+
+\begin{topic}{harmonic-form}{harmonic form}
+    Let $(M, g)$ be an $n$-dimensional \tref{riemannian-manifold}{Riemannian manifold}. The \tref{exterior-derivative}{exterior derivative} $d : \Omega^k(M) \to \Omega^{k + 1}(M)$ has an adjoint $\delta = (-1)^{nk + 1} \star d \star : \Omega^k(M) \to \Omega^{k - 1}(M)$ with respect to the \tref{hodge-inner-product}{Hodge inner product}. That is,
+    \[ (d \alpha, \beta) = (\alpha, \delta \beta) \quad \text{for all } \alpha \in \Omega^k(M) \text{ and } \beta \in \Omega^{k + 1}(M) . \]
+    A differential form $\alpha \in \Omega^k(M)$ is \textbf{harmonic} if $\Delta \alpha = 0$, where $\Delta = d \delta + \delta d$ is the \textit{Laplacian operator}.
+\end{topic}
+
+\begin{topic}{holonomy-group}{holonomy group}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} over a \tref{smooth-manifold}{smooth manifold} $M$, and $\nabla$ a \tref{connection}{connection} on $E$. By \tref{parallel-transport}{parallel transport}, any loop $\gamma : [0, 1] \to M$ based at a point $x \in M$ yields a linear invertible map $P_\gamma : E_x \to E_x$. The \textbf{holonomy group} of $\nabla$ based at $x$ is the group
+    \[ \textup{Hol}_x(\nabla) = \{ P_\gamma \in \textup{GL}(E_x) : \gamma \text{ is a loop based at } x \} . \]
+    The \textbf{restricted holonomy group} is the subgroup $\textup{Hol}_x^0(\nabla)$ coming from contractible loops.
+\end{topic}
+
+\begin{topic}{implicit-function-theorem}{implicit function theorem}
+    The \textbf{implicit function theorem} states that if $f : \RR^{n + m} \to \RR^m$ is a continuously differentiable function, and $p \in \RR^{n + m}$ a point with $f(p) = 0$ such that the Jacobian matrix $J_f = \left(\frac{\partial f_i}{\partial x_j}\right)_{i,j = n + 1}^{n + m}$ is invertible at $p$, then there exists an open set $U \subset \RR^n$ containing $(p_1, \ldots, p_n)$ and a continuously differentiable function $g : U \to \RR^m$ such that $g(p_1, \ldots, p_n) = (p_{n + 1}, \ldots, p_{m + n})$ and $f(y, g(y)) = 0$ for all $y \in U$.
+\end{topic}
+
+\begin{topic}{killing-vector-field}{Killing vector field}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. A \tref{vector-field}{vector field} $X$ on $M$ is a \textbf{Killing vector field} if it preserves the metric, i.e. $\mathcal{L}_X g = 0$, where $\mathcal{L}_X$ is the \tref{lie-derivative}{Lie derivative} with respect to $X$.
+\end{topic}
+
+\begin{topic}{schouten-nijenhuis-bracket}{Schouten--Nijenhuis bracket}
+    The \textbf{Schouten--Nijenhuis bracket} is a unique extension of the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields} to a graded bracket of multivector fields. It is defined by
+    \[ \begin{aligned} {[}X_1 \wedge \cdots \wedge X_m, Y_1 \wedge \cdots \wedge Y_n{]} = \sum_{\substack{1 \le i \le m \\ 1 \le j \le n}} (-1)^{i + j} [X_i, X_j] &X_1 \wedge \cdots \wedge X_{i - 1} \wedge X_{i + 1} \wedge X_m \\ \wedge &Y_1 \wedge \cdots \wedge Y_{j - 1} \wedge Y_{j + 1} \wedge Y_n , \end{aligned} \]
+    for \tref{vector-field}{vector fields} $X_i$ and $Y_j$, and by
+    \[ [f, X_1 \wedge \cdots \wedge X_m] = -\iota_{df} X_1 \wedge \cdots \wedge X_m \]
+    for a function $f$.
+\end{topic}
+
+\begin{topic}{courant-bracket}{Courant bracket}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Courant bracket} on $M$ is the skew-symmetric bracket on the \tref{generalized-tangent-bundle}{generalized tangent bundle} $TM \oplus T^*M$ given by
+    \[ [X + \xi, Y + \eta] = [X, Y] + \mathcal{L}_X \eta - \mathcal{L}_Y \xi - \frac{1}{2} d \left(\iota_X \eta - \iota_Y \xi \right) , \]
+    where $[X, Y]$ is the usual \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}.
+\end{topic}
+
+\begin{topic}{courant-algebroid}{Courant algebroid}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Courant algebroid} over $M$ is a \tref{vector-bundle}{vector bundle} $E$ on $M$ together with a non-degenerate symmetric bilinear form $\langle \cdot, \cdot \rangle : \Gamma(E) \times \Gamma(E) \to \RR$, a skew-symmetric bracket $[\cdot, \cdot] : \Gamma(E) \times \Gamma(E) \to \Gamma(E)$ and a smooth bundle map $\pi : E \to TM$ called the \textit{anchor map}, satisfying
+    \begin{itemize}
+        \item (\textit{Respecting bracket}) $\pi([X, Y]) = [\pi(X), \pi(Y)]$,
+        \item (\textit{Left Jacobi identity}) $[X, [Y, Z]] = [[X, Y], Z] + [Y, [X, Z]]$,
+        \item (\textit{Leibniz rule}) $[X, fY] = f[X, X] + \rho(X)(f) Y$,
+        \item (\textit{Self-adjoint}) $\pi(X) \langle Y, Z \rangle = \langle [X, Y], Z \rangle + \langle Y, [X, Z] \rangle$,
+        \item (\textit{}) $[X, X] = \frac{1}{2} \mathcal{D} \langle X, X \rangle$,
+    \end{itemize}
+    where $\mathcal{D} : C^\infty(M) \to \Gamma(E)$ is the differential operator.
+\end{topic}
+
+\begin{example}{courant-algebroid}
+    The bundle $E = TM \oplus T^*M$ together with the bilinear form
+    \[ \langle X + \xi, Y + \eta \rangle = \xi(Y) + \eta(X) , \]
+    the \tref{courant-bracket}{Courant bracket}, and the projection map $\pi : TM \oplus T^*M \to TM$ as anchor map, is a Courant algebroid, called the \textit{split Courant algebroid}.
+\end{example}
+
+\begin{topic}{dirac-structure}{Dirac structure}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. An \textbf{almost Dirac structure} on $M$ is a subbundle $L \subset TM \oplus T^*M$ of the \tref{generalized-tangent-bundle}{generalized tangent bundle} of $M$, such that $L$ maximal isotropic with respect to symmetric bilinear form $\langle X + \xi, Y + \eta \rangle = \xi(Y) + \eta(X)$. If moreover $L$ is closed under the \tref{courant-bracket}{Courant bracket}, it is called \textit{integrable}, or simply a \textbf{Dirac structure}.
+\end{topic}
+
+% \begin{example}{dirac-structure}
+
+% \end{example}
+
+\begin{topic}{related-vector-fields}{related vector fields}
+    Let $f : M \to N$ be a \tref{smooth-map}{smooth map} between \tref{smooth-manifold}{smooth manifolds}. Then vector fields $X$ on $M$ and $Y$ on $M$ are \textbf{$f$-related} if $Y_{f(x)} = (df)_x(X_x)$ for all $x \in M$.
+\end{topic}
+
+\begin{topic}{multivector-field}{multivector field}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{multivector field} on $M$ is a section of the exterior algebra $\bigwedge^\bdot TM$.
+\end{topic}
+
+\begin{topic}{chern-class}{Chern class}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle} of rank $n$, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The \textbf{total Chern form} of $E$ is given by
+    \[ C(E) = 1 + c_1(E) + \cdots + c_n(E) = \det \left(1 + \frac{F_\nabla}{2 \pi i} \right) , \]
+    where $c_k(E) \in \Omega^{2k}(M)$ is the \textbf{$k$-th Chern form}. The Chern forms are \tref{closed-form}{closed}, and the cohomology class $[c_k(E)] \in H_\textup{dR}^{2k}(M)$ is called the \textbf{$k$-th Chern class} of $E$. These classes are independent on the choice of connection.
+\end{topic}
+
+% \begin{topic}{chern-simons-form}{Chern--Simons form}
+%     Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $\pi : E \to M$ a trivial \tref{vector-bundle}{vector bundle}. A \textbf{Chern--Simons $k$-form} is a \tref{differential-form}{$k$-form} $\omega_{2k - 1}$ such that
+%     \[ d \omega_{2k - 1} = \tr \left( \underbrace{F_\nabla \wedge \cdots \wedge F_\nabla}_{k \textup{ times}} \right) . \]
+% \end{topic}
+
+\begin{topic}{chern-character}{Chern character}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle}, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The \textbf{Chern character} of $E$ is given by
+    \[ \textup{ch}(E) = \operatorname{tr} \exp \left(\frac{F_\nabla}{2 \pi i} \right) = \sum_{k = 0}^{\infty} \frac{1}{k!} \operatorname{tr} \left(\frac{F_\nabla}{2 \pi i}\right)^k . \]
+    The cohomology class $[\textup{ch}(E)] \in H_\textup{dR}^\bdot(M)$ is independent on the choice of connection.
+    
+    The Chern character satisfies
+    \[ [\textup{ch}(E \oplus F)] = [\textup{ch}(E)] + [\textup{ch}(F) ] \quad \text{ and } \quad [\textup{ch}(E \otimes F)] = [\textup{ch}(E)] \cdot [\textup{ch}(F)] . \]
+\end{topic}
+
+\begin{topic}{flow-box-theorem}{flow box theorem}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} with a point $p \in M$, and $X$ a \tref{vector-field}{vector field} such that $X(p) \ne 0$. Then the \textbf{flow box theorem} states that there exist local coordinates $x^1, \ldots, x^n$ around $p$ such that $X = \frac{\partial}{\partial x^1}$.
+    
+    More generally, if $X_1, \ldots, X_k$ are pairwise commuting vector fields, that is $[X_i, X_j] = 0$ for all $i, j$, which are linearly independent at $p$, then there exist local coordinates $x^1, \ldots, x^n$ such that $X_i = \frac{\partial}{\partial x^i}$.
+\end{topic}
+
+\begin{topic}{dolbeault-operators}{Dolbeault operators}
+    Let $M$ be a \tref{complex-manifold}{complex manifold}. The space $\Omega^{p, q}(M)$ of $(p, q)$-forms is defined by
+    \[ \Omega_X^{p, q} = \underbrace{\Omega^{1,0}(M) \wedge \cdots \wedge \Omega^{1,0}(M)}_{\text{$p$ times}} \;\; \wedge \;\; \underbrace{\Omega^{0,1}(M) \wedge \cdots \wedge \Omega^{0,1}(M)}_{\text{$q$ times}} , \]
+    where
+    \[ \Omega^{1,0}(M) = \left\{ \textstyle\sum_{i = 1}^{n} f_i dz^i \right\} \quad \textup{and} \quad \Omega^{0,1}(M) = \left\{ \textstyle\sum_{i = 1}^{n} g_i d \overline{z}^i \right\} , \]
+    and where $z^1, \ldots, z^n$ are local coordinates. Note that these definitions are independent of the chosen coordinates. The \textbf{Dolbeault operators} are the operators
+    \[ \partial : \Omega^{p, q}(M) \to \Omega^{p + 1, q}(M) \quad \textup{and} \quad \overline{\partial} : \Omega^{p, q}(M) \to \Omega^{p, q + 1}(M) \]
+    given by
+    \[ \partial = \sum_{j = 1}^{n} dz^j \wedge \frac{\partial}{\partial z^j} \quad \text{and} \quad \bar{\partial} = \sum_{j = 1}^{n} d\bar{z}^j \wedge \frac{\partial}{\partial \bar{z}^j} . \]
+    They satisfy the properties
+    \[ \partial + \bar{\partial} = d, \quad \partial^2 = \bar{\partial}^2 = \partial \bar{\partial} + \bar{\partial} \partial = 0 , \]
+    where $d$ is the \tref{exterior-derivative}{exterior derivative}.
+\end{topic}
+
+\begin{topic}{poincare-lemma}{Poincaré lemma}
+    The \textbf{Poincaré lemma} states that on a \tref{AT:contractible-space}{contractible} \tref{smooth-manifold}{smooth manifold} $M$, every \tref{closed-form}{closed $k$-form} is \tref{exact-form}{exact} for $k \ge 1$. In particular, the \tref{de-rham-cohomology}{de Rham cohomology groups} $H^k_\textup{dR}(M) = 0$ for all $k \ge 1$.
+\end{topic}
+
+\begin{topic}{serre-swan-theorem}{Serre--Swan theorem}
+    Let $M$ be a \tref{TO:compact-space}{compact} \tref{smooth-manifold}{smooth manifold}. The \textbf{Serre--Swan theorem} states that for any \tref{vector-bundle}{vector bundle} $E \to M$, its global sections $\Gamma(E)$ are a \tref{AA:finitely-generated-module}{finitely generated} \tref{AA:projective-module}{projective} $C^\infty(M)$-module, and conversely that all such modules arise in this way.
+    
+    In fact, the \tref{CT:functor}{functor} $\Gamma$ yields an \tref{CT:equivalence-of-categories}{equivalence of categories} between the category of vector bundles over $M$ and the category of finitely generated projective $C^\infty(M)$-modules.
+\end{topic}
+
+\begin{topic}{todd-class}{Todd class}
+    Let $\pi : E \to M$ be a \tref{vector-bundle}{vector bundle}, and $\nabla$ a \tref{connection}{connection} on $E$ with \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \textup{End}(E))$. The form
+    \[ \det\left(\frac{F_\nabla / 2 \pi i}{\exp(F_\nabla / 2 \pi i) - 1}\right) \in \Omega^\bdot(M) \]
+    is \tref{closed-form}{closed}, and its cohomology class $\textup{td}(E) \in H^\bdot_\textup{dR}(M)$, called the \textbf{Todd class} of $E$, is independent of the choice of connection.
+    
+    The Todd class is multiplicative in the sense that $\textup{td}(E \oplus F) = \textup{td}(E) \cdot \textup{td}(F)$.
+\end{topic}
+
+\begin{topic}{dolbeault-cohomology}{Dolbeault cohomology}
+    Let $M$ be a complex smooth manifold, and consider the \tref{dolbeault-operators}{Dolbeault operator}
+    \[ \overline{\partial} : \Omega^{p, q}(M) \to \Omega^{p, q + 1}(M) . \]
+    Since $\overline{\partial}^2 = 0$, one can form the \tref{HA:chain-complex}{complex} $(\Omega^{p, \bdot}(M), \overline{\partial})$, and the corresponding \tref{HA:homology-object}{cohomology group} $H^{p, q}(M, \CC)$ is called the \textbf{$(p, q)$-th Dolbeault cohomology group}.
+\end{topic}
+
+\begin{topic}{frobenius-theorem}{Frobenius theorem}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. \textbf{Frobenius theorem} states there is a one-to-one correspondence between \tref{foliation}{foliations} on $M$ and \tref{involutive-distribution}{involutive distributions} $\mathcal{D} \subset TM$. In particular, a foliation $\mathcal{F}$ corresponds to the involutive distribution $\mathcal{D} = T \mathcal{F}$, where $T_x \mathcal{F} = T_x L$ for any $x \in M$ with $L$ the leaf through $x$.
+\end{topic}
+
+\begin{topic}{legendre-transform}{Legendre transform}
+    Let $V$ be a real \tref{LA:vector-space}{vector space} and $f : V \to \RR$ a smooth function which is \textit{super-linear}, that is, $\sup_{v \in V} \left(p(v) - f(v) \right) < \infty$ for all $p \in V^*$. Then the \textbf{Legendre transform} of $f$ is
+    \[ f^* : V^* \to \RR, \quad p \mapsto \sup_{v \in V} \left(p(v) - f(v) \right) . \]
+\end{topic}
+
+\begin{example}{legendre-transform}
+    Let $Q$ be a \tref{smooth-manifold}{smooth manifold} and $L \in C^\infty(TM)$ a smooth function on the \tref{tangent-bundle}{tangent bundle}. Assume $L$ is fiberwise super-linear, i.e. $L(q, -) : T_q M \to \RR$ is super-linear for all $q \in Q$. Then the Legendre transform of $L$ is
+    \[ H : T^*M \to \RR, \qquad (q, p) \mapsto \left(L(q, -)\right)^*(p) . \]
+    In physics, in particular classical mechanics, $L$ is the \textit{Lagrangian} for a mechanical system with configuration space $Q$, and the Legendre transform $H = L^*$ is the \textit{Hamiltonian} of the system.
+\end{example}
+
+\begin{example}{legendre-transform}
+    Let $f : V \to \RR$ be given by $f(v) = \tfrac{1}{2} g(v, v)$, for some positive definite metric $g : V \times V \to \RR$. Given some fixed $p \in V^*$, we can find the supremum $\sup_{v \in V} \left(p(v) - \tfrac{1}{2} g(v, v)\right)$ by looking for extreme values. Setting
+    \[ \partial_k \left( p_i v^i - \frac{1}{2} g_{ij} v^i v^j \right) = p_k - g_{ki} v^i \]
+    equal to zero gives $v^i = g^{ik} p_k$, and thus
+    \[ f^*(p) = p_i g^{ik} p_k - \frac{1}{2} g_{ij} g^{i k} p_k g^{j \ell} p_\ell = \frac{1}{2} g^{ik} p_i p_k , \]
+    that is, $f^*(p) = g^*(p, p)$ where $g^* : V^* \times V^* \to \RR$ is the dual metric.
+\end{example}
+
+\begin{topic}{nijenhuis-tensor}{Nijenhuis tensor}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $A$ a \tref{tensor-field}{tensor field} of type $(1, 1)$, that is, a linear map of bundles $A : TM \to TM$. The \textbf{Nijenhuis tensor} of $A$ is a tensor field $N_A$ of type $(1, 2)$ given by
+    \[ N_A(X, Y) = -A^2 [X, Y] + A([AX, Y] + [X, AY]) - [AX, AY] . \]
+\end{topic}
+
+\begin{example}{nijenhuis-tensor}
+    The \textit{Newlander–Nirenberg theorem} states that an \tref{complex-manifold}{almost complex structure} $J$ is integrable if and only if $N_J = 0$.
+\end{example}
+
+\begin{topic}{normal-bundle}{normal bundle}
+    Let $i : N \to M$ be an \tref{immersion}{immersion} of \tref{smooth-manifold}{smooth manifolds}. The \textbf{normal bundle} to $N$ in $M$ is the quotient bundle
+    \[ T_{N/M} = i^* TM / TN . \]
+\end{topic}
+
+\begin{topic}{tubular-neighborhood}{tubular neighborhood (theorem)}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $N \subset M$ a smooth submanifold, and let $T_{N/M}$ be the \tref{normal-bundle}{normal bundle} to $N$ in $M$. The \textbf{tubular neighborhood theorem} states that there exists an open neighborhood $U \subset M$ of $N$, an open neighborhood $V \subset T_{N/M}$ of the zero section, and a \tref{diffeomorphism}{diffeomorphism} $\phi : U \to V$ extending this zero section.
+    
+    Such a neighborhood $U$ is called a \textbf{tubular neighborhood} of $N$ in $M$.
+\end{topic}
+
+\begin{topic}{riemannian-curvature-tensor}{Riemannian curvature tensor}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Riemann curvature tensor} is the \tref{tensor-field}{$(1, 3)$-tensor field} given by
+    \[ R(X, Y, Z) = \nabla_Y \nabla_X Z - \nabla_X \nabla_Y Z - \nabla_{[Y, X]} Z , \]
+    where $\nabla$ is the \tref{levi-civita-connection}{Levi-Civita connection} and $[\cdot, \cdot]$ the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}.
+\end{topic}
+
+\begin{topic}{ricci-curvature}{Ricci curvature}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Ricci curvature} is the \tref{tensor-field}{$(0, 2)$-tensor field} given by
+    \[ \textup{Ric}(X, Z) = \operatorname{tr} \left( Y \mapsto R(X, Y, Z) \right), \]
+    where $R$ is the \tref{riemannian-curvature-tensor}{Riemannian curvature tensor}.
+\end{topic}
+
+\begin{topic}{generalized-tangent-bundle}{generalized tangent bundle}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{generalized tangent bundle} of $M$ is the direct sum $TM \oplus T^*M$ of the \tref{tangent-bundle}{tangent bundle} $TM$ and the \tref{cotangent-bundle}{cotangent bundle} $T^*M$.
+    
+    There is a natural symmetric bilinear form on the generalized tangent bundle, given by
+    \[ \langle X + \xi, Y + \eta \rangle = \xi(Y) + \eta(X) , \]
+    for $X + \xi, Y + \eta \in \Gamma(TM \oplus T^*M)$.
+\end{topic}
+
+\begin{topic}{dorfman-bracket}{Dorfman bracket}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{Dorfman bracket} is the bracket $[\cdot, \cdot]$ on the \tref{generalized-tangent-bundle}{generalized tangent bundle} given by
+    \[ [X + \xi, Y + \eta] = [X, Y] + \mathcal{L}_X \eta - \mathcal{L}_Y \xi + d \iota_Y \xi , \]
+    for $X + \xi, Y + \eta \in \Gamma(TM \oplus T^*M)$, where $[X, Y]$ denotes the \tref{lie-bracket-vector-fields}{Lie bracket of vector fields}, and $\mathcal{L}$ the \tref{lie-derivative}{Lie derivative}.
+\end{topic}
+
+\begin{topic}{generalized-complex-structure}{generalized complex structure}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{generalized almost complex structure} on $M$ is an endomorphism
+    \[ \mathcal{J} : TM \oplus T^*M \to TM \oplus T^*M , \]
+    of the \tref{generalized-tangent-bundle}{generalized tangent bundle} on $M$, such that
+    \begin{itemize}
+        \item (\textit{complex structure}) $\mathcal{J}^2 = -\id$,
+        \item (\textit{symplectic structure}) $\mathcal{J}^* = -\mathcal{J}$.
+    \end{itemize}
+    A \textbf{generalized complex structure} on $M$ is a generalized almost complex structure which is \textit{integrable}, meaning its $+i$-eigenbundle $T_{0, 1} \subset (TM \oplus T^*M)_\CC$ is involutive with respect to the \tref{courant-bracket}{Courant bracket}.
+\end{topic}
+
+\begin{example}{generalized-complex-structure}
+    A generalized complex structure generalizes both \tref{complex-manifold}{(almost) complex structures} and \tref{symplectic-manifold}{symplectic structures}. Namely, given an almost complex structure $J : TM \to TM$ and symplectic structure $\omega : TM \to T^*M$, the endomorphisms
+    \[ \mathcal{J}_J = \begin{pmatrix} -J & 0 \\ 0 & J^* \end{pmatrix} \qquad \textup{and} \qquad \mathcal{J}_\omega = \begin{pmatrix} 0 & -\omega^{-1} \\ \omega & 0 \end{pmatrix} \]
+    are both generalized complex structures.
+\end{example}
+
+\begin{topic}{orientable-manifold}{orientable manifold}
+    An $n$-dimensional \tref{smooth-manifold}{smooth manifold} $M$ is \textbf{orientable} if there exists a nowhere vanishing \tref{differential-form}{$n$-form} $\omega \in \Omega^n(M)$. Such an $n$-form is called a \textit{volume form} on $M$.
+    % An \textbf{oriented manifold} is a manifold $M$ together with a choice of volume form.
+\end{topic}
+
+\begin{example}{orientable-manifold}
+    \begin{itemize}
+        \item Euclidean space $\RR^n$ is orientable, with $\omega = dx^1 \wedge \cdots \wedge dx^n$ a volume form.
+        \item The $n$-torus $\mathbb{T}^n = \RR^n / \ZZ^n$ is orientable, with $\omega = dx^1 \wedge \cdots \wedge dx^n$ a volume form.
+        \item The Mobiüs strip is not orientable.
+        \item The real projective plane $\RR P^2$ is not orientable.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{isometry}{(local) isometry}
+    Let $(M, g)$ and $(M', g')$ be two \tref{riemannian-manifold}{Riemannian manifolds}. A \tref{smooth-map}{smooth map} $f : M \to M'$ is an \textbf{isometry} if it is a \tref{diffeomorphism}{diffeomorphism} and $f^*g' = g$.
+    
+    Such a map $f$ is a \textbf{local isometry} if it is a \tref{diffeomorphism}{local diffeomorphism} and $f^*g' = g$.
+\end{topic}
+
+\begin{example}{isometry}
+    Every isometry is a local isometry, but not conversely. Namely, if $M = \RR^1$ and $M' = S^1 \subset \RR^2$ with the natural Euclidean metrics, then the map $\RR \to S^1$ given by $x \mapsto (\cos(x), \sin(x))$ is a local isometry, but not an isometry since it is not a diffeomorphism.
+\end{example}
+
+\begin{topic}{scalar-curvature}{scalar curvature}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{scalar curvature} $R$ of $M$ is the trace of the \tref{ricci-curvature}{Ricci curvature} $\textup{Ric}$ with respect to the metric $g$. In local coordinates,
+    \[ R = g^{ij} \textup{Ric}_{ij} . \]
+\end{topic}
+
+\begin{topic}{einstein-tensor}{Einstein tensor}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}. The \textbf{Einstein tensor} is the \tref{tensor-field}{$(0, 2)$-tensor field} on $M$ given by
+    \[ G = \textup{Ric} - \frac{1}{2} R g , \]
+    where $\textup{Ric}$ denotes the \tref{ricci-curvature}{Ricci curvature} and $R$ the \tref{scalar-curvature}{scalar curvature}.
+\end{topic}
+
+\begin{topic}{hyperkahler-manifold}{hyperkähler manifold}
+    A \textbf{hyperkähler manifold} is a \tref{riemannian-manifold}{Riemannian manifold} $(M, g)$ with three \tref{complex-manifold}{complex structures} $I, J, K$ on $M$ satisfying the quaternionic relations
+    \[ I^2 = J^2 = K^2 = IJK = -1 . \]
+\end{topic}
+
+\begin{topic}{hypercomplex-manifold}{hypercomplex manifold}
+    A \textbf{hypercomplex manifold} is a \tref{smooth-manifold}{smooth manifold} $M$ with three \tref{complex-manifold}{complex structures} $I, J, K$ on $M$ satisfying the quaternionic relations
+    \[ I^2 = J^2 = K^2 = IJK = -1 . \]
+\end{topic}
+
+\begin{topic}{stokes-theorem}{Stokes' theorem}
+    Let $M$ be an $n$-dimensional oriented \tref{TO:compact-space}{compact} \tref{smooth-manifold}{smooth manifold} (possibly with boundary), and $\omega$ an \tref{differential-form}{$(n - 1)$-form}. Then \textbf{Stokes' theorem} states that
+    \[ \int_M d \omega = \int_{\partial M} \omega , \]
+    where $\partial M$ denotes the boundary of $M$.
+\end{topic}
+
+\begin{example}{stokes-theorem}
+    For $M = [a, b]$ a closed interval on the real line, Stokes' theorem reduces to the \textit{fundamental theorem of calculus}: for any $F : [a, b] \to \RR$, we have
+    \[ \int_a^b F'(x) dx = F(b) - F(a) . \]
+\end{example}
+
+\begin{topic}{teichmuller-space}{Teichmüller space}
+    Let $\Sigma$ be a surface (a $2$-dimensional \tref{smooth-manifold}{smooth manifold}). The \textbf{Teichmüller space} $T(\Sigma)$ of $\Sigma$ is the space of equivalence classes of \tref{complex-manifold}{complex structures} on $\Sigma$, where two complex structures $I, J$ are \textit{equivalent} if there is a holomorphic \tref{diffeomorphism}{diffeomorphism} $f : (\Sigma, I) \to (\Sigma, J)$, \tref{TO:isotopy}{isotopic} to the identity on $\Sigma$.
+\end{topic}
+
+\begin{example}{teichmuller-space}
+    \begin{itemize}
+        \item The Teichmüller space of the $2$-sphere $S^2$ is a single point.
+        \item The Teichmüller space of $\RR^2$ is two points.
+        \item The Teichmüller space of the open annulus is the interval $[0, 1)$, where the complex structure associated to $\lambda \in [0, 1)$ is the Riemann surface $\{ z \in \CC : \lambda < |z| < \lambda^{-1} \}$.
+        \item The Teichmüller space of the torus $\mathbb{T}^2 = \RR^2/\ZZ^2$ is the upper half-plane $\mathbb{H} = \{ z \in \CC : \operatorname{Im} z > 0 \}$, where the complex structure associated to $\tau \in \mathbb{H}$ is the Riemann surface $\CC / (\ZZ + \tau \ZZ)$, a complex elliptic curve.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{hopf-fibration}{Hopf fibration}
+    The \textbf{Hopf fibration} is a non-trivial \tref{TO:fiber-bundle}{fiber bundle} over $S^2$ with fiber $S^1$, whose total space is $S^3$.
+    \[ S^1 \hookrightarrow S^3 \to S^2 \]
+    Identifying $S^3 \isom \{ (z_0, z_1) \in \CC^2 : |z_0|^2 + |z_1|^2 = 1 \}$ and $S^2 \isom \CC P^1$, the Hopf fibration is given by
+    \[ S^3 \to S^2, \quad (z_0, z_1) \mapsto (z_0 : z_1) . \]
+\end{topic}
+
+\begin{topic}{hairy-ball-theorem}{hairy ball theorem}
+    The \textbf{hairy ball theorem} states that no non-vanishing \tref{vector-field}{vector field} exists on the $2$-sphere $S^2$. More generally, no non-vanishing vector field exists on $S^{2n}$ for any $n \ge 1$.
+\end{topic}
+
+\begin{example}{hairy-ball-theorem}
+    \begin{proof}
+        Take $S^{2n} = \{ x \in \RR^{2n + 1} : |x|^{2n} = 1 \}$, and suppose that there exists a non-vanishing vector field $v$ on $S^{2n}$. Viewing $v(x) \in T_x S^{2n} \subset \RR^{2n + 1}$, we have $v(x) \perp x$, and after rescaling we can assume $v(x)$ has unit length. Now consider the homotopy
+        \[ H : S^{2n} \times [0, 1] \to S^{2n}, \quad (x, t) \mapsto \cos(t) x + \sin(t) v(x) , \]
+        and note that $H(-, 0) = \id_{S^{2n}}$, while $H(-, 1) = -\id_{S^{2n}}$. However, since $\id_{S^{2n}}$ has degree $1$ while the antipodal map $-\id_{S^{2n}}$ has degree $-1$, no such homotopy can exist, and thus no such vector field $v$ can exist.
+    \end{proof}
+\end{example}
+
+\begin{topic}{adjoint-bundle}{adjoint bundle}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}, $G$ a \tref{lie-group}{Lie group}, and $P \to M$ a \tref{TO:principal-bundle}{principal $G$-bundle} over $M$. The \textbf{adjoint bundle} of $P$ is the \tref{TO:associated-bundle}{associated bundle} to $P$ of the \tref{adjoint-representation}{adjoint representation} $\textup{Ad} : G \to \mathfrak{g}$.
+    \[ P \times_G \mathfrak{g} \to M . \]
+\end{topic}
+
+\begin{topic}{einstein-manifold}{Einstein manifold}
+    An \textbf{Einstein manifold} is a \tref{riemannian-manifold}{Riemannian manifold} $(M, g)$ whose \tref{ricci-curvature}{Ricci curvature} is proportional to the metric $g$, that is,
+    \[ \textup{Ric} = kg , \]
+    for some constant $k$.
+\end{topic}
+
+\begin{example}{einstein-manifold}
+    In general relativity, Einstein's equation with a cosmological constant $\Lambda$ is given by
+    \[ \textup{Ric} - \frac{1}{2} g R + g \Lambda = \kappa T ,
+    \]
+    where $R$ is the \tref{scalar-curvature}{scalar curvature}, $T$ the stress-energy tensor, and $\kappa = \frac{8 \pi G}{c^4}$ the gravitational constant. In particular, in a vacuum we obtain $T = 0$ and
+    \[ \textup{Ric} = \frac{2 \Lambda}{\dim(M) - 2} g . \]
+    Hence, the vacuum solutions of Einstein's equation are Einstein manifolds.
+\end{example}
+
+\begin{topic}{yang-mills-theory}{Yang--Mills theory}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{pseudo-Riemannian manifold}, $G$ a \tref{lie-group}{Lie group} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$, and $\pi : E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with \tref{TO:structure-group}{structure group} $G$.
+
+    A \tref{connection}{connection} $\nabla$ on $E$ is a \textit{$G$-connection} if locally $\nabla = d + A$ with $A \in \Omega^1(M; \mathfrak{g})$, considering $\mathfrak{g} \subset \operatorname{End}(E)$. A $G$-connection is a \textbf{Yang--Mills field} if its \tref{curvature-connection}{curvature} $F_\nabla \in \Omega^2(M; \mathfrak{g})$ satisfies the \textbf{Yang--Mills equations}
+    \[ \nabla F_\nabla = 0 \quad \textup{ and } \quad \star \nabla \star F_\nabla = J , \]
+    where $J \in \Omega^1(M; \mathfrak{g})$ is a \textit{Yang--Mills current}, and $\star$ denotes the \tref{hodge-star-operator}{Hodge star operator}. The first equation, also known as \tref{bianchi-identity}{Bianchi's identity}, is always satisfied.
+\end{topic}
+
+\begin{example}{yang-mills-theory}
+    Suppose $M = \RR \times S$ with metric $g = -dt^2 + g_S$, where $t$ is the coordinate on $\RR$ and $g_S$ a metric on $S$. Intuitively, we decompose spacetime into space and time. For any $G$-connection $\nabla$ on $E$, we can write
+    \[ F_\nabla = B + E \wedge dt \]
+    for some $B \in \Omega^2(S; \mathfrak{g})$, the \textit{Yang--Mills magnetic field}, and $E \in \Omega^1(S; \mathfrak{g})$, the \textit{Yang--Mills electric field}. Also, we can write
+    \[ J = j - \rho dt \]
+    for some $j \in \Omega^1(S; \mathfrak{g})$, the \textit{Yang--Mills electric current}, and $\rho \in \Omega^0(S; \mathfrak{g})$, the \textit{Yang--Mills charge density}. Let us split the connection into two parts,
+    \[ \nabla_t : \Omega^k(M; E) \to \Omega^k(S; E) \quad \textup{ and } \quad \nabla_S : \Omega^k(M; E) \to \Omega^{k + 1}(S; E) , \]
+    such that $\nabla \omega = \nabla_t \omega \wedge dt + \nabla_S \omega$ for all $\omega \in \Omega^k(M; E)$. The first Yang--Mills equation, that is, Bianchi's identity, reduces to
+    \[ \nabla F_\nabla = \nabla_S B + (\nabla_t B + \nabla_S E) \wedge dt = 0, \]
+    that is,
+    \[ \nabla_S B = 0 \quad \textup{ and } \quad \nabla_t B + \nabla_S E = 0 . \]
+    Writing $\star_S$ for the Hodge star on $S$, we have $\star F = \star_S E - \star_S B \wedge dt$, so the second Yang--Mills equation becomes
+    \[ \star \nabla \star F = - \nabla_t E - \star_S \nabla_S \star_S E \wedge dt + \star_S \nabla_S \star_S B = j - \rho dt , \]
+    that is,
+    \[ \star_S \nabla_S \star_S E = \rho \quad \textup{ and } \quad - \nabla_t E + \star_S \nabla_S \star_S B = j . \]
+    
+    Specializing even more, now assume $S = \RR^n$. Since every vector bundle $E$ on $M = \RR^{n + 1}$ is trivial, we can assume $\nabla = d + A$ globally. We can choose a gauge such that $\nabla_t = \partial_t$ and $\nabla_i = \partial_i + A_i$ for $i = 1, \ldots, n$ (known as \textit{temporal gauge}). The Yang--Mills electric and magnetic field can now be expressed as
+    \[ E = E_i dx^i \quad \textup{ and } \quad B = \frac{1}{2} \epsilon_{ijk} B^i dx^j \wedge dx^k \]
+    where
+    \[ E_i = - \partial_t A_i \quad \textup{ and } \quad B^i = \epsilon^{ijk} ( \partial_j A_k - \partial_k A_j + [A_j, A_k] ) . \]
+    Bianchi's identity reduces to
+    \[ \partial^i B_i + [A^i, B_i] = 0 \quad \textup{ and } \quad \partial_t B^i + \epsilon^{ijk} (\partial_j E_k + [A_j, E_k]) = 0 \]
+    and the second Yang--Mills equation reduces to
+    \[ \partial^i E_i + [A^i, E_i] = \rho \quad \textup{ and } \quad - \partial_t E^i + \epsilon^{ijk} (\partial_j B_k + [A_j, B_k]) = j^i . \]
+    When the group $G$ is abelian, e.g. $G = \textup{U}(1)$, the commutators vanish, and we obtain \textit{Maxwell's equations}. Note that there is a direct relation between the nonabelian nature of the gauge group and the nonlinear nature of the corresponding gauge theory equations.
+\end{example}
+
+\begin{topic}{orbifold}{orbifold}
+    Let $X_1 \rightrightarrows X_0$ be a \tref{lie-algebroid}{Lie algebroid}. It is called \textit{étale} if the source and target maps $s, t : X_1 \to X_0$ are \tref{diffeomorphism}{local diffeomorphisms}, and called \textit{proper} if the map $X_1 \xrightarrow{(s, t)} X_0 \times X_0$ is \tref{TO:proper-map}{proper}. An \textbf{orbifold} is a proper étale Lie algebroid.
+\end{topic}
+
+\begin{example}{orbifold}
+    Consider the real line $\RR$ with an action of $G = \ZZ/2\ZZ$ given by $x \mapsto -x$. The quotient can be described by the orbifold $\RR \sqcup \RR \rightrightarrows \RR$, with source and target maps given by
+    \[ s : \RR \sqcup \RR \xrightarrow{(x, x)} \RR, \qquad t  : \RR \sqcup \RR \xrightarrow{(x, -x)} \RR . \]
+    Indeed, it is easy to verify that this Lie groupoid is proper and étale.
+    
+    More generally, if a finite group $G$ acts on a manifold $M$, the quotient can be described by the orbifold $G \times M \rightrightarrows M$, with source and target maps given by
+    \[ \begin{aligned}
+        s &: G \times M \to M, \quad (g, x) \mapsto x , \\
+        t &: G \times M \to M, \quad (g, x) \mapsto g \cdot x .
+    \end{aligned} \]
+\end{example}
+
+\begin{topic}{orbifold-euler-characteristic}{orbifold Euler characteristic}
+    Let $M$ be a \tref{TO:compact-space}{compact} \tref{smooth-manifold}{smooth manifold}, and $G$ a finite \tref{GT:group}{group} acting on $M$. The \textbf{orbifold Euler characteristic} of the \tref{orbifold}{orbifold} $M/G$ is
+    \[ \chi^\textup{orb}(M/G) = \frac{1}{|G|} \sum_{\substack{g, h \in G \\ \textup{s.t. } gh = hg}} \chi(M^{g, h}) , \]
+    where $M^{g, h}$ denotes the submanifold of points fixed by both $g$ and $h$, and $\chi$ denotes the ordinary \tref{AT:euler-characteristic}{Euler characteristic}.
+\end{topic}
+
+\begin{example}{orbifold-euler-characteristic}
+    \begin{itemize}
+        \item If $G$ acts \tref{GT:free-group-action}{freely} on $M$, then the only non-zero term in the sum is for $(g, h) = (1, 1)$, so $\chi^\textup{orb}(M/G) = \chi(M) / |G|$.
+        \item Let $G = \ZZ/n\ZZ$ act on the projective line $\PP^1(\CC)$ via $(a \mod n) \cdot (x : y) = (\zeta_n^a x : y)$, where $\zeta_n$ is a primitive $n$th root of unity. Then $\chi(\PP^1(\CC)^{g, h}) = \chi(\PP^1(\CC)) = 2$ for $(g, h) = (1, 1)$ and $\chi(\PP^1(\CC)^{g, h}) = \chi(\{ (0 : 1), (1 : 0) \}) = 2$ for $(g, h) \ne (1, 1)$ as well. Hence, $\chi^\textup{orb}(\PP^1(\CC) / (\ZZ/n\ZZ)) = \frac{1}{n} \left(1 \cdot 2 + (n^2 - 1) \cdot \right) = 2n$.
+        \item Let $G$ act on a point $\star$. Then $\chi(\star^{g, h}) = 1$ for all $g, h \in G$, so
+        \[ \begin{aligned}
+            \chi^\textup{orb}(\star / G)
+                &= \frac{1}{|G|} \sum_{\substack{g, h \in G \\ \textup{s.t. } gh = hg}} 1 \\
+                &= \sum_{g \in G} \frac{|G_g|}{|G|} \\
+                &= \sum_{g \in G} \frac{1}{|C_g|} \\
+                &= \# \textup{conjugacy classes of $G$} ,
+        \end{aligned} \]
+        where $G_g$ denotes the \tref{GT:centralizer}{centralizer} of $G$, and $C_g$ the conjugacy class of $g$, and we used the \tref{GT:orbit-stabilizer-theorem}{orbit-stabilizer theorem}.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{riemann-hilbert-correspondence}{Riemann--Hilbert correspondence}
+    Let $M$ be a \tref{complex-manifold}{complex manifold}. The \textbf{Riemann--Hilbert correspondence} states there is an \tref{CT:equivalence-of-categories}{equivalence of categories}
+    \[ \textbf{LS}_\CC(M) \simeq \textbf{Vect}_\CC^\nabla(M) , \]
+    between the category of \tref{TO:local-system}{local systems} of $\CC$-vector spaces on $M$, and the category of complex \tref{vector-bundle}{vector bundles} with a \tref{flat-connection}{flat} \tref{connection}{connection} on $M$.
+    
+    Explicitly, to a local system $\mathcal{L}$ is assigned the vector bundle (with sheaf of sections) $\mathcal{L} \otimes_\CC \mathcal{O}_M$ with connection induced by the \tref{exterior-derivative}{exterior derivative} $d : \mathcal{O}_M \to \Omega_M^1$. Conversely, to a vector bundle $\mathcal{E}$ with flat connection $\nabla$ is assigned the local system given by the sheaf of horizontal sections $\ker(\nabla) \subset \mathcal{E}$.
+\end{topic}
+
+\begin{topic}{finsler-manifold}{Finsler manifold}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Finsler metric} on $M$ is a \tref{smooth-map}{smooth function} $F : TM \to \RR_{\ge 0}$ on the \tref{tangent-bundle}{tangent bundle} of $M$ such that for all $x \in M$,
+    \begin{itemize}
+        \item (\textit{triangle inequality}) $F(v + w) \le F(v) + F(w)$ for all and $v, w \in T_x M$,
+        \item (\textit{positive homogeneity}) $F(\lambda v) = \lambda F(v)$ for all $v \in T_x M$ and $\lambda \ge 0$,
+        \item (\textit{positive definite}) $F(v) > 0$ for all non-zero $v \in T_x M$.
+    \end{itemize}
+    The pair $(M, F)$ is called a \textbf{Finsler manifold}.
+    
+    A Finsler metric is \textbf{reversible} if in addition $F(v) = F(-v)$ for all $x \in M$ and $v \in T_x M$.
+\end{topic}
+
+\begin{topic}{conformal-map}{conformal map}
+    Let $(M, g)$ and $(M', g')$ be two \tref{riemannian-manifold}{Riemannian manifolds}. A \tref{smooth-map}{smooth map} $f : M \to M'$ is \textbf{conformal} if $f^* g' = \alpha g$ for some $\alpha \in C^\infty(M)$. The function $\alpha$ is called the \textbf{conformal factor}.
+\end{topic}
+
+\begin{example}{conformal-map}
+    Let $M = \RR^2 \setminus \{ (0, 0) \}$ and $M' = \RR^2$, both equipped with the standard Euclidean metric, and consider the map
+    \[ f : M \to M', \quad (x, y) \mapsto (u, v) = \left(\frac{x}{x^2 + y^2}, \frac{y}{x^2 + y^2} \right) . \]
+    Then the pullback of $g' = du^2 + dv^2$ along $f$ is given by
+    \[ \begin{aligned}
+        f^* g'
+            &= f^* (du^2 + dv^2) \\
+            &= \left(d \left(\frac{x}{x^2 + y^2} \right)\right)^2 + \left(d \left( \frac{y}{x^2 + y^2} \right)\right)^2 \\
+            &= \frac{1}{(x^2 + y^2)^2} (dx^2 + dy^2) ,
+    \end{aligned} \]
+    so $f$ is conformal with conformal factor $\alpha = (x^2 + y^2)^{-2}$.
+\end{example}
+
+\begin{topic}{hessian-matrix}{Hessian matrix}
+    Let $f : \RR^n \to \RR$ be a \tref{smooth-map}{smooth function}. The \textbf{Hessian matrix} of $f$ is the $n \times n$ matrix of smooth functions
+    \[ \begin{pmatrix}
+        \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+        \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial^2 x_2} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f}{\partial^2 x_n}
+    \end{pmatrix} . \]
+\end{topic}
+
+\begin{topic}{jacobian-matrix}{Jacobian matrix}
+    Let $f : \RR^n \to \RR^m$ be a \tref{smooth-map}{smooth map}. The \textbf{Jacobian matrix} of $f$ is the $m \times n$ matrix of smooth functions
+    \[ \begin{pmatrix}
+        \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+        \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \cdots & \frac{\partial f_m}{\partial x_n}
+    \end{pmatrix} . \]
+\end{topic}
+
+\begin{topic}{critical-value}{critical value}
+    Let $f : M \to N$ be a \tref{smooth-map}{smooth map} between \tref{smooth-manifold}{smooth manifolds}. A \textbf{critical point} of $f$ is a point $x \in M$ such that the derivative $(df)_x : T_x M \to T_{f(x)} N$ has rank less than $\dim N$.
+    
+    A \textbf{critical value} of $f$ is a point $y \in N$ such that $y =  f(p)$ for some critical point $p$ of $f$.
+    
+    A \textbf{regular value} of $f$ is a point $q \in N$ which is not a critical value.
+\end{topic}
+
+\begin{topic}{morse-function}{Morse function}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Morse function} on $M$ is a \tref{smooth-map}{smooth function} $f : M \to \RR$ such that for every \tref{critical-value}{critical point} $p \in M$ of $f$, there exists a \tref{atlas}{chart} $\phi : U \to \RR^n$ around $p$ such that the \tref{hessian-matrix}{Hessian matrix}
+    \[ \left( \frac{\partial^2 (f \circ \phi^{-1})}{\partial x_i \partial x_j} (\phi(p)) \right)_{i, j = 1, \ldots, n} \]
+    is \tref{LA:invertible-matrix}{invertible}.
+\end{topic}
+
+\begin{topic}{morse-lemma}{Morse lemma}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and $f : M \to \RR$ a \tref{morse-function}{Morse function} on $M$. \textbf{Morse lemma} states that for every critical point $p \in M$ of $f$, there exists a \tref{atlas}{chart} $\phi : U \to \RR^n$ around $p$ such that
+    \[ (f \circ \phi^{-1})(x_1, \ldots, x_n) = f(p) + \sum_{i = 1}^{k} x_i^2 - \sum_{i = k + 1}^{n} x_i^2 . \]
+\end{topic}
+
+\begin{topic}{holomorphic-vector-bundle}{holomorphic vector bundle}
+    Let $X$ be a \tref{complex-manifold}{complex manifold}. A \textbf{holomorphic vector bundle} over $X$ is a complex \tref{vector-bundle}{vector bundle} $\pi : E \to X$ such that $\pi$ is \tref{CA:holomorphic-function}{holomorphic}.
+\end{topic}
+
+\begin{topic}{gradient}{gradient}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold} and $f : M \to \RR$ be a \tref{smooth-map}{smooth function}. The \textbf{gradient} of $f$ is the \tref{vector-field}{vector field} $\nabla f$ uniquely determined by
+    \[ g(\nabla f, -) = df . \]
+\end{topic}
+
+\begin{example}{gradient}
+    Consider $M = \RR^3$ with the standard Riemannian metric. The gradient of a function $f(x, y, z)$ is given by
+    \[ \nabla f = \frac{\partial f}{\partial x} \partial_x + \frac{\partial f}{\partial y} \partial_y + \frac{\partial f}{\partial z} \partial_z . \]
+\end{example}
+
+\begin{topic}{knot}{knot}
+    A \textbf{knot} is an \tref{embedding}{embedding} $K : S^1 \to \RR^3$ from the circle $S^1$ to $\RR^3$.
+
+    Two knots $K_1$ and $K_2$ are \textit{equivalent} if there exists a smooth map
+    \[ H : [0, 1] \times \RR^3 \to \RR^3 \]
+    such that $H(0, -) = \id_{\RR^3}$, $H(1, -) \circ K_1 = K_2$ and $H(t, -)$ is a \tref{diffeomorphism}{diffeomorphism} for all $t \in [0, 1]$.
+\end{topic}
+
+\begin{topic}{jones-polynomial}{Jones polynomial}
+    The \textbf{Jones polynomial} of a \tref{knot}{knot} $K$ is a polynomial $J(K) \in \ZZ[q^{\pm 1/2}]$, uniquely determined by the properties
+    \begin{itemize}
+        \item equivalent knots have the same Jones polynomial,
+        \item the Jones polynomial of the unknot is $1$,
+        \item for every crossing of the knot, replacing this crossing by other possible crossings yields different knots whose Jones polynomials are related according to
+        \[ \svg q^{-1} J \left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex] 
+            \draw [-to] (0, 0) -- (1, 1);
+            \draw (1, 0) -- (0.6, 0.4);
+            \draw [-to] (0.4, 0.6) -- (0, 1);
+        \end{tikzpicture} \right) - q J \left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex]
+            \draw (0, 0) -- (0.4, 0.4);
+            \draw [-to] (0.6, 0.6) -- (1, 1);
+            \draw [-to] (1, 0) -- (0, 1);
+        \end{tikzpicture} \right) + (q^{-1/2} - q^{1/2}) J \left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex]
+            \draw [-to] (0, 0) -- (0, 1);
+            \draw [-to] (1, 0) -- (1, 1);
+        \end{tikzpicture} \right) = 0 . \]
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{alexander-conway-polynomial}{Alexander--Conway polynomial}
+    The \textbf{Alexander--Conway polynomial} of a \tref{knot}{knot} $K$ is a polynomial $\nabla_K(z) \in \ZZ[z^{\pm 1}]$, uniquely determined by the properties
+    \begin{itemize}
+        \item equivalent knots have the same Alexander--Conway polynomial,
+        \item the Alexander--Conway polynomial of the unknot is $1$,
+        \item for every crossing of the knot, replacing this crossing by other possible crossings yields different knots whose Alexander--Conway polynomials are related according to
+        \[ \svg \nabla_{\left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex] 
+            \draw [-to] (0, 0) -- (1, 1);
+            \draw (1, 0) -- (0.6, 0.4);
+            \draw [-to] (0.4, 0.6) -- (0, 1);
+        \end{tikzpicture} \right)}(z) - \nabla_{\left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex]
+            \draw (0, 0) -- (0.4, 0.4);
+            \draw [-to] (0.6, 0.6) -- (1, 1);
+            \draw [-to] (1, 0) -- (0, 1);
+        \end{tikzpicture} \right)}(z) = z \nabla_{\left( \begin{tikzpicture}[semithick, scale=0.5, baseline=1ex]
+            \draw [-to] (0, 0) -- (0, 1);
+            \draw [-to] (1, 0) -- (1, 1);
+        \end{tikzpicture} \right)}(z) . \]
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{hodge-cycle}{Hodge cycle}
+    Let $M$ be a \tref{TO:compact-space}{compact} \tref{kahler-manifold}{Kähler manifold} of dimension $2n$.  Its \tref{de-rham-cohomology}{cohomology} admits a \tref{LA:hodge-structure}{Hodge structure}
+    \[ H^k(M; \CC) = \bigoplus_{p + q = k} H^{p, q}(M) . \]
+    The group of \textbf{Hodge cycles} of degree $2k$ is the group of rational cycles of type $(k, k)$, that is,
+    \[ \textup{Hdg}^k(M) = H^{2k}(M; \QQ) \cap H^{k, k}(M) . \]
+\end{topic}
+
+\begin{topic}{transverse-intersection}{transverse intersection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. Two submanifolds $L_1, L_2 \subset M$ \textbf{intersect transversally}, denoted $L_1 \pitchfork L_2$, if $T_p M = T_p L_1 + T_p L_2$ for all $p \in L_1 \cap L_2$.
+\end{topic}
+
+\begin{topic}{frobenius-manifold}{Frobenius manifold}
+    A \textbf{Frobenius manifold} is a tuple $(M, g, \mu, \eta)$ consisting of a \tref{complex-manifold}{complex manifold} $M$, a (complex) symmetric nondegenerate bilinear form $g \in \Gamma(TM^{\otimes 2})$, a tensor $\mu \in \Gamma({TM^*}^{\otimes 2} \otimes TM)$, and a \tref{vector-field}{vector field} $\eta \in \Gamma(TM)$, such that:
+    \begin{itemize}
+        \item For every $p \in M$, the tangent space $T_p M$ is a \tref{AA:frobenius-algebra}{Frobenius algebra} with unit $\eta_p$, multiplication given by $v \cdot w = \mu_p(v, w)$ for all $u, v \in T_p M$, and bilinear form $g_p$.
+        \item The vector field $\eta$ is flat for the \tref{levi-civita-connection}{Levi-Civita connection} $\nabla$, that is, $\nabla \eta = 0$.
+        \item If $c(X, Y, Z) = g(X \cdot Y, Z)$, then the $4$-tensor $(\nabla_W c)(X, Y, Z)$ is completely symmetric.
+    \end{itemize}
+    An \textbf{Euler field} on a Frobenius manifold is a vector field $\mathcal{E}$ on $M$ such that
+    \begin{itemize}
+        \item $\mathcal{E} \cdot g(\alpha, \beta) - g([\mathcal{E}, X], Y) - g(X, [\mathcal{E}, Y]) = D g(X, Y)$ for some constant $D$,
+        \item $[\mathcal{E}, X \cdot Y] - [\mathcal{E}, X] \cdot Y - X \cdot [\mathcal{E}, Y] = d_1 X \cdot Y$ for some constant $d_1$,
+        \item $\nabla (\nabla \mathcal{E}) = 0$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{hermitian-vector-bundle}{Hermitian vector bundle}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}. A \textbf{Hermitian vector bundle} on $M$ is a complex \tref{vector-bundle}{vector bundle} $E \to M$ with a section $h \in \Gamma((E \otimes \overline{E})^*)$, called a \textit{Hermitian metric}, such that $h_p$ is an \tref{LA:inner-product}{inner product} on $E_p$ for all $p \in M$.
+
+    One often writes $\langle s, t \rangle = h(s, t)$ for $s, t \in \Gamma(E)$.
+\end{topic}
+
+\begin{topic}{hermitian-connection}{Hermitian connection}
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold} and let $E \to M$ be a \tref{hermitian-vector-bundle}{Hermitian vector bundle}. A \textbf{Hermitian connection} on $E$ is a \tref{connection}{connection} $\nabla$ on $E$ such that
+    \[ X \langle s, t \rangle = \langle \nabla_X s, t \rangle + \langle s, \nabla_X t \rangle \]
+    for all \tref{vector-field}{vector fields} $X$ and all $s, t \in \Gamma(E)$.
+\end{topic}
+
+\begin{topic}{clifford-action}{Clifford action}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold} and $E \to M$ a complex \tref{vector-bundle}{vector bundle}. A \textbf{Clifford action} on $E$ is a vector bundle morphism $c : T^*M \to \operatorname{End}(E)$ such that
+    \[ c(\xi)^2 = - g(\xi, \xi) \id_E \]
+    for all $p \in M$ and $\xi \in T^*_p M$.
+\end{topic}
+
+\begin{topic}{clifford-connection}{Clifford connection}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold} and let $c$ be a \tref{clifford-action}{Clifford action} on a complex \tref{vector-bundle}{vector bundle} $E \to M$. A \textbf{Clifford connection} on $E$ is a \tref{hermitian-connection}{Hermitian connection} on $E$ such that
+    \[ \nabla_X c(Y) s = c(Y) \nabla_X s + c(\nabla^{\textup{LC}}_X Y) s \]
+    for all \tref{vector-field}{vector fields} $X$ and $Y$ and all $s \in \Gamma(E)$, where $\nabla^{\textup{LC}}$ denotes the \tref{levi-civita-connection}{Levi-Civita} connection on $M$.
+\end{topic}
+
+\begin{topic}{dirac-operator}{Dirac operator}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold} and $E \to M$ be a complex \tref{vector-bundle}{vector bundle}. A \textbf{Dirac operator} on $E$ is a first order linear differential operator $D : \Gamma(E) \to \Gamma(E)$ on $E$ such that
+    \[ \sigma_D(\xi)^2 = - g(\xi, \xi) \id_E \]
+    for all $\xi \in T^*M$, where $\sigma_D : T^*M \to \operatorname{End}(E)$ denotes the \textit{principal symbol} of $D$ given by $\sigma_D(df) = [D, f]$ for all $f \in C^\infty(M)$.
+\end{topic}
+
+\begin{example}{dirac-operator}
+    Consider $M = \RR^n$ with the Euclidean metric, and $E = M \times \CC$ the trivial complex vector bundle. Then $D = \sum_{j = 1}^{n} i \partial_{x_j}$ is a Dirac operator for $E$, because
+    \[ \sigma_D(dx_j) = [D, x_j] = [i \partial_{x_j}, x_j] = i \]
+    so $\sigma_D(dx_j)^2 = -1 = - g(dx_j, dx_j)$ for all $k = 1, \ldots, n$.
+\end{example}
+
+\begin{topic}{hodge-dirac-operator}{Hodge--Dirac operator}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}, and let $E = \bigwedge T^*M \otimes \CC \to M$ be the complex \tref{vector-bundle}{vector bundle} given by the exterior algebra of the \tref{cotangent-bundle}{cotangent bundle}. The \tref{exterior-derivative}{exterior derivative} $d$ defines a first order linear differential operator $d : \Gamma(E) \to \Gamma(E)$. Under the \tref{hodge-inner-product}{Hodge inner product}, it has a formal adjoint $d^*$ given by $d^* \omega = (-1)^{nk + 1} \star d \star \omega$ for $\omega \in \Omega^k(M; \CC)$, where $\star$ is the \tref{hodge-star-operator}{Hodge star operator}. The \textbf{Hodge--Dirac operator} is the \tref{dirac-operator}{Dirac operator} on $E$ given by
+    \[ D = d + d^* . \]
+    Its square $\Delta = D^2$ is the \textit{Hodge--Laplace operator}.
+\end{topic}
+
+\begin{topic}{spinor-bundle}{spinor bundle}
+    Let $P$ be a \tref{spin-manifold}{$\textup{Spin}(n)$-structure}, with $n$ even, on a \tref{riemannian-manifold}{Riemannian manifold} $(M, g)$. The associated \textbf{spinor bundle} is the \tref{TO:associated-bundle}{associated bundle}
+    \[ S_P = P \times_{\textup{Spin}(n)} \Delta_n \to M \]
+    where $\Delta_n \cong \CC^{2^{n/2}}$ is acted on via $\textup{Spin}(n) \hookrightarrow \textup{Cl}_n \hookrightarrow \textup{Cl}_n \otimes \CC \cong \operatorname{End}(\CC^{2^{n/2}})$.
+\end{topic}
+
+\begin{topic}{rough-laplacian}{rough Laplacian}
+    Let $(M, g)$ be a \tref{riemannian-manifold}{Riemannian manifold}, $E \to M$ a \tref{vector-bundle}{vector bundle} on $M$ with \tref{connection}{connection} $\nabla$. The \textbf{rough Laplacian} on $E$ is the operator
+    \[ \Delta : \Gamma(E) \to \Gamma(E), \quad s \mapsto \operatorname{tr}(\nabla^2 s) \]
+    where $\nabla^2 s \in \Gamma(E \otimes T^*M \otimes T^*M) \cong \Gamma(E \otimes \operatorname{End}(TM))$ via the metric $g$, and $\operatorname{tr}$ takes the trace.
+\end{topic}
+
+\begin{topic}{whitney-stratification}{Whitney stratification}
+    Let $X$ be a closed subspace $\RR^n$. A \textbf{Whitney stratification} of $X$ is a decomposition of $X$ into finitely many connected locally closed submanifolds $S_\alpha \subset X$, satisfying \textit{Whitney's conditions}:
+    \begin{enumerate}[label=(\Alph*)]
+        \item Given two strata $S_\alpha$ and $S_\beta$ and a sequence $x_i \in S_\alpha$ converging to some $y \in S_\beta$ such that the sequence of tangent planes $T_{x_i} S_\alpha$ converges to a plane $T$, then $T$ should contain $T_y S_\beta$.
+        \item Given two strata $S_\alpha$ and $S_\beta$ and sequences $x_i \in S_\alpha$ and $y_j \in S_\beta$, both converging to $y \in S_\beta$, such that the sequence of secant lines $L_i$ from $x_i$ to $y_i$ converges to to a line $L$, and the sequence of tangent planes $T_{x_i} S_\alpha$ converges to a plane $T$, then $L$ should be contained in $T$.
+    \end{enumerate}
+    In fact, condition (B) implies condition (A).
+\end{topic}
+
+\begin{example}{whitney-stratification}
+    Consider Whitney's umbrella $W = \{ (u, v, w) \in \RR^3 \mid u^2 - v^2 w = 0 \}$ with stratification $S_1 = \{ u = v = 0 \}$ and $S_0 = W \setminus S_1$. Consider the sequence $x_i = (0, 1/i, 0)$ in $S_0$ converging to $y = (0, 0, 0)$ in $S_1$. However, the tangent spaces $T_{x_i} S_0$ converge to the $uv$-plane, which does not contain $T_y S_1$, which is the $w$-axis. Therefore, this stratification does not satisfy Whitney's condition (A).
+\end{example}
+
+\begin{example}{whitney-stratification}
+    Consider Whitney's cusp $C = \{ (u, v, w) \in \RR^3 \mid v^2 + w^3 - w^2 u^2 = 0 \}$ with stratification $S_1 = \{ v = w = 0 \}$ and $S_0 = C \setminus S_1$.
+    Consider the sequences $x_i = (1/i, 0, 1/i^2)$ in $S_0$ and $y_i = (1/i, 0, 0)$ in $S_1$, both converging to $y = (0, 0, 0)$ in $S_1$. However, the secant lines $L_i$ converge to $L$, which is the $w$-axis, that is not contained in the limit $T$ of the $T_{x_i} S_0$. Therefore, this stratification does not satisfy Whitney's condition (A).
+\end{example}
+
+\begin{topic}{stereographic-projection}{stereographic projection}
+    Let $S^n = \{ (x_0, \ldots, x_n) \in \RR^{n + 1} \mid x_0^2 + \cdots x_n^2 = 1 \}$ be the $n$-sphere. For any point $p \in S^n$, \textbf{stereographic projection} is a \tref{diffeomorphism}{diffeomorphism} $S^n \setminus \{ p \} \to \RR^n$. For $p = (1, 0, \ldots, 0)$, it is given by
+    \[ S^n \setminus \{ p \} \to \RR^n, \quad (x_0, \ldots, x_n) \mapsto \left(\frac{x_1}{1 - x_0}, \ldots, \frac{x_n}{1 - x_0}\right) \]
+    with inverse
+    \[ \RR^n \to S^n \setminus \{ p \}, \quad (y_1, \ldots, y_n) \mapsto \left(\frac{y_1^2 + \cdots + y_n^2 - 1}{y_1^2 + \cdots + y_n^2 + 1}, \frac{2 y_1}{y_1^2 + \cdots + y_n^2 + 1}, \ldots, \frac{2 y_n}{y_1^2 + \cdots + y_n^2 + 1}\right) . \]
+\end{topic}

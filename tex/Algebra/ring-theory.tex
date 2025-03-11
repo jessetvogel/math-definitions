@@ -1,0 +1,368 @@
+\begin{topic}{ring}{ring}
+    A \textbf{ring} is an \tref{GT:abelian-group}{abelian group} $R$ with an operation called multiplication and an element $1 \in R$ satisfying
+    \begin{itemize}
+        \item (\textit{associativity}) $a(bc) = (ab)c$,
+        \item (\textit{distributivity}) $a(b + c) = ab + ac$ and $(a + b)c = ac + bc$,
+        \item (\textit{unit}) $1 \cdot a = a \cdot 1 = a$,
+    \end{itemize}
+    for all $a, b, c \in R$.
+    
+    A ring $R$ is called \textbf{commutative} if moreover $ab = ba$ for all $a, b \in R$.
+\end{topic}
+
+\begin{topic}{ring-morphism}{ring morphism}
+    A \textbf{ring morphism} is a map $f : R \to S$ between \tref{ring}{rings} satisfying
+    \begin{itemize}
+        \item $f(1) = 1$,
+        \item $f(a + b) = f(a) + f(b)$,
+        \item $f(ab) = f(a) f(b)$,
+    \end{itemize}
+    for all $a, b \in R$.
+\end{topic}
+
+\begin{topic}{unit-element}{unit}
+    Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{unit} if there exists some $b \in R$ such that $ab = ba = 1$. This is denoted $b = a^{-1}$.
+\end{topic}
+
+\begin{example}{unit-element}
+    If $a \in R$ is a unit, its inverse is unique. Namely, if $ab = ca = 1$ for some $b, c \in R$, then $b = cab = c$.
+\end{example}
+
+\begin{topic}{zero-divisor}{zero-divisor}
+    Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is called a \textbf{left zero-divisor} if $ab = 0$ for some $b \ne 0$. Similarly, an element $a \in R$ is called a \textbf{right zero-divisor} if $ba = 0$ for some $b \ne 0$. An element $a \in R$ is called a \textbf{zero-divisor} if it is both a left zero-divisor and a right zero-divisor.
+\end{topic}
+
+\begin{example}{zero-divisor}
+    The zero-divisors of the ring $\ZZ / 6 \ZZ$ are $\{ \overline{2}, \overline{3}, \overline{4} \}$, since $\overline{2} \cdot \overline{3} = \overline{3} \cdot \overline{4} = 0$.
+\end{example}
+
+\begin{example}{zero-divisor}
+    Let $R$ be the ring of endomorphisms of $V = k^\infty$, for some \tref{field}{field} $k$. Let $f : V \to V$ be given by $f(e_i) = e_{i + 1}$ with $\{ e_i : i \in \NN \}$ denotes the standard basis of $V$. Then $f$ is a right zero-divisor of $R$ since
+    \[ g \circ f = 0 \quad \textup{ for }g(e_i) = \left\{ \begin{array}{cl} e_0 & \textup{ if } i = 0 , \\ 0 & \textup{ otherwise.} \end{array} \right. \]
+    However, $f$ is not a left zero-divisor of $R$ as it is easy to verify that $f \circ h = 0$ implies $h = 0$.
+\end{example}
+
+\begin{topic}{nilpotent-element}{nilpotent element}
+    Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is \textbf{nilpotent} if $a^n = 0$ for some positive integer $n$.
+\end{topic}
+
+\begin{example}{nilpotent-element}
+    If $a \in R$ is nilpotent, then $1 - a$ is \tref{unit-element}{invertible} in $R$. Namely, $a^n = 0$ for some $n \ge 0$, so
+    \[ (1 - a) (1 + a + a^2 + \cdots + a^{n - 1}) = 1 - a^n = 1 . \]
+\end{example}
+
+\begin{topic}{unipotent-element}{unipotent element}
+    Let $R$ be a \tref{ring}{ring}. An element $a \in R$ is \textbf{unipotent} if $(a - 1)^n = 0$ for some positive integer $n$.
+\end{topic}
+
+\begin{example}{unipotent-element}
+    Let $R = \textup{Mat}_{n \times n}(k)$ be the ring of $n \times n$ matrices over some field $k$. Then any matrix of the form
+    \[ \begin{pmatrix} 1 & * & \cdots & * \\ 0 & 1 & \cdots & * \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1 \end{pmatrix} \]
+    is unipotent.
+\end{example}
+
+\begin{topic}{reduced-ring}{reduced ring}
+    A \tref{ring}{ring} $R$ is \textbf{reduced} if it has no non-zero \tref{nilpotent-element}{nilpotent} elements.
+\end{topic}
+
+\begin{example}{reduced-ring}
+    The ring $\ZZ[x] / (x^2)$ is not reduced, since $x \textup{ mod } (x^2)$ squares to $0$.
+\end{example}
+
+\begin{topic}{ideal}{ideal}
+    Let $R$ be a \tref{ring}{ring}. A subgroup under addition $I \subset R$ is called a
+    \begin{itemize}
+        \item \textbf{left ideal} if $ra \in I$  for all $r \in R$ and $a \in I$,
+        \item \textbf{right ideal} if $ar \in I$ for all $r \in R$ and $a \in I$,
+        \item \textbf{two-sided ideal} if $I$ is both a left and right ideal.
+    \end{itemize}
+    When $R$ is commutative, these notions coincide, and $I$ is simply called an \textbf{ideal}.
+\end{topic}
+
+\begin{topic}{principal-ideal}{principal ideal}
+    Let $R$ be a \tref{ring}{ring} and $I \subset R$ an \tref{ideal}{ideal} of $R$. Then $I$ is called a
+    \begin{itemize}
+        \item \textbf{left principal ideal} if $I = Ra = \{ ra : r \in R \}$ for some $a \in R$,
+        \item \textbf{right principal ideal} if $I = aR = \{ ar : r \in R \}$ for some $a \in R$,
+        \item \textbf{two-sided principal ideal} if $I$ is both a left and right principal ideal.
+    \end{itemize}
+    When $R$ is commutative, these notions coincide, and $I$ is simply called a \textbf{principal ideal}, and denoted as $I = (a)$.
+\end{topic}
+
+\begin{topic}{coprime-ideals}{coprime ideals}
+    Two \tref{ideal}{ideals} $I, J$ of a \tref{ring}{commutative ring} $R$ are \textbf{coprime} if $I + J = R$.
+\end{topic}
+
+\begin{topic}{irreducible-ideal}{irreducible ideal}
+    Let $R$ be a \tref{ring}{ring}. An \tref{ideal}{ideal} $I \subset R$ is called \textbf{irreducible} if
+    \[ I = J_1 \cap J_2 \quad \implies \quad I = J_1 \textup{ or } I = J_2 . \]
+\end{topic}
+
+\begin{topic}{group-ring}{group ring}
+    Let $R$ be a \tref{ring}{ring} and $G$ a group. The \textbf{group ring} $R[G]$ of $G$ over $R$ is defined as
+    \[ R[G] = \bigoplus_{g \in G} R , \]
+    where multiplication is induced by
+    \[ (a \cdot g) \cdot (b \cdot h) = (ab) \cdot gh . \]
+    % where multiplication is given by
+    % \[ (a_g)_{g \in G} \cdot (b_g)_{g \in G} = \left(\sum_{h \in G} a_h b_{h^{-1}g}\right)_{g \in G} \]
+\end{topic}
+
+\begin{example}{group-ring}
+    \begin{itemize}
+        \item For $G = \ZZ$, we have $R[G] \isom R[x, x^{-1}]$.
+        \item For $G = \ZZ/n\ZZ$ with $n \ge 1$, we have $R[G] \isom R[x] / (x^n - 1)$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{augmentation-ideal}{augmentation ideal}
+    The \textbf{augmentation ideal} of a \tref{group-ring}{group ring} $R[G]$ is the \tref{ideal}{(two-sided) ideal}
+    \[ A = \ker\left( \varepsilon : R[G] \to G, \quad \sum_i r_i g_i \mapsto \sum_i r_i  \right) = (g - g' : g, g' \in G). \]
+\end{topic}
+
+\begin{topic}{idempotent-element}{idempotent element}
+    An element $e \in R$ of a \tref{ring}{ring} $R$ is called \textbf{idempotent} if $e^2 = e$.
+\end{topic}
+
+\begin{example}{idempotent-element}
+    The idempotent elements of a commutative ring $R$ are in bijection with the decompositions of $R$ as a product $R = R_1 \times R_2$. Indeed, every such decomposition yields the idempotent element $(1, 0)$. Conversely, for every idempotent $e \in R$, we have that $Re$ and $R(1 - e)$ are subrings of $R$, and we have an isomorphism
+    \[ \begin{aligned}
+        R &\isom Re \times R(1 - e) \\
+        r &\mapsto (re, r - re)
+    \end{aligned} \]
+    whose inverse is $(a, b) \mapsto a + b$. Clearly these two constructions are inverse to each other.
+\end{example}
+
+\begin{topic}{graded-ring}{graded ring}
+    A \textbf{graded ring} is a \tref{ring}{ring} $R$ that is decomposed as a direct sum
+    \[ R = \bigoplus_{i \ge 0} R_i \]
+    of additive groups, such that $R_i R_j \subset R_{i + j}$ for all $i, j \ge 0$.
+\end{topic}
+
+\begin{example}{graded-ring}
+    The polynomial ring $R = k[x_1, \ldots, x_n]$ is a graded ring, with
+    \[ R_i = \{ f \in R \mid f \textup{ is homogeneous of degree $i$} \} . \]
+\end{example}
+
+\begin{topic}{morita-equivalence}{Morita equivalence}
+    Two \tref{ring}{rings} $R$ and $S$ are said to be \textbf{Morita equivalent} if there is an \tref{CT:equivalence-of-categories}{equivalence of categories} between the category of (left) $R$-modules, and (left) $S$-modules.
+\end{topic}
+
+\begin{example}{morita-equivalence}
+    Any ring $R$ is Morita equivalent to the ring $\textup{M}_n(R)$ of $n \times n$ matrices with elements in $R$, for any $n > 0$. Indeed, take
+    \[ R\textup{-Mod} \to \textup{M}_n(R)\textup{-Mod}, \quad M \to R^{n \times 1} \otimes_R M \isom M^n , \]
+    where $\textup{M}_n(R)$ acts on $M^n$ by matrix multiplication on the left. Inversely, take
+    \[ \textup{M}_n(R)\textup{-Mod} \to R\textup{-Mod}, \quad N \to R^{1 \times n} \otimes_{\textup{M}_n(R)} N . \]
+    Indeed these are inverse to each other since
+    \[ R^{1 \times n} \otimes_{\textup{M}_n(R)} R^{n \times 1} \isom R \quad \textup{and} \quad R^{n \times 1} \otimes_R R^{1 \times n} \isom \textup{M}_n(R) . \]
+\end{example}
+
+\begin{topic}{homogeneous-ideal}{homogeneous ideal}
+    A \textbf{homogeneous ideal} in a \tref{graded-ring}{graded ring} is an \tref{ideal}{ideal} generated by homogeneous elements.
+\end{topic}
+
+\begin{example}{homogeneous-ideal}
+    In $S = k[x, y, z]$, the ideals $(x, y, z)$ and $(x^2, y + z)$ are homogeneous, while $(x + y^2)$ is not.
+\end{example}
+
+\begin{topic}{irrelevant-ideal}{irrelevant ideal}
+    The \textbf{irrelevant ideal} of a \tref{graded-ring}{graded ring} is the \tref{ideal}{ideal} generated by the homogeneous elements of degree greater than zero. More generally, a \tref{homogeneous-ideal}{homogeneous ideal} of a graded ring is called \textbf{irrelevant} if its \tref{radical-ideal}{radical} contains the irrelevant ideal.
+\end{topic}
+
+\begin{example}{irrelevant-ideal}
+    The irrelevant ideal of the graded ring $S = k[x_1, \ldots, x_n]$ is the ideal $S_+ = (x_1, \ldots, x_n)$.
+\end{example}
+
+\begin{topic}{algebra}{algebra}
+    Let $R$ be a \tref{ring}{commutative ring}. An \textbf{$R$-algebra} is ring $A$ with a \tref{ring-morphism}{ring morphism} $f : R \to A$.
+\end{topic}
+
+\begin{example}{algebra}
+    Let $R = k$ be a field, and $A = \textup{Mat}_{n}(k)$ the ring of $n \times n$ matrices over $k$. Then $A$ is a $k$-algebra under the morphism $i : k \to A$ which sends $x \mapsto x \cdot I$.
+\end{example}
+
+\begin{topic}{derivation}{derivation}
+    Let $A$ be a \tref{ring}{commutative ring}, $B$ an \tref{algebra}{$A$-algebra}, and $M$ a \tref{module}{$B$-module}. An \textbf{$A$-derivation} is a map $d : B \to M$ such that
+    \begin{itemize}
+        \item $d(b + b') = db + db'$ for all $b, b' \in B$,
+        \item $d(bb') = bdb' + b'db$ for all $b, b' \in B$,
+        \item $da = 0$ for all $a \in A$.
+    \end{itemize}
+    The set of $A$-derivations $d : B \to M$ is often denoted $\textup{Der}_A(B, M)$.
+    
+    An $A$-derivation $d : B \to M$ is \textbf{universal} if for any other $A$-derivation $d' : B \to N$ there exists a unique $B$-module morphism $\phi : M \to N$ such that $d' = \phi \circ d$. In this case one often writes $M = \Omega_{B/A}$.
+\end{topic}
+
+\begin{example}{derivation}
+    Let $\mu : B \otimes_A B \to B$ be the multiplication map $b_1 \otimes b_2 \mapsto b_1 b_2$, and let $I = \ker \mu$. Consider $B \otimes_A B$ as a $B$-module by multiplication on the left, that is $b \cdot (b_1 \otimes b_2) = (bb_1 \otimes b_2)$, then $I/I^2$ inherits the structure of a $B$-module, and the map
+    \[ d : B \to I/I^2, \quad b \mapsto 1 \otimes b - b \otimes 1 (\textup{mod } I^2) \]
+    is a universal $A$-derivation. This can be seen as follows.
+    
+    First note that $I$ is generated as an $B$-module by elements of the form $1 \otimes b - b \otimes 1$ with $b \in B$. Namely, for any $x \in I$ we have $\mu(x) = 0$ so $x \equiv \mu(x) \otimes 1 \textup{ mod } (1 \otimes b - b \otimes 1 : b \in B) = 0$, and the other inclusion is obvious. In other words, $d$ is surjective.
+    
+    Now for any other $A$-derivation $d' : B \to M$ we can (and must) define $\phi : I/I^2 \to M$ by putting $\phi(d(b)) = d' b$ and extending $B$-linearly. Indeed this is well-defined as any element of $I^2$ is a sum of elements of the form $xy$ with $x, y \in I$, and writing $x = \sum_i (1 \otimes b_i - b_i \otimes 1)$ and $y = \sum_j (1 \otimes b'_j - b'_j \otimes 1)$ we find that
+    \[ xy = \sum_{i,j} (1 \otimes b_i b'_j - b_i b'_j \otimes 1) - b_i (1 \otimes b'_j - b'_j \otimes 1) - b'_j (1 \otimes b_i - b_i \otimes 1) , \]
+    so $\phi(xy) = \sum_{i, j} d'(b_i b'_j) - b_i d' b'_j - b'_j d' b_i = 0$.
+\end{example}
+
+\begin{example}{derivation}
+    If $B = A[x_1, \ldots, x_n]$ is a polynomial ring over $A$, then
+    \[ \Omega_{B/A} = \bigoplus_{i = 1}^{n} B \cdot dx_i . \]
+\end{example}
+
+\begin{topic}{azumaya-algebra}{Azumaya algebra}
+    An \textbf{Azumaya algebra} over a \tref{ring}{commutative ring} $R$ is an \tref{algebra}{$R$-algebra} $A$ that is \tref{finitely-generated-module}{finitely generated} \tref{faithful-module}{faithful} and \tref{projective-module}{projective} as an $R$-module, such that $A \otimes_R A^\textup{op}$ is isomorphic to $\textup{End}_R(A)$ via the map $a \otimes b \mapsto (x \mapsto axb)$.
+\end{topic}
+
+\begin{example}{azumaya-algebra}
+    When $R = k$ is a field, Azumaya algebras over $k$ are precisely \tref{central-simple-algebra}{central simple algebras} over $k$.
+\end{example}
+
+\begin{topic}{simple-ring}{simple ring}
+    A \tref{ring}{ring} $R$ is \textbf{simple} if it is non-trivial and it has no two-sided ideal besides the zero ideal and itself.
+\end{topic}
+
+\begin{example}{simple-ring}
+    A commutative ring is simple if and only if it is a \tref{field}{field}.
+\end{example}
+
+\begin{topic}{ring-center}{ring center}
+    The \textbf{center} of a \tref{ring}{ring} $R$ is the subring $Z(R)$ of all elements $x \in R$ such that $xy = yx$ for all $y \in R$.
+\end{topic}
+
+\begin{topic}{central-algebra}{central algebra}
+    Let $S$ be a \tref{ring}{commutative ring}. A \textbf{central algebra} over $S$ is an $S$-algebra whose \tref{ring-center}{center} is exactly $S$.
+\end{topic}
+
+\begin{topic}{central-simple-algebra}{central simple algebra}
+    A \textbf{central simple algebra (CSA)} over a field $k$ is a finite-dimensional $k$-algebra that is \tref{simple-ring}{simple} and whose \tref{ring-center}{center} is $k$.
+\end{topic}
+
+\begin{example}{central-simple-algebra}
+    The quaternions $\mathbb{H}$ are a central simple algebra over the reals $\RR$.
+\end{example}
+
+\begin{topic}{involutive-ring}{involutive ring}
+    An \textbf{involutive ring} is a \tref{ring}{ring} $R$ together with a map $^* : R \to R$ satsifying
+    \begin{itemize}
+        \item (\textit{involution}) $(x^*)^* = x$ for all $x \in R$,
+        \item (\textit{antiautomorphism}) $(x + y)^* = x^* + y^*$ and $(xy)^* = y^* x^*$ for all $x, y \in R$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{involutive-ring}
+    The complex numbers $\CC$ are an involutive ring, with complex conjugation as involution.
+\end{example}
+
+\begin{topic}{involutive-algebra}{involutive algebra}
+    An \textbf{involutive algebra} is an \tref{involutive-ring}{involutive ring} $A$ with involution $^*$, which is an algebra over a \tref{ring}{commutative ring} $R$ with involution $'$, satisfying
+    \[ (ra)^* = r' a^* \]
+    for all $r \in R$ and $a \in A$.
+\end{topic}
+
+\begin{example}{involutive-algebra}
+    The ring of $n \times n$ matrices over the complex numbers $\CC$ are an involutive algebra, with the conjugate transpose as involution.
+\end{example}
+
+\begin{topic}{standard-complex}{standard complex (bar resolution)}
+    Let $k$ be a \tref{field}{field} and $A$ an \tref{algebra}{$k$-algebra}. The \textbf{standard complex} is the \tref{HA:chain-complex}{chain complex} with $A^{\otimes n + 2}$ at degree $n$,
+    \[ \cdots \xrightarrow{d_{n + 1}} A^{\otimes n + 2} \xrightarrow{d_n} \cdots \xrightarrow{d_1} A^{\otimes 2} \xrightarrow{d_0} A \to 0 \]
+    with differential given by
+    \[ d_n(a_0 \otimes \cdots \otimes a_{n + 1}) = \sum_{i = 0}^{n} (-1)^i a_0 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n . \]
+\end{topic}
+
+\begin{topic}{hereditary-ring}{hereditary ring}
+    A \tref{ring}{ring} $R$ is \textbf{hereditary} if every submodule of a \tref{projective-module}{projective modules} over $R$ is also projective.
+    
+    If this is only true for \tref{finitely-generated-module}{finitely generated submodules}, the ring $R$ is called \textbf{semi-hereditary}.
+\end{topic}
+
+\begin{topic}{cotangent-complex}{cotangent complex}
+    Let $A$ be a \tref{ring}{commutative ring} and let $B$ be an $A$-algebra. The \textbf{cotangent complex} $\mathbb{L}_{B/A}$ is the complex of $B$-modules associated to the simplicial $B$-module (via the \tref{HT:dold-kan-correspondence}{Dold--Kan correspondence})
+    \[ \Omega_{P_\bdot/A} \otimes_{P_\bdot, \varepsilon} B \]
+    where $\varepsilon : P_\bdot \to B$ is a free resolution of simplicial $A$-algebras.
+\end{topic}
+
+\begin{example}{cotangent-complex}
+    Let $k$ be a field of characteristic zero, and consider $A = k[x] / (x^n)$ as $k$-algebra. In order to compute $\mathbb{L}_{A/k}$, we pick a cofibrant replacement of $A$ given by $A' = k[y, t]$, where $\deg(y) = 0$ and $\deg(t) = 1$ with $dt = y^n$, and the map $A' \to A$ is given by $y \mapsto x$ and $t \mapsto 0$. Now $\mathbb{L}_{A/k}$ can be computed as $I/I^2$ for $I = \ker(A' \otimes_k A \xrightarrow{f} A)$, where $f$ is given by multiplication in $A$.
+    \[ \svg \begin{tikzcd}
+        I = \ker f \arrow{d} & k[x, y] / (x^n) \cdot t \arrow[equals]{d} \arrow{r}{t \mapsto y^n} & (y - x) \arrow{d} \\
+        A' \otimes_k A \arrow{d}{f} & k[x, y] / (x^n) \cdot t \arrow{d} \arrow{r}{t \mapsto y^n} & k[x, y] / (x^n) \arrow{d}{y \mapsto x} \\
+        A & 0 \arrow{r} & k[x] / (x^n)
+    \end{tikzcd} \]
+    In particular, the cotangent complex is given by
+    \[ \mathbb{L}_{A/k} = \Big[ k[x] / (x^n) \cdot t \xrightarrow{t \mapsto n x^{n - 1} (y - x)} k \langle y - x \rangle \oplus k \langle x (y - x) \rangle \oplus \cdots \oplus k \langle x^{n - 1} (y - x) \rangle \Big]  \]
+    and its non-trivial homology groups can be computed as
+    \[ \begin{aligned}
+        H_0(\mathbb{L}_{A/k}) &\isom k \langle y - x \rangle \oplus k \langle x (y - x) \rangle \oplus \cdots \oplus k \langle x^{n - 2} (y - x) \rangle \isom \Omega^1_{A/k} , \\
+        H_1(\mathbb{L}_{A/k}) &\isom (x) k[x] / (x^n) \isom k \langle x \rangle \oplus \cdots \oplus k \langle x^{n - 1} \rangle ,
+    \end{aligned} \]
+    both having dimension $n - 1$ over $k$.
+\end{example}
+
+\begin{topic}{division-ring}{division ring}
+    A \textbf{division ring} is a non-zero \tref{ring}{ring} $R$ in which every non-zero element $x \in R$ is a \tref{unit-element}{unit}, i.e. there exists $y \in R$ such that $xy = yx = 1$
+\end{topic}
+
+\begin{example}{division-ring}
+    Every \tref{field}{field} is a division ring, but the converse is not true. The \tref{quaternion-algebra}{quaternion algebra} $\mathbb{H}$ is a division ring, but not a field since it is not commutative.
+\end{example}
+
+\begin{topic}{corner-ring}{corner ring}
+    Let $R$ be a \tref{ring}{ring}. A \textbf{corner} of $R$ is a subset $eRe \subset R$ with $e \in R$ an \tref{idempotent-element}{idempotent}. Such a corner is itself a ring, with $e$ as multiplicative identity.
+\end{topic}
+
+\begin{example}{corner-ring}
+    Let $R = \textup{Mat}_{3 \times 3}(k)$ and $e = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$. The associated corner is
+    \[ eRe = \left\{ \begin{pmatrix} a & b & 0 \\ c & d & 0 \\ 0 & 0 & 0 \end{pmatrix} \right\} \isom \textup{Mat}_{2 \times 2}(k) , \]
+    with $e$ as multiplicative identity.
+\end{example}
+
+\begin{topic}{characteristic}{characteristic}
+    The \textbf{characteristic} of a \tref{ring}{ring} $R$ is the non-negative integer $\textup{char}(R) \in \ZZ$ such that
+    \[ \ker(\ZZ \to R) = \textup{char}(R) \ZZ . \]
+\end{topic}
+
+\begin{example}{characteristic}
+    \begin{itemize}
+        \item The characteristic of $\ZZ, \QQ, \RR$ and $\CC$ is zero.
+        \item The characteristic of $\FF_{p^n}$ is $p$.
+        \item The characteristic of a \tref{field}{field} is always zero or a prime number. Namely, if $\textup{char}(R) = ab$ for non-zero $a, b \in \ZZ$, then $a$ and $b$ are \tref{zero-divisor}{zero-divisors} in $R$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{coherent-ring}{coherent ring}
+    A \tref{ring}{ring} $R$ is \textbf{coherent} if it is a \tref{coherent-module}{coherent module} over itself. That is, if every \tref{finitely-generated-module}{finitely generated} \tref{ideal}{ideal} $I \subset R$ is \tref{finitely-presented-module}{finitely presented}.
+\end{topic}
+
+\begin{topic}{ore-extension}{Ore extension}
+    Let $R$ be a \tref{ring}{ring}. Given an endomorphism $\sigma : R \to R$, a \textit{$\sigma$-derivation} is a group morphism $\delta : R \to R$ satisfying
+    \[ \delta(rs) = \delta(r) s + \sigma(r) \delta(s) , \quad \textup { for all } r, s \in R . \]
+    The \textbf{Ore extension} $R[x; \sigma, \delta]$ is the (noncommutative) ring $R[x]$, whose multiplication is determined by
+    \[ xr = \sigma(r) x + \delta(r), \quad \textup{ for all } r \in R . \]
+\end{topic}
+
+\begin{example}{ore-extension}
+    Let $R$ be the polynomial ring $k[x]$, with $\sigma : R \to R$ given by $x \mapsto qx$ for some $q \in k$, and $\delta = 0$. Then, the Ore extension $R[y; \sigma, \delta]$ is the quotient of the free algebra $k \langle x, y \rangle$ by the relation $yx - qxy = 0$, also known as the \textit{quantum plane}
+    \[ k \langle x, y \rangle / (yx - qxy) . \]
+\end{example}
+
+\begin{example}{ore-extension}
+    Let $R$ be the polynomial ring $k[x]$, with $\sigma : R \to R$ the identity, and $\delta : R \to R$ given by $f \mapsto \frac{\partial f}{\partial x}$. Then, the Ore extension $R[p; \sigma, \delta]$ is the quotient of the free algebra $k \langle x, p \rangle$ by the relation $xp - px + 1 = 0$,
+    \[ k \langle x, y \rangle / (xp - px + 1) . \]
+    that is, a \tref{weyl-algebra}{Weyl algebra}.
+\end{example}
+
+\begin{topic}{von-neumann-regular-ring}{von Neumann regular ring}
+    A \tref{ring}{ring} $R$ is \textbf{von Neumann regular} if for every element $x \in R$ there exists an element $y \in R$ such that $x = xyx$.
+\end{topic}
+
+\begin{example}{von-neumann-regular-ring}
+    \begin{itemize}
+        \item Every \tref{field}{field} and every \tref{division-ring}{division ring} is von Neumann regular.
+        \item For any $k$ be a field, the matrix rings $R = \textup{Mat}_n(k)$ are von Neumann regular. Namely, any $A \in \textup{Mat}_n(k)$ of rank $r$ can be written as $A = U \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} V$ using Gaussian elimination, with $U$ and $V$ invertible. Now, $A = AXA$ for $X = V^{-1} U^{-1}$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{clean-ring}{clean ring}
+    A \tref{ring}{ring} $R$ is \textbf{clean} if every element $x \in R$ can be written as $x = u + e$ for some \tref{unit-element}{unit} $u \in R^*$ and \tref{idempotent-element}{idempotent} $e \in R$.
+\end{topic}

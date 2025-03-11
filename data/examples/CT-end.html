@@ -1,9 +1,0 @@
-<div class="example">Given functors <span class="math inline">\(F, G : \mathcal{C} \to \mathcal{D}\)</span>, form the functor
-<span class="math display">\[ S = \Hom_\mathcal{D}(F(-), G(-)) : \mathcal{C}^\textup{op} \times \mathcal{C} \to \textbf{Set} . \]</span>
-The end of <span class="math inline">\(S\)</span> is the set of natural transformations <span class="math inline">\(F \Rightarrow G\)</span>,
-<span class="math display">\[ \int_c \Hom_\mathcal{D}(F(c), G(c)) \isom \textup{Nat}(F, G) . \]</span>
-The components of any <span class="math inline">\(\mu \in \int_c \Hom_\mathcal{D}(F(c), G(c))\)</span> can be obtained via the projections <span class="math inline">\(\pi_c\)</span>. The wedge condition precisely reduces to the naturality condition.
-</div><div class="example">Let <span class="math inline">\(T : \Delta^\textup{op} \to \textbf{Set}\)</span> be a <a href="#CT:simplicial-object">simplicial set</a> and let <span class="math inline">\(\gamma : \Delta \to \textbf{Top}\)</span> be the functor sending <span class="math inline">\([n]\)</span> to the standard <span class="math inline">\(n\)</span>-simplex in <span class="math inline">\(\RR^{n + 1}\)</span>. Then form the functor
-<span class="math display">\[ S : \Delta^\textup{op} \times \Delta \to \textbf{Top}, \quad ([m], [n]) \mapsto T([m]) \times \gamma([n]) , \]</span>
-where <span class="math inline">\(T([m])\)</span> has the <a href="#TO:discrete-topology">discrete topology</a>. Now the coend <span class="math inline">\(\int^c S(c, c)\)</span> of <span class="math inline">\(S\)</span> is the <a href="#HT:geometric-realization">geometric realization</a> of <span class="math inline">\(T\)</span>.
-</div>

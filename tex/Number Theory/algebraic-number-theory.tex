@@ -1,0 +1,65 @@
+\begin{topic}{ring-of-integers}{ring of integers}
+    The \textbf{ring of integers} of a \tref{number-field}{number field} $K$ is the \tref{AA:integral-closure}{integral closure} of $\ZZ$ in $K$, often denoted as $\mathcal{O}_K$. % It is the smallest Dedekind domain with field of fractions $K$.
+\end{topic}
+
+\begin{topic}{ramified-prime}{(totally) ramified prime}
+    Let $L/K$ be an \tref{AA:field-extension}{extension} of \tref{number-field}{number fields}. Let $\mathfrak{p}$ be a non-zero \tref{AA:prime-ideal}{prime ideal} in the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$, and suppose $\mathfrak{p} \mathcal{O}_L$ factors as
+    \[ \mathfrak{p} \mathcal{O}_L = \prod_{i = 1}^{n} \mathfrak{q}_i^{e_i} \]
+    for some prime ideals $\mathfrak{q}_i \subset \mathcal{O}_L$ and exponents $e_i \ge 1$.
+    The prime ideal $\mathfrak{p}$ is \textbf{ramified} in $L$ if $e_i > 1$ for some $i$, and it is \textbf{totally ramified} in $L$ if $n = 1$ and $e_1 = [L : K]$.
+    
+    The number $e_i$, also denoted $e(\mathfrak{q}_i / \mathfrak{p})$, is called the \textbf{ramification index} of $\mathfrak{q}_i$ over $\mathfrak{p}$.
+\end{topic}
+
+\begin{topic}{inert-prime}{inert prime}
+    Let $L/K$ be an \tref{AA:field-extension}{extension} of \tref{number-field}{number fields}, and let $\mathfrak{p}$ be a non-zero \tref{AA:prime-ideal}{prime ideal} in the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$. Then $\mathfrak{p}$ is \textbf{inert} in $L$ if $\mathfrak{p} \mathcal{O}_L$ is prime in $\mathcal{O}_L$.
+\end{topic}
+
+\begin{topic}{multiplier-ring}{multiplier ring}
+    Let $R$ be a \tref{AA:domain}{domain}, $K$ its \tref{AA:field-of-fractions}{field of fractions}, and $I$ a \tref{AA:fractional-ideal}{fractional ideal} of $R$. The \textbf{multiplier ring} of $I$ is the subring of $K$ given by
+    \[ r(I) = \{ x \in K : x I \subset I \} . \]
+\end{topic}
+
+\begin{topic}{ideal-class-group}{ideal class group}
+    Let $K$ be a \tref{number-field}{number field}. The \textbf{ideal class group} of $K$ is the \tref{AA:picard-group}{Picard group} of the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$.
+    The \textbf{class number} of $K$ is the \tref{GT:order}{order} of the ideal class group of $K$.
+\end{topic}
+
+\begin{topic}{kummer-dedekind-theorem}{Kummer--Dedekind theorem}
+    Let $R$ be the ring $\ZZ[\alpha] = \ZZ[x] / (f)$ for some \tref{AA:monic-polynomial}{monic} \tref{AA:irreducible-element}{irreducible} polynomial $f \in \ZZ[x]$, and let $p$ be a prime number. Choose monic polynomials $g_i \in \ZZ[x]$ such that $\overline{f} = f \mod p$ factors as $\prod_{i = 1}^{s} \overline{g}_i^{e_i}$ with $e_i \ge 1$ and $\overline{g}_i \in \FF_p[x]$ irreducible and pairwise distinct. Then the \textbf{Kummer--Dedekind theorem} states that
+    \begin{enumerate}[label=(\roman*)]
+        \item the \tref{AA:prime-ideal}{prime ideals} of $R$ above $p$ are the ideals $\mathfrak{p}_i = pR + g_i(\alpha)$,
+        \item there is an inclusion $\prod_{i = 1}^{s} \mathfrak{p}_i^{e_i} \subset pR$, with equality if and only if every $\mathfrak{p}_i$ is invertible,
+        \item writing $r_i \in \ZZ[x]$ for the remainder of $f$ upon division by $g_i$, one has $\mathfrak{p}_i$ is singular if and only if $e_i > 1$ and $p^2$ divides $r_i$.
+    \end{enumerate}
+\end{topic}
+
+\begin{example}{kummer-dedekind-theorem}
+    Consider $f = x^3 + x + 1$ with factorizations
+    \[ f \mod 2 = x^3 + x + 1 \quad \textup{ and } \quad f \mod 3 = (x - 1)(x^2 + x - 1) . \]
+    This shows that $2$ is inert in $R = \ZZ[\alpha] = \ZZ[x] / (f)$, and that $3$ splits into the prime ideals $(3, \alpha - 1)$ and $(3, \alpha^2 + \alpha - 1)$.
+    
+    If $\overline{f} = f \mod p$ has a factor with multiplicity $e_i > 1$ for some $p > 3$, then $f$ and $f' = 3x^2 + 1$ should have a common factor modulo $p$, and this factor must be $f - \tfrac{1}{3} x f' = \tfrac{2}{3} x + 1$, which has root $x = - \tfrac{3}{2}$. Since $f'(-\tfrac{3}{2}) \mod p = \tfrac{31}{4} \mod p$, this can only be the case for $p = 31$. Indeed, $f \mod 31 = (x - 14)^2 (x - 3)$. Now, the remainder of $f$ upon division by $x - 14$ is $r = f(14) = 2759 = 31 \cdot 89$, and since $31^2$ does not divide $r$, we find that the prime $(31, \alpha - 14)$ is regular. It follows that all primes of $R$ are regular, so $R$ is a Dedekind domain. Furthermore, the prime $31$, which factors as
+    \[ 31 R = (31, \alpha - 14)^2 (31, \alpha - 3) \]
+    in $R$, is the only prime which ramifies in $R$.
+\end{example}
+
+\begin{topic}{kronecker-weber-theorem}{Kronecker--Weber theorem}
+    Let $K$ be a finite \tref{AA:abelian-extension}{abelian extension}. The \textbf{Kronecker--Weber theorem} states that there exists a $\QQ$-linear embedding $K \subset \QQ(\zeta_n)$ for some integer $n \ge 1$, where $\zeta_n$ denotes a primitive $n$-th root of unity.
+\end{topic}
+
+\begin{topic}{dirichlet-unit-theorem}{Dirichlet unit theorem}
+    Let $R$ be an \tref{AA:order}{order} in a \tref{number-field}{number field} $K$, admitting $r$ real embeddings and $2s$ complex embeddings, and write $\mu_R$ for the group of roots of unity in $R$. Then the \textbf{Dirichlet unit theorem} states that $\mu_R$ is finite, and $R^*/\mu_R$ is a \tref{GT:free-group}{free abelian group} of rank $r + s - 1$.
+    
+    In particular,
+    \[ R^* = \mu_R \times \langle \eta_1 \rangle \times \langle \eta_2 \rangle \cdots \langle \eta_{r + s - 1} \rangle , \]
+    for some \textit{fundamental units} $\eta_i \in R^*$.
+\end{topic}
+
+\begin{topic}{global-field}{global field}
+    A \textbf{global field} is a \tref{AA:field}{field} which is either
+    \begin{itemize}
+        \item a \tref{number-field}{number field},
+        \item a finite \tref{AA:field-extension}{field extension} of $\FF_q(T)$, or equivalently, the \tref{AG:function-field}{function field} of an \tref{AG:algebraic-curve}{algebraic curve} over a finite field.
+    \end{itemize}
+\end{topic}

@@ -1,0 +1,243 @@
+\begin{topic}{field-extension}{field extension}
+    A \textbf{field extension} is an inclusion of \tref{field}{fields} $k \hookrightarrow \ell$. We also say that $\ell$ is a field \textit{over} $k$, and write $k \subset \ell$ or $\ell / k$.
+    
+    Note that any morphism of fields $k \to \ell$ is injective, and hence a field extension, as the only ideals of a field are $(0)$ and $(1)$, but $1$ does not lie in the kernel.
+\end{topic}
+
+\begin{topic}{algebraic-transcendental}{algebraic/transcendental element}
+    Let $\ell / k$ be a \tref{field-extension}{field extension} and take an element $\alpha \in \ell$. If there exists a polynomial $f \in k[x]$ with $f(\alpha) = 0$, we call $\alpha$ \textbf{algebraic} over $k$. Otherwise, $\alpha$ is called \textbf{transcendental} over $k$.
+\end{topic}
+
+\begin{example}{algebraic-transcendental}
+    The sum and product of algebraic elements is again algebraic. Namely, let $\alpha, \beta \in \ell$ be algebraic elements. Then $[k(\alpha, \beta) : k(\alpha)]$ is the degree of the \tref{minimal-polynomial}{minimal polynomial} of $\beta$ over $k(\alpha)$, which can be at most $[k(\beta) : k]$ since this minimal polynomial is a factor of the minimal polynomial of $\beta$ over $k$. It follows that
+    \[ [k(\alpha, \beta) : k] = [k(\alpha, \beta) : k(\alpha)] \cdot [k(\alpha) : k] \le [k(\beta) : k] \cdot [k(\alpha) : k] \]
+    is finite, and thus $\alpha + \beta, \alpha \beta \in k(\alpha + \beta)$ must be algebraic over $k$.
+    % The sum and product of algebraic elements is again algebraic. Namely, let $\alpha, \beta \in \ell$ be algebraic numbers. Regarding $k(\alpha)$ and $k(\beta)$ as a $k$-vector spaces, multiplication by $\alpha$ and $\beta$ yields a $k$-linear maps
+    % \[ A : k(\alpha) \to k(\alpha), \quad x \mapsto \alpha x \qquad \textup{ and } \qquad B : k(\beta) \to k(\beta), \quad x \mapsto \beta x . \]
+    % Note that $\alpha$ is a root of the \tref{LA:characteristic-polynomial}{characteristic polynomial} of $A$, i.e. $p_A(\alpha) = 0$, and similarly $p_B(\beta) = 0$. Now multiplication by $\alpha \beta$
+    
+    % Now multiplication by $\alpha + \beta$ corresponds with $A \otimes I + I \otimes B$, and thus
+    % \[ p_{A + B}(\alpha + \beta) = 0 \].
+\end{example}
+
+\begin{topic}{algebraic-field-extension}{algebraic field extension}
+    A \tref{field-extension}{field extension} $\ell / k$ is \textbf{algebraic} if every element $\alpha \in \ell$ is \tref{algebraic-transcendental}{algebraic} over $k$.
+\end{topic}
+
+\begin{topic}{minimal-polynomial}{minimal polynomial}
+    Let $\ell / k$ be a \tref{field-extension}{field extension} and take an \tref{algebraic-transcendental}{algebraic} element $\alpha \in \ell$. The \textbf{minimal polynomial} of $\alpha$ over $k$ is the unique monic polynomial $f \in k[x]$ of minimal degree such that $f(\alpha) = 0$.
+\end{topic}
+
+\begin{topic}{prime-field}{prime field}
+    The \textbf{prime field} of a \tref{field}{field} $k$ is its smallest subfield. When $\textup{char}(k) = 0$, this is $\QQ$ and when $\textup{char}(k) = p > 0$, this is $\mathbb{F}_p$.
+\end{topic}
+
+\begin{topic}{frobenius-morphism}{Frobenius morphism}
+    Let $k$ be a \tref{field}{field} of characteristic $p > 0$. The map $F : k \to k : x \mapsto x^p$ is a homomorphism (use binomial theorem) called the \textbf{Frobenius morphism}.
+    
+    Note that $F$ is injective as it is a field morphism. So when $k$ is finite, $F$ will also be surjective, and hence an automorphism of $k$. 
+\end{topic}
+
+\begin{example}{frobenius-morphism}
+    The Frobenius morphism need not always be surjective. Let $K = \FF_p(T)$ the field of rational functions with coefficients in $\FF_p$. Using that $F$ is a homomorphism fixing $\FF_p$, we find that $F(f(T)) = f(T^p)$ for any $f(T) \in K$. Hence the image of $F$ consists of all rational functions in $T^p$ with coefficients in $\FF_p$. In particular, $T \not\in \im F$.
+\end{example}
+
+\begin{topic}{splitting-field}{splitting field}
+    Let $k$ be a \tref{field}{field}, and let $f \in k[x]$ be a non-constant polynomial. A \textbf{splitting field} $\ell$ of $f$ over $k$ is a \tref{field-extension}{field extension} such that
+    \begin{itemize}
+        \item $f$ splits in $\ell[x]$ as a product of linear factors,
+        \item if $\alpha_1, \ldots, \alpha_s$ are the zeros of $f$ in $\ell$, then $\ell = k(\alpha_1, \ldots, \alpha_s)$.
+    \end{itemize}
+    A splitting field always exists, and it is unique up to unique isomorphism over $k$.
+\end{topic}
+
+\begin{example}{splitting-field}
+    Consider $f = x^2 - 101 \in \QQ[x]$, which is irreducible as $101$ is not a square in $\QQ$. However, $f$ splits as $(x - \sqrt{101})(x + \sqrt{101})$ in $\QQ(\sqrt{101})$, which shows that $\QQ(\sqrt{101})$ is the splitting field of $f$ over $\QQ$.
+\end{example}
+
+\begin{topic}{separable-polynomial}{separable polynomial}
+    Let $k$ be a \tref{field}{field}, and let $f \in k[x]$ be a non-constant polynomial. Then $f$ is called \textbf{separable} if the roots of $f$ in any field extension $k \subset \ell$ are distinct.
+    
+    In particular, it suffices to verify this for a \tref{splitting-field}{splitting field} of $f$ over $k$.
+\end{topic}
+
+\begin{topic}{perfect-field}{perfect field}
+    A \tref{field}{field} $k$ is \textbf{perfect} if every irreducible polynomial over $k$ is \tref{separable-polynomial}{separable}.
+\end{topic}
+
+\begin{example}{perfect-field}
+    \begin{itemize}
+        \item Every field of characteristic zero is perfect. Namely, if an irreducible polynomial $f$ were to have a multiple root (in some field extension), then $f'$ and $f$ will have a common factor. But this cannot happen as $f$ is irreducible and $\deg(f') = \deg(f) - 1$.
+        \item Every finite field is perfect.
+        \item Every algebraically closed field is perfect.
+        \item The field $\FF_p(t)$ is not perfect: the polynomial $f = x^p - t$ is irreducible, but if $\alpha$ is a root in some field extension, we have $x^p - t = x^p - \alpha^p = (x - \alpha)^p$, which shows $f$ is not separable.
+    \end{itemize}
+\end{example}
+
+\begin{example}{perfect-field}
+    A field $k$ of characteristic $p > 0$ is perfect if and only if the \tref{frobenius-morphism}{Frobenius morphism} $F : k \to k$ given by $x \mapsto x^p$ is surjective. Namely, if $F$ is not surjective, there exists some $a \in k \setminus \im F$. But then $f = x^p - a$ factors as $(x - \sqrt[p]{a})^p$ over $k(\sqrt[p]{a})$, so $f$ is inseparable, implying $k$ is not perfect. Conversely, suppose that $F$ is surjective. For any irreducible and inseparable polynomial $f \in k[x]$, we must have $\gcd(f, f') \ne 1$ and hence $f' = 0$. Therefore, such $f$ is a polynomial in $x^p$, that is, $f = a_n x^{p^n} + a_{n - 1} x^{p^{n - 1}} + \cdots + a_1 x^p + a_0$ for some $a_i \in k$. By surjectivity of $F$, we can write $a_i = b_i^n$ for some $b_i \in k$. But then $f = (b_n x^{p^{n - 1}} + b_{n - 1} x^{p^{n - 2}} + \cdots + b_1 x + b_0)^p$, contradicting the irreducibility of $f$.
+\end{example}
+
+\begin{topic}{normal-field-extension}{normal field extension}
+    An \tref{algebraic-field-extension}{algebraic field extension} $\ell/k$ is \textbf{normal} if every irreducible polynomial $f$ over $k$ either has no root in $\ell$, or splits into linear factors in $\ell$.
+\end{topic}
+
+\begin{example}{normal-field-extension}
+    The extension $\QQ(\sqrt[3]{2}) / \QQ$ is not normal. Indeed the minimal polynomial $f = x^3 - 2$ of $\sqrt[3]{2}$ is irreducible over $\QQ$, but it does not split completely in $\QQ(\sqrt[3]{2})$. Namely, consider $\QQ(\sqrt[3]{2})$ as a subfield of $\RR$. Then the other two roots of $f$ are complex: $\pm \sqrt[3]{2} e^{2 \pi i / 3}$. Since they do not lie in $\RR$, they do not lie in $\QQ(\sqrt[3]{2})$.
+\end{example}
+
+\begin{topic}{separable-field-extension}{separable field extension}
+    An \tref{algebraic-field-extension}{algebraic} \tref{field-extension}{field extension} $\ell/k$ is \textbf{separable} if for every $\alpha \in \ell$, the \tref{minimal-polynomial}{minimal polynomial} of $\alpha$ over $k$ is \tref{separable-polynomial}{separable}.
+\end{topic}
+
+\begin{example}{separable-field-extension}
+\begin{itemize}
+    \item Every algebraic extension $\ell/k$ with $\operatorname{char} k = 0$ is separable. Namely, take any $\alpha \in \ell$ with minimal polynomial $f \in k[x]$. If $f$ were to be inseparable, then $f$ and its derivative $f' \ne 0$ would have a common factor of degree $\ge 1$, contradicting the irreducibility of $f$. 
+    \item Every algebraic extension $\ell/k$ with $k = \FF_p$ and $p$ prime is separable. Namely, every such algebraic extensions is of the form $\ell = \FF_{p^n}$ for some $n \ge 1$. Write $\ell = k(\alpha)$ for some $\alpha \in \ell$. As $\alpha^{p^n} = 1$, the minimal polynomial of $\alpha$ must divide $x^{p^n} - 1$, and since $x^{p^n} - 1$ has no multiple roots (its derivative is $-1$), neither has the minimal polynomial of $\alpha$, and thus it must be separable.
+\end{itemize}
+\end{example}
+
+\begin{topic}{purely-inseparable-field-extension}{purely inseparable field extension}
+    An \tref{algebraic-field-extension}{algebraic} \tref{field-extension}{field extension} $\ell/k$ is \textbf{purely inseparable} if for every $\alpha \in \ell \setminus k$, the \tref{minimal-polynomial}{minimal polynomial} of $\alpha$ over $k$ is not \tref{separable-polynomial}{separable}.
+\end{topic}
+
+\begin{topic}{separable-closure}{separable closure}
+    The \textbf{separable closure} of an \tref{algebraic-field-extension}{algebraic field extension} $\ell/k$ is the intermediate field $k \subset m \subset \ell$ of elements $\alpha \in \ell$ whose \tref{minimal-polynomial}{minimal polynomial} over $k$ is \tref{separable-polynomial}{separable}.
+    
+    A \textbf{separable closure} of a field $k$ is the separable closure of $k$ in an \tref{algebraic-closure}{algebraic closure} of $k$.
+\end{topic}
+
+\begin{topic}{separable-degree}{(in)separable degree}
+    Let $\ell/k$ be an \tref{algebraic-field-extension}{algebraic field extension}, and let $k \subset m \subset \ell$ be the \tref{separable-closure}{separable closure}. The \textbf{separable degree} of $\ell/k$, denoted $[\ell : k]_\textup{sep}$, is the degree $[m : k]$. The \textbf{inseparable degree} of $\ell/k$ is the degree $[\ell : m]$.
+\end{topic}
+
+\begin{example}{separable-field-extension}
+    Let $k = \FF_p(t)$ and $\ell = k[X] / (X^p - t) = \FF_p(\sqrt[p](t))$, for some prime number $p$. The minimal polynomial of $\sqrt[p](t)$ over $k$ is $f = x^p - t$, which over $\ell$ factors as $(x - \sqrt[p]{t})^p$, showing that $\ell/k$ is not separable.
+\end{example}
+
+\begin{topic}{separably-closed-field}{separably closed field}
+    A \tref{field}{field} $k$ is \textbf{separably closed} if every \tref{separable-field-extension}{separable field extension} $\ell/k$ is trivial, that is, $\ell = k$.
+\end{topic}
+
+\begin{topic}{galois-extension}{Galois extension}
+    An \tref{algebraic-field-extension}{algebraic} \tref{field-extension}{field extension} $\ell \supset k$ is called a \textbf{Galois extension} of $k$ if $\ell$ is a \tref{splitting-field}{splitting field} of a \tref{separable-polynomial}{separable polynomial} $f$ over $k$.
+    
+    Equivalently, an extension is Galois if and only if it is \tref{normal-field-extension}{normal} and \tref{separable-field-extension}{separable}.
+\end{topic}
+
+\begin{example}{galois-extension}
+    \begin{itemize}
+        \item The field extension $\FF_2[\sqrt{t}] \supset \FF_2[t]$ is normal, since any field extension of degree $2$ is normal, but not separable. Namely, the minimal polynomial of $\sqrt{t}$ is $x^2 - t = (x - \sqrt{t})^2$, which is not separable.
+        \item The field extension $\QQ(\sqrt[3]{2}) \supset \QQ$ is separable, since any field extension over characteristic zero is separable, but not normal. Namely, the conjugates of $\sqrt[3]{2}$ are $\zeta_3 \sqrt[3]{2}$ and $\zeta_3^2 \sqrt[3]{2}$, which do not lie in $\QQ(\sqrt[3]{2})$.
+        \item Its normal closure, $\QQ(\sqrt[3]{2}, \zeta_3)$, is normal, and hence a Galois extension of $\QQ$.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{abelian-extension}{abelian extension}
+    An \tref{algebraic-field-extension}{algebraic} \tref{field-extension}{field extension} $\ell \supset k$ is called an \textbf{abelian extension} if it is a \tref{galois-extension}{Galois extension} whose \tref{galois-group}{Galois group} $\textup{Gal}(\ell/k)$ is \tref{GT:abelian-group}{abelian}.
+\end{topic}
+
+\begin{topic}{galois-group}{Galois group}
+    The \textbf{Galois group} $\textup{Gal}(\ell/k)$ of a \tref{galois-extension}{Galois extension} $\ell \supset k$ is the group of $\ell$-linear automorphisms of $\ell$, that is $\textup{Aut}_k(\ell)$.
+\end{topic}
+
+\begin{topic}{galois-correspondence}{Galois correspondence}
+    Let $\ell/k$ be a \tref{galois-extension}{Galois extension} with \tref{galois-group}{Galois group} $G = \textup{Gal}(\ell/k)$. The \textbf{Galois correspondence} states there is an inclusion-reversing bijection between the set of intermediate fields $k \subset m \subset \ell$ and the set of subgroups of $G$.
+    \[ \svg \begin{tikzcd}[row sep=0em]
+        \{ \text{intermediate fields } k \subset m \subset \ell \} \arrow[shift left=0.25em]{r} & \arrow[shift left=0.25em]{l} \{ \text{subgroups } H \subset G \} \\
+        \qquad m \qquad  \arrow[mapsto]{r} & \qquad \textup{Gal}(\ell/m) \qquad \\
+        \qquad \ell^H \qquad & \arrow[mapsto]{l} \qquad H \qquad 
+    \end{tikzcd} \]
+    Moreover, a subgroup $H \subset G$ is \tref{GT:normal-subgroup}{normal} if and only if the intermediate field $m = \ell^H$ is a \tref{normal-field-extension}{normal extension} of $k$. In this case, $m/k$ is a Galois extension with Galois group $G/H$.
+\end{topic}
+
+\begin{topic}{algebraically-closed-field}{algebraically closed field}
+    A \tref{field}{field} $k$ is \textbf{algebraically closed} if every polynomial $f \in k[x]$ has a root in $k$.
+    
+    In particular, in this case every such polynomial $f$ will split completely into linear factors over $k$.
+\end{topic}
+
+\begin{example}{algebraically-closed-field}
+    The \textit{Fundamental Theorem of Algebra} states that the complex numbers $\CC$ is algebraically closed.
+\end{example}
+
+\begin{topic}{algebraic-closure}{algebraic closure}
+    An \textbf{algebraic closure} of a \tref{field}{field} $k$ is a \tref{field-extension}{field extension} $\overline{k} \supset k$ such that $\overline{k}$ is \tref{algebraic-field-extension}{algebraic} over $k$ and $\overline{k}$ is \tref{algebraically-closed-field}{algebraically closed}.
+\end{topic}
+
+\begin{topic}{primitive-element-theorem}{primitive element theorem}
+    Let $\ell/k$ be a finite \tref{separable-field-extension}{separable field extension}. The \textbf{primitive element theorem} states that there exists an element $\alpha \in \ell$, called a \textit{primitive element}, such that $\ell = k(\alpha)$.
+\end{topic}
+
+\begin{example}{primitive-element-theorem}
+    \begin{proof}
+        If $k$ is a finite field, the proof is not too hard, so we will assume $k$ is infinite. It suffices to show that if $\ell = k(\alpha, \beta)$, then $\ell = k(\theta)$ for some $\theta \in \ell$. Consider the \tref{minimal-polynomial}{minimal polynomials} of $\alpha$ and $\beta$ over $k$,
+        \[ f_k^\alpha(x) = \prod_{i = 1}^{m} (x - \alpha_i), \qquad f_k^\beta(x) = \prod_{j = 1}^{n} (x - \beta_j) , \]
+        where all $\alpha_i$ are distinct, and all $\beta_j$ are distinct, since $\ell/k$ is separable. Choose indices such that $\alpha_1 = \alpha$ and $\beta_1 = \beta$. Note that the equation $\alpha_i + \gamma \beta_j = \alpha + \gamma \beta$ has at most one solution $\gamma \in k$ for $1 \le i \le m$ and $2 \le j \le n$ as $\beta_j \ne \beta$. Hence, as $k$ is infinite, there exists some $\gamma \in k$ such that $\alpha_i + \gamma \beta_j \ne \alpha + \gamma \beta$ for all $1 \le i \le m$ and $2 \le j \le n$. Now let $\theta = \alpha + \gamma \beta$, write $\ell' = k(\theta)$, and let $g(x) = f_k^\alpha(\theta - fx) \in \ell'[x]$. Then $\ell = k(\alpha, \beta) = k(\theta, \beta) = \ell'(\beta)$, so it suffices to show that the minimal polynomial $f_{\ell'}^\beta(x)$ of $\beta$ over $\ell'$ has degree one.
+        
+        Clearly, the roots of $f_{\ell'}^\beta(x)$ must be a subset of $\{ \beta_1, \ldots, \beta_n \}$. Furthermore, since $g(\beta) = f_k^\alpha(\theta - \gamma \beta) = f_k^\alpha(\alpha) = 0$, the roots of $f_{\ell'}^\beta(x)$ are also a subset of the roots of $g(x)$. However, if for any $2 \le j \le n$ we would have $g(\beta_j) = f_k^\alpha(\theta - \gamma \beta_j) = 0$, then $\theta - \gamma \beta_j = \alpha_i$ for some $1 \le i \le n$, which contradicts our choice of $\gamma$. Therefore, $\beta_1 = \beta$ is the only root of $f_{\ell'}^\beta(x)$, and it follows that $\ell = \ell'(\beta) = \ell' = k(\theta)$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{cyclotomic-polynomial}{cyclotomic polynomial}
+    For any integer $n \ge 1$, the \textbf{$n$th cyclotomic polynomial} is the \tref{minimal-polynomial}{minimal polynomial} over $\QQ$ of any primitive $n$th root of unity. Explicitly, it is given by
+    \[ \Phi_n(x) = \prod_{\substack{1 \le k \le n \\ \gcd(k, n) = 1}} x - \exp(2 \pi i \tfrac{k}{n}) \in \ZZ[x] . \]
+\end{topic}
+
+\begin{example}{cyclotomic-polynomial}
+    For the first few values of $n$, the cyclotomic polynomials are given by
+    \[ \begin{aligned}
+        \Phi_1(x) &= x - 1 \\
+        \Phi_2(x) &= x + 1 \\
+        \Phi_3(x) &= x^2 + x + 1 \\
+        \Phi_4(x) &= x^2 + 1 \\
+        \Phi_5(x) &= x^4 + x^3 + x^2 + x + 1 \\
+        \Phi_6(x) &= x^2 - x + 1 \\
+        \Phi_7(x) &= x^6 + x^5 + x^4 + x^3 + x^2 + x + 1 \\
+        \Phi_8(x) &= x^4 + 1 \\
+        \Phi_9(x) &= x^6 + x^3 + 1 \\
+        \Phi_{10}(x) &= x^4 - x^3 + x^2 - x + 1 .
+    \end{aligned} \]
+\end{example}
+
+\begin{topic}{zariski-lemma}{Zariski's lemma}
+    Let $\ell/k$ be a \tref{field-extension}{field extension} such that $\ell$ is a \tref{finitely-generated-algebra}{finitely generated $k$-algebra}. Then \textbf{Zariski's lemma} states that $\ell/k$ is a finite field extension.
+\end{topic}
+
+\begin{example}{zariski-lemma}
+    \begin{proof}
+        By \tref{noether-normalization-lemma}{Noether's normalization lemma}, there exists an injective morphism
+        \[ \alpha : k[x_1, \ldots, x_n] \to \ell \]
+        such that $\ell$ is a \tref{finitely-generated-module}{finitely generated} $k[x_1, \ldots, x_n]$-module. In particular, $\ell$ is \tref{integral-closure}{integral} over $k[x_1, \ldots, x_n]$. Note that we are done if $n = 0$, so suppose for a contradiction that $n > 0$.
+        Since $\ell$ is integral over $k[x_1, \ldots, x_n]$, there exists an integer $m \ge 0$ and elements $a_1, \ldots, a_{m - 1} \in k[x_1, \ldots, x_n]$ such that
+        \[ \alpha(x_1)^{-m} + \sum_{i = 0}^{m - 1} \alpha(a_i) \alpha(x_1)^{-i} = 0 . \]
+        Multiplying this equation by $\alpha(x_1)^m$ gives
+        \[ 1 + \sum_{i = 0}^{m - 1} \alpha(a_i) \alpha(x_1)^{m - i} = \alpha\left(1 + x_1 \sum_{i = 0}^{m - 1} a_i x_1^{m - i - 1} \right) = 0 , \]
+        and since $\alpha$ is injective, it follows that $x_1$ is invertible in $k[x_1, \ldots, x_n]$, a contradiction! Hence, $n = 0$.
+    \end{proof}
+\end{example}
+
+\begin{topic}{kummer-extension}{Kummer extension}
+    A \tref{field-extension}{field extension} $\ell/k$ is a \textbf{Kummer extension} if for some integer $n \ge 2$,
+    \begin{itemize}
+        \item $k$ contains $n$ distinct roots of unity,
+        \item $\ell/k$ is a \tref{galois-extension}{Galois extension} with an \tref{GT:abelian-group}{abelian} \tref{galois-group}{Galois group} of \tref{GT:exponent-group}{exponent} $n$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{transcendence-degree}{transcendence degree}
+    The \textbf{transcendence degree} of a \tref{field-extension}{field extension} $\ell/k$ is given by
+    \[ \textup{trdeg}_k(\ell) = \sup \{\, n \in \NN \mid \textup{exists } a_1, \ldots, a_n \in \ell \textup{ algebraically independent over } k \,\} . \]
+\end{topic}
+
+\begin{example}{transcendence-degree}
+    The field extension $k(x_1, \ldots, x_n) / k$ has transcendence degree $n$.
+\end{example}
+
+\begin{topic}{compositum-fields}{compositum of fields}
+    Let $k$ be a \tref{field}{field}, and $\ell/k$ and $\ell'/k$ two \tref{field-extension}{field extensions}. A \textbf{compositum} of $\ell$ and $\ell'$ is a field extension $m/k$ containing $\ell$ and $\ell'$ such that $m = \ell \ell'$.
+\end{topic}
+
+\begin{topic}{retract-rational-field}{retract rational field}
+    Let $k$ be a \tref{field}{field}. A \tref{field-extension}{field extension} $K/k$ is \textbf{retract rational} if there exists a $k$-algebra $A$ in $K$, whose \tref{field-of-fractions}{field of fractions} is $K$, a non-zero polynomial $f \in k[x_1, \ldots, x_n]$, and $k$-algebra morphisms $\varphi : A \to k[x_1, \ldots, x_n, f^{-1}]$ and $\psi : k[x_1, \ldots, x_n, f^{-1}]$ such that $\psi \circ \phi = \id_A$.
+\end{topic}
