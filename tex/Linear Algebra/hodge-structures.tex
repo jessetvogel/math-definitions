@@ -10,7 +10,7 @@
     The two descriptions are related via
     \[ F^p = \bigoplus_{r \ge p} H^{r, k - r} \quad \textup{ and } \quad H^{p, q} = F^p \cap \overline{F^q} . \]
 
-    A \textbf{morphism of $R$-Hodge structures} $f : H \to H'$ is a morphism $f : H_R \to H'_R$ of $R$-modules whose complexification $f_\CC$ preserves type, that is, $f_\CC\left(H^{p, q}\right) \subset (H')^{p, q}$.
+    A \textbf{morphism of $R$-Hodge structures} $f \colon H \to H'$ is a morphism $f \colon H_R \to H'_R$ of $R$-modules whose complexification $f_\CC$ preserves type, that is, $f_\CC\left(H^{p, q}\right) \subset (H')^{p, q}$.
     
     The numbers $h^{p, q}(H) := \dim_\CC H^{p, q}$ are called the \textbf{Hodge numbers} of the Hodge structure.
 \end{topic}
@@ -41,14 +41,14 @@
     \[ H_\CC \supset \cdots \supset F^p \supset F^{p + 1} \supset \cdots \supset 0 \]
     such that the induced filtrations (obtained by intersections) of $F^\bdot$ on the graded pieces $\left(\textup{Gr}^W_k H_\QQ\right) \otimes_\QQ \CC := \left(W_k H_\QQ / W_{k - 1} H_\QQ\right) \otimes \CC$ are \tref{hodge-structure}{rational Hodge structures} of weight $k$.
     
-    A \textbf{morphism of $R$-mixed Hodge structures} is a morphism $f : H_R \to H'_R$ of $R$-modules compatible with the two filtrations $W_\bdot$ and $F^\bdot$.
+    A \textbf{morphism of $R$-mixed Hodge structures} is a morphism $f \colon H_R \to H'_R$ of $R$-modules compatible with the two filtrations $W_\bdot$ and $F^\bdot$.
     
     The numbers $h^{p, q}(H) \coloneqq \dim_\CC \textup{Gr}_F^p \textup{Gr}^W_{p + q}(H_\CC)$ are called the \textbf{mixed Hodge numbers} of the mixed Hodge structure $H$.
 \end{topic}
 
 \begin{topic}{polarized-hodge-structure}{polarized Hodge structure}
     Let $R$ be $\ZZ$, $\QQ$ or $\RR$. A \textbf{polarization} of an \tref{hodge-structure}{$R$-Hodge structure} $(H_R, F^\bdot)$ of weight $k$ is an $R$-valued bilinear form
-    \[ Q : H_R \otimes_R H_R \to R \]
+    \[ Q \colon H_R \otimes_R H_R \to R \]
     such that
     \begin{itemize}
         \item $Q(v, w) = (-1)^k Q(w, v)$ for all $v, w \in H_R$,

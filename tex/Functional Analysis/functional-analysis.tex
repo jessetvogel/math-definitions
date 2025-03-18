@@ -1,5 +1,5 @@
 \begin{topic}{norm}{norm}
-    A \textbf{norm} on a \tref{LA:vector-space}{vector space} $V$ over $\RR$ or $\CC$ is a function $\norm{\cdot} : V \to \RR_{\ge 0}$ satisfying
+    A \textbf{norm} on a \tref{LA:vector-space}{vector space} $V$ over $\RR$ or $\CC$ is a function $\norm{\cdot} \colon V \to \RR_{\ge 0}$ satisfying
     \begin{itemize}
         \item (\textit{positive definite}) $\norm{x} \ge 0$ for all $x \in V$ with equality if and only if $x = 0$,
         \item (\textit{absolute homogeneity}) $\norm{\lambda x} = |\lambda| x$ for all scalars $\lambda$ and $x \in V$,
@@ -47,7 +47,7 @@
 \end{topic}
 
 \begin{topic}{star-algebra}{*-algebra}
-    A \textbf{*-algebra} is a \tref{banach-algebra}{Banach algebra} $A$ over $\CC$ together with a map $(-)^* : A \to A, x \mapsto x^*$ satisfying
+    A \textbf{*-algebra} is a \tref{banach-algebra}{Banach algebra} $A$ over $\CC$ together with a map $(-)^* \colon A \to A, x \mapsto x^*$ satisfying
     \begin{itemize}
         \item (\textit{involution}) $(x^*)^* = x$ for all $x \in A$,
         \item (\textit{antiautomorphism}) $(x + y)^* = x^* + y^*$ and $(xy)^* = y^* x^*$ for all $x, y \in A$,
@@ -73,7 +73,7 @@
 
 \begin{example}{c-star-algebra}
     Let $X$ be a \tref{TO:topological-space}{topological space} which is \tref{TO:compact-space}{compact} and \tref{TO:hausdorff-space}{Haudorff}. The algebra of complex-valued functions
-    \[ C(X) = \{ f : X \to \CC \textup{ with $f$ continuous} \} \]
+    \[ C(X) = \{ f \colon X \to \CC \textup{ with $f$ continuous} \} \]
     with norm
     \[ \norm{f} = \sup_{x \in X} |f(x)| \]
     and involution $f^*(x) = \overline{f(x)}$, is a C*-algebra.
@@ -83,14 +83,14 @@
     \textbf{Gelfand duality} states that the \tref{CT:category}{category} of \tref{TO:compact-space}{compact} \tref{TO:hausdorff-space}{Hausdorff} \tref{TO:topological-space}{spaces} is \tref{CT:equivalence-of-categories}{equivalent} to the (\tref{CT:opposite-category}{opposite}) category of commutative \tref{c-star-algebra}{C*-algebras}. It is given by the functors
     \[ \textbf{Top}_\textup{cpt} \stackrel{\overset{C}{\longrightarrow}}{\underset{\textup{sp}}{\longleftarrow}} \textbf{C*Alg}_\textup{comm}^\textup{op} , \]
     where $C$ assigns to a space $X$ the C*-algebra of continuous functions
-    \[ C(X) = \{ f : X \to \CC \textup{ with $f$ continuous} \} , \]
+    \[ C(X) = \{ f \colon X \to \CC \textup{ with $f$ continuous} \} , \]
     and $\textup{sp}$ is given by the \tref{gelfand-spectrum}{Gelfand spectrum}.
 \end{topic}
 
 \begin{topic}{gelfand-spectrum}{Gelfand spectrum}
     Let $A$ be a commutative \tref{c-star-algebra}{C*-algebra}. The \textbf{Gelfand spectrum} of $A$ is the set of \textit{characters}
-    \[ \textup{sp}(A) = \{ \phi : A \to \CC \mid \phi \ne 0 \textup{ is an algebra morphism} \} , \]
-    with the \textit{weak *-topology}: the \tref{TO:coarser}{coarsest} \tref{TO:topological-space}{topology} such that for all $a \in A$ the functions $\hat{a} : \textup{sp}(A) \to \CC$ given by $\hat{a}(\chi) = \chi(a)$ are continuous.
+    \[ \textup{sp}(A) = \{ \phi \colon A \to \CC \mid \phi \ne 0 \textup{ is an algebra morphism} \} , \]
+    with the \textit{weak *-topology}: the \tref{TO:coarser}{coarsest} \tref{TO:topological-space}{topology} such that for all $a \in A$ the functions $\hat{a} \colon \textup{sp}(A) \to \CC$ given by $\hat{a}(\chi) = \chi(a)$ are continuous.
     
     It can be shown that $\textup{sp}(A)$ is \tref{TO:compact-space}{compact} and \tref{TO:hausdorff-space}{Hausdorff}.
 \end{topic}
@@ -104,15 +104,15 @@
 \end{topic}
 
 \begin{topic}{bounded-operator}{bounded operator}
-    An operator $T : X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{bounded} if there exists a number $K > 0$ such that $\norm{Tx} \le K \norm{x}$ for all $x \in X$.
+    An operator $T \colon X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{bounded} if there exists a number $K > 0$ such that $\norm{Tx} \le K \norm{x}$ for all $x \in X$.
 \end{topic}
 
 \begin{topic}{invertible-operator}{invertible operator}
-    A \tref{bounded-operator}{bounded operator} $T : X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{invertible} if there exists a bounded operator $S : Y \to X$ such that $ST = \id_X$ and $TS = \id_Y$.
+    A \tref{bounded-operator}{bounded operator} $T \colon X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{invertible} if there exists a bounded operator $S \colon Y \to X$ such that $ST = \id_X$ and $TS = \id_Y$.
 \end{topic}
 
 \begin{topic}{compact-operator}{compact operator}
-    An operator $T : X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{compact} if for every bounded subset $V \subset X$, the image $T(V)$ is relatively compact, that is, the closure $\overline{T(V)} \subset Y$ is compact.
+    An operator $T \colon X \to Y$ between \tref{norm}{normed} \tref{LA:vector-space}{vector spaces} is \textbf{compact} if for every bounded subset $V \subset X$, the image $T(V)$ is relatively compact, that is, the closure $\overline{T(V)} \subset Y$ is compact.
 \end{topic}
 
 \begin{topic}{bolzano-weierstrass-theorem}{Bolzano--Weierstrass theorem}
@@ -128,13 +128,13 @@
 \end{topic}
 
 \begin{topic}{hilbert-schmidt-operator}{Hilbert--Schmidt operator}
-    Let $H$ be a \tref{hilbert-space}{Hilbert space}. A \textbf{Hilbert--Schmidt operator} is an operator $A : H \to H$ with finite \textit{Hilbert--Schmidt norm}
+    Let $H$ be a \tref{hilbert-space}{Hilbert space}. A \textbf{Hilbert--Schmidt operator} is an operator $A \colon H \to H$ with finite \textit{Hilbert--Schmidt norm}
     \[ \|A\|_\textup{HS}^2 = \sum_{i \in I} \|A e_i\|^2 < \infty , \]
     where $\{ e_i \}_{i \in I}$ is an orthonormal basis.
 \end{topic}
 
 \begin{topic}{seminorm}{seminorm}
-    A \textbf{seminorm} on a \tref{LA:vector-space}{vector space} $V$ over $\RR$ or $\CC$ is a function $\norm{\cdot} : V \to \RR_{\ge 0}$ satisfying
+    A \textbf{seminorm} on a \tref{LA:vector-space}{vector space} $V$ over $\RR$ or $\CC$ is a function $\norm{\cdot} \colon V \to \RR_{\ge 0}$ satisfying
     \begin{itemize}
         \item (\textit{absolute homogeneity}) $\norm{\lambda x} = |\lambda| x$ for all scalars $\lambda$ and $x \in V$,
         \item (\textit{triangle inequality}) $\norm{x + y} \le \norm{x} + \norm{y}$ for all $x, y \in V$.
@@ -147,7 +147,7 @@
     \begin{itemize}
         \item The constant zero map on $V$ is a seminorm.
         \item On $V = \RR^2$, the map $(x, y) \mapsto x^2$ is a semi-norm.
-        \item For any linear map $f : V \to \RR$, the map $v \mapsto |f(v)|$ is a seminorm.
+        \item For any linear map $f \colon V \to \RR$, the map $v \mapsto |f(v)|$ is a seminorm.
     \end{itemize}
 \end{example}
 
@@ -158,7 +158,7 @@
 
 \begin{topic}{schwartz-space}{Schwartz space}
     The \textbf{Schwartz space} is the space of \textit{rapidly decreasing functions} on $\RR^n$, given by
-    \[ \mathcal{S}(\RR^n) = \left\{ f : \RR^n \to \CC \mid \textup{for all } \alpha, \beta \in \NN^n , \sup_{x \in \RR^n} |x^\alpha \partial_x^\beta f| < \infty \right\} , \]
+    \[ \mathcal{S}(\RR^n) = \left\{ f \colon \RR^n \to \CC \mid \textup{for all } \alpha, \beta \in \NN^n , \sup_{x \in \RR^n} |x^\alpha \partial_x^\beta f| < \infty \right\} , \]
     where $x^\alpha$ denotes $x_1^{\alpha_1} x_2^{\alpha_2} \cdots x_n^{\alpha_n}$ and $\partial_x^\beta = \partial_{x_1}^{\beta_1} \partial_{x_2}^{\beta_2} \cdots \partial_{x_n}^{\beta_n}$.
     % The Schwartz space is a real vector space with \tref{seminorm}{seminorm} given by
     % \[ \norm{f}_{\alpha, \beta} = \sup_{x \in \RR^n} |x^\alpha \partial_x^\beta f| . \]
@@ -166,7 +166,7 @@
 
 \begin{topic}{lp-space}{Lp space}
     Let $(X, \mu)$ be a measurable space, $0 < p < \infty$ and $\mathbb{K}$ equal to $\RR$ or $\CC$. The space of \textit{$p$-integrable functions} on $X$ is
-    \[ \mathcal{L}^p(X) = \left\{ f : X \to \mathbb{K} : \norm{f}_p < \infty \right\} , \]
+    \[ \mathcal{L}^p(X) = \left\{ f \colon X \to \mathbb{K} : \norm{f}_p < \infty \right\} , \]
     where
     \[ \norm{f}_p = \left(\int_X |f|^p \; d\mu \right)^{1/p} . \]
     Now $L^p(X)$ is defined as the quotient
@@ -179,7 +179,7 @@
 \end{topic}
 
 \begin{topic}{fredholm-operator}{Fredholm operator}
-    Let $X$ and $Y$ be \tref{banach-space}{Banach spaces}. A \tref{bounded-operator}{bounded operator} $T : X \to Y$ is \textbf{Fredholm} if $\ker T$ and $\operatorname{coker} T$ are both finite-dimensional subspaces.
+    Let $X$ and $Y$ be \tref{banach-space}{Banach spaces}. A \tref{bounded-operator}{bounded operator} $T \colon X \to Y$ is \textbf{Fredholm} if $\ker T$ and $\operatorname{coker} T$ are both finite-dimensional subspaces.
     
     The \textit{index} of a Fredholm operator $T$ is defined as $\operatorname{Ind}(T) = \dim \ker T - \dim \operatorname{coker} T$.
 \end{topic}
@@ -196,12 +196,12 @@
 
 \begin{example}{fredholm-operator}
     Sometimes Fredholm operators are required to have a closed range, but this additional condition redundant. Namely, since the cokernel of $T$ is finite-dimensional, the image $\im T$ has a closed complement $C$. The map
-    \[ S : (X / \ker T) \oplus C \to Y, \quad (x, c) \mapsto T(x) + c \]
+    \[ S \colon (X / \ker T) \oplus C \to Y, \quad (x, c) \mapsto T(x) + c \]
     is a bounded linear isomorphism, and thus by the \tref{open-mapping-theorem}{open mapping theorem} $S$ is a topological isomorphism. Therefore, $\im T = S((X / \ker T) \oplus \{ 0 \})$ is closed.
 \end{example}
 
 \begin{topic}{open-mapping-theorem}{open mapping theorem}
-    Let $X$ and $Y$ be \tref{banach-space}{Banach spaces} and $T : X \to Y$ a surjective continuous linear operator. The \textbf{open mapping theorem} states that $T$ is an open map. That is, for all open $U \subset X$, the image  $T(U) \subset Y$ is open as well.
+    Let $X$ and $Y$ be \tref{banach-space}{Banach spaces} and $T \colon X \to Y$ a surjective continuous linear operator. The \textbf{open mapping theorem} states that $T$ is an open map. That is, for all open $U \subset X$, the image  $T(U) \subset Y$ is open as well.
 \end{topic}
 
 \begin{topic}{calkin-algebra}{Calkin algebra}
@@ -217,7 +217,7 @@
     The higher K-theory groups are defined by
     \[ K_n(A) = K_0(S^n A) , \]
     where
-    \[ SA = \{ f : [0, 1] \to A \mid f \textup{ continuous and } f(0) = f(1) = 0 \} \]
+    \[ SA = \{ f \colon [0, 1] \to A \mid f \textup{ continuous and } f(0) = f(1) = 0 \} \]
     is the \textit{suspension} of $A$.
 \end{topic}
 
@@ -232,14 +232,14 @@
 \end{example}
 
 \begin{topic}{bott-periodicity}{Bott periodicity}
-    Let $\textup{K}_n : \textbf{C*Alg} \to \textbf{Ab}$ denote the \tref{k-theory-c-star-algebra}{K-theory} of \tref{c-star-algebra}{C*-algebras}. \textbf{Bott periodicity} states that there are isomorphisms $\textup{K}_n \isom \textup{K}_{n + 2}$ for all $n$. In particular, for any short exact sequence of $C^*$-algebras $0 \to A \xrightarrow{i} B \xrightarrow{q} C \to 0$, the long exact sequence of $K$-theory collapses to a hexagon:
+    Let $\textup{K}_n \colon \textbf{C*Alg} \to \textbf{Ab}$ denote the \tref{k-theory-c-star-algebra}{K-theory} of \tref{c-star-algebra}{C*-algebras}. \textbf{Bott periodicity} states that there are isomorphisms $\textup{K}_n \isom \textup{K}_{n + 2}$ for all $n$. In particular, for any short exact sequence of $C^*$-algebras $0 \to A \xrightarrow{i} B \xrightarrow{q} C \to 0$, the long exact sequence of $K$-theory collapses to a hexagon:
     \[ \svg \begin{tikzcd}
         \textup{K}_0(A) \arrow{r}{i_*} & \textup{K}_0(B) \arrow{r}{q_*} & \textup{K}_0(C) \arrow{d}{\exp} \\ \textup{K}_1(C) \arrow{u}{\textup{ind}} & \textup{K}_1(B) \arrow{l}{q_*} & \textup{K}_1(A) \arrow{l}{i_*}
     \end{tikzcd} \]
 \end{topic}
 
 % \begin{topic}{c-star-category}{C*-category}
-%     A \textbf{C*-category} is a \tref{CT:category}{category} $\mathcal{C}$ \tref{CT:enriched-category}{enriched} over the category of complex \tref{banach-space}{Banach spaces}, together with an antilinear involutive contravariant \tref{CT:functor}{functor} $(-)^* : \mathcal{C} \to \mathcal{C}$, such that
+%     A \textbf{C*-category} is a \tref{CT:category}{category} $\mathcal{C}$ \tref{CT:enriched-category}{enriched} over the category of complex \tref{banach-space}{Banach spaces}, together with an antilinear involutive contravariant \tref{CT:functor}{functor} $(-)^* \colon \mathcal{C} \to \mathcal{C}$, such that
 %     \begin{itemize}
 %         \item (\textit{composition}) $\norm{f \circ g} \le \norm{f} \norm{g}$ for all composable morphisms $f, g$ in $\mathcal{C}$,
 %         \item (\textit{C*-identity}) $\norm{f^* \circ f} = \norm{f}^2$ for all morphisms $f$ in $\mathcal{C}$.

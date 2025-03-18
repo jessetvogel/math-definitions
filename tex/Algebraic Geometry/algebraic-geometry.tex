@@ -2,18 +2,18 @@
 \begin{topic}{ringed-space}{(locally) ringed space}
     A \textbf{ringed space} is a pair $(X, \mathcal{O}_X)$ consisting of a \tref{TO:topological-space}{topological space} $X$ and a \tref{sheaf}{sheaf} of rings $\mathcal{O}_X$ on $X$.
     
-    A morphism of ringed spaces from $(X, \mathcal{O}_X)$ to $(Y, \mathcal{O}_Y)$ is a pair $(f, f^\#)$ of a continuous map $f : X \to Y$ and a map $f^\# : \mathcal{O}_Y \to f_* \mathcal{O}_X$ of sheaves of rings on $Y$.
+    A morphism of ringed spaces from $(X, \mathcal{O}_X)$ to $(Y, \mathcal{O}_Y)$ is a pair $(f, f^\#)$ of a continuous map $f \colon X \to Y$ and a map $f^\# \colon \mathcal{O}_Y f_* \mathcal{O}_X$ of sheaves of rings on $Y$.
     
     A ringed space $(X, \mathcal{O}_X)$ is a \textbf{locally ringed space} if for each point $x \in X$, the \tref{stalk}{stalk} $\mathcal{O}_{X,x}$ is a \tref{AA:local-ring}{local ring}.
     
-    A morphism of locally ringed spaces is a morphism $(f, f^\#)$ of ringed spaces such that for each point $x \in X$ the induced map of local rings $f^\#_x : \mathcal{O}_{Y, f(x)} \to \mathcal{O}_{X, x}$ is a \textit{local morphism}, i.e. the pre-image of the maximal ideal of $\mathcal{O}_{X, x}$ is the maximal ideal of $\mathcal{O}_{Y, f(x)}$.
+    A morphism of locally ringed spaces is a morphism $(f, f^\#)$ of ringed spaces such that for each point $x \in X$ the induced map of local rings $f^\#_x \colon \mathcal{O}_{Y, f(x)} \mathcal{O}_{X, x}$ is a \textit{local morphism}, i.e. the pre-image of the maximal ideal of $\mathcal{O}_{X, x}$ is the maximal ideal of $\mathcal{O}_{Y, f(x)}$.
 \end{topic}
 
 \begin{topic}{spectrum-ring}{spectrum of a ring}
     Let $R$ be a \tref{AA:ring}{commutative ring}. The \textbf{spectrum} of $R$ is the \tref{ringed-space}{locally ringed space} $(X, \mathcal{O}_X)$ defined as follows.
     \begin{itemize}
         \item The topological space $X$ is the set of \tref{AA:prime-ideal}{prime ideals} of $R$, whose closed sets are given precisely by the sets $V(I) = \{ \textup{prime ideals } \mathfrak{p} \textup{ with } \mathfrak{p} \supset I \}$ for all ideals $I$ of $R$.
-        \item The \tref{sheaf}{sheaf} of rings $\mathcal{O}_X$ is given as follows. For each open set $U \subset X$, $\mathcal{O}_X(U)$ is the set of functions $s : U \to \sqcup_{\mathfrak{p} \in U} R_\mathfrak{p}$ with $s(\mathfrak{p}) \in R_\mathfrak{p}$ for each $\mathfrak{p} \in U$, such that $s$ is locally a quotient of elements of $R$. This means that for each $\mathfrak{p} \in U$, there is a neighborhood $V \subset U$ of $\mathfrak{p}$, and elements $a, f \in R$ such that for each $\mathfrak{q} \in V$, $f \not\in \mathfrak{q}$ and $s(\mathfrak{q}) = a/f$ in $A_\mathfrak{q}$. The sets $\mathcal{O}_X(U)$ are indeed rings.
+        \item The \tref{sheaf}{sheaf} of rings $\mathcal{O}_X$ is given as follows. For each open set $U \subset X$, $\mathcal{O}_X(U)$ is the set of functions $s \colon U \to \sqcup_{\mathfrak{p} \in U} R_\mathfrak{p}$ with $s(\mathfrak{p}) \in R_\mathfrak{p}$ for each $\mathfrak{p} \in U$, such that $s$ is locally a quotient of elements of $R$. This means that for each $\mathfrak{p} \in U$, there is a neighborhood $V \subset U$ of $\mathfrak{p}$, and elements $a, f \in R$ such that for each $\mathfrak{q} \in V$, $f \not\in \mathfrak{q}$ and $s(\mathfrak{q}) = a/f$ in $A_\mathfrak{q}$. The sets $\mathcal{O}_X(U)$ are indeed rings.
     \end{itemize}
     The spectrum of $R$ is denoted $\Spec R$.
 \end{topic}
@@ -58,45 +58,45 @@
 \end{topic}
 
 \begin{topic}{finite-type}{(locally) of finite type}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite type at $x \in X$} if there exist affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finitely-generated-algebra}{finitely generated} $B$-algebra (via the induced map $B \to A$).
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite type at $x \in X$} if there exist affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finitely-generated-algebra}{finitely generated} $B$-algebra (via the induced map $B \to A$).
     
     The morphism $f$ is \textbf{locally of finite type} if it is of finite type at each $x \in X$, and it is \textbf{of finite type} if it is locally of finite type and \tref{quasi-compact-morphism}{quasi-compact}.
 \end{topic}
 
 \begin{topic}{finite-presentation}{(locally) of finite presentation}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite presentation at $x \in X$} if there exists affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finitely-presented-algebra}{finitely presented} $B$-algebra (via the induced map $B \to A$).
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{of finite presentation at $x \in X$} if there exists affine opens $U = \Spec A \subset X$ containing $x$ and $V = \Spec B \subset Y$ with $f(U) \subset V$ such that $A$ is a \tref{AA:finitely-presented-algebra}{finitely presented} $B$-algebra (via the induced map $B \to A$).
     
     The morphism $f$ is \textbf{locally of finite presentation} if it is of finite presentation at each $x \in X$, and it is \textbf{of finite presentation} if it is locally of finite presentation, \tref{quasi-compact-scheme}{quasi-compact}, and \tref{separated-morphism}{quasi-separated}.
 \end{topic}
 
 \begin{topic}{integral-morphism}{integral morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{integral} if it is \tref{affine-morphism}{affine} and for every affine open $\Spec B = V \subseteq Y$ with inverse image $\Spec A = f^{-1}(V) \subseteq X$ the corresponding ring morphism $B \to A$ is \tref{AA:integral-closure}{integral}.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{integral} if it is \tref{affine-morphism}{affine} and for every affine open $\Spec B = V \subseteq Y$ with inverse image $\Spec A = f^{-1}(V) \subseteq X$ the corresponding ring morphism $B \to A$ is \tref{AA:integral-closure}{integral}.
 \end{topic}
 
 \begin{topic}{radical-morphism}{radical morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{radical} if it is injective (on the level of topological spaces) and for every $x \in X$ the \tref{AA:field-extension}{field extension} $\kappa(x) / \kappa(f(x))$ is \tref{AA:purely-inseparable-field-extension}{purely inseparable}.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{radical} if it is injective (on the level of topological spaces) and for every $x \in X$ the \tref{AA:field-extension}{field extension} $\kappa(x) / \kappa(f(x))$ is \tref{AA:purely-inseparable-field-extension}{purely inseparable}.
 \end{topic}
 
 \begin{topic}{finite-morphism}{finite morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{finite} if there exists a covering of $Y$ by open affine subsets $V_i = \Spec B_i$, such that for each $i$, $f^{-1}(V_i)$ is affine, equal to $\Spec A_i$, where $A_i$ is a $B_i$-algebra which is a \tref{AA:finitely-generated-module}{finitely generated} $B_i$-module.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{finite} if there exists a covering of $Y$ by open affine subsets $V_i = \Spec B_i$, such that for each $i$, $f^{-1}(V_i)$ is affine, equal to $\Spec A_i$, where $A_i$ is a $B_i$-algebra which is a \tref{AA:finitely-generated-module}{finitely generated} $B_i$-module.
 \end{topic}
 
 \begin{topic}{quasi-finite-morphism}{quasi-finite morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-finite} if it is of \tref{finite-type}{finite type}, and every point $x \in X$ is isolated in its fiber $f^{-1}(f(x))$, i.e. every fiber is a discrete finite set.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-finite} if it is of \tref{finite-type}{finite type}, and every point $x \in X$ is isolated in its fiber $f^{-1}(f(x))$, i.e. every fiber is a discrete finite set.
 \end{topic}
 
 \begin{example}{quasi-finite-morphism}
     Every \tref{finite-morphism}{finite morphism} is quasi-finite, but the converse is not true. Namely, consider the immersion
-    \[ i : \Spec \ZZ[\tfrac{1}{2}] \to \Spec \ZZ . \]
+    \[ i \colon \Spec \ZZ[\tfrac{1}{2}] \to \Spec \ZZ . \]
     Since $i$ is an open immersion, all fibers either consist of a single point or are empty. Furthermore, $i$ is of finite type as $\ZZ[\tfrac{1}{2}]$ is a finitely generated $\ZZ$-algebra, and $i$ is quasi-compact since the source and target are affine, hence $i$ is quasi-finite. However, $i$ is not finite since $\ZZ[\tfrac{1}{2}]$ is not finitely generated as a $\ZZ$-module.
 \end{example}
 
 \begin{topic}{open-immersion}{open immersion}
-    An \textbf{open immersion} is a morphism $j : U \to X$ of \tref{scheme}{schemes} which induces an isomorphism of $U$ with an open subscheme of $X$.
+    An \textbf{open immersion} is a morphism $j \colon U \to X$ of \tref{scheme}{schemes} which induces an isomorphism of $U$ with an open subscheme of $X$.
 \end{topic}
 
 \begin{topic}{closed-immersion}{closed immersion}
-    A \textbf{closed immersion} is a morphism $i : Z \to X$ of \tref{scheme}{schemes} such that $i$ induces a \tref{TO:homeomorphism}{homeomorphism} of the underlying space of $Z$ onto a closed subset of that of $X$, and furthermore the induced map $i^\# : \mathcal{O}_X \to i_*\mathcal{O}_Z$ of sheaves on $X$ is surjective.
+    A \textbf{closed immersion} is a morphism $i \colon Z \to X$ of \tref{scheme}{schemes} such that $i$ induces a \tref{TO:homeomorphism}{homeomorphism} of the underlying space of $Z$ onto a closed subset of that of $X$, and furthermore the induced map $i^\# \colon \mathcal{O}_X i_*\mathcal{O}_Z$ of sheaves on $X$ is surjective.
 \end{topic}
 
 \begin{topic}{immersion}{immersion}
@@ -105,19 +105,19 @@
 \end{topic}
 
 \begin{topic}{affine-morphism}{affine morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{affine} if the inverse image of every affine open in $Y$ is an affine open of $X$. 
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{affine} if the inverse image of every affine open in $Y$ is an affine open of $X$. 
 \end{topic}
 
 \begin{example}{affine-morphism}
     \begin{itemize}
-        \item Any morphism $f : \Spec(R) \to \Spec(S)$ between affine schemes is affine.
-        \item The inclusion $\iota : \AA^2_k \setminus \{ (0, 0) \} \to \AA^2_k$ is not affine, since $\AA^2_k \setminus \{ (0, 0) \}$ is not affine.
-        \item Let $Y_1 = Y_2 = \AA^2_k$, and let $Y$ be obtained by gluing $Y_1$ and $Y_2$ along $\AA^2_k \setminus \{ (0, 0) \}$. Then the inclusions $j_i : Y_i \to Y$ are not affine, since $j_1^{-1}(Y_2) = j_2^{-1}(Y_1) = \AA^2_k \setminus \{ (0, 0) \}$ is not affine.
+        \item Any morphism $f \colon \Spec(R) \to \Spec(S)$ between affine schemes is affine.
+        \item The inclusion $\iota \colon \AA^2_k \setminus \{ (0, 0) \} \to \AA^2_k$ is not affine, since $\AA^2_k \setminus \{ (0, 0) \}$ is not affine.
+        \item Let $Y_1 = Y_2 = \AA^2_k$, and let $Y$ be obtained by gluing $Y_1$ and $Y_2$ along $\AA^2_k \setminus \{ (0, 0) \}$. Then the inclusions $j_i \colon Y_i \to Y$ are not affine, since $j_1^{-1}(Y_2) = j_2^{-1}(Y_1) = \AA^2_k \setminus \{ (0, 0) \}$ is not affine.
     \end{itemize}
 \end{example}
 
 \begin{topic}{quasi-compact-morphism}{quasi-compact morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-compact} if the inverse image of every \tref{TO:compact-space}{compact} open in $Y$ is compact in $X$.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-compact} if the inverse image of every \tref{TO:compact-space}{compact} open in $Y$ is compact in $X$.
 \end{topic}
 
 \begin{topic}{quasi-compact-scheme}{quasi-compact scheme}
@@ -161,11 +161,11 @@
 \end{topic}
 
 \begin{topic}{separated-morphism}{(quasi-)separated morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is quasi-compact, and it is \textbf{separated} if the diagonal $\Delta_{X/Y}$ is a closed immersion.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{quasi-separated} if the diagonal $\Delta_{X/Y} \colon X \to X \times_Y X$ is quasi-compact, and it is \textbf{separated} if the diagonal $\Delta_{X/Y}$ is a closed immersion.
 \end{topic}
 
 \begin{example}{separated-morphism}
-    Any morphism of affine schemes is separated. Namely, for any $f : \Spec A \to \Spec B$, the diagonal $\Delta$ corresponds to the ring map $A \otimes_B A \to A : a \otimes a' \mapsto aa'$, which is clearly surjective. In this way $A$ is seen as a quotient of $A \otimes_B A$, so $\Delta$ is a closed immersion.
+    Any morphism of affine schemes is separated. Namely, for any $f \colon \Spec A \to \Spec B$, the diagonal $\Delta$ corresponds to the ring map $A \otimes_B A \to A : a \otimes a' \mapsto aa'$, which is clearly surjective. In this way $A$ is seen as a quotient of $A \otimes_B A$, so $\Delta$ is a closed immersion.
 \end{example}
 
 \begin{example}{separated-morphism}
@@ -177,23 +177,23 @@
 \end{example}
 
 \begin{topic}{proper-morphism}{proper morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated-morphism}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{proper} if it is \tref{separated-morphism}{separated}, \tref{finite-type}{of finite type} and \tref{TO:universally-closed}{universally closed}.
 \end{topic}
 
 \begin{example}{proper-morphism}
-    Any \tref{closed-immersion}{closed immersion} $i : Y \to X$ is proper. Indeed, the base change of a closed immersion is again a closed immersion, so $i$ is universally closed. Separatedness can be checked locally on the target: if $X = \Spec R$ then $Y = \Spec R / I$ for some ideal $I \subset R$, so $Y$ is also affine, and any morphism between affine schemes is separated. From this local expression of $X$ and $Y$ it is also clear $i$ is of finite type.
+    Any \tref{closed-immersion}{closed immersion} $i \colon Y \to X$ is proper. Indeed, the base change of a closed immersion is again a closed immersion, so $i$ is universally closed. Separatedness can be checked locally on the target: if $X = \Spec R$ then $Y = \Spec R / I$ for some ideal $I \subset R$, so $Y$ is also affine, and any morphism between affine schemes is separated. From this local expression of $X$ and $Y$ it is also clear $i$ is of finite type.
 \end{example}
 
 \begin{example}{proper-morphism}
-    The morphism $\AA_k^1 \to \Spec k$ is not proper as it is not universally closed. Namely, the projection $\AA^1_k \times \AA^1_k \to \AA^1_k$ sends the closed set $\{ xy - 1 = 0 \}$ to $\AA^1_k \setminus \{ 0 \}$ and thus cannot be a closed mapping. However, the morphism is clearly of finite type, and also separated as the diagonal $\Delta : \AA^1_k \to \AA^1_k \times \AA^1_k$ is closed, it is given by $\{ x - y = 0 \}$.
+    The morphism $\AA_k^1 \to \Spec k$ is not proper as it is not universally closed. Namely, the projection $\AA^1_k \times \AA^1_k \to \AA^1_k$ sends the closed set $\{ xy - 1 = 0 \}$ to $\AA^1_k \setminus \{ 0 \}$ and thus cannot be a closed mapping. However, the morphism is clearly of finite type, and also separated as the diagonal $\Delta \colon \AA^1_k \to \AA^1_k \times \AA^1_k$ is closed, it is given by $\{ x - y = 0 \}$.
 \end{example}
 
 \begin{example}{proper-morphism}
-    Let $X$ be the affine line with double origin, i.e. two copies of $\AA^1$ glued along $\AA^1 \setminus \{ 0 \}$. Then $X \to \AA^1$ is of finite type and universally closed (the latter as $X_R \to \AA^1_R$ is closed for all rings $R$). However, $X \to \AA^1$ is not separated and hence not proper. For this we need to show $\Delta_{X / \AA^1} : X \to X \times_{\AA^1} X$ is not a closed immersion. Consider $\AA^1 \to X \times_{\AA^1} X$ induced from the two maps different maps $\AA^1 \to X$, and note that the inverse image of the diagonal is $\AA^1 \setminus \{ 0 \}$ which is not closed. Hence the diagonal is not closed.
+    Let $X$ be the affine line with double origin, i.e. two copies of $\AA^1$ glued along $\AA^1 \setminus \{ 0 \}$. Then $X \to \AA^1$ is of finite type and universally closed (the latter as $X_R \to \AA^1_R$ is closed for all rings $R$). However, $X \to \AA^1$ is not separated and hence not proper. For this we need to show $\Delta_{X / \AA^1} \colon X \to X \times_{\AA^1} X$ is not a closed immersion. Consider $\AA^1 \to X \times_{\AA^1} X$ induced from the two maps different maps $\AA^1 \to X$, and note that the inverse image of the diagonal is $\AA^1 \setminus \{ 0 \}$ which is not closed. Hence the diagonal is not closed.
 \end{example}
 
 \begin{topic}{projective-morphism}{(quasi-)projective morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is
     \begin{itemize}
         \item \textbf{projective} (\textit{in the sense of EGA}) if it factors as
         \[ X \xrightarrow{i} \PP(\mathcal{E}) \xrightarrow{\pi} Y \]
@@ -241,7 +241,7 @@
 \end{topic}
 
 \begin{topic}{smooth-morphism}{smooth morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{smooth} if
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{smooth} if
     \begin{itemize}
         \item it is \tref{finite-presentation}{locally of finite presentation},
         \item it is \tref{flat-morphism}{flat},
@@ -254,7 +254,7 @@
 \end{example}
 
 \begin{topic}{unramified-morphism}{unramified morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{unramified} if
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{unramified} if
     \begin{itemize}
         \item it is \tref{finite-type}{locally of finite type},
         \item the residue field $k(x)$ is a \tref{AA:separable-field-extension}{separable algebraic extension} of $k(f(x))$, for all $x \in X$,
@@ -263,11 +263,11 @@
 \end{topic}
 
 \begin{topic}{etale-morphism}{étale morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{étale} if it is \tref{flat-morphism}{flat}, \tref{unramified-morphism}{unramified} and \tref{finite-presentation}{locally of finite presentation}.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{étale} if it is \tref{flat-morphism}{flat}, \tref{unramified-morphism}{unramified} and \tref{finite-presentation}{locally of finite presentation}.
 \end{topic}
 
 \begin{topic}{formally-smooth}{formally smooth morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally smooth} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{formally smooth} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \svg \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there exists a morphism $\Spec A \to X$ making the diagram commute.
 \end{topic}
@@ -277,7 +277,7 @@
 \end{example}
 
 \begin{topic}{formally-unramified}{formally unramified morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally unramified} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{formally unramified} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \svg \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there is at most one morphism $\Spec A \to X$ making the diagram commute.
 \end{topic}
@@ -287,7 +287,7 @@
 \end{example}
 
 \begin{topic}{formally-etale}{formally étale morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{formally étale} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{formally étale} if for every ring $A$, ideal $I \subset A$ with $I^2 = 0$, and commutative diagram
     \[ \svg \begin{tikzcd} \Spec A/I \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec A \arrow{r} \arrow[dashed]{ur} & Y \end{tikzcd} \]
     there exists a unique morphism $\Spec A \to X$ making the diagram commute.
     
@@ -295,13 +295,13 @@
 \end{topic}
 
 \begin{example}{formally-etale}
-    Any \tref{etale-morphism}{étale morphism} is formally étale, but the converse does not hold. Namely, the morphism $f : \Spec k \to \Spec k[x_1, x_2, \ldots] / (x_1^2, x_2^2, \cdots)$ is easily checked to be formally étale. However, since $f$ is not \tref{finite-presentation}{locally of finite presentation}, it cannot be étale.
+    Any \tref{etale-morphism}{étale morphism} is formally étale, but the converse does not hold. Namely, the morphism $f \colon \Spec k \to \Spec k[x_1, x_2, \ldots] / (x_1^2, x_2^2, \cdots)$ is easily checked to be formally étale. However, since $f$ is not \tref{finite-presentation}{locally of finite presentation}, it cannot be étale.
     
     A morphism is étale if and only if it is formally étale and locally of finite presentation.
 \end{example}
 
 \begin{topic}{flat-morphism}{flat morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{flat} if for every $x \in X$, the local ring $\mathcal{O}_{X, x}$ is \tref{AA:flat-module}{flat} as an $\mathcal{O}_{Y, f(x)}$-module.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{flat} if for every $x \in X$, the local ring $\mathcal{O}_{X, x}$ is \tref{AA:flat-module}{flat} as an $\mathcal{O}_{Y, f(x)}$-module.
 \end{topic}
 
 \begin{example}{flat-morphism}
@@ -313,7 +313,7 @@
 \end{example}
 
 \begin{topic}{dominant-morphism}{dominant morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{dominant} if the image of $f$ is a \tref{TO:dense-set}{dense} subset of $Y$.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{dominant} if the image of $f$ is a \tref{TO:dense-set}{dense} subset of $Y$.
 \end{topic}
 
 \begin{topic}{serre-duality}{Serre duality}
@@ -346,16 +346,16 @@
     \end{aligned} \]
     Since the composition $I \xrightarrow{g} R^n \xrightarrow{f} I$ is the identity, we find that $R^n \isom I \oplus \ker(f)$, which shows that $I$ is a finitely generated projective $R$-module, that is, a line bundle over $X$. In particular, any principal fractional ideal $I = fR$, with $f \in K^*$, is isomorphic to $R$ as an $R$-module, so the associated line bundle is trivial.
     
-    This defines a map $\varphi : \textup{Pic}(R) \to \textup{Pic}(X)$. To see why this is a group homomorphism, let $I$ and $J$ be invertible ideals. Since $I$ is projective, the functor $I \otimes_R (-)$ is exact, so the map $I \otimes_R J \to I \otimes_R F \isom F$, given by $\sum_{i = 1}^{n} x_i \otimes y_i \mapsto \sum_{i = 1}^{n} x_i y_i$, is an injection. Hence, $I \otimes_R J$ is isomorphic to its image $IJ \subset F$.
+    This defines a map $\varphi \colon \textup{Pic}(R) \to \textup{Pic}(X)$. To see why this is a group homomorphism, let $I$ and $J$ be invertible ideals. Since $I$ is projective, the functor $I \otimes_R (-)$ is exact, so the map $I \otimes_R J \to I \otimes_R F \isom F$, given by $\sum_{i = 1}^{n} x_i \otimes y_i \mapsto \sum_{i = 1}^{n} x_i y_i$, is an injection. Hence, $I \otimes_R J$ is isomorphic to its image $IJ \subset F$.
     
     Injectivity of $\varphi$ follows because any invertible ideal $I$ isomorphic to $R$ as $R$-modules must be of the form $I = fR$ for some $f \in K^*$, and hence is principal. Surjectivity of $\varphi$ is shown as follows. Let $L$ be a line bundle over $X$, i.e. a finitely generated projective $R$-module of rank $1$. As $L$ is projective, the functor $L \otimes_R (-)$ is exact, which yields an inclusion $L = L \otimes_R R \subset L \otimes_R K \isom K$. Since $L$ is finitely generated, the image of $L$ inside $K$ is a fractional ideal $I$. To show it is invertible, let $J$ be the fractional ideal corresponding to the dual bundle $L^\vee = \Hom_R(L, R)$. Then, $R \isom L \otimes_R L^\vee \isom I \otimes_R J \isom IJ$, so $IJ = fR$ for some $f \in K^*$, and hence $I (f^{-1} J) = R$, so $I$ is indeed invertible.
 \end{example}
 
 \begin{topic}{picard-functor}{Picard functor}
-    Let $f : X \to S$ be a \tref{scheme}{scheme} over $S$. The \textbf{absolute Picard functor} is the functor that assigns to any $T \to S$ the \tref{picard-group}{Picard group} $\textup{Pic}(X \times_S T)$,
-    \[ \textup{Pic}_X : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \textup{Pic}(X \times_S T) . \]
+    Let $f \colon X \to S$ be a \tref{scheme}{scheme} over $S$. The \textbf{absolute Picard functor} is the functor that assigns to any $T \to S$ the \tref{picard-group}{Picard group} $\textup{Pic}(X \times_S T)$,
+    \[ \textup{Pic}_X \colon \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \textup{Pic}(X \times_S T) . \]
     The \textbf{relative Picard functor} is the functor
-    \[ \textup{Pic}_{X/S} : \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \textup{Pic}(X \times_S T) / f_T^* \textup{Pic}(T) . \]
+    \[ \textup{Pic}_{X/S} \colon \textbf{Sch}/S \to \textbf{Ab}, \quad T \mapsto \textup{Pic}(X \times_S T) / f_T^* \textup{Pic}(T) . \]
 \end{topic}
 
 \begin{example}{picard-functor}
@@ -411,7 +411,7 @@
 \end{topic}
 
 \begin{topic}{fppf-covering}{fppf covering}
-    An \textbf{fppf covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, \tref{finite-presentation}{locally of finite presentation}, and jointly surjective, i.e. $X = \bigcup_{i \in I} f_i(X_i)$.
+    An \textbf{fppf covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i \colon X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, \tref{finite-presentation}{locally of finite presentation}, and jointly surjective, i.e. $X = \bigcup_{i \in I} f_i(X_i)$.
     
     `fppf' stands for \textit{fidèlement plat de présentation finie}.
 \end{topic}
@@ -429,13 +429,13 @@
 \end{example}
 
 \begin{topic}{fpqc-covering}{fpqc covering}
-    An \textbf{fpqc covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i : X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, and such that for every affine open $U \subset X$ there exists a finite subset $J \subset I$ and affine opens $V_j \subset X_j$ for each $j \in J$ such that $U = \bigcup_{j \in J} f_j(V_j)$. That is, every affine open in $X$ can be covered by finitely many affine opens from the $X_i$.
+    An \textbf{fpqc covering} of a \tref{scheme}{scheme} $X$ is a family of morphisms $\left\{ f_i \colon X_i \to X \right\}_{i \in I}$ that are all \tref{flat-morphism}{flat}, and such that for every affine open $U \subset X$ there exists a finite subset $J \subset I$ and affine opens $V_j \subset X_j$ for each $j \in J$ such that $U = \bigcup_{j \in J} f_j(V_j)$. That is, every affine open in $X$ can be covered by finitely many affine opens from the $X_i$.
     
     `fpqc' stands for \textit{fidèlement plat et quasi-compact}.
 \end{topic}
 
 \begin{example}{fpqc-covering}
-    Any \tref{fppf-covering}{fppf covering} $\{ f_i : X_i \to X \}_{i \in I}$ is an fpqc covering. By assumption the $f_i$ are flat. Let $U \subset X$ be an affine open. Write $f_i^{-1}(U) = \cup_{j \in J_i} U_{ij}$ for some affine opens $U_{ij} \subset X_i$. Each $f_i$ flat and locally of finite presentation, hence open. So, $U = \cup_{i \in I} \cup_{j \in J_i} f_i(U_{ij})$ is an open cover for $U$. Now, $U$ is affine and thus quasi-compact, so there is a finite subcover.
+    Any \tref{fppf-covering}{fppf covering} $\{ f_i \colon X_i \to X \}_{i \in I}$ is an fpqc covering. By assumption the $f_i$ are flat. Let $U \subset X$ be an affine open. Write $f_i^{-1}(U) = \cup_{j \in J_i} U_{ij}$ for some affine opens $U_{ij} \subset X_i$. Each $f_i$ flat and locally of finite presentation, hence open. So, $U = \cup_{i \in I} \cup_{j \in J_i} f_i(U_{ij})$ is an open cover for $U$. Now, $U$ is affine and thus quasi-compact, so there is a finite subcover.
 \end{example}
 
 \begin{example}{fpqc-covering}
@@ -444,12 +444,12 @@
 
 \begin{example}{fpqc-covering}
     Let $X = \AA^1_k$ be the affine line over an infinite field $k$, and consider the natural morphism
-    \[ f : \bigsqcup_{x \in X} \Spec(\mathcal{O}_{X, x}) \to X . \]
+    \[ f \colon \bigsqcup_{x \in X} \Spec(\mathcal{O}_{X, x}) \to X . \]
     Altough it is flat and surjective, it does not define an fpqc covering of $X$, since any affine open of $\bigsqcup_{x \in X} \Spec(\mathcal{O}_{X, x})$ can only consist of finitely many points (because affines are quasi-compact).
 \end{example}
 
 \begin{topic}{faithfully-flat-morphism}{faithfully flat morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{faithfully flat} if it is both \tref{flat-morphism}{flat} and surjective.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{faithfully flat} if it is both \tref{flat-morphism}{flat} and surjective.
 \end{topic}
 
 \begin{topic}{big-small-site}{big/small site}
@@ -461,16 +461,16 @@
 \end{topic}
 
 \begin{topic}{projection-formula}{projection formula}
-    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}, $\mathcal{F}$ an $\mathcal{O}_X$-module, and $\mathcal{E}$ a \tref{free-sheaf}{locally free} $\mathcal{O}_Y$-module. The \textbf{projection formula} states a natural isomorphism
+    Let $f \colon X \to Y$ be a morphism of \tref{scheme}{schemes}, $\mathcal{F}$ an $\mathcal{O}_X$-module, and $\mathcal{E}$ a \tref{free-sheaf}{locally free} $\mathcal{O}_Y$-module. The \textbf{projection formula} states a natural isomorphism
     \[ f_*\left(\mathcal{F} \otimes_{\mathcal{O}_X} f^* \mathcal{E} \right) \isom f_*\left(\mathcal{F}\right) \otimes_{\mathcal{O}_Y} \mathcal{E} . \]
 \end{topic}
 
 \begin{topic}{rational-map}{rational map}
-    A \textbf{rational map} $f : X \dashrightarrow Y$ between (\tref{TO:irreducible-space}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is an equivalence class of pairs $(U, f_U)$, where $U \subset X$ open and non-empty, $f_U : U \to Y$ a morphism, and where two pairs $(U, f_U)$ and $(V, f_V)$ are equivalent if their restriction to $U \cap V$ coincides.
+    A \textbf{rational map} $f \colon X \dashrightarrow Y$ between (\tref{TO:irreducible-space}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is an equivalence class of pairs $(U, f_U)$, where $U \subset X$ open and non-empty, $f_U \colon U \to Y$ a morphism, and where two pairs $(U, f_U)$ and $(V, f_V)$ are equivalent if their restriction to $U \cap V$ coincides.
 \end{topic}
 
 \begin{topic}{birational-map}{birational map}
-    A \textbf{birational map} between (\tref{TO:irreducible-space}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is a \tref{rational-map}{rational map} $f : X \dashrightarrow Y$ which has a rational inverse. That is, there exists a rational map $g : Y \dashrightarrow X$ such that $gf = \id_X$ and $fg = \id_Y$ as rational maps.
+    A \textbf{birational map} between (\tref{TO:irreducible-space}{irreducible}) \tref{variety}{varieties} $X$ and $Y$ is a \tref{rational-map}{rational map} $f \colon X \dashrightarrow Y$ which has a rational inverse. That is, there exists a rational map $g \colon Y \dashrightarrow X$ such that $gf = \id_X$ and $fg = \id_Y$ as rational maps.
     
     If there is a birational map from $X$ to $Y$, then $X$ and $Y$ are called \textbf{birationally equivalent}, or simply \textbf{birational}.
     
@@ -479,16 +479,16 @@
 
 \begin{example}{birational-map}
     The circle $X = \{ x^2 + y^2 = 1 \}$ in the affine plane is birational to the affine line $\AA^1$, since the rational map
-    \[ f : \AA^1 \dashrightarrow X, \quad t \mapsto \left(\frac{2t}{1 + t^2}, \frac{1 - t^2}{1 + t^2}\right) \]
+    \[ f \colon \AA^1 \dashrightarrow X, \quad t \mapsto \left(\frac{2t}{1 + t^2}, \frac{1 - t^2}{1 + t^2}\right) \]
     has a rational inverse
-    \[ g : X \dashrightarrow \AA^1, \quad (x, y) \mapsto \frac{1 - y}{x} . \]
+    \[ g \colon X \dashrightarrow \AA^1, \quad (x, y) \mapsto \frac{1 - y}{x} . \]
 \end{example}
 
 \begin{example}{birational-map}
     Affine space $\AA^n$ is birational to projective space $\PP^n$ since the inclusion
-    \[ i : \AA^n \to \PP^n, \quad (x_1, x_2, \ldots, x_n) \mapsto (1 : x_1 : \cdots : x_n) \]
+    \[ i \colon \AA^n \to \PP^n, \quad (x_1, x_2, \ldots, x_n) \mapsto (1 : x_1 : \cdots : x_n) \]
     has rational inverse
-    \[ j : \PP^n \dashrightarrow \AA^n, \quad (X_0 : X_1 : \cdots : X_n) \mapsto \left(\frac{X_1}{X_0}, \frac{X_2}{X_0}, \cdots, \frac{X_n}{X_0}\right) . \]
+    \[ j \colon \PP^n \dashrightarrow \AA^n, \quad (X_0 : X_1 : \cdots : X_n) \mapsto \left(\frac{X_1}{X_0}, \frac{X_2}{X_0}, \cdots, \frac{X_n}{X_0}\right) . \]
 \end{example}
 
 \begin{topic}{rational-variety}{rational variety}
@@ -496,13 +496,13 @@
 \end{topic}
 
 \begin{topic}{syntomic-morphism}{syntomic morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{syntomic at $x \in X$} if there exists an affine open neighborhood $U = \Spec A \subset X$ of $x$ and an affine open $V = \Spec B \subset Y$ with $f(U) \subset V$ such that the induced ring morphism $B \to A$ is \textit{syntomic}, i.e. of \tref{AA:finitely-presented-algebra}{finite presentation}, makes $A$ into a \tref{AA:flat-module}{flat} \tref{AA:module}{$B$-module}, and all the fiber rings $A \otimes_B k(\mathfrak{p})$ are local complete intersections.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{syntomic at $x \in X$} if there exists an affine open neighborhood $U = \Spec A \subset X$ of $x$ and an affine open $V = \Spec B \subset Y$ with $f(U) \subset V$ such that the induced ring morphism $B \to A$ is \textit{syntomic}, i.e. of \tref{AA:finitely-presented-algebra}{finite presentation}, makes $A$ into a \tref{AA:flat-module}{flat} \tref{AA:module}{$B$-module}, and all the fiber rings $A \otimes_B k(\mathfrak{p})$ are local complete intersections.
     
     The morphism $f$ is \textbf{syntomic} if it is syntomic at all points $x \in X$.
 \end{topic}
 
 \begin{topic}{galois-cover}{Galois cover}
-    A morphism $f : X \to S$ of \tref{scheme}{schemes} is a \textbf{Galois cover} if it is \tref{finite-morphism}{finite}, \tref{faithfully-flat-morphism}{faithfully flat}, and such that there exists a finite group $\Gamma$ of $S$-automorphisms, such that
+    A morphism $f \colon X \to S$ of \tref{scheme}{schemes} is a \textbf{Galois cover} if it is \tref{finite-morphism}{finite}, \tref{faithfully-flat-morphism}{faithfully flat}, and such that there exists a finite group $\Gamma$ of $S$-automorphisms, such that
     \[ \Gamma \times X \to X \times_S X, \quad (\sigma, x) \mapsto (x, \sigma(x)) \]
     is an isomorphism.
 \end{topic}
@@ -516,7 +516,7 @@
 \end{example}
 
 \begin{example}{galois-cover}
-    Let $n \ge 1$ and let $k$ be a field containing a primitive $n$-th root unity $\zeta_n \in k$. Consider $f : X \to S$ with $X = S = \GG_m = \Spec k[x, x^{-1}]$ given by $x \mapsto x^n$. Then we see that
+    Let $n \ge 1$ and let $k$ be a field containing a primitive $n$-th root unity $\zeta_n \in k$. Consider $f \colon X \to S$ with $X = S = \GG_m = \Spec k[x, x^{-1}]$ given by $x \mapsto x^n$. Then we see that
     \[ X \times_S X = \{ (x, y) \in \GG_m^2 : x^n = y^n \} \]
     decomposes as the disjoint union
     \[ (\ZZ/n\ZZ) \times \GG_m \isom X \times_S X, \quad (k, x) \mapsto (x, \zeta_n^k x) , \]
@@ -524,7 +524,7 @@
 \end{example}
 
 \begin{example}{galois-cover}
-    Let $E$ be an elliptic curve over $k$, and $n$ an integer invertible in $k$. Consider the map $[n] : E \to E$ given by multiplication by $n$. We have an isomorphism
+    Let $E$ be an elliptic curve over $k$, and $n$ an integer invertible in $k$. Consider the map $[n] \colon E \to E$ given by multiplication by $n$. We have an isomorphism
     \[ E \times_E E = \{ (x, y) \in E^2 : nx = ny \} \xrightarrow{\sim} \ker [n] \times E \]
     given by $(x, y) \mapsto (y - x, x)$, and since $\ker [n]$ is a finite group (acting on $E$ by translation), it follows that $[n]$ is a Galois cover.
 \end{example}
@@ -536,22 +536,22 @@
 \end{example}
 
 \begin{topic}{equivariant-sheaf}{equivariant sheaf}
-    Given a \tref{scheme}{scheme} $X$ with an action $\sigma : G \times X \to X$ of a group scheme $G$, an \textbf{equivariant sheaf} on $X$ is an \tref{O-module}{$\mathcal{O}_X$-module} $\mathcal{F}$ together with an isomorphism of sheaves on $G \times X$,
-    \[ \phi : \sigma^* \mathcal{F} \xrightarrow{\sim} \pi_2^* \mathcal{F} \]
+    Given a \tref{scheme}{scheme} $X$ with an action $\sigma \colon G \times X \to X$ of a group scheme $G$, an \textbf{equivariant sheaf} on $X$ is an \tref{O-module}{$\mathcal{O}_X$-module} $\mathcal{F}$ together with an isomorphism of sheaves on $G \times X$,
+    \[ \phi \colon \sigma^* \mathcal{F} \xrightarrow{\sim} \pi_2^* \mathcal{F} \]
     satisfying the \textit{cocycle condition}
     \[ \pi_{23}^* \phi \circ (\id_G \times \sigma)^* \phi = (m \times \id_X)^* \phi \]
-    on $G \times G \times X$, where $m : G \times G \to G$ is the multiplication map on $G$. That is, the following diagram commutes:
+    on $G \times G \times X$, where $m \colon G \times G \to G$ is the multiplication map on $G$. That is, the following diagram commutes:
     \[ \svg \begin{tikzcd}[column sep=5em]
         (\sigma \circ (\id_G \times \sigma))^* \mathcal{F} \arrow["\sim{}"']{r}{(\id_G \times \sigma)^* \phi} \arrow[equal]{dd} & (\pi_2 \circ (\id_G \times \sigma))^* \mathcal{F} \arrow[equal]{d} & \\ & (\sigma \circ \pi_{23})^* \mathcal{F} \arrow["\sim{}"']{r}{\pi_{23}^* \phi} & (\pi_2 \circ \pi_{23})^* \mathcal{F} \arrow[equal]{d} \\ (\sigma \circ (m \times \id_X))^* \mathcal{F} \arrow["\sim{}"']{rr}{(m \times \id_X)^* \phi} & & (\pi_2 \circ (m \times \id_X))^* \mathcal{F}
     \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{group-scheme}{group scheme}
-    Let $S$ be a \tref{scheme}{scheme}. A \textbf{group scheme} over $S$ is a \tref{CT:group-object}{group object} in the category of schemes over $S$. That is, a scheme $G$ over $S$ together with morphisms $m : G \times G \to G$ (\textit{multiplication}), $e : 1 \to G$ (\textit{group unit}) and $i : G \to G$ (\textit{inversion}), such that
+    Let $S$ be a \tref{scheme}{scheme}. A \textbf{group scheme} over $S$ is a \tref{CT:group-object}{group object} in the category of schemes over $S$. That is, a scheme $G$ over $S$ together with morphisms $m \colon G \times G \to G$ (\textit{multiplication}), $e \colon 1 \to G$ (\textit{group unit}) and $i \colon G \to G$ (\textit{inversion}), such that
     \begin{itemize}
         \item (\textit{associativity}) $m \circ (m \times \id_G) = m \circ (\id \times m)$,
         \item (\textit{unit}) $m \circ (\id_G \times e) = \id_G$ and $m \circ (e \times \id_G) = \id_G$, where we identified $G \times 1 \isom G$,
-        \item (\textit{inversion}) $m \circ (\id_G \times i) \circ \Delta = m \circ (i \times \id_G) \circ \Delta = e_G$, where $\Delta : G \to G \times G$ is the diagonal map, and $e_G : G \to G$ is the composition of $e$ with the unique morphism $G \to 1$.
+        \item (\textit{inversion}) $m \circ (\id_G \times i) \circ \Delta = m \circ (i \times \id_G) \circ \Delta = e_G$, where $\Delta \colon G \to G \times G$ is the diagonal map, and $e_G \colon G \to G$ is the composition of $e$ with the unique morphism $G \to 1$.
     \end{itemize}
 \end{topic}
 
@@ -583,7 +583,7 @@
     
     The Weil divisor associated to a rational function $f$ on $X$ is
     \[ \textup{div}(f) = \sum v_Y(f) \cdot Y , \]
-    where the sum is taken over all prime divisors $Y$, and $v_Y : K(X) \to \ZZ$ denotes the discrete valuation of $Y$. Any Weil divisor of this form is called a \textbf{principal Weil divisor}.
+    where the sum is taken over all prime divisors $Y$, and $v_Y \colon K(X) \to \ZZ$ denotes the discrete valuation of $Y$. Any Weil divisor of this form is called a \textbf{principal Weil divisor}.
     
     Two Weil divisors $D$ and $D'$ are \textbf{linearly equivalent}, denoted $D \sim{} D'$, if the difference $D - D'$ is principal. The quotient $\textup{Cl } X = \textup{Div } X / \sim{}$ is called the \textbf{divisor class group} of $X$.
 \end{topic}
@@ -620,7 +620,7 @@
 \begin{topic}{segre-embedding}{Segre embedding}
     The \textbf{Segre embedding} is a projective embedding of the product of projective spaces, given by the \textbf{Segre map}
     \[ \begin{aligned}
-        \sigma : \PP^n \times \PP^m &\to \PP^{(n + 1)(m + 1) - 1} \\
+        \sigma \colon \PP^n \times \PP^m &\to \PP^{(n + 1)(m + 1) - 1} \\
         ([X_0 : \cdots : X_n], [Y_0 : \cdots : Y_m]) &\mapsto [X_0 Y_0 : X_0 Y_1 : \cdots : X_n Y_m] .
     \end{aligned} \]
 \end{topic}
@@ -681,7 +681,7 @@
     \[ U_{\sigma_1} = \Spec(k[x, y]), \quad U_{\sigma_2} = \Spec(k[x^{-1}, yx^{-1}]), \quad U_{\sigma_3} = \Spec(k[y^{-1}, xy^{-1}]) , \]
     and gluing gives $X(\Delta) \isom \PP_k^2$.
 
-    Conversely, given a toric variety $X$ with torus $T$, one construct a fan $\Delta \subset N_\RR$ with $N = \Hom(\GG_m, T)$ the lattice of one-parameter subgroups and $M = \Hom(T, \GG_m)$ the character lattice of $T$. For any one-parameter subgroup $\lambda : \GG_m \to T$, denote by $\lim_{t \to 0} \lambda(t)$ the limit point in $X$ if it exists. Partitioning $N_\RR$ based on the limit points yields a fan $\Delta$ (after taking closures), such that the corresponding toric variety $X(\Delta)$ is isomorphic to $X$.
+    Conversely, given a toric variety $X$ with torus $T$, one construct a fan $\Delta \subset N_\RR$ with $N = \Hom(\GG_m, T)$ the lattice of one-parameter subgroups and $M = \Hom(T, \GG_m)$ the character lattice of $T$. For any one-parameter subgroup $\lambda \colon \GG_m \to T$, denote by $\lim_{t \to 0} \lambda(t)$ the limit point in $X$ if it exists. Partitioning $N_\RR$ based on the limit points yields a fan $\Delta$ (after taking closures), such that the corresponding toric variety $X(\Delta)$ is isomorphic to $X$.
 
     In the example of $X = \PP^2_k$ with maximal torus $T = \GG_m^2$, the one-parameter subgroups of $T$ are given by $\lambda^{a, b}(t) = (t^a, t^b)$ for $a, b \in \ZZ$. The limit points are
     \[ \lim_{t \to 0} \lambda^{a, b}(t) = \left\{ \begin{array}{cl}
@@ -721,11 +721,11 @@
 
 \begin{topic}{algebraic-space}{algebraic space}
     Let $S$ be a \tref{scheme}{scheme} in $\textbf{Sch}_\textup{fppf}$. An \textbf{algebraic space} over $S$ is a \tref{CT:presheaf}{presheaf}
-    \[ F : (\textbf{Sch}/S)_\textup{fppf}^\textup{op} \to \textbf{Set} \]
+    \[ F \colon (\textbf{Sch}/S)_\textup{fppf}^\textup{op} \to \textbf{Set} \]
     such that
     \begin{itemize}
         \item $F$ is a \tref{CT:sheaf}{sheaf},
-        \item the diagonal $\Delta : F \to F \times F$ is \textit{representable}, that is, for every $T \in (\textbf{Sch}/S)_\textup{fppf}$ and $\xi \in (F \times F)(T) = F(T) \times F(T)$ the fiber product $T \times_{(F \times F)} F$ is representable by a scheme,
+        \item the diagonal $\Delta \colon F \to F \times F$ is \textit{representable}, that is, for every $T \in (\textbf{Sch}/S)_\textup{fppf}$ and $\xi \in (F \times F)(T) = F(T) \times F(T)$ the fiber product $T \times_{(F \times F)} F$ is representable by a scheme,
         \item there exists a scheme $X \in (\textbf{Sch}/S)_\textup{fppf}$ and a representable map $X \to F$ which is surjective and étale. That is, for every $T \in (\textbf{Sch}/S)_\textup{fppf}$ and $\xi \in F(T)$ the map $X \times_F T \to T$ (of schemes) is surjective and \tref{AG:etale-morphism}{étale}.
     \end{itemize}
 \end{topic}
@@ -735,7 +735,7 @@
 \end{topic}
 
 \begin{topic}{ample-invertible-sheaf}{(very) ample invertible sheaf}
-    Let $X$ be a \tref{scheme}{scheme} over $S$. An \tref{invertible-sheaf}{invertible sheaf} $\mathcal{L}$ on $X$ is called \textbf{very ample} relative to $S$, if there is an \tref{immersion}{immersion} $i : X \to \PP_S^n$ for some $n$, such that $\mathcal{L} \isom i^*(\mathcal{O}_{\PP_S^n}(1))$.
+    Let $X$ be a \tref{scheme}{scheme} over $S$. An \tref{invertible-sheaf}{invertible sheaf} $\mathcal{L}$ on $X$ is called \textbf{very ample} relative to $S$, if there is an \tref{immersion}{immersion} $i \colon X \to \PP_S^n$ for some $n$, such that $\mathcal{L} \isom i^*(\mathcal{O}_{\PP_S^n}(1))$.
     
     An invertible sheaf $\mathcal{L}$ on a \tref{noetherian-scheme}{noetherian scheme} $X$ is \textbf{ample} if for every \tref{coherent-sheaf}{coherent sheaf} $\mathcal{F}$ on $X$, there is an integer $n_0 > 0$ such that for every $n \ge n_0$ the sheaf $\mathcal{F} \otimes \mathcal{L}^{\otimes n}$ is generated by its global sections.
 \end{topic}
@@ -750,7 +750,7 @@
     The \textbf{Čech complex} of $\mathcal{F}$ with respect to $\mathcal{U}$ is the complex
     \[ C^p(\mathcal{U}, \mathcal{F}) = \prod_{i_0 < \cdots < i_p} \mathcal{F}(U_{i_0 \cdots i_p}) \qquad p \ge 0 , \]
     with differential
-    \[ d^p : C^p(\mathcal{U}, \mathcal{F}) \to C^{p + 1}(\mathcal{U}, \mathcal{F}) \]
+    \[ d^p \colon C^p(\mathcal{U}, \mathcal{F}) \to C^{p + 1}(\mathcal{U}, \mathcal{F}) \]
     \[ (d^p \alpha)_{i_0 , \ldots , i_{p + 1}} = \sum_{k = 0}^{p + 1} (-1)^k \alpha_{i_0 , \ldots , \hat{i}_k, \ldots, i_{p + 1}} | _{U_{i_0 \cdots i_{p + 1}}} . \]
     For all $p \ge 0$ the $p$-th \textbf{Čech cohomology group} of $\mathcal{F}$ with respect to $\mathcal{U}$ is the cohomology group
     \[ \hat{H}^p(\mathcal{U}, \mathcal{F}) = H^p(C^\bdot(\mathcal{U}, \mathcal{F})) . \]
@@ -758,26 +758,26 @@
 
 \begin{example}{cech-cohomology}
     Note that 
-    \[ d^0 : C^0(\mathcal{U}, \mathcal{F}) = \prod_{i \in I} \mathcal{F}(U_i) \to C^1(\mathcal{U}, \mathcal{F}) = \prod_{i < j} \mathcal{F}(U_{ij}) \]
+    \[ d^0 \colon C^0(\mathcal{U}, \mathcal{F}) = \prod_{i \in I} \mathcal{F}(U_i) \to C^1(\mathcal{U}, \mathcal{F}) = \prod_{i < j} \mathcal{F}(U_{ij}) \]
     sends $s = (s_i)_{i \in I}$ to $d^0 s = \left(s_j|_{U_i} - s_i|_{U_j}\right)_{ij}$. Therefore, by the sheaf property $\hat{H}^0(\mathcal{U}, \mathcal{F}) = \ker d^0 \isom \mathcal{F}(X)$.
     % H^1 isomorphic to line bundles that trivialize on each U_i
 \end{example}
 
 \begin{topic}{sheaf-differentials}{sheaf of differentials}
-    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}. Covering $X$ and $Y$ by affine opens $V = \Spec A \subset Y$ and $U = \Spec B \subset X$ such that $f(U) \subset V$, consider the sheaf $\widetilde{\Omega_{B/A}}$ on $U$, the sheaf \tref{sheaf-associated-to-module}{associated} to the module \tref{AA:derivation}{$\Omega_{B/A}$}. Gluing these sheaves together gives $\Omega_{X/Y}$, the \textbf{relative sheaf of differentials}.
+    Let $f \colon X \to Y$ be a morphism of \tref{scheme}{schemes}. Covering $X$ and $Y$ by affine opens $V = \Spec A \subset Y$ and $U = \Spec B \subset X$ such that $f(U) \subset V$, consider the sheaf $\widetilde{\Omega_{B/A}}$ on $U$, the sheaf \tref{sheaf-associated-to-module}{associated} to the module \tref{AA:derivation}{$\Omega_{B/A}$}. Gluing these sheaves together gives $\Omega_{X/Y}$, the \textbf{relative sheaf of differentials}.
     
-    Alternatively, consider the diagonal morphism $\Delta_{X/Y} : X \to X \times_Y X$, and view $X \xrightarrow{\sim{}} \Delta(X)$ as a \tref{closed-immersion}{closed subscheme} of an open subset $W$ of $X \times_Y X$, with corresponding sheaf of ideals $\mathcal{I}$. Then
+    Alternatively, consider the diagonal morphism $\Delta_{X/Y} \colon X \to X \times_Y X$, and view $X \xrightarrow{\sim{}} \Delta(X)$ as a \tref{closed-immersion}{closed subscheme} of an open subset $W$ of $X \times_Y X$, with corresponding sheaf of ideals $\mathcal{I}$. Then
     \[ \Omega_{X/Y} = \Delta_{X/Y}^*(\mathcal{I}/\mathcal{I}^2) . \]
 \end{topic}
 
 \begin{example}{sheaf-differentials}
-    Let $f : X \to Y$ be locally of finite type. If $f$ is \tref{unramified-morphism}{unramified} then $\Omega_{X/Y} = 0$. Namely, since $\Omega_{X/Y}$ behaves well with respect to base change, this can be checked locally, that is, we can assume $Y = \Spec B$ and $X = \Spec A$ with $A \to B$ a local homomorphism of local rings. Using \tref{AA:nakayamas-lemma}{Nakayama's lemma} this reduces to the case where $A$ and $B$ are fields. Being unramified means that $A \subset B$ is a \tref{AA:separable-field-extension}{separable field extension}, and then it is clear that $\Omega_{B/A} = 0$.
+    Let $f \colon X \to Y$ be locally of finite type. If $f$ is \tref{unramified-morphism}{unramified} then $\Omega_{X/Y} = 0$. Namely, since $\Omega_{X/Y}$ behaves well with respect to base change, this can be checked locally, that is, we can assume $Y = \Spec B$ and $X = \Spec A$ with $A \to B$ a local homomorphism of local rings. Using \tref{AA:nakayamas-lemma}{Nakayama's lemma} this reduces to the case where $A$ and $B$ are fields. Being unramified means that $A \subset B$ is a \tref{AA:separable-field-extension}{separable field extension}, and then it is clear that $\Omega_{B/A} = 0$.
     
     Conversely, if $\Omega_{X/Y} = 0$ then $f$ is unramified.
 \end{example}
 
 \begin{topic}{albanese-variety}{Albanese variety}
-    Let $X$ be a connected \tref{complete-variety}{complete} \tref{variety}{variety} over an algebraically closed field $k$, with a basepoint. Then there exists an \tref{abelian-variety}{abelian variety} $\textup{Alb}(X)$, the \textbf{Albanese variety} of $X$, and a morphism of pointed varieties $i : X \to \textup{Alb}(X)$, the \textbf{Albanese map}, with the universal property that for any other abelian variety $A$ and morphism of pointed varieties $f : X \to A$, there exists a unique morphism of abelian varieties $f' : \textup{Alb}(X) \to A$ such that $f = f' \circ i$.
+    Let $X$ be a connected \tref{complete-variety}{complete} \tref{variety}{variety} over an algebraically closed field $k$, with a basepoint. Then there exists an \tref{abelian-variety}{abelian variety} $\textup{Alb}(X)$, the \textbf{Albanese variety} of $X$, and a morphism of pointed varieties $i \colon X \to \textup{Alb}(X)$, the \textbf{Albanese map}, with the universal property that for any other abelian variety $A$ and morphism of pointed varieties $f \colon X \to A$, there exists a unique morphism of abelian varieties $f' \colon \textup{Alb}(X) \to A$ such that $f = f' \circ i$.
     \[ \svg \begin{tikzcd} X \arrow{r}{i} \arrow[swap]{dr}{f} &  \textup{Alb}(X) \arrow[dashed]{d}{f'} \\ &  A \end{tikzcd} \]
 \end{topic}
 
@@ -802,7 +802,7 @@
 \end{example}
 
 \begin{topic}{regular-morphism}{regular morphism}
-    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes}, and assume that all fibers $X_y$ are \tref{noetherian-scheme}{locally noetherian}. Then $f$ is \textbf{regular} at $x \in X$ if $f$ is \tref{flat-morphism}{flat} at $x$ and the fiber $X_{f(x)}$ is \tref{geometrically-regular}{geometrically regular} at $x$ over $k(y)$. The morphism $f$ is \textbf{regular} if it is regular at all points $x \in X$.
+    Let $f \colon X \to Y$ be a morphism of \tref{scheme}{schemes}, and assume that all fibers $X_y$ are \tref{noetherian-scheme}{locally noetherian}. Then $f$ is \textbf{regular} at $x \in X$ if $f$ is \tref{flat-morphism}{flat} at $x$ and the fiber $X_{f(x)}$ is \tref{geometrically-regular}{geometrically regular} at $x$ over $k(y)$. The morphism $f$ is \textbf{regular} if it is regular at all points $x \in X$.
 \end{topic}
 
 \begin{example}{regular-morphism}
@@ -889,7 +889,7 @@
     \[ \cdots \to H_c^i(U, \CC) \to H_c^i(X, \CC) \to H_c^i(Z, \CC) \to H_c^{i + 1}(U, \CC) \to \cdots \]
     which shows that
     \[ e(X) = e(Z) + e(U) . \]
-    Moreover, it can be shown that $e(X \times_\CC Y) = e(X) e(Y)$. This shows that $e : \textbf{Var}_\CC \to \ZZ[u, v]$ factors through the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}.
+    Moreover, it can be shown that $e(X \times_\CC Y) = e(X) e(Y)$. This shows that $e \colon \textbf{Var}_\CC \to \ZZ[u, v]$ factors through the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}.
 \end{example}
 
 \begin{topic}{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}
@@ -951,7 +951,7 @@
 \end{topic}
 
 \begin{topic}{zariski-main-theorem}{Zariski's main theorem}
-    \textbf{Zariski's main theorem} states that any \tref{separated-morphism}{separated} \tref{quasi-finite-morphism}{quasi-finite} morphism $f : Y \to X$ with $X$ \tref{quasi-compact-scheme}{quasi-compact}, factors as $f' \circ g$, where $f' : Y \to Y'$ is an \tref{open-immersion}{open immersion} and $g : Y' \to X$ is a \tref{finite-morphism}{finite morphism}.
+    \textbf{Zariski's main theorem} states that any \tref{separated-morphism}{separated} \tref{quasi-finite-morphism}{quasi-finite} morphism $f \colon Y \to X$ with $X$ \tref{quasi-compact-scheme}{quasi-compact}, factors as $f' \circ g$, where $f' \colon Y \to Y'$ is an \tref{open-immersion}{open immersion} and $g \colon Y' \to X$ is a \tref{finite-morphism}{finite morphism}.
 \end{topic}
 
 \begin{topic}{brauer-group}{Brauer group}
@@ -960,7 +960,7 @@
 \end{topic}
 
 \begin{topic}{rationally-connected-variety}{rationally connected variety}
-    A \textbf{rationally connected variety} is a \tref{projective-variety}{projective variety} $X$ over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$ such that through every two points passes the image of a morphism $\gamma : \PP^1_k \to X$.
+    A \textbf{rationally connected variety} is a \tref{projective-variety}{projective variety} $X$ over an \tref{AA:algebraically-closed-field}{algebraically closed field} $k$ such that through every two points passes the image of a morphism $\gamma \colon \PP^1_k \to X$.
 \end{topic}
 
 \begin{topic}{quasi-affine-scheme}{quasi-affine scheme}
@@ -999,7 +999,7 @@
     \[ Z(X, t) = \sum_{n \ge 0} [\textup{Sym}^n X] t^n \in 1 + t \cdot \textup{K}_0(\textbf{Var}_k) \llbracket t \rrbracket , \]
     where $\textup{Sym}^n X$ denotes the symmetric product of $X$, that is, the \tref{affine-git-quotient}{GIT quotient} $X^n \sslash S_n$, and $\textup{K}_0(\textbf{Var}/k)$ denotes the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}.
     
-    For any ring morphism $\mu : \textup{K}_0(\textbf{Var}_k) \to R$, the \textbf{motivic zeta function} of $X$ is given by
+    For any ring morphism $\mu \colon \textup{K}_0(\textbf{Var}_k) \to R$, the \textbf{motivic zeta function} of $X$ is given by
     \[ Z(X, t) = \sum_{n \ge 0} \mu([\textup{Sym}^n X]) t^n \in 1 + t \cdot R \llbracket t \rrbracket . \]
 \end{topic}
 
@@ -1015,7 +1015,7 @@
     and hence
     \[ Z(X, t) = \sum_{n \ge 0} [\textup{Sym}^n X] t^n = \sum_{\substack{n \ge 0 \\ i + j = n}} [\textup{Sym}^i Y] \cdot [\textup{Sym}^j U] t^n = Z(Y, t) \cdot Z(U, t) . \]
     This relation allows to extend the definition of $Z(X, t)$ to all varieties $X$, and, moreover, it gives a group morphism
-    \[ Z(-, t) : \textup{K}_0(\textbf{Var}_k) \to 1 + t \cdot \textup{K}_0(\textbf{Var}_k) \llbracket t \rrbracket , \]
+    \[ Z(-, t) \colon \textup{K}_0(\textbf{Var}_k) \to 1 + t \cdot \textup{K}_0(\textbf{Var}_k) \llbracket t \rrbracket , \]
     with the multiplicative group structure on the right.
 \end{example}
 
@@ -1037,7 +1037,7 @@
     \begin{enumerate}[label=(\roman*)]
         \item the \tref{tangent-sheaf}{tangent space} at $x$ decomposes as $\mathcal{T}_{X, x} = \mathcal{T}_{Y, x} \oplus \mathcal{T}_{O_x, x}$,
         \item the $G$-equivariant map
-        \[ \psi : G \times_{G_x} Y \to X, \quad (g, y) \mapsto g \cdot y , \]
+        \[ \psi \colon G \times_{G_x} Y \to X, \quad (g, y) \mapsto g \cdot y , \]
         is \tref{etale-morphism}{étale}, and its image $U$ is open in $X$,
         \item the map
         \[ Y/G_x \isom (G \times_{G_x} Y) / G \xrightarrow{\psi / G} U / G \]
@@ -1055,7 +1055,7 @@
 \end{topic}
 
 \begin{topic}{moduli-space}{moduli space}
-    Let $F : \textbf{Sch}^\textup{op} \to \textbf{Set}$ be a \tref{CT:functor}{functor}.
+    Let $F \colon \textbf{Sch}^\textup{op} \to \textbf{Set}$ be a \tref{CT:functor}{functor}.
     A scheme $M$ is a \textbf{fine moduli space} for $F$ if $M$ \tref{CT:representable-functor}{represents} $F$, that is, there is a \tref{CT:natural-transformation}{natural} isomorphism
     \[ F \isom \Hom_\textbf{Sch}(-, M) . \]
     A scheme $M$ is a \textbf{coarse moduli space} for $F$ if there exists a natural transformation
@@ -1064,7 +1064,7 @@
 \end{topic}
 
 \begin{topic}{valuative-criterion}{valuative criterion}
-    Let $f : X \to Y$ be a morphism of \tref{scheme}{schemes} over a scheme $S$, and assume $f$ is \tref{finite-type}{of finite type} and \tref{separated-morphism}{quasi-separated}. The \textbf{valuative criterion} states that $f$ is \tref{proper-morphism}{proper} if and only if for every diagram
+    Let $f \colon X \to Y$ be a morphism of \tref{scheme}{schemes} over a scheme $S$, and assume $f$ is \tref{finite-type}{of finite type} and \tref{separated-morphism}{quasi-separated}. The \textbf{valuative criterion} states that $f$ is \tref{proper-morphism}{proper} if and only if for every diagram
     \[ \svg \begin{tikzcd}
         \Spec K \arrow{r} \arrow{d} & X \arrow{d}{f} \\ \Spec R \arrow[dashed]{ur} \arrow{r} & Y
     \end{tikzcd} \]
@@ -1074,11 +1074,11 @@
 \end{topic}
 
 \begin{example}{valuative-criterion}
-    The valuative criterion for properness can be used to show that the morphism $f : \AA^1_k \to \Spec k$ is not proper. Namely, take $R = k[t]_{(t)}$ with $K = k(t)$. Considering the diagram with $\AA^1_k \to \Spec K$ given by $k[x] \to k(t)$, $x \mapsto 1/t$, there does not exist a map $k[x] \to k[t]_{(t)}$ completing the diagram.
+    The valuative criterion for properness can be used to show that the morphism $f \colon \AA^1_k \to \Spec k$ is not proper. Namely, take $R = k[t]_{(t)}$ with $K = k(t)$. Considering the diagram with $\AA^1_k \to \Spec K$ given by $k[x] \to k(t)$, $x \mapsto 1/t$, there does not exist a map $k[x] \to k[t]_{(t)}$ completing the diagram.
 \end{example}
 
 \begin{example}{valuative-criterion}
-    The valuative criterion for properness can be used to show that the morphism $f : \PP^n \to \Spec \ZZ$ is proper. It can be assumed that $R$ is a discrete valuation ring. A morphism $\Spec K \to \PP^n$ can be expressed in terms of homogeneous coordinates $(a_0 : a_1 : \ldots : a_n)$, with $a_i \in K$ not all zero. Let $a_\textup{min} = \min \{ a_i : 1 \le i \le n, a_i \ne 0 \}$ with respect to the valuation of $R$. Then the $R$-point of $\PP^n$ we are looking for is given by
+    The valuative criterion for properness can be used to show that the morphism $f \colon \PP^n \to \Spec \ZZ$ is proper. It can be assumed that $R$ is a discrete valuation ring. A morphism $\Spec K \to \PP^n$ can be expressed in terms of homogeneous coordinates $(a_0 : a_1 : \ldots : a_n)$, with $a_i \in K$ not all zero. Let $a_\textup{min} = \min \{ a_i : 1 \le i \le n, a_i \ne 0 \}$ with respect to the valuation of $R$. Then the $R$-point of $\PP^n$ we are looking for is given by
     \[ \left( \frac{a_0}{a_\textup{min}} : \frac{a_1}{a_\textup{min}} : \ldots : \frac{a_n}{a_\textup{min}} \right) . \]
     Indeed, we have $\frac{a_i}{a_\textup{min}} \in R$ since the valuation is positive, and the coordinates do not vanish simultaneously, since in particular $\frac{a_\textup{min}}{a_\textup{min}} = 1$.
     
@@ -1098,8 +1098,8 @@
 \end{topic}
 
 \begin{topic}{relative-spectrum}{relative spectrum}
-    Let $S$ be a \tref{scheme}{scheme} and $\mathcal{A}$ a \tref{coherent-sheaf}{quasi-coherent} \tref{O-algebra}{sheaf of $\mathcal{O}_S$-algebras}. For any cover of $S$ by affine opens $\{ U_i \}$, the natural maps $\mathcal{O}_S(U_i) \to \mathcal{A}(U_i)$ induce morphisms $\pi_i : \Spec(\mathcal{A}(U_i)) \to U_i$, which glue together to a scheme
-    \[ \pi : \underline{\Spec}_S(\mathcal{A}) \to S , \]
+    Let $S$ be a \tref{scheme}{scheme} and $\mathcal{A}$ a \tref{coherent-sheaf}{quasi-coherent} \tref{O-algebra}{sheaf of $\mathcal{O}_S$-algebras}. For any cover of $S$ by affine opens $\{ U_i \}$, the natural maps $\mathcal{O}_S(U_i) \to \mathcal{A}(U_i)$ induce morphisms $\pi_i \colon \Spec(\mathcal{A}(U_i)) \to U_i$, which glue together to a scheme
+    \[ \pi \colon \underline{\Spec}_S(\mathcal{A}) \to S , \]
     called the \textbf{relative spectrum} of $\mathcal{A}$.
 \end{topic}
 
@@ -1118,8 +1118,8 @@
 
 \begin{topic}{blowup}{blowup}
     Let $X$ be a \tref{scheme}{scheme} and $Z \subset X$ a \tref{closed-immersion}{closed subscheme} given by a \tref{sheaf-of-ideals}{sheaf of ideals} $\mathcal{I} \subset \mathcal{O}_X$. A \textbf{blowup} of $X$ along $Z$ is a morphism of schemes
-    \[ \pi : \textup{Bl}_Z(X) \to X \]
-    with the universal property that for every morphism $f : Y \to X$ such that $f^* \mathcal{I}$ is \tref{invertible-sheaf}{invertible}, there exists a unique morphism $g : Y \to \textup{Bl}_Z(X)$ such that $\pi \circ g = f$.
+    \[ \pi \colon \textup{Bl}_Z(X) \to X \]
+    with the universal property that for every morphism $f \colon Y \to X$ such that $f^* \mathcal{I}$ is \tref{invertible-sheaf}{invertible}, there exists a unique morphism $g \colon Y \to \textup{Bl}_Z(X)$ such that $\pi \circ g = f$.
 
     When the closed immersion $Z \to X$ is \tref{finite-presentation}{of finite presentation}, a blowup of $X$ along $Z$ exists and is given by
     \[ \textup{Bl}_Z(X) = \underline{\Proj}_X \left( \bigoplus_{n \ge 0} \mathcal{I}^n \right) . \]
@@ -1132,9 +1132,9 @@
 
 \begin{example}{blowup}
     Let $X \subset \AA^n_k$ be an \tref{affine-variety}{affine variety}, and $Z \subset X$ a closed subvariety given by the vanishing locus of $f_1, \ldots, f_r \in \mathcal{O}_X(X)$. Writing
-    \[ f : (X \setminus Z) \to \PP^{r - 1}, \quad x \mapsto (f_1(x) : \cdots : f_r(x)) , \]
+    \[ f \colon (X \setminus Z) \to \PP^{r - 1}, \quad x \mapsto (f_1(x) : \cdots : f_r(x)) , \]
     the blowup of $X$ at $Z$ is the closure of the graph $\Gamma_f \subset X \times \PP^{r - 1}$,
-    \[ \pi : \textup{Bl}_Z(X) := \overline{\Gamma}_f \to X . \]
+    \[ \pi \colon \textup{Bl}_Z(X) := \overline{\Gamma}_f \to X . \]
 
     In particular, consider the following examples:
     \begin{itemize}
@@ -1156,7 +1156,7 @@
 \end{example}
 
 \begin{topic}{strict-transform}{strict transform}
-    Let $X$ be a \tref{scheme}{scheme} with \tref{closed-immersion}{closed subscheme} $Z \subset X$ and \tref{blowup}{blowup} $\pi : \textup{Bl}_Z(X) \to X$. The \textbf{strict transform} of a closed subscheme $Y \subset X$ is the closure of $\pi^{-1}(Y \setminus Z)$ inside $\textup{Bl}_Z(X)$.
+    Let $X$ be a \tref{scheme}{scheme} with \tref{closed-immersion}{closed subscheme} $Z \subset X$ and \tref{blowup}{blowup} $\pi \colon \textup{Bl}_Z(X) \to X$. The \textbf{strict transform} of a closed subscheme $Y \subset X$ is the closure of $\pi^{-1}(Y \setminus Z)$ inside $\textup{Bl}_Z(X)$.
 \end{topic}
 
 \begin{topic}{resolution-of-singularities}{resolution of singularities}
@@ -1170,20 +1170,20 @@
 \end{topic}
 
 \begin{topic}{chow-lemma}{Chow's lemma}
-    % Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $X$ a scheme \tref{proper-morphism}{proper} over $S$. Then \textbf{Chow's lemma} states that there exists a scheme $X'$ which is \tref{projective-morphism}{projective} over $S$, and a surjective morphism $f : X' \to X$ over $S$, which induces an isomorphism $f^{-1}(U) \isom U$ for some \tref{TO:dense}{dense} open $U \subset X$.
-    Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $f : X \to S$ a \tref{separated-morphism}{separated morphism} of \tref{finite-type}{finite type}. Then \textbf{Chow's lemma} states that there exists a commutative diagram
+    % Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $X$ a scheme \tref{proper-morphism}{proper} over $S$. Then \textbf{Chow's lemma} states that there exists a scheme $X'$ which is \tref{projective-morphism}{projective} over $S$, and a surjective morphism $f \colon X' \to X$ over $S$, which induces an isomorphism $f^{-1}(U) \isom U$ for some \tref{TO:dense}{dense} open $U \subset X$.
+    Let $S$ be a \tref{noetherian-scheme}{noetherian} \tref{scheme}{scheme}, and $f \colon X \to S$ a \tref{separated-morphism}{separated morphism} of \tref{finite-type}{finite type}. Then \textbf{Chow's lemma} states that there exists a commutative diagram
     \[ \svg \begin{tikzcd}
         X \arrow[swap]{dr}{f} & X' \arrow[swap]{l}{\pi} \arrow{r}{i} \arrow{d} & \PP^n_S \arrow{dl} \\ & S &
     \end{tikzcd} \]
-    with $\pi : X' \to X$ \tref{proper-morphism}{proper} and surjective, $i : X' \to \PP^n_S$ an \tref{immersion}{immersion}, such that $\pi$ restricts to an isomorphism $\pi^{-1}(U) \isom U$ for some \tref{TO:dense-set}{dense} open $U \subset X$.
+    with $\pi \colon X' \to X$ \tref{proper-morphism}{proper} and surjective, $i \colon X' \to \PP^n_S$ an \tref{immersion}{immersion}, such that $\pi$ restricts to an isomorphism $\pi^{-1}(U) \isom U$ for some \tref{TO:dense-set}{dense} open $U \subset X$.
  \end{topic}
 
 \begin{topic}{normal-crossings-divisor}{normal crossings divisor}
-    Let $X$ be a \tref{scheme}{scheme} over a base scheme $S$. A \textbf{normal crossings divisor} of $X$ is a \tref{closed-immersion}{closed subscheme} $D$ of $X$ such that for all $x \in X$, there exists an integer $n \ge 0$, a scheme $U/S$, an \tref{etale-morphism}{étale morphism} $f : U \to X$ with $x \in f(U)$, and an étale morphism $g : U \to \AA^n_S$, such that $f^* D = g^* Z$, where $Z = V(x_1 x_2 \cdots x_n) \subset \AA^n_S$ is the union of the coordinate hyperplanes.
+    Let $X$ be a \tref{scheme}{scheme} over a base scheme $S$. A \textbf{normal crossings divisor} of $X$ is a \tref{closed-immersion}{closed subscheme} $D$ of $X$ such that for all $x \in X$, there exists an integer $n \ge 0$, a scheme $U/S$, an \tref{etale-morphism}{étale morphism} $f \colon U \to X$ with $x \in f(U)$, and an étale morphism $g \colon U \to \AA^n_S$, such that $f^* D = g^* Z$, where $Z = V(x_1 x_2 \cdots x_n) \subset \AA^n_S$ is the union of the coordinate hyperplanes.
 \end{topic}
 
 \begin{example}{normal-crossings-divisor}
-    Let $k$ be a field, $X = \AA^2_k$, and $D = \Spec k[x, y] / (y^2 - x^3 - x)$. Then $D$ is a normal crossings divisor of $X$. In particular, at the point given by the maximal ideal $(x, y)$, take $U = \Spec k[x, y, t, s] / (t^2 - (x + 1), s (x + 1) - 1)$ with $f : U \to X$ the obvious morphism and $g : U \to \AA^2_k = \Spec k[u, v]$ the morphism given by $u \mapsto y - xt$ and $v \mapsto y + xt$. Then
+    Let $k$ be a field, $X = \AA^2_k$, and $D = \Spec k[x, y] / (y^2 - x^3 - x)$. Then $D$ is a normal crossings divisor of $X$. In particular, at the point given by the maximal ideal $(x, y)$, take $U = \Spec k[x, y, t, s] / (t^2 - (x + 1), s (x + 1) - 1)$ with $f \colon U \to X$ the obvious morphism and $g \colon U \to \AA^2_k = \Spec k[u, v]$ the morphism given by $u \mapsto y - xt$ and $v \mapsto y + xt$. Then
     \[ \begin{aligned}
         f^* D
             &= \Spec k[x, y, t, s] / (t^2 - (x + 1), s(x + 1) - 1, y^2 - x^3 - x) \\
@@ -1200,13 +1200,13 @@
 
 \begin{topic}{analytification}{analytification}
     Let $X$ be a \tref{non-singular-variety}{non-singular} \tref{variety}{variety} over $\CC$. 
-    The set of complex points $X(\CC)$ naturally has a \tref{TO:topological-space}{topology}, such that for any affine open $U \subset X$ the topology on $U(\CC) \subset \CC^n$ is given by the \tref{TO:subspace-topology}{subspace topology} of the Euclidean topology on $\CC^n$. These charts give $X(\CC)$ the structure of a \tref{DG:complex-manifold}{complex manifold} $X^\textup{an}$, called the \textbf{analytification} of $X$. Moreover, a morphism of non-singular complex varieties $f : X \to Y$ induces a holomorphic map $f^\textup{an} : X^\textup{an} \to Y^\textup{an}$, and this construction yields the \textit{analytification functor}
-    \[ (-)^\textup{an} : \textbf{SmVar}_\CC \to \textbf{Mfld}_\CC . \]
+    The set of complex points $X(\CC)$ naturally has a \tref{TO:topological-space}{topology}, such that for any affine open $U \subset X$ the topology on $U(\CC) \subset \CC^n$ is given by the \tref{TO:subspace-topology}{subspace topology} of the Euclidean topology on $\CC^n$. These charts give $X(\CC)$ the structure of a \tref{DG:complex-manifold}{complex manifold} $X^\textup{an}$, called the \textbf{analytification} of $X$. Moreover, a morphism of non-singular complex varieties $f \colon X \to Y$ induces a holomorphic map $f^\textup{an} \colon X^\textup{an} \to Y^\textup{an}$, and this construction yields the \textit{analytification functor}
+    \[ (-)^\textup{an} \colon \textbf{SmVar}_\CC \to \textbf{Mfld}_\CC . \]
 \end{topic}
 
 \begin{topic}{etale-fundamental-group}{étale fundamental group}
-    Let $X$ be a \tref{scheme}{scheme} over a field $k$, and let $\overline{x} \to X$ be a \tref{geometric-point}{geometric point} of $X$. Let $\textbf{FÉt}/X$ be the category of \tref{finite-morphism}{finite} \tref{etale-morphism}{étale} coverings $\pi : Y \to X$ over $X$. The functor
-    \[ F : \textbf{FÉt}/X \to \textbf{Set}, \quad Y \mapsto \Hom_X(\overline{x}, Y) \]
+    Let $X$ be a \tref{scheme}{scheme} over a field $k$, and let $\overline{x} \to X$ be a \tref{geometric-point}{geometric point} of $X$. Let $\textbf{FÉt}/X$ be the category of \tref{finite-morphism}{finite} \tref{etale-morphism}{étale} coverings $\pi \colon Y \to X$ over $X$. The functor
+    \[ F \colon \textbf{FÉt}/X \to \textbf{Set}, \quad Y \mapsto \Hom_X(\overline{x}, Y) \]
     is \tref{CT:pro-representable-functor}{pro-representable}, meaning there exists a \tref{CT:direct-limit}{direct system} $\tilde{X} = (X_i)_{i \in I}$ in $\textbf{FÉt}/X$ such that $F(Y) = \varinjlim_{i \in I} \Hom_X(X_i, Y)$ functorially in $Y$. Moreover, each $X_i$ can be chosen \tref{galois-cover}{Galois} over $X$, so that the order of $\textup{Aut}_X(X_i)$ equal the degree of $X_i$ over $X$.
     
     The \textbf{étale fundamental group} of $X$ at $\overline{x}$ is the \tref{TO:topological-group}{topological group} given by the \tref{CT:inverse-limit}{inverse limit}
@@ -1222,7 +1222,7 @@
 
 \begin{example}{etale-fundamental-group}
     Let $X = \AA^1_k \setminus \{ 0 \}$ over $k = \CC$, and take $\overline{x} = 1$. A direct system pro-representing $F$ is given by
-    \[ \pi_n : X_n = \AA^1_k \setminus \{ 0 \} \to X, \quad x \mapsto x^n , \]
+    \[ \pi_n \colon X_n = \AA^1_k \setminus \{ 0 \} \to X, \quad x \mapsto x^n , \]
     for each integer $n \ge 1$, with a morphism $X_m \to X_n$, $x \mapsto x^{m/n}$ whenever $n$ divides $m$. Note that $\textup{Aut}_X(X_n) \isom \ZZ/n\ZZ$, where $k \mod n$ corresponds to the automorphism $X_n \to X_n$ given by $x \mapsto \zeta_n^k x$. The étale fundamental group of $X$ at $\overline{x}$ is now
     \[ \pi_1^\textup{ét}(X, \overline{x}) = \varprojlim_{n \ge 1} \ZZ/n\ZZ = \hat{\ZZ} , \]
     the \tref{GT:profinite-group}{profinite completion} of $\ZZ$.
@@ -1237,7 +1237,7 @@
 \end{topic}
 
 \begin{topic}{grothendieck-trace-formula}{Grothendieck trace formula}
-    Let $X$ be a \tref{variety}{variety} over a finite field $\FF_q$, and let $\overline{X} = X \times_{\FF_q} \overline{\FF}_q$ for an \tref{AA:algebraic-closure}{algebraic closure} $\overline{\FF}_q$ of $\FF_q$. Let $F : \overline{X} \to \overline{X}$ be the morphism induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $\overline{\FF}_q \to \overline{\FF}_q$ given by $x \mapsto x^q$. The \textbf{Grothendieck trace formula} states that
+    Let $X$ be a \tref{variety}{variety} over a finite field $\FF_q$, and let $\overline{X} = X \times_{\FF_q} \overline{\FF}_q$ for an \tref{AA:algebraic-closure}{algebraic closure} $\overline{\FF}_q$ of $\FF_q$. Let $F \colon \overline{X} \to \overline{X}$ be the morphism induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $\overline{\FF}_q \to \overline{\FF}_q$ given by $x \mapsto x^q$. The \textbf{Grothendieck trace formula} states that
     \[ \# X(\FF_q) = \sum_{i = 0}^{2 \dim X} (-1)^i \tr(F, H^i_c(\overline{X}, \QQ_\ell)) , \]
     where $F$ naturally acts on the (compactly supported) \tref{l-adic-cohomology}{$\ell$-adic cohomology} of $\overline{X}$.
 \end{topic}
@@ -1266,13 +1266,13 @@
 
 \begin{topic}{larsen-lunts-theorem}{Larsen--Lunts theorem}
     Let $\textup{SB}$ be the set of \tref{stably-birational}{stably birational} equivalence classes of \tref{non-singular-variety}{smooth} \tref{projective-variety}{projective} \tref{variety}{varieties} over $\CC$. The \textbf{Larsen--Lunts theorem} states that there exists a unique ring morphism
-    \[ \phi : \textup{K}_0(\textbf{Var}_\CC) \to \ZZ[\textup{SB}] , \]
+    \[ \phi \colon \textup{K}_0(\textbf{Var}_\CC) \to \ZZ[\textup{SB}] , \]
     from the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties}, such that $\phi([X])$ is the class of $X$ in $\textup{SB}$ for any smooth proper $X$. Moreover, the kernel of $\phi$ is the ideal generated by $\mathbb{L} = [\AA^1_\CC]$, so that
     \[ \textup{K}_0(\textbf{Var}_\CC) / (\mathbb{L}) \isom \ZZ[\textup{SB}] . \]
 \end{topic}
 
 \begin{topic}{riemann-hurwitz-formula}{Riemann--Hurwitz formula}
-    Let $f : C' \to C$ be a morphism between \tref{non-singular-variety}{smooth} \tref{projective-variety}{projective} \tref{algebraic-curve}{curves} $C'$ and $C$. The \textbf{Riemann--Hurwitz formula} states that
+    Let $f \colon C' \to C$ be a morphism between \tref{non-singular-variety}{smooth} \tref{projective-variety}{projective} \tref{algebraic-curve}{curves} $C'$ and $C$. The \textbf{Riemann--Hurwitz formula} states that
     \[ \chi(C') = \deg(f) \cdot \chi(C) - \sum_{P \in C'} (e_P - 1) , \]
     where $\chi$ denotes the \tref{AT:euler-characteristic}{Euler characteristic}, and $e_P$ denotes the ramification index of $f$ at $P$.
 \end{topic}
@@ -1293,7 +1293,7 @@
 %         \Delta_m = \Spec \CC[t] / (t^{m + 1}), & \Delta_\infty = \Spec \CC \llbracket t \rrbracket \\[10pt]
 %         X_m = \Hom_\CC(\Delta_m, X), & X_\infty = \Hom_\CC(\Delta_\infty, X) .
 %     \end{array} \]
-%     and \textit{truncation maps} $\pi^k_m : X_k \to X_m$ for $k \ge m$ and $\psi_m : X_\infty \to X_m$, induced by the natural maps $\Delta_m \to \Delta_k$ and $\Delta_\infty \to \Delta_m$, respectively.
+%     and \textit{truncation maps} $\pi^k_m \colon X_k \to X_m$ for $k \ge m$ and $\psi_m \colon X_\infty \to X_m$, induced by the natural maps $\Delta_m \to \Delta_k$ and $\Delta_\infty \to \Delta_m$, respectively.
     
 %     For any $C \subset X_\infty$, which can be written as $C = \psi_m^{-1}(C_m)$ for some \tref{TO:constructible-set}{constructible} $C_m \subset X_m$, the \textbf{motivic measure} of $C$ is
 %     \[ \mu(C) = \frac{[C_m]}{\mathbb{L}^{n(m + 1)}} \in \textup{K}(\textbf{Var}_\CC)[\mathbb{L}^{-1}] \]
@@ -1304,14 +1304,14 @@
 % \end{topic}
 
 % Let $X$ be a \tref{non-singular-variety}{smooth} complex \tref{variety}{variety} of dimension $n$. Denote by $J_\infty(X) = \Hom(\Spec(\CC \llbracket t \rrbracket), X)$ the space of \textit{formal arcs} on $X$. For any \tref{weil-divisor}{prime divisor} $D \subset X$, define the function
-% \[ F_D : J_\infty(X) \to \ZZ_{\ge 0} \cup \{ \infty \} \]
+% \[ F_D \colon J_\infty(X) \to \ZZ_{\ge 0} \cup \{ \infty \} \]
 % that sends a formal arc $\gamma$ to the order of vanishing of the power series $g(\gamma(t))$ at $t = 0$, where $g$ is a local defining equation for $D$ around $\gamma(0) \in X$. For an \tref{weil-divisor}{effective divisor} $D = \sum_{i = 1}^{r} a_i D_i$ with simple normal crossings on $X$, define
 % \[ F_D = \sum_{i = 1}^{r} a_i F_{D_i} . \]
 % The \textbf{motivic integral} of the pair $(X, D)$ is
 % \[ \int_{J_\infty(X)} F_D \; d \mu = \sum_{J \subset \{ 1, \ldots, r \}} \frac{[D_J^\circ]}{\mathbb{L}^n} \prod_{j \in J} \frac{\mathbb{L} - 1}{\mathbb{L}^{a_j + 1} - 1} \]
 % as an element in the \tref{AA:completion}{completed} \tref{AA:localization}{localized} \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties} $\widehat{\textup{K}(\textbf{Var}_\CC)[\mathbb{L}^{-1}]}$, where $\mathbb{L} = [\AA^1_\CC]$ and $D_J^\circ = \bigcap_{j \in J} D_j \mathbin{\big\backslash} \bigcup_{i \in \{ 1, \ldots, r \} \setminus J} D_i$.
 
-% For a complex variety $X$ with at worst Gorenstein canonical singularities, the \textbf{motivic integral} of $X$ is the motivic integral of $(Y, D)$, where $\varphi : Y \to X$ is any \tref{resolution-of-singularities}{resolution of singularities} for which $D = K_Y - \varphi^* K_X$ has only simple normal crossings.
+% For a complex variety $X$ with at worst Gorenstein canonical singularities, the \textbf{motivic integral} of $X$ is the motivic integral of $(Y, D)$, where $\varphi \colon Y \to X$ is any \tref{resolution-of-singularities}{resolution of singularities} for which $D = K_Y - \varphi^* K_X$ has only simple normal crossings.
 
 \begin{topic}{motivic-integration}{motivic integration}
     Let $X$ be a complex \tref{variety}{variety} of dimension $d$. For all $m \ge 0$, denote by
@@ -1319,7 +1319,7 @@
     the \textit{$m$-th jet space} of $X$, and by
     \[ J_\infty(X) = \Hom(\Spec \CC \llbracket t \rrbracket, X) \]
     the \textit{formal arc space} of $X$. For all $m \ge n$, there are natural truncation maps
-    \[ \pi^m_n : J_m(X) \to J_n(X) \quad \textup{ and } \quad \pi_m : J_\infty(X) \to J_m(X) . \]
+    \[ \pi^m_n \colon J_m(X) \to J_n(X) \quad \textup{ and } \quad \pi_m \colon J_\infty(X) \to J_m(X) . \]
     A subset $A \subset J_\infty(X)$ is called a \textit{cylinder} if $A = \pi^{-1}_m(C_m)$ for some $m \ge 0$ and \tref{TO:constructible-set}{constructible set} $C_m \subset J_m(X)$.
 
     Denote by $\widehat{\mathcal{M}_\mathbb{L}}$ the \tref{AA:completion}{completion} of the \tref{AA:localization}{localization} $\textup{K}_0(\textbf{Var}_\CC)[\mathbb{L}^{-1}]$ of the \tref{grothendieck-ring-of-varieties}{Grothendieck ring of varieties} at the Lefschetz class $\mathbb{L} = [\AA^1_\CC]$. The completion is taken with respect to the filtration by dimension.
@@ -1328,13 +1328,13 @@
     \[ \mu(A) = \lim_{m \to \infty} [\pi_m(A)] / \mathbb{L}^{d (m + 1)} \in \widehat{\mathcal{M}_\mathbb{L}} \]
     exists. The function $\mu$ is called the \textit{motivic measure} on the set of cylinders of $J_\infty(X)$.
 
-    For any cylinder $A \subset J_\infty(X)$ and function $\alpha : A \to \ZZ \cup \{ \infty \}$ such that $\alpha^{-1}(k) \subset J_\infty(X)$ are also cylinders for all $k \ge 0$, the \textbf{motivic integral} of $\mathbb{L}^{-\alpha}$ over $A$ is defined as
+    For any cylinder $A \subset J_\infty(X)$ and function $\alpha \colon A \to \ZZ \cup \{ \infty \}$ such that $\alpha^{-1}(k) \subset J_\infty(X)$ are also cylinders for all $k \ge 0$, the \textbf{motivic integral} of $\mathbb{L}^{-\alpha}$ over $A$ is defined as
     \[ \int_A \mathbb{L}^{- \alpha} d\mu = \sum_{k \in \ZZ} \mu(\alpha^{-1}(k)) \mathbb{L}^{-k} \in \widehat{\mathcal{M}_\mathbb{L}} \]
     whenever it exists.
 \end{topic}
 
 \begin{example}{motivic-integration}
-    Let $X = \AA^1_\CC$ and consider $\alpha : J_\infty(X) \to \ZZ \cup \{ \infty \}$ given by $\alpha(\gamma) = \operatorname{ord}_t(\gamma)$. Then
+    Let $X = \AA^1_\CC$ and consider $\alpha \colon J_\infty(X) \to \ZZ \cup \{ \infty \}$ given by $\alpha(\gamma) = \operatorname{ord}_t(\gamma)$. Then
     \[ \pi_m(\alpha^{-1}(k)) = \left\{ \gamma \in \CC[t] / (t^{m + 1}) \mid \gamma = a_k t^k + \cdots + a_m t^m \textup{ with } a_k \ne 0 \right\} \]
     for any $m \ge k$, and so $\mu(\alpha^{-1}(k)) = (\mathbb{L} - 1) /  \mathbb{L}^{k + 1}$. Therefore,
     \[ \int_{J_\infty(X)} \mathbb{L}^{-\alpha} d \mu = \sum_{k \ge 0} (\mathbb{L} - 1) \mathbb{L}^{-(k + 1)} \mathbb{L}^{-k} = \frac{\mathbb{L}}{\mathbb{L} + 1} . \]
@@ -1350,16 +1350,16 @@
 \end{example}
 
 \begin{topic}{nisnevich-morphism}{Nisnevich morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{Nisnevich} if it is \tref{etale-morphism}{étale} and for every point $y \in Y$, there exists a point $x \in X$ with $f(x) = y$ such that the induced map on residue fields $k(y) \to k(x)$ is an isomorphism.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{Nisnevich} if it is \tref{etale-morphism}{étale} and for every point $y \in Y$, there exists a point $x \in X$ with $f(x) = y$ such that the induced map on residue fields $k(y) \to k(x)$ is an isomorphism.
 \end{topic}
 
 \begin{example}{nisnevich-morphism}
     The morphism
-    \[ f : \Spec \CC[x^{\pm 1}, y] / (y^2 - x) \to \Spec \CC[x^{\pm 1}] \]
+    \[ f \colon \Spec \CC[x^{\pm 1}, y] / (y^2 - x) \to \Spec \CC[x^{\pm 1}] \]
     is étale, but not Nisnevich, because the induced map on residue fields for the generic point
-    \[ f^\# : \CC(x) \to \CC(x)[y] / (y^2 - x) \]
+    \[ f^\# \colon \CC(x) \to \CC(x)[y] / (y^2 - x) \]
     is not an isomorphism. However, if we add $\Spec \CC(x) \to \Spec \CC[x^{\pm 1}]$ to the morphism, then
-    \[ \tilde{f} : \Spec \CC[x^{\pm 1}, y] / (y^2 - x) \sqcup \Spec \CC(x) \to \Spec \CC[x^{\pm 1}] , \]
+    \[ \tilde{f} \colon \Spec \CC[x^{\pm 1}, y] / (y^2 - x) \sqcup \Spec \CC(x) \to \Spec \CC[x^{\pm 1}] , \]
     is Nisnevich.
 \end{example}
 
@@ -1381,11 +1381,11 @@
 \end{topic}
 
 \begin{topic}{semi-separated-morphism}{semi-separated morphism}
-    A morphism $f : X \to Y$ of \tref{scheme}{schemes} is \textbf{semi-separated} if the diagonal $\Delta_{X/Y} : X \to X \times_Y X$ is \tref{affine-morphism}{affine}.
+    A morphism $f \colon X \to Y$ of \tref{scheme}{schemes} is \textbf{semi-separated} if the diagonal $\Delta_{X/Y} \colon X \to X \times_Y X$ is \tref{affine-morphism}{affine}.
 \end{topic}
 
 \begin{example}{semi-separated-morphism}
-    If $f : X \to S$ is a semi-separated morphism with $S$ affine, then intersections of open affines on $X$ are again open affine. That is, for two open affines $U, V \subset X$, their intersection is given by
+    If $f \colon X \to S$ is a semi-separated morphism with $S$ affine, then intersections of open affines on $X$ are again open affine. That is, for two open affines $U, V \subset X$, their intersection is given by
     \[ U \cap V = U \times_X V = \Delta_{X/S}^{-1}(U \times_S V) , \]
     which is again affine open.
 \end{example}
@@ -1418,13 +1418,13 @@
     Let $S = \bigoplus_{i \ge 0} S_i$ be a \tref{AA:graded-ring}{graded ring}. The \textbf{Proj construction} assigns to $S$ the \tref{scheme}{scheme} $\Proj S = (X, \mathcal{O}_X)$ defined as follows.
     \begin{itemize}
         \item The topological space $X$ is the set of homogeneous \tref{AA:prime-ideal}{prime ideals} $\mathfrak{p} \subset S$ not containing the irrelevant ideal $S_+ = \bigoplus_{i > 0} S_i$, whose closed sets are given precisely by the sets $V(\mathfrak{a}) = \{ \textup{homogeneous prime ideals } \mathfrak{p} \subset S \textup{ with } \mathfrak{p} \supset \mathfrak{a} \}$ for all homogeneous ideals $\mathfrak{a} \subset S$.
-        \item The sheaf of rings $\mathcal{O}_X$ is given as follows. For each open set $U \subset X$, $\mathcal{O}_X(U)$ is the set of functions $s : U \to \sqcup_{\mathfrak{p} \in U} {(S_\mathfrak{p})}_0$ with $s(\mathfrak{p}) \in (S_\mathfrak{p})_0$ for each $\mathfrak{p} \in U$, such that $s$ is locally a quotient of elements in $S$. This means that for each $\mathfrak{p} \in U$, there is a neighborhood $V \subset U$ of $\mathfrak{p}$, and homogeneous elements $a, f \in S$ of the same degree such that for each $\mathfrak{q} \in V$, $f \not\in \mathfrak{q}$ and $s(\mathfrak{q}) = a / f$ in $(S_\mathfrak{q})_0$. The sets $\mathcal{O}_X(U)$ are indeed rings.
+        \item The sheaf of rings $\mathcal{O}_X$ is given as follows. For each open set $U \subset X$, $\mathcal{O}_X(U)$ is the set of functions $s \colon U \to \sqcup_{\mathfrak{p} \in U} {(S_\mathfrak{p})}_0$ with $s(\mathfrak{p}) \in (S_\mathfrak{p})_0$ for each $\mathfrak{p} \in U$, such that $s$ is locally a quotient of elements in $S$. This means that for each $\mathfrak{p} \in U$, there is a neighborhood $V \subset U$ of $\mathfrak{p}$, and homogeneous elements $a, f \in S$ of the same degree such that for each $\mathfrak{q} \in V$, $f \not\in \mathfrak{q}$ and $s(\mathfrak{q}) = a / f$ in $(S_\mathfrak{q})_0$. The sets $\mathcal{O}_X(U)$ are indeed rings.
     \end{itemize}
 \end{topic}
 
 \begin{topic}{weil-restriction}{Weil restriction}
-    Let $f : S' \to S$ be a morphism of \tref{scheme}{schemes}. Given a scheme $X$ over $S'$, if the functor
-    \[ \textup{Res}_{S'/S}(X) : \textbf{Sch}_S^\textup{op} \to \textbf{Set}, \quad T \mapsto \Hom_{S'}(T \times_S S', X) \]
+    Let $f \colon S' \to S$ be a morphism of \tref{scheme}{schemes}. Given a scheme $X$ over $S'$, if the functor
+    \[ \textup{Res}_{S'/S}(X) \colon \textbf{Sch}_S^\textup{op} \to \textbf{Set}, \quad T \mapsto \Hom_{S'}(T \times_S S', X) \]
     is \tref{CT:representable-functor}{representable}, then the corresponding scheme $\textup{Res}_{S'/S}(X)$ over $S$ is called the \textbf{Weil restriction} of $X$ along $f$.
 \end{topic}
 
@@ -1439,16 +1439,16 @@
 \end{example}
 
 \begin{topic}{weak-factorization-theorem}{weak factorization theorem}
-    Let $\phi : X \dashrightarrow Y$ be a \tref{birational-map}{birational map} between \tref{complete-variety}{complete} \tref{non-singular-variety}{non-singular} \tref{TO:connected-space}{connected} \tref{variety}{varieties} over a \tref{AA:field}{field} $k$ of characteristic zero, and let $U \subset X$ be an open subset where $\phi$ is an isomorphism.
+    Let $\phi \colon X \dashrightarrow Y$ be a \tref{birational-map}{birational map} between \tref{complete-variety}{complete} \tref{non-singular-variety}{non-singular} \tref{TO:connected-space}{connected} \tref{variety}{varieties} over a \tref{AA:field}{field} $k$ of characteristic zero, and let $U \subset X$ be an open subset where $\phi$ is an isomorphism.
     The \textbf{weak factorization theorem} states that $\phi$ can be factored as a composition of birational maps
     \[ X = V_0 \overset{\phi_1}{\dashrightarrow} V_1 \overset{\phi_2}{\dashrightarrow} \cdots \overset{\phi_n}{\dashrightarrow} V_n = Y \]
-    such that each $\phi_i$ is an isomorphism over $U$ and $\phi_i : V_{i - 1} \dashrightarrow V_i$ or $\phi_i^{-1} : V_i \dashrightarrow V_{i - 1}$ is obtained by \tref{blowup}{blowing up} a smooth center disjoint from $U$.
+    such that each $\phi_i$ is an isomorphism over $U$ and $\phi_i \colon V_{i - 1} \dashrightarrow V_i$ or $\phi_i^{-1} \colon V_i \dashrightarrow V_{i - 1}$ is obtained by \tref{blowup}{blowing up} a smooth center disjoint from $U$.
     
     Moreover, there is an index $i_0$ such that for all $i \le i_0$ the map $V_i \dashrightarrow X$ is defined everywhere and \tref{projective-morphism}{projective}, and for all $i \ge i_0$ the map $V_i \dashrightarrow Y$ is defined everywhere and projective.
 \end{topic}
 
 \begin{topic}{grothendieck-verdier-duality}{Grothendieck--Verdier duality}
-    Let $f : X \to Y$ be a morphism between \tref{smooth-morphism}{smooth} \tref{scheme}{schemes} over a \tref{AA:field}{field} $k$. For any $\mathcal{F} \in \textbf{D}^\textup{b}(Y)$, define
+    Let $f \colon X \to Y$ be a morphism between \tref{smooth-morphism}{smooth} \tref{scheme}{schemes} over a \tref{AA:field}{field} $k$. For any $\mathcal{F} \in \textbf{D}^\textup{b}(Y)$, define
     \[ f^! \mathcal{F} = \omega_f[\dim X - \dim Y] \otimes L f^* \mathcal{F} \in \textbf{D}^\textup{b}(X) \]
     where $\omega_f = \omega_X \otimes f^* \omega_Y^{-1}$ is the \textit{relative dualizing sheaf}.
     \textbf{Grothendieck--Verdier duality} states that there exists a functorial isomorphism
@@ -1470,12 +1470,12 @@
 \end{topic}
 
 \begin{topic}{crepant-resolution}{crepant resolution}
-    Let $X$ be a \tref{variety}{variety} over a field $k$. A \tref{resolution-of-singularities}{resolution} $\pi : \widetilde{X} \to X$ is \textbf{crepant} if the canonical isomorphism $\pi^* K_U \cong K_{\pi^{-1}(U)}$ extends to an isomorphism $\pi^* K_X \cong K_{\widetilde{X}}$, where $U \subset X$ is a non-singular open subset such that $\pi : \pi^{-1}(U) \to U$ is an isomorphism.
+    Let $X$ be a \tref{variety}{variety} over a field $k$. A \tref{resolution-of-singularities}{resolution} $\pi \colon \widetilde{X} \to X$ is \textbf{crepant} if the canonical isomorphism $\pi^* K_U \cong K_{\pi^{-1}(U)}$ extends to an isomorphism $\pi^* K_X \cong K_{\widetilde{X}}$, where $U \subset X$ is a non-singular open subset such that $\pi \colon \pi^{-1}(U) \to U$ is an isomorphism.
 \end{topic}
 
 \begin{topic}{riemann-existence-theorem}{Riemann existence theorem}
     Let $X$ be a \tref{TO:connected-space}{connected} \tref{non-singular-variety}{non-singular} \tref{variety}{variety} over $\CC$. The \textbf{Riemann existence theorem} states there is an \tref{CT:equivalence-of-categories}{equivalence of categories}
-    \[ \textbf{FÉt}/X \simeq \textbf{FCov}(X(\CC)), \quad (\pi : Y \to X) \mapsto (\pi : Y(\CC) \to X(\CC)) \]
+    \[ \textbf{FÉt}/X \simeq \textbf{FCov}(X(\CC)), \quad (\pi \colon Y \to X) \mapsto (\pi \colon Y(\CC) \to X(\CC)) \]
     between the category of \tref{finite-morphism}{finite} \tref{etale-morphism}{étale} coverings over $X$ and the category of finite \tref{TO:covering-space}{covering spaces} of the \tref{analytification}{analytification} $X(\CC)$.
 \end{topic}
 
@@ -1493,5 +1493,5 @@
 \end{topic}
 
 \begin{topic}{nagata-compactification-theorem}{Nagata's compactification theorem}
-    Let $f : X \to S$ be a \tref{separated-morphism}{separated} morphism of \tref{finite-type}{finite type} with $S$ a \tref{noetherian-scheme}{noetherian scheme}. \textbf{Nagata's compactification theorem} states that $f$ factors as an \tref{open-immersion}{open immersion} $j : X \to \overline{X}$ followed by a \tref{proper-morphism}{proper morphism} $p : \overline{X} \to S$.
+    Let $f \colon X \to S$ be a \tref{separated-morphism}{separated} morphism of \tref{finite-type}{finite type} with $S$ a \tref{noetherian-scheme}{noetherian scheme}. \textbf{Nagata's compactification theorem} states that $f$ factors as an \tref{open-immersion}{open immersion} $j \colon X \to \overline{X}$ followed by a \tref{proper-morphism}{proper morphism} $p \colon \overline{X} \to S$.
 \end{topic}

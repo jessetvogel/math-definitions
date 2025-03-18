@@ -1,7 +1,7 @@
 \begin{topic}{log-scheme}{Log scheme}
-    A \textbf{log scheme} $(X, \mathcal{M})$ consists of a \tref{scheme}{scheme} $X$ together with a \tref{sheaf}{sheaf} of \tref{AA:monoid}{commutative monoids} $\mathcal{M}$ on $X$, and a monoid morphism $\alpha : \mathcal{M} \to \mathcal{O}_X$ such that $\alpha : \alpha^{-1} \mathcal{O}_X^* \to \mathcal{O}_X^*$ is an isomorphism.
+    A \textbf{log scheme} $(X, \mathcal{M})$ consists of a \tref{scheme}{scheme} $X$ together with a \tref{sheaf}{sheaf} of \tref{AA:monoid}{commutative monoids} $\mathcal{M}$ on $X$, and a monoid morphism $\alpha \colon \mathcal{M} \to \mathcal{O}_X$ such that $\alpha \colon \alpha^{-1} \mathcal{O}_X^* \to \mathcal{O}_X^*$ is an isomorphism.
     
-    A \textit{morphism of log schemes} $(X, \mathcal{M}) \to (Y, \mathcal{N})$ is a morphism of schemes $f : X \to Y$ together with a map $h : f^{-1} \mathcal{N} \to \mathcal{M}$ such that
+    A \textit{morphism of log schemes} $(X, \mathcal{M}) \to (Y, \mathcal{N})$ is a morphism of schemes $f \colon X \to Y$ together with a map $h \colon f^{-1} \mathcal{N} \to \mathcal{M}$ such that
     \[ \svg \begin{tikzcd} f^{-1} \mathcal{N} \arrow{r}{h} \arrow[swap]{d}{f^{-1} \beta} & \mathcal{M} \arrow{d}{\alpha} \\ f^{-1} \mathcal{O}_Y \arrow{r}{f^\#} & \mathcal{O}_X \end{tikzcd} \]
     commutes. Such a morphism is called \textit{strict} if the induced map $f^* \mathcal{N} \to \mathcal{M}$ is an isomorphism.
 \end{topic}
@@ -21,7 +21,7 @@
     \[ \mathcal{M}' = \NN^2 \oplus \mathcal{O}_X^* \to \mathcal{O}_X , \quad (a, b, f) \mapsto x^a y^b f , \]
     which is not quite a log structure. The \textit{associated} log structure is
     \[ \mathcal{M} = \mathcal{M}' \oplus_{\alpha^{-1} \mathcal{O}_X^*} \mathcal{O}_X^* . \]
-    More generally, given a commutative ring $R$ and commutative monoid $P$, there exists a canonical log structure on the scheme $X = \Spec(R[P])$. Namely, the natural map $P \to R[P]$ induces a morphism of sheaves $\alpha : \underline{P} \to \mathcal{O}_X$, where $\underline{P}$ denotes the \tref{constant-sheaf}{constant sheaf} with values in $P$. The associated log structure is
+    More generally, given a commutative ring $R$ and commutative monoid $P$, there exists a canonical log structure on the scheme $X = \Spec(R[P])$. Namely, the natural map $P \to R[P]$ induces a morphism of sheaves $\alpha \colon \underline{P} \to \mathcal{O}_X$, where $\underline{P}$ denotes the \tref{constant-sheaf}{constant sheaf} with values in $P$. The associated log structure is
     \[ \mathcal{P} = \underline{P} \oplus_{\alpha^{-1} \mathcal{O}_X^*} \mathcal{O}_X^* . \]
 \end{example}
 
@@ -30,28 +30,28 @@
 \end{topic}
 
 \begin{topic}{log-smooth-morphism}{log smooth morphism}
-    Let $f : (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{fine-log-scheme}{fine} \tref{log-scheme}{log schemes}. Then $f$ is \textbf{formally log smooth} if for any commutative diagram
+    Let $f \colon (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{fine-log-scheme}{fine} \tref{log-scheme}{log schemes}. Then $f$ is \textbf{formally log smooth} if for any commutative diagram
     \[ \svg \begin{tikzcd} (T', \mathcal{L}') \arrow{r} \arrow[swap]{d}{i} & (X, \mathcal{M}) \arrow{d}{f} \\ (T, \mathcal{L}) \arrow{r} & (Y, \mathcal{N}) \end{tikzcd} \]
-    with $i$ an strict closed immersion (i.e. $T' \to T$ a \tref{closed-immersion}{closed immersion} and $i^* \mathcal{L} \to \mathcal{L}'$ an isomorphism), and $T' \subset T$ defined by an ideal $I$ with $I^2 = 0$, there exists étale locally on $T$ a morphism $g : (T, \mathcal{L}) \to (X, \mathcal{M})$ making the diagram commute.
+    with $i$ an strict closed immersion (i.e. $T' \to T$ a \tref{closed-immersion}{closed immersion} and $i^* \mathcal{L} \to \mathcal{L}'$ an isomorphism), and $T' \subset T$ defined by an ideal $I$ with $I^2 = 0$, there exists étale locally on $T$ a morphism $g \colon (T, \mathcal{L}) \to (X, \mathcal{M})$ making the diagram commute.
     
     The morphism $f$ is \textbf{log smooth} if it is formally log smooth and the underlying morphism of schemes is \tref{finite-presentation}{locally of finite presentation}.
 \end{topic}
 
 \begin{topic}{log-etale-morphism}{log étale morphism}
-    Let $f : (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{fine-log-scheme}{fine} \tref{log-scheme}{log-schemes}. Then $f$ is \textbf{formally log étale} if for any commutative diagram
+    Let $f \colon (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{fine-log-scheme}{fine} \tref{log-scheme}{log-schemes}. Then $f$ is \textbf{formally log étale} if for any commutative diagram
     \[ \svg \begin{tikzcd} (T', \mathcal{L}') \arrow{r} \arrow[swap]{d}{i} & (X, \mathcal{M}) \arrow{d}{f} \\ (T, \mathcal{L}) \arrow{r} & (Y, \mathcal{N}) \end{tikzcd} \]
-    with $i$ an strict closed immersion (i.e. $T' \to T$ a \tref{closed-immersion}{closed immersion} and $i^* \mathcal{L} \to \mathcal{L}'$ an isomorphism), and $T' \subset T$ defined by an ideal $I$ with $I^2 = 0$, there exists a unique morphism $g : (T, \mathcal{L}) \to (X, \mathcal{M})$ making the diagram commute.
+    with $i$ an strict closed immersion (i.e. $T' \to T$ a \tref{closed-immersion}{closed immersion} and $i^* \mathcal{L} \to \mathcal{L}'$ an isomorphism), and $T' \subset T$ defined by an ideal $I$ with $I^2 = 0$, there exists a unique morphism $g \colon (T, \mathcal{L}) \to (X, \mathcal{M})$ making the diagram commute.
     
     The morphism $f$ is \textbf{log étale} if it is formally log étale and the underlying morphism of schemes is \tref{finite-presentation}{locally of finite presentation}.
 \end{topic}
 
 \begin{example}{log-etale-morphism}
-    Let $k$ be a commutative ring. Let $P$ and $Q$ be finitely generated integral commutative monoids, take $X = \Spec k[P]$ and $Y = \Spec k[Q]$ with their natural log structures, and $f : X \to Y$ a morphism of log schemes induced by a morphism of monoids $\varphi : Q \to P$. Then, it can be proven that $f$ is log étale if and only if $\ker \varphi^\textup{gp}$ and $\coker \varphi^\textup{gp}$ are finite groups whose order is invertible in $k$.
+    Let $k$ be a commutative ring. Let $P$ and $Q$ be finitely generated integral commutative monoids, take $X = \Spec k[P]$ and $Y = \Spec k[Q]$ with their natural log structures, and $f \colon X \to Y$ a morphism of log schemes induced by a morphism of monoids $\varphi \colon Q \to P$. Then, it can be proven that $f$ is log étale if and only if $\ker \varphi^\textup{gp}$ and $\coker \varphi^\textup{gp}$ are finite groups whose order is invertible in $k$.
     
     Considering $\AA^1_k = \Spec k[\NN]$ and $\AA^2_k = \Spec k[\NN^2]$, it follows that
     \begin{itemize}
-        \item the map $g : \AA^1_k \to \AA^1_k$, $x \mapsto x^{17}$ induced by $\varphi : \NN \to \NN$, $n \mapsto 17n$ is log étale if and only if $17$ is invertible in $k$, since $\ker(\varphi^\textup{gp} : \ZZ \to \ZZ) = 0$ and $\coker(\varphi^\textup{gp} : \ZZ \to \ZZ) = \ZZ / 17 \ZZ$ are finite. Note that $g$ is not étale as a morphism of schemes, as $f$ is ramified at the origin.
-        \item the map $h : \AA^2_k \to \AA^1_k$, $(x, y) \mapsto xy$ induced by $\varphi : \NN \to \NN^2$, $n \mapsto (n, n)$ is not log étale since $\coker(\varphi^\textup{gp} : \ZZ \to \ZZ^2) \isom \ZZ$ is infinite.
+        \item the map $g \colon \AA^1_k \to \AA^1_k$, $x \mapsto x^{17}$ induced by $\varphi \colon \NN \to \NN$, $n \mapsto 17n$ is log étale if and only if $17$ is invertible in $k$, since $\ker(\varphi^\textup{gp} \colon \ZZ \to \ZZ) = 0$ and $\coker(\varphi^\textup{gp} \colon \ZZ \to \ZZ) = \ZZ / 17 \ZZ$ are finite. Note that $g$ is not étale as a morphism of schemes, as $f$ is ramified at the origin.
+        \item the map $h \colon \AA^2_k \to \AA^1_k$, $(x, y) \mapsto xy$ induced by $\varphi \colon \NN \to \NN^2$, $n \mapsto (n, n)$ is not log étale since $\coker(\varphi^\textup{gp} \colon \ZZ \to \ZZ^2) \isom \ZZ$ is infinite.
     \end{itemize}
     % Note that $f$ is log étale (provided $17 \in k^*$), and induces the morphism on the \tref{log-differentials}{log differentials}
     % \[ \begin{aligned}
@@ -62,7 +62,7 @@
 \end{example}
 
 \begin{topic}{log-differentials}{log differentials}
-    Let $f : (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{log-scheme}{log schemes}. The $\mathcal{O}_X$-module $\omega^1_{X/Y}$ of \textbf{log differentials} is the quotient of
+    Let $f \colon (X, \mathcal{M}) \to (Y, \mathcal{N})$ be a morphism of \tref{log-scheme}{log schemes}. The $\mathcal{O}_X$-module $\omega^1_{X/Y}$ of \textbf{log differentials} is the quotient of
     \[ \Omega_{X/Y}^1 \oplus (\mathcal{O}_X \otimes_\ZZ \mathcal{M}^\textup{gp}) \]
     by the following relations of local sections:
     \begin{itemize}
@@ -71,7 +71,7 @@
     \end{itemize}
     
     Think of $\omega^1_{X/Y}$ as an extension of the usual sheaf of differentials $\Omega_{X/Y}^1$, where elements of the form $d \log(a) = \frac{da}{a}$ (represented by $(0, 1 \otimes a)$) are added for all $a \in \mathcal{M}^\textup{gp}$, up to the image of $f^{-1} \mathcal{N}$. In fact, we have a morphism
-    \[ d \log : \mathcal{M} \to \omega_{X/Y}^1, \quad f \mapsto d \log(f) . \]
+    \[ d \log \colon \mathcal{M} \to \omega_{X/Y}^1, \quad f \mapsto d \log(f) . \]
 \end{topic}
 
 \begin{example}{log-differentials}
@@ -87,7 +87,7 @@
 \end{example}
 
 \begin{example}{log-differentials}
-    Let $k$ be a commutative ring. Let $P$ and $Q$ commutative monoids, take $X = \Spec k[P]$ and $Y = \Spec k[Q]$ with their natural log structure, and let $f : X \to Y$ be a morphism of log schemes induced by a morphism of monoids $Q \to P$. Then the sheaf of log differentials $\omega^1_{X/Y}$ is given by
+    Let $k$ be a commutative ring. Let $P$ and $Q$ commutative monoids, take $X = \Spec k[P]$ and $Y = \Spec k[Q]$ with their natural log structure, and let $f \colon X \to Y$ be a morphism of log schemes induced by a morphism of monoids $Q \to P$. Then the sheaf of log differentials $\omega^1_{X/Y}$ is given by
     \[ \begin{aligned}
         \omega^1_{X/Y} &\isom \mathcal{O}_X \otimes_\ZZ (P^\textup{gp} / \operatorname{im} Q^\textup{gp}) , \\
         a \cdot d \log b  &\mapsfrom a \otimes b

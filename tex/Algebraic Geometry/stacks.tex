@@ -1,7 +1,7 @@
 \begin{topic}{artin-stack}{Artin stack}
     Let $S$ be a \tref{scheme}{scheme}. A \tref{CT:stack}{stack} $\mathfrak{X}$ over $\mathfrak{S} = \textbf{Sch}_S$ is an \textbf{Artin stack} if
     \begin{itemize}
-        \item the diagonal $\Delta_{\mathfrak{X}/S} : \mathfrak{X} \to \mathfrak{X} \times_S \mathfrak{X}$ is representable by algebraic spaces,
+        \item the diagonal $\Delta_{\mathfrak{X}/S} \colon \mathfrak{X} \to \mathfrak{X} \times_S \mathfrak{X}$ is representable by algebraic spaces,
         \item there exists a smooth and surjective morphism $X \to \mathfrak{X}$ for some scheme $X$.
     \end{itemize}
     The morphism $X \to \mathfrak{X}$ is called a \textit{presentation} for $\mathfrak{X}$.
@@ -10,7 +10,7 @@
 \begin{topic}{deligne-mumford-stack}{Deligne-Mumford stack}
     Let $S$ be a \tref{scheme}{scheme}. A \tref{CT:stack}{stack} $\mathfrak{X}$ over $\mathfrak{S} = \textbf{Sch}_S$ is an \textbf{Deligne--Mumford stack}
     \begin{itemize}
-        \item the diagonal $\Delta_{\mathfrak{X}/S} : \mathfrak{X} \to \mathfrak{X} \times_S \mathfrak{X}$ is representable by algebraic spaces,
+        \item the diagonal $\Delta_{\mathfrak{X}/S} \colon \mathfrak{X} \to \mathfrak{X} \times_S \mathfrak{X}$ is representable by algebraic spaces,
         \item there exists an étale and surjective morphism $X \to \mathfrak{X}$ for some scheme $X$.
     \end{itemize}
     The morphism $X \to \mathfrak{X}$ is called a \textit{presentation} for $\mathfrak{X}$.
@@ -27,7 +27,7 @@
 \begin{topic}{motivic-hall-algebra}{motivic Hall algebra}
     Let $M$ be a \tref{smooth-morphism}{smooth} \tref{projective-variety}{projective variety} over a field $k$, and $\mathcal{A} = \textup{Coh}(M)$ the \tref{HA:abelian-category}{abelian category} of \tref{coherent-sheaf}{coherent sheaves} on $M$. Let $\mathcal{M}^{(n)}$ denote the moduli \tref{CT:stack}{stack} of $n$-flags of coherent sheaves on $M$. That is, for a scheme $S$, the $S$-objects of $\mathcal{M}^{(n)}$ are chains of monomorphisms of coherent sheaves on $S \times M$ of the form
     \[ 0 \to E_0 \hookrightarrow E_1 \hookrightarrow \cdots \hookrightarrow E_n = E , \]
-    such that each $E_i/E_{i - 1}$ is $S$-flat, so in particular each $E_i$ is $S$-flat. For such chains $(E_i)_i$ and $(F_i)_i$ over schemes $S$ and $T$, respectively, a morphism over $f : T \to S$ is a family of isomorphisms
+    such that each $E_i/E_{i - 1}$ is $S$-flat, so in particular each $E_i$ is $S$-flat. For such chains $(E_i)_i$ and $(F_i)_i$ over schemes $S$ and $T$, respectively, a morphism over $f \colon T \to S$ is a family of isomorphisms
     \[ \theta_i : f^*(E_i) \xrightarrow{\sim} F_i \]
     such that each diagram
     \[ \svg \begin{tikzcd} f^*(E_i) \arrow[swap]{d}{\theta_i} \arrow{r} & f^*(E_{i + 1}) \arrow{d}{\theta_{i + 1}} \\ F_i \arrow{r} & F_{i + 1} \end{tikzcd} \]
@@ -40,5 +40,5 @@
     The \textbf{motivic Hall algebra} of $\mathcal{A}$ is the $\textup{K}(\textup{St}/k)$-algebra given by the Grothendieck group of stacks over $\mathcal{M}$,
     \[ \textup{H}(\mathcal{A}) = \textup{K}(\textup{St}/\mathcal{M}) , \]
     where multiplication given by
-    \[ m = b_* \circ (a_1, a_2)^* : \textup{H}(\mathcal{A}) \otimes \textup{H}(\mathcal{A}) \to \textup{H}(\mathcal{A}) . \]
+    \[ m = b_* \circ (a_1, a_2)^* \colon \textup{H}(\mathcal{A}) \otimes \textup{H}(\mathcal{A}) \to \textup{H}(\mathcal{A}) . \]
 \end{topic}

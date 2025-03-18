@@ -26,7 +26,7 @@
 \end{example}
 
 \begin{topic}{additive-functor}{additive functor}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{additive-category}{additive categories}. A functor $F : \mathcal{A} \to \mathcal{B}$ is called \textbf{additive} if for all $A, B$ in $\mathcal{A}$ the map
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{additive-category}{additive categories}. A functor $F \colon \mathcal{A} \to \mathcal{B}$ is called \textbf{additive} if for all $A, B$ in $\mathcal{A}$ the map
     \[ \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{B}(FA, FB) \]
     is a group morphism.
     
@@ -34,7 +34,7 @@
 \end{topic}
 
 \begin{topic}{pseudo-abelian-category}{pseudo-abelian category}
-    A \tref{additive-category}{preadditive category} $\mathcal{A}$ is \textbf{pseudo-abelian} if every \tref{CT:idempotent-morphism}{idempotent morphism} $p : A \to A$ in $\mathcal{A}$ has a kernel, that is, $A$ is isomorphic to a direct sum $A_0 \oplus A_1$ such that $p = 0_{A_0} \oplus \id_{A_1}$.
+    A \tref{additive-category}{preadditive category} $\mathcal{A}$ is \textbf{pseudo-abelian} if every \tref{CT:idempotent-morphism}{idempotent morphism} $p \colon A \to A$ in $\mathcal{A}$ has a kernel, that is, $A$ is isomorphic to a direct sum $A_0 \oplus A_1$ such that $p = 0_{A_0} \oplus \id_{A_1}$.
 \end{topic}
 
 \begin{topic}{exact-sequence}{(short) exact sequence}
@@ -55,7 +55,7 @@
 \end{example}
 
 \begin{topic}{exact-functor}{exact functor}
-    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. Then $F$ is called \textbf{left exact} if for all short exact sequences
+    Let $F \colon \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. Then $F$ is called \textbf{left exact} if for all short exact sequences
     \[ 0 \to M \to N \to L \to 0 \]
      in $\mathcal{A}$, the sequence
     \[ 0 \to FM \to FN \to FL \]
@@ -66,26 +66,26 @@
 
 \begin{topic}{injective-object}{injective object}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An object $I$ of $\mathcal{A}$ is called \textbf{injective} if the functor
-    \[ \Hom_\mathcal{A}(-, I) : \mathcal{A}^\textup{op} \to \textbf{Ab} \]
-    is \tref{exact-functor}{exact}. Since it is already left exact for any object $I$, this is equivalent to the condition that for all monomorphisms $f : M \to N$ and morphisms $g : M \to I$ there exists a morphism $h : N \to I$ such that $hf = g$.
+    \[ \Hom_\mathcal{A}(-, I) \colon \mathcal{A}^\textup{op} \to \textbf{Ab} \]
+    is \tref{exact-functor}{exact}. Since it is already left exact for any object $I$, this is equivalent to the condition that for all monomorphisms $f \colon M \to N$ and morphisms $g \colon M \to I$ there exists a morphism $h \colon N \to I$ such that $hf = g$.
     \[ \svg \begin{tikzcd} M \arrow[hookrightarrow]{r}{f} \arrow[swap]{d}{g} & N \arrow[dashed]{ld}{\exists h} \\ I & \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{projective-object}{projective object}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. An object $P$ of $\mathcal{A}$ is called \textbf{projective} if the functor
-    \[ \Hom_\mathcal{A}(P, -) : \mathcal{A} \to \textbf{Ab} \]
-    is \tref{exact-functor}{exact}. Since it is already left exact for any object $P$, this is equivalent to the condition that for all epimorphisms $f : N \to M$ and morphisms $g : P \to M$ there exists a morphism $h : P \to N$ such that $fh = g$.
+    \[ \Hom_\mathcal{A}(P, -) \colon \mathcal{A} \to \textbf{Ab} \]
+    is \tref{exact-functor}{exact}. Since it is already left exact for any object $P$, this is equivalent to the condition that for all epimorphisms $f \colon N \to M$ and morphisms $g \colon P \to M$ there exists a morphism $h \colon P \to N$ such that $fh = g$.
     \[ \svg \begin{tikzcd} & N \arrow[twoheadrightarrow]{d}{f} \\ P \arrow[swap]{r}{g} \arrow[dashed]{ur}{\exists h} & M \end{tikzcd} \]
 \end{topic}
 
 % Complexes
 \begin{topic}{chain-complex}{(co)chain complex}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{chain complex} $A_\bdot$ in $\mathcal{A}$ is a sequence of objects $A_i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d_i : A_i \to A_{i - 1}$ such that $d_{i - 1} \circ d_i = 0$ for all $i$.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{chain complex} $A_\bdot$ in $\mathcal{A}$ is a sequence of objects $A_i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d_i \colon A_i \to A_{i - 1}$ such that $d_{i - 1} \circ d_i = 0$ for all $i$.
     \[ \cdots \xleftarrow{d_{i - 1}} A_{i - 1} \xleftarrow{d_i} A_i \xleftarrow{d_{i + 1}} A_{i + 1} \xleftarrow{d_{i + 2}} \cdots \]
-    Dually, a \textbf{cochain complex} $A^\bdot$ in $\mathcal{A}$ is a sequence of objects $A^i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d^i : A^i \to A^{i + 1}$ such that $d^{i + 1} \circ d^i = 0$ for all $i$.
+    Dually, a \textbf{cochain complex} $A^\bdot$ in $\mathcal{A}$ is a sequence of objects $A^i$ in $\mathcal{A}$, for $i \in \ZZ$, together with morphisms $d^i \colon A^i \to A^{i + 1}$ such that $d^{i + 1} \circ d^i = 0$ for all $i$.
     \[ \cdots \xrightarrow{d^{i - 2}} A^{i - 1} \xrightarrow{d^{i - 1}} A^i \xrightarrow{d^i} A^{i + 1} \xrightarrow{d^{i + 1}} \cdots \]
     
-    A \textbf{morphism of chain complexes} or \textbf{chain map} $f : A_\bdot \to B_\bdot$ is given by a collection of morphisms $f_i : A_i \to B_i$ for each $i \in \ZZ$ such that $d^B_i \circ f_i = f_{i - 1} \circ d^A_i$. Dually, there are \textbf{cochain maps}.
+    A \textbf{morphism of chain complexes} or \textbf{chain map} $f \colon A_\bdot \to B_\bdot$ is given by a collection of morphisms $f_i \colon A_i \to B_i$ for each $i \in \ZZ$ such that $d^B_i \circ f_i = f_{i - 1} \circ d^A_i$. Dually, there are \textbf{cochain maps}.
     
     If the objects of $\mathcal{A}$ are sets, then elements of $A_n$ are called \textit{$n$-chains}, elements of $\ker d_n$ are called \textit{$n$-cycles}, and elements of $\im d_{n - 1}$ are called \textit{$n$-boundaries}. Similarly, elements of $A^n$ are called \textit{$n$-cochains}, elements of $\ker d^n$ are called \textit{$n$-cocycles}, and elements of $\im d^{n - 1}$ are called \textit{$n$-coboundaries}. Note that any $n$-(co)boundary is an $n$-(co)cycle.
 \end{topic}
@@ -118,37 +118,37 @@
 \end{example}
 
 \begin{topic}{chain-homotopy}{chain homotopy}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g : A^\bdot \to B^\bdot$ be morphisms of \tref{chain-complex}{chain complexes} in $\mathcal{A}$. A \textbf{chain homotopy} from $f$ to $g$ is a collection of morphisms $k^i : A^i \to B^{i - 1}$ such that
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and let $f, g \colon A^\bdot \to B^\bdot$ be morphisms of \tref{chain-complex}{chain complexes} in $\mathcal{A}$. A \textbf{chain homotopy} from $f$ to $g$ is a collection of morphisms $k^i \colon A^i \to B^{i - 1}$ such that
     \[ f^i - g^i = d_B^{i - 1} k^i + k^{i + 1} d_A^i . \]
     If a homotopy exists from $f$ to $g$, we say that $f$ and $g$ are \textbf{homotopic}. This gives an equivalence relation on the set of morphisms from $A^\bdot$ to $B^\bdot$.
 \end{topic}
 
 \begin{example}{chain-homotopy}
-    Homotopic maps $f, g : A^\bdot \to B^\bdot$ yield the same map on the level of homology. Namely, if $f - g = dk + kd$, then for any $x \in H^i(A^\bdot)$ we have
+    Homotopic maps $f, g \colon A^\bdot \to B^\bdot$ yield the same map on the level of homology. Namely, if $f - g = dk + kd$, then for any $x \in H^i(A^\bdot)$ we have
     \[ f(x) - g(x) = d_B^{i - 1}(k^i(x)) + k^{i + 1}(d_A^i(x)) = 0 , \]
     since $d_B^{i - 1}(k^i(x)) = 0 \in H^{i}(B^\bdot)$ and $d_A^i(x) = 0 \in H^{i + 1}(A^\bdot)$, since $x \in \ker d_A^i$.
 \end{example}
 
 \begin{topic}{chain-homotopy-equivalence}{chain homotopy equivalence}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A morphism of \tref{chain-complex}{chain complexes} $f : M^\bdot \to N^\bdot$ is called a \textbf{chain homotopy equivalence} if there exists a morphism $g : N^\bdot \to M^\bdot$ such that $fg$ and $gf$ are \tref{chain-homotopy}{homotopic} to the identity morphism.
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A morphism of \tref{chain-complex}{chain complexes} $f \colon M^\bdot \to N^\bdot$ is called a \textbf{chain homotopy equivalence} if there exists a morphism $g \colon N^\bdot \to M^\bdot$ such that $fg$ and $gf$ are \tref{chain-homotopy}{homotopic} to the identity morphism.
 \end{topic}
 
 \begin{example}{chain-homotopy-equivalence}
     Consider $R = \ZZ \times \ZZ$ and the $R$-module $M = \ZZ \times \{ 0 \}$. Then
     \[ 0 \to M \xrightarrow{\id} M \to 0 \qquad \textup{ and } \qquad  0 \to \{ 0 \} \times \ZZ \hookrightarrow \ZZ \times \ZZ \twoheadrightarrow M \to 0 \]
-    are two projective resolutions of $M$ as an $R$-module, so they should be related by a homotopy equivalence. Calling the resolutions $A^\bdot$ and $B^\bdot$, respectively, define chain maps $f : A^\bdot \to B^\bdot$ and $g : B^\bdot \to A^\bdot$ as
+    are two projective resolutions of $M$ as an $R$-module, so they should be related by a homotopy equivalence. Calling the resolutions $A^\bdot$ and $B^\bdot$, respectively, define chain maps $f \colon A^\bdot \to B^\bdot$ and $g \colon B^\bdot \to A^\bdot$ as
     \[ \svg \begin{tikzcd}
         0 \arrow{r} & 0 \arrow[bend left=20]{d} \arrow{r} & M \arrow[bend left=20]{d}{i} \arrow{r} & 0 \\
         0 \arrow{r} & \{ 0 \} \times \ZZ \arrow[bend left=20]{u} \arrow[hookrightarrow]{r} & \ZZ \times \ZZ \arrow[bend left=20]{u}{r} \arrow{r} & 0
     \end{tikzcd} \]
     with $i(0, b) = (0, b)$ and $r(a, b) = (0, b)$. Indeed, $gf = \id$ and $fg - \id = dk + kd$ for
-    \[ k^0 : \ZZ \times \ZZ \to \{ 0 \} \times \ZZ, \quad (a, b) \mapsto (0, b) . \]
+    \[ k^0 \colon \ZZ \times \ZZ \to \{ 0 \} \times \ZZ, \quad (a, b) \mapsto (0, b) . \]
     This shows that $f$ and $g$ are homotopy equivalences. In particular, the compositions $fg$ and $gf$ are \tref{quasi-isomorphism}{quasi-isomorphisms}.
 \end{example}
 
 \begin{topic}{quasi-isomorphism}{quasi-isomorphism}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A morphism $f : M^\bdot \to N^\bdot$ of \tref{chain-complex}{chain complexes} in $\mathcal{A}$ is called a \textbf{quasi-isomorphism} if the induced maps on homology
-    \[ H^i(f) : H^i(M^\bdot) \to H^i(N^\bdot) \]
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A morphism $f \colon M^\bdot \to N^\bdot$ of \tref{chain-complex}{chain complexes} in $\mathcal{A}$ is called a \textbf{quasi-isomorphism} if the induced maps on homology
+    \[ H^i(f) \colon H^i(M^\bdot) \to H^i(N^\bdot) \]
     are all isomorphisms.
 \end{topic}
 
@@ -169,17 +169,17 @@
 \end{topic}
 
 \begin{example}{injective-resolution}
-    Let $A, B$ be objects of $\mathcal{A}$, and $f : A \to B$ a morphism. Let $0 \to A \to I_A^\bdot$ and $0 \to B \to I_B^\bdot$ be injective resolutions of $A$ and $B$, respectively. Then the map $f : A \to B$ can be lifted to a map $f^\bdot : I_A^\bdot \to I_B^\bdot$ such that $H^0(f^\bdot) = f$. Moreover, any two such liftings of $f$ are homotopic. In particular, for $A = B$ and $f = \id_A$, this shows that an injective resolution of $A$ is unique up to homotopy equivalence. Moreover, there is a bijection
+    Let $A, B$ be objects of $\mathcal{A}$, and $f \colon A \to B$ a morphism. Let $0 \to A \to I_A^\bdot$ and $0 \to B \to I_B^\bdot$ be injective resolutions of $A$ and $B$, respectively. Then the map $f \colon A \to B$ can be lifted to a map $f^\bdot \colon I_A^\bdot \to I_B^\bdot$ such that $H^0(f^\bdot) = f$. Moreover, any two such liftings of $f$ are homotopic. In particular, for $A = B$ and $f = \id_A$, this shows that an injective resolution of $A$ is unique up to homotopy equivalence. Moreover, there is a bijection
     \[ \Hom_{\textbf{K}(\mathcal{A})}(I_A^\bdot, I_B^\bdot) \isom \Hom_{\mathcal{A}}(A, B) , \]
     where $\textbf{K}(\mathcal{A})$ is the \tref{homotopy-category}{homotopy category} of $\mathcal{A}$.
     \begin{proof}
-        First we construct one such lift $f^\bdot$. Since $A \to I_A^0$ is injective, the map $d_B \circ f : A \to I_B^0$ lifts to some $f^0 : I_A^0 \to I_B^0$ by injectivity of $I_B^0$. Suppose by induction that we have defined $f^k$ for $k \le n$ such that $d_B \circ f^k = f^{k + 1} \circ d_A$ for all $k < n$. Note that $d_B \circ f^n$ sends $\ker d_A^n$ to $\im (d_B \circ f^n \circ d_A^{n - 1}) = \im (d_B \circ d_B \circ f^{n - 1}) = 0$. Hence $d_B \circ f^n$ descends to a map $d_A(I_A^n) \to I_B^{n + 1}$, and by injectivity of $I_B^{n + 1}$ this lifts to a map $f^{n + 1} : I_A^{n + 1} \to I_B^{n + 1}$. By construction this map satisfies $f^{n + 1} \circ d_A = d_B \circ f^n$. Indeed, as $i_B \circ f = f^0 \circ i_A$, we have $H^0(f^\bdot) = f$.
+        First we construct one such lift $f^\bdot$. Since $A \to I_A^0$ is injective, the map $d_B \circ f \colon A \to I_B^0$ lifts to some $f^0 \colon I_A^0 \to I_B^0$ by injectivity of $I_B^0$. Suppose by induction that we have defined $f^k$ for $k \le n$ such that $d_B \circ f^k = f^{k + 1} \circ d_A$ for all $k < n$. Note that $d_B \circ f^n$ sends $\ker d_A^n$ to $\im (d_B \circ f^n \circ d_A^{n - 1}) = \im (d_B \circ d_B \circ f^{n - 1}) = 0$. Hence $d_B \circ f^n$ descends to a map $d_A(I_A^n) \to I_B^{n + 1}$, and by injectivity of $I_B^{n + 1}$ this lifts to a map $f^{n + 1} \colon I_A^{n + 1} \to I_B^{n + 1}$. By construction this map satisfies $f^{n + 1} \circ d_A = d_B \circ f^n$. Indeed, as $i_B \circ f = f^0 \circ i_A$, we have $H^0(f^\bdot) = f$.
     
         To show two such liftings $f_1^\bdot$ and $f_2^\bdot$ are homotopic, we can equivalently show that $f_1^\bdot - f_2^\bdot$ is homotopic to the zero map $I_A^\bdot \to I_B^\bdot$. Note that $f_1^\bdot - f_2^\bdot$ lifts the zero map $A \to B$, so it suffices to take $f = 0$ and show that the obtained map $f^\bdot$ is of the form $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$.
     
-        Since $f^0(A) = 0$, the map $f^0$ descends to a map $d(I_A^0) \to I_B^0$, which lifts to a map $h^1 : I_A^1 \to I_B^0$ by injectivity of $I_B^0$. Again by induction, assume that we have maps $h^k : I_A^k \to I_B^{k - 1}$ for all $k < n$, such that $f^k = d_B \circ h^k + h^{k + 1} \circ d_A$ for all $k < n$. Then, note that $f^n - d_B h^n$ sends $\ker d_A^n$ to
+        Since $f^0(A) = 0$, the map $f^0$ descends to a map $d(I_A^0) \to I_B^0$, which lifts to a map $h^1 \colon I_A^1 \to I_B^0$ by injectivity of $I_B^0$. Again by induction, assume that we have maps $h^k \colon I_A^k \to I_B^{k - 1}$ for all $k < n$, such that $f^k = d_B \circ h^k + h^{k + 1} \circ d_A$ for all $k < n$. Then, note that $f^n - d_B h^n$ sends $\ker d_A^n$ to
         \[ \im ((f^n - d_B \circ h^n) \circ d_A) = \im (d_B \circ f^{n - 1} - d_B \circ (f^{n - 1} - d_B \circ h^{n - 1})) = 0 , \]
-        so $f^n - d_B \circ h^n$ descends to a map $d(I_A^n) \to I_B^n$ and by injectivity of $I_B^n$ lifts to a map $h^{n + 1} : I_A^{n + 1} \to I_B^n$, which satisfies $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$ by construction.
+        so $f^n - d_B \circ h^n$ descends to a map $d(I_A^n) \to I_B^n$ and by injectivity of $I_B^n$ lifts to a map $h^{n + 1} \colon I_A^{n + 1} \to I_B^n$, which satisfies $f^n = d_B \circ h^n + h^{n + 1} \circ d_A$ by construction.
     \end{proof}
 \end{example}
 
@@ -191,33 +191,33 @@
 
 % Derived functors
 \begin{topic}{right-derived-functors}{right derived functors}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{injective-resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}, and let $F \colon \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick an \tref{injective-resolution}{injective resolution} $M[0] \to I^\bdot$. Then we define
     \[ R^i F M = H^i(F(I^\bdot)) . \]
-    This is well-defined (independent of the chosen resolution) and yields additive functors $R^i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \isom F$.
+    This is well-defined (independent of the chosen resolution) and yields additive functors $R^i F \colon \mathcal{A} \to \mathcal{B}$, called the \textbf{right derived functors} of $F$. Note that $R^0 F \isom F$.
     
     For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
     \[ 0 \to FA \to FB \to FC \to R^1FA \to R^1FB \to R^1FC \to R^2FA \to \cdots \]
 \end{topic}
 
 \begin{topic}{left-derived-functors}{left derived functors}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough projectives}, and let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{right exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick a \tref{projective-resolution}{projective resolution} $P^\bdot \to M[0]$. Then we define
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}, assume that $\mathcal{A}$ has \textit{enough projectives}, and let $F \colon \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{right exact} functor. Take $M$ to be an object of $\mathcal{A}$ and pick a \tref{projective-resolution}{projective resolution} $P^\bdot \to M[0]$. Then we define
     \[ L_i F M = H^i(F(P^\bdot)) . \]
-    This is well-defined (independent of the chosen resolution) and yields additive functors $L_i F : \mathcal{A} \to \mathcal{B}$, called the \textbf{left derived functors} of $F$. Note that $L_0 F \isom F$.
+    This is well-defined (independent of the chosen resolution) and yields additive functors $L_i F \colon \mathcal{A} \to \mathcal{B}$, called the \textbf{left derived functors} of $F$. Note that $L_0 F \isom F$.
     
     For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$ there is an associated long exact sequence
     \[ \cdots \to L_2 FC \to L_1 FA \to L_1 FB \to L_1 FC \to FA \to FB \to FC \to 0 \]
 \end{topic}
 
 \begin{topic}{acyclic-object}{acyclic object}
-    Let $F : \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact functor} between \tref{abelian-category}{abelian categories}. An object $A$ of $\mathcal{A}$ is called \textbf{acyclic with respect to $F$}, or \textbf{$F$-acyclic}, if
+    Let $F \colon \mathcal{A} \to \mathcal{B}$ be a \tref{exact-functor}{left exact functor} between \tref{abelian-category}{abelian categories}. An object $A$ of $\mathcal{A}$ is called \textbf{acyclic with respect to $F$}, or \textbf{$F$-acyclic}, if
     \[ R^i F(A) = 0 \quad \textup{for all } i > 0, \]
     where $R^i F$ are the \tref{right-derived-functors}{right derived functors} of $F$.
     
-    Similarly, if $F : \mathcal{A} \to \mathcal{B}$ is a right exact functor, an object $A$ of $\mathcal{A}$ is \textbf{$F$-acyclic} if $L_i F(A) = 0$ for all $i > 0$, where $L_i F$ denote the \tref{left-derived-functors}{left derived functors} of $F$.
+    Similarly, if $F \colon \mathcal{A} \to \mathcal{B}$ is a right exact functor, an object $A$ of $\mathcal{A}$ is \textbf{$F$-acyclic} if $L_i F(A) = 0$ for all $i > 0$, where $L_i F$ denote the \tref{left-derived-functors}{left derived functors} of $F$.
 \end{topic}
 
 \begin{example}{acyclic-object}
-    Given a left (resp. right) exact functor $F : \mathcal{A} \to \mathcal{B}$ and an object $A$ of $\mathcal{A}$, an \textit{acyclic resolution} of $A$ is a resolution $0 \to A \to I^0 \to I^1 \to \cdots$ (resp. $\cdots \to P^1 \to P^0 \to A \to 0$) of $A$ where the $I^i$ (resp. $P^i$) are $F$-acyclic objects. The left (resp. right) derived functors can be computed as
+    Given a left (resp. right) exact functor $F \colon \mathcal{A} \to \mathcal{B}$ and an object $A$ of $\mathcal{A}$, an \textit{acyclic resolution} of $A$ is a resolution $0 \to A \to I^0 \to I^1 \to \cdots$ (resp. $\cdots \to P^1 \to P^0 \to A \to 0$) of $A$ where the $I^i$ (resp. $P^i$) are $F$-acyclic objects. The left (resp. right) derived functors can be computed as
     \[ R^i F(A) = H^i(F(I^\bdot)) \qquad \left(\textup{resp. } L_i F(A) = H^i(F(P^\bdot)) \right) . \]
 \end{example}
 
@@ -263,7 +263,7 @@
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{spectral sequence} in $\mathcal{A}$ (starting at page $a \in \ZZ$) is a collection of objects
     \[ (E_r^{p, q}, E^n) \qquad n, p, q, r \in \ZZ, r \ge a \]
     and morphisms
-    \[ d_r^{p, q} : E_r^{p, q} \to E_r^{p + r, q - r + 1} \]
+    \[ d_r^{p, q} \colon E_r^{p, q} \to E_r^{p + r, q - r + 1} \]
     satisfying
     \begin{itemize}
         \item $d_r^2 = 0$, that is, the $E_r^{p + \bdot r, q - \bdot r + \bdot}$ are complexes,
@@ -286,15 +286,15 @@
 
     The \textit{spectral sequence of the filtered complex} $C^\bdot$, used to approximate the cohomology $H^n(C^\bdot)$, is defined as follows. On page $r = 0$, one puts
     \[ E_0^{p, q} = \operatorname{Gr}_F^p(C^{p + q}) \]
-    with differential $d_0 : E_0^{p, q} \to E_0^{p, q + 1}$ given by the differential $d$ of $C^\bdot$. On page $r \ge 1$, one puts
+    with differential $d_0 \colon E_0^{p, q} \to E_0^{p, q + 1}$ given by the differential $d$ of $C^\bdot$. On page $r \ge 1$, one puts
     \[ \begin{aligned}
-        Z_r^{p, q} &= \ker (d : F^p C^{p + q} \to C^{p + q + 1} / F^{p + r} C^{p + q + 1}) \\
+        Z_r^{p, q} &= \ker (d \colon F^p C^{p + q} \to C^{p + q + 1} / F^{p + r} C^{p + q + 1}) \\
         B_r^{p, q} &= F^{p + 1} C^{p + q} + d(F^{p - r + 1} C^{p + q - 1}) \\
         E_r^{p, q} &= Z_r^{p, q} / (B_r^{p, q} \cap Z_r^{p, q})
     \end{aligned} \]
-    with differential $d_r$ induced by the differential $d : Z_r^{p, q} \to Z_r^{p + r, q - r + 1}$. On page $r = \infty$, one puts
+    with differential $d_r$ induced by the differential $d \colon Z_r^{p, q} \to Z_r^{p + r, q - r + 1}$. On page $r = \infty$, one puts
     \[ \begin{aligned}
-        Z_\infty^{p, q} &= \ker(d : F^p C^{p + q} \to K^{p + q + 1}) \\
+        Z_\infty^{p, q} &= \ker(d \colon F^p C^{p + q} \to K^{p + q + 1}) \\
         B_\infty^{p, q} &= F^{p + 1} C^{p + q} + d(K^{p + q + 1}) \\
         E_\infty^{p, q} &= Z_\infty^{p, q} / (B_\infty^{p, q} \cap Z_\infty^{p, q}) .
     \end{aligned} \]
@@ -357,7 +357,7 @@
             \node at (-8.75, 0.7) {$q$};
         \end{tikzpicture}
     \end{array} \]
-    Since this page must also converge to zero, the map $\delta : \ker(\coker a \to \coker b) \to \ker c / \ker b$ must be an isomorphism, and its inverse can be used to define the connecting homomorphism $d : \ker c \to \coker a$ making
+    Since this page must also converge to zero, the map $\delta \colon \ker(\coker a \to \coker b) \to \ker c / \ker b$ must be an isomorphism, and its inverse can be used to define the connecting homomorphism $d \colon \ker c \to \coker a$ making
     \[ 0 \to \ker a \rightarrow \ker b \rightarrow \ker c \xrightarrow{d} \coker a \rightarrow \coker b \rightarrow \coker c \to 0 \]
     exact.
 \end{example}
@@ -388,7 +388,7 @@
 
 \begin{topic}{ext-functors}{Ext functors}
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $A$ an object of $\mathcal{A}$. The functor
-    \[ \Hom_{\mathcal{A}}(A, -) : \mathcal{A} \to \textbf{Ab} \]
+    \[ \Hom_{\mathcal{A}}(A, -) \colon \mathcal{A} \to \textbf{Ab} \]
     is \tref{exact-functor}{left exact}, so (if $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}) it has \tref{right-derived-functors}{right derived functors}, which are known as the \textbf{Ext functors}
     \[ \textup{Ext}^i_\mathcal{A}(A, B) = R^i \Hom_\mathcal{A}(A, B) . \]
 \end{topic}
@@ -403,9 +403,9 @@
 \begin{example}{ext-functors}
     For $n > 0$, elements of the Ext group $\textup{Ext}^n(A, B)$ correspond to extensions
     \[ 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 . \]
-    Consider the case $n = 1$. Let $P^\bdot \to A$ (call the differential maps $\pi_i$) be a projective resolution of $A$, so that $\textup{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))$. This is the group of maps $g : P^1 \to B$ such that $g \circ \pi_2 = 0$, modulo all maps of the form $f \circ \pi_0$ for $f : A \to B$. Now we can construct the pushout
+    Consider the case $n = 1$. Let $P^\bdot \to A$ (call the differential maps $\pi_i$) be a projective resolution of $A$, so that $\textup{Ext}^1(A, B) = H^1(\Hom(P^\bdot, B))$. This is the group of maps $g \colon P^1 \to B$ such that $g \circ \pi_2 = 0$, modulo all maps of the form $f \circ \pi_0$ for $f \colon A \to B$. Now we can construct the pushout
     \[ E_0 = P^0 \oplus B / \{ \pi_1(q) = g(q) \text{ for } q \in P^1 \} . \]
-    Note that $g$ descends to $\overline{g} : P^0 \to B$, and that the maps $B \to E_0$, $b \mapsto (b, 0)$ and $E_0 \to A, (b, p) \mapsto \pi_0(p)$ are well-defined (the latter as $\pi_0 \pi_1 = 0$), and respectively injective and surjective. It is not hard to prove exactness in the middle, so we get an extension
+    Note that $g$ descends to $\overline{g} \colon P^0 \to B$, and that the maps $B \to E_0$, $b \mapsto (b, 0)$ and $E_0 \to A, (b, p) \mapsto \pi_0(p)$ are well-defined (the latter as $\pi_0 \pi_1 = 0$), and respectively injective and surjective. It is not hard to prove exactness in the middle, so we get an extension
     \[ 0 \to B \to E_0 \to A \to 0 . \]
     In particular, the trivial element in $\textup{Ext}^1(A, B)$ yields the trivial extension
     \[ 0 \to A \to A \oplus B \to B \to 0 . \]
@@ -413,7 +413,7 @@
 
 \begin{topic}{tor-functors}{Tor functors}
     For a \tref{AA:ring}{commutative ring} $R$ and an $R$-module $B$, the \tref{AA:tensor-product}{tensor product} gives a functor
-    \[ (-) \otimes_R B : R\textbf{-Mod} \to R\textbf{-Mod} \]
+    \[ (-) \otimes_R B \colon R\textbf{-Mod} \to R\textbf{-Mod} \]
     which is \tref{exact-functor}{right exact}, so it has \tref{left-derived-functors}{left derived functors}, which are known as the \textbf{Tor functors}
     \[ \textup{Tor}^R_i(A, B) = A \overset{L_i}{\otimes} B . \]
 \end{topic}
@@ -429,7 +429,7 @@
     Let $C_\bdot$ and $D_\bdot$ be \tref{chain-complex}{chain complexes} with values in an \tref{additive-category}{additive category} $\mathcal{A}$. The \textbf{mapping complex} associated to $C_\bdot$ and $D_\bdot$ is the chain complex $[C, D] _\bdot$ given by
     \[ [C, D]_n = \prod_{k \in \ZZ} \Hom_\mathcal{A}(C_k, D_{k + n}) \]
     and with differentials
-    \[ \partial_n : [C, D]_n \to [C, D]_{n - 1}, \quad (f_k)_{k \in \ZZ} \mapsto \left(\partial_D \circ f_k - (-1)^n f_{k - 1} \circ \partial_C \right)_{k \in \ZZ} . \]
+    \[ \partial_n \colon [C, D]_n \to [C, D]_{n - 1}, \quad (f_k)_{k \in \ZZ} \mapsto \left(\partial_D \circ f_k - (-1)^n f_{k - 1} \circ \partial_C \right)_{k \in \ZZ} . \]
 \end{topic}
 
 \begin{topic}{composition-series}{composition series}
@@ -477,17 +477,17 @@
     induced by $\Hom_\mathcal{A}(B, C) \otimes \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{A}(A, C)$, $f \otimes g \mapsto f \circ g$.
     
     In terms of extensions
-    \[ \xi : 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
-    \[ \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to B \to 0 \]
+    \[ \xi \colon 0 \to B \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
+    \[ \eta \colon 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to B \to 0 \]
     the Yoneda cup product is given by
-    \[ \xi \smile \eta : 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
+    \[ \xi \smile \eta \colon 0 \to C \to F_0 \to \cdots \to F_{m - 1} \to E_0 \to \cdots \to E_{n - 1} \to A \to 0 \]
     in $\textup{Ext}_\mathcal{A}^{m + n}(A, C)$.
 \end{topic}
 
 \begin{example}{yoneda-product}
-    For $n = 0$ and $m = 1$, we have that the product of $f : A \to B$ in $\textup{Ext}^0(A, B) = \Hom(A, B)$ and $\eta : 0 \to C \to F_0 \to B \to 0$ in $\textup{Ext}^1(B, C)$ is the \textit{pullback}
+    For $n = 0$ and $m = 1$, we have that the product of $f \colon A \to B$ in $\textup{Ext}^0(A, B) = \Hom(A, B)$ and $\eta \colon 0 \to C \to F_0 \to B \to 0$ in $\textup{Ext}^1(B, C)$ is the \textit{pullback}
     \[ 0 \to C \to F_0 \oplus_B A \to A \to 0 . \]
-    Similarly, for $n = 1$ and $m = 0$, the product of $0 \to B \to E_0 \to A \to 0$ in $\textup{Ext}^1(A, B)$ and $g : B \to C$ in $\textup{Ext}^0(B, C) = \Hom(B, C)$ is the \textit{pushout}
+    Similarly, for $n = 1$ and $m = 0$, the product of $0 \to B \to E_0 \to A \to 0$ in $\textup{Ext}^1(A, B)$ and $g \colon B \to C$ in $\textup{Ext}^0(B, C) = \Hom(B, C)$ is the \textit{pushout}
     \[ 0 \to C \to C \oplus_B E_0 \to A \to 0 . \]
     It is not hard to verify these sequences are indeed exact. 
 \end{example}
@@ -512,19 +512,19 @@
 \end{example}
 
 \begin{example}{homological-dimension}
-    Knowing the global homological dimension $n$ of a category $\mathcal{A}$ is useful, as it follows that for any \tref{exact-functor}{right exact functor} $F : \mathcal{A} \to \mathcal{B}$ the \tref{left-derived-functors}{left derived functors} $L^i F A$ are zero for all $A$ in $\mathcal{A}$ and $i > n$.
+    Knowing the global homological dimension $n$ of a category $\mathcal{A}$ is useful, as it follows that for any \tref{exact-functor}{right exact functor} $F \colon \mathcal{A} \to \mathcal{B}$ the \tref{left-derived-functors}{left derived functors} $L^i F A$ are zero for all $A$ in $\mathcal{A}$ and $i > n$.
     
     In particular, for $F = \Hom_\mathcal{A}(-, B)$ we find $\textup{Ext}_\mathcal{A}^i(A, B) = 0$ for all $A, B$ in $\mathcal{A}$ and $i > n$.
 \end{example}
 
 \begin{topic}{grothendieck-spectral-sequence}{Grothendieck spectral sequence}
-    Let $F : \mathcal{A} \to \mathcal{B}$ and $G : \mathcal{B} \to \mathcal{C}$ be \tref{exact-functor}{left exact functors} between \tref{abelian-category}{abelian categories}, such that $\mathcal{A}$ and $\mathcal{B}$ have \tref{enough-injectives}{enough injectives}, and $F$ maps \tref{injective-object}{injective objects} to \tref{acyclic-object}{$G$-acyclic objects}. Then there is a \tref{spectral-sequence}{spectral sequence}
+    Let $F \colon \mathcal{A} \to \mathcal{B}$ and $G \colon \mathcal{B} \to \mathcal{C}$ be \tref{exact-functor}{left exact functors} between \tref{abelian-category}{abelian categories}, such that $\mathcal{A}$ and $\mathcal{B}$ have \tref{enough-injectives}{enough injectives}, and $F$ maps \tref{injective-object}{injective objects} to \tref{acyclic-object}{$G$-acyclic objects}. Then there is a \tref{spectral-sequence}{spectral sequence}
     \[ E_2^{p, q} = (R^p G \circ R^q F)(A) \Rightarrow R^{p + q}(G \circ F)(A) , \]
     called the \textbf{Grothendieck spectral sequence}.
 \end{topic}
 
 \begin{topic}{leray-spectral-sequence}{Leray spectral sequence}
-    Let $X$ and $Y$ be \tref{TO:topological-space}{topological spaces} and $f : X \to Y$ a continuous map. For a \tref{AG:sheaf}{sheaf} $\mathcal{F}$ on $X$, there exists a \tref{spectral-sequence}{spectral sequence}
+    Let $X$ and $Y$ be \tref{TO:topological-space}{topological spaces} and $f \colon X \to Y$ a continuous map. For a \tref{AG:sheaf}{sheaf} $\mathcal{F}$ on $X$, there exists a \tref{spectral-sequence}{spectral sequence}
     \[ E_2^{p, q} = H^p(Y, R^q f_* \mathcal{F}) \Rightarrow H^{p + q}(X, \mathcal{F}) \]
     called the \textbf{Leray spectral sequence}. It is a special case of the \tref{grothendieck-spectral-sequence}{Grothendieck spectral sequence}.
 \end{topic}
@@ -546,14 +546,14 @@
 \end{topic}
 
 \begin{topic}{mapping-cone}{mapping cone}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $f : A^\bdot \to B^\bdot$ a morphism between \tref{chain-complex}{cochain complexes} in $\mathcal{A}$. The \textbf{mapping cone} of $f$ is the complex $C(f)$ in $\mathcal{A}$ given by
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}, and $f \colon A^\bdot \to B^\bdot$ a morphism between \tref{chain-complex}{cochain complexes} in $\mathcal{A}$. The \textbf{mapping cone} of $f$ is the complex $C(f)$ in $\mathcal{A}$ given by
     \[ C(f)^i = A^{i + 1} \oplus B^i , \]
     with differential
     \[ d_{C(f)}^i = \begin{pmatrix} -d_A^{i + 1} & 0 \\ f^{i + 1} & d_B^i \end{pmatrix} . \]    
 \end{topic}
 
 \begin{example}{mapping-cone}
-    Let $f : X \to Y$ be a \tref{TO:continuous-map}{continuous map} between \tref{TO:topological-space}{topological spaces}. Then the mapping cone $C(f_*)$ of the induced morphism $f_* : C_\bdot(X; \ZZ) \to C_\bdot(Y; \ZZ)$ between \tref{AT:singular-homology}{singular complexes} of $X$ and $Y$ is \tref{chain-homotopy-equivalence}{homotopy equivalent} to the singular complex of the \tref{mapping-cone}{mapping cone} of $f$.
+    Let $f \colon X \to Y$ be a \tref{TO:continuous-map}{continuous map} between \tref{TO:topological-space}{topological spaces}. Then the mapping cone $C(f_*)$ of the induced morphism $f_* \colon C_\bdot(X; \ZZ) \to C_\bdot(Y; \ZZ)$ between \tref{AT:singular-homology}{singular complexes} of $X$ and $Y$ is \tref{chain-homotopy-equivalence}{homotopy equivalent} to the singular complex of the \tref{mapping-cone}{mapping cone} of $f$.
 \end{example}
 
 \begin{topic}{enough-injectives}{enough injectives}
@@ -579,8 +579,8 @@
 \end{example}
 
 \begin{topic}{delta-functor}{delta-functor}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}. A \textbf{homological $\delta$-functor} from $\mathcal{A}$ to $\mathcal{B}$ is a collection of \tref{additive-functor}{additive functors} $T_n : \mathcal{A} \to \mathcal{B}$ for $n \ge 0$, together with morphisms
-    \[ \delta_n : T_n(C) \to T_{n - 1}(A) \]
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{abelian-category}{abelian categories}. A \textbf{homological $\delta$-functor} from $\mathcal{A}$ to $\mathcal{B}$ is a collection of \tref{additive-functor}{additive functors} $T_n \colon \mathcal{A} \to \mathcal{B}$ for $n \ge 0$, together with morphisms
+    \[ \delta_n \colon T_n(C) \to T_{n - 1}(A) \]
     for each \tref{exact-sequence}{short exact sequence} $0 \to A \to B \to C \to 0$ in $\mathcal{A}$, satisfying the following conditions.
     \begin{itemize}
         \item For each short exact sequence $0 \to A \to B \to C \to 0$ in $\mathcal{A}$, there is a long exact sequence
@@ -589,7 +589,7 @@
         \[ \svg \begin{tikzcd} T_n(C') \arrow{r}{\delta_n} \arrow{d} & T_{n - 1}(A') \arrow{d} \\ T_n(C) \arrow{r}{\delta_n} & T_{n - 1}(A) \end{tikzcd} \]
         commutes.
     \end{itemize}
-    Similarly, a \textbf{cohomological $\delta$-functor} is a collection of additive functors $T^n : \mathcal{A} \to \mathcal{B}$ for $n \ge 0$, together with morphisms $\delta^n : T^n(C) \to T^{n + 1}(A)$ for each short exact sequence $0 \to A \to B \to C \to 0$, satisfying the dual conditions.
+    Similarly, a \textbf{cohomological $\delta$-functor} is a collection of additive functors $T^n \colon \mathcal{A} \to \mathcal{B}$ for $n \ge 0$, together with morphisms $\delta^n \colon T^n(C) \to T^{n + 1}(A)$ for each short exact sequence $0 \to A \to B \to C \to 0$, satisfying the dual conditions.
 \end{topic}
 
 \begin{example}{delta-functor}
@@ -601,8 +601,8 @@
 
 \begin{topic}{group-cohomology}{group cohomology}
     Let $G$ be a \tref{GT:group}{group}, and $M$ an \tref{GT:abelian-group}{abelian group} with an action of $G$. Let $C^\bdot(G, M)$ be the \tref{chain-complex}{cochain complex} given by
-    \[ C^n(G, M) = \{ \textup{functions } f : G^n \to M \} \]
-    with differentials $d^n : C^n(G, M) \to C^{n + 1}(G, M)$ given by
+    \[ C^n(G, M) = \{ \textup{functions } f \colon G^n \to M \} \]
+    with differentials $d^n \colon C^n(G, M) \to C^{n + 1}(G, M)$ given by
     \[ \begin{aligned} (d^n f)(g_1, \ldots, g_{n + 1}) &= g_1 f(g_2, \ldots, g_{n + 1}) + \sum_{i = 1}^{n} (-1)^i f(g_1, \ldots, g_{i - 1}, g_i g_{i + 1}, \ldots, g_{n + 1}) \\ &\qquad + (-1)^{n + 1} f(g_1, \ldots, g_n) . \end{aligned} \]
     The \textbf{group cohomology} of $G$ with coefficients in $M$ are the \tref{homology-object}{cohomology groups}
     \[ H^i(G, M) = H^i(C^\bdot(G, M)) . \]
@@ -614,7 +614,7 @@
         \item (\textit{degree $0$}) For any $m \in M$ we have $(d^0(m))(g) = gm - m$, so
         \[ H^0(G, M) = \ker d^0 = \{ m \in M : gm - m = 0 \textup{ for all } g \in G \} = M^G \]
         is the $G$-invariant submodule of $M$.
-        \item (\textit{degree $1$}) Functions $f : G \to M$ such that $f(g_1 g_2) = f(g_1) + g_1 f(g_2)$ for all $g_1, g_2 \in G$ are called \textit{crossed homomorphisms}. Functions $f : G \to M$ of the form $f(g) = gm - m$ for some $m \in M$ are called \textit{principal homomorphisms}. Note that $\ker d^1$ and $\im d^0$ are precisely the sets of crossed and principal homomorphisms, respectively. Therefore, $H^1(G, M)$ is the set of crossed homomorphisms modulo the set of principal homomorphisms.
+        \item (\textit{degree $1$}) Functions $f \colon G \to M$ such that $f(g_1 g_2) = f(g_1) + g_1 f(g_2)$ for all $g_1, g_2 \in G$ are called \textit{crossed homomorphisms}. Functions $f \colon G \to M$ of the form $f(g) = gm - m$ for some $m \in M$ are called \textit{principal homomorphisms}. Note that $\ker d^1$ and $\im d^0$ are precisely the sets of crossed and principal homomorphisms, respectively. Therefore, $H^1(G, M)$ is the set of crossed homomorphisms modulo the set of principal homomorphisms.
         
         In particular, if $G$ acts trivially on $M$, every principal homomorphism is trivial, and crossed homomorphisms correspond to group homomorphisms $G \to M$, so that $H^1(G, M) \isom \Hom(G, M)$.
     \end{itemize}
@@ -628,7 +628,7 @@
     To compute these Ext groups, we take a free resolution of $\ZZ$ as a $\ZZ[G]$-module,
     \[ \cdots \xrightarrow{d_3} F_2 \xrightarrow{d_2} F_1 \xrightarrow{d_1} F_0 \xrightarrow{d_0} \ZZ \to 0 , \]
     with $F_n = \ZZ[G^{n + 1}]$ and differentials given by
-    \[ d_n : F_n \to F_{n - 1}, \quad (g_0, \ldots, g_n) \mapsto \sum_{i = 0}^{n} (-1)^i (g_0, \ldots, \widehat{g}_i, \ldots, g_n) . \]
+    \[ d_n \colon F_n \to F_{n - 1}, \quad (g_0, \ldots, g_n) \mapsto \sum_{i = 0}^{n} (-1)^i (g_0, \ldots, \widehat{g}_i, \ldots, g_n) . \]
     Applying $\Hom_{\ZZ[G]}(-, M)$ now gives the (co)complex
     \[ \cdots \xleftarrow{\partial^{n + 1}} \Hom_{\ZZ[G]}(F_{n + 1}, M) \xleftarrow{\partial^n} \Hom_{\ZZ[G]}(F_n, M) \xleftarrow{\partial^{n - 1}} \cdots \xleftarrow{\partial^0} \Hom_{\ZZ[G]}(F_0, M) \leftarrow 0 \]
     with differentials
@@ -642,14 +642,14 @@
 \end{example}
 
 \begin{topic}{contractible-chain-complex}{contractible chain complex}
-    A \tref{chain-complex}{chain complex} $C^\bdot$ is \textbf{contractible} if it is \tref{chain-homotopy-equivalence}{homotopy equivalent} to the zero complex. That is, there exist a collection of morphisms $k^i : C^i \to C^{i - 1}$, with $i \in \ZZ$, such that
+    A \tref{chain-complex}{chain complex} $C^\bdot$ is \textbf{contractible} if it is \tref{chain-homotopy-equivalence}{homotopy equivalent} to the zero complex. That is, there exist a collection of morphisms $k^i \colon C^i \to C^{i - 1}$, with $i \in \ZZ$, such that
     \[ d^{i - 1} k^i + k^{i + 1} d^i = \id_{C^i} . \]
 \end{topic}
 
 \begin{example}{contractible-chain-complex}
     The complex
     \[ \cdots \to 0 \to \ZZ \xrightarrow{\id} \ZZ \to 0 \to \cdots \]
-    is contractible, which follows from taking $k^0 : \ZZ \to \ZZ$ to be the identity.
+    is contractible, which follows from taking $k^0 \colon \ZZ \to \ZZ$ to be the identity.
     
     Note that any contractible complex has zero \tref{homology-object}{homology}, since homotopy equivalences preserve homology. However, not every complex with zero homology is contractible. Namely, the complex
     \[ \cdots \to 0 \to \ZZ \xrightarrow{\cdot 2} \ZZ \to \ZZ / 2\ZZ \to 0 \to \cdots \]
@@ -675,19 +675,19 @@
     \begin{itemize}
         \item arbitrary direct sums exist in $\mathcal{A}$,
         \item \tref{CT:direct-limit}{direct limits} of short exact sequences in $\mathcal{A}$ are again short exact,
-        \item $\mathcal{A}$ has a \textit{generator}, that is, there exists an object $G$ in $\mathcal{A}$ such that the \tref{CT:functor}{functor} $\Hom_\mathcal{A}(G, -) : \mathcal{A} \to \textbf{Set}$ is \tref{CT:faithful-functor}{faithful}.
+        \item $\mathcal{A}$ has a \textit{generator}, that is, there exists an object $G$ in $\mathcal{A}$ such that the \tref{CT:functor}{functor} $\Hom_\mathcal{A}(G, -) \colon \mathcal{A} \to \textbf{Set}$ is \tref{CT:faithful-functor}{faithful}.
     \end{itemize}
 \end{topic}
 
 \begin{topic}{effaceable-functor}{effaceable functor}
-    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. Then $F$ is \textbf{effaceable} if for every object $A$ of $\mathcal{A}$ there exists a \tref{CT:monomorphism}{monomorphism} $m : A \to A'$ such that $F(m) = 0$.
+    Let $F \colon \mathcal{A} \to \mathcal{B}$ be an \tref{additive-functor}{additive functor} between \tref{abelian-category}{abelian categories}. Then $F$ is \textbf{effaceable} if for every object $A$ of $\mathcal{A}$ there exists a \tref{CT:monomorphism}{monomorphism} $m \colon A \to A'$ such that $F(m) = 0$.
 \end{topic}
 
 \begin{example}{effaceable-functor}
     If $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}, then $F$ is effaceable if and only if $F(I) = 0$ for all \tref{injective-object}{injective objects} $I$ of $\mathcal{A}$.
     \begin{proof}
-        $(\Leftarrow)$ As $\mathcal{A}$ has enough injectives, for any $A$ of $\mathcal{A}$, there exists a monomorphism $m : A \to I$ with $I$ injective. Since $F(I) = 0$, also $F(m) = 0$.
-        $(\Rightarrow)$ Let $I$ be an injective object of $\mathcal{A}$. Since $F$ is effaceable, there exists a monomorphism $m : I \to J$, and by injectivity of $I$, there exists a map $h : J \to I$ such that $hm = \id_I$. Now $F(\id_I) = F(h) \circ F(m) = F(h) \circ 0 = 0$, so $F(I) = 0$.
+        $(\Leftarrow)$ As $\mathcal{A}$ has enough injectives, for any $A$ of $\mathcal{A}$, there exists a monomorphism $m \colon A \to I$ with $I$ injective. Since $F(I) = 0$, also $F(m) = 0$.
+        $(\Rightarrow)$ Let $I$ be an injective object of $\mathcal{A}$. Since $F$ is effaceable, there exists a monomorphism $m \colon I \to J$, and by injectivity of $I$, there exists a map $h \colon J \to I$ such that $hm = \id_I$. Now $F(\id_I) = F(h) \circ F(m) = F(h) \circ 0 = 0$, so $F(I) = 0$.
     \end{proof}
 \end{example}
 
@@ -719,7 +719,7 @@
 \end{topic}
 
 \begin{topic}{deligne-tensor-product}{Deligne tensor product}
-    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{finite-abelian-category}{finite} \tref{abelian-category}{abelian categories} over a field $k$. The \textbf{Deligne tensor product} of $\mathcal{A}$ and $\mathcal{B}$ is a finite abelian category $\mathcal{A} \boxtimes \mathcal{B}$ together with a bifunctor $\boxtimes : \mathcal{A} \times \mathcal{B} \to \mathcal{A} \boxtimes \mathcal{B}$ that is \tref{exact-functor}{right exact} in both variables, which is universal in the sense that for every bifunctor $F : \mathcal{A} \times \mathcal{B} \to \mathcal{C}$ which is right exact in both variables, there exists a unique right exact functor $G : \mathcal{A} \boxtimes \mathcal{B} \to \mathcal{C}$ and a unique \tref{CT:natural-transformation}{natural} isomorphism that $F \isom G \circ \boxtimes$.
+    Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{finite-abelian-category}{finite} \tref{abelian-category}{abelian categories} over a field $k$. The \textbf{Deligne tensor product} of $\mathcal{A}$ and $\mathcal{B}$ is a finite abelian category $\mathcal{A} \boxtimes \mathcal{B}$ together with a bifunctor $\boxtimes \colon \mathcal{A} \times \mathcal{B} \to \mathcal{A} \boxtimes \mathcal{B}$ that is \tref{exact-functor}{right exact} in both variables, which is universal in the sense that for every bifunctor $F \colon \mathcal{A} \times \mathcal{B} \to \mathcal{C}$ which is right exact in both variables, there exists a unique right exact functor $G \colon \mathcal{A} \boxtimes \mathcal{B} \to \mathcal{C}$ and a unique \tref{CT:natural-transformation}{natural} isomorphism that $F \isom G \circ \boxtimes$.
     \[ \svg \begin{tikzcd}
         \mathcal{A} \times \mathcal{B} \arrow{r}{\boxtimes} \arrow[swap]{dr}{F} & \mathcal{A} \boxtimes \mathcal{B} \arrow[dashed]{d}{G} \\
         & \mathcal{C}
@@ -737,7 +737,7 @@
 \end{example}
 
 \begin{topic}{double-complex}{double complex}
-    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{double complex} $A_{\bdot, \bdot}$ in $\mathcal{A}$ is a sequence of objects $A_{i, j}$ in $\mathcal{A}$, for $i, j \in \ZZ$, together with horizontal and vertical morphisms $d^h_{i, j} : A_{i, j} \to A_{i - 1, j}$ and $d^v_{i, j} : A_{i, j} \to A_{i, j - 1}$, satisfying
+    Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category}. A \textbf{double complex} $A_{\bdot, \bdot}$ in $\mathcal{A}$ is a sequence of objects $A_{i, j}$ in $\mathcal{A}$, for $i, j \in \ZZ$, together with horizontal and vertical morphisms $d^h_{i, j} \colon A_{i, j} \to A_{i - 1, j}$ and $d^v_{i, j} \colon A_{i, j} \to A_{i, j - 1}$, satisfying
     \[ (d^h)^2 = (d^v)^2 = d^h d^v - d^v d^h = 0 . \]
     \[ \svg \begin{tikzcd}
         & \vdots \arrow{d} & \vdots \arrow{d} & \\
@@ -751,7 +751,7 @@
     Let $\mathcal{A}$ be an \tref{abelian-category}{abelian category} and $(A_{\bdot, \bdot}, d^h, d^v)$ a \tref{double-complex}{double complex} in $\mathcal{A}$. The \textbf{total complex} of $A_{\bdot, \bdot}$ is the \tref{chain-complex}{chain complex} $(A_\bdot, d)$ with
     \[ A_n = \bigoplus_{i + j = n} A_{i, j} \]
     and
-    \[ d_n = \bigoplus_{i + j = n} d^v_{i, j} + (-1)^j d^h_{i, j} : A_n \to A_{n - 1} . \]
+    \[ d_n = \bigoplus_{i + j = n} d^v_{i, j} + (-1)^j d^h_{i, j} \colon A_n \to A_{n - 1} . \]
 \end{topic}
 
 \begin{topic}{kunneth-formula}{Künneth formula}
@@ -779,7 +779,7 @@
 \end{topic}
 
 \begin{topic}{hypercohomology}{hypercohomology}
-    Let $F : \mathcal{A} \to \mathcal{B}$ be an \tref{exact-functor}{exact functor} between \tref{abelian-category}{abelian categories}, and suppose $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}. For any \tref{chain-complex}{cochain complex} $A^\bdot$ in $\mathcal{A}$, the \textbf{hypercohomology} of $A^\bdot$, denoted
+    Let $F \colon \mathcal{A} \to \mathcal{B}$ be an \tref{exact-functor}{exact functor} between \tref{abelian-category}{abelian categories}, and suppose $\mathcal{A}$ has \tref{enough-injectives}{enough injectives}. For any \tref{chain-complex}{cochain complex} $A^\bdot$ in $\mathcal{A}$, the \textbf{hypercohomology} of $A^\bdot$, denoted
     \[ \mathbb{H}^i(A^\bdot) \]
     is given by the \tref{homology-object}{cohomology} $H^i(F(I^\bdot))$ for any injective resolution $I^\bdot$ of $A^\bdot$, that is, $I^\bdot$ is a complex of injective objects in $\mathcal{A}$ which is \tref{quasi-isomorphism}{quasi-isomorphic} to $A^\bdot$.
 \end{topic}

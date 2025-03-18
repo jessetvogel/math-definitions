@@ -17,7 +17,7 @@
 \end{example}
 
 \begin{topic}{sufficient-statistic}{sufficient statistic}
-    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) : \Omega \to (E, \mathcal{E})$ is \textbf{sufficient} for $\theta$ if, for any $B \in \mathcal{E}$, the \tref{conditional-probability-distribution}{conditional probability distribution} of $(X_1, \ldots, X_n)$ given $B$ is independent of $\theta$.
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) \colon \Omega \to (E, \mathcal{E})$ is \textbf{sufficient} for $\theta$ if, for any $B \in \mathcal{E}$, the \tref{conditional-probability-distribution}{conditional probability distribution} of $(X_1, \ldots, X_n)$ given $B$ is independent of $\theta$.
 
     A sufficient statistic $T(X_1, \ldots, X_n)$ for $\theta$ is \textbf{minimal sufficient} if, for any other sufficient statistic $T'(X_1, \ldots, X_n)$ for $\theta$, the statistic $T(X_1, \ldots, X_n)$ can be expressed as a function of $T'(X_1, \ldots, X_n)$.
 \end{topic}
@@ -40,11 +40,11 @@
 \end{example}
 
 \begin{topic}{ancillary-statistic}{ancillary statistic}
-    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) : \Omega \to (E, \mathcal{E})$ is \textbf{ancillary} for $\theta$ if its \tref{probability-distribution}{probability distribution} is independent of $\theta$.
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) \colon \Omega \to (E, \mathcal{E})$ is \textbf{ancillary} for $\theta$ if its \tref{probability-distribution}{probability distribution} is independent of $\theta$.
 \end{topic}
 
 \begin{topic}{complete-statistic}{complete statistic}
-    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) : \Omega \to (E, \mathcal{E})$ is \textbf{complete} for $\theta$ if, for all measurable functions $g : E \to \RR$,
+    Let $X_1, \ldots, X_n$ be a \tref{random-sample}{random sample} from a population $F_\theta$ depending on some parameter $\theta$. A \tref{statistic}{statistic} $T(X_1, \ldots, X_n) \colon \Omega \to (E, \mathcal{E})$ is \textbf{complete} for $\theta$ if, for all measurable functions $g \colon E \to \RR$,
     \[ \EE_\theta(g(T)) = 0 \textup{ for all } \theta \textup{ implies } \PP_\theta(g(T) = 0) = 1 \textup{ for all } \theta . \]
 \end{topic}
 
@@ -208,7 +208,7 @@
 \end{example}
 
 \begin{topic}{power-function-hypothesis-test}{power function of hypothesis test}
-    The \textbf{power function} of a \tref{hypothesis-test}{hypothesis test} with rejection region $R$ is the function $\beta : \Theta \to \RR$ on the parameter space $\Theta$ given by
+    The \textbf{power function} of a \tref{hypothesis-test}{hypothesis test} with rejection region $R$ is the function $\beta \colon \Theta \to \RR$ on the parameter space $\Theta$ given by
     \[ \beta(\theta) = \PP_\theta(X^{-1}(R)) . \]
     The hypothesis test is said to have \textit{size $\alpha$} if $\sup_{\theta \in \Theta_0} \beta(\theta) = \alpha$.
 

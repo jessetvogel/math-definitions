@@ -1,14 +1,14 @@
 \begin{topic}{categorical-quotient}{categorical quotient}
-    Let $G$ be a \tref{group-scheme}{group scheme} acting on a \tref{scheme}{scheme} $X$ via $\sigma : G \times X \to X$. A \textbf{categorical quotient} for the action is a morphism $\pi : X \to Y$ such that
+    Let $G$ be a \tref{group-scheme}{group scheme} acting on a \tref{scheme}{scheme} $X$ via $\sigma \colon G \times X \to X$. A \textbf{categorical quotient} for the action is a morphism $\pi \colon X \to Y$ such that
     \[ \svg \begin{tikzcd} G \times_S X \arrow[shift left=0.25em]{r}{\sigma} \arrow[swap,shift right=0.25em]{r}{\pi_X} & X \arrow{r}{\pi} & Y \end{tikzcd} \]
-    is a coequalizer diagram. That is, the diagram commutes and for every $f : X \to Z$ with $f \circ \sigma = f \circ \pi_X$ there exists a unique $g : Y \to Z$ such that $f = g \circ \pi$. Note that a categorical quotient (if it exists) is unique up to unique isomorphism.
+    is a coequalizer diagram. That is, the diagram commutes and for every $f \colon X \to Z$ with $f \circ \sigma = f \circ \pi_X$ there exists a unique $g \colon Y \to Z$ such that $f = g \circ \pi$. Note that a categorical quotient (if it exists) is unique up to unique isomorphism.
 \end{topic}
 
 \begin{topic}{geometric-quotient}{geometric quotient}
-    Let $G$ be a \tref{group-scheme}{group scheme} acting on a \tref{scheme}{scheme} $X$ via $\sigma : G \times X \to X$. A \textbf{geometric quotient} for the action is a morphism $\pi : X \to Y$ satisfying
+    Let $G$ be a \tref{group-scheme}{group scheme} acting on a \tref{scheme}{scheme} $X$ via $\sigma \colon G \times X \to X$. A \textbf{geometric quotient} for the action is a morphism $\pi \colon X \to Y$ satisfying
     \begin{enumerate}[label=(\roman*)]
         \item $\pi \circ \sigma = \pi \circ \pi_X$,
-        \item $\pi$ is surjective, and the image of $\Psi = (\sigma, \pi_X) : G \times X \to X \times X$ is $X \times_Y X$ (or equivalently, the geometric fibers of $\pi$ are precisely the orbits of the geometric points of $X$),
+        \item $\pi$ is surjective, and the image of $\Psi = (\sigma, \pi_X) \colon G \times X \to X \times X$ is $X \times_Y X$ (or equivalently, the geometric fibers of $\pi$ are precisely the orbits of the geometric points of $X$),
         \item $\pi$ is \textit{submersive}, i.e. a subset $U \subset Y$ is open iff $\pi^{-1}(U) \subset X$ is open (i.e. $Y$ has a \tref{TO:quotient-topology}{quotient topology}),
         \item the structure sheaf $\mathcal{O}_Y$ is the subsheaf of $\pi_* \mathcal{O}_X$ consisting of invariant functions, i.e. if $\alpha \in \pi_* \mathcal{O}_X(U) = \mathcal{O}_X(\pi^{-1}(U))$ then $\alpha \in \mathcal{O}_Y(U)$ if and only if
         \[ \svg \begin{tikzcd} G \times \pi^{-1}(U) \arrow{r}{\sigma} \arrow[swap]{d}{\pi_2} & \pi^{-1}(U) \arrow{d}{\alpha} \\ \pi^{-1}(U) \arrow{r}{\alpha} & \AA^1 \end{tikzcd} \]
@@ -17,23 +17,23 @@
 \end{topic}
 
 \begin{example}{geometric-quotient}
-    Let $X = \AA^n - \{ 0 \}$ and $G = \GG_m$ act on $X$ by scaling the coordinates. Then the map $\pi : \AA^n - \{ 0 \} \to \PP^{n - 1}$ is a geometric quotient.
+    Let $X = \AA^n - \{ 0 \}$ and $G = \GG_m$ act on $X$ by scaling the coordinates. Then the map $\pi \colon \AA^n - \{ 0 \} \to \PP^{n - 1}$ is a geometric quotient.
     
-    If we instead take $X = \AA^n$ with $G = \GG_m$ acting on $X$ by scaling the coordinates, then the map $\pi' : \AA^n \to \{ \star \}$ is a \tref{categorical-quotient}{categorical quotient}, but not a geometric quotient: the only geometric fiber of $\pi'$ is the whole of $X$, but this is not the orbit of any geometric point of $X$. To be more precise, the image of $\Psi : (g, x) \mapsto (g \cdot x, x)$ is not the whole of $\AA^n \times \AA^n$.
+    If we instead take $X = \AA^n$ with $G = \GG_m$ acting on $X$ by scaling the coordinates, then the map $\pi' \colon \AA^n \to \{ \star \}$ is a \tref{categorical-quotient}{categorical quotient}, but not a geometric quotient: the only geometric fiber of $\pi'$ is the whole of $X$, but this is not the orbit of any geometric point of $X$. To be more precise, the image of $\Psi : (g, x) \mapsto (g \cdot x, x)$ is not the whole of $\AA^n \times \AA^n$.
 \end{example}
 
 \begin{example}{geometric-quotient}
-    A geometric quotient $\pi : X \to Y$ is a \tref{categorical-quotient}{categorical quotient}. Namely, let $f : X \to Z$ be an $S$-morphism with $f \circ \sigma = f \circ p_2$. The goal is to construct a morphism $g : Y \to Z$ with $f = g \circ \pi$. Let $\{ V_i \}$ be an affine open covering of $Z$. Then $f^{-1}(V_i)$ is an invariant open subset of $X$ for each $i$, so by condition (ii), $f^{-1}(V_i) = \pi^{-1}(U_i)$ for \textit{some} subset $U_i \subset Y$. But then $U_i$ is open by (iii), and since $\pi$ is surjective, $\{ U_i \}$ is an open cover of $Y$. Now note that any morphism $g : Y \to Z$ with $f = g \circ \pi$ must satisfy $g(U_i) \subset V_i$. Hence it must be defined by a set of (compatible) morphisms $h_i : \mathcal{O}_Z(V_i) \to \mathcal{O}_Y(U_i)$ such that
+    A geometric quotient $\pi \colon X \to Y$ is a \tref{categorical-quotient}{categorical quotient}. Namely, let $f \colon X \to Z$ be an $S$-morphism with $f \circ \sigma = f \circ p_2$. The goal is to construct a morphism $g \colon Y \to Z$ with $f = g \circ \pi$. Let $\{ V_i \}$ be an affine open covering of $Z$. Then $f^{-1}(V_i)$ is an invariant open subset of $X$ for each $i$, so by condition (ii), $f^{-1}(V_i) = \pi^{-1}(U_i)$ for \textit{some} subset $U_i \subset Y$. But then $U_i$ is open by (iii), and since $\pi$ is surjective, $\{ U_i \}$ is an open cover of $Y$. Now note that any morphism $g \colon Y \to Z$ with $f = g \circ \pi$ must satisfy $g(U_i) \subset V_i$. Hence it must be defined by a set of (compatible) morphisms $h_i \colon \mathcal{O}_Z(V_i) \to \mathcal{O}_Y(U_i)$ such that
     \[ \svg \begin{tikzcd} \mathcal{O}_Z(V_i) \arrow{r}{h_i} \arrow{d}{f^*} & \mathcal{O}_Y(U_i) \arrow{d}{\pi^*} \\ \mathcal{O}_X(f^{-1}(V_i)) \arrow[equal]{r} & \mathcal{O}_X(\pi^{-1}(U_i)) \end{tikzcd} \]
     commutes. Since $\pi^*$ is injective by (iv), the $h_i$ are unique if they exist. Well, for any $\alpha \in \mathcal{O}_Z(V_i)$ we have that $\pi^*(\alpha)$ is an invariant element of $\mathcal{O}_X(\pi^{-1}(U_i))$ in the sense of (iv), hence it lies in the subring $\pi^*(\mathcal{O}_Y(U_i))$, so such $h_i$ exist.
-    It remains to check that the $h_i$ agree on overlaps, so that they indeed glue to the desired $g : Y \to Z$.
+    It remains to check that the $h_i$ agree on overlaps, so that they indeed glue to the desired $g \colon Y \to Z$.
 \end{example}
 
 \begin{topic}{affine-git-quotient}{affine GIT quotient}
-    Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} acting on an \tref{affine-scheme}{affine scheme} $X = \Spec R$. Then there is a dual action of $G$ on $R$ given by $\widehat{\sigma} : R \to R \otimes \mathcal{O}_G(G)$, yielding the \textit{ring of invariants}
+    Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} acting on an \tref{affine-scheme}{affine scheme} $X = \Spec R$. Then there is a dual action of $G$ on $R$ given by $\widehat{\sigma} \colon R \to R \otimes \mathcal{O}_G(G)$, yielding the \textit{ring of invariants}
     \[ R^G := \{ r \in R \mid \widehat{\sigma}(r) = r \otimes 1 \} . \]
     The \textbf{affine GIT quotient} of $X$ by $G$ is the morphism
-    \[ \pi : X \to X \sslash G := \Spec\left(R^G\right) \]
+    \[ \pi \colon X \to X \sslash G := \Spec\left(R^G\right) \]
     induced by the inclusion $R^G \to R$.
 \end{topic}
 
@@ -47,13 +47,13 @@
 
 \begin{topic}{projective-git-quotient}{projective GIT quotient}
     Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} acting on an \tref{algebraic-scheme}{algebraic scheme} $X$ over a field $k$, and let $\mathcal{L}$ be a \tref{equivariant-sheaf}{$G$-linearized} \tref{invertible-sheaf}{invertible sheaf} on $X$. The \textbf{projective GIT quotient} of $X$ by $G$ with respect to $\mathcal{L}$ is the morphism
-    \[ \pi : X^\textup{ss}(\mathcal{L}) \to X \sslash_\mathcal{L} G := \text{Proj}\left(\bigoplus_{n \ge 0} H^0(X, \mathcal{L}^n)^G \right) , \]
+    \[ \pi \colon X^\textup{ss}(\mathcal{L}) \to X \sslash_\mathcal{L} G := \text{Proj}\left(\bigoplus_{n \ge 0} H^0(X, \mathcal{L}^n)^G \right) , \]
     where
     \[ X^\textup{ss}(\mathcal{L}) = \left\{ x \in X \mid \exists s \in H^0(X, \mathcal{L}^n)^G \text{ for some $n \ge 0$ such that $s(x) \ne 0$ and $X_s$ is affine} \right\} \]
     denotes the \textit{semistable locus} of $X$. It is a uniform \tref{categorical-quotient}{categorical quotient}.
     
     Furthermore, there exists an open subset $U \subset X \sslash_\mathcal{L} G$ such that $\pi^{-1}(U)$ equals the set of \textit{stable points} \[ X^\textup{s}(\mathcal{L}) = \left\{ x \in X : \begin{array}{c} \exists s \in H^0(X, \mathcal{L}^n)^G \text{ for some $n \ge 0$ such that $s(x) \ne 0$,} \\ \text{$X_s$ is affine and the action of $G$ on $X_s$ is closed} \end{array} \right\} \]
-    and the restriction $\pi|_{X^\textup{s}(\mathcal{L})} : X^\textup{s}(\mathcal{L}) \to U$ is a uniform \tref{geometric-quotient}{geometric quotient}.
+    and the restriction $\pi|_{X^\textup{s}(\mathcal{L})} \colon X^\textup{s}(\mathcal{L}) \to U$ is a uniform \tref{geometric-quotient}{geometric quotient}.
 \end{topic}
 
 % \begin{topic}{projective-git-quotient}
@@ -65,7 +65,7 @@
 % \end{topic}
 
 \begin{example}{projective-git-quotient}
-    Note that the \tref{affine-git-quotient}{affine GIT quotient} can be seen as a particular (trivial) case of the projective GIT quotient. Given $X = \Spec R$ with an action of $G$, one can take the line bundle $\mathcal{L} = \mathcal{O}_X$ with linearization $\phi : \sigma^* \mathcal{O}_X \to p_2^* \mathcal{O}_X$ the identity. Then $H^0(X, \mathcal{O}_X^n)^G = R^G$ for any $n \ge 0$, and so
+    Note that the \tref{affine-git-quotient}{affine GIT quotient} can be seen as a particular (trivial) case of the projective GIT quotient. Given $X = \Spec R$ with an action of $G$, one can take the line bundle $\mathcal{L} = \mathcal{O}_X$ with linearization $\phi \colon \sigma^* \mathcal{O}_X \to p_2^* \mathcal{O}_X$ the identity. Then $H^0(X, \mathcal{O}_X^n)^G = R^G$ for any $n \ge 0$, and so
     \[ X \sslash_{\mathcal{L}} G = \operatorname{Proj} \left( \bigoplus_{n \ge 0} R^G \right) = \operatorname{Proj} \left( R^G[x] \right) = \PP^0_{\Spec \left( R^G \right) } = \Spec\left( R^G \right) , \]
     which is the affine GIT quotient. Note that $X^\textup{ss} = X$ as $1 \in R = H^0(X, \mathcal{L})$ is an invariant section which does not vanish on any point.
     
@@ -75,7 +75,7 @@
 \end{example}
 
 \begin{topic}{luna-stratification}{Luna stratification}
-    Let $G$ be a \tref{reductive-algebraic-group}{reductive algebraic group} over an algebraically closed field $k$, acting on an \tref{affine-scheme}{affine} \tref{variety}{variety} $X$, and let $\pi : X \to X \sslash G = \Spec(\mathcal{O}_X(X)^G)$ be the \tref{affine-git-quotient}{GIT quotient}.
+    Let $G$ be a \tref{reductive-algebraic-group}{reductive algebraic group} over an algebraically closed field $k$, acting on an \tref{affine-scheme}{affine} \tref{variety}{variety} $X$, and let $\pi \colon X \to X \sslash G = \Spec(\mathcal{O}_X(X)^G)$ be the \tref{affine-git-quotient}{GIT quotient}.
     Every fiber $\pi^{-1}(p)$, for $p \in X \sslash G$, has a unique closed orbit, so choose $x_p \in \pi^{-1}(p)$ such that this closed orbit equals $G \cdot x_p$. For any conjugacy class $(H)$ of reductive subgroups $H \subset G$, let 
     \[ (X \sslash G)_{(H)} = \{ p \in X \sslash G \mid \textup{Stab}(x_p) \in (H) \} , \]
     which is independent of the choice of the $x_p$. The \textbf{Luna stratification} of $X \sslash G$ is the stratification
@@ -85,7 +85,7 @@
 
 \begin{example}{luna-stratification}
     Let $G = \textup{SL}_2(\CC)$, and consider $G$ acting on itself by conjugation. The GIT quotient is given by the trace map
-    \[ \pi : G \to G \sslash G \isom \AA^1, \quad A \mapsto \tr(A) . \]
+    \[ \pi \colon G \to G \sslash G \isom \AA^1, \quad A \mapsto \tr(A) . \]
     The fiber $\pi^{-1}(2)$ consists of the orbits of $I = \left(\begin{smallmatrix} 1 & 0 \\ 0 & 1 \end{smallmatrix}\right)$ and $J = \left(\begin{smallmatrix} 1 & 1 \\ 0 & 1 \end{smallmatrix} \right)$, so the unique closed orbit of $\pi^{-1}(2)$ is $\left\{ I \right\}$, as the closure of $G \cdot J$ contains $\lim_{a \to 0} \left(\begin{smallmatrix} 1 & a \\ 0 & 1 \end{smallmatrix}\right) = I \not\in G \cdot J$. Similarly, the unique closed orbit of the fiber $\pi^{-1}(-2)$ is $\left\{ -I \right\}$. In both cases, the corresponding stabilizer is equal to $G$.
     
     For $t \ne \pm 2$, the fiber $\pi^{-1}(t)$ is precisely the orbit of $\left(\begin{smallmatrix} \lambda & 0 \\ 0 & \lambda^{-1} \end{smallmatrix}\right)$, with $\lambda \in \CC \setminus \{ 0, \pm 1 \}$ such that $\lambda + \lambda^{-1} = t$, and the corresponding conjugacy class of stabilizers is $(D)$, where $D \subset G$ is the subgroup of diagonal matrices.
@@ -120,7 +120,7 @@
 \begin{topic}{kempf-ness-theorem}{Kempf--Ness theorem}
     Let $G$ be a complex \tref{reductive-algebraic-group}{reductive algebraic group} acting linearly on a \tref{non-singular-variety}{smooth} complex \tref{projective-variety}{projective variety} $X \subset \PP^n_\CC$.
     As $G$ is complex reductive, $G$ is equal to the complexification of its maximal compact subgroup $K$. The restriction of the \tref{DG:fubini-study-form}{Fubini--Study form} on $\PP^n_\CC$ to $X$ gives a \tref{DG:symplectic-manifold}{symplectic form} $\omega$ on $X$.
-    After possibly rechoosing coordinates on $\PP^n_\CC$, $K$ acts unitarily on $\PP^n_\CC$, inducing a \tref{DG:symplectic-action}{symplectic action} of $K$ on $X$ admitting a \tref{DG:moment-map}{moment map} $\mu : X \to \mathfrak{k}^*$. % TODO: why does such a moment map exist?
+    After possibly rechoosing coordinates on $\PP^n_\CC$, $K$ acts unitarily on $\PP^n_\CC$, inducing a \tref{DG:symplectic-action}{symplectic action} of $K$ on $X$ admitting a \tref{DG:moment-map}{moment map} $\mu \colon X \to \mathfrak{k}^*$. % TODO: why does such a moment map exist?
     The \textbf{Kempf--Ness theorem} states that
     $\mu^{-1}(0) \subset X^\textup{ss}$ inducing a \tref{TO:homeomorphism}{homeomorphism} between the \tref{DG:marsden-weinstein-quotient}{Marsden--Weinstein quotient} and the \tref{projective-git-quotient}{projective GIT quotient}
     \[ \mu^{-1}(0) / K \cong X \sslash G . \]
@@ -129,9 +129,9 @@
 \begin{example}{kempf-ness-theorem}
     Let $G = \GG_m$ act on $X = \PP^n_\CC$ via
     \[ t \cdot (x_0 : x_1 : \cdots : x_n) = (t^{-1} x_0 : t x_1 : \cdots : t x_n) . \]
-    The GIT quotient is seen to be $\pi : (\PP^n_\CC)^\textup{ss} \cong \AA^n \setminus \{ 0 \} \to \PP^n_\CC \sslash \GG_m \cong \PP^{n - 1}_\CC$.
+    The GIT quotient is seen to be $\pi \colon (\PP^n_\CC)^\textup{ss} \cong \AA^n \setminus \{ 0 \} \to \PP^n_\CC \sslash \GG_m \cong \PP^{n - 1}_\CC$.
     
-    The action of the maximal compact subgroup $K = U(1)$ acts symplectically on $\PP^n_\CC$ equipped with the Fubini--Study form, and admits a moment map $\mu : \PP^n_\CC \to \mathfrak{u}(1)^* \cong (i \RR)^*$ given by
+    The action of the maximal compact subgroup $K = U(1)$ acts symplectically on $\PP^n_\CC$ equipped with the Fubini--Study form, and admits a moment map $\mu \colon \PP^n_\CC \to \mathfrak{u}(1)^* \cong (i \RR)^*$ given by
     \[ \mu(x_0 : \cdots : x_n)(i \alpha) = \frac{-|x_0|^2 + |x_1|^2 + \cdots |x_n|^2}{\sum_{i = 0}^{n} |x_i|^2} \alpha . \]
     Therefore,
     \[ \mu^{-1}(0) = \left\{ (x_0 : \cdots : x_n) \mid |x_0|^2 = \sum_{i = 1}^{n} |x_i|^2 \right\} \cong S^{2n - 1} \]
@@ -141,13 +141,13 @@
 \begin{topic}{hilbert-mumford-weight}{Hilbert--Mumford weight}
     Let $G$ be a \tref{reductive-algebraic-group}{reductive algebraic group} over a field $k$ acting on a \tref{scheme}{scheme} $X$ \tref{proper-morphism}{proper} over $k$, and let $\mathcal{L}$ be an \tref{ample-invertible-sheaf}{ample} \tref{equivariant-sheaf}{$G$-linearized} \tref{invertible-sheaf}{line bundle} on $X$.
 
-    For any closed point $x \in X$ and one-parameter subgroup $\lambda : \GG_m \to G$, the limit $y = \lim_{t \to 0} \lambda(t) \cdot x$ exists, as $X$ is proper over $k$, and is fixed under the action of $\GG_m$. Denoting this limit by $y : \Spec(k) \to X$, the group $\GG_m$ acts on $y^* \mathcal{L}$ for via a character $\chi : \GG_m \to \operatorname{Aut}(y^* \mathcal{L}) \cong \GG_m$ given by $t \mapsto t^r$ for some $r \in \ZZ$. The \textbf{Hilbert--Mumford weight} of $\lambda$ at $x$ with respect to $\mathcal{L}$ is defined as
+    For any closed point $x \in X$ and one-parameter subgroup $\lambda \colon \GG_m \to G$, the limit $y = \lim_{t \to 0} \lambda(t) \cdot x$ exists, as $X$ is proper over $k$, and is fixed under the action of $\GG_m$. Denoting this limit by $y \colon \Spec(k) \to X$, the group $\GG_m$ acts on $y^* \mathcal{L}$ for via a character $\chi \colon \GG_m \to \operatorname{Aut}(y^* \mathcal{L}) \cong \GG_m$ given by $t \mapsto t^r$ for some $r \in \ZZ$. The \textbf{Hilbert--Mumford weight} of $\lambda$ at $x$ with respect to $\mathcal{L}$ is defined as
     \[ \mu^\mathcal{L}(x, \lambda) = r. \]
 \end{topic}
 
 \begin{example}{hilbert-mumford-weight}
-    Consider $G = \textup{GL}_2$ naturally acting on $X = \PP^1_k$, and let $\mathcal{L} = \mathcal{O}_X(1)$ which is $G$-linearized by the dual action $\hat{\sigma} : \mathcal{O}_X(X) \to \mathcal{O}_G(G) \otimes \mathcal{O}_X(X)$ given by $x_i \mapsto \sum_{j = 0}^{1} a_{ij} \otimes x_j$.
-    Let $\lambda : \GG_m \to G$ be the one-parameter subgroup given by $\lambda(t) = \left(\begin{smallmatrix} t^2 & 0 \\ 0 & t^{-3} \end{smallmatrix}\right)$ and pick a point $x = (x_0 : x_1) \in X$. Then
+    Consider $G = \textup{GL}_2$ naturally acting on $X = \PP^1_k$, and let $\mathcal{L} = \mathcal{O}_X(1)$ which is $G$-linearized by the dual action $\hat{\sigma} \colon \mathcal{O}_X(X) \to \mathcal{O}_G(G) \otimes \mathcal{O}_X(X)$ given by $x_i \mapsto \sum_{j = 0}^{1} a_{ij} \otimes x_j$.
+    Let $\lambda \colon \GG_m \to G$ be the one-parameter subgroup given by $\lambda(t) = \left(\begin{smallmatrix} t^2 & 0 \\ 0 & t^{-3} \end{smallmatrix}\right)$ and pick a point $x = (x_0 : x_1) \in X$. Then
     \[ y = \lim_{t \to 0} \lambda(t) \cdot x = \lim_{t \to 0} (t^2 x_0 : t^{-3} x_1) = \left\{ \begin{array}{cl} (0 : 1) & \textup{ if } x_1 \ne 0, \\ (1 : 0) & \textup{ if } x_1 = 0 . \end{array} \right. \]
     Hence, the vector space $y^* \mathcal{L}$ is generated by $x_1$ if $x_1 \ne 0$ and by $x_0$ if $x_1 = 0$. In particular,
     \[ \mu^\mathcal{L}(x, \lambda) = \left\{ \begin{array}{cl} -3 & \textup{ if } x_1 \ne 0, \\ 2 & \textup{ if } x_1 = 0 .
@@ -166,13 +166,13 @@
 \end{topic}
 
 \begin{example}{hilbert-mumford-criterion}
-    Consider $X = \PP^n_k$ with a linear action $\sigma : G \times X \to X$, that is, $\mathcal{L} = \mathcal{O}_X(1)$ is $G$-linearized. Note that there is a dual action
+    Consider $X = \PP^n_k$ with a linear action $\sigma \colon G \times X \to X$, that is, $\mathcal{L} = \mathcal{O}_X(1)$ is $G$-linearized. Note that there is a dual action
     \[ \begin{aligned}
         \hat{\sigma} : H^0(X, \mathcal{O}_X(1)) &\to \mathcal{O}_G(G) \otimes H^0(X, \mathcal{O}_X(1)) \\
         x_i &\mapsto \sum_{j = 0}^{n} a_{ij} \otimes x_j
     \end{aligned} \]
     given by some $a_{ij} \in \mathcal{O}_G(G)$. This induces a linear action on $\AA^{n + 1}_k$
-    \[ \tilde{\sigma} : G \times \AA^{n + 1}_k \to \AA^{n + 1}_k \]
+    \[ \tilde{\sigma} \colon G \times \AA^{n + 1}_k \to \AA^{n + 1}_k \]
     which is compatible with $\sigma$ in the sense that
     \[ \svg \begin{tikzcd}
         G \times \left(\AA^{n + 1}_k \setminus \{ 0 \} \right) \arrow{d} \arrow{r}{\tilde{\sigma}} & \AA^{n + 1}_k \setminus \{ 0 \} \arrow{d} \\
@@ -189,13 +189,13 @@
 \end{example}
 
 \begin{topic}{HKKN-stratification}{HKKN stratification}
-    Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over a field $k$ acting on a \tref{variety}{variety} $X$. For any one-parameter subgroup $\lambda : \GG_m \to G$, let
+    Let $G$ be a \tref{reductive-algebraic-group}{reductive} \tref{algebraic-group}{algebraic group} over a field $k$ acting on a \tref{variety}{variety} $X$. For any one-parameter subgroup $\lambda \colon \GG_m \to G$, let
     \[ P_\lambda = \left\{ g \in G \mid \lim_{t \to 0} \lambda(t) \cdot g \cdot \lambda(t)^{-1} \textup{ exists} \right\} \]
     and write $X^\lambda$ for the fixed-point locus of $X$. For any connected component $Z_0^\lambda$ of $X^\lambda$, let
     \[ Z_\lambda = \left\{ x \in X \mid \lim_{t \to 0} \lambda(t) \cdot x \in Z_\lambda^0 \right\} \quad \textup{ and } \quad S_\lambda = G \cdot Z_\lambda . \]
     An \textbf{HKKN stratification} of $X$ is a sequence of open subvarieties
     \[ X = X_0 \supset X_1 \supset X_1 \supset \cdots \supset X_n \]
-    together with one-parameter subgroups $\lambda_i : \GG_m \to G$ and choices of connected components $Z_{\lambda_i}^0 \subset X^{\lambda_i}$ for $1 \le i \le n$, such that
+    together with one-parameter subgroups $\lambda_i \colon \GG_m \to G$ and choices of connected components $Z_{\lambda_i}^0 \subset X^{\lambda_i}$ for $1 \le i \le n$, such that
     \begin{itemize}
         \item $X_i = X_{i - 1} \setminus S_{\lambda_i}$,
         \item the morphism $G \times_{P_{\lambda_i}} Z_{\lambda_i} \to S_{\lambda_i}$ given by $(g, z) \mapsto g \cdot z$ is an isomorphism,
@@ -205,6 +205,6 @@
 \end{topic}
 
 \begin{example}{HKKN-stratification}
-    Consider $G = \GG_m^2$ acting naturally on $X = \AA^2_k$, and let $\lambda : \GG_m \to G$ be the one-parameter subgroup given by $\lambda(t) = (t, t^{-1})$. One can only choose $Z_\lambda^0$ to be equal to the fixed-point locus $X^\lambda = \{ (0, 0) \}$, which yields $Z_\lambda = S_\lambda = \{ (x, 0) \in \AA^2_k \}$. Note that $P_\lambda = G$ and indeed the morphism $G \times_{P_\lambda} Z_\lambda \to S_\lambda$ is an isomorphism.
+    Consider $G = \GG_m^2$ acting naturally on $X = \AA^2_k$, and let $\lambda \colon \GG_m \to G$ be the one-parameter subgroup given by $\lambda(t) = (t, t^{-1})$. One can only choose $Z_\lambda^0$ to be equal to the fixed-point locus $X^\lambda = \{ (0, 0) \}$, which yields $Z_\lambda = S_\lambda = \{ (x, 0) \in \AA^2_k \}$. Note that $P_\lambda = G$ and indeed the morphism $G \times_{P_\lambda} Z_\lambda \to S_\lambda$ is an isomorphism.
     Therefore, we have constructed an HKKN stratification with $n = 1$ and $X_0 = X$ and $X_1 = X \setminus S_\lambda$.
 \end{example}

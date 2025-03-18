@@ -1,7 +1,7 @@
 \begin{topic}{vector-space}{vector space}
     A \textbf{vector space} over a \tref{AA:field}{field} $k$ is a \tref{AA:module}{$k$-module}. Its elements are called \textit{vectors}.
     Concretely, a vector space over $k$ is a set $V$ with a distinguished object $0 \in V$ and two operations
-    \[ + : V \times V \to V, \quad \cdot : k \times V \to V \]
+    \[ + \colon V \times V \to V, \quad \cdot \colon k \times V \to V \]
     satisfying
     \begin{itemize}
         \item (\textit{commutativity}) $x + y = y + x$ for all $x, y \in V$,
@@ -41,7 +41,7 @@
 \end{topic}
 
 \begin{topic}{linear-map}{linear map}
-    A \textbf{linear map} is a map $f : V \to W$ between \tref{vector-space}{vector spaces} such that
+    A \textbf{linear map} is a map $f \colon V \to W$ between \tref{vector-space}{vector spaces} such that
     \begin{itemize}
         \item $f(u + v) = f(u) + f(v)$,
         \item $f(\lambda v) = \lambda f(v)$,
@@ -50,7 +50,7 @@
 \end{topic}
 
 \begin{topic}{matrix}{matrix}
-    Let $f : V \to W$ be a \tref{linear-map}{linear map} between finite-dimensional \tref{vector-space}{vector spaces}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are ordered \tref{basis}{bases} for $V$ and $W$, respectively, then the $m \times n$ \textbf{matrix} representing $f$ with respect to these bases is
+    Let $f \colon V \to W$ be a \tref{linear-map}{linear map} between finite-dimensional \tref{vector-space}{vector spaces}. If $(v_1, v_2, \ldots, v_n)$ and $(w_1, w_2, \ldots, w_m)$ are ordered \tref{basis}{bases} for $V$ and $W$, respectively, then the $m \times n$ \textbf{matrix} representing $f$ with respect to these bases is
     \[ A = \begin{pmatrix} a_{11} & a_{21} & \cdots & a_{n1} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix} \]
     where $a_{ij}$ is the $i$-th component of $f(v_j)$ with respect to the basis for $W$.
 \end{topic}
@@ -80,12 +80,12 @@
 \end{topic}
 
 \begin{topic}{kernel}{kernel}
-    The \textbf{kernel}, or \textbf{nullspace}, of a \tref{linear-map}{linear transformation} $T : V \to W$ is the subspace
+    The \textbf{kernel}, or \textbf{nullspace}, of a \tref{linear-map}{linear transformation} $T \colon V \to W$ is the subspace
     \[ \ker T = \left\{ v \in V : T(v) = 0 \right\} \subset V . \]
 \end{topic}
 
 \begin{topic}{projection}{projection}
-    A \textbf{projection} is a \tref{linear-map}{linear transformation} $P : V \to V$ with $P^2 = P$.
+    A \textbf{projection} is a \tref{linear-map}{linear transformation} $P \colon V \to V$ with $P^2 = P$.
 \end{topic}
 
 \begin{topic}{determinant}{determinant}
@@ -94,7 +94,7 @@
     where $\textup{sign}(\sigma)$ denotes the \tref{GT:permutation-sign}{sign} of the \tref{GT:symmetric-group}{permutation} $\sigma \in S_n$. The determinant has the property that $A$ is \tref{invertible-matrix}{invertible} if and only if $\det(A) \ne 0$.
     
     Alternatively, the determinant of $A$ is the scalar corresponding to the map induced on the top exterior power of $V$,
-    \[ \wedge^n A : \wedge^n V \to \wedge^n V . \]
+    \[ \wedge^n A \colon \wedge^n V \to \wedge^n V . \]
 \end{topic}
 
 \begin{example}{determinant}
@@ -130,7 +130,7 @@
 \end{topic}
 
 \begin{topic}{eigenvalue}{eigenvalue/eigenvector}
-    Let $A : V \to V$ be a \tref{linear-map}{linear map}. A scalar $\lambda$ is an \textbf{eigenvalue} of $A$ if there exists a nonzero vector $v \in V$ such that $A v = \lambda v$. The vector $v$ is then an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
+    Let $A \colon V \to V$ be a \tref{linear-map}{linear map}. A scalar $\lambda$ is an \textbf{eigenvalue} of $A$ if there exists a nonzero vector $v \in V$ such that $A v = \lambda v$. The vector $v$ is then an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
 \end{topic}
 
 \begin{topic}{characteristic-polynomial}{characteristic polynomial}
@@ -142,7 +142,7 @@
 \begin{example}{characteristic-polynomial}
     The coefficients of the characteristic polynomial are given by
     \[ p_A(\lambda) = \sum_{k = 0}^{n} \lambda^{n - k} (-1)^k \textup{tr}(\wedge^k A) , \]
-    where $\wedge^k A : \wedge^k k^n \to \wedge^k k^n$ is the \tref{AA:exterior-algebra}{$k$-th exterior power} of $A$.
+    where $\wedge^k A \colon \wedge^k k^n \to \wedge^k k^n$ is the \tref{AA:exterior-algebra}{$k$-th exterior power} of $A$.
     In particular, the constant coefficient is the \tref{determinant}{determinant} of $A$.
 \end{example}
 
@@ -173,7 +173,7 @@
 \end{example}
 
 \begin{topic}{dual-vector-space}{dual vector space}
-    Given a \tref{vector-space}{vector space} $V$, the \textbf{dual vector space} $V^*$ is defined as the vector space of all \tref{linear-map}{linear maps} $f : V \to k$.
+    Given a \tref{vector-space}{vector space} $V$, the \textbf{dual vector space} $V^*$ is defined as the vector space of all \tref{linear-map}{linear maps} $f \colon V \to k$.
 \end{topic}
 
 \begin{example}{dual-vector-space}
@@ -245,13 +245,13 @@
 \end{example}
 
 \begin{topic}{pin-group}{pin group}
-    The \textbf{pin group} $\textup{Pin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\textup{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_k$ with $q(v_i) = 1$.
+    The \textbf{pin group} $\textup{Pin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q \colon V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\textup{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_k$ with $q(v_i) = 1$.
     
     As a special case, $\textup{Pin}(n) = \textup{Pin}(\RR^n, \norm{\cdot}^2)$.
 \end{topic}
 
 \begin{topic}{spin-group}{spin group}
-    The \textbf{spin group} $\textup{Spin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\textup{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_{2k}$ with $q(v_i) = 1$.
+    The \textbf{spin group} $\textup{Spin}(V, q)$ of a \tref{vector-space}{vector space} $V$ over $k$ with a \tref{quadratic-form}{quadratic form} $q \colon V \to k$ is the subgroup of the units of the \tref{clifford-algebra}{Clifford algebra} $\textup{Cl}(V, q)$ of elements of the form $v_1 v_2 \cdots v_{2k}$ with $q(v_i) = 1$.
 
     As a special case, $\textup{Spin}(n) = \textup{Spin}(\RR^n, \norm{\cdot}^2)$.
     
@@ -259,15 +259,15 @@
 \end{topic}
 
 \begin{example}{spin-group}
-    Let $\{ e_i \}$ be an orthonormal basis for $V$ w.r.t. $q$. Define an \textit{antiautomorphism} $t : \textup{Cl}(V, q) \to \textup{Cl}(V, q)$ by $(e_i e_j \cdots e_k)^t = e_k \cdots e_j e_i$ and extending linearly. Then define the automorphism $\alpha : \textup{Cl}(V, q) \to \textup{Cl}(V, q)$ by $\alpha(v) = -v$ for $v \in V$. Let $a^*$ denote $\alpha(a)^t$ for $a \in \textup{Cl}(V, q)$.
+    Let $\{ e_i \}$ be an orthonormal basis for $V$ w.r.t. $q$. Define an \textit{antiautomorphism} $t \colon \textup{Cl}(V, q) \to \textup{Cl}(V, q)$ by $(e_i e_j \cdots e_k)^t = e_k \cdots e_j e_i$ and extending linearly. Then define the automorphism $\alpha \colon \textup{Cl}(V, q) \to \textup{Cl}(V, q)$ by $\alpha(v) = -v$ for $v \in V$. Let $a^*$ denote $\alpha(a)^t$ for $a \in \textup{Cl}(V, q)$.
     
     With this notation, an explicit double cover of $\textup{O}(V, q)$ by $\textup{Pin}(V, q)$ is given by
-    \[ \rho : \textup{Pin}(V, q) \to \textup{O}(V, q), \quad \rho(a) v = a v a^* . \]
+    \[ \rho \colon \textup{Pin}(V, q) \to \textup{O}(V, q), \quad \rho(a) v = a v a^* . \]
     Restricting $\rho$ to $\textup{Spin}(V, q)$ gives a double cover of $\textup{SO}(V, q)$.
 \end{example}
 
 \begin{topic}{clifford-algebra}{Clifford algebra}
-    The \textbf{Clifford algebra} of a \tref{vector-space}{vector space} $V$ over a field $k$ with a \tref{quadratic-form}{quadratic form} $q : V \to k$ is the algebra over $k$ given by
+    The \textbf{Clifford algebra} of a \tref{vector-space}{vector space} $V$ over a field $k$ with a \tref{quadratic-form}{quadratic form} $q \colon V \to k$ is the algebra over $k$ given by
     \[ \textup{Cl}(V, q) = T(V) / (v \otimes v - q(v)) , \]
     where $T(V)$ denotes the \tref{AA:tensor-algebra}{tensor algebra} of $V$.
 \end{topic}
@@ -295,7 +295,7 @@
 \end{example}
 
 \begin{topic}{quadratic-form}{quadratic form}
-    A \textbf{quadratic form} on a \tref{vector-space}{vector space} over $k$ is a function $q : V \to k$ such that
+    A \textbf{quadratic form} on a \tref{vector-space}{vector space} over $k$ is a function $q \colon V \to k$ such that
     \begin{itemize}
         \item $q(av) = a^2 v$ for all $a \in k$ and $v \in V$,
         \item the \textit{polarization map} $V \times V \to k : (v, w) \mapsto \frac{1}{2}\left( q(v + w) - q(v) - q(w) \right)$ is a bilinear form.
@@ -304,11 +304,11 @@
 
 \begin{example}{quadratic-form}
     On $V = \RR^n$, the standard quadratic form is the norm-function,
-    \[ \norm{\cdot} : \RR^n \to \RR, \quad v \mapsto \norm{v} . \]
+    \[ \norm{\cdot} \colon \RR^n \to \RR, \quad v \mapsto \norm{v} . \]
 \end{example}
 
 \begin{topic}{generalized-eigenspace}{generalized eigenspace}
-    Let $A : V \to V$ be a \tref{linear-map}{linear map}, and $\lambda$ an \tref{eigenvalue}{eigenvalue} of $A$. The \textbf{generalized eigenspace} corresponding to $\lambda$ is the subspace
+    Let $A \colon V \to V$ be a \tref{linear-map}{linear map}, and $\lambda$ an \tref{eigenvalue}{eigenvalue} of $A$. The \textbf{generalized eigenspace} corresponding to $\lambda$ is the subspace
     \[ V_\lambda(A) = \{ v \in V \mid (A - \lambda I)^n v = 0 \textup{ for some } n \ge 1 \} , \]
     whose elements are called \textbf{generalized eigenvector} of $A$ corresponding to $\lambda$.
 \end{topic}
@@ -394,7 +394,7 @@
         For \tref{diagonalizable-matrix}{diagonalizable} matrices $A = PDP^{-1}$, with $D = \begin{pmatrix} \lambda_1 && \\ & \ddots & \\ && \lambda_n \end{pmatrix}$, the proof is easy:
         \[ p_A(A) = p_A(PDP^{-1}) = P p_A(D) P^{-1} = P \begin{pmatrix} p_A(\lambda_1) & & \\ & \ddots & \\ & & p_A(\lambda_n) \end{pmatrix} P^{-1} = 0 , \]
         since all eigenvalues $\lambda_i$ are roots of $p_A$. In other words, the function
-        \[ \varphi : \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
+        \[ \varphi \colon \textup{Mat}_{n \times n}(\CC) \to \textup{Mat}_{n \times n}(\CC), \quad A \mapsto p_A(A) - A \]
         is zero on the set of diagonalizable complex matrices, which is \tref{TO:dense-set}{dense} in $\textup{Mat}_{n \times n}(\CC)$. Hence by continuity of $\varphi$, we must have $\varphi(A) = 0$ for all $A \in \textup{Mat}_{n \times n}(\CC)$.
     \end{proof}
 \end{example}
@@ -440,7 +440,7 @@
     Given an invertible $n \times n$ matrix $A$, Cramer's rule can be used to compute the inverse $A^{-1}$ as
     \[ \left( A^{-1} \right)_{ij} = \frac{\det(A_{i, j})}{\det(A)} , \]
     where $A_{i, j}$ denotes the matrix formed by replacing the $j$-th column of $A$ by the standard basis vector $e_j$. While this is an inefficient way to compute the inverse $A^{-1}$, it shows that the inversion map
-    \[ (-)^{-1} : \textup{GL}_n(k) \to \textup{GL}_n(k) \]
+    \[ (-)^{-1} \colon \textup{GL}_n(k) \to \textup{GL}_n(k) \]
     is algebraic and infinitely differentiable, since the determinant of a matrix can be expressed as a polynomial in its entries.
 \end{example}
 
@@ -475,10 +475,10 @@
 \begin{example}{complementary-subspaces}
     Let $V = \textup{Map}(\RR, \RR)$ be the space of continuous functions from $\RR$ to $\RR$, and let
     \[ \begin{aligned}
-        U_+ &= \{ f : \RR \to \RR \mid f(-x) = f(x) \textup{ for all } x \in \RR \}, \\
-        U_- &= \{ f : \RR \to \RR \mid f(-x) = -f(x) \textup{ for all } x \in \RR \}
+        U_+ &= \{ f \colon \RR \to \RR \mid f(-x) = f(x) \textup{ for all } x \in \RR \}, \\
+        U_- &= \{ f \colon \RR \to \RR \mid f(-x) = -f(x) \textup{ for all } x \in \RR \}
     \end{aligned} \]
-    be the subspaces of even and odd functions, respectively. Then $U_+ \cap U_- = \{ 0 \}$ since for any $f \in U_+ \cap U_-$ we have $f(x) = f(-x) = -f(x)$ for all $x \in \RR$. Furthermore, $V = U_+ + U_-$ since for any $f : \RR \to \RR$ we have
+    be the subspaces of even and odd functions, respectively. Then $U_+ \cap U_- = \{ 0 \}$ since for any $f \in U_+ \cap U_-$ we have $f(x) = f(-x) = -f(x)$ for all $x \in \RR$. Furthermore, $V = U_+ + U_-$ since for any $f \colon \RR \to \RR$ we have
     \[ f(x) = \underbrace{\frac{f(x) + f(-x)}{2}}_{\in U_+} + \underbrace{\frac{f(x) - f(-x)}{2}}_{\in U_-} . \]
     Hence, $U_+$ and $U_-$ are complementary subspaces of $V$.
 \end{example}
@@ -514,7 +514,7 @@
 \end{topic}
 
 \begin{topic}{rank-nullity-theorem}{rank--nullity theorem}
-    Let $T : V \to W$ be a \tref{linear-map}{linear map} between \tref{vector-space}{vector spaces}. The \textbf{rank--nullity theorem} states that
+    Let $T \colon V \to W$ be a \tref{linear-map}{linear map} between \tref{vector-space}{vector spaces}. The \textbf{rank--nullity theorem} states that
     \[ \dim V = \dim (\im T) + \dim (\ker T) . \]
 \end{topic}
 
@@ -635,7 +635,7 @@
 \end{topic}
 
 \begin{example}{jordan-normal-form}
-    Let $V$ be a finite-dimensional \tref{vector-space}{vector space} and $f : V \to V$ a \tref{linear-map}{linear map}, whose \tref{characteristic-polynomial}{characteristic polynomial} splits into linear factors
+    Let $V$ be a finite-dimensional \tref{vector-space}{vector space} and $f \colon V \to V$ a \tref{linear-map}{linear map}, whose \tref{characteristic-polynomial}{characteristic polynomial} splits into linear factors
     \[ p_f(x) = (x - \lambda_1)^{m_1} \cdots (x - \lambda_k)^{m_k} , \]
     with $\lambda_i$ distinct. Then there exists a basis for $V$ such that the matrix representing $f$ is in Jordan normal form.
 \end{example}

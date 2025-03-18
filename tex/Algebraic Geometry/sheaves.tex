@@ -2,7 +2,7 @@
     Let $X$ be a \tref{TO:topological-space}{topological space}. A \textbf{presheaf} $\mathcal{F}$ of abelian groups on $X$ consists of
     \begin{itemize}
         \item an \tref{GT:abelian-group}{abelian group} $\mathcal{F}(U)$ for every open subset $U \subset X$,
-        \item a \tref{GT:group-homomorphism}{group morphism} $r_{UV} : \mathcal{F}(U) \to \mathcal{F}(V)$ for every inclusion $V \subset U$ of open subsets of $X$,
+        \item a \tref{GT:group-homomorphism}{group morphism} $r_{UV} \colon \mathcal{F}(U) \to \mathcal{F}(V)$ for every inclusion $V \subset U$ of open subsets of $X$,
     \end{itemize}
     such that
     \begin{itemize}
@@ -17,7 +17,7 @@
         \item for any open $U \subset X$ and open covering $\{ U_i \}$ of $U$, suppose we have elements $s_i \in \mathcal{F}(U_i)$ such that $s_i|{U_i \cap U_j} = s_j|_{U_i \cap U_j}$ for all $i, j$. Then there is an element $s \in \mathcal{F}(U)$ such that $s_i = s|_{U_i}$ for all $i$. (Note that uniqueness follows from the above condition.)
     \end{itemize}
     
-    A morphism of presheaves $f : \mathcal{F} \to \mathcal{G}$ consists of a morphism of abelian groups $f(U) : \mathcal{F}(U) \to \mathcal{G}(U)$ for each open set $U$, such that for every inclusion $V \subset U$ the diagram
+    A morphism of presheaves $f \colon \mathcal{F} \to \mathcal{G}$ consists of a morphism of abelian groups $f(U) \colon \mathcal{F}(U) \to \mathcal{G}(U)$ for each open set $U$, such that for every inclusion $V \subset U$ the diagram
     \[ \svg \begin{tikzcd} \mathcal{F}(U) \arrow{r}{f(U)} \arrow[swap]{d}{r_{UV}} & \mathcal{G}(U) \arrow{d}{r'_{UV}} \\ \mathcal{F}(V) \arrow{r}{f(V)} & \mathcal{G}(V) \end{tikzcd} \]
     commutes. A morphism of sheaves is a morphism of presheaves.
 \end{topic}
@@ -37,31 +37,31 @@
 \end{topic}
 
 \begin{topic}{associated-sheaf}{associated sheaf}
-    Given a \tref{sheaf}{presheaf} $\mathcal{F}$, there is a \tref{sheaf}{sheaf} $\mathcal{F}^+$ and a morphism $\theta : \mathcal{F} \to \mathcal{F}^+$, with the property that for any sheaf $\mathcal{G}$ and morphism $f : \mathcal{F} \to \mathcal{G}$ there is a unique morphism $g : \mathcal{F}^+ \to \mathcal{G}$ such that $f = g \circ \theta$. The sheaf $\mathcal{F}^+$ is called the \textbf{sheaf associated} to the presheaf $\mathcal{F}$.
+    Given a \tref{sheaf}{presheaf} $\mathcal{F}$, there is a \tref{sheaf}{sheaf} $\mathcal{F}^+$ and a morphism $\theta \colon \mathcal{F} \to \mathcal{F}^+$, with the property that for any sheaf $\mathcal{G}$ and morphism $f \colon \mathcal{F} \to \mathcal{G}$ there is a unique morphism $g \colon \mathcal{F}^+ \to \mathcal{G}$ such that $f = g \circ \theta$. The sheaf $\mathcal{F}^+$ is called the \textbf{sheaf associated} to the presheaf $\mathcal{F}$.
     \[ \svg \begin{tikzcd} \mathcal{F} \arrow{rr}{f} \arrow[swap]{dr}{\theta} && \mathcal{G} \\ & \mathcal{F}^+ \arrow[swap,dashed]{ur}{g} & \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{direct-image-sheaf}{direct image sheaf}
-    Let $f : X \to Y$ be a map of \tref{TO:topological-space}{topological spaces}, and let $\mathcal{F}$ be a \tref{sheaf}{sheaf} on $X$. The \textbf{direct image sheaf} $f_* \mathcal{F}$ on $Y$ is defined by
+    Let $f \colon X \to Y$ be a map of \tref{TO:topological-space}{topological spaces}, and let $\mathcal{F}$ be a \tref{sheaf}{sheaf} on $X$. The \textbf{direct image sheaf} $f_* \mathcal{F}$ on $Y$ is defined by
     \[ (f_* \mathcal{F})(V) = \mathcal{F}(f^{-1}(V)) \]
     for any open set $V \subset Y$ (indeed this presheaf is a sheaf).
     
     This construction yields the \textbf{direct image functor}
-    \[ f_* : \textup{Sh}(X) \to \textup{Sh}(Y) , \]
+    \[ f_* \colon \textup{Sh}(X) \to \textup{Sh}(Y) , \]
     which is \tref{CT:adjunction}{right adjoint} to the \tref{inverse-image-sheaf}{inverse image functor} $f^{-1}$.
     
-    When $f : X \to Y$ is a morphism of \tref{scheme}{schemes} and $\mathcal{F}$ an \tref{O-module}{$\mathcal{O}_X$-module}, the direct image $f^* \mathcal{F}$ is a $\mathcal{O}_Y$-module, getting its structure via $f^\# : \mathcal{O}_Y \to f_* \mathcal{O}_X$. Again we have a adjunction $f^* \dashv f_*$.
+    When $f \colon X \to Y$ is a morphism of \tref{scheme}{schemes} and $\mathcal{F}$ an \tref{O-module}{$\mathcal{O}_X$-module}, the direct image $f^* \mathcal{F}$ is a $\mathcal{O}_Y$-module, getting its structure via $f^\# \colon \mathcal{O}_Y \to f_* \mathcal{O}_X$. Again we have a adjunction $f^* \dashv f_*$.
 \end{topic}
 
 \begin{topic}{inverse-image-sheaf}{inverse image sheaf}
-    Let $f : X \to Y$ be a map of topological spaces, and let $\mathcal{G}$ be a \tref{sheaf}{sheaf} on $Y$. The \textbf{inverse image sheaf} $f^
+    Let $f \colon X \to Y$ be a map of topological spaces, and let $\mathcal{G}$ be a \tref{sheaf}{sheaf} on $Y$. The \textbf{inverse image sheaf} $f^
     {-1}\mathcal{G}$ on $X$ is defined as the \tref{associated-sheaf}{sheaf associated} to the presheaf given by $U \mapsto \varinjlim_{V \supset f(U)} \mathcal{G}(V)$ for any open set $U \subset X$.
     
     This construction yields the \textbf{inverse image functor}
-    \[ f^{-1} : \textup{Sh}(Y) \to \textup{Sh}(X) . \]
-    It is the \tref{CT:adjunction}{left adjoint} of the \tref{direct-image-sheaf}{direct image functor} $f_* : \textup{Sh}(X) \to \textup{Sh}(Y)$.
+    \[ f^{-1} \colon \textup{Sh}(Y) \to \textup{Sh}(X) . \]
+    It is the \tref{CT:adjunction}{left adjoint} of the \tref{direct-image-sheaf}{direct image functor} $f_* \colon \textup{Sh}(X) \to \textup{Sh}(Y)$.
     
-    When $f : X \to Y$ is a morphism of \tref{scheme}{schemes}, and $\mathcal{G}$ an \tref{O-module}{$\mathcal{O}_Y$-module}, the \textbf{inverse image sheaf} $f^* \mathcal{G}$ is the $\mathcal{O}_X$-module defined by
+    When $f \colon X \to Y$ is a morphism of \tref{scheme}{schemes}, and $\mathcal{G}$ an \tref{O-module}{$\mathcal{O}_Y$-module}, the \textbf{inverse image sheaf} $f^* \mathcal{G}$ is the $\mathcal{O}_X$-module defined by
     \[ f^* \mathcal{G} = f^{-1} \mathcal{G} \otimes_{f^{-1} \mathcal{O}_Y} \mathcal{O}_X . \]
     Again we have an adjunction $f^* \dashv f_*$.
 \end{topic}
@@ -75,7 +75,7 @@
     \[ i_x(A) (U) = \left\{ \begin{array}{cl} A & \text{if } x \in U, \\ 0 & \text{otherwise.} \end{array} \right. \]
     The stalks of this sheaf are $A$ at any point in the closure of $x$, and zero elsewhere.
     
-    Equivalently, it is the \tref{direct-image-sheaf}{direct image sheaf} $i_*(\underline{A})$ for $\underline{A}$ the \tref{constant-sheaf}{constant sheaf} determined by $A$ on the closure $\overline{\{ x \}}$ and $i : \overline{\{ x \}} \to X$ the inclusion.
+    Equivalently, it is the \tref{direct-image-sheaf}{direct image sheaf} $i_*(\underline{A})$ for $\underline{A}$ the \tref{constant-sheaf}{constant sheaf} determined by $A$ on the closure $\overline{\{ x \}}$ and $i \colon \overline{\{ x \}} \to X$ the inclusion.
 \end{topic}
 
 \begin{topic}{sheaf-hom}{sheaf hom}
@@ -122,7 +122,7 @@
 
 \begin{example}{invertible-sheaf}
     Let $D$ be a \tref{cartier-divisor}{Cartier divisor} on a scheme $X$, represented by a collection $\{ (U_i, f_i) \}$ of open subsets $U_i$ and $f_i \in K_X / \mathcal{O}_X^* (U_i)$, where $K_X$ denotes the \tref{sheaf-rational-functions}{sheaf of rational functions}. One defines the invertible sheaf $\mathcal{O}_X(D)$ as the subsheaf of $K_X$ generated as an $\mathcal{O}_X$-submodule by $1/f_i$ on $U_i$. Indeed this gives an invertible sheaf, and moreover this construction gives a canonical homomorphism of groups
-    \[ \mathcal{O}_X(-) : \{ \textup{Cartier divisors} \} / \textup{linear equivalence} \to \textup{Pic}(X), \quad D \mapsto \mathcal{O}_X(D) . \]
+    \[ \mathcal{O}_X(-) \colon \{ \textup{Cartier divisors} \} / \textup{linear equivalence} \to \textup{Pic}(X), \quad D \mapsto \mathcal{O}_X(D) . \]
     This map is injective on any scheme $X$, and when $X$ is \tref{integral-scheme}{integral} it is also surjective.
 \end{example}
 
@@ -149,13 +149,13 @@
 \end{example}
 
 \begin{example}{coherent-sheaf}
-    Let $X = \Spec(\ZZ)$ and $Y = \bigsqcup_{i = 1}^{\infty} X = \Spec\left(\prod_{i = 1}^\infty \ZZ \right)$, with the obvious morphism $f : Y \to X$. Then $f_* \mathcal{O}_Y$ is not a quasi-coherent $\mathcal{O}_X$-module. Namely, if it were quasi-coherent, then in particular every $n \in \ZZ$ should induce a natural isomorphism
+    Let $X = \Spec(\ZZ)$ and $Y = \bigsqcup_{i = 1}^{\infty} X = \Spec\left(\prod_{i = 1}^\infty \ZZ \right)$, with the obvious morphism $f \colon Y \to X$. Then $f_* \mathcal{O}_Y$ is not a quasi-coherent $\mathcal{O}_X$-module. Namely, if it were quasi-coherent, then in particular every $n \in \ZZ$ should induce a natural isomorphism
     \[ \prod_{i = 1}^{\infty} \ZZ_n \isom \left(\prod_{i = 1}^{\infty} \ZZ \right)_n . \]
     However, the element $(1, 1/n, 1/n^2, 1/n^3, \ldots)$ does exist on the left-hand side, but not on the right-hand side for $n \ge 2$.
 \end{example}
 
 \begin{topic}{ideal-sheaf}{ideal sheaf}
-    Let $i : Y \to X$ be a \tref{closed-immersion}{closed immersion} of \tref{scheme}{schemes}. The \textbf{ideal sheaf} $\mathcal{I}$ of $Y$ is the kernel of $i^\# : \mathcal{O}_X \to i_* \mathcal{O}_Y$. In particular, this is a \tref{sheaf-of-ideals}{sheaf of ideals} on $X$.
+    Let $i \colon Y \to X$ be a \tref{closed-immersion}{closed immersion} of \tref{scheme}{schemes}. The \textbf{ideal sheaf} $\mathcal{I}$ of $Y$ is the kernel of $i^\# \colon \mathcal{O}_X \to i_* \mathcal{O}_Y$. In particular, this is a \tref{sheaf-of-ideals}{sheaf of ideals} on $X$.
     \[ 0 \to \mathcal{I} \to \mathcal{O}_X \to i_* \mathcal{O}_Y \to 0 . \]
 \end{topic}
 
@@ -178,7 +178,7 @@
 
 \begin{topic}{sheaf-cohomology}{sheaf cohomology}
     Let $X$ be a \tref{TO:topological-space}{topological space}. The \textit{global section functor} from \tref{sheaf}{sheaves} on $X$ to \tref{GT:abelian-group}{abelian groups},
-    \[ \Gamma(X, -) : \textup{Sh}(X) \to \textbf{Ab} , \quad \mathcal{F} \mapsto \Gamma(X, \mathcal{F}) \]
+    \[ \Gamma(X, -) \colon \textup{Sh}(X) \to \textbf{Ab} , \quad \mathcal{F} \mapsto \Gamma(X, \mathcal{F}) \]
     is \tref{HA:exact-functor}{left exact}, and since $\textup{Sh}(X)$ has enough injectives, one can form the \tref{HA:right-derived-functors}{right derived functors} $H^i(X, -) = \textup{R}^i \Gamma(X, -)$. The group
     \[ H^i(X, \mathcal{F}) \]
     is called the $i$-th \textbf{cohomology group} of $X$ with coefficients in $\mathcal{F}$.
@@ -193,8 +193,8 @@
 \end{example}
 
 \begin{topic}{local-cohomology}{local cohomology}
-    Let $X$ be a \tref{TO:topological-space}{topological space} and let $i : A \to X$ be the inclusion of a closed subset. Consider the functor
-    \[ \Gamma_A(X, -) : \textup{Sh}(X) \to \textbf{Ab}, \quad \mathcal{F} \mapsto \Gamma_A(X, \mathcal{F}) = \{ s \in \Gamma(X, \mathcal{F}) \mid \textup{Supp}(s) \subset A \} \]
+    Let $X$ be a \tref{TO:topological-space}{topological space} and let $i \colon A \to X$ be the inclusion of a closed subset. Consider the functor
+    \[ \Gamma_A(X, -) \colon \textup{Sh}(X) \to \textbf{Ab}, \quad \mathcal{F} \mapsto \Gamma_A(X, \mathcal{F}) = \{ s \in \Gamma(X, \mathcal{F}) \mid \textup{Supp}(s) \subset A \} \]
     of \textit{global sections with support in $A$}. This is a \tref{HA:exact-functor}{left exact functor}, and one can form the \tref{HA:right-derived-functors}{right derived functors} $H_A^i(X, -) = \textup{R}^i \Gamma_A(X, -)$. The group
     \[ H_A^i(X, \mathcal{F}) \]
     is called the $i$-th \textbf{local cohomology group} of $X$ with support in $A$ and coefficients in $\mathcal{F}$.
@@ -210,7 +210,7 @@
 \end{example}
 
 \begin{topic}{extension-by-zero}{extension by zero}
-    Let $X$ be a \tref{TO:topological-space}{topological space}, $i : Z \to X$ the inclusion of a closed subset, and $j : U \to X$ the inclusion of the complement $U = X \setminus Z$. For any sheaf of abelian groups $\mathcal{F}$ on $U$, the \textbf{extension by zero} of $\mathcal{F}$ is the sheaf $j_! \mathcal{F}$ on $X$ \tref{associated-sheaf}{associated} to the presheaf
+    Let $X$ be a \tref{TO:topological-space}{topological space}, $i \colon Z \to X$ the inclusion of a closed subset, and $j \colon U \to X$ the inclusion of the complement $U = X \setminus Z$. For any sheaf of abelian groups $\mathcal{F}$ on $U$, the \textbf{extension by zero} of $\mathcal{F}$ is the sheaf $j_! \mathcal{F}$ on $X$ \tref{associated-sheaf}{associated} to the presheaf
     \[ V \mapsto \left\{ \begin{array}{cl}
         \mathcal{F}(V) & \textup{ if } V \subset U , \\
         0 & \textup{ otherwise} .
@@ -262,8 +262,8 @@
 \end{example}
 
 \begin{topic}{direct-image-sheaf-compact-support}{direct image sheaf with compact support}
-    Let $f : X \to Y$ be a map of \tref{TO:topological-space}{topological spaces}, and let $\mathcal{F}$ be a \tref{sheaf}{sheaf} on $X$. The \textbf{direct image sheaf with compact support} $f_! \mathcal{F}$ on $Y$ is defined by
-    \[ (f_! \mathcal{F})(V) = \{ s \in \mathcal{F}(f^{-1}(V)) \mid f_{\operatorname{supp}(s)} : \operatorname{supp}(s) \to V \textup{ is proper} \} \]
+    Let $f \colon X \to Y$ be a map of \tref{TO:topological-space}{topological spaces}, and let $\mathcal{F}$ be a \tref{sheaf}{sheaf} on $X$. The \textbf{direct image sheaf with compact support} $f_! \mathcal{F}$ on $Y$ is defined by
+    \[ (f_! \mathcal{F})(V) = \{ s \in \mathcal{F}(f^{-1}(V)) \mid f_{\operatorname{supp}(s)} \colon \operatorname{supp}(s) \to V \textup{ is proper} \} \]
     for any open set $V \subset Y$ (indeed this presheaf is a sheaf).
 \end{topic}
 
@@ -275,7 +275,7 @@
         D^{\le 0} &= \{ K \in \textbf{D}^b_c(X, F) \mid \dim \operatorname{supp} H^i(K) \le -i \textup{ for all } i \in \ZZ \} \\
         D^{\ge 0} &= \{ K \in \textbf{D}^b_c(X, F) \mid K^\vee \in D^{\le 0} \}
     \end{aligned} \]
-    where $K^\vee = R\iHom(K, \pi^! F)$ denotes the dual of $K$, with $\pi : X \to \Spec k$. The heart of this $t$-structure
+    where $K^\vee = R\iHom(K, \pi^! F)$ denotes the dual of $K$, with $\pi \colon X \to \Spec k$. The heart of this $t$-structure
     \[ \operatorname{Perv}(X, F) = D^\heartsuit = D^{\le 0} \cap D^{\ge 0} \]
     is the \tref{HA:abelian-category}{abelian category} of \textbf{perverse sheaves}.
 \end{topic}

@@ -1,5 +1,5 @@
 \begin{topic}{monoidal-category}{monoidal category}
-    A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $\textbf{1}$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
+    A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes \colon \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $\textbf{1}$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
     \[ \begin{aligned}
         \textup{(associator)} &\quad \alpha : - \otimes (- \otimes -) \Rightarrow (- \otimes -) \otimes - \qquad  \\
         \textup{(left unitor)} &\quad \lambda : \textbf{1} \otimes - \Rightarrow \id_{\mathcal{C}} \\
@@ -26,7 +26,7 @@
 
 \begin{topic}{symmetric-monoidal-category}{symmetric monoidal category}
     A \textbf{symmetric monoidal category} is a \tref{monoidal-category}{monoidal category} $\mathcal{C}$ together with isomorphisms
-    \[ \tau_{X, Y} : X \otimes Y \to Y \otimes X , \]
+    \[ \tau_{X, Y} \colon X \otimes Y \to Y \otimes X , \]
     \tref{natural-transformation}{natural} in $X$ and $Y$, such that
     \[ \tau_{Y, X} \circ \tau_{X, Y} = \id_{X \otimes Y} \]
     and the diagrams
@@ -54,12 +54,12 @@
 \begin{example}{symmetric-monoidal-category}
     A monoidal category can be symmetric in multiple ways. Let $\textbf{GrVect}_k$ be the category whose objects are graded vector spaces $V = \oplus_{n \in \ZZ} V_n$ over a field $k$, and whose morphisms are linear maps that respect the grading. The tensor product of two graded vector spaces $V$ and $W$ is again graded, with grading $(V \otimes W)_n = \oplus_{p + q = n} (V_p \otimes W_q)$, making $\textbf{GrVect}_k$ into a monoidal category, where the unital object is the ground field $k$ concentrated in degree zero.
         
-    There is more than one way to make $\textbf{GrVect}_k$ symmetric. As the map $V \otimes W \to W \otimes V$ one could take the more obvious map $\tau : v \otimes w \to w \otimes v$. However, one could also take the map $\kappa : v \otimes w \mapsto (-1)^{pq} w \otimes v$ with $p = \deg(v)$ and $q = \deg(w)$, known as \textit{Koszul's sign change}. One can check that $\kappa$ indeed satisfies the axioms.
+    There is more than one way to make $\textbf{GrVect}_k$ symmetric. As the map $V \otimes W \to W \otimes V$ one could take the more obvious map $\tau \colon v \otimes w \to w \otimes v$. However, one could also take the map $\kappa : v \otimes w \mapsto (-1)^{pq} w \otimes v$ with $p = \deg(v)$ and $q = \deg(w)$, known as \textit{Koszul's sign change}. One can check that $\kappa$ indeed satisfies the axioms.
 \end{example}
 
 \begin{topic}{braided-monoidal-category}{braided monoidal category}
     A \textbf{braided monoidal category} is a \tref{symmetric-monoidal-category}{symmetric monoidal category} $(\mathcal{C}, \otimes, \textbf{1}, \tau)$ without the condition that $\tau_{Y, X} \circ \tau_{X, Y} = \id_{X \otimes Y}$.
-    % \[ \gamma_{X, Y} : X \otimes Y \to Y \otimes X \]
+    % \[ \gamma_{X, Y} \colon X \otimes Y \to Y \otimes X \]
     % such that the diagrams
     % \[ \svg \begin{tikzcd}
     %     (X \otimes Y) \otimes Z \arrow{r}{\alpha_{X, Y, Z}} \arrow[swap]{d}{\tau_{X, Y} \otimes \id_Z} & X \otimes (Y \otimes Z) \arrow{r}{\tau_{X, Y \otimes Z}} & (Y \otimes Z) \otimes X \arrow{d}{\alpha_{Y, Z, X}} \\ (Y \otimes X) \otimes Z \arrow{r}{\alpha_{Y, X, Z}} & Y \otimes (X \otimes Z) \arrow{r}{\id_Y \otimes \tau_{X, Z}} Y & Y \otimes (Z \otimes X)
@@ -72,9 +72,9 @@
 \end{topic}
 
 \begin{topic}{monoidal-functor}{(lax) monoidal functor}
-    A \textbf{lax monoidal functor} is a \tref{functor}{functor} $F : \mathcal{C} \to \mathcal{D}$ between \tref{monoidal-category}{monoidal categories} together with a \tref{natural-transformation}{natural transformation}
+    A \textbf{lax monoidal functor} is a \tref{functor}{functor} $F \colon \mathcal{C} \to \mathcal{D}$ between \tref{monoidal-category}{monoidal categories} together with a \tref{natural-transformation}{natural transformation}
     \[ \mu : F(-) \otimes_\mathcal{D} F(-) \Rightarrow F(- \otimes_\mathcal{C} -) \]
-    and a morphism $\varepsilon : \textbf{1}_\mathcal{D} \to F(\textbf{1}_\mathcal{C})$, such that the diagrams
+    and a morphism $\varepsilon \colon \textbf{1}_\mathcal{D} \to F(\textbf{1}_\mathcal{C})$, such that the diagrams
     \[ \svg \begin{tikzcd}[column sep=7em]
         (F(X) \otimes_\mathcal{D} F(Y)) \otimes_\mathcal{D} F(Z) \arrow{r}{\alpha^\mathcal{D}_{F(X), F(Y), F(Z)}} \arrow[swap]{d}{\mu_{X, Y} \otimes \id_{F(Z)}} & F(X) \otimes_\mathcal{D} (F(Y) \otimes_\mathcal{D} F(Z)) \arrow{d}{\id_{F(X)} \otimes \mu_{Y, Z}} \\ F(X \otimes_\mathcal{C} Y) \otimes_\mathcal{D} F(Z) \arrow[swap]{d}{\mu_{X \otimes_\mathcal{C} Y, Z}} &  F(X) \otimes_\mathcal{D} F(Y \otimes_\mathcal{C} Z) \arrow{d}{\mu_{X, Y \otimes_\mathcal{C} Z}} \\ F((X \otimes_\mathcal{C} Y) \otimes_\mathcal{C} Z) \arrow{r}{F(\alpha^\mathcal{C}_{X, Y, Z})} & F(X \otimes_\mathcal{C} (Y \otimes_\mathcal{C} Z))
     \end{tikzcd} \]
@@ -88,7 +88,7 @@
 \end{topic}
 
 \begin{topic}{dualizable-object}{dualizable object}
-    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. An object $X$ of $\mathcal{C}$ is \textbf{left dualizable} if there exist an object $Y$, called a \textbf{left dual} of $X$, and morphisms $\varepsilon : Y \otimes X \to \textbf{1}$ (\textit{evaluation}) and $\eta : \textbf{1} \to X \otimes Y$ (\textit{coevaluation}) such that
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. An object $X$ of $\mathcal{C}$ is \textbf{left dualizable} if there exist an object $Y$, called a \textbf{left dual} of $X$, and morphisms $\varepsilon \colon Y \otimes X \to \textbf{1}$ (\textit{evaluation}) and $\eta \colon \textbf{1} \to X \otimes Y$ (\textit{coevaluation}) such that
     \[ X \xrightarrow{\eta \otimes \id_X} (X \otimes Y) \otimes X \xrightarrow{\alpha_{X, Y, X}^{-1}} X \otimes (Y \otimes X) \xrightarrow{\id_X \otimes \varepsilon} X \]
     and
     \[ Y \xrightarrow{\eta \otimes \id_Y} Y \otimes (X \otimes Y) \xrightarrow{\alpha_{Y, X, Y}} (Y \otimes X) \otimes Y \xrightarrow{\varepsilon \otimes \id_Y} Y \]
@@ -108,13 +108,13 @@
 
 \begin{example}{rigid-monoidal-category}
     Let $k$ be a field. The category $\textbf{FinVect}_k$ of finite-dimensional \tref{LA:vector-space}{vector spaces} over $k$, with tensor product $\otimes_k$, is a rigid monoidal category. Namely, the left and right dual of a vector space $V$ is the \tref{LA:dual-vector-space}{dual vector space} $V^*$. Indeed, for every $V$ we have maps
-    \[ \eta_V : k \to V \otimes_k V^*, \quad 1 \mapsto \sum_{i = 1}^{n} e_i \otimes e^*_i , \quad \textup{ and } \quad \varepsilon_V : V^* \otimes_k V \to k, \quad f \otimes v \mapsto f(v) , \]
+    \[ \eta_V \colon k \to V \otimes_k V^*, \quad 1 \mapsto \sum_{i = 1}^{n} e_i \otimes e^*_i , \quad \textup{ and } \quad \varepsilon_V \colon V^* \otimes_k V \to k, \quad f \otimes v \mapsto f(v) , \]
     where $e_1, \ldots, e_n$ is some basis for $V$ with dual basis $e^*_1, \ldots, e^*_n$ for $V^*$.
 \end{example}
 
 \begin{topic}{internal-hom}{internal hom}
     Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{symmetric-monoidal-category}{symmetric} \tref{monoidal-category}{monoidal category}. An \textbf{internal hom} in $\mathcal{C}$ is a \tref{functor}{functor}
-    \[ \iHom_\mathcal{C}(-, -) : \mathcal{C}^\textup{op} \times \mathcal{C} \to \mathcal{C} \]
+    \[ \iHom_\mathcal{C}(-, -) \colon \mathcal{C}^\textup{op} \times \mathcal{C} \to \mathcal{C} \]
     such that for every object $X$ of $\mathcal{C}$ there is an \tref{adjunction}{adjunction}
     \[ (-) \otimes X \dashv \iHom_\mathcal{C}(X, -) . \]
     If such an internal hom exists, $\mathcal{C}$ is called a \tref{closed-monoidal-category}{closed monoidal category}.
@@ -142,7 +142,7 @@
 \end{topic}
 
 \begin{topic}{ribbon-category}{ribbon category}
-    A \textbf{ribbon category} is a \tref{rigid-monoidal-category}{rigid} \tref{braided-monoidal-category}{braided monoidal category} $(\mathcal{C}, \otimes, \textbf{1}, \tau)$ together with a collection of isomorphisms $\theta_X : X \to X$, called a \textit{twist}, satisfying
+    A \textbf{ribbon category} is a \tref{rigid-monoidal-category}{rigid} \tref{braided-monoidal-category}{braided monoidal category} $(\mathcal{C}, \otimes, \textbf{1}, \tau)$ together with a collection of isomorphisms $\theta_X \colon X \to X$, called a \textit{twist}, satisfying
     \begin{itemize}
         \item (\textit{unit twist}) $\theta_\textbf{1} = \id_\textbf{1}$,
         \item (\textit{braided compatible}) $\theta_{X \otimes Y} = \tau_{Y, X} \tau_{X, Y} (\theta_X \otimes \theta_Y)$ for all objects $X, Y$ of $\mathcal{C}$,
@@ -156,15 +156,15 @@
     \begin{itemize}
         \item The tensor product of $A$-modules $V$ and $W$ is given by $V \otimes_k W$, where $a \cdot (v \otimes w) = \Delta(a) \cdot (v, w)$, and the unit is the one-dimensional vector space $\textbf{1} = k$ with $a \cdot \lambda = \varepsilon(a) \lambda$. This being a monoidal category follows from $A$ being a \tref{AA:bialgebra}{bialgebra}.
         \item A braiding is given by $c_{V, W}^R(v \otimes w) = \tau_{V, W}(R (v \otimes w))$.
-        \item The dual of an $A$-module $V$ is the \tref{LA:dual-vector-space}{dual vector space} $V^*$ with $(a \cdot \varphi)(v) = \varphi(S^{-1}(a) \cdot v)$. There are morphisms $\eta_V : k \to V \otimes_k V^*$ and $\varepsilon_V : V^* \otimes_k V \to k$ given by $\eta_V(1) = \sum_i v_i \otimes v^i$ and $\varepsilon(\varphi \otimes v) = \varphi(v)$. 
+        \item The dual of an $A$-module $V$ is the \tref{LA:dual-vector-space}{dual vector space} $V^*$ with $(a \cdot \varphi)(v) = \varphi(S^{-1}(a) \cdot v)$. There are morphisms $\eta_V \colon k \to V \otimes_k V^*$ and $\varepsilon_V \colon V^* \otimes_k V \to k$ given by $\eta_V(1) = \sum_i v_i \otimes v^i$ and $\varepsilon(\varphi \otimes v) = \varphi(v)$. 
         \item For any central invertible element $\theta \in A$ satisfying $\varepsilon(\theta) = 1$, $S(\theta) = \theta$ and $\Delta(\theta) = (R_{21} R)^{-1} (\theta \otimes \theta)$, the collection of maps
-        \[ \theta_V : V \to V, \quad v \mapsto \theta^{-1} \cdot v \]
+        \[ \theta_V \colon V \to V, \quad v \mapsto \theta^{-1} \cdot v \]
         defines a twist, which is compatible with the brading and duals. Conversely, any twist defines such an element $\theta = \theta_A(1)^{-1}$.
     \end{itemize}
 \end{example}
 
 \begin{topic}{module-category}{module category}
-    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. A \textbf{(left) module category} over $\mathcal{C}$ is a category $\mathcal{M}$ together with a \tref{functor}{functor} $\boxtimes : \mathcal{C} \times \mathcal{M} \to \mathcal{M}$ and \tref{natural-transformation}{natural} isomorphisms
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. A \textbf{(left) module category} over $\mathcal{C}$ is a category $\mathcal{M}$ together with a \tref{functor}{functor} $\boxtimes \colon \mathcal{C} \times \mathcal{M} \to \mathcal{M}$ and \tref{natural-transformation}{natural} isomorphisms
     \[ \begin{aligned}
         \textup{(associator)}& \quad \alpha : - \boxtimes (- \boxtimes -) \Rightarrow (- \otimes -) \boxtimes - \\
         \textup{(unitor)}& \quad \lambda : \textbf{1} \boxtimes - \Rightarrow \id_\mathcal{M}
@@ -184,6 +184,6 @@
     The \textbf{center} of a \tref{monoidal-category}{monoidal category} $(\mathcal{C}, \otimes, \textbf{1})$ is the category $Z(\mathcal{C})$ defined as follows.
     \begin{itemize}
         \item Its objects are pairs $(X, \mu)$ with $X$ an object of $\mathcal{C}$ and $\mu : X \otimes (-) \Rightarrow (-) \otimes X$ a \tref{natural-transformation}{natural isomorphism}, such that $\mu_{Y \otimes Z} = (\id_Y \otimes \mu_Z) \circ (\mu_Y \otimes \id_Z)$ for all objects $Y$ and $Z$ of $\mathcal{C}$.
-        \item A morphism from $(X, \mu)$ to $(Y, \nu)$ is a morphism $f : X \to Y$ in $\mathcal{C}$ such that $\nu_Z \circ (f \otimes \id_Z) = (\id_Z \otimes f) \circ \mu_Z$ for all objects $Z$ of $\mathcal{C}$.
+        \item A morphism from $(X, \mu)$ to $(Y, \nu)$ is a morphism $f \colon X \to Y$ in $\mathcal{C}$ such that $\nu_Z \circ (f \otimes \id_Z) = (\id_Z \otimes f) \circ \mu_Z$ for all objects $Z$ of $\mathcal{C}$.
     \end{itemize}
 \end{topic}

@@ -1,6 +1,6 @@
 \begin{topic}{deformation-functor}{deformation functor}
     A \textbf{deformation functor} is a \tref{CT:functor}{functor}
-    \[ D : \textbf{Art}_k \to \textbf{Set} \]
+    \[ D \colon \textbf{Art}_k \to \textbf{Set} \]
     where $\textbf{Art}_k$ is the category of local artinian $k$-algebras with residue field $k$, such that $D(k)$ is a single point.
     
     A morphism of deformation functors is a natural transformation of functors.
@@ -19,11 +19,11 @@
 \end{topic}
 
 \begin{example}{tangent-obstruction-theory}
-    Let $R$ be a complete local $k$-algebra with residue field $k$ such that $d = \dim_k(\mathfrak{m}_R/\mathfrak{m}_R^2)$ is finite. We will construct a tangent-obstruction theory for the deformation functor $D : \textbf{Art}_k \to \textbf{Set}$ given by $D(A) = \Hom_k(R, A)$.
+    Let $R$ be a complete local $k$-algebra with residue field $k$ such that $d = \dim_k(\mathfrak{m}_R/\mathfrak{m}_R^2)$ is finite. We will construct a tangent-obstruction theory for the deformation functor $D \colon \textbf{Art}_k \to \textbf{Set}$ given by $D(A) = \Hom_k(R, A)$.
 
     \textbf{Tangent space}. Suppose $\beta, \beta' \in D(B)$ are both lifts of some $\alpha \in D(A)$. Using that $B$ is a small extension of $A$, one can show that $\beta - \beta'$ is a \tref{AA:derivation}{derivation} in $\operatorname{Der}_k(R, M)$. In particular, $\operatorname{Der}_k(R, M) = (\mathfrak{m}_R/\mathfrak{m}_R^2)^\vee \otimes_k M$ acts transitively on the set of lifts of $\alpha$ to $D(B)$.
 
-    \textbf{Obstruction space}. Pick a surjection $S = k\llbracket x_1, \ldots, x_d \rrbracket \xrightarrow{\pi} R$ with kernel $I$. Given $\alpha \in D(A)$, pick any lift $\varphi : S \to B$ of $\alpha \circ \pi$, which exists as $S$ is free. For any other choice $\varphi'$ we have $(\varphi - \varphi')(I) = 0$ since $I \subset \mathfrak{m}_S^2$ and $\varphi - \varphi' \in \operatorname{Der}_k(S, M)$. Hence, $\varphi|_I$ does not depend on the choice of $\varphi$. Furthermore, $\varphi(\mathfrak{m}_S I) \in \mathfrak{m}_B M = 0$. Therefore, $\alpha$ admits a lift to $D(B)$ precisely if the induced map $\varphi|_I : I / \mathfrak{m}_S I \to M$ equals zero.
+    \textbf{Obstruction space}. Pick a surjection $S = k\llbracket x_1, \ldots, x_d \rrbracket \xrightarrow{\pi} R$ with kernel $I$. Given $\alpha \in D(A)$, pick any lift $\varphi \colon S \to B$ of $\alpha \circ \pi$, which exists as $S$ is free. For any other choice $\varphi'$ we have $(\varphi - \varphi')(I) = 0$ since $I \subset \mathfrak{m}_S^2$ and $\varphi - \varphi' \in \operatorname{Der}_k(S, M)$. Hence, $\varphi|_I$ does not depend on the choice of $\varphi$. Furthermore, $\varphi(\mathfrak{m}_S I) \in \mathfrak{m}_B M = 0$. Therefore, $\alpha$ admits a lift to $D(B)$ precisely if the induced map $\varphi|_I \colon I / \mathfrak{m}_S I \to M$ equals zero.
 
     Summarizing, we have a tangent-obstruction theory
     \[ (\mathfrak{m}_R/\mathfrak{m}_R^2)^\vee \otimes_k M \to D(B) \to D(A) \to (I/\mathfrak{m}_S I)^\vee \otimes_k M . \]
@@ -31,18 +31,18 @@
 \end{example}
 
 \begin{topic}{schlessingers-criteria}{Schlessinger's criteria}
-    Let $F : \textbf{Art}_k \to \textbf{Set}$ be a \tref{deformation-functor}{deformation functor}. The following conditions are known as \textbf{Schlessinger's criteria}:
+    Let $F \colon \textbf{Art}_k \to \textbf{Set}$ be a \tref{deformation-functor}{deformation functor}. The following conditions are known as \textbf{Schlessinger's criteria}:
     \begin{itemize}
         \item \textbf{H1}: The map $F(A' \times_A A'') \to F(A') \times_{F(A)} F(A'')$ is surjective for every small extension $A'' \to A$.
         \item \textbf{H2}: The map of \textbf{H1} is bijective for $A'' = k[\varepsilon] / (\varepsilon^2)$ and $A = k$.
         \item \textbf{H3}: The tangent space $t_F = F(k[\varepsilon]/(\varepsilon^2))$ is a finite-dimensional $k$-vector space.
-        \item \textbf{H4}: For every small extension $p : A'' \to A$ and every $\eta \in F(A)$ for which $p^{-1}(\eta)$ is non-empty, the group action of $t_F$ on $p^{-1}(\eta)$ is bijective.
+        \item \textbf{H4}: For every small extension $p \colon A'' \to A$ and every $\eta \in F(A)$ for which $p^{-1}(\eta)$ is non-empty, the group action of $t_F$ on $p^{-1}(\eta)$ is bijective.
     \end{itemize}
     \textit{Schlessinger's theorem} states that $F$ has a \tref{pro-representable-hull}{pro-representable hull} if and only if it satisfies \textbf{H1}-\textbf{H3}. Furthermore, $F$ is pro-representable (i.e. representable by a complete local $k$-algebra) if and only if it satisfies \textbf{H1}-\textbf{H4}.
 \end{topic}
 
 \begin{topic}{pro-representable-hull}{pro-representable hull}
-    Let $F : \textbf{Art}_k \to \textbf{Set}$ be a \tref{deformation-functor}{deformation functor}.
+    Let $F \colon \textbf{Art}_k \to \textbf{Set}$ be a \tref{deformation-functor}{deformation functor}.
     A \textbf{pro-representable hull} for $F$ is a pair $(R, \xi)$ with $R$ a complete local $k$-algebra and $\xi \in \hat{F}(R) = \varprojlim F(R / \mathfrak{m}_R^n)$ such that
     \begin{itemize}
         \item the associated map $h_R \to F$ is surjective, i.e. $\Hom(R, A) \to F(A)$ is surjective for all $A$,
@@ -53,7 +53,7 @@
 \end{topic}
 
 \begin{topic}{hilbert-functor}{Hilbert functor}
-    Let $X$ be a \tref{AG:scheme}{scheme}. The \textbf{Hilbert functor} $H_X : \textbf{Sch}^\textup{op} \to \textbf{Set}$ is given by
+    Let $X$ be a \tref{AG:scheme}{scheme}. The \textbf{Hilbert functor} $H_X \colon \textbf{Sch}^\textup{op} \to \textbf{Set}$ is given by
     \[ H_X(S) = \{ \text{$S$-flat closed subschemes $W \subset X \times S$} \} . \]
     The infinitesimal local version of this moduli functor for a given closed subscheme $Z \subset X$ is the \tref{deformation-functor}{deformation functor}
     \[ H_{X, Z}(A) = \left\{ \begin{array}{cc} \text{$(\Spec A)$-flat closed subschemes $Z' \subset X \times \Spec A$} \\ \text{whose fiber over $(\Spec A)_\textup{red}$ is $Z$} \end{array} \right\} . \]
@@ -62,7 +62,7 @@
 \begin{topic}{quot-functor}{Quot functor}
     Let $X$ be a \tref{AG:scheme}{scheme}, and $\mathcal{F}$ a \tref{AG:coherent-sheaf}{coherent sheaf} on $X$. The \textbf{Quot functor} $Q_\mathcal{F}$ associated to $\mathcal{F}$ is given by
     \[ Q_\mathcal{F}(S) = \{ \text{coherent subsheaves } \mathcal{S} \subset p^* \mathcal{F} : p^* \mathcal{F} / \mathcal{S} \text{ is flat over } S \} , \]
-    where $p : X \times S \to S$ denotes the projection.
+    where $p \colon X \times S \to S$ denotes the projection.
     
     Note that the \tref{hilbert-functor}{Hilbert functor} is the special case where $\mathcal{F} = \mathcal{O}_X$.
 \end{topic}

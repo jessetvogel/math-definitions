@@ -9,7 +9,7 @@
 
 \begin{example}{cantor-theorem}
     \begin{proof}
-        Suppose for a contradiction that $f : A \to P(A)$ is a surjective function, and let $S = \{ x \in A \mid x \not\in f(x) \}$. Since $f$ is surjective, there exists some $x \in A$ with $f(x) = S$. But now, by definition of $S$,
+        Suppose for a contradiction that $f \colon A \to P(A)$ is a surjective function, and let $S = \{ x \in A \mid x \not\in f(x) \}$. Since $f$ is surjective, there exists some $x \in A$ with $f(x) = S$. But now, by definition of $S$,
         \[ x \in S \iff x \not\in f(x) = S , \]
         which is a contradiction.
     \end{proof}
@@ -17,7 +17,7 @@
 
 \begin{topic}{axiom-of-choice}{axiom of choice}
     The \textbf{axiom of choice} states that for every set $X$ of non-empty sets, there exists a function
-    \[ f : X \to \bigcup_{A \in X} A \]
+    \[ f \colon X \to \bigcup_{A \in X} A \]
     such that $f(A) \in A$ for all $A \in X$.
 \end{topic}
 

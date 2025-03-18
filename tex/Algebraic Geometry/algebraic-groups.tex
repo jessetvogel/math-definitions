@@ -189,19 +189,19 @@
 \end{example}
 
 \begin{topic}{langs-theorem}{Lang's theorem}
-    Let $G_0$ be an \tref{algebraic-group}{algebraic group} over a finite field $\FF_q$ and let $G = G_0 \times_{\FF_q} \overline{\FF}_q$. Denote by $F : G \to G$ the morphism induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $F : \overline{\FF}_q \to \overline{\FF}_q, x \mapsto x^q$. The \textbf{Lang map} is the morphism
-    \[ L : G \to G, \quad g \mapsto g^{-1} F(g) . \]
+    Let $G_0$ be an \tref{algebraic-group}{algebraic group} over a finite field $\FF_q$ and let $G = G_0 \times_{\FF_q} \overline{\FF}_q$. Denote by $F \colon G \to G$ the morphism induced by the \tref{AA:frobenius-morphism}{Frobenius morphism} $F \colon \overline{\FF}_q \to \overline{\FF}_q, x \mapsto x^q$. The \textbf{Lang map} is the morphism
+    \[ L \colon G \to G, \quad g \mapsto g^{-1} F(g) . \]
     Note that the points of $G$ fixed by $F$ is given by $\ker L$. \textbf{Lang's theorem} states that if $G$ is \tref{TO:connected-space}{connected}, then $L$ is surjective.
 \end{topic}
 
 \begin{example}{langs-theorem}
     \begin{proof}
-        Note that $(dF)_1 = 0$ as $F(1) = 1$ and $q \ge 2$. Hence, $(dL)_1 = -1$ and in particular bijective. Therefore, the image $L(G)$ contains a (dense) open subset of $G$. Now, for any $x \in G$, let $L_x : G \to G$ be given by $g \mapsto g^{-1} x F(g)$. Then again, $(dL_x)_1$ is bijective, so $L_x(G)$ contains a (dense) open subset of $G$ as well. Therefore, $L(G) \cap L_x(G) \ne \varnothing$, so there exist $g, h \in G$ such that $g^{-1} F(g) = h^{-1} x F(h)$ and thus $x = hg^{-1} F(gh^{-1}) = L(gh^{-1})$, showing that $L$ is surjective.
+        Note that $(dF)_1 = 0$ as $F(1) = 1$ and $q \ge 2$. Hence, $(dL)_1 = -1$ and in particular bijective. Therefore, the image $L(G)$ contains a (dense) open subset of $G$. Now, for any $x \in G$, let $L_x \colon G \to G$ be given by $g \mapsto g^{-1} x F(g)$. Then again, $(dL_x)_1$ is bijective, so $L_x(G)$ contains a (dense) open subset of $G$ as well. Therefore, $L(G) \cap L_x(G) \ne \varnothing$, so there exist $g, h \in G$ such that $g^{-1} F(g) = h^{-1} x F(h)$ and thus $x = hg^{-1} F(gh^{-1}) = L(gh^{-1})$, showing that $L$ is surjective.
     \end{proof}
 \end{example}
 
 \begin{topic}{no-name-lemma}{no-name lemma}
-    Let $k$ be an \tref{AA:algebraically-closed-field}{algebraically closed field}, and $G$ a linear \tref{algebraic-group}{algebraic group} over $k$. Let $X$ be a \tref{variety}{variety} over $k$, with a $G$-action which is \textit{generically free}, i.e. there exists an open dense $U \subset X$ such that the stabilizer of any point $x \in U$ is trivial. Let $\pi : V \to X$ be a vector bundle of rank $r$, with a $G$-action on $V$ such that $\pi$ is $G$-equivariant and the action of any $g \in G$ restricts to a linear map $\pi^{-1}(x) \to \pi^{-1}(g \cdot x)$ for all $x \in X$. Then the \textbf{no-name lemma} states that there exists a $G$-equivariant \tref{birational-map}{birational map} $\phi : V \dashrightarrow X \times \AA^r_k$, where $G$ acts trivially on $\AA^r_k$, such that
+    Let $k$ be an \tref{AA:algebraically-closed-field}{algebraically closed field}, and $G$ a linear \tref{algebraic-group}{algebraic group} over $k$. Let $X$ be a \tref{variety}{variety} over $k$, with a $G$-action which is \textit{generically free}, i.e. there exists an open dense $U \subset X$ such that the stabilizer of any point $x \in U$ is trivial. Let $\pi \colon V \to X$ be a vector bundle of rank $r$, with a $G$-action on $V$ such that $\pi$ is $G$-equivariant and the action of any $g \in G$ restricts to a linear map $\pi^{-1}(x) \to \pi^{-1}(g \cdot x)$ for all $x \in X$. Then the \textbf{no-name lemma} states that there exists a $G$-equivariant \tref{birational-map}{birational map} $\phi : V \dashrightarrow X \times \AA^r_k$, where $G$ acts trivially on $\AA^r_k$, such that
     \[ \svg \begin{tikzcd}
         V \arrow[dashed]{rr}{\phi} \arrow[swap]{rd}{\pi} && X \times \AA^r_k \arrow{dl}{\pi_X} \\
         & X &
@@ -226,7 +226,7 @@
 \end{example}
 
 \begin{topic}{isogeny}{isogeny}
-    Let $G$ and $H$ be \tref{algebraic-group}{algebraic groups}. An \textbf{isogeny} from $G$ to $H$ is a surjective morphism of algebraic groups $f : G \to H$ such that $\ker f$ is finite.
+    Let $G$ and $H$ be \tref{algebraic-group}{algebraic groups}. An \textbf{isogeny} from $G$ to $H$ is a surjective morphism of algebraic groups $f \colon G \to H$ such that $\ker f$ is finite.
 \end{topic}
 
 \begin{example}{isogeny}
@@ -256,7 +256,7 @@
 \end{topic}
 
 \begin{topic}{wonderful-compactification}{wonderful compactification}
-    Let $G$ be a complex \tref{TO:connected-space}{connected} semisimple \tref{algebraic-group}{algebraic group} with trivial \tref{GT:group-center}{center} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$ and write $n = \dim G$. Consider the action of $G \times G$ on the \tref{LA:grassmannian}{Grassmanian} $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$ via the \tref{DG:adjoint-representation}{adjoint representation} $\textup{Ad}_{G \times G} : G \times G \to \textup{GL}(\mathfrak{g} \oplus \mathfrak{g})$. The \tref{GT:stabilizer}{stabilizer} of $\mathfrak{g}_\Delta = \{ (x, x) : x \in \mathfrak{g} \}$ in $G \times G$ is given by $G_\Delta = \{ (g, g) : g \in G \}$, so that $(G \times G) \cdot \mathfrak{g}_\Delta \cong (G \times G) / G_\Delta \cong G$.
+    Let $G$ be a complex \tref{TO:connected-space}{connected} semisimple \tref{algebraic-group}{algebraic group} with trivial \tref{GT:group-center}{center} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$ and write $n = \dim G$. Consider the action of $G \times G$ on the \tref{LA:grassmannian}{Grassmanian} $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$ via the \tref{DG:adjoint-representation}{adjoint representation} $\textup{Ad}_{G \times G} \colon G \times G \to \textup{GL}(\mathfrak{g} \oplus \mathfrak{g})$. The \tref{GT:stabilizer}{stabilizer} of $\mathfrak{g}_\Delta = \{ (x, x) : x \in \mathfrak{g} \}$ in $G \times G$ is given by $G_\Delta = \{ (g, g) : g \in G \}$, so that $(G \times G) \cdot \mathfrak{g}_\Delta \cong (G \times G) / G_\Delta \cong G$.
     The \textbf{wonderful compactification} of $G$ is
     \[ \overline{G} = \overline{(G \times G) \cdot \mathfrak{g}_\Delta} \]
     where the \tref{TO:closure}{closure} is taken in $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$. As $\textup{Gr}(n, \mathfrak{g} \oplus \mathfrak{g})$ is \tref{projective-variety}{projective}, also $\overline{G}$ is projective.
@@ -267,7 +267,7 @@
 \end{example}
 
 \begin{topic}{pro-algebraic-completion}{pro-algebraic completion}
-    Let $\Gamma$ be a \tref{GT:group}{group} and $k$ be a \tref{AA:field}{field}. Consider the collection of pairs $(G, \varphi_G)$ consisting of an \tref{affine-scheme}{affine} \tref{group-scheme}{group scheme} $G$ over $k$ and a group morphism $\varphi_G : \Gamma \to G(k)$. Define a partial order on this collection by setting $(G, \varphi_G) \le (H, \varphi_H)$ if there exists a morphism $f : G \to H$ such that $\varphi_H = f \circ \varphi_G$. The \textbf{pro-algebraic completion} of $\Gamma$ is the \tref{CT:inverse-limit}{inverse limit}
+    Let $\Gamma$ be a \tref{GT:group}{group} and $k$ be a \tref{AA:field}{field}. Consider the collection of pairs $(G, \varphi_G)$ consisting of an \tref{affine-scheme}{affine} \tref{group-scheme}{group scheme} $G$ over $k$ and a group morphism $\varphi_G \colon \Gamma \to G(k)$. Define a partial order on this collection by setting $(G, \varphi_G) \le (H, \varphi_H)$ if there exists a morphism $f \colon G \to H$ such that $\varphi_H = f \circ \varphi_G$. The \textbf{pro-algebraic completion} of $\Gamma$ is the \tref{CT:inverse-limit}{inverse limit}
     \[ \widehat{\Gamma}^\textup{alg} = \varprojlim_{(G, \varphi_G)} G . \]
 \end{topic}
 
@@ -279,7 +279,7 @@
             &= \{ g \overline{U} \in \overline{G} / \overline{U} \mid g^{-1} F(g) \in \overline{U} F(\overline{U}) \} \\
             &\cong \{ g \in G \mid g^{-1} F(g) \in \overline{U} F(\overline{U}) \} / (\overline{U} \cap F(\overline{U}))
     \end{aligned} \]
-    where $F : \overline{G} \to \overline{G}$ denotes the \tref{AA:frobenius-morphism}{Frobenius morphism}.
+    where $F \colon \overline{G} \to \overline{G}$ denotes the \tref{AA:frobenius-morphism}{Frobenius morphism}.
     
     Note that $G(\FF_q) \times T(\FF_q)$ acts on $X_T$ via $(g, t) \cdot x = g x t^{-1}$. For any irreducible character $\theta$ of $T(\FF_q)$ over $\overline{\QQ}_\ell$, for some prime number $\ell$ coprime to $q$, the \textbf{Deligne--Lusztig representation} $R^G_T(\theta)$ is the virtual representation
     \[ R^G_T(\theta) = \sum_{i \ge 0} (-1)^i H_c^i(X_T, \overline{\QQ}_\ell) \otimes_{\overline{\QQ}_\ell[T(\FF_q)]} \theta \]

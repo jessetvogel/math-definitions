@@ -28,7 +28,7 @@
 \end{topic}
 
 \begin{topic}{projective-module}{projective module}
-    Let $R$ be a \tref{ring}{commutative ring}. An \tref{module}{$R$-module} $P$ is called \textbf{projective} if for every morphism $g : P \to M$ and surjective morphism $f : N \to M$ of $R$-modules, there exists a morphism $h : P \to N$ of $R$-modules such that $fh = g$. We do not require this map to be unique.
+    Let $R$ be a \tref{ring}{commutative ring}. An \tref{module}{$R$-module} $P$ is called \textbf{projective} if for every morphism $g \colon P \to M$ and surjective morphism $f \colon N \to M$ of $R$-modules, there exists a morphism $h \colon P \to N$ of $R$-modules such that $fh = g$. We do not require this map to be unique.
     \[ \svg \begin{tikzcd} & N \arrow[twoheadrightarrow]{d}{f} \\ P \arrow[swap]{r}{g} \arrow[dashed]{ur}{\exists h} & M \end{tikzcd} \]
 \end{topic}
 
@@ -39,15 +39,15 @@
 \end{example}
 
 \begin{example}{projective-module}
-    An $R$-module $P$ is projective if and only if there exists another $R$-module $Q$ such that $P \oplus Q$ is free. Namely, if such $Q$ exists, then for any $f : N \to M$ surjective and $g : P \to N$, we can extend $g$ to $\tilde{g} : F \to N$ with $\tilde{g}(p, q) = g(p)$. Since free modules are projective, there exists $\tilde{h} : F \to M$ with $f \tilde{h} = \tilde{g}$, so restricting $\tilde{h}$ to $P$ gives $h : P \to M$ with $fh = g$.
+    An $R$-module $P$ is projective if and only if there exists another $R$-module $Q$ such that $P \oplus Q$ is free. Namely, if such $Q$ exists, then for any $f \colon N \to M$ surjective and $g \colon P \to N$, we can extend $g$ to $\tilde{g} \colon F \to N$ with $\tilde{g}(p, q) = g(p)$. Since free modules are projective, there exists $\tilde{h} \colon F \to M$ with $f \tilde{h} = \tilde{g}$, so restricting $\tilde{h}$ to $P$ gives $h \colon P \to M$ with $fh = g$.
     
     Conversely, if $P$ is projective, consider the free module $F = \oplus_{p \in P} R$ and the surjective $R$-module morphism
-    \[ f : F \to P, \quad (r_p)_{p \in P} \mapsto \sum_{p \in P} r_p \cdot p . \]
-    Since $P$ is projective, $f$ splits, i.e. there exists $g : P \to F$ with $fg = \id_P$. Then it follows that $F \isom P \oplus \ker f$. Note that if $P$ is finitely generated, $F$ can be taken of finite rank.
+    \[ f \colon F \to P, \quad (r_p)_{p \in P} \mapsto \sum_{p \in P} r_p \cdot p . \]
+    Since $P$ is projective, $f$ splits, i.e. there exists $g \colon P \to F$ with $fg = \id_P$. Then it follows that $F \isom P \oplus \ker f$. Note that if $P$ is finitely generated, $F$ can be taken of finite rank.
 \end{example}
 
 \begin{topic}{injective-module}{injective module}
-    Let $R$ be a \tref{ring}{commutative ring}. An \tref{module}{$R$-module} $I$ is called \textbf{injective} if for every morphism $g : M \to I$ and injective morphism $f : M \to N$ of $R$-modules, there exists a morphism $h : N \to Q$ of $R$-modules such that $hf = g$. We do not require this map to be unique.
+    Let $R$ be a \tref{ring}{commutative ring}. An \tref{module}{$R$-module} $I$ is called \textbf{injective} if for every morphism $g \colon M \to I$ and injective morphism $f \colon M \to N$ of $R$-modules, there exists a morphism $h \colon N \to Q$ of $R$-modules such that $hf = g$. We do not require this map to be unique.
     \[ \svg \begin{tikzcd} M \arrow[hookrightarrow]{r}{f} \arrow[swap]{d}{g} & N \arrow[dashed]{ld}{\exists h} \\ I & \end{tikzcd} \]
 \end{topic}
 
@@ -76,7 +76,7 @@
 \end{example}
 
 \begin{example}{flat-module}
-    Let $f : A \to B$ be a \tref{ring-morphism}{morphism of rings}, and suppose that $x \in A$ is not a \tref{zero-divisor}{zero-divisor} while $f(x) \in B$ is. Then $B$ cannot be flat as an $A$-module, since multiplication by $x$ is an injective map $A \to A$, while multiplication by $f(x)$ is not an injective map $B \to B$.
+    Let $f \colon A \to B$ be a \tref{ring-morphism}{morphism of rings}, and suppose that $x \in A$ is not a \tref{zero-divisor}{zero-divisor} while $f(x) \in B$ is. Then $B$ cannot be flat as an $A$-module, since multiplication by $x$ is an injective map $A \to A$, while multiplication by $f(x)$ is not an injective map $B \to B$.
 \end{example}
 
 \begin{topic}{faithful-module}{faithful module}
@@ -149,11 +149,11 @@
 \end{example}
 
 \begin{topic}{torsionless-module}{torsionless module}
-    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{torsionless} if for every $m \in M$ there exists some $R$-module morphism $f : M \to R$ with $f(m) \ne 0$.
+    A \tref{module}{module} $M$ over a \tref{ring}{ring} $R$ is \textbf{torsionless} if for every $m \in M$ there exists some $R$-module morphism $f \colon M \to R$ with $f(m) \ne 0$.
 \end{topic}
 
 \begin{example}{torsionless-module}
-    Any torsionless module $M$ over $R$ is \tref{torsion-free-module}{torsion-free}. Namely, if $m \in M$ exists with $rm = 0$ for some non zero-divisor $r \in R$, then for any $f : M \to R$ we have $0 = f(rm) = rf(m)$, implying $f(m) = 0$. However, the converse is not true. The $\ZZ$-module $\QQ$ is clearly torsion-free, but not torsionless since the only $\ZZ$-module morphisms $\QQ \to \ZZ$ is zero.
+    Any torsionless module $M$ over $R$ is \tref{torsion-free-module}{torsion-free}. Namely, if $m \in M$ exists with $rm = 0$ for some non zero-divisor $r \in R$, then for any $f \colon M \to R$ we have $0 = f(rm) = rf(m)$, implying $f(m) = 0$. However, the converse is not true. The $\ZZ$-module $\QQ$ is clearly torsion-free, but not torsionless since the only $\ZZ$-module morphisms $\QQ \to \ZZ$ is zero.
 \end{example}
 
 \begin{topic}{torsion-free-module}{torsion-free module}
@@ -224,14 +224,14 @@
 \end{example}
 
 \begin{topic}{baers-criterion}{Baer's criterion}
-    Let $R$ be a \tref{ring}{commutative ring} and $Q$ an \tref{module}{$R$-module}. \textbf{Baer's criterion} states that $Q$ is \tref{injective-module}{injective} if and only if for every \tref{ideal}{ideal} $I \subset R$, regarded as $R$-module, and $R$-module morphisms $g : I \to Q$, there exists a unique extension $h : R \to Q$ along the inclusion $I \hookrightarrow R$.
+    Let $R$ be a \tref{ring}{commutative ring} and $Q$ an \tref{module}{$R$-module}. \textbf{Baer's criterion} states that $Q$ is \tref{injective-module}{injective} if and only if for every \tref{ideal}{ideal} $I \subset R$, regarded as $R$-module, and $R$-module morphisms $g \colon I \to Q$, there exists a unique extension $h \colon R \to Q$ along the inclusion $I \hookrightarrow R$.
     \[ \svg \begin{tikzcd} I \arrow[hook]{r} \arrow[swap]{d}{g} & R \arrow[dashed]{dl}{h} \\ Q \end{tikzcd} \]
 \end{topic}
 
 \begin{example}{baers-criterion}
     \begin{proof}
-        Let $i : M \to N$ and $f : M \to Q$ be $R$-module morphisms, with $i$ injective. Consider the partially ordered set of pairs $(M', f')$, with $M \subset M' \subset N$ and $f'$ extending $f$, where $(M', f') \le (M'', f'')$ if $M' \subset M''$ and $f''$ extends $f'$. By \tref{GM:zorns-lemma}{Zorn's lemma}, there exists a maximal element $(M', f')$. If $M' = N$, we are done, and otherwise there exists some $x \in N \setminus M'$. Consider the ideal $I = \{ r \in R \mid rx \in M' \}$ and define $g : I \to Q$ by $g(r) = f'(rx)$. Then by assumption $g$ extends to some $h : R \to Q$. Now let $M'' = M' + \langle x \rangle$ and define
-        \[ f'' : M'' \to Q, \quad y + rx \mapsto f'(y) + h(r) , \]
+        Let $i \colon M \to N$ and $f \colon M \to Q$ be $R$-module morphisms, with $i$ injective. Consider the partially ordered set of pairs $(M', f')$, with $M \subset M' \subset N$ and $f'$ extending $f$, where $(M', f') \le (M'', f'')$ if $M' \subset M''$ and $f''$ extends $f'$. By \tref{GM:zorns-lemma}{Zorn's lemma}, there exists a maximal element $(M', f')$. If $M' = N$, we are done, and otherwise there exists some $x \in N \setminus M'$. Consider the ideal $I = \{ r \in R \mid rx \in M' \}$ and define $g \colon I \to Q$ by $g(r) = f'(rx)$. Then by assumption $g$ extends to some $h \colon R \to Q$. Now let $M'' = M' + \langle x \rangle$ and define
+        \[ f'' \colon M'' \to Q, \quad y + rx \mapsto f'(y) + h(r) , \]
         for all $y \in M'$ and $r \in R$. Then $f''$ extends $f'$, contradicting the maximality of $M'$.
     \end{proof}
 \end{example}
@@ -242,13 +242,13 @@
 
 \begin{example}{stably-free-module}
     Clearly any \tref{free-module}{free module} is stably free, but the converse is not true. Namely, let $R = \RR[x, y, z] / (x^2 + y^2 + z^2 - 1)$ and consider the morphism
-    \[ \sigma : R^3 \to R, \quad (a, b, c) \mapsto ax + by + cz . \]
+    \[ \sigma \colon R^3 \to R, \quad (a, b, c) \mapsto ax + by + cz . \]
     As $\sigma$ is surjective, we have $R^3 = \ker(\sigma) \oplus R$ so that $P = \ker(\sigma)$ is stably free. However, note that geometrically any element $(a, b, c) \in P$ defines a vector field $X = a \partial_x + b \partial_y + c \partial_z$ on the $2$-sphere $S^2$. So if $P$ were free, there would exist a basis of $P$, which would yield two vector fields $X$ and $Y$ that are linear independent at every point of $S^2$. However, this is impossible by the \tref{DG:hairy-ball-theorem}{hairy ball theorem}, so $P$ cannot be free.
 \end{example}
 
 \begin{topic}{schur-functor}{Schur functor}
     Let $k \supset \QQ$ be a \tref{ring}{commutative ring}. Note that for any \tref{module}{$k$-module} $M$, the \tref{GT:symmetric-group}{symmetric group} $S_n$ acts naturally on the $n$-fold \tref{tensor-product}{tensor product} $M^{\otimes n}$ by permuting the factors, turning it into a $k[S_n]$-module. Now, for any \tref{GM:integer-partition}{partition} $\lambda$ of an integer $n \ge 0$, the \textbf{Schur functor} corresponding to $\lambda$ is the \tref{CT:functor}{functor}
-    \[ \mathbb{S}_\lambda : \textbf{Mod}_k \to \textbf{Mod}_k, \quad M \mapsto V_\lambda \otimes_{\QQ[S_n]} M^{\otimes n} , \]
+    \[ \mathbb{S}_\lambda \colon \textbf{Mod}_k \to \textbf{Mod}_k, \quad M \mapsto V_\lambda \otimes_{\QQ[S_n]} M^{\otimes n} , \]
     where $V_\lambda$ is the \tref{RT:irreducible-representation}{irreducible} \tref{RT:representation}{representation} of $S_n$ corresponding to $\lambda$.
 \end{topic}
 
@@ -274,8 +274,8 @@
 \end{topic}
 
 \begin{topic}{koszul-complex}{Koszul complex}
-    Let $F$ be a \tref{free-module}{free module} of finite rank $r$ over a commutative \tref{ring}{ring} $R$. Then, given an $R$-linear map $s : F \to R$ the \textbf{Koszul complex} associated to $s$ is the chain complex of $R$-modules
-    \[ K_\bdot(s) : \qquad 0 \to \wedge^r F \xrightarrow{d_r} \wedge^{r - 1} F \xrightarrow{d_{r - 1}} \cdots \xrightarrow{d_2} F \xrightarrow{d_1} R \to 0 \]
+    Let $F$ be a \tref{free-module}{free module} of finite rank $r$ over a commutative \tref{ring}{ring} $R$. Then, given an $R$-linear map $s \colon F \to R$ the \textbf{Koszul complex} associated to $s$ is the chain complex of $R$-modules
+    \[ K_\bdot(s) \colon \qquad 0 \to \wedge^r F \xrightarrow{d_r} \wedge^{r - 1} F \xrightarrow{d_{r - 1}} \cdots \xrightarrow{d_2} F \xrightarrow{d_1} R \to 0 \]
     with the differentials given by
     \[ d_k(e_1 \wedge e_2 \ldots \wedge e_k) = \sum_{i = 1}^{k} (-1)^{i + 1} s(e_i) e_1 \wedge \cdots \wedge \hat{e_i} \wedge \cdots \wedge e_k , \]
     where the hat indicates the term is missing. Note that $d_1 = s$.
@@ -345,22 +345,22 @@
 \end{topic}
 
 \begin{topic}{coextension-of-scalars}{coextension of scalars}
-    Let $f : R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Coextension of scalars} along $f$ is the \tref{CT:functor}{functor}
-    \[ \Hom_R(S, -) : \textbf{Mod}_R \to \textbf{Mod}_S \]
+    Let $f \colon R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Coextension of scalars} along $f$ is the \tref{CT:functor}{functor}
+    \[ \Hom_R(S, -) \colon \textbf{Mod}_R \to \textbf{Mod}_S \]
     where $S$ is seen as an $R$-module via $f$. The $S$-module structure on $\Hom_R(S, M)$, for an $R$-module $M$, is given by $(s \cdot \varphi)(x) = \varphi(s \cdot x)$ for all $s, x \in S$ and $\varphi \in \Hom_R(S, M)$.
     
     Coextension of scalars is \tref{CT:adjunction}{right adjoint} to \tref{restriction-of-scalars}{restriction of scalars}.
 \end{topic}
 
 \begin{topic}{restriction-of-scalars}{restriction of scalars}
-    Let $f : R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Restriction of scalars} along $f$ is the \tref{CT:functor}{functor}
-    \[ U : \textbf{Mod}_S \to \textbf{Mod}_R \]
+    Let $f \colon R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Restriction of scalars} along $f$ is the \tref{CT:functor}{functor}
+    \[ U \colon \textbf{Mod}_S \to \textbf{Mod}_R \]
     assigning to an \tref{module}{$S$-module} $N$ the $R$-module with underlying abelian group $N$ and whose $R$-module structure is given by $r \cdot n = f(r) \cdot n$ for all $r \in R$ and $n \in N$.
 \end{topic}
 
 \begin{topic}{extension-of-scalars}{extension of scalars}
-    Let $f : R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Extension of scalars} along $f$ is the \tref{CT:functor}{functor}
-    \[ (-) \otimes_R S : \textbf{Mod}_R \to \textbf{Mod}_S \]
+    Let $f \colon R \to S$ be \tref{ring-morphism}{morphism} of \tref{ring}{commutative rings}. \textbf{Extension of scalars} along $f$ is the \tref{CT:functor}{functor}
+    \[ (-) \otimes_R S \colon \textbf{Mod}_R \to \textbf{Mod}_S \]
     assigning to an \tref{module}{$R$-module} $M$ the \tref{tensor-product}{tensor product} $M \otimes_R S$.
     
     Extension of scalars is \tref{CT:adjunction}{left adjoint} to \tref{restriction-of-scalars}{restriction of scalars}.

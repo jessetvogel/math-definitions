@@ -11,13 +11,13 @@
 \end{example}
 
 \begin{topic}{symplectomorphism}{symplectomorphism}
-    A \textbf{symplectomorphism} is a \tref{diffeomorphism}{diffeomorphism} $\varphi : M \to M'$ between \tref{symplectic-manifold}{symplectic manifolds} $(M, \omega)$ and $(M', \omega')$ satisfying $\varphi^* \omega' = \omega$.
+    A \textbf{symplectomorphism} is a \tref{diffeomorphism}{diffeomorphism} $\varphi \colon M \to M'$ between \tref{symplectic-manifold}{symplectic manifolds} $(M, \omega)$ and $(M', \omega')$ satisfying $\varphi^* \omega' = \omega$.
 \end{topic}
 
 \begin{topic}{tautological-one-form}{tautological 1-form}
     Let $Q$ be a \tref{smooth-manifold}{smooth manifold}. The \textbf{tautological $1$-form} is the \tref{differential-form}{$1$-form} $\theta$ on the \tref{cotangent-bundle}{cotangent bundle} $T^*Q$ given by
     \[ \theta_x = p(d \pi_x) \quad \text{ for all } x = (q, p) \in T^*Q , \]
-    where $\pi : T^*Q \to Q$ denotes the projection.
+    where $\pi \colon T^*Q \to Q$ denotes the projection.
 \end{topic}
 
 \begin{example}{tautological-one-form}
@@ -51,7 +51,7 @@
 \end{example}
 
 \begin{topic}{hamiltonian-vector-field}{Hamiltonian vector field}
-    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $H : M \to \RR$ a \tref{smooth-map}{smooth function}. The \textbf{Hamiltonian vector field} with \textit{Hamiltonian} $H$ is the \tref{vector-field}{vector field} $X_H$ determined by
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $H \colon M \to \RR$ a \tref{smooth-map}{smooth function}. The \textbf{Hamiltonian vector field} with \textit{Hamiltonian} $H$ is the \tref{vector-field}{vector field} $X_H$ determined by
     \[ \omega(X_H, -) = dH . \]
     The vector field $X_H$ is also known as the \textit{symplectic gradient} of $H$.
 \end{topic}
@@ -68,14 +68,14 @@
 \end{topic}
 
 \begin{topic}{fundamental-vector-field}{fundamental vector field}
-    Let $M$ be a \tref{smooth-manifold}{smooth manifold}, $G$ a \tref{lie-group}{Lie group} acting on $M$ via $\varphi : G \times M \to M$. For any $\xi \in \mathfrak{g}$ in the Lie algebra of $G$, the \textbf{fundamental vector field} of $\xi$ is the \tref{vector-field}{vector field} on $M$ given by
+    Let $M$ be a \tref{smooth-manifold}{smooth manifold}, $G$ a \tref{lie-group}{Lie group} acting on $M$ via $\varphi \colon G \times M \to M$. For any $\xi \in \mathfrak{g}$ in the Lie algebra of $G$, the \textbf{fundamental vector field} of $\xi$ is the \tref{vector-field}{vector field} on $M$ given by
     \[ X_\xi(p) = d(\varphi(-, p))(e) \xi \in T_p M . \]
     Alternatively, we have
     \[ X_\xi(p) = \frac{d}{d t}\Big|_{t = 0} \varphi(\exp(t \xi), p) . \]
 \end{topic}
 
 \begin{topic}{moment-map}{moment map}
-    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} on $M$. A smooth map $\mu : M \to \mathfrak{g}^*$ is a \textbf{weak moment map} for the action if
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} on $M$. A smooth map $\mu \colon M \to \mathfrak{g}^*$ is a \textbf{weak moment map} for the action if
     \[ d \langle \mu, \xi \rangle = \omega(X_\xi, -) \]
     for all $\xi \in \mathfrak{g}$, and a \textbf{moment map} if moreover $\mu$ is $G$-equivariant with respect to the \tref{adjoint-representation}{co-adjoint representation} of $G$, that is,
     \[ \mu(g \cdot p) = \textup{Ad}_G^* (g) \mu(p) \]
@@ -95,7 +95,7 @@
 \end{example}
 
 \begin{topic}{hamiltonian-manifold}{Hamiltonian manifold}
-    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} $\varphi : G \times M \to M$ on $M$. The action is \textbf{(weakly) Hamiltonian} if it admits a \tref{moment-map}{(weak) moment map}.
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold} and $G$ a \tref{lie-group}{Lie group} with a \tref{symplectic-action}{symplectic action} $\varphi \colon G \times M \to M$ on $M$. The action is \textbf{(weakly) Hamiltonian} if it admits a \tref{moment-map}{(weak) moment map}.
     
     The collection $(M, \omega, G, \varphi, \mu)$ is called a \textbf{(weakly) Hamiltonian manifold}.
 \end{topic}
@@ -112,7 +112,7 @@
 \begin{example}{marsden-weinstein-quotient}
     Let $G$ be a Lie group acting freely and properly on a smooth manifold $Q$. The action lifts to an action on the cotangent bundle $T^* Q$, given by
     \[ g \cdot (q, p) = (g \cdot q, p \circ (d(g \cdot)(q))^{-1} ) , \]
-    which is symplectic with respect to the \tref{canonical-symplectic-form}{canonical symplectic form} on $T^*Q$, and admits a moment map $\mu : T^*Q \to \mathfrak{g}^*$ given by
+    which is symplectic with respect to the \tref{canonical-symplectic-form}{canonical symplectic form} on $T^*Q$, and admits a moment map $\mu \colon T^*Q \to \mathfrak{g}^*$ given by
     \[ \mu(q, p)(\xi) = p(X_\xi(q)) \]
     for all $(q, p) \in T^*Q$ and $\xi \in \mathfrak{g}$. Now, there is a canonical isomorphism of symplectic manifolds
     \[ T^*Q \sslash G \cong T^*(Q / G) , \]
@@ -135,8 +135,8 @@
 \end{example}
 
 \begin{topic}{poisson-map}{Poisson map}
-    A \textbf{Poisson map} is a \tref{smooth-map}{smooth map} $\phi : M \to N$ between \tref{poisson-manifold}{Poisson manifolds} such that the pullback
-    \[ \phi^* : C^\infty(N) \to C^\infty(M), \quad f \mapsto f \circ \phi \]
+    A \textbf{Poisson map} is a \tref{smooth-map}{smooth map} $\phi \colon M \to N$ between \tref{poisson-manifold}{Poisson manifolds} such that the pullback
+    \[ \phi^* \colon C^\infty(N) \to C^\infty(M), \quad f \mapsto f \circ \phi \]
     is a morphism of Poisson algebras.
 \end{topic}
 
@@ -156,7 +156,7 @@
 \end{example}
 
 \begin{topic}{moser-stability}{Moser's stability}
-    \textbf{Moser's stability} states that for a \tref{closed-manifold}{closed} \tref{smooth-manifold}{smooth manifold} $M$ and a family of \tref{symplectic-manifold}{symplectic forms} $(\omega_t)_{t \in [0, 1]}$ on $M$ such that the \tref{de-rham-cohomology}{cohomology classes} $[\omega_t] \in H^2_{\textup{dR}}(M)$ are constant, there exists an isotopy $\varphi : M \times [0, 1] \to M$ such that $\varphi_t^* \omega_0 = \omega_t$ for all $t \in [0, 1]$.
+    \textbf{Moser's stability} states that for a \tref{closed-manifold}{closed} \tref{smooth-manifold}{smooth manifold} $M$ and a family of \tref{symplectic-manifold}{symplectic forms} $(\omega_t)_{t \in [0, 1]}$ on $M$ such that the \tref{de-rham-cohomology}{cohomology classes} $[\omega_t] \in H^2_{\textup{dR}}(M)$ are constant, there exists an isotopy $\varphi \colon M \times [0, 1] \to M$ such that $\varphi_t^* \omega_0 = \omega_t$ for all $t \in [0, 1]$.
 \end{topic}
 
 \begin{example}{moser-stability}
@@ -182,7 +182,7 @@
 \begin{topic}{fubini-study-form}{Fubini--Study form}
     The \textbf{Fubini--Study form} is a \tref{symplectic-manifold}{symplectic form} on $\CC \PP^n$ which is the unique \tref{differential-form}{$2$-form} $\omega_\textup{FS}$ on $\CC \PP^n$ such that
     \[ \pi^* \omega_\textup{FS} = \frac{i}{2} \partial \bar{\partial} \log (|\cdot|^2) , \]
-    where $\pi : \CC^n \setminus \{ 0 \} \to \CC \PP^n$ is the projection map, $\partial$ and $\bar{\partial}$ are the \tref{dolbeault-operators}{Dolbeault operators}, and $|\cdot| : \CC^n \to \RR$ is the Euclidean norm.
+    where $\pi \colon \CC^n \setminus \{ 0 \} \to \CC \PP^n$ is the projection map, $\partial$ and $\bar{\partial}$ are the \tref{dolbeault-operators}{Dolbeault operators}, and $|\cdot| \colon \CC^n \to \RR$ is the Euclidean norm.
 \end{topic}
 
 \begin{topic}{compatible-triple}{compatible triple}
@@ -252,7 +252,7 @@
 \end{example}
 
 \begin{topic}{weinstein-lagrangian-neighborhood-theorem}{Weinstein's Lagrangian neighborhood theorem}
-    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}, and $L \subset M$ a \tref{TO:compact-space}{compact} \tref{lagrangian-submanifold}{Lagrangian submanifold}. Then \textbf{Weinstein's Lagrangian neighborhood theorem} states that there exists a neighborhood $U$ of the zero section in $T^*L$, and a neighborhood $V$ of $L$ in $M$, and a \tref{symplectomorphism}{symplectomorphism} $\varphi : (V, \omega) \to (U, \omega_\textup{can})$, where $\omega_\textup{can}$ denotes the \tref{canonical-symplectic-form}{canonical symplectic form} on $T^*L$.
+    Let $(M, \omega)$ be a \tref{symplectic-manifold}{symplectic manifold}, and $L \subset M$ a \tref{TO:compact-space}{compact} \tref{lagrangian-submanifold}{Lagrangian submanifold}. Then \textbf{Weinstein's Lagrangian neighborhood theorem} states that there exists a neighborhood $U$ of the zero section in $T^*L$, and a neighborhood $V$ of $L$ in $M$, and a \tref{symplectomorphism}{symplectomorphism} $\varphi \colon (V, \omega) \to (U, \omega_\textup{can})$, where $\omega_\textup{can}$ denotes the \tref{canonical-symplectic-form}{canonical symplectic form} on $T^*L$.
 \end{topic}
 
 % \begin{topic}{fukaya-category}{Fukaya category}
@@ -301,35 +301,35 @@
 \end{topic}
 
 \begin{topic}{noether-theorem}{Noether's theorem}
-    Let $(M, \omega, G, \varphi, \mu)$ be a (weakly) \tref{hamiltonian-manifold}{Hamiltonian manifold}, and let $H \in C^\infty(M)$ be a $G$-invariant function on $M$. Then \textbf{Noether's theorem} states that the moment map $\mu : M \to \mathfrak{g}^*$ is a constant of motion for $H$, that is,
+    Let $(M, \omega, G, \varphi, \mu)$ be a (weakly) \tref{hamiltonian-manifold}{Hamiltonian manifold}, and let $H \in C^\infty(M)$ be a $G$-invariant function on $M$. Then \textbf{Noether's theorem} states that the moment map $\mu \colon M \to \mathfrak{g}^*$ is a constant of motion for $H$, that is,
     \[ \mu \circ \varphi_H^t = \mu , \]
-    where $\varphi_H^t : M \to M$ denotes the flow along the \tref{hamiltonian-vector-field}{Hamiltonian vector field} $X_H$.
+    where $\varphi_H^t \colon M \to M$ denotes the flow along the \tref{hamiltonian-vector-field}{Hamiltonian vector field} $X_H$.
 \end{topic}
 
 \begin{example}{noether-theorem}
     \begin{proof}
-        Take any $\xi \in \mathfrak{g}$ and $x \in M$, and define $F = \langle \mu, \xi \rangle \in C^\infty(M)$. Then $X_F = X_\xi$ by definition of the moment map. Define $g : \RR \to G$ by $g(t) = \exp(t \xi)$, then by assumption $H(g(t) x) = H(x)$ for all $t \in \RR$. Differentiating this equality with respect to $t$ and evaluating at $t = 0$ gives
+        Take any $\xi \in \mathfrak{g}$ and $x \in M$, and define $F = \langle \mu, \xi \rangle \in C^\infty(M)$. Then $X_F = X_\xi$ by definition of the moment map. Define $g \colon \RR \to G$ by $g(t) = \exp(t \xi)$, then by assumption $H(g(t) x) = H(x)$ for all $t \in \RR$. Differentiating this equality with respect to $t$ and evaluating at $t = 0$ gives
         \[ 0 = dH \left(\left.\frac{d}{dt}\right|_{t = 0} g(t) x\right) = dH \left(X_\xi(x)\right) = dH(X_F(x)) = \{ H, F \}(x) . \]
         Since $x$ was arbitrary, we find $\{ H, F \} = 0$, so $F$ is a constant of motion. Since $\xi$ was arbitrary, it also follows that $\mu$ is a constant of motion.
     \end{proof}
 \end{example}
 
 \begin{example}{noether-theorem}
-    Consider $M = \RR^2$ with the standard symplectic form $\omega = dq \wedge dp$, and let $G = \textup{SO}(2)$ act naturally on $M$. The Lie algebra of $G$ is $\mathfrak{g} = i\RR$, and the moment map $\mu : M \to \mathfrak{g}^*$ for the action is given by $(q, p) \mapsto (i \alpha \mapsto (q^2 + p^2) \alpha)$.
+    Consider $M = \RR^2$ with the standard symplectic form $\omega = dq \wedge dp$, and let $G = \textup{SO}(2)$ act naturally on $M$. The Lie algebra of $G$ is $\mathfrak{g} = i\RR$, and the moment map $\mu \colon M \to \mathfrak{g}^*$ for the action is given by $(q, p) \mapsto (i \alpha \mapsto (q^2 + p^2) \alpha)$.
     In particular, for any Hamiltonian $H$ invariant under the action of $G$, for example $H(q, p) = q^2 + p^2$, the function $q^2 + p^2$ is a constant of motion.
 \end{example}
 
 \begin{topic}{goldman-symplectic-form}{Goldman symplectic form}
     Let $\Sigma$ be a \tref{closed-manifold}{closed} surface, and let $G$ be a \tref{lie-group}{Lie group} with \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$.
     Let $X = \Hom(\pi_1(\Sigma), G) / G$ be the \textit{$G$-character variety} of $\Sigma$ and $G$. At any point $\phi \in X$, the \tref{tangent-space}{tangent space} of $X$ at $\phi$ can be identified with the \tref{HA:group-cohomology}{group cohomology} group $H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)})$, where $\pi_1(\Sigma)$ acts on $\mathfrak{g}$ through $\phi$ composed with the \tref{adjoint-representation}{adjoint representation}. The \textbf{Goldman symplectic structure} on $X$ is the \tref{symplectic-manifold}{symplectic structure} on $X$ given at $\phi$ by
-    \[ \omega_\phi : H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)}) \otimes H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)}) \to H^2(\pi_1(\Sigma), \RR) \cong \RR , \]
+    \[ \omega_\phi \colon H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)}) \otimes H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)}) \to H^2(\pi_1(\Sigma), \RR) \cong \RR , \]
     which is the composition of the \tref{AT:cup-product}{cup product} with a trace form on $\mathfrak{g}_{\textup{Ad}(\phi)}$.
 \end{topic}
 
 \begin{example}{goldman-symplectic-form}
     The tangent space $T_\phi X$ can be identified with $H^1(\pi_1(\Sigma), \mathfrak{g}_{\textup{Ad}(\phi)})$ as follows. Consider a path $\phi_t$ on $X$ given by
     \[ \phi_t(\alpha) = \exp(t u(\alpha) + \mathcal{O}(t^2)) \phi(\alpha) , \]
-    for some $u : \pi_1(\Sigma) \to \mathfrak{g}$. The condition $\phi_t(\alpha \beta) = \phi_t(\alpha) \phi_t(\beta)$ translates to
+    for some $u \colon \pi_1(\Sigma) \to \mathfrak{g}$. The condition $\phi_t(\alpha \beta) = \phi_t(\alpha) \phi_t(\beta)$ translates to
     \[ u(\alpha \beta) = u(\alpha) + \textup{Ad}(\phi(\alpha))(u(\beta)) , \]
     which is the $1$-cocycle condition for $u$, where $\pi_1(\Sigma)$ acts on $\mathfrak{g}$ via $\phi$ composed with the adjoint representation. The action of $G$ on $X$ is given by conjugation, so a path $\phi_t$ is trivial if $\phi_t(\alpha) = g_t^{-1} \phi(\alpha) g_t$ for some path
     \[ g_t = \exp(t v + \mathcal{O}(t^2)) \]
@@ -341,5 +341,5 @@
 \end{topic}
 
 \begin{example}{lagrangian-correspondence}
-    Let $f : M_1 \to M_2$ be a diffeomorphism. Then the graph $\Gamma_f \subset M_1 \times M_2$ of $f$ is a Lagrangian correspondence if and only if $f$ is a \tref{symplectomorphism}{symplectomorphism}. Namely, the restriction of $\pi_1^* \omega_1 - \pi_2^* \omega_2$ to $\Gamma_f \cong M_1$ is precisely $\omega_1 - f^* \omega_2$, so $\Gamma_f$ is Lagrangian if and only if $f^* \omega_2 = \omega_1$, that is, $f$ is symplectic.
+    Let $f \colon M_1 \to M_2$ be a diffeomorphism. Then the graph $\Gamma_f \subset M_1 \times M_2$ of $f$ is a Lagrangian correspondence if and only if $f$ is a \tref{symplectomorphism}{symplectomorphism}. Namely, the restriction of $\pi_1^* \omega_1 - \pi_2^* \omega_2$ to $\Gamma_f \cong M_1$ is precisely $\omega_1 - f^* \omega_2$, so $\Gamma_f$ is Lagrangian if and only if $f^* \omega_2 = \omega_1$, that is, $f$ is symplectic.
 \end{example}

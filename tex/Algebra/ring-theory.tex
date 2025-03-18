@@ -11,7 +11,7 @@
 \end{topic}
 
 \begin{topic}{ring-morphism}{ring morphism}
-    A \textbf{ring morphism} is a map $f : R \to S$ between \tref{ring}{rings} satisfying
+    A \textbf{ring morphism} is a map $f \colon R \to S$ between \tref{ring}{rings} satisfying
     \begin{itemize}
         \item $f(1) = 1$,
         \item $f(a + b) = f(a) + f(b)$,
@@ -37,7 +37,7 @@
 \end{example}
 
 \begin{example}{zero-divisor}
-    Let $R$ be the ring of endomorphisms of $V = k^\infty$, for some \tref{field}{field} $k$. Let $f : V \to V$ be given by $f(e_i) = e_{i + 1}$ with $\{ e_i : i \in \NN \}$ denotes the standard basis of $V$. Then $f$ is a right zero-divisor of $R$ since
+    Let $R$ be the ring of endomorphisms of $V = k^\infty$, for some \tref{field}{field} $k$. Let $f \colon V \to V$ be given by $f(e_i) = e_{i + 1}$ with $\{ e_i : i \in \NN \}$ denotes the standard basis of $V$. Then $f$ is a right zero-divisor of $R$ since
     \[ g \circ f = 0 \quad \textup{ for }g(e_i) = \left\{ \begin{array}{cl} e_0 & \textup{ if } i = 0 , \\ 0 & \textup{ otherwise.} \end{array} \right. \]
     However, $f$ is not a left zero-divisor of $R$ as it is easy to verify that $f \circ h = 0$ implies $h = 0$.
 \end{example}
@@ -116,7 +116,7 @@
 
 \begin{topic}{augmentation-ideal}{augmentation ideal}
     The \textbf{augmentation ideal} of a \tref{group-ring}{group ring} $R[G]$ is the \tref{ideal}{(two-sided) ideal}
-    \[ A = \ker\left( \varepsilon : R[G] \to G, \quad \sum_i r_i g_i \mapsto \sum_i r_i  \right) = (g - g' : g, g' \in G). \]
+    \[ A = \ker\left( \varepsilon \colon R[G] \to G, \quad \sum_i r_i g_i \mapsto \sum_i r_i  \right) = (g - g' : g, g' \in G). \]
 \end{topic}
 
 \begin{topic}{idempotent-element}{idempotent element}
@@ -173,33 +173,33 @@
 \end{example}
 
 \begin{topic}{algebra}{algebra}
-    Let $R$ be a \tref{ring}{commutative ring}. An \textbf{$R$-algebra} is ring $A$ with a \tref{ring-morphism}{ring morphism} $f : R \to A$.
+    Let $R$ be a \tref{ring}{commutative ring}. An \textbf{$R$-algebra} is ring $A$ with a \tref{ring-morphism}{ring morphism} $f \colon R \to A$.
 \end{topic}
 
 \begin{example}{algebra}
-    Let $R = k$ be a field, and $A = \textup{Mat}_{n}(k)$ the ring of $n \times n$ matrices over $k$. Then $A$ is a $k$-algebra under the morphism $i : k \to A$ which sends $x \mapsto x \cdot I$.
+    Let $R = k$ be a field, and $A = \textup{Mat}_{n}(k)$ the ring of $n \times n$ matrices over $k$. Then $A$ is a $k$-algebra under the morphism $i \colon k \to A$ which sends $x \mapsto x \cdot I$.
 \end{example}
 
 \begin{topic}{derivation}{derivation}
-    Let $A$ be a \tref{ring}{commutative ring}, $B$ an \tref{algebra}{$A$-algebra}, and $M$ a \tref{module}{$B$-module}. An \textbf{$A$-derivation} is a map $d : B \to M$ such that
+    Let $A$ be a \tref{ring}{commutative ring}, $B$ an \tref{algebra}{$A$-algebra}, and $M$ a \tref{module}{$B$-module}. An \textbf{$A$-derivation} is a map $d \colon B \to M$ such that
     \begin{itemize}
         \item $d(b + b') = db + db'$ for all $b, b' \in B$,
         \item $d(bb') = bdb' + b'db$ for all $b, b' \in B$,
         \item $da = 0$ for all $a \in A$.
     \end{itemize}
-    The set of $A$-derivations $d : B \to M$ is often denoted $\textup{Der}_A(B, M)$.
+    The set of $A$-derivations $d \colon B \to M$ is often denoted $\textup{Der}_A(B, M)$.
     
-    An $A$-derivation $d : B \to M$ is \textbf{universal} if for any other $A$-derivation $d' : B \to N$ there exists a unique $B$-module morphism $\phi : M \to N$ such that $d' = \phi \circ d$. In this case one often writes $M = \Omega_{B/A}$.
+    An $A$-derivation $d \colon B \to M$ is \textbf{universal} if for any other $A$-derivation $d' \colon B \to N$ there exists a unique $B$-module morphism $\phi \colon M \to N$ such that $d' = \phi \circ d$. In this case one often writes $M = \Omega_{B/A}$.
 \end{topic}
 
 \begin{example}{derivation}
-    Let $\mu : B \otimes_A B \to B$ be the multiplication map $b_1 \otimes b_2 \mapsto b_1 b_2$, and let $I = \ker \mu$. Consider $B \otimes_A B$ as a $B$-module by multiplication on the left, that is $b \cdot (b_1 \otimes b_2) = (bb_1 \otimes b_2)$, then $I/I^2$ inherits the structure of a $B$-module, and the map
-    \[ d : B \to I/I^2, \quad b \mapsto 1 \otimes b - b \otimes 1 (\textup{mod } I^2) \]
+    Let $\mu \colon B \otimes_A B \to B$ be the multiplication map $b_1 \otimes b_2 \mapsto b_1 b_2$, and let $I = \ker \mu$. Consider $B \otimes_A B$ as a $B$-module by multiplication on the left, that is $b \cdot (b_1 \otimes b_2) = (bb_1 \otimes b_2)$, then $I/I^2$ inherits the structure of a $B$-module, and the map
+    \[ d \colon B \to I/I^2, \quad b \mapsto 1 \otimes b - b \otimes 1 (\textup{mod } I^2) \]
     is a universal $A$-derivation. This can be seen as follows.
     
     First note that $I$ is generated as an $B$-module by elements of the form $1 \otimes b - b \otimes 1$ with $b \in B$. Namely, for any $x \in I$ we have $\mu(x) = 0$ so $x \equiv \mu(x) \otimes 1 \textup{ mod } (1 \otimes b - b \otimes 1 : b \in B) = 0$, and the other inclusion is obvious. In other words, $d$ is surjective.
     
-    Now for any other $A$-derivation $d' : B \to M$ we can (and must) define $\phi : I/I^2 \to M$ by putting $\phi(d(b)) = d' b$ and extending $B$-linearly. Indeed this is well-defined as any element of $I^2$ is a sum of elements of the form $xy$ with $x, y \in I$, and writing $x = \sum_i (1 \otimes b_i - b_i \otimes 1)$ and $y = \sum_j (1 \otimes b'_j - b'_j \otimes 1)$ we find that
+    Now for any other $A$-derivation $d' \colon B \to M$ we can (and must) define $\phi \colon I/I^2 \to M$ by putting $\phi(d(b)) = d' b$ and extending $B$-linearly. Indeed this is well-defined as any element of $I^2$ is a sum of elements of the form $xy$ with $x, y \in I$, and writing $x = \sum_i (1 \otimes b_i - b_i \otimes 1)$ and $y = \sum_j (1 \otimes b'_j - b'_j \otimes 1)$ we find that
     \[ xy = \sum_{i,j} (1 \otimes b_i b'_j - b_i b'_j \otimes 1) - b_i (1 \otimes b'_j - b'_j \otimes 1) - b'_j (1 \otimes b_i - b_i \otimes 1) , \]
     so $\phi(xy) = \sum_{i, j} d'(b_i b'_j) - b_i d' b'_j - b'_j d' b_i = 0$.
 \end{example}
@@ -242,7 +242,7 @@
 \end{example}
 
 \begin{topic}{involutive-ring}{involutive ring}
-    An \textbf{involutive ring} is a \tref{ring}{ring} $R$ together with a map $^* : R \to R$ satsifying
+    An \textbf{involutive ring} is a \tref{ring}{ring} $R$ together with a map $^* \colon R \to R$ satsifying
     \begin{itemize}
         \item (\textit{involution}) $(x^*)^* = x$ for all $x \in R$,
         \item (\textit{antiautomorphism}) $(x + y)^* = x^* + y^*$ and $(xy)^* = y^* x^*$ for all $x, y \in R$.
@@ -279,7 +279,7 @@
 \begin{topic}{cotangent-complex}{cotangent complex}
     Let $A$ be a \tref{ring}{commutative ring} and let $B$ be an $A$-algebra. The \textbf{cotangent complex} $\mathbb{L}_{B/A}$ is the complex of $B$-modules associated to the simplicial $B$-module (via the \tref{HT:dold-kan-correspondence}{Dold--Kan correspondence})
     \[ \Omega_{P_\bdot/A} \otimes_{P_\bdot, \varepsilon} B \]
-    where $\varepsilon : P_\bdot \to B$ is a free resolution of simplicial $A$-algebras.
+    where $\varepsilon \colon P_\bdot \to B$ is a free resolution of simplicial $A$-algebras.
 \end{topic}
 
 \begin{example}{cotangent-complex}
@@ -335,19 +335,19 @@
 \end{topic}
 
 \begin{topic}{ore-extension}{Ore extension}
-    Let $R$ be a \tref{ring}{ring}. Given an endomorphism $\sigma : R \to R$, a \textit{$\sigma$-derivation} is a group morphism $\delta : R \to R$ satisfying
+    Let $R$ be a \tref{ring}{ring}. Given an endomorphism $\sigma \colon R \to R$, a \textit{$\sigma$-derivation} is a group morphism $\delta \colon R \to R$ satisfying
     \[ \delta(rs) = \delta(r) s + \sigma(r) \delta(s) , \quad \textup { for all } r, s \in R . \]
     The \textbf{Ore extension} $R[x; \sigma, \delta]$ is the (noncommutative) ring $R[x]$, whose multiplication is determined by
     \[ xr = \sigma(r) x + \delta(r), \quad \textup{ for all } r \in R . \]
 \end{topic}
 
 \begin{example}{ore-extension}
-    Let $R$ be the polynomial ring $k[x]$, with $\sigma : R \to R$ given by $x \mapsto qx$ for some $q \in k$, and $\delta = 0$. Then, the Ore extension $R[y; \sigma, \delta]$ is the quotient of the free algebra $k \langle x, y \rangle$ by the relation $yx - qxy = 0$, also known as the \textit{quantum plane}
+    Let $R$ be the polynomial ring $k[x]$, with $\sigma \colon R \to R$ given by $x \mapsto qx$ for some $q \in k$, and $\delta = 0$. Then, the Ore extension $R[y; \sigma, \delta]$ is the quotient of the free algebra $k \langle x, y \rangle$ by the relation $yx - qxy = 0$, also known as the \textit{quantum plane}
     \[ k \langle x, y \rangle / (yx - qxy) . \]
 \end{example}
 
 \begin{example}{ore-extension}
-    Let $R$ be the polynomial ring $k[x]$, with $\sigma : R \to R$ the identity, and $\delta : R \to R$ given by $f \mapsto \frac{\partial f}{\partial x}$. Then, the Ore extension $R[p; \sigma, \delta]$ is the quotient of the free algebra $k \langle x, p \rangle$ by the relation $xp - px + 1 = 0$,
+    Let $R$ be the polynomial ring $k[x]$, with $\sigma \colon R \to R$ the identity, and $\delta \colon R \to R$ given by $f \mapsto \frac{\partial f}{\partial x}$. Then, the Ore extension $R[p; \sigma, \delta]$ is the quotient of the free algebra $k \langle x, p \rangle$ by the relation $xp - px + 1 = 0$,
     \[ k \langle x, y \rangle / (xp - px + 1) . \]
     that is, a \tref{weyl-algebra}{Weyl algebra}.
 \end{example}

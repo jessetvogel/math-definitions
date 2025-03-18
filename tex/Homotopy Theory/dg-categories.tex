@@ -1,7 +1,7 @@
 \begin{topic}{dg-category}{dg category}
     A \textbf{differential graded (dg) category} $\mathcal{A}$ over a \tref{AA:ring}{commutative ring} $k$, is a \tref{CT:category}{category} \tref{CT:enriched-category}{enriched} over \tref{HA:chain-complex}{chain complexes} of $k$-modules. Concretely, morphisms between objects $A$ and $B$ of $\mathcal{A}$ form a chain complex,
     \[ \Hom_\mathcal{A}(A, B) = \bigoplus_{n \in \ZZ} \Hom_\mathcal{A}(A, B)^n , \]
-    with differential $d : \Hom^n_\mathcal{A}(A, B) \to \Hom^{n + 1}_\mathcal{A}(A, B)$ satisfying $d^2 = 0$. Furthermore, composition of morphisms
+    with differential $d \colon \Hom^n_\mathcal{A}(A, B) \to \Hom^{n + 1}_\mathcal{A}(A, B)$ satisfying $d^2 = 0$. Furthermore, composition of morphisms
     \[ \Hom_\mathcal{A}(A, B) \otimes_k \Hom_\mathcal{A}(B, C) \to \Hom_\mathcal{A}(A, C) \]
     must be a chain map.
 \end{topic}
@@ -16,8 +16,8 @@
     
     One can define the categories $Z^0(\mathscr{A})$ and $H^0(\mathscr{A})$ with the same objects as $\mathscr{A}$ and morphisms given by
     \[ \begin{aligned}
-        \Hom_{Z^0(\mathscr{A})}(A, B) &= Z^0(\Hom_\mathscr{A}(A, B)) = \ker \left(d^0 : \Hom_\mathscr{A}(A, B)^0 \to \Hom_\mathscr{A}(A, B)^1 \right) , \\
-        \Hom_{H^0(\mathscr{A})}(A, B) &= H^0(\Hom_\mathscr{A}(A, B)) = \frac{\ker \left(d^0 : \Hom_\mathscr{A}(A, B)^0 \to \Hom_\mathscr{A}(A, B)^1 \right)}{\im \left(d^{-1} : \Hom_\mathscr{A}(A, B)^{-1} \to \Hom_\mathscr{A}(A, B)^{0} \right)} .
+        \Hom_{Z^0(\mathscr{A})}(A, B) &= Z^0(\Hom_\mathscr{A}(A, B)) = \ker \left(d^0 \colon \Hom_\mathscr{A}(A, B)^0 \to \Hom_\mathscr{A}(A, B)^1 \right) , \\
+        \Hom_{H^0(\mathscr{A})}(A, B) &= H^0(\Hom_\mathscr{A}(A, B)) = \frac{\ker \left(d^0 \colon \Hom_\mathscr{A}(A, B)^0 \to \Hom_\mathscr{A}(A, B)^1 \right)}{\im \left(d^{-1} \colon \Hom_\mathscr{A}(A, B)^{-1} \to \Hom_\mathscr{A}(A, B)^{0} \right)} .
     \end{aligned} \]
     While this construction works for general dg categories $\mathscr{A}$, in this example $Z^0(\mathscr{A})$ is the category of chain complexes in $\mathcal{A}$ with chain maps as morphisms, and $H^0(\mathscr{A})$ is precisely the \tref{HA:homotopy-category}{homotopy category} of $\mathcal{A}$.
 \end{example}
@@ -27,38 +27,38 @@
 \end{example}
 
 \begin{topic}{dg-functor}{dg functor}
-    A \textbf{differential graded (dg) functor} is a \tref{CT:functor}{functor} $F : \mathcal{A} \to \mathcal{B}$ between \tref{dg-category}{dg categories}, such that for all objects $A$ and $B$ of $\mathcal{A}$, the map
-    \[ F : \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{B}(F(A), F(B)) \]
+    A \textbf{differential graded (dg) functor} is a \tref{CT:functor}{functor} $F \colon \mathcal{A} \to \mathcal{B}$ between \tref{dg-category}{dg categories}, such that for all objects $A$ and $B$ of $\mathcal{A}$, the map
+    \[ F \colon \Hom_\mathcal{A}(A, B) \to \Hom_\mathcal{B}(F(A), F(B)) \]
     is a morphism of chain complexes.
 \end{topic}
 
 \begin{topic}{quasi-equivalence}{quasi-equivalence}
-    A \tref{dg-functor}{dg functor} $F : \mathcal{A} \to \mathcal{B}$ is a \textbf{quasi-equivalence} if
+    A \tref{dg-functor}{dg functor} $F \colon \mathcal{A} \to \mathcal{B}$ is a \textbf{quasi-equivalence} if
     \begin{itemize}
-        \item $F_{X, Y} : \Hom_\mathcal{A}(X, Y) \to \Hom_\mathcal{B}(F(X), F(Y))$ is a \tref{HA:quasi-isomorphism}{quasi-isomorphism} for all objects $X, Y$ of $\mathcal{A}$,
-        \item $H^0(F) : H^0(\mathcal{A}) \to H^0(\mathcal{B})$ is an \tref{CT:equivalence-of-categories}{equivalence}.
+        \item $F_{X, Y} \colon \Hom_\mathcal{A}(X, Y) \to \Hom_\mathcal{B}(F(X), F(Y))$ is a \tref{HA:quasi-isomorphism}{quasi-isomorphism} for all objects $X, Y$ of $\mathcal{A}$,
+        \item $H^0(F) \colon H^0(\mathcal{A}) \to H^0(\mathcal{B})$ is an \tref{CT:equivalence-of-categories}{equivalence}.
     \end{itemize}
 \end{topic}
 
 \begin{topic}{dg-module}{dg module}
     Let $\mathcal{A}$ be a \tref{CT:small-category}{small} \tref{dg-category}{dg category} over $k$. A \textbf{right dg $\mathcal{A}$-module} is a \tref{dg-functor}{dg functor}
-    \[ M : \mathcal{A}^\textup{op} \to \mathcal{M}\textbf{od}_k , \]
+    \[ M \colon \mathcal{A}^\textup{op} \to \mathcal{M}\textbf{od}_k , \]
     where $\mathcal{M}\textbf{od}_k$ denotes the \textit{dg category of $k$-modules}, whose objects are \tref{HA:chain-complex}{chain complexes} of $k$-modules, and whose morphisms are given by
     \[ \Hom_{\mathcal{M}\textbf{od}_k}(A, B) = \bigoplus_{n \in \ZZ} \Hom_{\mathcal{M}\textbf{od}_k}(A, B)^n, \quad \textup{ with } \quad \Hom_{\mathcal{M}\textbf{od}_k}(A, B)^n = \prod_{i \in \ZZ} \Hom_k(A^i, B^{i + n}) . \]
     Similarly, a \textbf{left dg $\mathcal{A}$-module} is a dg functor
-    \[ M : \mathcal{A} \to \textbf{Mod}_k . \]
+    \[ M \colon \mathcal{A} \to \textbf{Mod}_k . \]
 \end{topic}
 
 \begin{example}{dg-module}
     Any object $x$ of a dg category $\mathcal{A}$ produces the right dg module
     \[ \widehat{x} = \Hom_\mathcal{A}(-, x) . \]
     A dg module of this form is called \textit{representable}. This construction gives the \textit{Yoneda dg functor}
-    \[ \widehat{(-)} : \mathcal{A} \to \mathcal{M}\textbf{od}_\mathcal{A}, \quad x \mapsto \widehat{x} , \]
+    \[ \widehat{(-)} \colon \mathcal{A} \to \mathcal{M}\textbf{od}_\mathcal{A}, \quad x \mapsto \widehat{x} , \]
     which is \tref{CT:full-functor}{full} and \tref{CT:faithful-functor}{faithful}.
 \end{example}
 
 % \begin{topic}{quasi-functor}{quasi-functor}
 %     Let $\mathcal{A}$ and $\mathcal{B}$ be \tref{dg-category}{dg categories} over $k$. A \textbf{quasi-functor} from $\mathcal{A}$ to $\mathcal{B}$ is an $\mathcal{A}$-$\mathcal{B}$-bimodule $T$, i.e. a \tref{dg-module}{dg $\mathcal{A}^\textup{op} \otimes \mathcal{B}$-module}, such that the tensor functor
-%     \[ (-) \overset{\textup{L}}{\otimes_\mathcal{A}} : \textup{D}(\mathcal{A}) \to \textbf{D}(\mathcal{B}) \]
+%     \[ (-) \overset{\textup{L}}{\otimes_\mathcal{A}} \colon \textup{D}(\mathcal{A}) \to \textbf{D}(\mathcal{B}) \]
 %     maps representable $\mathcal{A}$-modules to representable $\mathcal{B}$-modules (up to isomorphism).
 % \end{topic}

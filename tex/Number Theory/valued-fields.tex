@@ -1,5 +1,5 @@
 \begin{topic}{valuation}{valuation}
-    A \textbf{valuation} on a \tref{AA:field}{field} $K$ is a function $\phi : K \to \RR_{\ge 0}$ satisfying
+    A \textbf{valuation} on a \tref{AA:field}{field} $K$ is a function $\phi \colon K \to \RR_{\ge 0}$ satisfying
     \begin{itemize}
         \item $\phi(x) = 0$ if and only if $x = 0$,
         \item $\phi(xy) = \phi(x) \phi(y)$ for $x, y \in K$,
@@ -15,7 +15,7 @@
 
 \begin{example}{valuation}
     Let $K$ be a \tref{number-field}{number field}, and $\mathcal{O}_K$ its \tref{ring-of-integers}{ring of integers}. For any prime $\mathfrak{p}$ of $\mathcal{O}_K$, there is the valuation
-    \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\textup{ord}_\mathfrak{p}(x)} , \]
+    \[ \phi_\mathfrak{p} \colon K \to \RR_{\ge 0}, \quad x \mapsto c^{\textup{ord}_\mathfrak{p}(x)} , \]
     for some fixed $c \in (0, 1)$. From
     \[ \textup{ord}_\mathfrak{p}(x + y) \ge \min \{ \textup{ord}_\mathfrak{p}(x), \textup{ord}_\mathfrak{p}(y) \} \]
     follows that $\norm{\phi_\mathfrak{p}} = 1$.
@@ -23,7 +23,7 @@
 
 \begin{example}{valuation}
     For an \tref{AA:irreducible-element}{irreducible} polynomial $P$ in the polynomial ring $F[X]$ over an arbitrary field $F$, we have the number $\textup{ord}_P(f) \in \ZZ_{\ge 0}$ of factors $P$ occurring in the factorization of a non-zero polynomial $f \in F[X]$, which is well-defined as $F[X]$ is a \tref{AA:unique-factorization-domain}{unique factorization domain}. It yields the valuation on the field of fractions $F(X)$,
-    \[ \phi_P : F(X) \to \RR_{\ge 0}, \quad f \mapsto c^{\textup{ord}_P(f)} ,  \]
+    \[ \phi_P \colon F(X) \to \RR_{\ge 0}, \quad f \mapsto c^{\textup{ord}_P(f)} ,  \]
     for some fixed $c \in (0, 1)$. From
     \[ \textup{ord}_P(f + g) \ge \min \{ \textup{ord}_P(f), \textup{ord}_P(g) \} \]
     follows that $\norm{\phi_P} = 1$.
@@ -39,11 +39,11 @@
 
 \begin{example}{archimedean-valuation}
     \begin{itemize}
-        \item Let $K$ be a number field, and $\sigma : K \to \CC$ an embedding. The valuation coming from the absolute value,
-        \[ \phi_\sigma : K \to \RR_{\ge 0}, \quad x \mapsto |\sigma(x)| , \]
+        \item Let $K$ be a number field, and $\sigma \colon K \to \CC$ an embedding. The valuation coming from the absolute value,
+        \[ \phi_\sigma \colon K \to \RR_{\ge 0}, \quad x \mapsto |\sigma(x)| , \]
         has norm $2$, and is thus archimedean.
         \item Let $K$ be a \tref{number-field}{number field} and $\mathfrak{p}$ a prime ideal of the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$. The valuation
-        \[ \phi_\mathfrak{p} : K \to \RR_{\ge 0}, \quad x \mapsto c^{\textup{ord}_\mathfrak{p}(x)} , \]
+        \[ \phi_\mathfrak{p} \colon K \to \RR_{\ge 0}, \quad x \mapsto c^{\textup{ord}_\mathfrak{p}(x)} , \]
         for some fixed $c \in (0, 1)$, is non-archimedean as $\textup{ord}_\mathfrak{p}(x + y) \ge \min \{ \textup{ord}_\mathfrak{p}(x), \textup{ord}_\mathfrak{p}(y) \}$ for all $x, y \in K$.
         
         In fact, every non-trivial non-archimedean valuation $\phi$ on $K$ is of this form. Namely, let $A = \{ x \in K \mid \phi(x) \le 1 \}$ be the valuation ring of $\phi$, and $\mathfrak{m} = \{ x \in K \mid \phi(x) < 1 \}$ its maximal ideal. Then $\mathcal{O}_K \subset A$ as any $x \in \mathcal{O}_K$ satisfies an equation $x^n = \sum_{i = 0}^{n - 1} a_i x^i$ with $a_i \in \ZZ \subset A$, so
@@ -53,7 +53,7 @@
 \end{example}
 
 \begin{example}{archimedean-valuation}
-    A valuation $\phi : K \to \RR_{\ge 0}$ is non-archimedean if and only if it is bounded on the subring $Z = \{ n \cdot 1 : n \in \ZZ \} \subset K$. Namely, if $\phi$ is non-archimedean, then $\norm{\phi} = 1$, so $\phi(\pm n \cdot 1) \le \phi(1) = 1$ for all $n \in \ZZ_{\ge 0}$, and hence $\phi$ is bounded on $Z$ by $1$. Conversely, suppose $\phi$ is bounded on $Z$ by $M > 0$. After replacing $\phi$ by a suitable power of $\phi$ if necessary, we can assume $\phi$ satisfies the triangle inequality. Now, taking $n$-th roots of both sides of
+    A valuation $\phi \colon K \to \RR_{\ge 0}$ is non-archimedean if and only if it is bounded on the subring $Z = \{ n \cdot 1 : n \in \ZZ \} \subset K$. Namely, if $\phi$ is non-archimedean, then $\norm{\phi} = 1$, so $\phi(\pm n \cdot 1) \le \phi(1) = 1$ for all $n \in \ZZ_{\ge 0}$, and hence $\phi$ is bounded on $Z$ by $1$. Conversely, suppose $\phi$ is bounded on $Z$ by $M > 0$. After replacing $\phi$ by a suitable power of $\phi$ if necessary, we can assume $\phi$ satisfies the triangle inequality. Now, taking $n$-th roots of both sides of
     \[ \phi(x + y)^n = \phi \left( \sum_{i = 0}^{n} x^i y^{n - i} \right) \le (n + 1) M \max \{ \phi(x), \phi(y) \}^n , \]
     and letting $n$ go to infinity, we find that $\phi$ is non-archimedean.
     
@@ -63,7 +63,7 @@
 \begin{topic}{place}{place}
     Two \tref{valuation}{valuations} $\phi$ and $\psi$ on a \tref{AA:field}{field} $K$ are said to be \textit{equivalent} if $\phi = \psi^r$ for some constant $r > 0$. A \textbf{place} of $K$ is an equivalence class of non-trivial valuations on $K$.
     
-    Places are also known as \textbf{prime divisors}, or simply \textbf{primes}, of $K$. Places corresponding to \tref{archimedean-valuation}{archimedian} (resp. non-archimedean) valuations are called \textbf{infinite primes} (resp. \textbf{finite primes}). This terminology comes from the fact that finite primes on a \tref{number-field}{number field} $K$ precisely correspond to the non-zero prime ideals $\mathfrak{p}$ of the \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$, and infinite primes on $K$ correspond to embeddings $\sigma : K \to \CC$, up to complex conjugation.
+    Places are also known as \textbf{prime divisors}, or simply \textbf{primes}, of $K$. Places corresponding to \tref{archimedean-valuation}{archimedian} (resp. non-archimedean) valuations are called \textbf{infinite primes} (resp. \textbf{finite primes}). This terminology comes from the fact that finite primes on a \tref{number-field}{number field} $K$ precisely correspond to the non-zero prime ideals $\mathfrak{p}$ of the \tref{NT:ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$, and infinite primes on $K$ correspond to embeddings $\sigma \colon K \to \CC$, up to complex conjugation.
 \end{topic}
 
 % \begin{topic}{complete-valued-field}{complete valued field}
@@ -95,11 +95,11 @@
 \end{example}
 
 \begin{topic}{local-field}{local field}
-    A \textbf{local field} is a \tref{AA:field}{field} $K$ together with a non-trivial \tref{valuation}{valuation} $\phi : K \to \RR_{\ge 0}$ such that the induced topology on $K$ is \tref{TO:locally-compact-space}{locally compact}.
+    A \textbf{local field} is a \tref{AA:field}{field} $K$ together with a non-trivial \tref{valuation}{valuation} $\phi \colon K \to \RR_{\ge 0}$ such that the induced topology on $K$ is \tref{TO:locally-compact-space}{locally compact}.
 \end{topic}
 
 \begin{example}{local-field}
-    Let $K$ be a \tref{number-field}{number field}, and $\phi : K \to \RR_{\ge 0}$ a valuation corresponding to a prime $\mathfrak{p}$ of the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$. Then the completion $K_\phi$ of $K$ with respect to $\phi$ is a local field.
+    Let $K$ be a \tref{number-field}{number field}, and $\phi \colon K \to \RR_{\ge 0}$ a valuation corresponding to a prime $\mathfrak{p}$ of the \tref{ring-of-integers}{ring of integers} $\mathcal{O}_K$ of $K$. Then the completion $K_\phi$ of $K$ with respect to $\phi$ is a local field.
 \end{example}
 
 \begin{example}{local-field}
@@ -174,7 +174,7 @@
 \end{topic}
 
 \begin{topic}{valuation-topology}{valuation topology}
-    Let $K$ be a \tref{AA:field}{field} with \tref{valuation}{valuation} $\phi : K \to \RR_{\ge 0}$. The \textbf{valuation topology} on $K$ is the \tref{TO:topological-space}{topology} $\mathcal{T}_\phi$ on $K$ for which a \tref{TO:basis}{basis} is given by the open balls
+    Let $K$ be a \tref{AA:field}{field} with \tref{valuation}{valuation} $\phi \colon K \to \RR_{\ge 0}$. The \textbf{valuation topology} on $K$ is the \tref{TO:topological-space}{topology} $\mathcal{T}_\phi$ on $K$ for which a \tref{TO:basis}{basis} is given by the open balls
     \[ U_\varepsilon(x) = \{ y \in K \mid \phi(x - y) < \varepsilon \} \]
     for all $x \in K$ and $\varepsilon > 0$.
 \end{topic}

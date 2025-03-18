@@ -1,6 +1,6 @@
 \begin{topic}{triangulated-category}{triangulated category}
     Let $\mathcal{D}$ be an \tref{additive-category}{additive category}. The structure of a \textbf{triangulated category} on $\mathcal{D}$ is given by an additive equivalence
-    \[ [1] : \mathcal{D} \to \mathcal{D} \qquad \text{(the shift functor)} \]
+    \[ [1] \colon \mathcal{D} \to \mathcal{D} \qquad \text{(the shift functor)} \]
     and a set of \textbf{distinguished triangles}
     \[ A \to B \to C \to A[1] \]
     such that
@@ -8,7 +8,7 @@
         \item \begin{itemize}
             \item Any $A \to A \to 0 \to A[1]$ is distinguished.
             \item Any triangle isomorphic to a distinguished triangle is distinguished.
-            \item Any morphism $f : A \to B$ can be completed to a distinguished triangle $A \overset{f}{\to} B \to C \to A[1]$.
+            \item Any morphism $f \colon A \to B$ can be completed to a distinguished triangle $A \overset{f}{\to} B \to C \to A[1]$.
         \end{itemize}
         \item A triangle
         \[ A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} A[1] \]
@@ -20,7 +20,7 @@
             A \arrow{r} \arrow{d}{f} & B \arrow{r} \arrow{d}{g} & C \arrow{r} \arrow[dashed]{d}{h} & A[1] \arrow{d}{f[1]} \\
             A' \arrow{r} & B' \arrow{r} & C' \arrow{r} & A'[1]
         \end{tikzcd} \]
-        there exists an $h : C \to C'$ completing the diagram. Note: this $h$ may be non-unique.
+        there exists an $h \colon C \to C'$ completing the diagram. Note: this $h$ may be non-unique.
         \item (\textit{octahedron axiom}) Given exact triangles
         \[ X \xrightarrow{u} Y \xrightarrow{j} Z' \xrightarrow{k} X[1] \]
         \[ Y \xrightarrow{v} Z \xrightarrow{\ell} X' \xrightarrow{i} Y[1] \]
@@ -34,7 +34,7 @@
 \end{topic}
 
 \begin{topic}{exact-functor-triangulated}{exact functor of triangulated categories}
-    An \tref{additive-functor}{additive functor} between \tref{triangulated-category}{triangulated categories} $F : \mathcal{D} \to \mathcal{D}'$ is \textbf{exact} if
+    An \tref{additive-functor}{additive functor} between \tref{triangulated-category}{triangulated categories} $F \colon \mathcal{D} \to \mathcal{D}'$ is \textbf{exact} if
     \begin{itemize}
         \item there exists a natural isomorphism $F \circ [1]_\mathcal{D} \xrightarrow{\sim} [1]_{\mathcal{D}'} \circ F$,
         \item $F$ maps distinguished triangles to distinguished triangles.
@@ -46,7 +46,7 @@
 \end{topic}
 
 \begin{topic}{admissible-subcategory}{admissible subcategory}
-    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A full \tref{triangulated-subcategory}{triangulated subcategory} $\mathcal{S} \subset \mathcal{T}$ is \textbf{right admissible} (resp. \textbf{left admissible}) if the inclusion $i : \mathcal{S} \to \mathcal{T}$ has a right (resp. left) adjoint $\pi : \mathcal{T} \to \mathcal{S}$. If it is both left and right admissible, it is called \textbf{admissible}.
+    Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category}. A full \tref{triangulated-subcategory}{triangulated subcategory} $\mathcal{S} \subset \mathcal{T}$ is \textbf{right admissible} (resp. \textbf{left admissible}) if the inclusion $i \colon \mathcal{S} \to \mathcal{T}$ has a right (resp. left) adjoint $\pi \colon \mathcal{T} \to \mathcal{S}$. If it is both left and right admissible, it is called \textbf{admissible}.
 \end{topic}
 
 \begin{example}{admissible-subcategory}
@@ -58,12 +58,12 @@
         with $A \in \mathcal{S}$ and $B \in {\mathcal{S}}^\perp$, the \tref{orthogonal-complement}{orthogonal complement}.
     \end{enumerate}
     \begin{proof}
-        $(i \Rightarrow ii)$ Let $\pi : \mathcal{T} \to \mathcal{S}$ be a right adjoint and take $A = \pi(X)$. The transpose of $\id_{\pi(X)}$ under the adjunction is a morphism $A \to X$, and fits into some exact triangle $A \to X \to B \to A[1]$. Now for any $D \in \mathcal{S}$ we have
+        $(i \Rightarrow ii)$ Let $\pi \colon \mathcal{T} \to \mathcal{S}$ be a right adjoint and take $A = \pi(X)$. The transpose of $\id_{\pi(X)}$ under the adjunction is a morphism $A \to X$, and fits into some exact triangle $A \to X \to B \to A[1]$. Now for any $D \in \mathcal{S}$ we have
         \[ \Hom_\mathcal{T}(D, A) = \Hom_{\mathcal{S}'}(D, \pi(X)) \isom \Hom_\mathcal{T}(i(D), X) = \Hom_\mathcal{T}(D, X) , \]
         so from the long exact sequence
         \[ \cdots \to \Hom_\mathcal{T}(D, A) \to \Hom_\mathcal{T}(D, X) \to \Hom_\mathcal{T}(D, B) \to \Hom_\mathcal{T}(D, A[1]) \to \cdots \]
         follows that $\Hom_\mathcal{T}(D, B) = 0$, that is, $B \in \mathcal{S}^\perp$.
-        $(ii \Rightarrow i)$ For each $X \in \mathcal{T}$, choose an exact triangle $A_X \to X \to B_X \to A_X[1]$ as described. Define a functor $\pi : \mathcal{T} \to \mathcal{S}$ by $\pi(X) = A_X$. For a morphism $f : X \to Y$, note that $\Hom_\mathcal{T}(A_X, A_Y) \isom \Hom_\mathcal{T}(A_X, Y)$ since $B_Y \in \mathcal{S}^\perp$ (again use the long exact sequence). Hence, there is a unique morphism $f' : A_X \to A_Y$ making the obvious square commute, and we set $\pi(f) = f'$. One can check that this indeed gives a functor, and that $\pi$ is right adjoint to $i$.
+        $(ii \Rightarrow i)$ For each $X \in \mathcal{T}$, choose an exact triangle $A_X \to X \to B_X \to A_X[1]$ as described. Define a functor $\pi \colon \mathcal{T} \to \mathcal{S}$ by $\pi(X) = A_X$. For a morphism $f \colon X \to Y$, note that $\Hom_\mathcal{T}(A_X, A_Y) \isom \Hom_\mathcal{T}(A_X, Y)$ since $B_Y \in \mathcal{S}^\perp$ (again use the long exact sequence). Hence, there is a unique morphism $f' \colon A_X \to A_Y$ making the obvious square commute, and we set $\pi(f) = f'$. One can check that this indeed gives a functor, and that $\pi$ is right adjoint to $i$.
     \end{proof}
 \end{example}
 
@@ -136,7 +136,7 @@
 
 \begin{topic}{verdier-quotient}{Verdier quotient}
     Let $\mathcal{T}$ be a \tref{triangulated-category}{triangulated category} and $\mathcal{S} \subset \mathcal{T}$ a \tref{triangulated-subcategory}{triangulated subcategory}. The \textbf{Verdier quotient} $\mathcal{T}/\mathcal{S}$ is a triangulated category equipped with an \tref{additive-functor}{additive} and \tref{exact-functor-triangulated}{exact} quotient functor
-    \[ Q : \mathcal{T} \to \mathcal{T}/\mathcal{S} , \]
+    \[ Q \colon \mathcal{T} \to \mathcal{T}/\mathcal{S} , \]
     which is universal among all functors $\mathcal{T} \to \mathcal{D}$ which send objects of $\mathcal{S}$ to objects isomorphic to zero.
     \[ \svg \begin{tikzcd} \mathcal{T} \arrow{r}{Q} \arrow{rd} & \mathcal{T} / \mathcal{S} \arrow[dashed]{d} \\ & \mathcal{D} \end{tikzcd} \]
 \end{topic}
@@ -144,18 +144,18 @@
 \begin{example}{verdier-quotient}
     Let $\mathcal{S} \subset \mathcal{T}$ be a \tref{admissible-subcategory}{right admissible subcategory}. We will show that the quotient $\mathcal{T}/\mathcal{S}$ is equivalent to the \tref{orthogonal-complement}{orthogonal complement} $S^\perp$. Since $\mathcal{S}$ is right admissible, any object $X$ of $\mathcal{T}$ fits in an exact triangle
     \[ \pi(X) \to X \to Q(X) \to \pi(X)[1] , \]
-    where $\pi : \mathcal{T} \to \mathcal{S}$ denotes a \tref{CT:adjunction}{right adjoint} to the inclusion $i : \mathcal{S} \to \mathcal{T}$, and $Q(X)$ lies in $\mathcal{S}^\perp$. Moreover, for any morphism $f : X \to Y$ we obtain an exact sequence
+    where $\pi \colon \mathcal{T} \to \mathcal{S}$ denotes a \tref{CT:adjunction}{right adjoint} to the inclusion $i \colon \mathcal{S} \to \mathcal{T}$, and $Q(X)$ lies in $\mathcal{S}^\perp$. Moreover, for any morphism $f \colon X \to Y$ we obtain an exact sequence
     \[ 0 = \Hom(\pi(X)[1], Q(Y)) \to \Hom(Q(X), Q(Y)) \to \Hom(X, Q(Y)) \to \Hom(\pi(X), Q(Y)) = 0 \]
-    which shows there is a unique morphism $Q(f) : Q(X) \to Q(Y)$ making the natural square commute.
+    which shows there is a unique morphism $Q(f) \colon Q(X) \to Q(Y)$ making the natural square commute.
     Now by uniqueness of $Q(f)$, we obtain a functor
-    \[ Q : \mathcal{T} \to S^\perp , \]
+    \[ Q \colon \mathcal{T} \to S^\perp , \]
     which is easily seen to be additive and exact.
     
-    Universality is easily verified: any other additive and exact $F : \mathcal{T} \to \mathcal{D}$ that sends objects of $\mathcal{S}$ to zero, yields $\mathcal{S}^\perp \to \mathcal{D}$ by the restricting $F$ to $S^\perp$. And indeed, applying $F$ to the above exact triangle gives $F(X) \isom F(Q(X))$.
+    Universality is easily verified: any other additive and exact $F \colon \mathcal{T} \to \mathcal{D}$ that sends objects of $\mathcal{S}$ to zero, yields $\mathcal{S}^\perp \to \mathcal{D}$ by the restricting $F$ to $S^\perp$. And indeed, applying $F$ to the above exact triangle gives $F(X) \isom F(Q(X))$.
 \end{example}
 
 \begin{topic}{tensor-triangulated-category}{tensor triangulated category}
-    A \textbf{tensor triangulated category} is a \tref{triangulated-category}{triangulated category} $\mathcal{T}$ with a \tref{CT:symmetric-monoidal-category}{symmetric monoidal structure} $\otimes : \mathcal{T} \times \mathcal{T} \to \mathcal{T}$ such that $X \otimes (-)$ and $(-) \otimes X$ are \tref{exact-functor-triangulated}{exact functors} for all $X$ in $\mathcal{T}$.
+    A \textbf{tensor triangulated category} is a \tref{triangulated-category}{triangulated category} $\mathcal{T}$ with a \tref{CT:symmetric-monoidal-category}{symmetric monoidal structure} $\otimes \colon \mathcal{T} \times \mathcal{T} \to \mathcal{T}$ such that $X \otimes (-)$ and $(-) \otimes X$ are \tref{exact-functor-triangulated}{exact functors} for all $X$ in $\mathcal{T}$.
 \end{topic}
 
 \begin{topic}{t-structure}{t-structure}

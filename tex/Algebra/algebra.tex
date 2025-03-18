@@ -1,5 +1,5 @@
 \begin{topic}{monoid}{monoid}
-    A \textbf{monoid} is a set $M$ with a binary operation $\cdot : M \times M \to M$ satisfying
+    A \textbf{monoid} is a set $M$ with a binary operation $\cdot \colon M \times M \to M$ satisfying
     \begin{itemize}
         \item (\textit{associative}) $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all $a, b, c \in M$,
         \item (\textit{identity element}) there exists an element $e \in M$ such that $e \cdot a = a = a \cdot e$ for all $a \in M$.
@@ -32,17 +32,17 @@
 \end{example}
 
 \begin{topic}{semigroup}{semigroup}
-    A \textbf{semigroup} is a set $S$ with a binary operation $\cdot : S \times S \to S$ which is associative, that is, $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all $a, b, c \in S$.
+    A \textbf{semigroup} is a set $S$ with a binary operation $\cdot \colon S \times S \to S$ which is associative, that is, $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all $a, b, c \in S$.
 \end{topic}
 
 \begin{topic}{semiring}{semiring}
-    A \textbf{semiring} is a set $R$ with two binary operations $+ : R \times R \to R$, called addition, satisfying
+    A \textbf{semiring} is a set $R$ with two binary operations $+ \colon R \times R \to R$, called addition, satisfying
     \begin{itemize}
         \item (\textit{associative}) $(a + b) + c = a + (b + c)$ for all $a, b, c \in R$,
         \item (\textit{commutative}) $a + b = b + a$ for all $a, b \in R$,
         \item (\textit{zero element}) there exists an element $0 \in R$ such that $a + 0 = 0 + a = a$ for all $a \in R$,
     \end{itemize}
-    and $\cdot : R \times R \to R$, called multiplication, satisfying
+    and $\cdot \colon R \times R \to R$, called multiplication, satisfying
     \begin{itemize}
         \item (\textit{associative}) $(a \cdot b) \cdot c = a \cdot (b \cdot b)$ for all $a, b, c \in R$,
         \item (\textit{unit element}) there exists an element $1 \in R$ such that $a \cdot 1 = 1 \cdot a = a$ for all $a \in R$,
@@ -56,7 +56,7 @@
 \end{example}
 
 \begin{topic}{bialgebra}{bialgebra}
-    A \textbf{bialgebra} over a \tref{field}{field} $k$ is an \tref{algebra}{algebra} $A$ over $k$ together with morphisms of $k$-algebras $\Delta : A \to A \otimes A$ (the \textit{comultiplication}) and $\varepsilon : A \to k$ (the \textit{counit}), satisfying
+    A \textbf{bialgebra} over a \tref{field}{field} $k$ is an \tref{algebra}{algebra} $A$ over $k$ together with morphisms of $k$-algebras $\Delta \colon A \to A \otimes A$ (the \textit{comultiplication}) and $\varepsilon \colon A \to k$ (the \textit{counit}), satisfying
     \begin{itemize}
         \item (\textit{coassociativity}) $(\Delta \otimes \id) \circ \Delta = (\id \otimes \Delta) \circ \Delta$,
         \item (\textit{counit}) $(\varepsilon \otimes \id) \circ \Delta = \id = (\id \otimes \varepsilon) \otimes \Delta$.
@@ -64,7 +64,7 @@
 \end{topic}
 
 \begin{topic}{hopf-algebra}{Hopf algebra}
-    A \textbf{Hopf algebra} over a \tref{field}{field} $k$ is a \tref{bialgebra}{bialgebra} $A$ over $k$ together with a $k$-linear map $S : A \to A$ (the \textit{antipode}), such that the diagram
+    A \textbf{Hopf algebra} over a \tref{field}{field} $k$ is a \tref{bialgebra}{bialgebra} $A$ over $k$ together with a $k$-linear map $S \colon A \to A$ (the \textit{antipode}), such that the diagram
     \[ \svg \begin{tikzcd}[column sep=1em, row sep=2em] & A \otimes A \arrow{rr}{S \otimes \id} && A \otimes A \arrow{dr}{\mu} & \\ A \arrow{rr}{\varepsilon} \arrow{ur}{\Delta} \arrow[swap]{dr}{\Delta} && k \arrow{rr}{\eta} && A \\ & A \otimes A \arrow[swap]{rr}{\id \otimes S} && A \otimes A \arrow[swap]{ur}{\mu} &  \end{tikzcd} \]
     commutes, where $\mu$ denotes the multiplication, $\Delta$ the comultiplication, $\eta$ the unit, and $\varepsilon$ the counit of the algebra.
 \end{topic}
@@ -78,12 +78,12 @@
 \begin{topic}{group-like-element}{group-like element}
     Let $A$ be a \tref{hopf-algebra}{Hopf algebra}. An element $a \in A$ is \textbf{group-like} if
     \[ \Delta(a) = a \otimes a , \]
-    where $\Delta : A \to A \otimes A$ denotes the comultiplication map.
+    where $\Delta \colon A \to A \otimes A$ denotes the comultiplication map.
 \end{topic}
 
 \begin{example}{group-like-element}
     If $A = \mathcal{O}_G(G)$ for some \tref{AG:algebraic-group}{algebraic group} $G$, then a group-like element $a \in A$ corresponds to a group morphism
-    \[ \chi : G \to \GG_m = \Spec(k[t, t^{-1}]), \quad t \mapsto a , \]
+    \[ \chi \colon G \to \GG_m = \Spec(k[t, t^{-1}]), \quad t \mapsto a , \]
     known as a \textit{character}, and vice-versa, any such character corresponds to a group-like element $a = \chi^\#(t) \in A$.
     
     For example, for $G = \textup{GL}_n(k)$ the group of invertible matrices, the determinant $\det \in \mathcal{O}_G(G)$ is a group-like element, since $\det(AB) = \det(A) \det(B)$ for all $A, B \in \textup{GL}_n(k)$.
@@ -92,14 +92,14 @@
 % \begin{topic}{dual-hopf-algebra}{dual Hopf algebra}
 %     Let $(A, \mu, \eta, \Delta, \varepsilon, S)$ be a \tref{hopf-algebra}{Hopf algebra} over a \tref{AA:field}{field} $k$. The \textbf{dual Hopf algebra} of $A$ is the $k$-algebra
 %     \[ A^\circ = \{ a \in A \mid \mu^*(a) \in A^* \otimes_k A^* \subset (A \otimes_k A)^* \} \]
-%     with multiplication $\Delta^* : A^\circ \otimes_k A^\circ \to A^\circ$, unit $\varepsilon^* : k \to A^\circ$, comultiplication $\mu^* : A^\circ \to A^\circ \otimes_k A^\circ$, counit $\eta^* : A^\circ \to k$ and antipode $S^* : A^\circ \to A^\circ$.
+%     with multiplication $\Delta^* \colon A^\circ \otimes_k A^\circ \to A^\circ$, unit $\varepsilon^* \colon k \to A^\circ$, comultiplication $\mu^* \colon A^\circ \to A^\circ \otimes_k A^\circ$, counit $\eta^* \colon A^\circ \to k$ and antipode $S^* \colon A^\circ \to A^\circ$.
 % \end{topic}
 
 \begin{topic}{frobenius-algebra}{Frobenius algebra}
-    A \textbf{Frobenius algebra} over a \tref{field}{field} $k$ is a \tref{algebra}{$k$-algebra} $A$ equipped with a bilinear form $\beta : A \otimes_k A \to k$, called the \textit{Frobenius pairing}, satisfying
+    A \textbf{Frobenius algebra} over a \tref{field}{field} $k$ is a \tref{algebra}{$k$-algebra} $A$ equipped with a bilinear form $\beta \colon A \otimes_k A \to k$, called the \textit{Frobenius pairing}, satisfying
     \begin{itemize}
         \item (\textit{associativity}) $\beta(ab \otimes c) = \beta(a \otimes bc)$ for all $a, b, c \in A$,
-        \item (\textit{non-degeneracy}) there exists a $k$-linear map $\gamma : k \to A \otimes_k A$ such that 
+        \item (\textit{non-degeneracy}) there exists a $k$-linear map $\gamma \colon k \to A \otimes_k A$ such that 
         \[ (\beta \otimes \id_A)(a \otimes \gamma(1)) = a = (\id_A \otimes \beta)(\gamma(1) \otimes a) \]
         for all $a \in A$.
     \end{itemize}
@@ -107,9 +107,9 @@
 
 \begin{example}{frobenius-algebra}
     \begin{itemize}
-        \item Let $A$ be a finite field extension of $k$, and $\varepsilon : A \to k$ any non-zero $k$-linear map. Then $A$ with the pairing $\beta : A \otimes_k A \to k, a \otimes b \mapsto \varepsilon(ab)$ is a Frobenius algebra.
+        \item Let $A$ be a finite field extension of $k$, and $\varepsilon \colon A \to k$ any non-zero $k$-linear map. Then $A$ with the pairing $\beta \colon A \otimes_k A \to k, a \otimes b \mapsto \varepsilon(ab)$ is a Frobenius algebra.
         \item The ring $\textup{Mat}_n(k)$ of $n \times n$ matrices over $k$, with pairing $A \otimes B \mapsto \operatorname{tr}(AB)$, is a Frobenius algebra.
-        \item The complex numbers $\CC$ are a Frobenius algebra over $\RR$ with pairing $\beta(z_1 \otimes z_2) = \operatorname{Re}(z_1 z_2)$. The map $\gamma : \RR \to \CC \otimes_\RR \CC$ is given by $\gamma(1) = 1 \otimes 1 - i \otimes i$.
+        \item The complex numbers $\CC$ are a Frobenius algebra over $\RR$ with pairing $\beta(z_1 \otimes z_2) = \operatorname{Re}(z_1 z_2)$. The map $\gamma \colon \RR \to \CC \otimes_\RR \CC$ is given by $\gamma(1) = 1 \otimes 1 - i \otimes i$.
         \item The \tref{RT:representation-ring}{representation ring} $R_\CC(G)$ of a finite \tref{GT:group}{group} $G$ is a Frobenius algebra over $\CC$, where multiplication is given by convolution
         \[ (a * b)(g) = \sum_{h \in G} a(h) b(h^{-1} g) \quad \textup{ for } a, b \in R_\CC(G) \]
         and the bilinear form $\beta$ is given by the usual \tref{RT:first-orthogonality-theorem}{inner product}
@@ -126,9 +126,9 @@
 
 \begin{example}{frobenius-algebra}
     A Frobenius algebra $A$ naturally carries a $k$-coalgebra structure. Take as counit the map
-    \[ \varepsilon : A \to k, \quad a \mapsto \beta(1 \otimes a) = \beta(a \otimes 1) \]
+    \[ \varepsilon \colon A \to k, \quad a \mapsto \beta(1 \otimes a) = \beta(a \otimes 1) \]
     which is well-defined by associativity of $\beta$. As comultiplication, take
-    \[ \delta : A \to A \otimes_k A, \quad a \mapsto (\mu \otimes \id_A)(a \otimes \gamma(1)) = (\id_A \otimes \mu)(\gamma(1) \otimes a) . \]
+    \[ \delta \colon A \to A \otimes_k A, \quad a \mapsto (\mu \otimes \id_A)(a \otimes \gamma(1)) = (\id_A \otimes \mu)(\gamma(1) \otimes a) . \]
     To see why this is well-defined, write $\gamma(1) = \sum_i a_i \otimes b_i$ as before, then the associativity and non-degeneracy of $\beta$ imply that
     \[ \begin{aligned}
         (\mu \otimes \id_A)(a \otimes \gamma(1)) &= \sum_{i = 1}^{n} a a_i \otimes b_i = \sum_{i,j = 1}^{n} \beta(b_j \otimes a a_i) a_j \otimes b_i \\ &= \sum_{i,j = 1}^{n} \beta(b_i a \otimes a_j) a_i \otimes b_j = \sum_{i = 1}^{n} a_i \otimes b_i a = (\id_A \otimes \mu)(\gamma(1) \otimes a) 
@@ -141,7 +141,7 @@
 \end{example}
 
 \begin{topic}{augmentation}{augmentation}
-    An \textbf{augmentation} of an \tref{algebra}{algebra} over a field $k$, is a morphism of $k$-algebras $\varepsilon : A \to k$.
+    An \textbf{augmentation} of an \tref{algebra}{algebra} over a field $k$, is a morphism of $k$-algebras $\varepsilon \colon A \to k$.
 \end{topic}
 
 \begin{topic}{weyl-algebra}{Weyl algebra}
@@ -200,7 +200,7 @@
 \end{topic}
 
 \begin{topic}{hochschild-homology}{Hochschild (co)homology}
-    Let $k$ be a \tref{field}{field}, $A$ an \tref{algebra}{$k$-algebra}, and $M$ a \tref{bimodule}{bimodule} over $A$. Let $C_n(A, M) := M \otimes A^{\otimes n}$, and define boundary maps $d_{n, i} : C_n(A, M) \to C_{n - 1}(A, M)$ for $0 \le i \le n$ by
+    Let $k$ be a \tref{field}{field}, $A$ an \tref{algebra}{$k$-algebra}, and $M$ a \tref{bimodule}{bimodule} over $A$. Let $C_n(A, M) := M \otimes A^{\otimes n}$, and define boundary maps $d_{n, i} \colon C_n(A, M) \to C_{n - 1}(A, M)$ for $0 \le i \le n$ by
     \[ d_{n, i}(m \otimes a_1 \otimes \cdots \otimes a_n) = \left\{ \begin{array}{cl}
         m a_1 \otimes a_2 \otimes \cdots \otimes a_n & \textup{ if } i = 0, \\
          m \otimes a_1 \otimes \cdots \otimes a_i a_{i + 1} \otimes \cdots \otimes a_n & \textup{ if } 1 < i < n , \\
@@ -222,7 +222,7 @@
 \end{topic}
 
 \begin{example}{hochschild-homology}
-    Note that $\ker \partial^1$ consists of all $f : A \to M$ for which $\partial f$, given by $(a \otimes b) \mapsto a f(b) - f(ab) + f(a) b$, is zero, that is, $f$ is a \tref{derivation}{$k$-derivation}. Furthermore, $\im \partial^0$ consists of all $f$ such that $f(a) = ma - am$, which are known as \textit{inner derivations}. Therefore, $HH^1(A, M) = \{ \text{derivations} \} / \{ \text{inner derivations} \}$.
+    Note that $\ker \partial^1$ consists of all $f \colon A \to M$ for which $\partial f$, given by $(a \otimes b) \mapsto a f(b) - f(ab) + f(a) b$, is zero, that is, $f$ is a \tref{derivation}{$k$-derivation}. Furthermore, $\im \partial^0$ consists of all $f$ such that $f(a) = ma - am$, which are known as \textit{inner derivations}. Therefore, $HH^1(A, M) = \{ \text{derivations} \} / \{ \text{inner derivations} \}$.
 \end{example}
 
 \begin{example}{hochschild-homology}
@@ -240,7 +240,7 @@
 % \end{example}
 
 \begin{example}{hochschild-homology}
-    The (first order) deformations of a ring $A$ up to trivial deformations are parametrized by $HH^2(A)$. Namely, any deformed multiplication $a \star b := ab + \varepsilon f(a, b)$ with $f : A \otimes A \to A$ and $\varepsilon^2 = 0$ is associative if and only if $(a \star b) \star c = a \star (b \star c)$ for all $a, b, c \in A$. This translates to
+    The (first order) deformations of a ring $A$ up to trivial deformations are parametrized by $HH^2(A)$. Namely, any deformed multiplication $a \star b := ab + \varepsilon f(a, b)$ with $f \colon A \otimes A \to A$ and $\varepsilon^2 = 0$ is associative if and only if $(a \star b) \star c = a \star (b \star c)$ for all $a, b, c \in A$. This translates to
     \[ a f(b, c) - f(ab, c) + f(a, bc) - f(a, b) c = 0 , \]
     that is, $\partial f = 0$. If $f$ is a trivial deformation, then there exists some $k[\varepsilon]$-linear automorphism $\phi$ of $A[\varepsilon]$ such that $\phi(a_1 + \varepsilon a_2) \phi(b_1 + \varepsilon b_2) = \phi((a_1 + \varepsilon a_2) \star (b_1 + \varepsilon b_2))$. Expanding gives $f(a, b) = a \phi_1(b) - \phi(ab) + \phi(a) b = (\partial^1 \phi)(a, b)$ for all $a, b \in A$, that is, $f \in \im \partial$.
 \end{example}
@@ -267,7 +267,7 @@
 % \end{topic}
 
 \begin{topic}{gerstenhaber-algebra}{Gerstenhaber algebra}
-    A \textbf{Gerstenhaber algebra} is a \tref{graded-ring}{graded} \tref{algebra}{$k$-algebra} $A = \bigoplus_{n \in \ZZ} A^n$, equipped with a bilinear map $[-, -] : A \times A \to A$ of degree $-1$, such that
+    A \textbf{Gerstenhaber algebra} is a \tref{graded-ring}{graded} \tref{algebra}{$k$-algebra} $A = \bigoplus_{n \in \ZZ} A^n$, equipped with a bilinear map $[-, -] \colon A \times A \to A$ of degree $-1$, such that
     \begin{itemize}
         \item (\textit{graded commutative}) $ab = (-1)^{\deg(a) \deg(b)} ba$ for all homogeneous $a, b \in A$,
         \item (\textit{graded skew-symmetric}) $[a, b] = -(-1)^{(\deg(a) - 1)(\deg(b) - 1)} [b, a]$ for all homogeneous $a, b \in A$,
@@ -279,7 +279,7 @@
 \end{topic}
 
 \begin{topic}{noether-bound}{Noether's bound}
-    Let $G$ be a finite \tref{GT:group}{group} and $\rho : G \to \textup{GL}(V)$ a finite-dimensional \tref{RT:representation}{representation} over a field $k$. The action of $G$ naturally extends to the polynomial ring $k[x_1, \ldots, x_n]$, where $n = \dim_k V$. \textbf{Noether's bound} states that, if $|G|$ is invertible in $k$, the invariant subring
+    Let $G$ be a finite \tref{GT:group}{group} and $\rho \colon G \to \textup{GL}(V)$ a finite-dimensional \tref{RT:representation}{representation} over a field $k$. The action of $G$ naturally extends to the polynomial ring $k[x_1, \ldots, x_n]$, where $n = \dim_k V$. \textbf{Noether's bound} states that, if $|G|$ is invertible in $k$, the invariant subring
     \[ k[x_1, \ldots, x_n]^G = \{ f \in k[x_1, \ldots, x_n] \mid g \cdot f = f \textup{ for all } g \in G \} \]
     is \tref{finitely-generated-algebra}{finitely generated} over $k$ by elements of degree at most $|G|$.
 \end{topic}
@@ -329,11 +329,11 @@
 
     A \textbf{Huber pair} is a pair $(A, A^+)$ where $A$ is a Huber ring and $A^+ \subset A^\circ$ is an open subring of $A$ that is \tref{integral-closure}{integrally closed} in $A$.
 
-    A morphism of Huber pairs $(A, A^+) \to (B, B^+)$ is a continuous ring morphism $f : A \to B$ such that $f(A^+) \subset B^+$.
+    A morphism of Huber pairs $(A, A^+) \to (B, B^+)$ is a continuous ring morphism $f \colon A \to B$ such that $f(A^+) \subset B^+$.
 \end{topic}
 
 \begin{topic}{matrix-factorization}{matrix factorization}
-    Let $R$ be a \tref{ring}{ring} and $x$ an element of $R$. A \textbf{matrix factorization} of $x$ is a pair of \tref{free-module}{free} $R$-modules $M$ and $N$, together with $R$-module morphisms $f : M \to N$ and $g : N \to M$ such that $g \circ f = x \cdot \id_M$ and $f \circ g = x \cdot \id_N$.
+    Let $R$ be a \tref{ring}{ring} and $x$ an element of $R$. A \textbf{matrix factorization} of $x$ is a pair of \tref{free-module}{free} $R$-modules $M$ and $N$, together with $R$-module morphisms $f \colon M \to N$ and $g \colon N \to M$ such that $g \circ f = x \cdot \id_M$ and $f \circ g = x \cdot \id_N$.
 \end{topic}
 
 \begin{example}{matrix-factorization}
@@ -373,7 +373,7 @@
 
 \begin{example}{hecke-algebra}
     Let $G = \operatorname{GL}_2(\FF_q)$ with \tref{AG:borel-subgroup}{Borel subgroup} $B = \left\{ \left( \begin{smallmatrix} x & y \\ 0 & z \end{smallmatrix} \right) \right\} \subset G$. Consider the $\CC$-algebra
-    \[ \mathcal{H}(G, B) = \{ f : G \to \CC \mid f(b_1 z b_2) = f(z) \textup{ for all } b_1, b_2 \in B \} \]
+    \[ \mathcal{H}(G, B) = \{ f \colon G \to \CC \mid f(b_1 z b_2) = f(z) \textup{ for all } b_1, b_2 \in B \} \]
     where multiplication is given by convolution
     \[ (f * g)(z) = \frac{1}{|B|} \sum_{\substack{x, y \in G \\ \textup{s.t.\ } xy = z}} f(x) g(y) . \]
     The \tref{AG:bruhat-decomposition}{Bruhat decomposition} identifies the set of double cosets $B \backslash G / B$ with the Weyl group $W \cong S_2 = \langle w \rangle$ of $G$. Hence, we can identify $\mathcal{H}(G, B) \cong \CC \cdot T_1 \oplus \CC \cdot T_2$, where
@@ -392,7 +392,7 @@
 \end{topic}
 
 \begin{topic}{skolem-noether-theorem}{Skolem--Noether theorem}
-    Let $A$ be a \tref{simple-ring}{simple} $k$-algebra and $B$ be a \tref{finite-algebra}{finite} \tref{central-simple-algebra}{central simple} $k$-algebra, over a \tref{field}{field} $k$. The \textbf{Skolem--Noether theorem} states that, if $f, g : A \to B$ are two $k$-algebra morphisms, then there exists an invertible element $b \in B$ such that
+    Let $A$ be a \tref{simple-ring}{simple} $k$-algebra and $B$ be a \tref{finite-algebra}{finite} \tref{central-simple-algebra}{central simple} $k$-algebra, over a \tref{field}{field} $k$. The \textbf{Skolem--Noether theorem} states that, if $f, g \colon A \to B$ are two $k$-algebra morphisms, then there exists an invertible element $b \in B$ such that
     \[ f(a) = b g(a) b^{-1} \]
     for all $a \in A$.
 \end{topic}

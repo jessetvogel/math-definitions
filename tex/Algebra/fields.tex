@@ -13,7 +13,7 @@
     \[ [k(\alpha, \beta) : k] = [k(\alpha, \beta) : k(\alpha)] \cdot [k(\alpha) : k] \le [k(\beta) : k] \cdot [k(\alpha) : k] \]
     is finite, and thus $\alpha + \beta, \alpha \beta \in k(\alpha + \beta)$ must be algebraic over $k$.
     % The sum and product of algebraic elements is again algebraic. Namely, let $\alpha, \beta \in \ell$ be algebraic numbers. Regarding $k(\alpha)$ and $k(\beta)$ as a $k$-vector spaces, multiplication by $\alpha$ and $\beta$ yields a $k$-linear maps
-    % \[ A : k(\alpha) \to k(\alpha), \quad x \mapsto \alpha x \qquad \textup{ and } \qquad B : k(\beta) \to k(\beta), \quad x \mapsto \beta x . \]
+    % \[ A \colon k(\alpha) \to k(\alpha), \quad x \mapsto \alpha x \qquad \textup{ and } \qquad B \colon k(\beta) \to k(\beta), \quad x \mapsto \beta x . \]
     % Note that $\alpha$ is a root of the \tref{LA:characteristic-polynomial}{characteristic polynomial} of $A$, i.e. $p_A(\alpha) = 0$, and similarly $p_B(\beta) = 0$. Now multiplication by $\alpha \beta$
     
     % Now multiplication by $\alpha + \beta$ corresponds with $A \otimes I + I \otimes B$, and thus
@@ -33,7 +33,7 @@
 \end{topic}
 
 \begin{topic}{frobenius-morphism}{Frobenius morphism}
-    Let $k$ be a \tref{field}{field} of characteristic $p > 0$. The map $F : k \to k : x \mapsto x^p$ is a homomorphism (use binomial theorem) called the \textbf{Frobenius morphism}.
+    Let $k$ be a \tref{field}{field} of characteristic $p > 0$. The map $F \colon k \to k : x \mapsto x^p$ is a homomorphism (use binomial theorem) called the \textbf{Frobenius morphism}.
     
     Note that $F$ is injective as it is a field morphism. So when $k$ is finite, $F$ will also be surjective, and hence an automorphism of $k$. 
 \end{topic}
@@ -75,7 +75,7 @@
 \end{example}
 
 \begin{example}{perfect-field}
-    A field $k$ of characteristic $p > 0$ is perfect if and only if the \tref{frobenius-morphism}{Frobenius morphism} $F : k \to k$ given by $x \mapsto x^p$ is surjective. Namely, if $F$ is not surjective, there exists some $a \in k \setminus \im F$. But then $f = x^p - a$ factors as $(x - \sqrt[p]{a})^p$ over $k(\sqrt[p]{a})$, so $f$ is inseparable, implying $k$ is not perfect. Conversely, suppose that $F$ is surjective. For any irreducible and inseparable polynomial $f \in k[x]$, we must have $\gcd(f, f') \ne 1$ and hence $f' = 0$. Therefore, such $f$ is a polynomial in $x^p$, that is, $f = a_n x^{p^n} + a_{n - 1} x^{p^{n - 1}} + \cdots + a_1 x^p + a_0$ for some $a_i \in k$. By surjectivity of $F$, we can write $a_i = b_i^n$ for some $b_i \in k$. But then $f = (b_n x^{p^{n - 1}} + b_{n - 1} x^{p^{n - 2}} + \cdots + b_1 x + b_0)^p$, contradicting the irreducibility of $f$.
+    A field $k$ of characteristic $p > 0$ is perfect if and only if the \tref{frobenius-morphism}{Frobenius morphism} $F \colon k \to k$ given by $x \mapsto x^p$ is surjective. Namely, if $F$ is not surjective, there exists some $a \in k \setminus \im F$. But then $f = x^p - a$ factors as $(x - \sqrt[p]{a})^p$ over $k(\sqrt[p]{a})$, so $f$ is inseparable, implying $k$ is not perfect. Conversely, suppose that $F$ is surjective. For any irreducible and inseparable polynomial $f \in k[x]$, we must have $\gcd(f, f') \ne 1$ and hence $f' = 0$. Therefore, such $f$ is a polynomial in $x^p$, that is, $f = a_n x^{p^n} + a_{n - 1} x^{p^{n - 1}} + \cdots + a_1 x^p + a_0$ for some $a_i \in k$. By surjectivity of $F$, we can write $a_i = b_i^n$ for some $b_i \in k$. But then $f = (b_n x^{p^{n - 1}} + b_{n - 1} x^{p^{n - 2}} + \cdots + b_1 x + b_0)^p$, contradicting the irreducibility of $f$.
 \end{example}
 
 \begin{topic}{normal-field-extension}{normal field extension}
@@ -207,7 +207,7 @@
 \begin{example}{zariski-lemma}
     \begin{proof}
         By \tref{noether-normalization-lemma}{Noether's normalization lemma}, there exists an injective morphism
-        \[ \alpha : k[x_1, \ldots, x_n] \to \ell \]
+        \[ \alpha \colon k[x_1, \ldots, x_n] \to \ell \]
         such that $\ell$ is a \tref{finitely-generated-module}{finitely generated} $k[x_1, \ldots, x_n]$-module. In particular, $\ell$ is \tref{integral-closure}{integral} over $k[x_1, \ldots, x_n]$. Note that we are done if $n = 0$, so suppose for a contradiction that $n > 0$.
         Since $\ell$ is integral over $k[x_1, \ldots, x_n]$, there exists an integer $m \ge 0$ and elements $a_1, \ldots, a_{m - 1} \in k[x_1, \ldots, x_n]$ such that
         \[ \alpha(x_1)^{-m} + \sum_{i = 0}^{m - 1} \alpha(a_i) \alpha(x_1)^{-i} = 0 . \]
@@ -239,5 +239,5 @@
 \end{topic}
 
 \begin{topic}{retract-rational-field}{retract rational field}
-    Let $k$ be a \tref{field}{field}. A \tref{field-extension}{field extension} $K/k$ is \textbf{retract rational} if there exists a $k$-algebra $A$ in $K$, whose \tref{field-of-fractions}{field of fractions} is $K$, a non-zero polynomial $f \in k[x_1, \ldots, x_n]$, and $k$-algebra morphisms $\varphi : A \to k[x_1, \ldots, x_n, f^{-1}]$ and $\psi : k[x_1, \ldots, x_n, f^{-1}]$ such that $\psi \circ \phi = \id_A$.
+    Let $k$ be a \tref{field}{field}. A \tref{field-extension}{field extension} $K/k$ is \textbf{retract rational} if there exists a $k$-algebra $A$ in $K$, whose \tref{field-of-fractions}{field of fractions} is $K$, a non-zero polynomial $f \in k[x_1, \ldots, x_n]$, and $k$-algebra morphisms $\varphi \colon A \to k[x_1, \ldots, x_n, f^{-1}]$ and $\psi : k[x_1, \ldots, x_n, f^{-1}]$ such that $\psi \circ \phi = \id_A$.
 \end{topic}

@@ -6,12 +6,12 @@
 
 \begin{topic}{simplicial-object}{simplicial object}
     A \textbf{simplicial object} in a \tref{CT:category}{category} $\mathcal{C}$ is a \tref{CT:functor}{functor}
-    \[ X : \Delta^\textup{op} \to \mathcal{C} , \]
-    where $\Delta$ denotes the \tref{simplex-category}{simplex category}. Concretely, a simplicial object consists of a family of objects $X_n$ in $\mathcal{C}$ and a morphism $X_m \to X_n$ for each function $f : [n] \to [m]$, which compose nicely.
+    \[ X \colon \Delta^\textup{op} \to \mathcal{C} , \]
+    where $\Delta$ denotes the \tref{simplex-category}{simplex category}. Concretely, a simplicial object consists of a family of objects $X_n$ in $\mathcal{C}$ and a morphism $X_m \to X_n$ for each function $f \colon [n] \to [m]$, which compose nicely.
     
-    The \textit{face maps} are the maps $d_{n, i} : X_n \to X_{n - 1}$ corresponding to the function $\delta^{n, i} : [n - 1] \to [n]$ that misses $i$.
+    The \textit{face maps} are the maps $d_{n, i} \colon X_n \to X_{n - 1}$ corresponding to the function $\delta^{n, i} \colon [n - 1] \to [n]$ that misses $i$.
     
-    The \textit{degeneracy maps} are the maps $s_{n, i} : X_n \to X_{n + 1}$ corresponding to the function $\sigma^{n, i} : [n + 1] \to [n]$ that repeat $i$.
+    The \textit{degeneracy maps} are the maps $s_{n, i} \colon X_n \to X_{n + 1}$ corresponding to the function $\sigma^{n, i} \colon [n + 1] \to [n]$ that repeat $i$.
 \end{topic}
 
 \begin{example}{simplicial-object}
@@ -27,10 +27,10 @@
 
 \begin{topic}{nerve}{nerve}
     The \textbf{nerve} of a \tref{CT:category}{category} $\mathcal{C}$ is the \tref{simplicial-object}{simplicial set} $\textup{N}_\bdot(\mathcal{C})$, where $\textup{N}_n(\mathcal{C})$ is the set of \tref{CT:functor}{functors} from $[n] = \{ 0, 1, \ldots, n \}$ (viewed as category: a unique morphism from $i$ to $j$ iff $i \le j$) to $\mathcal{C}$.
-    Indeed, for any non-decreasing map $\alpha : [m] \to [n]$, precomposition with $\alpha$ gives a map $\textup{N}_n(\mathcal{C}) \to \textup{N}_m(\mathcal{C})$.
+    Indeed, for any non-decreasing map $\alpha \colon [m] \to [n]$, precomposition with $\alpha$ gives a map $\textup{N}_n(\mathcal{C}) \to \textup{N}_m(\mathcal{C})$.
     
     It can be shown that the \textit{nerve functor}
-    \[ \textup{N}_\bdot : \textbf{Cat} \to \textbf{Set}_\Delta \]
+    \[ \textup{N}_\bdot \colon \textbf{Cat} \to \textbf{Set}_\Delta \]
     is \tref{CT:full-functor}{fully} \tref{CT:faithful-functor}{faithful}.
 \end{topic}
 
@@ -51,21 +51,21 @@
     Consider a \tref{GT:group}{group} $G$ as a category with one object. Note that any $f \in \textup{N}_n(G)$ can be described by the images $f(k - 1 \le k) \in G$ for $1 \le k \le n$, so that $\textup{N}_n(G) \isom G^n$. Hence, the nerve $\textup{N}_\bdot(G)$ is the simplicial set
     \[ \cdots G \times G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \rightrightarrows * \]
     with face and degeneracy maps given by
-    \[ d_{n, i} : G^n \to G^{n - 1}, \quad (g_1, \ldots, g_n) \mapsto \left\{ \begin{array}{cl}
+    \[ d_{n, i} \colon G^n \to G^{n - 1}, \quad (g_1, \ldots, g_n) \mapsto \left\{ \begin{array}{cl}
         (g_2, \ldots, g_n) & \textup{ for } i = 0, \\
         (g_1, \ldots, g_{i + 1} g_i, \ldots, g_n) & \textup{ for } 0 < i < n, \\
         (g_1, \ldots, g_{n - 1}) & \textup{ for } i = n,
     \end{array} \right. \]
-    \[ s_{n, i} : G^n \to G^{n + 1}, \quad (g_1, \ldots, g_n) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n) \quad \textup{ for } 0 \le i \le n . \]
+    \[ s_{n, i} \colon G^n \to G^{n + 1}, \quad (g_1, \ldots, g_n) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n) \quad \textup{ for } 0 \le i \le n . \]
     More generally, a group $G$ acting on a set $X$ can be viewed as a category $[X/G]$ whose objects are points of $X$, and a morphism $x \to gx$ for every $x \in X$ and $g \in G$. Similar to the above, we have $\textup{N}_n([X/G]) \isom G^n \times X$, so the nerve $\textup{N}_\bdot([X/G])$ is the simplicial set
     \[ \cdots G \times G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times G \times X \; \substack{\rightarrow \\[-0.9em] \rightarrow \\[-0.9em] \rightarrow} \; G \times X \rightrightarrows X \]
     with face and degeneracy maps given by
-    \[ d_{n, i} : G^n \times X \to G^{n - 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto \left\{ \begin{array}{cl}
+    \[ d_{n, i} \colon G^n \times X \to G^{n - 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto \left\{ \begin{array}{cl}
         (g_2, \ldots, g_n, x) & \textup{ for } i = 0, \\
         (g_1, \ldots, g_{i + 1} g_i, \ldots, g_n, x) & \textup{ for } 0 < i < n, \\
         (g_1, \ldots, g_{n - 1}, g_n x) & \textup{ for } i = n,
     \end{array} \right. \]
-    \[ s_{n, i} : G^n \times X \to G^{n + 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n, x) \quad \textup{ for } 0 \le i \le n . \]
+    \[ s_{n, i} \colon G^n \times X \to G^{n + 1} \times X, \quad (g_1, \ldots, g_n, x) \mapsto (g_1, \ldots, g_i, 1, g_{i + 1}, \ldots, g_n, x) \quad \textup{ for } 0 \le i \le n . \]
 \end{example}
 
 \begin{topic}{infinity-category}{infinity category}
@@ -97,7 +97,7 @@
 
 \begin{topic}{simplicial-skeleton}{simplicial (co)skeleton}
     Let $\Delta_{\le n}$ be the \tref{full-subcategory}{full subcategory} of the \tref{simplex-category}{simplex category} $\Delta$ with objects $[0], [1], \ldots, [n]$. The inclusion $\Delta_{\le n} \to \Delta$ induces a \textit{truncation functor}
-    \[ \operatorname{tr}_n : \textbf{Set}_\Delta \to \textbf{Set}_{\Delta_{\le n}} , \]
+    \[ \operatorname{tr}_n \colon \textbf{Set}_\Delta \to \textbf{Set}_{\Delta_{\le n}} , \]
     which has a left and right \tref{adjunction}{adjoint}
     \[ \operatorname{sk}_n \dashv \operatorname{tr}_n \dashv \operatorname{cosk}_n , \]
     called the \textbf{$n$-skeleton} and \textbf{$n$-coskeleton} functor, respectively, which are given by the left and right \tref{kan-extension}{Kan extension}, respectively.

@@ -26,11 +26,11 @@
 \end{topic}
 
 \begin{topic}{group-homomorphism}{group homomorphism}
-    Let $G$ and $H$ be two \tref{group}{groups}. A \textbf{homomorphism} from $G$ to $H$ is a map $f : G \to H$ satisfying $f(xy) = f(x) f(y)$ for all $x, y \in G$.
+    Let $G$ and $H$ be two \tref{group}{groups}. A \textbf{homomorphism} from $G$ to $H$ is a map $f \colon G \to H$ satisfying $f(xy) = f(x) f(y)$ for all $x, y \in G$.
 \end{topic}
 
 \begin{topic}{kernel}{kernel}
-    Let $f : G \to H$ be a \tref{group-homomorphism}{group homomorphism}. The \textbf{kernel} of $f$, denoted $\ker f$, is defined as
+    Let $f \colon G \to H$ be a \tref{group-homomorphism}{group homomorphism}. The \textbf{kernel} of $f$, denoted $\ker f$, is defined as
     \[ \ker f = \{ x \in G \mid f(x) = 0 \} . \]
     It is a \tref{normal-subgroup}{normal} \tref{subgroup}{subgroup} of $G$.
 \end{topic}
@@ -48,7 +48,7 @@
 
 \begin{topic}{cayleys-theorem}{Cayley's theorem}
     \textbf{Cayley's theorem} states that every \tref{group}{group} $G$ is isomorphic to a \tref{subgroup}{subgroup} of the \tref{symmetric-group}{symmetric group} $S_G$. In particular, $G$ is isomorphic to the image of the morphism
-    \[ \varphi : G \to S_G, \qquad x \mapsto (y \mapsto xy) . \]
+    \[ \varphi \colon G \to S_G, \qquad x \mapsto (y \mapsto xy) . \]
 \end{topic}
 
 \begin{topic}{cyclic-permutation}{cyclic permutation}
@@ -63,7 +63,7 @@
     We call $\sigma$ \textit{even} if $\textup{sign}(\sigma) = 1$ and \textit{odd} if $\textup{sign}(\sigma) = -1$.
     
     This defines a \tref{group-homomorphism}{group homomorphism}
-    \[ \textup{sign} : S_n \to \{ +1, -1 \} . \]
+    \[ \textup{sign} \colon S_n \to \{ +1, -1 \} . \]
 \end{topic}
 
 \begin{topic}{alternating-group}{alternating group}
@@ -85,11 +85,11 @@
 \end{topic}
 
 \begin{example}{normal-subgroup}
-    The \tref{kernel}{kernel} of a morphism $f : G \to H$ is always a normal subgroup. Indeed, for any $x \in \ker f$ and $g \in G$ we have
+    The \tref{kernel}{kernel} of a morphism $f \colon G \to H$ is always a normal subgroup. Indeed, for any $x \in \ker f$ and $g \in G$ we have
     \[ f(gxg^{-1}) = f(g) f(x) f(g)^{-1} = f(g) f(g)^{-1} = 1 , \]
     so $gxg^{-1} \in \ker f$, and thus $g (\ker f) g^{-1} \subset \ker f$. The other inclusion is shown completely similarly.
     
-    Conversely, any normal subgroup $N \subset G$ is the kernel of the quotient map $\pi : G \to G / N$.
+    Conversely, any normal subgroup $N \subset G$ is the kernel of the quotient map $\pi \colon G \to G / N$.
 \end{example}
 
 \begin{topic}{central-subgroup}{central subgroup}
@@ -211,13 +211,13 @@
 \end{example}
 
 \begin{topic}{semidirect-product}{semidirect product}
-    Given two \tref{group}{groups} $N, H$ and a \tref{group-homomorphism}{group homomorphism} $\varphi : H \to \textup{Aut}(N)$, the \textbf{semidirect product} of $N$ and $H$ with respect to $\varphi$, denoted $N \rtimes_\varphi H$, is the group with underlying set $N \times H$ where products and inverses given by
+    Given two \tref{group}{groups} $N, H$ and a \tref{group-homomorphism}{group homomorphism} $\varphi \colon H \to \textup{Aut}(N)$, the \textbf{semidirect product} of $N$ and $H$ with respect to $\varphi$, denoted $N \rtimes_\varphi H$, is the group with underlying set $N \times H$ where products and inverses given by
     \[ (n, h) \cdot (n', h') = (n \varphi(h)(n'), h h') \quad \text{ and } \quad (n, h)^{-1} = (\varphi(h)^{-1}(n^{-1}), h^{-1}) . \]
-    In particular, $N$ (viewed as $N \times 1 \subset N \rtimes_\varphi H$) is a \tref{normal-subgroup}{normal subgroup} and the \tref{quotient-group}{quotient} is isomorphic to $H$ via $\psi : (N \rtimes_\varphi H)/N \to H$ given by $(n, h) \mapsto h$.
+    In particular, $N$ (viewed as $N \times 1 \subset N \rtimes_\varphi H$) is a \tref{normal-subgroup}{normal subgroup} and the \tref{quotient-group}{quotient} is isomorphic to $H$ via $\psi \colon (N \rtimes_\varphi H)/N \to H$ given by $(n, h) \mapsto h$.
     
     Conversely, if $G$ is a group with a normal subgroup $N$ such that the exact sequence
     \[ 1 \to N \hookrightarrow G \xrightarrow{\pi} G/N \to 1 \]
-    splits, i.e. $\pi \circ \sigma = \id_{G/N}$ for some $\sigma : G/N \to G$, then $G = N \rtimes G/N$, with $G/N$ acting on $N$ by conjugation via $\sigma$.
+    splits, i.e. $\pi \circ \sigma = \id_{G/N}$ for some $\sigma \colon G/N \to G$, then $G = N \rtimes G/N$, with $G/N$ acting on $N$ by conjugation via $\sigma$.
 \end{topic}
 
 \begin{example}{semidirect-product}
@@ -320,11 +320,11 @@
 \end{example}
 
 \begin{topic}{free-product}{free product}
-    Given two \tref{group}{groups} $G$ and $H$, the \textbf{free product} $G * H$ is the group of words that can be built from elements of $G \sqcup H$, modulo the group relations from $G$ and $H$, together with the natural inclusion maps $i_G : G \to G * H$ and $i_H : H \to G * H$.
+    Given two \tref{group}{groups} $G$ and $H$, the \textbf{free product} $G * H$ is the group of words that can be built from elements of $G \sqcup H$, modulo the group relations from $G$ and $H$, together with the natural inclusion maps $i_G \colon G \to G * H$ and $i_H \colon H \to G * H$.
     
-    More generally, if there is also given a group $F$ and morphisms $\varphi : F \to G$ and $\psi : F \to H$, then the \textbf{free product with amalgamation}, denoted $G *_F H$, is the group $G * H$ modulo the relations $\varphi(f) = \psi(f)^{-1}$.
+    More generally, if there is also given a group $F$ and morphisms $\varphi \colon F \to G$ and $\psi \colon F \to H$, then the \textbf{free product with amalgamation}, denoted $G *_F H$, is the group $G * H$ modulo the relations $\varphi(f) = \psi(f)^{-1}$.
     
-    The free product is the \tref{CT:pushout}{pushout} in the \tref{CT:category}{category} of groups. That is, for any $g : G \to K$ and $h : H \to K$ with $g \circ \varphi = h \circ \psi$, there is a unique morphism $f : G *_F H \to K$ such that $h = f \circ i_H$ and $g = f \circ i_G$.
+    The free product is the \tref{CT:pushout}{pushout} in the \tref{CT:category}{category} of groups. That is, for any $g \colon G \to K$ and $h \colon H \to K$ with $g \circ \varphi = h \circ \psi$, there is a unique morphism $f \colon G *_F H \to K$ such that $h = f \circ i_H$ and $g = f \circ i_G$.
     \[ \svg \begin{tikzcd} F \arrow{r}{\psi} \arrow{d}{\varphi} & H \arrow{d} \arrow[bend left=15]{ddr}{h} & \\ G \arrow{r} \arrow[bend right=15]{drr}{g} & G *_F H \arrow[dashed]{dr} & \\ & & K \end{tikzcd} \]
 \end{topic}
 
@@ -404,7 +404,7 @@
 \end{topic}
 
 \begin{example}{abelianization}
-    Let $G = \textup{GL}_n(\RR)$ be the the \tref{LA:general-linear-group}{general linear group}. The \tref{LA:determinant}{determinant} $\det : G \to \RR^\times$ has constant value $1$ on $[G, G]$, since the determinant of products of commutators is always $1$. Conversely, after showing that any matrix of determinant $1$ can be written as a product of commutators, it follows that
+    Let $G = \textup{GL}_n(\RR)$ be the the \tref{LA:general-linear-group}{general linear group}. The \tref{LA:determinant}{determinant} $\det \colon G \to \RR^\times$ has constant value $1$ on $[G, G]$, since the determinant of products of commutators is always $1$. Conversely, after showing that any matrix of determinant $1$ can be written as a product of commutators, it follows that
     \[ \det : G / [G, G] \xrightarrow{\sim} \RR^\times \]
     is an isomorphism.
 \end{example}
@@ -449,7 +449,7 @@
 
 \begin{topic}{complete-group}{complete group}
     A \tref{group}{group} $G$ is \textbf{complete} if the morphism
-    \[ \phi : G \to \textup{Aut}(G), \quad \phi(g)(x) = g x g^{-1} \]
+    \[ \phi \colon G \to \textup{Aut}(G), \quad \phi(g)(x) = g x g^{-1} \]
     is an isomorphism. That is, if the \tref{group-center}{center} $Z(G)$ is trivial and every automorphism of $G$ is an inner automorphism.
 \end{topic}
 
@@ -512,8 +512,8 @@
 \end{example}
 
 \begin{example}{burnside-ring}
-    Let $k$ be a field. Any finite $G$-set $X$ induces a \tref{RT:permutation-representation}{permutation representation} $\rho : G \to \textup{GL}\left(k^X\right)$ by permuting the basis vectors indexed by $X$. This induces a ring morphism
-    \[ \varphi : A(G) \to R_k(G) \]
+    Let $k$ be a field. Any finite $G$-set $X$ induces a \tref{RT:permutation-representation}{permutation representation} $\rho \colon G \to \textup{GL}\left(k^X\right)$ by permuting the basis vectors indexed by $X$. This induces a ring morphism
+    \[ \varphi \colon A(G) \to R_k(G) \]
     to the \tref{RT:representation-ring}{representation ring} of $G$.
     
     This map need not be injective nor surjective. Namely, for $G = S_3$, we have that
@@ -546,7 +546,7 @@
 \end{topic}
 
 \begin{topic}{characteristic-subgroup}{characteristic subgroup}
-    Let $G$ be a \tref{group}{group}. A \tref{subgroup}{subgroup} $H \subset G$ is \textbf{characteristic} if $\varphi(H) = H$ for all automorphisms $\varphi : G \to G$.
+    Let $G$ be a \tref{group}{group}. A \tref{subgroup}{subgroup} $H \subset G$ is \textbf{characteristic} if $\varphi(H) = H$ for all automorphisms $\varphi \colon G \to G$.
 \end{topic}
 
 \begin{example}{characteristic-subgroup}
@@ -605,7 +605,7 @@
 \end{example}
 
 \begin{topic}{goursat-lemma}{Goursat's lemma}
-    Let $G$ and $H$ be \tref{group}{groups}, and $K \subset G \times H$ a \tref{subgroup}{subgroup} such that the projections $\pi_G : K \to G$ and $\pi_H : K \to H$ are surjective. Then \textbf{Goursat's lemma} states that there exists a unique triple $(N, M, f)$, where $N \subset G$ and $M \subset H$ are \tref{normal-subgroup}{normal} subgroups and $f : G/N \to H/M$ an isomorphism, such that
+    Let $G$ and $H$ be \tref{group}{groups}, and $K \subset G \times H$ a \tref{subgroup}{subgroup} such that the projections $\pi_G \colon K \to G$ and $\pi_H \colon K \to H$ are surjective. Then \textbf{Goursat's lemma} states that there exists a unique triple $(N, M, f)$, where $N \subset G$ and $M \subset H$ are \tref{normal-subgroup}{normal} subgroups and $f \colon G/N \to H/M$ an isomorphism, such that
     \[ K = \{ (g, h) \in G \times H \mid f(gN) = hM \} . \]
     Explicitly, $N = \ker \pi_G$ and $M = \ker \pi_H$.
 \end{topic}
@@ -692,7 +692,7 @@
 \end{example}
 
 \begin{topic}{action-groupoid}{action groupoid}
-    Let $G$ be a \tref{group}{group} \tref{group-action}{acting} on a set $X$. The \textbf{action groupoid} of this action is the \tref{CT:groupoid}{groupoid} whose objects are elements of $X$ and morphisms $x \to y$ are given by elements $g \in G$ such that $y = g \cdot x$. The composition of morphisms $g : x \to y$ and $h : y \to z$ is $hg : x \to z$, and the identity morphism of any $x \in X$ is given by $1 \in G$.
+    Let $G$ be a \tref{group}{group} \tref{group-action}{acting} on a set $X$. The \textbf{action groupoid} of this action is the \tref{CT:groupoid}{groupoid} whose objects are elements of $X$ and morphisms $x \to y$ are given by elements $g \in G$ such that $y = g \cdot x$. The composition of morphisms $g \colon x \to y$ and $h \colon y \to z$ is $hg \colon x \to z$, and the identity morphism of any $x \in X$ is given by $1 \in G$.
 \end{topic}
 
 \begin{topic}{divisible-group}{divisible group}
@@ -720,7 +720,7 @@
 
 \begin{topic}{fox-derivative}{Fox derivative}
     Let $F_S$ be a \tref{free-group}{free group} on a set $S$. For every $x \in S$, the \textbf{Fox derivative} with respect to $x$ is the unique function
-    \[ \frac{\partial}{\partial x} : F_S \to \ZZ[F_S] \]
+    \[ \frac{\partial}{\partial x} \colon F_S \to \ZZ[F_S] \]
     satisfying
     \[ \frac{\partial}{\partial x}(y) = \left\{ \begin{array}{cl} 1 & \textup{ if } y = x \\ 0 & \text{ if } y \ne x \end{array} \right. \quad \textup{ and } \quad \frac{\partial}{\partial x}(g h) = \frac{\partial}{\partial x}(g) + g \frac{\partial}{\partial x}(h) \]
     for all $y \in S$ and $g, h \in G$.
@@ -732,6 +732,6 @@
 
 \begin{example}{nielsen-schreier-theorem}
     \begin{proof}
-        Any free group $F_S$ is, by the \tref{AT:seifert-van-kampen-theorem}{Seifert--van Kampen theorem}, the \tref{AT:fundamental-group}{fundamental group} of a bouquet of circles $(X, x) = \coprod_{s \in S} (S^1, *)$. In particular, $(X, x)$ is a (pointed) connected $1$-dimensional \tref{AT:cw-complex}{CW-complex}. By the theory of \tref{TO:covering-space}{covering spaces}, the subgroups $H \subset \pi_1(X, x) = F_S$ are in bijection with isomorphism classes of connected covering spaces $p : (Y, y) \to (X, x)$ with $\pi_1(Y, y) \cong H$. Now, a covering space of a connected $1$-dimensional CW-complex is again a connected $1$-dimensional CW-complex, and hence \tref{AT:homotopy-equivalence}{homotopy equivalent} to a bouquet of circles, whose fundamental group is free. Therefore, $H$ is free.
+        Any free group $F_S$ is, by the \tref{AT:seifert-van-kampen-theorem}{Seifert--van Kampen theorem}, the \tref{AT:fundamental-group}{fundamental group} of a bouquet of circles $(X, x) = \coprod_{s \in S} (S^1, *)$. In particular, $(X, x)$ is a (pointed) connected $1$-dimensional \tref{AT:cw-complex}{CW-complex}. By the theory of \tref{TO:covering-space}{covering spaces}, the subgroups $H \subset \pi_1(X, x) = F_S$ are in bijection with isomorphism classes of connected covering spaces $p \colon (Y, y) \to (X, x)$ with $\pi_1(Y, y) \cong H$. Now, a covering space of a connected $1$-dimensional CW-complex is again a connected $1$-dimensional CW-complex, and hence \tref{AT:homotopy-equivalence}{homotopy equivalent} to a bouquet of circles, whose fundamental group is free. Therefore, $H$ is free.
     \end{proof}
 \end{example}

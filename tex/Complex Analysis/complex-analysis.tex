@@ -1,15 +1,15 @@
 \begin{topic}{complex-differentiable}{complex differentiable}
-    A function $f : U \to \CC$, with $U \subset \CC$ an open subset, is \textbf{complex differentiable} at $z \in U$ if the limit
+    A function $f \colon U \to \CC$, with $U \subset \CC$ an open subset, is \textbf{complex differentiable} at $z \in U$ if the limit
     \[ f'(z) = \lim_{n \to \infty} \frac{f(z_n) - f(z)}{z_n - z} \]
     exists and is the same for any sequence $(z_n)_{n \in \NN}$ in $U$ converging to $z$.
 \end{topic}
 
 \begin{topic}{holomorphic-function}{holomorphic function}
-    A function $f : U \to \CC$, with $U \subset \CC$ an open subset, is \textbf{holomorphic} if it is \tref{complex-differentiable}{complex differentiable} for all $z \in U$.
+    A function $f \colon U \to \CC$, with $U \subset \CC$ an open subset, is \textbf{holomorphic} if it is \tref{complex-differentiable}{complex differentiable} for all $z \in U$.
     
-    A function $f : U \to \CC^n$, with $U \subset \CC^m$ an open subset, is \textbf{holomorphic} if every component is holomorphic as a function in each variable separately, with the other variables fixed.
+    A function $f \colon U \to \CC^n$, with $U \subset \CC^m$ an open subset, is \textbf{holomorphic} if every component is holomorphic as a function in each variable separately, with the other variables fixed.
     
-    A map $f : X \to Y$ between \tref{DG:complex-manifold}{complex manifolds} is \textbf{holomorphic} if for every point $x \in X$, there is a \tref{DG:atlas}{chart} $(U, \varphi)$ on $X$ with $x \in U$ and a chart $(V, \psi)$ on $Y$ with $f(U) \subset V$, such that the composition
+    A map $f \colon X \to Y$ between \tref{DG:complex-manifold}{complex manifolds} is \textbf{holomorphic} if for every point $x \in X$, there is a \tref{DG:atlas}{chart} $(U, \varphi)$ on $X$ with $x \in U$ and a chart $(V, \psi)$ on $Y$ with $f(U) \subset V$, such that the composition
     \[ \varphi(U) \xrightarrow{\varphi^{-1}} U \xrightarrow{f} V \xrightarrow{\psi} \psi(V) \subset \CC^n \]
     is holomorphic.
 \end{topic}
@@ -21,9 +21,9 @@
 \end{example}
 
 \begin{topic}{cauchy-riemann-equations}{Cauchy--Riemann equations}
-    The \textbf{Cauchy--Riemann equations} state that a function $f : \CC \to \CC$ given by
+    The \textbf{Cauchy--Riemann equations} state that a function $f \colon \CC \to \CC$ given by
     \[ f(x + iy) = u(x, y) + i v(x, y) \]
-    where $u, v : \RR^2 \to \RR$ have continuous first partial derivatives, is \tref{holomorphic-function}{holomorphic} if and only if
+    where $u, v \colon \RR^2 \to \RR$ have continuous first partial derivatives, is \tref{holomorphic-function}{holomorphic} if and only if
     \[ \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \textup{ and } \quad \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x} . \]
 \end{topic}
 
@@ -34,23 +34,23 @@
 \end{example}
 
 \begin{topic}{cauchy-integral-theorem}{Cauchy's integral theorem}
-    Let $f : U \to \CC$ be a \tref{holomorphic-function}{holomorphic function}, with $U \subset \CC$ a \tref{TO:simply-connected-space}{simply connected} open subset. Then \textbf{Cauchy's integral theorem} states that
+    Let $f \colon U \to \CC$ be a \tref{holomorphic-function}{holomorphic function}, with $U \subset \CC$ a \tref{TO:simply-connected-space}{simply connected} open subset. Then \textbf{Cauchy's integral theorem} states that
     \[ \oint_\gamma f(z) dz = 0 \]
     for any closed loop $\gamma$ in $U$.
 \end{topic}
 
 \begin{topic}{cauchy-integral-formula}{Cauchy's integral formula}
-    Let $f : U \to \CC$ be a \tref{holomorphic-function}{holomorphic function}, with $U \subset \CC$ an open subset containing a closed disk $D = \{ z \in \CC \mid |z - a| \le r \}$ for some $a \in U$ and $r > 0$. Then \textbf{Cauchy's integral formula} states that
+    Let $f \colon U \to \CC$ be a \tref{holomorphic-function}{holomorphic function}, with $U \subset \CC$ an open subset containing a closed disk $D = \{ z \in \CC \mid |z - a| \le r \}$ for some $a \in U$ and $r > 0$. Then \textbf{Cauchy's integral formula} states that
     \[ f(a) = \frac{1}{2 \pi i} \oint_\gamma \frac{f(z)}{z - a} dz , \]
     where $\gamma$ is the curve going counterclockwise along the boundary of $D$.
 \end{topic}
 
 \begin{topic}{entire-function}{entire function}
-    An \textbf{entire function} is a function $f : \CC \to \CC$ which is \tref{holomorphic-function}{holomorphic} on the whole complex plane.
+    An \textbf{entire function} is a function $f \colon \CC \to \CC$ which is \tref{holomorphic-function}{holomorphic} on the whole complex plane.
 \end{topic}
 
 \begin{topic}{julia-set}{Julia set}
-    Let $f : \CC \to \CC$ be a polynomial function. The \textbf{filled Julia set} for $f$ is the subset of $\CC$ given by
+    Let $f \colon \CC \to \CC$ be a polynomial function. The \textbf{filled Julia set} for $f$ is the subset of $\CC$ given by
     \[  \{ z \in \CC \mid \{ f^n(z) : n \in \NN \} \textup{ is bounded} \} \]
     and the \textbf{Julia set} for $f$ is the \tref{TO:boundary}{boundary} of the filled Julia set.
 \end{topic}
@@ -72,7 +72,7 @@
 \end{topic}
 
 \begin{topic}{modular-form}{modular form}
-    Let $\Gamma \subset \textup{SL}_2(\ZZ)$ be a \tref{GT:subgroup}{subgroup} of finite \tref{GT:index-subgroup}{index} and $k$ an integer.  A \textbf{modular form} of level $\Gamma$ and weight $k$ is a \tref{holomorphic-function}{holomorphic function} $f : \mathbb{H} \to \CC$ on the upper half-plane $\mathbb{H} = \{ z \in \CC \mid \operatorname{Im}(z) > 0 \}$ satisfying
+    Let $\Gamma \subset \textup{SL}_2(\ZZ)$ be a \tref{GT:subgroup}{subgroup} of finite \tref{GT:index-subgroup}{index} and $k$ an integer.  A \textbf{modular form} of level $\Gamma$ and weight $k$ is a \tref{holomorphic-function}{holomorphic function} $f \colon \mathbb{H} \to \CC$ on the upper half-plane $\mathbb{H} = \{ z \in \CC \mid \operatorname{Im}(z) > 0 \}$ satisfying
     \begin{itemize}
         \item $f\left(\frac{az + b}{cz + d}\right) = (cz + d)^k f(z)$ for all $z \in \mathbb{H}$ and $\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \Gamma$,
         \item the function $(cz + d)^{-k} f\left(\frac{az + b}{cz + d}\right)$ is bounded as $\operatorname{Im}(z) \to \infty$, for all $\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \textup{SL}_2(\ZZ)$.
@@ -92,7 +92,7 @@
 \end{topic}
 
 \begin{topic}{picard-theorem}{Picard theorem}
-    \textbf{Picard's little theorem} states that, for any non-constant \tref{entire-function}{entire function} $f : \CC \to \CC$, the set of values $f$ attains is either the whole of $\CC$ or $\CC$ minus one point.
+    \textbf{Picard's little theorem} states that, for any non-constant \tref{entire-function}{entire function} $f \colon \CC \to \CC$, the set of values $f$ attains is either the whole of $\CC$ or $\CC$ minus one point.
 
-    \textbf{Picard's great theorem} states that, for any analytic function $f : \CC \to \CC$ that has an essential singularity at a point $z$, the function $f$ attains, on any punctured neighborhood of $z$, all possible complex values, with at most one exception, infinitely often.
+    \textbf{Picard's great theorem} states that, for any analytic function $f \colon \CC \to \CC$ that has an essential singularity at a point $z$, the function $f$ attains, on any punctured neighborhood of $z$, all possible complex values, with at most one exception, infinitely often.
 \end{topic}

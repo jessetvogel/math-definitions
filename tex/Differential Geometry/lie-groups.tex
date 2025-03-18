@@ -1,13 +1,13 @@
 \begin{topic}{lie-group}{Lie group}
-    A \textbf{Lie group} is a \tref{GT:group}{group} $G$ which is also a finite-dimensional \tref{smooth-manifold}{smooth manifold}, such that the multiplication map $G \times G \to G : (x, y) \mapsto xy$ and the inversion map $G \to G : x \mapsto x^{-1}$ are \tref{smooth-map}{smooth}.
+    A \textbf{Lie group} is a \tref{GT:group}{group} $G$ which is also a finite-dimensional \tref{smooth-manifold}{smooth manifold}, such that the multiplication map $G \times G \to G \colon (x, y) \mapsto xy$ and the inversion map $G \to G : x \mapsto x^{-1}$ are \tref{smooth-map}{smooth}.
 \end{topic}
 
 \begin{topic}{adjoint-representation}{(co)adjoint representation}
     The \textbf{adjoint representation} of a \tref{lie-group}{Lie group} $G$ is a \tref{RT:representation}{representation} onto its Lie algebra $\mathfrak{g} = T_e G$ given by
-    \[ \textup{Ad}_G : G \to \textup{GL}(\mathfrak{g}), \quad g \mapsto \textup{Ad}_g := d c_g(e) , \]
-    where $c_g : G \to G, h \mapsto g h g^{-1}$ denotes the \tref{GT:conjugation}{conjugation} map.
+    \[ \textup{Ad}_G \colon G \to \textup{GL}(\mathfrak{g}), \quad g \mapsto \textup{Ad}_g := d c_g(e) , \]
+    where $c_g \colon G \to G, h \mapsto g h g^{-1}$ denotes the \tref{GT:conjugation}{conjugation} map.
     
-    The \textbf{co-adjoint representation} $\textup{Ad}_G^* : G \to \textup{GL}(\mathfrak{g}^*)$ is the \tref{RT:dual-representation}{dual representation} of $\textup{Ad}_G$.
+    The \textbf{co-adjoint representation} $\textup{Ad}_G^* \colon G \to \textup{GL}(\mathfrak{g}^*)$ is the \tref{RT:dual-representation}{dual representation} of $\textup{Ad}_G$.
     
     The \textbf{adjoint representation} of a \tref{AA:lie-algebra}{Lie algebra} $\mathfrak{g}$ is a representation onto itself, given by
     \[ \textup{ad}_{\mathfrak{g}}: \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g}), \quad X \mapsto \textup{ad}_X = [X, -] , \]
@@ -19,11 +19,11 @@
     \[ \textup{ad}_X([Y, Z]) = [\textup{ad}_X(Y), Z] + [Y, \textup{ad}_X(Z)] . \]
     Moreover, from the Jacobi identity follows that
     \[ \textup{ad}_{[X, Y]}(Z) = [[X, Y], Z] = [X, [Y, Z]] - [Y, [X, Z]] = [\textup{ad}_X, \textup{ad}_Y](Z) , \]
-    which shows that the map $\textup{ad} : \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$ is a Lie algebra homomorphism.
+    which shows that the map $\textup{ad} \colon \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$ is a Lie algebra homomorphism.
 \end{example}
 
 \begin{topic}{coadjoint-orbit}{coadjoint orbit}
-    Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textbf{coadjoint orbit} of some $\xi \in \mathfrak{g}^*$ is the \tref{GT:orbit}{orbit} of the \tref{adjoint-representation}{coadjoint representation} $\textup{Ad}^*_G : G \to \textup{GL}(\mathfrak{g}^*)$, that is
+    Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textbf{coadjoint orbit} of some $\xi \in \mathfrak{g}^*$ is the \tref{GT:orbit}{orbit} of the \tref{adjoint-representation}{coadjoint representation} $\textup{Ad}^*_G \colon G \to \textup{GL}(\mathfrak{g}^*)$, that is
     \[ \mathcal{O}_\xi = \{ \textup{Ad}_g^*(\xi) : g \in G \} . \]
     Equivalently, it can be described as the quotient $G/G_\xi$, where $G_\xi$ is the \tref{GT:stabilizer}{stabilizer} of $\xi$, under the isomorphism
     \[ G/G_\xi \xrightarrow{\sim} \mathcal{O}_\xi, \quad g \mapsto \textup{Ad}_g^*(\mu) . \]
@@ -40,14 +40,14 @@
 \begin{topic}{maurer-cartan-form}{Maurer--Cartan form}
     Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textbf{Maurer--Cartan form} $\Theta \in \Omega^1(G; \mathfrak{g})$ is the $\mathfrak{g}$-valued $1$-form on $G$ given by
     \[ \Theta_g(\xi) = (L_{g^{-1}})_* \xi \quad \textup{ for } g \in G \textup{ and } \xi \in T_g G, \]
-    where $L_g : G \to G$ denotes left multiplication by $g$, that is $L_g(h) = gh$.
+    where $L_g \colon G \to G$ denotes left multiplication by $g$, that is $L_g(h) = gh$.
 \end{topic}
 
 \begin{topic}{lie-theorems}{Lie's theorems}
     \textbf{Lie's theorems} are three theorems about the relation between \tref{lie-group}{Lie groups} and finite-dimensional \tref{AA:lie-algebra}{Lie algebras}.
     \begin{enumerate}[label=(\roman*)]
         \item If $G$ and $H$ are locally isomorphic Lie groups, then their Lie algebras $\mathfrak{g}$ and $\mathfrak{h}$ are isomorphic.
-        \item If $G$ and $H$ are Lie groups with Lie algebras $\mathfrak{g}$ and $\mathfrak{h}$, and $G$ is \tref{TO:simply-connected-space}{simply connected}, then any morphism of Lie algebras $f : \mathfrak{g} \to \mathfrak{h}$ lifts uniquely to a morphism of Lie groups $F : G \to H$, that is, $dF_e = f$.
+        \item If $G$ and $H$ are Lie groups with Lie algebras $\mathfrak{g}$ and $\mathfrak{h}$, and $G$ is \tref{TO:simply-connected-space}{simply connected}, then any morphism of Lie algebras $f \colon \mathfrak{g} \to \mathfrak{h}$ lifts uniquely to a morphism of Lie groups $F \colon G \to H$, that is, $dF_e = f$.
         \item Every Lie algebra is isomorphic to the Lie algebra of a (simply connected) Lie group.
     \end{enumerate}
 \end{topic}
@@ -57,13 +57,13 @@
 \end{example}
 
 \begin{topic}{lie-algebra-cohomology}{Lie algebra cohomology}
-    Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textit{left-invariant differential forms}, i.e. \tref{differential-form}{differential forms} $\omega \in \Omega^k(G)$ with $\omega_g = (L_{g^{-1}})^* \omega_e$ for all $g \in G$, where $L_g : G \to G$ denotes left multiplication $h \mapsto gh$, are completely determined by their value at the identity $e$. Hence there is a natural identification
+    Let $G$ be a \tref{lie-group}{Lie group} and $\mathfrak{g}$ its corresponding \tref{AA:lie-algebra}{Lie algebra}. The \textit{left-invariant differential forms}, i.e. \tref{differential-form}{differential forms} $\omega \in \Omega^k(G)$ with $\omega_g = (L_{g^{-1}})^* \omega_e$ for all $g \in G$, where $L_g \colon G \to G$ denotes left multiplication $h \mapsto gh$, are completely determined by their value at the identity $e$. Hence there is a natural identification
     \[ \wedge^\bdot \mathfrak{g}^* \xrightarrow{\sim} \Omega^\bdot_\textup{inv}(G), \]
     where $(\Omega^\bdot_\textup{inv}(G), d) \subset (\Omega^\bdot(G), d)$ is the subcomplex of left-invariant differential forms. In this way, the \tref{exterior-derivative}{exterior derivative} corresponds to the differential
-    \[ d_\mathfrak{g} : \wedge^k \mathfrak{g}^* \to \wedge^{k + 1} \mathfrak{g}^*, \quad d_\mathfrak{g} \omega(v_0, \ldots, v_k) = \sum_{0 \le i < j \le k} (-1)^{i + j} \omega([v_i, v_j], v_0, \ldots, \hat{v}_i, \ldots, v_k) . \]
+    \[ d_\mathfrak{g} \colon \wedge^k \mathfrak{g}^* \to \wedge^{k + 1} \mathfrak{g}^*, \quad d_\mathfrak{g} \omega(v_0, \ldots, v_k) = \sum_{0 \le i < j \le k} (-1)^{i + j} \omega([v_i, v_j], v_0, \ldots, \hat{v}_i, \ldots, v_k) . \]
     The complex $(\wedge^\bdot \mathfrak{g}^*, d_\mathfrak{g})$ is called the \textbf{Chevalley--Eilenberg complex}, and the cohomology groups $H^k(\mathfrak{g})$ are the \textbf{Lie algebra cohomology groups} of $\mathfrak{g}$.
     
-    If $\rho : \mathfrak{g} \to \mathfrak{gl}(V)$ is a Lie algebra representation of $\mathfrak{g}$, then the \textbf{Lie algebra cohomology of $\mathfrak{g}$ with coefficients in $V$}, denoted $H^k(\mathfrak{g}, V)$, is the cohomology of the complex $(\wedge^\bdot \mathfrak{g}^* \otimes V, d_\mathfrak{g})$ where
+    If $\rho \colon \mathfrak{g} \to \mathfrak{gl}(V)$ is a Lie algebra representation of $\mathfrak{g}$, then the \textbf{Lie algebra cohomology of $\mathfrak{g}$ with coefficients in $V$}, denoted $H^k(\mathfrak{g}, V)$, is the cohomology of the complex $(\wedge^\bdot \mathfrak{g}^* \otimes V, d_\mathfrak{g})$ where
     \[ \begin{aligned}
         d_\mathfrak{g} \omega(v_0, \ldots, v_k) &= \sum_{i = 0}^{k} (-1)^i \rho(v_i) \cdot \omega(v_0, \ldots, \hat{v}_i, \ldots, v_k) \\ &+ \sum_{0 \le i < j \le k} (-1)^{i + j} \omega([v_i, v_j], v_0, \ldots, \hat{v}_i, \ldots, v_k) .
     \end{aligned} \]
@@ -80,13 +80,13 @@
 \end{example}
 
 \begin{topic}{poisson-lie-group}{Poisson--Lie group}
-    A \textbf{Poisson--Lie group} is a \tref{lie-group}{Lie group} with a \tref{poisson-manifold}{Poisson structure} $\{ \cdot, \cdot \}$, such that multiplication $\mu : G \times G \to G$ is a \tref{poisson-map}{Poisson map}, where $G \times G$ is given the product Poisson structure. Explicitly, it is required that
+    A \textbf{Poisson--Lie group} is a \tref{lie-group}{Lie group} with a \tref{poisson-manifold}{Poisson structure} $\{ \cdot, \cdot \}$, such that multiplication $\mu \colon G \times G \to G$ is a \tref{poisson-map}{Poisson map}, where $G \times G$ is given the product Poisson structure. Explicitly, it is required that
     \[ \{ f_1, f_2 \}(g_1 g_2) = \{ f_1 \circ L_{g_1}, f_2 \circ L_{g_1} \}(g_2) + \{ f_1 \circ R_{g_2}, f_2 \circ R_{g_2} \}(g_1) \]
     for all $f_1, f_2 \in C^\infty(G)$ and $g_1, g_2 \in G$.
 \end{topic}
 
 \begin{example}{poisson-lie-group}
-    Let $\mathfrak{g}$ be a finite-dimensional real \tref{AA:lie-algebra}{Lie algebra}, and consider the dual $\mathfrak{g}^*$ as a vector space. Identifying the tangent space of $\mathfrak{g}^*$ with $\mathfrak{g}^*$ itself, the differential of a smooth function $f$ on $\mathfrak{g}^*$ can be seen as map $df : \mathfrak{g}^* \to (\mathfrak{g}^*)^* \isom \mathfrak{g}$. Endowing $\mathfrak{g}^*$ with the Poisson bracket
+    Let $\mathfrak{g}$ be a finite-dimensional real \tref{AA:lie-algebra}{Lie algebra}, and consider the dual $\mathfrak{g}^*$ as a vector space. Identifying the tangent space of $\mathfrak{g}^*$ with $\mathfrak{g}^*$ itself, the differential of a smooth function $f$ on $\mathfrak{g}^*$ can be seen as map $df \colon \mathfrak{g}^* \to (\mathfrak{g}^*)^* \isom \mathfrak{g}$. Endowing $\mathfrak{g}^*$ with the Poisson bracket
     \[ \{ f_1, f_2 \}(\xi) = \xi([df_1(\xi), df_2(\xi)]), \quad \textup{ for } \xi \in \mathfrak{g}^* , \]
     gives $\mathfrak{g}^*$, as an abelian Lie group under addition, the structure of a Poisson--Lie group.
     
@@ -103,8 +103,8 @@
 \begin{topic}{lie-groupoid}{Lie groupoid}
     A \textbf{Lie groupoid} is a \tref{CT:groupoid}{groupoid} $X_1 \rightrightarrows X_0$, whose sets of objects $X_0$ and arrows $X_1$ are \tref{smooth-manifold}{smooth manifolds}, such that
     \begin{itemize}
-        \item inversion $(-)^{-1} : X_1 \to X_1$, composition $\circ : X_1 \times_{X_0} X_1 \to X_1$ and the identity map $\id_{(-)} : X_0 \to X_1$, are all \tref{smooth-map}{smooth},
-        \item the source and target maps $s, t : X_1 \to X_0$ are smooth surjective \tref{submersion}{submersions}.
+        \item inversion $(-)^{-1} \colon X_1 \to X_1$, composition $\circ \colon X_1 \times_{X_0} X_1 \to X_1$ and the identity map $\id_{(-)} \colon X_0 \to X_1$, are all \tref{smooth-map}{smooth},
+        \item the source and target maps $s, t \colon X_1 \to X_0$ are smooth surjective \tref{submersion}{submersions}.
     \end{itemize}
 \end{topic}
 

@@ -6,14 +6,14 @@
         \item If $f$ is a \tref{CT:retract}{retract} of $g$, and $g$ is a fibration, cofibration or a weak equivalence, then so is $f$.
         \item For any commutative diagram
         \[ \svg \begin{tikzcd} A \arrow[swap]{d}{i} \arrow{r}{f} & X \arrow{d}{p} \\ B \arrow[swap]{r}{g} \arrow[dashed]{ur}{h} & Y \end{tikzcd} \]
-        such that either (i) $i$ is a cofibration and $p$ an acyclic fibration, or (ii) $i$ an acyclic cofibration and $p$ a fibration, there exists a lift $h : B \to X$ making the diagram commute.
+        such that either (i) $i$ is a cofibration and $p$ an acyclic fibration, or (ii) $i$ an acyclic cofibration and $p$ a fibration, there exists a lift $h \colon B \to X$ making the diagram commute.
         \item Any map $f$ can be factored in two ways: (i) $f = pi$ with $i$ a cofibration and $p$ an acyclic fibration, and (ii) $f = pi$ with $i$ an acyclic cofibration and $p$ a fibration.
     \end{itemize}
     By the first axiom, $\mathcal{C}$ has an \tref{CT:initial-object}{initial} object $\varnothing$ and a \tref{CT:terminal-object}{terminal} object $\star$. An object $A$ of $\mathcal{C}$ is called \textbf{cofibrant} if $\varnothing \to A$ is a cofibration, and \textbf{fibrant} if $A \to \star$ is a fibration.
 \end{topic}
 
 \begin{example}{model-category}
-    The category $\textbf{Top}$ of topological spaces can be given the structure of a model category by defining a map $f : X \to Y$ to be a
+    The category $\textbf{Top}$ of topological spaces can be given the structure of a model category by defining a map $f \colon X \to Y$ to be a
     \begin{itemize}
         \item \textit{weak equivalence} if $f$ is a \tref{AT:weak-homotopy-equivalence}{weak homotopy equivalence},
         \item \textit{cofibrations} if $f$ is a retract of a map $X \to Y'$ in which $Y'$ is obtained from $X$ by attaching cells,
@@ -43,7 +43,7 @@
 \end{example}
 
 \begin{example}{model-category}
-    In any model category, the fibrations are precisely the maps satisfying the right lifting property (RLP) w.r.t. acyclic cofibrations. Namely, suppose that $f : X \to Y$ satisfies this RLP, and factor $f$ as $X \xrightarrow{i} Z \xrightarrow{p} Y$ with $i$ an acyclic cofibration and $p$ a fibration. Then the RLP yields a lift $h : Z \to X$ such that
+    In any model category, the fibrations are precisely the maps satisfying the right lifting property (RLP) w.r.t. acyclic cofibrations. Namely, suppose that $f \colon X \to Y$ satisfies this RLP, and factor $f$ as $X \xrightarrow{i} Z \xrightarrow{p} Y$ with $i$ an acyclic cofibration and $p$ a fibration. Then the RLP yields a lift $h \colon Z \to X$ such that
     \[ \svg \begin{tikzcd} X \arrow{r}{\id} \arrow[swap]{d}{i} & X \arrow{d}{f} \\ Z \arrow[dashed]{ur}{h} \arrow[swap]{r}{p} & Y \end{tikzcd} \]
     commutes. Now it follows that $f$ is a retract of $p$, because of the diagram
     \[ \svg \begin{tikzcd} X \arrow{r}{i} \arrow{d}{f} & Z \arrow{d}{p} \arrow{r}{h} & X \arrow{d}{f} \\ Y \arrow{r}{\id} & Y \arrow{r}{\id} & Y \end{tikzcd} \]
@@ -51,7 +51,7 @@
 \end{example}
 
 \begin{topic}{proper-model-category}{proper model category}
-    A \tref{model-category}{model category} $\mathcal{M}$ is called \textbf{right proper} if weak equivalences are preserved by pullback along fibrations. That is, for every weak equivalence $f : X \to Y$ and fibration $g : Z \to Y$, the pullback $g^* f : X \times_Y Z \to Z$ is a weak equivalence.
+    A \tref{model-category}{model category} $\mathcal{M}$ is called \textbf{right proper} if weak equivalences are preserved by pullback along fibrations. That is, for every weak equivalence $f \colon X \to Y$ and fibration $g \colon Z \to Y$, the pullback $g^* f \colon X \times_Y Z \to Z$ is a weak equivalence.
     
     Similarly, $\mathcal{M}$ is \textbf{left proper} if weak equivalences are preserved by pushout along cofibrations.
     Finally, $\mathcal{M}$ is \textbf{proper} if it is both left and right proper.
@@ -67,11 +67,11 @@
 
 \begin{topic}{quillen-adjunction}{Quillen adjunction}
     Let $\mathcal{C}, \mathcal{D}$ be \tref{model-category}{model categories}. A \textbf{Quillen adjunction} is an \tref{CT:adjunction}{adjunction}
-    \[ F : \mathcal{C} \to \mathcal{D}, \qquad G : \mathcal{D} \to \mathcal{C}, \qquad F \dashv G , \]
+    \[ F \colon \mathcal{C} \to \mathcal{D}, \qquad G \colon \mathcal{D} \to \mathcal{C}, \qquad F \dashv G , \]
     such that $F$ preserves cofibrations and $G$ preserves fibrations.
     
     In particular, a Quillen adjunction descends to an adjunction on the \tref{homotopy-category}{homotopy categories}
-    \[ \textbf{L} F : \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{D}), \qquad \textbf{R} G : \textup{Ho}(\mathcal{D}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{L} F \dashv \textbf{R} G . \]
+    \[ \textbf{L} F \colon \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{D}), \qquad \textbf{R} G \colon \textup{Ho}(\mathcal{D}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{L} F \dashv \textbf{R} G . \]
 \end{topic}
 
 \begin{topic}{quillen-equivalence}{Quillen equivalence}
@@ -87,7 +87,7 @@
 %     The \textbf{homotopy category} of a \tref{CT:simplicial-object}{simplicial set} $S_\bdot$ is the category $\textup{h}S_\bdot$ defined as follows:
 %     \begin{itemize}
 %         \item The objects are the \textit{vertices} $x \in S_0$.
-%         \item Every \textit{edge} $e \in S_1$ determines a morphism $[e] : d_1(e) \to d_0(e)$. The collection of morphisms in $\textup{h}S_\bdot$ is generated under composition by morphisms of the form $[e]$, subject to the relations
+%         \item Every \textit{edge} $e \in S_1$ determines a morphism $[e] \colon d_1(e) \to d_0(e)$. The collection of morphisms in $\textup{h}S_\bdot$ is generated under composition by morphisms of the form $[e]$, subject to the relations
 %         \[ [s_0(x)] = \id_x \text{ for } x \in S_0, \qquad [d_1(\sigma)] = [d_0(\sigma)] \circ [d_2(\sigma)] \text{ for } \sigma \in S_2 . \]
 %     \end{itemize}
     
@@ -97,29 +97,29 @@
 \begin{topic}{homotopy-limit}{homotopy (co)limit}
     Let $\mathcal{C}$ be a \tref{model-category}{model category} and $\mathcal{I}$ a \textit{very small category}. Put a model structure on $\mathcal{C}^\mathcal{I}$ by saying $\mu : X \Rightarrow Y$ is a 
     \begin{itemize}
-        \item weak equivalence if $\mu_C : X(C) \to Y(C)$ is a weak equivalence for all $C$ in $\mathcal{C}$,
-        \item cofibration if $\mu_C : X(C) \to Y(C)$ is a cofibration for all $C$ in $\mathcal{C}$,
+        \item weak equivalence if $\mu_C \colon X(C) \to Y(C)$ is a weak equivalence for all $C$ in $\mathcal{C}$,
+        \item cofibration if $\mu_C \colon X(C) \to Y(C)$ is a cofibration for all $C$ in $\mathcal{C}$,
         \item fibration if (?).
     \end{itemize}
-    Then the functors $\lim : \mathcal{C}^\mathcal{I} \to \mathcal{C}$ and $\Delta : \mathcal{C} \to \mathcal{C}^\mathcal{I}$ form a \tref{quillen-adjunction}{Quillen adjunction}, yielding an \tref{CT:adjunction}{adjunction} on the \tref{homotopy-category}{homotopy categories}
-    \[ \textbf{L} \Delta : \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{C}^\mathcal{I}), \qquad \textbf{R}\lim : \textup{Ho}(\mathcal{C}^\mathcal{I}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{L} \Delta \dashv \textbf{R} \lim . \]
-     Now, for any functor $F : \mathcal{I} \to \mathcal{C}$, the \textbf{homotopy limit} of $F$ is $\textbf{R}\lim(F)$. In particular, $\textup{R}\lim(F)$ is isomorphic to $\lim(F)$ if $F$ is a fibrant object of $\mathcal{C}^\mathcal{I}$.
+    Then the functors $\lim \colon \mathcal{C}^\mathcal{I} \to \mathcal{C}$ and $\Delta \colon \mathcal{C} \to \mathcal{C}^\mathcal{I}$ form a \tref{quillen-adjunction}{Quillen adjunction}, yielding an \tref{CT:adjunction}{adjunction} on the \tref{homotopy-category}{homotopy categories}
+    \[ \textbf{L} \Delta \colon \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{C}^\mathcal{I}), \qquad \textbf{R}\lim \colon \textup{Ho}(\mathcal{C}^\mathcal{I}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{L} \Delta \dashv \textbf{R} \lim . \]
+     Now, for any functor $F \colon \mathcal{I} \to \mathcal{C}$, the \textbf{homotopy limit} of $F$ is $\textbf{R}\lim(F)$. In particular, $\textup{R}\lim(F)$ is isomorphic to $\lim(F)$ if $F$ is a fibrant object of $\mathcal{C}^\mathcal{I}$.
      
      Similarly, put another another model structure on $\mathcal{C}^\mathcal{I}$ by saying $\mu : X \Rightarrow Y$ is a
      \begin{itemize}
-        \item weak equivalence if $\mu_C : X(C) \to Y(C)$ is a weak equivalence for all $C$ in $\mathcal{C}$,
-        \item fibration if $\mu_C : X(C) \to Y(C)$ is a fibration for all $C$ in $\mathcal{C}$,
+        \item weak equivalence if $\mu_C \colon X(C) \to Y(C)$ is a weak equivalence for all $C$ in $\mathcal{C}$,
+        \item fibration if $\mu_C \colon X(C) \to Y(C)$ is a fibration for all $C$ in $\mathcal{C}$,
         \item cofibration if (?).
     \end{itemize}
-    Again, the functors $\operatorname{colim} : \mathcal{C}^\mathcal{I} \to \mathcal{C}$ and $\Delta : \mathcal{C} \to \mathcal{C}^\mathcal{I}$ form a Quillen adjunction, yielding an adjunction on the homotopy categories
-    \[ \textbf{L}\operatorname{colim} : \textup{Ho}(\mathcal{C}^\mathcal{I}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{R} \Delta : \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{C}^\mathcal{I}), \qquad \textbf{L} \operatorname{colim} \dashv \textbf{R} \Delta . \]
-    Now, for any functor $F : \mathcal{I} \to \mathcal{C}$, the \textbf{homotopy colimit} of $F$ is $\textbf{L}\operatorname{colim}(F)$. In particular, $\textup{L}\operatorname{colim}(F)$ is isomorphic to $\operatorname{colim}(F)$ if $F$ is a cofibrant object of $\mathcal{C}^\mathcal{I}$.
+    Again, the functors $\operatorname{colim} \colon \mathcal{C}^\mathcal{I} \to \mathcal{C}$ and $\Delta \colon \mathcal{C} \to \mathcal{C}^\mathcal{I}$ form a Quillen adjunction, yielding an adjunction on the homotopy categories
+    \[ \textbf{L}\operatorname{colim} \colon \textup{Ho}(\mathcal{C}^\mathcal{I}) \to \textup{Ho}(\mathcal{C}), \qquad \textbf{R} \Delta \colon \textup{Ho}(\mathcal{C}) \to \textup{Ho}(\mathcal{C}^\mathcal{I}), \qquad \textbf{L} \operatorname{colim} \dashv \textbf{R} \Delta . \]
+    Now, for any functor $F \colon \mathcal{I} \to \mathcal{C}$, the \textbf{homotopy colimit} of $F$ is $\textbf{L}\operatorname{colim}(F)$. In particular, $\textup{L}\operatorname{colim}(F)$ is isomorphic to $\operatorname{colim}(F)$ if $F$ is a cofibrant object of $\mathcal{C}^\mathcal{I}$.
 \end{topic}
 
 \begin{example}{homotopy-limit}
     Note that the usual (co)limits in $\mathcal{C}$ may not behave well with respect to the model structure. For example, take $\mathcal{C} = \textbf{Top}$ with the usual model structure, and consider the diagram
     \[ \svg \begin{tikzcd} D^n \arrow{d} & S^{n - 1} \arrow[swap]{l}{i} \arrow{r}{i} \arrow[equals]{d} & D^n \arrow{d} \\ * & S^{n - 1} \arrow{l} \arrow{r} & * \end{tikzcd} \]
-    with $i : S^{n - 1} \to D^n$ the inclusion of the boundary, and where all vertical maps are homotopy equivalences. The usual pushout of the top row is homeomorphic to $S^n$, while the usual pushout of the bottom row is a point, and the induced map $S^n \to *$ is not a homotopy equivalence. The `correct' pushout (the homotopy pushout) is given by the top row, since $i$ is a cofibration while $S^{n - 1} \to *$ is not.
+    with $i \colon S^{n - 1} \to D^n$ the inclusion of the boundary, and where all vertical maps are homotopy equivalences. The usual pushout of the top row is homeomorphic to $S^n$, while the usual pushout of the bottom row is a point, and the induced map $S^n \to *$ is not a homotopy equivalence. The `correct' pushout (the homotopy pushout) is given by the top row, since $i$ is a cofibration while $S^{n - 1} \to *$ is not.
 \end{example}
 
 \begin{example}{homotopy-limit}
@@ -174,12 +174,12 @@
 \end{example}
 
 \begin{topic}{homotopy}{homotopy}
-    Let $\mathcal{C}$ be a \tref{model-category}{model category}, and let $f, g : X \to Y$ be two morphisms in $\mathcal{C}$.
+    Let $\mathcal{C}$ be a \tref{model-category}{model category}, and let $f, g \colon X \to Y$ be two morphisms in $\mathcal{C}$.
     \begin{itemize}
-        \item A \textbf{left homotopy} from $f$ to $g$ is a morphism $H : \textup{Cyl}(X) \to Y$, where $\textup{Cyl}(X)$ is a \tref{cylinder-object}{cylinder object} of $X$, such that
+        \item A \textbf{left homotopy} from $f$ to $g$ is a morphism $H \colon \textup{Cyl}(X) \to Y$, where $\textup{Cyl}(X)$ is a \tref{cylinder-object}{cylinder object} of $X$, such that
         \[ \svg \begin{tikzcd} X \arrow{r} \arrow[swap]{dr}{f} & \textup{Cyl}(X) \arrow{d}{H} & X \arrow{l} \arrow{ld}{g} \\ & Y & \end{tikzcd} \]
         commutes. If such a left homotopy exists, then $f$ and $g$ are called \textbf{left homotopic}.
-        \item A \textbf{right homotopy} from $f$ to $g$ is a morphism $H : X \to \textup{Path}(Y)$, where $\textup{Path}(Y)$ is a \tref{path-object}{path object} of $Y$, such that
+        \item A \textbf{right homotopy} from $f$ to $g$ is a morphism $H \colon X \to \textup{Path}(Y)$, where $\textup{Path}(Y)$ is a \tref{path-object}{path object} of $Y$, such that
         \[ \svg \begin{tikzcd} & X \arrow{d}{H} \arrow[swap]{dl}{f} \arrow{dr}{g} & \\ Y & \textup{Path}(Y) \arrow{l} \arrow{r} & Y \end{tikzcd} \]
         commutes. If such a right homotopy exists, then $f$ and $g$ are called \textbf{right homotopic}.
     \end{itemize}

@@ -1,9 +1,9 @@
 \begin{topic}{fiber-category}{fiber category}
-    Let $\mathfrak{S}$ be a \tref{category}{category} and $\pi : \mathfrak{X} \to \mathfrak{S}$ a category over $\mathfrak{X}$. The \textbf{fiber category} $\mathfrak{X}_S$ of an object $S$ of $\mathfrak{S}$ is the subcategory of $\mathfrak{X}$ of all objects $x$ with $\pi(x) = S$ and morphisms $\alpha : x \to y$ with $\pi(\alpha) = \id_S$.
+    Let $\mathfrak{S}$ be a \tref{category}{category} and $\pi \colon \mathfrak{X} \to \mathfrak{S}$ a category over $\mathfrak{X}$. The \textbf{fiber category} $\mathfrak{X}_S$ of an object $S$ of $\mathfrak{S}$ is the subcategory of $\mathfrak{X}$ of all objects $x$ with $\pi(x) = S$ and morphisms $\alpha \colon x \to y$ with $\pi(\alpha) = \id_S$.
 \end{topic}
 
 \begin{topic}{strongly-cartesian-morphism}{strongly cartesian morphism}
-    Let $\mathfrak{S}$ be a \tref{category}{category} and $\pi : \mathfrak{X} \to \mathfrak{S}$ a category over $\mathfrak{S}$. A morphism $\alpha : y \to x$ in $\mathfrak{X}$ is \textbf{strongly cartesian} if the map
+    Let $\mathfrak{S}$ be a \tref{category}{category} and $\pi \colon \mathfrak{X} \to \mathfrak{S}$ a category over $\mathfrak{S}$. A morphism $\alpha \colon y \to x$ in $\mathfrak{X}$ is \textbf{strongly cartesian} if the map
     \[ \begin{aligned}
         \Hom_\mathfrak{X}(z, y) &\to \Hom_\mathfrak{X}(z, x) \times_{\Hom_\mathfrak{S}(\pi(z), \pi(x))} \Hom_\mathfrak{S}(\pi(z), \pi(y)) \\
         \beta &\mapsto (\alpha \circ \beta, \pi(\beta))
@@ -12,29 +12,29 @@
 \end{topic}
 
 \begin{example}{strongly-cartesian-morphism}
-    Consider the category of \tref{TO:topological-space}{topological spaces} over the category of sets via the forgetful functor $F : \textbf{Top} \to \textbf{Set}$. Then the strongly cartesian morphisms in $\textbf{Top}$ are the morphisms $f : Y \to X$ such that $Y$ has the \tref{TO:pullback-topology}{pullback topology} $\mathcal{T}_Y = \{ f^{-1}(U) \;:\; U \subset X \textup{ open} \}$.
+    Consider the category of \tref{TO:topological-space}{topological spaces} over the category of sets via the forgetful functor $F \colon \textbf{Top} \to \textbf{Set}$. Then the strongly cartesian morphisms in $\textbf{Top}$ are the morphisms $f \colon Y \to X$ such that $Y$ has the \tref{TO:pullback-topology}{pullback topology} $\mathcal{T}_Y = \{ f^{-1}(U) \;:\; U \subset X \textup{ open} \}$.
     
     To show this, we need to consider the map
     \[ \begin{aligned}
-        \varphi : \{ g : Z \to Y \} &\to \{ (h : Z \to X, j : F(Z) \to F(Y)) \mid F(h) = F(f) \circ j \} \\
+        \varphi \colon \{ g \colon Z \to Y \} &\to \{ (h \colon Z \to X, j \colon F(Z) \to F(Y)) \mid F(h) = F(f) \circ j \} \\
         g &\mapsto (f \circ g, F(g)) .
     \end{aligned} \]
-    Note that the map $\varphi$ is always injective since $F$ is \tref{CT:faithful-functor}{faithful}. Now suppose that $Y$ has the pullback topology, and let $h : Z \to X$ be a continuous map and $j : F(Z) \to F(Y)$ a map of sets such that $F(h) = F(f) \circ j$. Every open $V \subset Y$ can be written as $V = f^{-1}(U)$ for some open $U \subset X$, so $j^{-1}(V) = j^{-1}(f^{-1}(U)) = h^{-1}(U)$ is open as $h$ is continuous. Hence, $j$ is continuous and thus $\varphi$ is surjective.
+    Note that the map $\varphi$ is always injective since $F$ is \tref{CT:faithful-functor}{faithful}. Now suppose that $Y$ has the pullback topology, and let $h \colon Z \to X$ be a continuous map and $j \colon F(Z) \to F(Y)$ a map of sets such that $F(h) = F(f) \circ j$. Every open $V \subset Y$ can be written as $V = f^{-1}(U)$ for some open $U \subset X$, so $j^{-1}(V) = j^{-1}(f^{-1}(U)) = h^{-1}(U)$ is open as $h$ is continuous. Hence, $j$ is continuous and thus $\varphi$ is surjective.
     
-    Conversely, suppose that $\varphi$ is surjective. Let $Y'$ denote the topological space with underlying set $F(Y)$ and the pullback topology induced by $f$. Furthermore, let $j : F(Y') \to F(Y)$ be the identity map, and note that the composition $F(f) \circ j$ is continuous as a map $Y' \to X$. Surjectivity of $\varphi$ implies that $j$ is continuous. The inverse $j^{-1}$ is also continuous as $f$ is continuous, so it follows that $Y' = Y$.
+    Conversely, suppose that $\varphi$ is surjective. Let $Y'$ denote the topological space with underlying set $F(Y)$ and the pullback topology induced by $f$. Furthermore, let $j \colon F(Y') \to F(Y)$ be the identity map, and note that the composition $F(f) \circ j$ is continuous as a map $Y' \to X$. Surjectivity of $\varphi$ implies that $j$ is continuous. The inverse $j^{-1}$ is also continuous as $f$ is continuous, so it follows that $Y' = Y$.
 \end{example}
 
 \begin{topic}{fibered-category}{fibered category}
-    Let $\mathfrak{S}$ be a \tref{category}{category}. A \textbf{fibered category} over $\mathfrak{S}$ is a category $\pi : \mathfrak{X} \to \mathfrak{S}$ over $\mathfrak{S}$ such that for every object $S$ in $\mathfrak{S}$ and $x$ in $\mathfrak{X}$ lying over $S$, and morphism $f : T \to S$, there exists a \tref{strongly-cartesian-morphism}{strongly cartesian morphism} $\alpha : y \to x$ with $\pi(y) = T$.
+    Let $\mathfrak{S}$ be a \tref{category}{category}. A \textbf{fibered category} over $\mathfrak{S}$ is a category $\pi \colon \mathfrak{X} \to \mathfrak{S}$ over $\mathfrak{S}$ such that for every object $S$ in $\mathfrak{S}$ and $x$ in $\mathfrak{X}$ lying over $S$, and morphism $f \colon T \to S$, there exists a \tref{strongly-cartesian-morphism}{strongly cartesian morphism} $\alpha \colon y \to x$ with $\pi(y) = T$.
     \[ \svg \begin{tikzcd} y \arrow{r}{\alpha} \arrow[rightsquigarrow]{d} & x \arrow[rightsquigarrow]{d} \\ T \arrow{r}{f} & S \end{tikzcd} \]
 \end{topic}
 
 \begin{topic}{descent-datum}{descent datum}
-    Let $\mathfrak{S}$ be a \tref{category}{category} and $\pi : \mathfrak{X} \to \mathfrak{S}$ a \tref{fibered-category}{fibered category} over $\mathfrak{S}$. Let $\mathcal{U} = \{ f_i : S_i \to S \}_{i \in I}$ be a family of morphisms in $\mathfrak{S}$, and assume that all fiber products $S_{ij} = S_i \times_S S_j$ and $S_{ijk} = S_i \times_S S_j \times_S S_k$ exist. A \textbf{descent datum} $(x_i, \varphi_{ij})$ in $\mathfrak{X}$ relative to $\mathcal{U}$ consists of an object $x_i$ in $\mathfrak{X}$ over $S_i$ for each $i \in I$ and an isomorphism $\varphi_{ij} : \pi_0^* x_i \to \pi_1^* x_j$ (where $\pi_0 : S_{ij} \to S_i$ and $\pi_1 : S_{ij} \to S_j$) for each $i, j \in I$, satisying the \textit{cocycle condition}: for each $i, j, k \in I$ the diagram
+    Let $\mathfrak{S}$ be a \tref{category}{category} and $\pi \colon \mathfrak{X} \to \mathfrak{S}$ a \tref{fibered-category}{fibered category} over $\mathfrak{S}$. Let $\mathcal{U} = \{ f_i \colon S_i \to S \}_{i \in I}$ be a family of morphisms in $\mathfrak{S}$, and assume that all fiber products $S_{ij} = S_i \times_S S_j$ and $S_{ijk} = S_i \times_S S_j \times_S S_k$ exist. A \textbf{descent datum} $(x_i, \varphi_{ij})$ in $\mathfrak{X}$ relative to $\mathcal{U}$ consists of an object $x_i$ in $\mathfrak{X}$ over $S_i$ for each $i \in I$ and an isomorphism $\varphi_{ij} \colon \pi_0^* x_i \to \pi_1^* x_j$ (where $\pi_0 \colon S_{ij} \to S_i$ and $\pi_1 \colon S_{ij} \to S_j$) for each $i, j \in I$, satisying the \textit{cocycle condition}: for each $i, j, k \in I$ the diagram
     \[ \svg \begin{tikzcd} \pi_0^* x_i \arrow{rr}{\pi_{02}^* \varphi_{ik}} \arrow[swap]{rd}{\pi_{01}^* \varphi_{ij}} && \pi_2^* x_k \\ & \pi_1^* x_j \arrow[swap]{ur}{\pi_{12}^* \varphi_{jk}} & \end{tikzcd} \]
     in $S_{ijk}$ commutes.
     
-    A \textbf{morphism} of descent data $\psi : (x_i, \varphi_{ij}) \to (y_i, \phi_{ij})$ is a collection of morphisms $(\psi_i : x_i \to y_i)_{i \in I}$ in $\mathfrak{X}_{S_i}$ (i.e. $\pi(\psi_i) = \id_{S_i}$) such that for all $i, j \in I$ the diagram
+    A \textbf{morphism} of descent data $\psi \colon (x_i, \varphi_{ij}) \to (y_i, \phi_{ij})$ is a collection of morphisms $(\psi_i \colon x_i \to y_i)_{i \in I}$ in $\mathfrak{X}_{S_i}$ (i.e. $\pi(\psi_i) = \id_{S_i}$) such that for all $i, j \in I$ the diagram
     \[ \svg \begin{tikzcd} \pi_0^* x_i \arrow{r}{\varphi_{ij}} \arrow[swap]{d}{\pi_0^* \psi_i} & \pi_1^* x_j \arrow{d}{\pi_1^* \psi_j} \\ \pi_0^* y_i \arrow{r}{\phi_{ij}} & \pi_1^* y_j \end{tikzcd} \]
     in $S_{ij}$ commutes.
     
@@ -42,20 +42,20 @@
 \end{topic}
 
 \begin{topic}{category-fibered-in-groupoids}{category fibered in groupoids}
-    A \textbf{category fibered in groupoids} over a \tref{category}{category} $\mathfrak{S}$ is a category $\mathfrak{X}$ over $\mathfrak{S}$ such that for any $f : T \to S$ in $\mathfrak{S}$ and object $x$ over $S$, there exists a lift $\overline{f} : y \to x$ of $f$, which is unique up to unique isomorphism. That is, for any other lift $\overline{f}' : y' \to x$ of $f$, there exists a unique isomorphism $\alpha : y' \to y$ such that $\overline{f}' = \overline{f} \circ \alpha$.
+    A \textbf{category fibered in groupoids} over a \tref{category}{category} $\mathfrak{S}$ is a category $\mathfrak{X}$ over $\mathfrak{S}$ such that for any $f \colon T \to S$ in $\mathfrak{S}$ and object $x$ over $S$, there exists a lift $\overline{f} \colon y \to x$ of $f$, which is unique up to unique isomorphism. That is, for any other lift $\overline{f}' \colon y' \to x$ of $f$, there exists a unique isomorphism $\alpha \colon y' \to y$ such that $\overline{f}' = \overline{f} \circ \alpha$.
 \end{topic}
 
 \begin{example}{category-fibered-in-groupoids}
-    Motivating the terminology, if $\mathfrak{X}$ is a category fibered in groupoids over $\mathfrak{S}$, then every morphism $\varphi : y \to x$ of $\mathfrak{X}$ that lies over an isomorphism $f : T \to S$ of $\mathfrak{S}$, is an isomorphism as well. In particular, all the \tref{fiber-category}{fibers} of $\mathfrak{X}$ are \tref{groupoid}{groupoids}.
+    Motivating the terminology, if $\mathfrak{X}$ is a category fibered in groupoids over $\mathfrak{S}$, then every morphism $\varphi \colon y \to x$ of $\mathfrak{X}$ that lies over an isomorphism $f \colon T \to S$ of $\mathfrak{S}$, is an isomorphism as well. In particular, all the \tref{fiber-category}{fibers} of $\mathfrak{X}$ are \tref{groupoid}{groupoids}.
 
-    Namely, let $g$ be the inverse of $f$, and choose a lifting $\overline{g} : z \to y$ of $g$. Now $\varphi \circ \overline{g} : z \to x$ lies over $f \circ g = \id_S$, so is a lifting of $\id_S$ with target $x$. Since $\id_x$ is so as well, there exists an isomorphism $\alpha : z \to x$ such that $\varphi \circ \overline{g} = \alpha$. Now it is clear that $\overline{g} \circ \alpha^{-1}$ is the inverse of $\varphi$.
+    Namely, let $g$ be the inverse of $f$, and choose a lifting $\overline{g} \colon z \to y$ of $g$. Now $\varphi \circ \overline{g} \colon z \to x$ lies over $f \circ g = \id_S$, so is a lifting of $\id_S$ with target $x$. Since $\id_x$ is so as well, there exists an isomorphism $\alpha \colon z \to x$ such that $\varphi \circ \overline{g} = \alpha$. Now it is clear that $\overline{g} \circ \alpha^{-1}$ is the inverse of $\varphi$.
 \end{example}
 
 \begin{topic}{stack}{stack}
     Let $\mathfrak{S}$ be a \tref{CT:site}{site}. A \textbf{stack} over $\mathfrak{S}$ is a \tref{CT:category-fibered-in-groupoids}{category fibered in groupoids} $\mathfrak{X}$ over $\mathfrak{S}$ such that
     \begin{itemize}
         \item for every object $U$ of $\mathfrak{S}$ and objects $x, y$ of the \tref{fiber-category}{fiber category} $\mathfrak{X}_U$, the presheaf
-        \[ \textup{Isom}(x, y) : (\mathfrak{S}/U)^\textup{op} \to \textbf{Set}, \quad (f : V \to U) \mapsto \Hom_{\mathfrak{X}_V}(f^* x, f^* y) \]
+        \[ \textup{Isom}(x, y) \colon (\mathfrak{S}/U)^\textup{op} \to \textbf{Set}, \quad (f \colon V \to U) \mapsto \Hom_{\mathfrak{X}_V}(f^* x, f^* y) \]
         on the \tref{slice-category}{slice category} $\mathfrak{S}/U$ is a \tref{sheaf}{sheaf},
         \item for every covering $\mathcal{U}$ in $\mathfrak{S}$, every \tref{CT:descent-datum}{descent datum} in $\mathfrak{X}$ relative to $\mathcal{U}$ is effective.
     \end{itemize}
@@ -63,14 +63,14 @@
 \end{topic}
 
 \begin{topic}{inertia-stack}{inertia stack}
-    Let $\pi : \mathfrak{X} \to \mathfrak{S}$ be a \tref{category-fibered-in-groupoids}{category fibered in groupoids} over $\mathfrak{S}$. The \textbf{inertia} of $\mathfrak{X}$ is the fiber product
+    Let $\pi \colon \mathfrak{X} \to \mathfrak{S}$ be a \tref{category-fibered-in-groupoids}{category fibered in groupoids} over $\mathfrak{S}$. The \textbf{inertia} of $\mathfrak{X}$ is the fiber product
     \[ \mathcal{I}_\mathfrak{X} = \mathfrak{X} \times_{\mathfrak{X} \times \mathfrak{X}} \mathfrak{X} . \]
-    More generally, for a morphism $f : \mathfrak{X} \to \mathfrak{Y}$ of fibered categories over $\mathfrak{S}$, the \textbf{relative inertia} of $\mathfrak{X}$ over $\mathfrak{Y}$ is the fiber product
+    More generally, for a morphism $f \colon \mathfrak{X} \to \mathfrak{Y}$ of fibered categories over $\mathfrak{S}$, the \textbf{relative inertia} of $\mathfrak{X}$ over $\mathfrak{Y}$ is the fiber product
     \[ \mathcal{I}_{\mathfrak{X}/\mathfrak{Y}} = \mathfrak{X} \times_{\mathfrak{X} \times_\mathfrak{Y} \mathfrak{X}} \mathfrak{X} . \]
     Explicitly, it can be described as the category fibered in groupoids over $\mathfrak{S}$ whose
     \begin{itemize}
-        \item objects over $S \in \mathfrak{S}$ are pairs $(x, \alpha)$ with $x \in \mathfrak{X}_S$ and $\alpha : x \to x$ a morphism with $f(\alpha) = \id_{f(x)}$,
-        \item morphisms $(x, \alpha) \to (y, \beta)$ over $g : T \to S$ are given by morphisms $\phi : x \to y$ such that $\pi(\phi) = g$ and $\phi \circ \alpha = \beta \circ \phi$.
+        \item objects over $S \in \mathfrak{S}$ are pairs $(x, \alpha)$ with $x \in \mathfrak{X}_S$ and $\alpha \colon x \to x$ a morphism with $f(\alpha) = \id_{f(x)}$,
+        \item morphisms $(x, \alpha) \to (y, \beta)$ over $g \colon T \to S$ are given by morphisms $\phi \colon x \to y$ such that $\pi(\phi) = g$ and $\phi \circ \alpha = \beta \circ \phi$.
     \end{itemize}    
     If $\mathfrak{X}$ and $\mathfrak{Y}$ are \tref{stack}{stacks} over $\mathfrak{S}$, then so are $\mathcal{I}_\mathfrak{X}$ and $\mathcal{I}_{\mathfrak{X}/\mathfrak{Y}}$, called the \textbf{inertia stack} of $\mathfrak{X}$ and the \textbf{relative inertia stack} of $\mathfrak{X}$ over $\mathfrak{Y}$, respectively.
 \end{topic}
@@ -78,11 +78,11 @@
 \begin{example}{inertia-stack}
     Let $X$ be a \tref{AG:scheme}{scheme}, $G$ an \tref{GT:abelian-group}{abelian group} acting on $X$, and $[X/G]$ the corresponding \tref{AG:quotient-stack}{quotient stack}. Then the inertia stack of $[X/G]$ is
     \[ \mathcal{I}_{[X/G]} = \bigsqcup_{g \in G} [X^g / G] , \]
-    where $X^g$ denotes the locus of $X$ fixed by $g \in G$. Namely, an $S$-point of $\mathcal{I}_{[X/G]}$ is given by a triple $(P, \phi, \alpha)$, where $P \to T$ is a $G$-torsor, $\phi : P \to X$ a $G$-equivariant morphism, and $\alpha : P \to P$ an automorphism of $P$ such that $\phi \circ \alpha = \phi$. Since $G$ is abelian, $\alpha$ is (fppf-)locally given by multiplication by some $g \in G$, so $\phi \circ \alpha = \phi$ implies that $\phi$ factors through $X^g$. This construction induces a map $\mathcal{I}_{[X/G]} \to \bigsqcup_{g \in G} [X^g/G]$, which can be shown to be an equivalence.
+    where $X^g$ denotes the locus of $X$ fixed by $g \in G$. Namely, an $S$-point of $\mathcal{I}_{[X/G]}$ is given by a triple $(P, \phi, \alpha)$, where $P \to T$ is a $G$-torsor, $\phi \colon P \to X$ a $G$-equivariant morphism, and $\alpha \colon P \to P$ an automorphism of $P$ such that $\phi \circ \alpha = \phi$. Since $G$ is abelian, $\alpha$ is (fppf-)locally given by multiplication by some $g \in G$, so $\phi \circ \alpha = \phi$ implies that $\phi$ factors through $X^g$. This construction induces a map $\mathcal{I}_{[X/G]} \to \bigsqcup_{g \in G} [X^g/G]$, which can be shown to be an equivalence.
 \end{example}
 
 \begin{topic}{gerbe}{gerbe}
-    Let $\mathfrak{S}$ be a \tref{site}{site}. A \textbf{gerbe} over $\mathfrak{S}$ is a \tref{CT:stack}{stack} $\pi : \mathfrak{X} \to \mathfrak{S}$ such that
+    Let $\mathfrak{S}$ be a \tref{site}{site}. A \textbf{gerbe} over $\mathfrak{S}$ is a \tref{CT:stack}{stack} $\pi \colon \mathfrak{X} \to \mathfrak{S}$ such that
     \begin{itemize}
         \item for every object $U$ of $\mathfrak{S}$, there exists a covering $\{ U_i \to U \}$ in $\mathfrak{S}$ such that the \tref{fiber-category}{fiber category} $\mathfrak{X}_{U_i}$ is non-empty,
         \item for every object $U$ of $\mathfrak{S}$ and $x, y \in \mathfrak{X}_U$, there exists a covering $\{ U_i \to U \}$ in $\mathfrak{S}$ such that $x|_{U_i} \cong y|_{U_i}$ for all $i$.

@@ -12,7 +12,7 @@
 \end{topic}
 
 \begin{topic}{measure-space}{measure space}
-    Let $\mathcal{A}$ be a \tref{sigma-algebra}{$\sigma$-algebra}. A \textbf{measure} on $\mathcal{A}$ is a function $\mu : \mathcal{A} \to [0, \infty]$ satisfying
+    Let $\mathcal{A}$ be a \tref{sigma-algebra}{$\sigma$-algebra}. A \textbf{measure} on $\mathcal{A}$ is a function $\mu \colon \mathcal{A} \to [0, \infty]$ satisfying
     \begin{itemize}
         \item (\textit{measure empty set}) $\mu(\varnothing) = 0$,
         \item (\textit{countable additivity}) $\mu(\bigcup_{n = 1}^\infty A_n) = \sum_{n = 1}^\infty \mu(A_n)$ for all $A_n \in \mathcal{A}$ with $n \in \NN$ pairwise disjoint.
@@ -54,7 +54,7 @@
 \end{topic}
 
 \begin{topic}{measurable-function}{measurable function}
-    Let $(\Omega, \mathcal{A})$ and $(\Omega', \mathcal{A}')$ be \tref{measurable-space}{measurable spaces}. A function $f : \Omega \to \Omega'$ is \textbf{measurable}, or $(\mathcal{A}, \mathcal{A}')$-measurable, if $f^{-1}(A') \in \mathcal{A}$ for all $A' \in \mathcal{A}'$.
+    Let $(\Omega, \mathcal{A})$ and $(\Omega', \mathcal{A}')$ be \tref{measurable-space}{measurable spaces}. A function $f \colon \Omega \to \Omega'$ is \textbf{measurable}, or $(\mathcal{A}, \mathcal{A}')$-measurable, if $f^{-1}(A') \in \mathcal{A}$ for all $A' \in \mathcal{A}'$.
 \end{topic}
 
 \begin{topic}{haar-measure}{Haar measure}
@@ -73,7 +73,7 @@
 \begin{example}{haar-measure}
     \begin{itemize}
         \item A Haar measure on a \tref{TO:discrete-topology}{discrete} group $G$ is the counting measure $\mu(S) = |S|$.
-        \item A Haar measure on the circle group $S^1$ is the measure $\mu(S) = \frac{1}{2 \pi} m(\pi^{-1}(S))$, where $f : [0, 2 \pi] \to S^1$ is the map $f(t) = (\cos t, \sin t)$, and $m$ is the \tref{lebesgue-measure}{Lebesgue measure} on $[0, 2 \pi]$.
+        \item A Haar measure on the circle group $S^1$ is the measure $\mu(S) = \frac{1}{2 \pi} m(\pi^{-1}(S))$, where $f \colon [0, 2 \pi] \to S^1$ is the map $f(t) = (\cos t, \sin t)$, and $m$ is the \tref{lebesgue-measure}{Lebesgue measure} on $[0, 2 \pi]$.
         \item A Haar measure on the multiplicative group $(\RR_{> 0}, \cdot)$ is given by $\mu(S) = \int_S \frac{dt}{t}$. For example, $\mu([a, b]) = \log(b/a)$, and $\mu([ca, cb]) = \log(cb/(ca)) = \log(b/a)$.
         \item A Haar measure on the general linear group $\textup{GL}_n(\RR)$ is given by $\mu(S) = \int_S \frac{1}{|\det(X)|^n} dX$, where $dX$ denotes the Lebesgue measure on $\RR^{n^2}$.
     \end{itemize}
@@ -86,7 +86,7 @@
 \end{topic}
 
 \begin{topic}{outer-measure}{outer measure}
-    Let $\Omega$ be a set and $\mathcal{P}(\Omega)$ its power set. An \textbf{outer measure} on $\Omega$ is a mapping $\mu^* : \mathcal{P}(\Omega) \to [0, \infty]$ such that
+    Let $\Omega$ be a set and $\mathcal{P}(\Omega)$ its power set. An \textbf{outer measure} on $\Omega$ is a mapping $\mu^* \colon \mathcal{P}(\Omega) \to [0, \infty]$ such that
     \begin{itemize}
         \item $\mu^*(\varnothing) = 0$,
         \item $\mu^*(A) \le \mu^*(B)$ for all $A \subset B \subset \Omega$,
@@ -101,7 +101,7 @@
 \end{example}
 
 \begin{topic}{pushforward-measure}{pushforward measure}
-    Let $(\Omega, \mathcal{A})$ and $(\Omega', \mathcal{A}')$ be a \tref{measurable-space}{measurable spaces} and $f : \Omega \to \Omega'$ a \tref{measurable-function}{measurable function}. Given a \tref{measure-space}{measure} $\mu$ on $\mathcal{A}$, the \textbf{pushforward} of $\mu$ along $f$ is the measure on $\Omega'$, denoted $f_* \mu$, given by
+    Let $(\Omega, \mathcal{A})$ and $(\Omega', \mathcal{A}')$ be a \tref{measurable-space}{measurable spaces} and $f \colon \Omega \to \Omega'$ a \tref{measurable-function}{measurable function}. Given a \tref{measure-space}{measure} $\mu$ on $\mathcal{A}$, the \textbf{pushforward} of $\mu$ along $f$ is the measure on $\Omega'$, denoted $f_* \mu$, given by
     \[ f_* \mu (A') = \mu(f^{-1}(A')) \]
     for all $A' \in \mathcal{A}'$.
 \end{topic}

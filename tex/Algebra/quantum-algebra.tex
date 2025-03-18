@@ -26,7 +26,7 @@
 \begin{topic}{universal-r-matrix}{universal R-matrix}
     Let $A$ be a \tref{hopf-algebra}{Hopf algebra} with comultiplication $\Delta$. An invertible element $R \in A \otimes A$ is called a \textbf{universal $R$-matrix} for $A$ if it satisfies
     \[ (\Delta \otimes \id) R = R_{13} R_{23}, \quad (\id \otimes \Delta) R = R_{13} R_{12}, \quad \tau \circ \Delta (a) = R \Delta(a) R^{-1} \textup{ for all } a \in A , \]
-    where $\tau : A \otimes A \to A \otimes A$ is the flip map $\tau(a \otimes b) = b \otimes a$, and furthermore $R = \sum_i a_i \otimes b_i$, $R_{12} = \sum_i a_i \otimes b_i \otimes 1$, $R_{13} = \sum_i a_i \otimes 1 \otimes b_i$ and $R_{23} = \sum_i 1 \otimes a_i \otimes b_i$.
+    where $\tau \colon A \otimes A \to A \otimes A$ is the flip map $\tau(a \otimes b) = b \otimes a$, and furthermore $R = \sum_i a_i \otimes b_i$, $R_{12} = \sum_i a_i \otimes b_i \otimes 1$, $R_{13} = \sum_i a_i \otimes 1 \otimes b_i$ and $R_{23} = \sum_i 1 \otimes a_i \otimes b_i$.
 \end{topic}
 
 \begin{example}{universal-r-matrix}
@@ -61,14 +61,14 @@
 \end{example}
 
 \begin{topic}{quantum-yang-baxter-equation}{quantum Yang--Baxter equation}
-    Let $V$ be a \tref{LA:vector-space}{vector space}, and $R : V \otimes V \to V \otimes V$ an endomorphism. Writing $R = \sum_i a_i \otimes b_i$, the \textbf{quantum Yang--Baxter equation} is the equation
+    Let $V$ be a \tref{LA:vector-space}{vector space}, and $R \colon V \otimes V \to V \otimes V$ an endomorphism. Writing $R = \sum_i a_i \otimes b_i$, the \textbf{quantum Yang--Baxter equation} is the equation
     \[ R_{23} R_{13} R_{12} = R_{12} R_{13} R_{23} , \]
     where
     \[ R_{12} = \sum_i a_i \otimes b_i \otimes 1, \quad R_{13} = \sum_i a_i \otimes 1 \otimes b_i, \quad R_{23} = \sum_i 1 \otimes a_i \otimes b_i . \]
 \end{topic}
 
 \begin{example}{quantum-yang-baxter-equation}
-    Consider a physical quantum system consisting of three identical particles, each modeled by a vector space $V$. The interaction of two colliding particles can be represented by an endomorphism $R : V \otimes V \to V \otimes V$. From relativistic principles, the order of interactions should not matter, so the following diagrams should correspond to the same interaction.
+    Consider a physical quantum system consisting of three identical particles, each modeled by a vector space $V$. The interaction of two colliding particles can be represented by an endomorphism $R \colon V \otimes V \to V \otimes V$. From relativistic principles, the order of interactions should not matter, so the following diagrams should correspond to the same interaction.
     \[ \svg \begin{tikzpicture}
         \begin{scope}
             \draw[black,fill=black] (0, 0) circle (.3ex);

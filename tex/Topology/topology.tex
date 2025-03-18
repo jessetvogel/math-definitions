@@ -21,11 +21,11 @@
 \end{topic}
 
 \begin{topic}{continuous-map}{continuous map}
-    A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is \textbf{continuous} if for every open subset $V \subset Y$, the inverse image $f^{-1}(V)$ is open in $X$.
+    A map $f \colon X \to Y$ between \tref{topological-space}{topological spaces} is \textbf{continuous} if for every open subset $V \subset Y$, the inverse image $f^{-1}(V)$ is open in $X$.
 \end{topic}
 
 \begin{topic}{homeomorphism}{homeomorphism}
-    A map $f : X \to Y$ between \tref{topological-space}{topological spaces} is a \textbf{homeomorphism} if it is \tref{continuous-map}{continuous}, bijective and its inverse is continuous as well.
+    A map $f \colon X \to Y$ between \tref{topological-space}{topological spaces} is a \textbf{homeomorphism} if it is \tref{continuous-map}{continuous}, bijective and its inverse is continuous as well.
 \end{topic}
 
 \begin{topic}{closure}{closure}
@@ -78,11 +78,11 @@
 \end{topic}
 
 \begin{topic}{closed-map}{closed map}
-    A \tref{continuous-map}{continuous map} $f : X \to Y$ is a \textbf{closed map} if for all closed subsets $Z \subset X$, the image $f(Z)$ is closed in $Y$.
+    A \tref{continuous-map}{continuous map} $f \colon X \to Y$ is a \textbf{closed map} if for all closed subsets $Z \subset X$, the image $f(Z)$ is closed in $Y$.
 \end{topic}
 
 \begin{topic}{universally-closed}{universally closed}
-    A continuous map $f : X \to Y$ is \textbf{universally closed} if for all $g : Z \to Y$ the pullback $X \times_Y Z \to Z$ is \tref{closed-map}{closed}.
+    A continuous map $f \colon X \to Y$ is \textbf{universally closed} if for all $g \colon Z \to Y$ the pullback $X \times_Y Z \to Z$ is \tref{closed-map}{closed}.
 \end{topic}
 
 \begin{topic}{irreducible-space}{(ir)reducible space}
@@ -92,7 +92,7 @@
 \begin{topic}{subspace-topology}{subspace topology}
     Let $X$ be a \tref{topological-space}{topological space} with topology $\mathcal{T}$, and let $A$ be a subset of $X$. The \textbf{subspace topology} on $A$ is
     \[ \mathcal{T}_A = \{ A \cap U : U \in \mathcal{T} \} . \]
-    It is the \tref{coarser}{coarsest} topology on $A$ such that the inclusion map $i : A \to X$ continuous.
+    It is the \tref{coarser}{coarsest} topology on $A$ such that the inclusion map $i \colon A \to X$ continuous.
 \end{topic}
 
 \begin{topic}{product-topology}{product topology}
@@ -100,17 +100,17 @@
     \[ \mathcal{B} = \{ U \times V : U \in \mathcal{T}_X, \; V \in \mathcal{T}_Y \} . \]
     Note that this does not imply that all open sets of $X \times Y$ are of the form $U \times V$!
     
-    In particular, this makes the projection maps $p_X : X \times Y \to X$ and $p_Y : X \times Y \to Y$ continuous.
+    In particular, this makes the projection maps $p_X \colon X \times Y \to X$ and $p_Y \colon X \times Y \to Y$ continuous.
 \end{topic}
 
 \begin{topic}{quotient-topology}{quotient topology}
-    Let $X$ be a \tref{topological-space}{topological space} with an equivalence relation $\sim{}$, denote the set of equivalence classes by $X / \sim{}$, and let $\pi : X \to X / \sim{}$ be the natural map. The \textbf{quotient topology} on $X / \sim{}$ is given by
+    Let $X$ be a \tref{topological-space}{topological space} with an equivalence relation $\sim{}$, denote the set of equivalence classes by $X / \sim{}$, and let $\pi \colon X \to X / \sim{}$ be the natural map. The \textbf{quotient topology} on $X / \sim{}$ is given by
     \[ \tilde{\mathcal{T}} = \{ U \subset X / \sim{} : \pi^{-1}(U) \text{ open in } X \} . \]
     This is the \tref{coarser}{finest} topology that makes $\pi$ continuous.
 \end{topic}
 
 \begin{topic}{graph}{graph}
-    Let $f : X \to Y$ be a continuous map of \tref{topological-space}{topological spaces}. The \textbf{graph} of $f$ is the space
+    Let $f \colon X \to Y$ be a continuous map of \tref{topological-space}{topological spaces}. The \textbf{graph} of $f$ is the space
     \[ G_f = \{ (x, y) \in X \times Y : f(x) = y \} \]
     whose topology is induced by the \tref{product-topology}{product topology} on $X \times Y$.
     
@@ -126,13 +126,13 @@
 \end{topic}
 
 \begin{topic}{path-connected-space}{path-connected space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{path-connected} if for every two points $x, y \in X$, there exists a continuous map $f : [0, 1] \to X$ (a \textit{path}) with $f(0) = x$ and $f(1) = y$.
+    A \tref{topological-space}{topological space} $X$ is \textbf{path-connected} if for every two points $x, y \in X$, there exists a continuous map $f \colon [0, 1] \to X$ (a \textit{path}) with $f(0) = x$ and $f(1) = y$.
 \end{topic}
 
 \begin{example}{path-connected-space}
     Every path-connected space is \tref{connected-space}{connected}, but not conversely. Namely, consider
     \[ X = \{ (x, \sin \tfrac{1}{x}) : x \in (0, 1] \} \cup \{ (0, 0) \} \subset \RR^2 , \]
-    with the topology induced from the Euclidean plane. Then $X$ is connected, since it is the closure of the image of $\gamma : (0, 1] \to X$, $x \mapsto (x, \sin \tfrac{1}{x})$. However, there is no way to connect $(0, 0)$ with any other point via a path.
+    with the topology induced from the Euclidean plane. Then $X$ is connected, since it is the closure of the image of $\gamma \colon (0, 1] \to X$, $x \mapsto (x, \sin \tfrac{1}{x})$. However, there is no way to connect $(0, 0)$ with any other point via a path.
 \end{example}
 
 \begin{topic}{suspension}{suspension}
@@ -165,7 +165,7 @@
 \end{topic}
 
 \begin{topic}{fiber-bundle}{fiber bundle}
-    A \tref{continuous-map}{continuous map} $p : E \to B$ is a \textbf{fiber bundle} with fiber $F$, if for each $b \in B$ there is an open neighborhood $U$ and a \tref{homeomorphism}{homeomorphism} $\varphi : p^{-1}(U) \to U \times F$ over $U$, that is,
+    A \tref{continuous-map}{continuous map} $p \colon E \to B$ is a \textbf{fiber bundle} with fiber $F$, if for each $b \in B$ there is an open neighborhood $U$ and a \tref{homeomorphism}{homeomorphism} $\varphi \colon p^{-1}(U) \to U \times F$ over $U$, that is,
     \[ \svg \begin{tikzcd}
         p^{-1}(U) \arrow{rr}{\varphi} \arrow[swap]{dr}{p} && U \times F \arrow{ld}{\pi_U} \\ & U &
     \end{tikzcd} \]
@@ -176,11 +176,11 @@
 \end{topic}
 
 \begin{topic}{covering-space}{covering space}
-    A \textbf{covering space} of a \tref{topological-space}{topological space} $X$ is a continuous map $p : Y \to X$ such that each $x \in X$ has an open neighborhood $U$ such that $p^{-1}(U)$ decomposes as a union of $V_i$ such that the restrictions $p|_{V_i} \to U$ are \tref{homeomorphism}{homeomorphisms}.
+    A \textbf{covering space} of a \tref{topological-space}{topological space} $X$ is a continuous map $p \colon Y \to X$ such that each $x \in X$ has an open neighborhood $U$ such that $p^{-1}(U)$ decomposes as a union of $V_i$ such that the restrictions $p|_{V_i} \to U$ are \tref{homeomorphism}{homeomorphisms}.
 \end{topic}
 
 \begin{example}{covering-space}
-    For any topological space $X$ and discrete space $I$, the projection $\pi : X \times I \to X$ is the \textit{trivial covering space}.
+    For any topological space $X$ and discrete space $I$, the projection $\pi \colon X \times I \to X$ is the \textit{trivial covering space}.
 \end{example}
 
 \begin{topic}{smash-product}{smash product}
@@ -190,13 +190,13 @@
 
 \begin{topic}{mapping-space}{mapping space}
     Given \tref{topological-space}{topological spaces} $X$ and $Y$, the \textbf{mapping space} from $X$ to $Y$ is the space
-    \[ \textup{Map}(X, Y) = \{ f : X \to Y \text{ continuous} \} , \]
+    \[ \textup{Map}(X, Y) = \{ f \colon X \to Y \text{ continuous} \} , \]
     equipped with the \textit{compact-open topology}, that is, the topology generated by the \tref{subbasis}{subbasis} of sets
-    \[ W(K, O) = \{ f : X \to Y \text{ such that } f(K) \subset O \} \]
+    \[ W(K, O) = \{ f \colon X \to Y \text{ such that } f(K) \subset O \} \]
     for $K \subset X$ \tref{compact-space}{compact} and $O \subset Y$ open.
     
     If $X$ and $Y$ have basepoints $x \in X$ and $y \in Y$, one restricts to the subspace
-    \[ \text{Map}((X, x), (Y, y)) = \{ f : X \to Y \text{ with } f(x) = y \} \]
+    \[ \text{Map}((X, x), (Y, y)) = \{ f \colon X \to Y \text{ with } f(x) = y \} \]
     whose basepoint is the constant map $\textup{const}_y$.
 \end{topic}
 
@@ -227,31 +227,31 @@
 \end{topic}
 
 \begin{topic}{T6-space}{T6 (perfectly normal Hausdorff space) space}
-    A \textbf{T6 space} is a \tref{topological-space}{topological space} $X$ which is \tref{hausdorff-space}{Hausdorff} such that for every two disjoint closed subsets $Y, Z \subset X$, there exists a \tref{continuous-map}{continuous function} $f : [0, 1] \to X$ with $f^{-1}(0) = Y$ and $f^{-1}(1) = Z$.
+    A \textbf{T6 space} is a \tref{topological-space}{topological space} $X$ which is \tref{hausdorff-space}{Hausdorff} such that for every two disjoint closed subsets $Y, Z \subset X$, there exists a \tref{continuous-map}{continuous function} $f \colon [0, 1] \to X$ with $f^{-1}(0) = Y$ and $f^{-1}(1) = Z$.
 \end{topic}
 
 \begin{topic}{simply-connected-space}{simply connected space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{simply connected} if it is \tref{path-connected-space}{path-connected} and every loop $f : S^1 \to X$ can be contracted to a point, i.e. there exists map $F : D^2 \to X$ which restricts to $f$ on $S^1$.
+    A \tref{topological-space}{topological space} $X$ is \textbf{simply connected} if it is \tref{path-connected-space}{path-connected} and every loop $f \colon S^1 \to X$ can be contracted to a point, i.e. there exists map $F \colon D^2 \to X$ which restricts to $f$ on $S^1$.
     
     A topological space $X$ is \textbf{locally simply connected} if it admits a \tref{basis}{basis} of simply connected sets.
 \end{topic}
 
 \begin{topic}{galois-cover}{Galois cover}
-    Let $X$ be a \tref{topological-space}{topological space}. A \tref{covering-space}{cover} $p : Y \to X$ of $X$ is \textbf{Galois} if $Y$ is \tref{connected-space}{connected} and the map $\overline{p}$ in the factorization
+    Let $X$ be a \tref{topological-space}{topological space}. A \tref{covering-space}{cover} $p \colon Y \to X$ of $X$ is \textbf{Galois} if $Y$ is \tref{connected-space}{connected} and the map $\overline{p}$ in the factorization
     \[ Y \to Y / \textup{Aut}(Y|X) \xrightarrow{\overline{p}} X \]
     of $p$ is a \tref{homeomorphism}{homeomorphism}.
 \end{topic}
 
 \begin{example}{galois-cover}
-    A connected cover $p : Y \to X$ is Galois if and only if $\textup{Aut}(Y|X)$ acts transitively on each fiber of $p$. Indeed, $\overline{p}$ is one-to-one precisely if the orbit of each $y \in Y$ is the whole fiber $p^{-1}(p(y))$, that is, if $\textup{Aut}(Y|X)$ acts transitively on all the fibers of $p$.
+    A connected cover $p \colon Y \to X$ is Galois if and only if $\textup{Aut}(Y|X)$ acts transitively on each fiber of $p$. Indeed, $\overline{p}$ is one-to-one precisely if the orbit of each $y \in Y$ is the whole fiber $p^{-1}(p(y))$, that is, if $\textup{Aut}(Y|X)$ acts transitively on all the fibers of $p$.
 \end{example}
 
 \begin{example}{galois-cover}
-    Let $X = Y = \CC - \{ 0 \}$ and $p_n : Y \to X, y \mapsto y^n$ for some $n \in \ZZ_{\ge 1}$. This is an $n : 1$ cover with $\textup{Aut}(Y|X) = \ZZ/n\ZZ$, generated by $\sigma : Y \to Y, y \mapsto \zeta_n \cdot y$ for some primitive $n$-th root of unity $\zeta_n$. Clearly $\textup{Aut}(Y|X)$ acts transitively on each fiber, as any two points in a fiber differ by an $n$-th root unity, so $p_n$ is a Galois cover.
+    Let $X = Y = \CC - \{ 0 \}$ and $p_n \colon Y \to X, y \mapsto y^n$ for some $n \in \ZZ_{\ge 1}$. This is an $n : 1$ cover with $\textup{Aut}(Y|X) = \ZZ/n\ZZ$, generated by $\sigma \colon Y \to Y, y \mapsto \zeta_n \cdot y$ for some primitive $n$-th root of unity $\zeta_n$. Clearly $\textup{Aut}(Y|X)$ acts transitively on each fiber, as any two points in a fiber differ by an $n$-th root unity, so $p_n$ is a Galois cover.
 \end{example}
 
 \begin{topic}{proper-map}{proper map}
-    A \tref{continuous-map}{continuous map} $f : X \to Y$ is \textbf{proper} if $f^{-1}(K) \subset X$ is \tref{compact-space}{compact} for all compact subsets $K \subset Y$.
+    A \tref{continuous-map}{continuous map} $f \colon X \to Y$ is \textbf{proper} if $f^{-1}(K) \subset X$ is \tref{compact-space}{compact} for all compact subsets $K \subset Y$.
 \end{topic}
 
 \begin{topic}{noetherian-topological-space}{noetherian topological space}
@@ -265,9 +265,9 @@
 \end{topic}
 
 \begin{topic}{universal-covering-space}{universal covering space}
-    A \textbf{universal covering space} of a \tref{topological-space}{topological space} $X$ is a \tref{covering-space}{covering space} $\pi : \tilde{X} \to X$ which is \tref{simply-connected-space}{simply connected}. It has the universal property that for any other connected covering $p : Y \to X$ there exists a unique covering map $f : \tilde{X} \to Y$ such that $\pi = p \circ f$.
+    A \textbf{universal covering space} of a \tref{topological-space}{topological space} $X$ is a \tref{covering-space}{covering space} $\pi \colon \tilde{X} \to X$ which is \tref{simply-connected-space}{simply connected}. It has the universal property that for any other connected covering $p \colon Y \to X$ there exists a unique covering map $f \colon \tilde{X} \to Y$ such that $\pi = p \circ f$.
     \[ \svg \begin{tikzcd} \tilde{X} \arrow[swap]{d}{\pi} \arrow[dashed]{r}{f} & Y \arrow{dl}{p} \\ X & \end{tikzcd} \]
-    A universal cover can explicitly be constructed as follows. Let $x \in X$ be a basepoint, and let $\tilde{X}_x$ be the set of homotopy classes of paths $\gamma : [0, 1] \to X$ starting at $x$, with $\pi : \tilde{X}_x \to X$ given by $\gamma \mapsto \gamma(1)$. There is a suitable topology on $\tilde{X}_x$ such that $\pi : \tilde{X}_x \to X$ is continuous and a universal covering space of $X$.
+    A universal cover can explicitly be constructed as follows. Let $x \in X$ be a basepoint, and let $\tilde{X}_x$ be the set of homotopy classes of paths $\gamma \colon [0, 1] \to X$ starting at $x$, with $\pi \colon \tilde{X}_x \to X$ given by $\gamma \mapsto \gamma(1)$. There is a suitable topology on $\tilde{X}_x$ such that $\pi \colon \tilde{X}_x \to X$ is continuous and a universal covering space of $X$.
 \end{topic}
 
 \begin{example}{universal-covering-space}
@@ -279,7 +279,7 @@
 \end{example}
 
 \begin{topic}{metric-space}{metric space}
-    A \textbf{metric space} is a set $X$ together with a \textbf{metric} $d$ on $X$, that is, a function $d : X \times X \to \RR$ such that
+    A \textbf{metric space} is a set $X$ together with a \textbf{metric} $d$ on $X$, that is, a function $d \colon X \times X \to \RR$ such that
     \begin{itemize}
         \item (\textit{indiscernibility}) $d(x, y) = 0$ if and only if $x = y$,
         \item (\textit{symmetry}) $d(x, y) = d(y, x)$ for all $x, y \in X$,
@@ -307,20 +307,20 @@
 \end{example}
 
 \begin{topic}{principal-bundle}{principal bundle}
-    Let $X$ be a \tref{topological-space}{topological space} and $G$ a \tref{topological-group}{topological group}. A \textbf{principal $G$-bundle} on $X$ is a \tref{fiber-bundle}{fiber bundle} $\pi : P \to X$ with a \tref{GT:free-group-action}{free} and \tref{GT:transitive-group-action}{transitive} \tref{GT:group-action}{action} of $G$ on $P$, preserving the fibers of $P$, such that for any $x \in X$ and $y \in P_x$ the map $G \to P_x, g \mapsto g \cdot y$ is a \tref{homeomorphism}{homeomorphism}.
+    Let $X$ be a \tref{topological-space}{topological space} and $G$ a \tref{topological-group}{topological group}. A \textbf{principal $G$-bundle} on $X$ is a \tref{fiber-bundle}{fiber bundle} $\pi \colon P \to X$ with a \tref{GT:free-group-action}{free} and \tref{GT:transitive-group-action}{transitive} \tref{GT:group-action}{action} of $G$ on $P$, preserving the fibers of $P$, such that for any $x \in X$ and $y \in P_x$ the map $G \to P_x, g \mapsto g \cdot y$ is a \tref{homeomorphism}{homeomorphism}.
 \end{topic}
 
 \begin{topic}{associated-bundle}{associated bundle}
-    Let $X$ be a \tref{topological-space}{topological space}, let $\pi : P \to X$ be a \tref{principal-bundle}{principal $G$-bundle}, and let $\rho : G \to \textup{Aut}(F)$ be a continuous right action of $G$ on a space $F$. There is a left action of $G$ on $P \times F$ given by $g \cdot (p, f) = (g \cdot p, f \cdot \rho(g^{-1}))$, and the \tref{quotient-topology}{quotient} $(P \times F) / G$ is called the \textbf{associated bundle} to $P$ of $\rho$.
+    Let $X$ be a \tref{topological-space}{topological space}, let $\pi \colon P \to X$ be a \tref{principal-bundle}{principal $G$-bundle}, and let $\rho \colon G \to \textup{Aut}(F)$ be a continuous right action of $G$ on a space $F$. There is a left action of $G$ on $P \times F$ given by $g \cdot (p, f) = (g \cdot p, f \cdot \rho(g^{-1}))$, and the \tref{quotient-topology}{quotient} $(P \times F) / G$ is called the \textbf{associated bundle} to $P$ of $\rho$.
 \end{topic}
 
 \begin{example}{associated-bundle}
-    Let $M$ be an $n$-dimensional \tref{DG:smooth-manifold}{smooth manifold}, and let $F(TM)$ be the \tref{DG:frame-bundle}{frame bundle} of $M$, which is a principal $\textup{GL}_n(\RR)$-bundle. Given a \tref{RT:representation}{representation} $\rho : \textup{GL}_n(\RR) \to \textup{GL}(V)$, we can form the associated (\tref{DG:vector-bundle}{vector}) bundle
+    Let $M$ be an $n$-dimensional \tref{DG:smooth-manifold}{smooth manifold}, and let $F(TM)$ be the \tref{DG:frame-bundle}{frame bundle} of $M$, which is a principal $\textup{GL}_n(\RR)$-bundle. Given a \tref{RT:representation}{representation} $\rho \colon \textup{GL}_n(\RR) \to \textup{GL}(V)$, we can form the associated (\tref{DG:vector-bundle}{vector}) bundle
     \[ F(TM) \times_\rho V \to M . \]
 \end{example}
 
 \begin{topic}{structure-group}{structure group}
-    Let $p : E \to B$ be a \tref{fiber-bundle}{fiber bundle} with fiber $F$, and let $G$ be a \tref{topological-group}{topological group} acting continuously and \tref{GT:faithful-group-action}{faithfully} on $F$. Then $G$ is called a \textbf{structure group} of the bundle if there exists a trivialization $\{ (U_i, \varphi_i : E|_{U_i} \xrightarrow{\sim} U_i \times F) \}$ such that the transition functions $\varphi_i \circ \varphi_j^{-1}$ take values in $G$. 
+    Let $p \colon E \to B$ be a \tref{fiber-bundle}{fiber bundle} with fiber $F$, and let $G$ be a \tref{topological-group}{topological group} acting continuously and \tref{GT:faithful-group-action}{faithfully} on $F$. Then $G$ is called a \textbf{structure group} of the bundle if there exists a trivialization $\{ (U_i, \varphi_i : E|_{U_i} \xrightarrow{\sim} U_i \times F) \}$ such that the transition functions $\varphi_i \circ \varphi_j^{-1}$ take values in $G$. 
     
     In physics, the group $G$ is called the \textit{gauge group} of the bundle.
 \end{topic}
@@ -366,7 +366,7 @@
 \end{topic}
 
 \begin{topic}{urysohn-lemma}{Urysohn's lemma}
-    Let $X$ be a \tref{topological-space}{topological space}. \textbf{Urysohn's lemma} states that $X$ is \tref{normal-space}{normal} if and only if for any two disjoint closed subsets $Z_0, Z_1 \subset X$ there exists a \tref{continuous-map}{continuous map} $f : [0, 1] \to X$ such that $f(Z_0) = 0$ and $f(Z_1) = 1$.
+    Let $X$ be a \tref{topological-space}{topological space}. \textbf{Urysohn's lemma} states that $X$ is \tref{normal-space}{normal} if and only if for any two disjoint closed subsets $Z_0, Z_1 \subset X$ there exists a \tref{continuous-map}{continuous map} $f \colon [0, 1] \to X$ such that $f(Z_0) = 0$ and $f(Z_1) = 1$.
 \end{topic}
 
 \begin{topic}{paracompact-space}{paracompact space}
@@ -386,7 +386,7 @@
 \end{topic}
 
 \begin{topic}{coherent-topology}{coherent topology}
-    Let $X$ be a \tref{topological-space}{topological space} and $C = \{ X_i : i \in I \}$ a family of subsets $X_i \subset X$ with the \tref{subspace-topology}{subspace topology}. Then $X$ is \textbf{coherent with $C$} if $X$ has the \tref{coarser}{finest topology} such that the inclusions $\iota_i : X_i \to X$ are continuous.
+    Let $X$ be a \tref{topological-space}{topological space} and $C = \{ X_i : i \in I \}$ a family of subsets $X_i \subset X$ with the \tref{subspace-topology}{subspace topology}. Then $X$ is \textbf{coherent with $C$} if $X$ has the \tref{coarser}{finest topology} such that the inclusions $\iota_i \colon X_i \to X$ are continuous.
     
     There are two equivalent definitions:
     \begin{itemize}
@@ -419,7 +419,7 @@
 \end{example}
 
 \begin{topic}{mapping-cone}{mapping cone}
-    Let $f : X \to Y$ be a \tref{continuous-map}{continuous map} of \tref{topological-space}{topological spaces}. The \textbf{mapping cone} of $f$ is defined as the \tref{quotient-topology}{quotient space}
+    Let $f \colon X \to Y$ be a \tref{continuous-map}{continuous map} of \tref{topological-space}{topological spaces}. The \textbf{mapping cone} of $f$ is defined as the \tref{quotient-topology}{quotient space}
     \[ C_f = ( (X \times [0, 1]) \sqcup Y ) / \sim{} , \]
     where $(x, 0) \sim (x', 0)$ and $(x, 1) \sim f(x)$ for all $x, x' \in X$.
 \end{topic}
@@ -427,26 +427,26 @@
 \begin{example}{mapping-cone}
     \begin{itemize}
         \item The mapping cone of the identity of the $n$-sphere, $C_{\id_S^{n}}$, is homeomorphic to $D^{n + 1}$.
-        \item If $f : S^n \to D^{n + 1}$ is the standard inclusion of the boundary, then $C_f$ is homeomorphic to $S^{n + 1}$.
+        \item If $f \colon S^n \to D^{n + 1}$ is the standard inclusion of the boundary, then $C_f$ is homeomorphic to $S^{n + 1}$.
     \end{itemize}
 \end{example}
 
 \begin{topic}{mapping-cylinder}{mapping cylinder}
-    Let $f : X \to Y$ be a \tref{continuous-map}{continuous map} of \tref{topological-space}{topological spaces}. The \textbf{mapping cylinder} of $f$ is defined as the \tref{quotient-topology}{quotient space}
+    Let $f \colon X \to Y$ be a \tref{continuous-map}{continuous map} of \tref{topological-space}{topological spaces}. The \textbf{mapping cylinder} of $f$ is defined as the \tref{quotient-topology}{quotient space}
     \[ M_f = ( (X \times [0, 1]) \sqcup Y ) / \sim{} , \]
     where $(x, 1) \sim f(x)$ for all $x \in X$.
 \end{topic}
 
 \begin{topic}{embedding}{embedding}
-    A \tref{continuous-map}{continuous map} $f : X \to Y$ between \tref{topological-space}{topological spaces} is an \textbf{embedding} if it is a \tref{homeomorphism}{homeomorphism} onto its image.
+    A \tref{continuous-map}{continuous map} $f \colon X \to Y$ between \tref{topological-space}{topological spaces} is an \textbf{embedding} if it is a \tref{homeomorphism}{homeomorphism} onto its image.
 \end{topic}
 
 \begin{topic}{isotopy}{isotopy}
-    Let $X$ and $Y$ be \tref{topological-space}{topological spaces}, and let $f, g : X \to Y$ be two \tref{embedding}{embeddings}. An \textbf{isotopy} from $f$ to $g$ is a \tref{AT:homotopy}{homotopy} $H : X \times [0, 1] \to Y$ from $f$ to $g$ such that $H(-, t) : X \to Y$ is an embedding for all $t \in [0, 1]$. If such an isotopy exists, $f$ and $g$ are called \textbf{isotopic}.
+    Let $X$ and $Y$ be \tref{topological-space}{topological spaces}, and let $f, g \colon X \to Y$ be two \tref{embedding}{embeddings}. An \textbf{isotopy} from $f$ to $g$ is a \tref{AT:homotopy}{homotopy} $H \colon X \times [0, 1] \to Y$ from $f$ to $g$ such that $H(-, t) \colon X \to Y$ is an embedding for all $t \in [0, 1]$. If such an isotopy exists, $f$ and $g$ are called \textbf{isotopic}.
 \end{topic}
 
 \begin{example}{isotopy}
-    Every isotopy is a homotopy, but not conversely. Namely, let $X = Y = [0, 1]$ and $f, g : X \to Y$ given by $f(x) = x$ and $g(x) = 1 - x$. Then there is a homotopy from $f$ to $g$ given by
+    Every isotopy is a homotopy, but not conversely. Namely, let $X = Y = [0, 1]$ and $f, g \colon X \to Y$ given by $f(x) = x$ and $g(x) = 1 - x$. Then there is a homotopy from $f$ to $g$ given by
     \[ H(x, t) = (1 - t) x - t (1 - x) . \]
     However, no isotopy from $f$ to $g$ can exist, since for any homotopy from $f$ to $g$ the endpoints must cross for some $t$.
 \end{example}
@@ -456,7 +456,7 @@
 \end{topic}
 
 \begin{topic}{pullback-topology}{pullback topology}
-    Let $X$ be a \tref{topological-space}{topological space} and $f : Y \to X$ a map of sets. The \textbf{pullback topology} on $Y$ induced by $f$ is the topology on $Y$ given by
+    Let $X$ be a \tref{topological-space}{topological space} and $f \colon Y \to X$ a map of sets. The \textbf{pullback topology} on $Y$ induced by $f$ is the topology on $Y$ given by
     \[ \mathcal{T}_Y = \{ f^{-1}(U) \;:\; U \subset X \textup{ open} \} . \]
     It is the \tref{coarser}{coarsest} topology on $Y$ for which $f$ is continuous.
 \end{topic}
@@ -468,8 +468,8 @@
 
 \begin{example}{alexandroff-topology}
     Let $\textbf{Pos}$ be the \tref{CT:category}{category} of partially ordered sets and monotone maps. Then the Alexandroff topology defines a functor
-    \[ A : \textbf{Pos} \to \textbf{Top} . \]
-    Namely, let $f : P \to Q$ be a monotone map of partially ordered sets, and let $V \subset Q$ be an open subset. Then, for any $x \in f^{-1}(V)$ and $y \in P$ such that $x \le y$, we have $f(x) \in V$ and $f(x) \le f(y)$, so $f(y) \in V$, and hence $y \in f^{-1}(V)$ as well. Therefore, $f : P \to Q$ is continuous. Furthermore, $A$ trivially respects composition and the identity morphism.
+    \[ A \colon \textbf{Pos} \to \textbf{Top} . \]
+    Namely, let $f \colon P \to Q$ be a monotone map of partially ordered sets, and let $V \subset Q$ be an open subset. Then, for any $x \in f^{-1}(V)$ and $y \in P$ such that $x \le y$, we have $f(x) \in V$ and $f(x) \le f(y)$, so $f(y) \in V$, and hence $y \in f^{-1}(V)$ as well. Therefore, $f \colon P \to Q$ is continuous. Furthermore, $A$ trivially respects composition and the identity morphism.
 \end{example}
 
 \begin{topic}{tychonoff-theorem}{Tychonoff's theorem}
@@ -487,11 +487,11 @@
 \end{example}
 
 \begin{topic}{deck-transformation}{deck transformation}
-    Let $X$ be a \tref{topological-space}{topological space} and $p : Y \to X$ a \tref{covering-space}{covering space}. A \textbf{deck transformation} of $p$ is an automorphism of $p$ as covering spaces, that is, a \tref{homeomorphism}{homeomorphism} $f : Y \to Y$ such that $p \circ f = p$.
+    Let $X$ be a \tref{topological-space}{topological space} and $p \colon Y \to X$ a \tref{covering-space}{covering space}. A \textbf{deck transformation} of $p$ is an automorphism of $p$ as covering spaces, that is, a \tref{homeomorphism}{homeomorphism} $f \colon Y \to Y$ such that $p \circ f = p$.
 \end{topic}
 
 \begin{example}{deck-transformation}
-    Let $X = Y = \CC \setminus \{ 0 \}$, and consider the covering space $p : Y \to X$ given by $z \mapsto z^n$ for some $n \ge 1$. Then for every $1 \le k \le n$, the map $f_k : Y \to Y$ given by $f_k(z) = \zeta_n^k \cdot z$ is a deck transformation of $p$.
+    Let $X = Y = \CC \setminus \{ 0 \}$, and consider the covering space $p \colon Y \to X$ given by $z \mapsto z^n$ for some $n \ge 1$. Then for every $1 \le k \le n$, the map $f_k \colon Y \to Y$ given by $f_k(z) = \zeta_n^k \cdot z$ is a deck transformation of $p$.
 \end{example}
 
 \begin{topic}{totally-disconnected-space}{totally disconnected space}
@@ -520,11 +520,11 @@
 \end{topic}
 
 \begin{topic}{arc-connected-space}{arc-connected space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{arc-connected} if for every two \tref{topologically-distinguishable}{topologically distinguishable} points $x, y \in X$, there exists an \tref{embedding}{embedding} $f : [0, 1] \to X$ such that $f(0) = x$ and $f(1) = y$.
+    A \tref{topological-space}{topological space} $X$ is \textbf{arc-connected} if for every two \tref{topologically-distinguishable}{topologically distinguishable} points $x, y \in X$, there exists an \tref{embedding}{embedding} $f \colon [0, 1] \to X$ such that $f(0) = x$ and $f(1) = y$.
 \end{topic}
 
 \begin{example}{arc-connected-space}
-    Every arc-connected space is path-connected, but not conversely. Let $X$ be the line with two origins, that is, $X = (\RR \times \{ 0 \}) \sqcup (\RR \times \{ 1 \}) / \sim{}$ where $(x, 0) \sim{} (x, 1)$ for all $x \ne 0$. Then the two origins $(0, 0)$ and $(0, 1)$ are topologically distinguishable, and even though there exist paths $f : [0, 1] \to X$ connecting them, such an $f$ is never an embedding as there are points which it hits at least twice.
+    Every arc-connected space is path-connected, but not conversely. Let $X$ be the line with two origins, that is, $X = (\RR \times \{ 0 \}) \sqcup (\RR \times \{ 1 \}) / \sim{}$ where $(x, 0) \sim{} (x, 1)$ for all $x \ne 0$. Then the two origins $(0, 0)$ and $(0, 1)$ are topologically distinguishable, and even though there exist paths $f \colon [0, 1] \to X$ connecting them, such an $f$ is never an embedding as there are points which it hits at least twice.
 \end{example}
 
 \begin{topic}{preregular-space}{preregular space}
@@ -554,7 +554,7 @@
 \end{topic}
 
 \begin{topic}{pseudocompact-space}{pseudocompact space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{pseudocompact} if for every \tref{continuous-map}{continuous map} $f : X \to \RR$, the image $f(X) \subset \RR$ is bounded.
+    A \tref{topological-space}{topological space} $X$ is \textbf{pseudocompact} if for every \tref{continuous-map}{continuous map} $f \colon X \to \RR$, the image $f(X) \subset \RR$ is bounded.
 \end{topic}
 
 \begin{topic}{cover-refinement}{cover refinement}
@@ -566,7 +566,7 @@
 \end{topic}
 
 \begin{topic}{tychonoff-space}{Tychonoff space}
-    A \tref{topological-space}{topological space} $X$ is \textbf{Tychonoff} if for every closed set $Y \subset X$ and every point $x \in X \setminus Y$, there exists a \tref{continuous-map}{continuous map} $f : X \to \RR$ such that $f(x) = 1$ and $f(y) = 0$ for all $y \in Y$.
+    A \tref{topological-space}{topological space} $X$ is \textbf{Tychonoff} if for every closed set $Y \subset X$ and every point $x \in X \setminus Y$, there exists a \tref{continuous-map}{continuous map} $f \colon X \to \RR$ such that $f(x) = 1$ and $f(y) = 0$ for all $y \in Y$.
 \end{topic}
 
 \begin{topic}{metrizable-space}{metrizable space}
@@ -627,7 +627,7 @@
 \end{topic}
 
 \begin{topic}{stone-cech-compactification}{Stone--Čech compactification}
-    Let $X$ be a \tref{topological-space}{topological space}. A \textbf{Stone--Čech compactification} of $X$ is a \tref{compact-space}{compact} \tref{hausdorff-space}{Hausdorff} space $\beta(X)$ together with a \tref{continuous-map}{continuous map} $i : X \to \beta(X)$, such that for any continuous map $f : X \to K$, with $K$ a compact Hausdorff space, there exists a unique $g : \beta(X) \to K$ such that $f = g \circ i$.
+    Let $X$ be a \tref{topological-space}{topological space}. A \textbf{Stone--Čech compactification} of $X$ is a \tref{compact-space}{compact} \tref{hausdorff-space}{Hausdorff} space $\beta(X)$ together with a \tref{continuous-map}{continuous map} $i \colon X \to \beta(X)$, such that for any continuous map $f \colon X \to K$, with $K$ a compact Hausdorff space, there exists a unique $g \colon \beta(X) \to K$ such that $f = g \circ i$.
     \[ \svg \begin{tikzcd} X \arrow{r}{i} \arrow[swap]{dr}{f} & \beta(X) \arrow{d}{g} \\ & K \end{tikzcd} \]
 \end{topic}
 
@@ -674,11 +674,11 @@
 \end{example}
 
 \begin{topic}{monodromy-group}{monodromy group}
-    Let $X$ be a \tref{connected-space}{connected} and locally connected \tref{topological-space}{topological space} with basepoint $x \in X$, and $p : Y \to X$ a \tref{covering-space}{covering space} of $X$ with fiber $F = p^{-1}(x)$ over $x$. For any loop $\gamma : [0, 1] \to X$ based at $x$ and lift $x' \in F$ of $x$, there is a unique lift $\gamma' : [0, 1] \to Y$ of $\gamma$ starting at $x'$, and we denote the endpoint by $\gamma \cdot x' = \gamma'(1)$. This defines a \tref{GT:group-homomorphism}{homomorphism}
+    Let $X$ be a \tref{connected-space}{connected} and locally connected \tref{topological-space}{topological space} with basepoint $x \in X$, and $p \colon Y \to X$ a \tref{covering-space}{covering space} of $X$ with fiber $F = p^{-1}(x)$ over $x$. For any loop $\gamma \colon [0, 1] \to X$ based at $x$ and lift $x' \in F$ of $x$, there is a unique lift $\gamma' \colon [0, 1] \to Y$ of $\gamma$ starting at $x'$, and we denote the endpoint by $\gamma \cdot x' = \gamma'(1)$. This defines a \tref{GT:group-homomorphism}{homomorphism}
     \[ \pi_1(X, x) \to \textup{Aut}(F), \quad \gamma \mapsto (x' \mapsto \gamma \cdot x') \]
     from the \tref{AT:fundamental-group}{fundamental group} of $X$ to the automorphism group of $F$, called the \textbf{monodromy action} of $p$. The image of this homomorphism is the \textbf{monodromy group} of $p$.
 \end{topic}
 
 \begin{example}{monodromy-group}
-    For any integer $n \ge 1$, consider the covering space $p_n : \CC^\times \to \CC^\times$ given by $p(z) = z^n$. The fiber of the basepoint $x = 1$ is the set $F = \{ 1, \zeta_n, \ldots, \zeta_n^{n - 1} \}$ of $n$-th roots of unity. The fundamental group $\pi_1(\CC^\times, x) = \ZZ$ is freely generated by a loop $\gamma$ around the origin, suppose counterclockwise. One can show that $\gamma \cdot z = \zeta_n z$ for all $z \in F$, which shows that the monodromy group of $p_n$ is $\ZZ/n\ZZ$.
+    For any integer $n \ge 1$, consider the covering space $p_n \colon \CC^\times \to \CC^\times$ given by $p(z) = z^n$. The fiber of the basepoint $x = 1$ is the set $F = \{ 1, \zeta_n, \ldots, \zeta_n^{n - 1} \}$ of $n$-th roots of unity. The fundamental group $\pi_1(\CC^\times, x) = \ZZ$ is freely generated by a loop $\gamma$ around the origin, suppose counterclockwise. One can show that $\gamma \cdot z = \zeta_n z$ for all $z \in F$, which shows that the monodromy group of $p_n$ is $\ZZ/n\ZZ$.
 \end{example}

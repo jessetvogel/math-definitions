@@ -4,9 +4,9 @@
         \item (\textit{objects}) a collection $\textup{Ob}(\mathcal{C})$, whose elements are called \textit{objects} of $\mathcal{C}$,
         \item (\textit{hom-objects}) for every pair of objects $X, Y$ an object $\iHom_\mathcal{C}(X, Y)$ of $\mathcal{A}$,
         \item (\textit{composition law}) for every triple of objects $X, Y, Z$ a morphism
-        \[ c_{Z, Y, X} : \iHom_\mathcal{C}(Y, Z) \otimes \iHom_\mathcal{C}(X, Y) \to \iHom_\mathcal{C}(X, Z) \]
+        \[ c_{Z, Y, X} \colon \iHom_\mathcal{C}(Y, Z) \otimes \iHom_\mathcal{C}(X, Y) \to \iHom_\mathcal{C}(X, Z) \]
         in $\mathcal{A}$,
-        \item (\textit{identities}) for every object $X$ a morphism $e_X : \textbf{1} \to \iHom_\mathcal{C}(X, X)$ in $\mathcal{A}$,
+        \item (\textit{identities}) for every object $X$ a morphism $e_X \colon \textbf{1} \to \iHom_\mathcal{C}(X, X)$ in $\mathcal{A}$,
     \end{itemize}
     such that for every quadruple of objects $W, X, Y, Z$ the diagram
     \[ \svg \begin{tikzcd}
@@ -30,7 +30,7 @@
 \end{example}
 
 \begin{topic}{monoid-object}{monoid object}
-    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. A \textbf{monoid object} in $\mathcal{C}$ is an object $M$ together with morphisms $\mu : M \otimes M \to M$ (the \textit{multiplication map}) and $\eta : \textbf{1} \to M$ (the \textit{unit}), such that
+    Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. A \textbf{monoid object} in $\mathcal{C}$ is an object $M$ together with morphisms $\mu \colon M \otimes M \to M$ (the \textit{multiplication map}) and $\eta \colon \textbf{1} \to M$ (the \textit{unit}), such that
     \begin{itemize}
         \item (\textit{associativity}) the diagram
         \[ \svg \begin{tikzcd} (M \otimes M) \otimes M \arrow[swap]{d}{\mu \otimes \id} \arrow{r}{\alpha} & M \otimes (M \otimes M) \arrow{r}{\id \otimes \mu} & M \otimes M \arrow{d}{\mu} \\ M \otimes M \arrow{rr}{\mu} && M \end{tikzcd} \]
@@ -51,25 +51,25 @@
 \end{example}
 
 \begin{topic}{weighted-limit}{weighted (co)limit}
-    Let $\mathcal{V}$ be a \tref{monoidal-category}{monoidal category}, and let $F : \mathcal{I} \to \mathcal{C}$ be a \tref{functor}{functor} with $\mathcal{C}$ a category \tref{enriched-category}{enriced} in $\mathcal{V}$. A \textbf{weighted limit} for $F$ with respect to a \textit{weight functor} $W : \mathcal{I} \to \mathcal{V}$ is an object ${\lim}^W F$ in $\mathcal{C}$ represented by
+    Let $\mathcal{V}$ be a \tref{monoidal-category}{monoidal category}, and let $F \colon \mathcal{I} \to \mathcal{C}$ be a \tref{functor}{functor} with $\mathcal{C}$ a category \tref{enriched-category}{enriced} in $\mathcal{V}$. A \textbf{weighted limit} for $F$ with respect to a \textit{weight functor} $W \colon \mathcal{I} \to \mathcal{V}$ is an object ${\lim}^W F$ in $\mathcal{C}$ represented by
     \[ \Hom_\mathcal{C}(C, {\lim}^W F) \isom \Hom_{\mathcal{V}^\mathcal{I}}(W, \Hom_\mathcal{C}(C, F(-))) . \]
-    A \textbf{weighted colimit} for $F$ with respect to $W : \mathcal{I}^\textup{op} \to \mathcal{V}$ is an object ${\colim}_W F$ in $\mathcal{C}$ represented by
+    A \textbf{weighted colimit} for $F$ with respect to $W \colon \mathcal{I}^\textup{op} \to \mathcal{V}$ is an object ${\colim}_W F$ in $\mathcal{C}$ represented by
     \[ \Hom_\mathcal{C}({\colim}_W F, C) \isom \Hom_{\mathcal{V}^{\mathcal{I}^\textup{op}}}(W, \Hom_\mathcal{C}(F(-), C)) . \]
 \end{topic}
 
 \begin{example}{weighted-limit}
-    Note that an ordinary \tref{limit}{limit} of a functor $F : \mathcal{I} \to \mathcal{C}$, if it exists, can be computed via the \tref{yoneda-embedding}{Yoneda embedding} on the level of presheaves:
+    Note that an ordinary \tref{limit}{limit} of a functor $F \colon \mathcal{I} \to \mathcal{C}$, if it exists, can be computed via the \tref{yoneda-embedding}{Yoneda embedding} on the level of presheaves:
     \[ \begin{aligned} \Hom_\mathcal{C}(C, \lim F) &\isom \lim (\Hom_\mathcal{C}(C, F(-))) \\ &\isom \Hom_\textbf{Set}(\textup{pt}, \lim (\Hom_\mathcal{C}(C, F(-)))) \\ &\isom \Hom_{\textbf{Set}^\mathcal{I}}(\Delta_{\textup{pt}}, \Hom_\mathcal{C}(C, F(-))) . \end{aligned} \]
-    In particular, the weighted limit reduces to the ordinary limit when $W : \mathcal{I} \to \textbf{Set}$ is the constant functor $\Delta_\textup{pt}$.
+    In particular, the weighted limit reduces to the ordinary limit when $W \colon \mathcal{I} \to \textbf{Set}$ is the constant functor $\Delta_\textup{pt}$.
 \end{example}
 
 \begin{topic}{operad}{operad}
     Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{CT:symmetric-monoidal-category}{symmetric} \tref{CT:monoidal-category}{monoidal category}. A \textbf{non-symmetric operad} in $\mathcal{C}$ consists of
     \begin{itemize}
         \item (\textit{$n$-ary operations}) an object $\mathcal{O}(n)$ for each integer $n \ge 0$
-        \item (\textit{unit}) a morphism $e : \textbf{1} \to \mathcal{O}(1)$,
+        \item (\textit{unit}) a morphism $e \colon \textbf{1} \to \mathcal{O}(1)$,
         \item (\textit{composition}) for all $n \ge 0$ and $k_1, \ldots, k_n \ge 0$,
-        \[ \circ : \mathcal{O}(n) \otimes \mathcal{O}(k_1) \otimes \cdots \otimes \mathcal{O}(k_n) \to \mathcal{O}(k_1 + \cdots + k_n) , \]
+        \[ \circ \colon \mathcal{O}(n) \otimes \mathcal{O}(k_1) \otimes \cdots \otimes \mathcal{O}(k_n) \to \mathcal{O}(k_1 + \cdots + k_n) , \]
     \end{itemize}
     satisfying
     \begin{itemize}
@@ -84,17 +84,17 @@
 \end{topic}
 
 \begin{topic}{derivator}{derivator}
-    A \textbf{prederivator} is a strict $2$-functor $\mathbb{D} : \textbf{Cat}^\textup{op} \to \textbf{CAT}$ from the $2$-category of \tref{small-category}{small categories} to the $2$-category of all categories (ignoring set-theoretic issues). For any $u : I \to J$ in $\textbf{Cat}$, the induced functor $\mathbb{D}(u) : \mathbb{D}(J) \to \mathbb{D}(I)$ is usually denoted by $u^*$.
+    A \textbf{prederivator} is a strict $2$-functor $\mathbb{D} \colon \textbf{Cat}^\textup{op} \to \textbf{CAT}$ from the $2$-category of \tref{small-category}{small categories} to the $2$-category of all categories (ignoring set-theoretic issues). For any $u \colon I \to J$ in $\textbf{Cat}$, the induced functor $\mathbb{D}(u) \colon \mathbb{D}(J) \to \mathbb{D}(I)$ is usually denoted by $u^*$.
 
     A \textbf{derivator} is a prederivator $\mathbb{D}$ such that
     \begin{itemize}
         \item $\mathbb{D}(\varnothing)$ is not the empty category,
         \item the natural functor $\mathbb{D}(I \sqcup J) \to \mathbb{D}(I) \times \mathbb{D}(J)$ is an \tref{equivalence-of-categories}{equivalence of categories} for all $I, J \in \textbf{Cat}$,
-        \item for all $I \in \textbf{Cat}$, any morphism $f : X \to Y$ in $\mathbb{D}(I)$ is an \tref{isomorphism}{isomorphism} if and only if $f_i : X_i \to Y_i$ is an isomorphism in $\mathbb{D}(\{ i \})$ for all $i \in I$.
-        \item for every $u : I \to J$ in $\textbf{Cat}$, the functor $u^*$ has a \tref{adjunction}{left adjoint} $u_!$ and right adjoint $u^*$,
-        \item for every $u : I \to J$ in $\textbf{Cat}$ and $j \in J$, the morphisms
+        \item for all $I \in \textbf{Cat}$, any morphism $f \colon X \to Y$ in $\mathbb{D}(I)$ is an \tref{isomorphism}{isomorphism} if and only if $f_i \colon X_i \to Y_i$ is an isomorphism in $\mathbb{D}(\{ i \})$ for all $i \in I$.
+        \item for every $u \colon I \to J$ in $\textbf{Cat}$, the functor $u^*$ has a \tref{adjunction}{left adjoint} $u_!$ and right adjoint $u^*$,
+        \item for every $u \colon I \to J$ in $\textbf{Cat}$ and $j \in J$, the morphisms
         \[ \operatorname*{hocolim}_{u \downarrow j} \textup{pr}_1^*(X) \xrightarrow{\alpha_!} u_!(X)_j \quad \textup{ and } \quad u_*(X)_j \xrightarrow{\alpha_!} \operatorname*{hocolim}_{j \downarrow u} \textup{pr}_2^*(X) \]
-        are isomorphisms for all $X \in \mathbb{D}(I)$, where $\textup{pr}_1 : u \downarrow j \to I$ and $\textup{pr}_2 : j \downarrow u \to I$ denote the natural projections.
+        are isomorphisms for all $X \in \mathbb{D}(I)$, where $\textup{pr}_1 \colon u \downarrow j \to I$ and $\textup{pr}_2 \colon j \downarrow u \to I$ denote the natural projections.
     \end{itemize}
 \end{topic}
 
@@ -111,19 +111,19 @@
     Let $\operatorname{Corr}(\mathcal{C}, E)$ be the \tref{CT:symmetric-monoidal-category}{symmetric monoidal} \tref{CT:infinity-category}{$\infty$-category} whose objects are the objects of $\mathcal{C}$ and whose morphisms are \tref{CT:correspondence}{correspondences} $X \xleftarrow{f} W \xrightarrow{g} Y$ with $g \in E$. The symmetric monoidal structure on $\operatorname{Corr}(\mathcal{C}, E)$ is the cartesian symmetric monoidal structure of $\mathcal{C}$.
 
     A \textbf{three-functor formalism} is a \tref{CT:monoidal-functor}{lax symmetric monoidal functor}
-    \[ D : \operatorname{Corr}(\mathcal{C}, E) \to \textbf{Cat}_\infty . \]
+    \[ D \colon \operatorname{Corr}(\mathcal{C}, E) \to \textbf{Cat}_\infty . \]
     Such a functor encodes the three functors $\otimes, f^*$ and $f_!$ and their relations:
     \begin{itemize}
         \item On objects, $D$ defines an association $X \mapsto D(X)$.
-        \item For any morphism $f : X \to Y$ in $\mathcal{C}$, the correspondence $Y \xleftarrow{f} X \xrightarrow{\id_X} X$ defines the pullback functor $f^* : D(Y) \to D(X)$.
-        \item For any morphism $f : X \to Y$ in $E$, the correspondence $X \xleftarrow{\id_X} X \xrightarrow{f} Y$ defines the functor $f_! : D(X) \to D(Y)$.
-        \item As $D$ is lax monoidal, there is a natural morphism $D(X) \otimes D(X) \to D(X \times X)$ which, when composed with pullback along the diagonal $\Delta_X^* : D(X \times X) \to D(X)$, defines the tensor product $\otimes$ on $D(X)$.
+        \item For any morphism $f \colon X \to Y$ in $\mathcal{C}$, the correspondence $Y \xleftarrow{f} X \xrightarrow{\id_X} X$ defines the pullback functor $f^* \colon D(Y) \to D(X)$.
+        \item For any morphism $f \colon X \to Y$ in $E$, the correspondence $X \xleftarrow{\id_X} X \xrightarrow{f} Y$ defines the functor $f_! \colon D(X) \to D(Y)$.
+        \item As $D$ is lax monoidal, there is a natural morphism $D(X) \otimes D(X) \to D(X \times X)$ which, when composed with pullback along the diagonal $\Delta_X^* \colon D(X \times X) \to D(X)$, defines the tensor product $\otimes$ on $D(X)$.
     \end{itemize}
     A \textbf{six-functor formalism} is a three-functor formalism for which the functors $(-) \otimes A, f^*$ and $f_!$ admit \tref{CT:adjunction}{right adjoints}.
 \end{topic}
 
 \begin{example}{six-functor-formalism}
-    Let $f : X \to Y$ be a morphism in $E$. Let us prove the \textit{projection formula}:
+    Let $f \colon X \to Y$ be a morphism in $E$. Let us prove the \textit{projection formula}:
     \[ f_! A \otimes B \cong f_! (A \otimes f^* B) \]
     in $D(Y)$ for any $A \in D(X)$ and $B \in D(Y)$.
     \begin{proof}

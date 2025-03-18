@@ -46,7 +46,7 @@
     \[ R/I = \{ a + I : a \in R \} \]
     where addition and multiplication are given by
     \[ (a + I) + (b + I) = (a + b) + I \quad \textup{ and } \quad (a + I) (b + I) = (ab) + I . \]
-    It has the universal property that each morphism of rings $f : R \to S$ with $f(I) = 0$ uniquely extends to a morphism $R/I \to S$.
+    It has the universal property that each morphism of rings $f \colon R \to S$ with $f(I) = 0$ uniquely extends to a morphism $R/I \to S$.
     \[ \svg \begin{tikzcd} R \arrow{r}{f} \arrow[swap]{d}{\pi} & S \\ R/I \arrow[dashed]{ur} & \end{tikzcd} \]
 \end{topic}
 
@@ -61,7 +61,7 @@
 \end{topic}
 
 \begin{topic}{local-morphism}{local morphism}
-    A \textbf{local morphism} of \tref{local-ring}{local rings} $f : R \to S$ is a ring morphism such that $f(\mathfrak{m}_R) \subset \mathfrak{m}_S$.
+    A \textbf{local morphism} of \tref{local-ring}{local rings} $f \colon R \to S$ is a ring morphism such that $f(\mathfrak{m}_R) \subset \mathfrak{m}_S$.
 \end{topic}
 
 \begin{topic}{finite-type}{finite type}
@@ -179,7 +179,7 @@
 
 \begin{topic}{euclidean-ring}{Euclidean ring}
     A \textbf{Euclidean ring} is a \tref{domain}{domain} $R$ for which there exists a function
-    \[ g : R^\times \to \ZZ_{\ge 0} \]
+    \[ g \colon R^\times \to \ZZ_{\ge 0} \]
     such that for all $a, b \in R$ with $b \ne 0$, there exists $q, r \in R$ with $a = qb + r$ and either $r = 0$ or $g(r) < g(b)$.
     
     That is, a ring in which one can perform division with remainder. The function $g$ is used to say that the `remainder' $r$ is `smaller' than the element $b$ one divides by.
@@ -203,14 +203,14 @@
 \end{topic}
 
 \begin{example}{valuation-ring}
-    Let $\phi : K \to \RR_{\ge 0}$ be a \tref{NT:archimedean-valuation}{non-archimedean} \tref{NT:valuation}{valuation} on a field $K$. Then the subring
+    Let $\phi \colon K \to \RR_{\ge 0}$ be a \tref{NT:archimedean-valuation}{non-archimedean} \tref{NT:valuation}{valuation} on a field $K$. Then the subring
     \[ A = \{ x \in K \mid \phi(x) \le 1 \} \]
     is a valuation ring, called the \textit{valuation ring} of $\phi$. Indeed, for every $x \in K$, we have $x \in A$ if $\phi(x) \le 1$ and $x^{-1} \in A$ if $\phi(x) > 1$. In particular, the field of fractions of $A$ is $K$. The valuation ring $A$ is a \tref{local-ring}{local ring} with unit group $A^* = \{ x \in K \mid \phi(x) = 1 \}$ and maximal ideal $\mathfrak{m} = \{ x \in K \mid \phi(x) < 1 \}$.
 \end{example}
 
 \begin{topic}{discrete-valuation-ring}{discrete valuation ring}
     A domain \tref{domain}{domain} $R$ is a \textbf{discrete valuation ring} if there is a \textit{discrete valuation} $\nu$ of its \tref{field-of-fractions}{field of fractions} $K$, such that $R$ is the \textit{valuation ring} of $v$. This means there is a homomorphism
-    \[ \nu : K^\times \to \ZZ \]
+    \[ \nu \colon K^\times \to \ZZ \]
     such that
     \[ R = \{ x \in K \mid \nu(x) \ge 0 \} . \]
     
@@ -701,7 +701,7 @@
 \begin{topic}{lazard-universal-ring}{Lazard's universal ring}
     \textbf{Lazard's universal ring} is \tref{ring}{commutative ring} $\mathbb{L}$ with a \tref{formal-group-law}{formal group law}
     \[ F(x, y) = x + y + \sum_{i + j \ge 2} a_{i,j} x^i y^j \in \mathbb{L}\llbracket x, y \rrbracket , \]
-    with the universal property that for any formal group law $G(x, y) \in R \llbracket x, y \rrbracket$ over a commutative ring $R$, there exists a unique \tref{ring-morphism}{ring morphism} $f : \mathbb{L} \to R$ such that $G(f(x), f(y)) = f(F(x, y))$. The ring $\mathbb{L}$ is constructed as the quotient of the polynomial ring $\ZZ[a_{i, j} : i + j \ge 2]$ by the relations on the $a_{i, j}$ in order to make $F$ associative.
+    with the universal property that for any formal group law $G(x, y) \in R \llbracket x, y \rrbracket$ over a commutative ring $R$, there exists a unique \tref{ring-morphism}{ring morphism} $f \colon \mathbb{L} \to R$ such that $G(f(x), f(y)) = f(F(x, y))$. The ring $\mathbb{L}$ is constructed as the quotient of the polynomial ring $\ZZ[a_{i, j} : i + j \ge 2]$ by the relations on the $a_{i, j}$ in order to make $F$ associative.
     
     It can be shown that $\mathbb{L}$ is isomorphic to the \tref{graded-ring}{graded ring} $\ZZ[x_1, x_2, \ldots]$, where $x_i$ has degree $i$, such that $a_{i, j}$ has degree $(i + j - 1)$.
 \end{topic}
@@ -763,7 +763,7 @@
 \end{example}
 
 \begin{topic}{divided-power-structure}{divided power structure}
-    Let $R$ be a \tref{ring}{commutative ring} and $I \subset R$ an \tref{ideal}{ideal}. A \textbf{divided power structure} on $I$ is a sequence of maps $\delta_n : I \to A$ for $n \ge 0$, satisfying
+    Let $R$ be a \tref{ring}{commutative ring} and $I \subset R$ an \tref{ideal}{ideal}. A \textbf{divided power structure} on $I$ is a sequence of maps $\delta_n \colon I \to A$ for $n \ge 0$, satisfying
     \begin{itemize}
         \item $\delta_0(x) = 1$ and $\delta_1(x) = x$ and $\delta_n(x) \in I$ for all $x \in I$ and $n > 0$,
         \item $\delta_n(x + y) = \sum_{i = 0}^{n} \delta_{n - i}(x) \delta_i(y)$ for all $x, y \in I$,
@@ -782,7 +782,7 @@
 \end{example}
 
 \begin{topic}{lambda-structure}{lambda structure}
-    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{$\lambda$-structure} on $R$ is a sequence of maps $\lambda^n : R \to R$ for $n \ge 0$, satisfying
+    Let $R$ be a \tref{ring}{commutative ring}. A \textbf{$\lambda$-structure} on $R$ is a sequence of maps $\lambda^n \colon R \to R$ for $n \ge 0$, satisfying
     \begin{itemize}
         \item $\lambda^0(r) = 1$ for all $r \in R$,
         \item $\lambda^1(r) = r$ for all $r \in R$,
@@ -795,7 +795,7 @@
 \end{topic}
 
 \begin{example}{lambda-structure}
-    For any \tref{GT:group}{group} $G$ and field $k$, the \tref{RT:representation-ring}{representation ring} $R_k(G)$ has a natural $\lambda$-structure. For any \tref{RT:representation}{representation} $\rho : G \to \textup{GL}(V)$ and $n \ge 0$, the $\lambda^n(\rho)$ is given by induced representation on the \tref{exterior-algebra}{exterior power} $\wedge^n V$.
+    For any \tref{GT:group}{group} $G$ and field $k$, the \tref{RT:representation-ring}{representation ring} $R_k(G)$ has a natural $\lambda$-structure. For any \tref{RT:representation}{representation} $\rho \colon G \to \textup{GL}(V)$ and $n \ge 0$, the $\lambda^n(\rho)$ is given by induced representation on the \tref{exterior-algebra}{exterior power} $\wedge^n V$.
 \end{example}
 
 \begin{topic}{conductor}{conductor}
@@ -923,11 +923,11 @@
 \end{topic}
 
 \begin{topic}{ax-grothendieck-theorem}{Ax--Grothendieck theorem}
-    The \textbf{Ax--Grothendieck theorem} states that any injective polynomial function $f : \CC^n \to \CC^n$ is also bijective.
+    The \textbf{Ax--Grothendieck theorem} states that any injective polynomial function $f \colon \CC^n \to \CC^n$ is also bijective.
 \end{topic}
 
 \begin{example}{ax-grothendieck-theorem}
     \begin{proof}
-        Consider the statement that every injective polynomial function $f : k^n \to k^n$ is also surjective, for some field $k$. For finite fields $k = \FF_q$ this statement is clearly true. Suppose $k = \overline{\FF}_p = \bigcup_{m \ge 0} \FF_{p^m}$ and such an $f$ is not surjective, i.e. $(x_1, \ldots, x_n) \in \overline{\FF}_p$ is not in the image of $f$. Then we can restrict $f$ to the finite subfield of $\overline{\FF}_p$ generated by the $x_i$ and the coefficients of $f$ to see that $f$ must be surjective after all, that is, $(x_1, \ldots, x_n)$ is in the image of $f$, a contradiction. Finally, from the \tref{LO:lefschetz-principle}{Lefschetz principle} it follows that the statement is also true for $k = \CC$.
+        Consider the statement that every injective polynomial function $f \colon k^n \to k^n$ is also surjective, for some field $k$. For finite fields $k = \FF_q$ this statement is clearly true. Suppose $k = \overline{\FF}_p = \bigcup_{m \ge 0} \FF_{p^m}$ and such an $f$ is not surjective, i.e. $(x_1, \ldots, x_n) \in \overline{\FF}_p$ is not in the image of $f$. Then we can restrict $f$ to the finite subfield of $\overline{\FF}_p$ generated by the $x_i$ and the coefficients of $f$ to see that $f$ must be surjective after all, that is, $(x_1, \ldots, x_n)$ is in the image of $f$, a contradiction. Finally, from the \tref{LO:lefschetz-principle}{Lefschetz principle} it follows that the statement is also true for $k = \CC$.
     \end{proof}
 \end{example}
