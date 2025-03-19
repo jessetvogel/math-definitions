@@ -157,7 +157,7 @@
 \begin{topic}{alexander-whitney-map}{Alexander--Whitney map}
     Let $C \colon \textbf{Ab}_\Delta \to \textup{Ch}_{\ge 0}(\textbf{Ab})$ be the \tref{moore-complex}{Moore complex} functor. For $A, B \in \textbf{Ab}_\Delta$, the \textbf{Alexander--Whitney map} is the \tref{CT:natural-transformation}{natural transformation} on chain complexes
     \[ \begin{aligned}
-        \Delta_{A, B} : C(A \otimes B) &\to C(A) \otimes C(B) \\
+        \Delta_{A, B} \colon C(A \otimes B) &\to C(A) \otimes C(B) \\
         a \otimes b &\mapsto \bigoplus_{p + q = n} d_\textup{front}^p a \otimes d_\textup{back}^q b ,
     \end{aligned} \]
     for all $a \in A_n$ and $b \in B_n$, where $d_\textup{front}^p \colon A_n \to A_p$ and $d_\textup{back}^q \colon B_n \to B_q$ are induced by
@@ -169,7 +169,7 @@
 \begin{topic}{eilenberg-zilber-map}{Eilenberg--Zilber map}
     Let $C \colon \textbf{Ab}_\Delta \to \textup{Ch}_{\ge 0}(\textbf{Ab})$ be the \tref{moore-complex}{Moore complex} functor. For $A, B \in \textbf{Ab}_\Delta$, the \textbf{Eilenberg--Zilber map} is the \tref{CT:natural-transformation}{natural transformation} on chain complexes
     \[ \begin{aligned}
-        \nabla_{A, B} : C(A) \otimes C(B) &\to C(A \otimes B) \\
+        \nabla_{A, B} \colon C(A) \otimes C(B) &\to C(A \otimes B) \\
         a \otimes b &\mapsto \sum_{(\mu, \nu) \in \textup{Sh}(p, q)} \textup{sign}(\mu, \nu) (s_\nu(a) \otimes s_\mu(b)) ,
     \end{aligned} \]
     for all $a \in A_p$ and $b \in B_q$, where the sum is taken over all \tref{GT:shuffle}{$(p, q)$-shuffles} $(\mu, \nu) = (\mu_1, \ldots, \mu_p, \nu_1, \ldots, \nu_q)$, and $s_\mu$ and $s_\nu$ are given by compositions of the degeneracy maps

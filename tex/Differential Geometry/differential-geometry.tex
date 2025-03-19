@@ -263,7 +263,7 @@
 \end{example}
 
 \begin{example}{connection}
-    Consider a trivialization $\Phi : E|_U \xrightarrow{\sim} U \times \RR^k$. The \textit{trivial connection} $\nabla^0$ on $E|_U$ is given by
+    Consider a trivialization $\Phi \colon E|_U \xrightarrow{\sim} U \times \RR^k$. The \textit{trivial connection} $\nabla^0$ on $E|_U$ is given by
     \[ \nabla^0 \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} = \begin{pmatrix} df_1 \\ \vdots \\ df_k \end{pmatrix} . \]
     Now by the above example, for any connection $\nabla$ on $E$, the induced connection $\nabla^\Phi$ on the trivialization has the form $\nabla^\Phi = \nabla^0 + A^\Phi$ for some $A^\Phi \in \Omega^1(U; \textup{End}(\RR^k))$. That is,
     \[ \nabla^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} = \begin{pmatrix} df_1 \\ \vdots \\ df_k \end{pmatrix} + A^\Phi \begin{pmatrix} f_1 \\ \vdots \\ f_k \end{pmatrix} . \]
@@ -980,7 +980,7 @@
 
 \begin{example}{orbifold}
     Consider the real line $\RR$ with an action of $G = \ZZ/2\ZZ$ given by $x \mapsto -x$. The quotient can be described by the orbifold $\RR \sqcup \RR \rightrightarrows \RR$, with source and target maps given by
-    \[ s : \RR \sqcup \RR \xrightarrow{(x, x)} \RR, \qquad t  : \RR \sqcup \RR \xrightarrow{(x, -x)} \RR . \]
+    \[ s \colon \RR \sqcup \RR \xrightarrow{(x, x)} \RR, \qquad t  : \RR \sqcup \RR \xrightarrow{(x, -x)} \RR . \]
     Indeed, it is easy to verify that this Lie groupoid is proper and étale.
     
     More generally, if a finite group $G$ acts on a manifold $M$, the quotient can be described by the orbifold $G \times M \rightrightarrows M$, with source and target maps given by

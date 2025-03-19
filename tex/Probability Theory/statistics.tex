@@ -196,7 +196,7 @@
 \end{topic}
 
 \begin{example}{likelihood-ratio-test}
-    Let $X_1, \ldots, X_n$ be a random sample from a \tref{normal-distribution}{normal distribution} $\mathcal{N}(\theta, 1)$. Consider testing $H_0 : \theta = \theta_0$ versus $H_1 : \theta \ne \theta_0$.
+    Let $X_1, \ldots, X_n$ be a random sample from a \tref{normal-distribution}{normal distribution} $\mathcal{N}(\theta, 1)$. Consider testing $H_0 \colon \theta = \theta_0$ versus $H_1 \colon \theta \ne \theta_0$.
     Since the \tref{maximum-likelihood-estimator}{MLE} for $\theta$ is given by the sample mean $\overline{X} = \frac{1}{n} \sum_{i = 1}^{n} X_i$, the likelihood ratio test statistic reduces to
     \[ \begin{aligned}
         \lambda(x) &= \frac{(2 \pi)^{-n/2} \exp \left( - \sum_{i = 1}^{n} (x_i - \theta_0)^2 / 2 \right)}{(2 \pi)^{-n/2} \exp \left( - \sum_{i = 1}^{n} (x_i - \overline{x})^2 / 2 \right)} \\

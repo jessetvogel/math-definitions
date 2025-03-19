@@ -1,9 +1,9 @@
 \begin{topic}{monoidal-category}{monoidal category}
     A \textbf{monoidal category} is a \tref{category}{category} $\mathcal{C}$ with a functor $\otimes \colon \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \textit{tensor product}), an object $\textbf{1}$ in $\mathcal{C}$ (the \textit{unital object}) and \tref{natural-transformation}{natural} isomorphisms
     \[ \begin{aligned}
-        \textup{(associator)} &\quad \alpha : - \otimes (- \otimes -) \Rightarrow (- \otimes -) \otimes - \qquad  \\
-        \textup{(left unitor)} &\quad \lambda : \textbf{1} \otimes - \Rightarrow \id_{\mathcal{C}} \\
-        \textup{(right unitor)} &\quad \rho : - \otimes \textbf{1} \Rightarrow \id_{\mathcal{C}}
+        \textup{(associator)} &\quad \alpha \colon - \otimes (- \otimes -) \Rightarrow (- \otimes -) \otimes - \qquad  \\
+        \textup{(left unitor)} &\quad \lambda \colon \textbf{1} \otimes - \Rightarrow \id_{\mathcal{C}} \\
+        \textup{(right unitor)} &\quad \rho \colon - \otimes \textbf{1} \Rightarrow \id_{\mathcal{C}}
     \end{aligned} \]
     such that the triangle
     \[ \svg \begin{tikzcd}[row sep=0em] (X \otimes \textbf{1}) \otimes Y \arrow{rr}{\alpha_{X,\textbf{1},Y}} \arrow[swap]{rd}{\rho_X \otimes \id_Y} & & X \otimes (\textbf{1} \otimes Y) \arrow{ld}{\id_X \otimes \lambda_Y} \\ & X \otimes Y & \end{tikzcd} \]
@@ -48,13 +48,13 @@
 \end{example}
 
 \begin{example}{symmetric-monoidal-category}
-    The category $R\textup{-}\textbf{Bimod}$ of $R$-bimodules is monoidal, with $\otimes_R$ as tensor product and $R$ as unital object, but not necessarily symmetric. For example, take $R = k$ a field with two non-commuting automorphisms $\sigma, \tau$. Let $M = {}_1 k_\sigma$ be the abelian group $k$ with $k$-bimodule structure given by $a \cdot x \cdot b = ax \sigma(b)$, and let $N = {}_1 k_\tau$ similarly. Then we have a $k$-bimodule isomorphism $\varphi : M \otimes_k N \xrightarrow{\sim} {}_1 k_{\sigma \tau}$ given by $x \otimes y \mapsto x \sigma(y)$, and similarly $N \otimes_k M = {}_1 k_{\tau \sigma}$. If there were to exist some $k$-bimodule isomorphism $\psi : {}_1 k_{\sigma \tau} \xrightarrow{\sim} {}_1 k_{\tau \sigma}$ it would be given by $\psi(x) = x \psi(1)$ (since $\psi$ is a left $k$-module isomorphism). However, as $\psi$ is a right $k$-module isomorphism as well, we must have $\psi(x) = \psi(1) \tau \sigma \tau^{-1} \sigma^{-1} (x)$, which implies that $x = \tau \sigma \tau^{-1} \sigma^{-1} (x)$ for all $x \in k$, but we assumed $\tau$ and $\sigma$ did not commute. Hence such $\psi$ does not exist, and $k\textup{-}\textbf{Bimod}$ cannot be symmetric.
+    The category $R\textup{-}\textbf{Bimod}$ of $R$-bimodules is monoidal, with $\otimes_R$ as tensor product and $R$ as unital object, but not necessarily symmetric. For example, take $R = k$ a field with two non-commuting automorphisms $\sigma, \tau$. Let $M = {}_1 k_\sigma$ be the abelian group $k$ with $k$-bimodule structure given by $a \cdot x \cdot b = ax \sigma(b)$, and let $N = {}_1 k_\tau$ similarly. Then we have a $k$-bimodule isomorphism $\varphi \colon M \otimes_k N \xrightarrow{\sim} {}_1 k_{\sigma \tau}$ given by $x \otimes y \mapsto x \sigma(y)$, and similarly $N \otimes_k M = {}_1 k_{\tau \sigma}$. If there were to exist some $k$-bimodule isomorphism $\psi \colon {}_1 k_{\sigma \tau} \xrightarrow{\sim} {}_1 k_{\tau \sigma}$ it would be given by $\psi(x) = x \psi(1)$ (since $\psi$ is a left $k$-module isomorphism). However, as $\psi$ is a right $k$-module isomorphism as well, we must have $\psi(x) = \psi(1) \tau \sigma \tau^{-1} \sigma^{-1} (x)$, which implies that $x = \tau \sigma \tau^{-1} \sigma^{-1} (x)$ for all $x \in k$, but we assumed $\tau$ and $\sigma$ did not commute. Hence such $\psi$ does not exist, and $k\textup{-}\textbf{Bimod}$ cannot be symmetric.
 \end{example}
 
 \begin{example}{symmetric-monoidal-category}
     A monoidal category can be symmetric in multiple ways. Let $\textbf{GrVect}_k$ be the category whose objects are graded vector spaces $V = \oplus_{n \in \ZZ} V_n$ over a field $k$, and whose morphisms are linear maps that respect the grading. The tensor product of two graded vector spaces $V$ and $W$ is again graded, with grading $(V \otimes W)_n = \oplus_{p + q = n} (V_p \otimes W_q)$, making $\textbf{GrVect}_k$ into a monoidal category, where the unital object is the ground field $k$ concentrated in degree zero.
         
-    There is more than one way to make $\textbf{GrVect}_k$ symmetric. As the map $V \otimes W \to W \otimes V$ one could take the more obvious map $\tau \colon v \otimes w \to w \otimes v$. However, one could also take the map $\kappa : v \otimes w \mapsto (-1)^{pq} w \otimes v$ with $p = \deg(v)$ and $q = \deg(w)$, known as \textit{Koszul's sign change}. One can check that $\kappa$ indeed satisfies the axioms.
+    There is more than one way to make $\textbf{GrVect}_k$ symmetric. As the map $V \otimes W \to W \otimes V$ one could take the more obvious map $\tau \colon v \otimes w \to w \otimes v$. However, one could also take the map $\kappa \colon v \otimes w \mapsto (-1)^{pq} w \otimes v$ with $p = \deg(v)$ and $q = \deg(w)$, known as \textit{Koszul's sign change}. One can check that $\kappa$ indeed satisfies the axioms.
 \end{example}
 
 \begin{topic}{braided-monoidal-category}{braided monoidal category}
@@ -73,7 +73,7 @@
 
 \begin{topic}{monoidal-functor}{(lax) monoidal functor}
     A \textbf{lax monoidal functor} is a \tref{functor}{functor} $F \colon \mathcal{C} \to \mathcal{D}$ between \tref{monoidal-category}{monoidal categories} together with a \tref{natural-transformation}{natural transformation}
-    \[ \mu : F(-) \otimes_\mathcal{D} F(-) \Rightarrow F(- \otimes_\mathcal{C} -) \]
+    \[ \mu \colon F(-) \otimes_\mathcal{D} F(-) \Rightarrow F(- \otimes_\mathcal{C} -) \]
     and a morphism $\varepsilon \colon \textbf{1}_\mathcal{D} \to F(\textbf{1}_\mathcal{C})$, such that the diagrams
     \[ \svg \begin{tikzcd}[column sep=7em]
         (F(X) \otimes_\mathcal{D} F(Y)) \otimes_\mathcal{D} F(Z) \arrow{r}{\alpha^\mathcal{D}_{F(X), F(Y), F(Z)}} \arrow[swap]{d}{\mu_{X, Y} \otimes \id_{F(Z)}} & F(X) \otimes_\mathcal{D} (F(Y) \otimes_\mathcal{D} F(Z)) \arrow{d}{\id_{F(X)} \otimes \mu_{Y, Z}} \\ F(X \otimes_\mathcal{C} Y) \otimes_\mathcal{D} F(Z) \arrow[swap]{d}{\mu_{X \otimes_\mathcal{C} Y, Z}} &  F(X) \otimes_\mathcal{D} F(Y \otimes_\mathcal{C} Z) \arrow{d}{\mu_{X, Y \otimes_\mathcal{C} Z}} \\ F((X \otimes_\mathcal{C} Y) \otimes_\mathcal{C} Z) \arrow{r}{F(\alpha^\mathcal{C}_{X, Y, Z})} & F(X \otimes_\mathcal{C} (Y \otimes_\mathcal{C} Z))
@@ -166,8 +166,8 @@
 \begin{topic}{module-category}{module category}
     Let $(\mathcal{C}, \otimes, \textbf{1})$ be a \tref{monoidal-category}{monoidal category}. A \textbf{(left) module category} over $\mathcal{C}$ is a category $\mathcal{M}$ together with a \tref{functor}{functor} $\boxtimes \colon \mathcal{C} \times \mathcal{M} \to \mathcal{M}$ and \tref{natural-transformation}{natural} isomorphisms
     \[ \begin{aligned}
-        \textup{(associator)}& \quad \alpha : - \boxtimes (- \boxtimes -) \Rightarrow (- \otimes -) \boxtimes - \\
-        \textup{(unitor)}& \quad \lambda : \textbf{1} \boxtimes - \Rightarrow \id_\mathcal{M}
+        \textup{(associator)}& \quad \alpha \colon - \boxtimes (- \boxtimes -) \Rightarrow (- \otimes -) \boxtimes - \\
+        \textup{(unitor)}& \quad \lambda \colon \textbf{1} \boxtimes - \Rightarrow \id_\mathcal{M}
     \end{aligned} \]
     which are compatible with the associator and left and right unitor of $\mathcal{C}$.
 \end{topic}
@@ -183,7 +183,7 @@
 \begin{topic}{category-center}{category center}
     The \textbf{center} of a \tref{monoidal-category}{monoidal category} $(\mathcal{C}, \otimes, \textbf{1})$ is the category $Z(\mathcal{C})$ defined as follows.
     \begin{itemize}
-        \item Its objects are pairs $(X, \mu)$ with $X$ an object of $\mathcal{C}$ and $\mu : X \otimes (-) \Rightarrow (-) \otimes X$ a \tref{natural-transformation}{natural isomorphism}, such that $\mu_{Y \otimes Z} = (\id_Y \otimes \mu_Z) \circ (\mu_Y \otimes \id_Z)$ for all objects $Y$ and $Z$ of $\mathcal{C}$.
+        \item Its objects are pairs $(X, \mu)$ with $X$ an object of $\mathcal{C}$ and $\mu \colon X \otimes (-) \Rightarrow (-) \otimes X$ a \tref{natural-transformation}{natural isomorphism}, such that $\mu_{Y \otimes Z} = (\id_Y \otimes \mu_Z) \circ (\mu_Y \otimes \id_Z)$ for all objects $Y$ and $Z$ of $\mathcal{C}$.
         \item A morphism from $(X, \mu)$ to $(Y, \nu)$ is a morphism $f \colon X \to Y$ in $\mathcal{C}$ such that $\nu_Z \circ (f \otimes \id_Z) = (\id_Z \otimes f) \circ \mu_Z$ for all objects $Z$ of $\mathcal{C}$.
     \end{itemize}
 \end{topic}

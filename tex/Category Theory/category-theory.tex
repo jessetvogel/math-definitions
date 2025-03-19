@@ -84,25 +84,25 @@
     which assigns to an object $X$ of $\mathcal{C}$ the functor
     \[ y_X = \Hom_{\mathcal{C}}(-, X) , \]
     and to a morphism $f \colon X \to Y$ the natural transformation
-    \[ y_f : y_X \Rightarrow y_Y , \]
+    \[ y_f \colon y_X \Rightarrow y_Y , \]
     given by $(y_f)_Z(g) = f \circ g$ for any object $Z$ and morphism $g \colon Z \to X$ in $\mathcal{C}$.
 \end{topic}
 
 \begin{topic}{yoneda-lemma}{Yoneda lemma}
     Let $\mathcal{C}$ be a \tref{category}{category} and $F \colon \mathcal{C}^\textup{op} \to \textbf{Set}$ a \tref{functor}{functor}. The \textbf{Yoneda lemma} states that for any object $X$ of $\mathcal{C}$ there is a bijection
     \[ \Hom(y_X, F) \xrightarrow{\sim} F(X) , \]
-    where $y_{(-)}$ denotes the \tref{yoneda-embedding}{Yoneda embedding}, and that this bijection is natural in $X$ and $F$. That is, for any morphism $f \colon X \to Y$ in $\mathcal{C}$ and \tref{natural-transformation}{natural transformation} $\mu : F \Rightarrow G$, the diagram
+    where $y_{(-)}$ denotes the \tref{yoneda-embedding}{Yoneda embedding}, and that this bijection is natural in $X$ and $F$. That is, for any morphism $f \colon X \to Y$ in $\mathcal{C}$ and \tref{natural-transformation}{natural transformation} $\mu \colon F \Rightarrow G$, the diagram
     \[ \svg \begin{tikzcd} \Hom(y_Y, F) \arrow{r}{\sim} \arrow[swap]{d}{\mu \circ (-) \circ y_f} & F(Y) \arrow{d}{G(f) \circ \mu_Y = \mu_X \circ F(f)} \\ \Hom(y_X, G) \arrow{r}{\sim} & G(X) \end{tikzcd} \]
     commutes.
 \end{topic}
 
 \begin{example}{yoneda-lemma}
     \begin{proof}
-        Any natural transformation $\nu : y_X \Rightarrow F$ induces an element $x = \nu_X(\id_X) \in F(X)$, and this element completely determines $\nu$ since for any $Y$ in $\mathcal{C}$ and $f \in y_X(Y) = \Hom_\mathcal{C}(Y, X)$ we have that
+        Any natural transformation $\nu \colon y_X \Rightarrow F$ induces an element $x = \nu_X(\id_X) \in F(X)$, and this element completely determines $\nu$ since for any $Y$ in $\mathcal{C}$ and $f \in y_X(Y) = \Hom_\mathcal{C}(Y, X)$ we have that
         \[ \nu_{Y}(f) = \nu_{Y}(\id_X \circ f) = F(f)(\nu_X(\id_X)) = F(f)(x) . \]
         Furthermore, any $x \in F(X)$ induces a natural transformation $\nu \colon y_X \Rightarrow F$ in this way. Namely, for any morphism $g \colon Y \to Z$ in $\mathcal{C}$ we have
         \[ F(g)(\nu_Z(h)) = F(g)(F(h)(x)) = F(hg)(x) = \nu_Y(hg) = \nu_Y(y_g(h)) , \]
-        for all $h \in y_X(Z) = \Hom_\mathcal{C}(Z, X)$. This proves the bijection. To prove that this bijection is natural in $X$ and $F$, let $f \colon X \to Y$ be a morphism in $\mathcal{C}$, and $\mu : F \Rightarrow G$ a natural transformation. Then for any $\nu : y_Y \Rightarrow F$ we have that
+        for all $h \in y_X(Z) = \Hom_\mathcal{C}(Z, X)$. This proves the bijection. To prove that this bijection is natural in $X$ and $F$, let $f \colon X \to Y$ be a morphism in $\mathcal{C}$, and $\mu \colon F \Rightarrow G$ a natural transformation. Then for any $\nu \colon y_Y \Rightarrow F$ we have that
         \[ (\mu \circ \nu \circ y_f)_X(\id_X) = \mu_X(\nu_X(f)) = \mu_X(F(f)(\nu_Y(\id_Y))) , \]
         which shows the bijection is indeed natural.
     \end{proof}
@@ -118,14 +118,14 @@
 \end{topic}
 
 \begin{topic}{equivalence-of-categories}{equivalence of categories}
-    A \tref{functor}{functor} $F \colon \mathcal{C} \to \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G \colon \mathcal{D} \to \mathcal{C}$ and \tref{natural-transformation}{natural isomorphisms} $\mu : \id_\mathcal{C} \Rightarrow GF$ and $\nu : \id_\mathcal{D} \Rightarrow FG$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
+    A \tref{functor}{functor} $F \colon \mathcal{C} \to \mathcal{D}$ is said to be an \textbf{equivalence of categories} if there exists a functor $G \colon \mathcal{D} \to \mathcal{C}$ and \tref{natural-transformation}{natural isomorphisms} $\mu \colon \id_\mathcal{C} \Rightarrow GF$ and $\nu \colon \id_\mathcal{D} \Rightarrow FG$. In this case $F$ and $G$ are called \textit{pseudo-inverses} of each other.
 \end{topic}
 
 \begin{example}{equivalence-of-categories}
     A functor $F \colon \mathcal{C} \to \mathcal{D}$ is an equivalence of categories if and only if it is \tref{full-functor}{fully} \tref{faithful-functor}{faithful} and \tref{essentially-surjective-functor}{essentially surjective}.
     \begin{proof}
         $(\Rightarrow)$ For any morphism $f \colon X \to Y$ in $\mathcal{C}$, we have $GF(f) = \mu_Y \circ f \circ \mu_X^{-1}$, which shows that $\Hom_\mathcal{C}(X, Y) \xrightarrow{GF} \Hom_\mathcal{C}(GFX, GFY)$ is a bijection. Since this map factors through $\Hom_\mathcal{D}(FX, FY)$, we must have that $F$ is fully faithful. Furthermore, any object $D$ of $\mathcal{D}$ is isomorphic to $FG(D)$ via $\nu_D$, so $F$ is essentially surjective.
-        $(\Leftarrow)$ For any object $D$ of $\mathcal{D}$, there exists an object $C$ of $\mathcal{C}$ and an isomorphism $D \isom F(C)$. Put $G(D) = C$ and call the isomorphism $\nu_D$. For any morphism $f \colon A \to B$ in $\mathcal{D}$, we have the induced morphism $\nu_B \circ f \circ \nu_A^{-1} \colon FG(A) \to FG(B)$, and since $F$ is fully faithful, there exists a unique $g \colon G(A) \to G(B)$ with $F(g) = \nu_B \circ f \circ \nu_A^{-1}$. Put $G(f) = g$. Now clearly, $\nu_B \circ f = FG(f) \circ \nu_A$, so $\nu \colon \id_\mathcal{D} \Rightarrow FG$ is a natural isomorphism. To construct $\mu \colon \id_\mathcal{C} \Rightarrow GF$, take any $h \colon X \to Y$ in $\mathcal{C}$, and consider the isomorphism $\nu_{F(X)} : F(X) \xrightarrow{\sim} FGF(X)$. As $F$ is fully faithful, there exists a unique isomorphism $\mu_X : X \xrightarrow{\sim} GF(X)$ such that $F(\mu_X) = \nu_{F(X)}$. Now, since $F(\mu_Y) F(h) = FGF(h) F(\mu_X)$ by naturality of $\mu$, and $F$ is fully faithful, we have $\mu_Y \circ h = GF(h) \circ \mu_X$, so $\mu : \id_\mathcal{C} \Rightarrow GF$ is a natural isomorphism.
+        $(\Leftarrow)$ For any object $D$ of $\mathcal{D}$, there exists an object $C$ of $\mathcal{C}$ and an isomorphism $D \isom F(C)$. Put $G(D) = C$ and call the isomorphism $\nu_D$. For any morphism $f \colon A \to B$ in $\mathcal{D}$, we have the induced morphism $\nu_B \circ f \circ \nu_A^{-1} \colon FG(A) \to FG(B)$, and since $F$ is fully faithful, there exists a unique $g \colon G(A) \to G(B)$ with $F(g) = \nu_B \circ f \circ \nu_A^{-1}$. Put $G(f) = g$. Now clearly, $\nu_B \circ f = FG(f) \circ \nu_A$, so $\nu \colon \id_\mathcal{D} \Rightarrow FG$ is a natural isomorphism. To construct $\mu \colon \id_\mathcal{C} \Rightarrow GF$, take any $h \colon X \to Y$ in $\mathcal{C}$, and consider the isomorphism $\nu_{F(X)} \colon F(X) \xrightarrow{\sim} FGF(X)$. As $F$ is fully faithful, there exists a unique isomorphism $\mu_X \colon X \xrightarrow{\sim} GF(X)$ such that $F(\mu_X) = \nu_{F(X)}$. Now, since $F(\mu_Y) F(h) = FGF(h) F(\mu_X)$ by naturality of $\mu$, and $F$ is fully faithful, we have $\mu_Y \circ h = GF(h) \circ \mu_X$, so $\mu \colon \id_\mathcal{C} \Rightarrow GF$ is a natural isomorphism.
     \end{proof}
 \end{example}
 
@@ -177,8 +177,8 @@
 \begin{example}{adjunction}
     Let $F \colon \mathcal{C} \to \mathcal{D}$ and $G \colon \mathcal{D} \to \mathcal{C}$ be adjoint functors, $F \dashv G$. Then for any object $C$ of $\mathcal{C}$, we have a natural bijection
     \[ \Hom_{\mathcal{D}}(F(C), F(C)) \isom \Hom_{\mathcal{C}}(C, GF(C)) . \]
-    In particular, the identity morphism $\id_{F(C)}$ corresponds to some $\eta_C \colon C \to GF(C)$. Since this construction is natural in $C$, we obtain a \tref{natural-transformation}{natural transformation} $\eta : \id_\mathcal{C} \Rightarrow GF$, called the \textit{unit} of the adjunction.
-    Similarly, for any object $D$ of $\mathcal{D}$, the morphism $\id_{G(D)}$ corresponds to some $\varepsilon_D \colon FG(D) \to D$, which yields a natural transformation $\varepsilon : FG \Rightarrow \id_\mathcal{D}$, called the \textit{counit} of the adjunction.
+    In particular, the identity morphism $\id_{F(C)}$ corresponds to some $\eta_C \colon C \to GF(C)$. Since this construction is natural in $C$, we obtain a \tref{natural-transformation}{natural transformation} $\eta \colon \id_\mathcal{C} \Rightarrow GF$, called the \textit{unit} of the adjunction.
+    Similarly, for any object $D$ of $\mathcal{D}$, the morphism $\id_{G(D)}$ corresponds to some $\varepsilon_D \colon FG(D) \to D$, which yields a natural transformation $\varepsilon \colon FG \Rightarrow \id_\mathcal{D}$, called the \textit{counit} of the adjunction.
 \end{example}
 
 \begin{example}{adjunction}
@@ -411,7 +411,7 @@
 \end{example}
 
 \begin{topic}{monad}{monad}
-    A \textbf{monad} on a \tref{category}{category} $\mathcal{C}$ is a \tref{functor}{functor} $T \colon \mathcal{C} \to \mathcal{C}$ together with two \tref{natural-transformation}{natural transformations} $\mu : T^2 \Rightarrow T$ and $\eta : \id_{\mathcal{C}} \Rightarrow T$, such that
+    A \textbf{monad} on a \tref{category}{category} $\mathcal{C}$ is a \tref{functor}{functor} $T \colon \mathcal{C} \to \mathcal{C}$ together with two \tref{natural-transformation}{natural transformations} $\mu \colon T^2 \Rightarrow T$ and $\eta \colon \id_{\mathcal{C}} \Rightarrow T$, such that
     \[ \svg \begin{tikzcd} T^3 \arrow{r}{T \mu} \arrow[swap]{d}{\mu T} & T^2 \arrow{d}{\mu} \\ T^2 \arrow{r}{\mu} & T \end{tikzcd} \qquad \text{and} \qquad \begin{tikzcd} T \arrow{r}{\eta T} \arrow[swap]{dr}{\id_T} & T^2 \arrow{d}{\mu} & \arrow[swap]{l}{T \eta} T \arrow{ld}{\id_T} \\ & T & \end{tikzcd} \]
     commute.
 \end{topic}
@@ -481,7 +481,7 @@
 \end{example}
 
 \begin{topic}{profunctor}{profunctor}
-    A \textbf{profunctor} $\phi : \mathcal{C} \nrightarrow \mathcal{D}$ from a \tref{category}{category} $\mathcal{C}$ to a category $\mathcal{D}$ is a \tref{functor}{functor}
+    A \textbf{profunctor} $\phi \colon \mathcal{C} \nrightarrow \mathcal{D}$ from a \tref{category}{category} $\mathcal{C}$ to a category $\mathcal{D}$ is a \tref{functor}{functor}
     \[ \phi \colon \mathcal{C} \times \mathcal{D}^\textup{op} \to \textbf{Set} . \]
 \end{topic}
 
@@ -534,11 +534,11 @@
 \end{example}
 
 \begin{topic}{kan-extension}{Kan extension}
-    Let $F \colon \mathcal{C} \to \mathcal{D}$ and $K \colon \mathcal{C} \to \mathcal{E}$ be \tref{functor}{functors}. The \textbf{right Kan extension} of $F$ along $K$ is a functor $R \colon \mathcal{E} \to \mathcal{D}$ with a \tref{natural-transformation}{natural transformation} $\varepsilon \colon R \circ K \Rightarrow F$, which is universal in the sense that for any other functor $R' \colon \mathcal{E} \to \mathcal{D}$ with $\varepsilon' : R' \circ K \Rightarrow F$, there exists a unique natural transformation $\sigma : R' \Rightarrow R$ such that $\varepsilon' = \varepsilon \circ (\sigma K)$.
+    Let $F \colon \mathcal{C} \to \mathcal{D}$ and $K \colon \mathcal{C} \to \mathcal{E}$ be \tref{functor}{functors}. The \textbf{right Kan extension} of $F$ along $K$ is a functor $R \colon \mathcal{E} \to \mathcal{D}$ with a \tref{natural-transformation}{natural transformation} $\varepsilon \colon R \circ K \Rightarrow F$, which is universal in the sense that for any other functor $R' \colon \mathcal{E} \to \mathcal{D}$ with $\varepsilon' \colon R' \circ K \Rightarrow F$, there exists a unique natural transformation $\sigma \colon R' \Rightarrow R$ such that $\varepsilon' = \varepsilon \circ (\sigma K)$.
     \[ \svg \begin{tikzcd}[row sep=5em, column sep=5em] \mathcal{E} \arrow[swap, bend right=25]{dr}[name=R1]{R} \arrow[bend left=25]{dr}[name=R2]{R'} \\ \mathcal{C} \arrow[swap]{r}{F} \arrow{u}{K} & \mathcal{D} \arrow[shorten <=2pt,shorten >=2pt,Rightarrow,to path={(R2) -- node[label=right:$\sigma$] {} (R1)}]{}\end{tikzcd} \]
     The right Kan extension, if it exists, is denoted $\textup{Ran}_K F$.
 
-    Similarly, a \textbf{left Kan extension} of $F$ along $K$ is a functor $L \colon \mathcal{E} \to \mathcal{D}$ with a natural transformation $\eta \colon F \Rightarrow L \circ K$, which is universal in the sense that for any other $L' \colon \mathcal{E} \to \mathcal{D}$ with $\eta' : F \Rightarrow L' \circ K$ there exists a unique $\sigma : L \Rightarrow L'$ such that $\eta' = (\sigma \circ K) \circ \eta$.
+    Similarly, a \textbf{left Kan extension} of $F$ along $K$ is a functor $L \colon \mathcal{E} \to \mathcal{D}$ with a natural transformation $\eta \colon F \Rightarrow L \circ K$, which is universal in the sense that for any other $L' \colon \mathcal{E} \to \mathcal{D}$ with $\eta' \colon F \Rightarrow L' \circ K$ there exists a unique $\sigma \colon L \Rightarrow L'$ such that $\eta' = (\sigma \circ K) \circ \eta$.
     \[ \svg \begin{tikzcd}[row sep=5em, column sep=5em] \mathcal{C} \arrow{r}{F} \arrow[swap]{d}{K} & \mathcal{D} \\ \mathcal{E} \arrow[bend left=25]{ur}[name=L1]{L} \arrow[swap, bend right=25]{ur}[name=L2]{L'} \arrow[shorten <=2pt,shorten >=2pt,Rightarrow,to path={(L1) -- node[label=right:$\sigma$] {} (L2)}]{} \end{tikzcd} \]
     The left Kan extension, if it exists, is denoted $\textup{Lan}_K F$.
 \end{topic}
@@ -811,7 +811,7 @@
 \begin{topic}{monadic-adjunction}{monadic adjunction}
     Let $F \colon \mathcal{C} \to \mathcal{D}$ and $G \colon \mathcal{D} \to \mathcal{C}$ be \tref{adjunction}{adjoint functors} with corresponding \tref{monad}{monad} $T = GF$. The functor $G$ factors through the \tref{eilenberg-moore-category}{Eilenberg--Moore category} $\mathcal{C}^T$
     \[ \mathcal{D} \xrightarrow{\tilde{G}} \mathcal{C}^T \xrightarrow{\textup{forget}} \mathcal{C} , \]
-    with $\tilde{G}(D) = (G(D), (G \varepsilon) (D))$, where $\varepsilon : FG \Rightarrow \id_\mathcal{D}$ denotes the counit of the adjunction. The adjunction is \textbf{monadic} if $\tilde{G}$ is an \tref{equivalence-of-categories}{equivalence of categories}.
+    with $\tilde{G}(D) = (G(D), (G \varepsilon) (D))$, where $\varepsilon \colon FG \Rightarrow \id_\mathcal{D}$ denotes the counit of the adjunction. The adjunction is \textbf{monadic} if $\tilde{G}$ is an \tref{equivalence-of-categories}{equivalence of categories}.
     
     More generally, a functor $G \colon \mathcal{D} \to \mathcal{C}$ is \textbf{monadic} if it has a left adjoint $F \colon \mathcal{C} \to \mathcal{D}$ forming a monadic adjunction.
 \end{topic}
@@ -967,7 +967,7 @@
     \begin{proof}
         Let $T$ denote the composition $y_{(-)} \circ \pi_\mathcal{C}$. We will show that, for all presheaves $G \colon \mathcal{C} \to \textbf{Set}^\textup{op}$, there is a natural bijection $\Hom(T, \Delta_G) \isom \Hom_{\textbf{Set}^{\mathcal{C}^\textup{op}}}(F, G)$, where $\Delta_G$ denotes the constant functor.
         
-        Take any $\alpha \in \Hom(T, \Delta_G)$, that is, a collection of maps $\alpha_{(C, x)} \colon y_C \to G$ such that $\alpha_{(C, x)} = \alpha_{(C', x')} \circ y_f$ for all $f \colon (C, x) \to (C', x')$ in $\int^\mathcal{C} F$. By the \tref{yoneda-lemma}{Yoneda lemma}, every $\alpha_{(C, x)}$ corresponds to an element $g_{(C, x)} \in G(C)$, and we have $G(f)(g_{(C', x')}) = g_{(C, x)}$ as $G(f)$ corresponds under the Yoneda lemma to $(-) \circ y_f$. Now, the maps $\mu_C \colon F(C) \to G(C)$ given by $x \mapsto g_{(C, x)}$ define a natural transformation $\mu : F \Rightarrow G$, since
+        Take any $\alpha \in \Hom(T, \Delta_G)$, that is, a collection of maps $\alpha_{(C, x)} \colon y_C \to G$ such that $\alpha_{(C, x)} = \alpha_{(C', x')} \circ y_f$ for all $f \colon (C, x) \to (C', x')$ in $\int^\mathcal{C} F$. By the \tref{yoneda-lemma}{Yoneda lemma}, every $\alpha_{(C, x)}$ corresponds to an element $g_{(C, x)} \in G(C)$, and we have $G(f)(g_{(C', x')}) = g_{(C, x)}$ as $G(f)$ corresponds under the Yoneda lemma to $(-) \circ y_f$. Now, the maps $\mu_C \colon F(C) \to G(C)$ given by $x \mapsto g_{(C, x)}$ define a natural transformation $\mu \colon F \Rightarrow G$, since
         \[ (G(f) \circ \mu_{C'})(x') = G(f)(g_{(C', x')}) = g_{(C, x)} = (\mu_C \circ F(C))(x') \]
         for all $f \colon (C, x) \to (C', x')$. Clearly, the map $\alpha \mapsto \mu$ is invertible as $\alpha_{(C, x)}$ corresponds to $\mu_C(x)$ under the Yoneda lemma.
     \end{proof}
