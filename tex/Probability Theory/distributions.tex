@@ -180,3 +180,14 @@
 % \begin{example}{cauchy-distribution}
     
 % \end{example}
+
+\begin{topic}{boltzmann-distribution}{Boltzmann distribution}
+    Let $X$ be a set, let $\beta > 0$, and let $E \colon X \to \RR$ be a function such that $Z = \sum_{x \in X} \exp(- \beta E(x))$ is finite. The \textbf{Boltzmann distribution} on $X$ is the \tref{probability-distribution}{probability distribution} on $X$ (as a discrete space) given by
+    \[ \PP(x) = \frac{1}{Z} \exp(- \beta E(x)) \textup{ for } x \in X . \]
+    The quantity $Z$ is called the \textit{partition function}.
+\end{topic}
+
+\begin{example}{boltzmann-distribution}
+    If the partition function $Z$ can be expressed in terms of $\beta$, then the \tref{expected-value}{expected value} $\EE(E)$ can be expressed as
+    \[ - \frac{\partial \ln Z}{\partial \beta} = - \frac{1}{Z} \sum_{x \in X} \frac{\partial \exp(- \beta E(x))}{\partial \beta} = \frac{1}{Z} \sum_{x \in X} E(x) \exp(- \beta E(x)) = \sum_{x \in X} E(x) \PP(x) = \EE(E) . \]
+\end{example}
