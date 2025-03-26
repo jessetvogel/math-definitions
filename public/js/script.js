@@ -330,35 +330,24 @@ function getURLParameter(name) {
     }
     return null;
 }
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2)
-        return parts.pop().split(';').shift();
-}
 function initTheme() {
-    const cookieTheme = getCookie('theme');
-    if (cookieTheme !== undefined)
-        setTheme(cookieTheme === 'dark');
-    else
-        setTheme(false);
-    document.getElementById('button-theme').addEventListener('click', function () {
-        document.cookie = `theme=${setTheme(null) ? 'dark' : 'light'}`;
-    });
+    setTheme(localStorage.getItem('math-definitions-theme') === 'dark' ? 'dark' : 'light');
+    document.getElementById('button-theme').addEventListener('click', toggleTheme);
     setTimeout(function () {
         const sheet = window.document.styleSheets[0];
         sheet.insertRule('body, input { transition: background-color 0.5s, color 0.5s; }', sheet.cssRules.length);
     }, 100);
 }
-function setTheme(dark) {
-    if (dark === true) {
+function setTheme(theme) {
+    if (theme === 'dark') {
         document.body.classList.add('dark');
-        return true;
+        localStorage.setItem('math-definitions-theme', 'dark');
     }
-    if (dark === false) {
+    else {
         document.body.classList.remove('dark');
-        return false;
+        localStorage.setItem('math-definitions-theme', 'light');
     }
-    return setTheme(!document.body.classList.contains('dark'));
 }
-//# sourceMappingURL=script.js.map
+function toggleTheme() {
+    setTheme(document.body.classList.contains('dark') ? 'light' : 'dark');
+}

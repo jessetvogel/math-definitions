@@ -1,34 +1,23 @@
-function getCookie(name: string): string {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2)
-        return parts.pop().split(';').shift();
-}
-
 function initTheme(): void {
-    // const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const cookieTheme = getCookie('theme');
-    if (cookieTheme !== undefined)
-        setTheme(cookieTheme === 'dark');
-    else
-        setTheme(false); // prefersDark
-    document.getElementById('button-theme').addEventListener('click', function () {
-        document.cookie = `theme=${setTheme(null) ? 'dark' : 'light'}`;
-    });
-    setTimeout(function () { // little hack to prevent initial transition, but it works
+    setTheme(localStorage.getItem('math-definitions-theme') === 'dark' ? 'dark' : 'light');
+    document.getElementById('button-theme').addEventListener('click', toggleTheme);
+    setTimeout(function () {
         const sheet = window.document.styleSheets[0];
         sheet.insertRule('body, input { transition: background-color 0.5s, color 0.5s; }', sheet.cssRules.length);
     }, 100);
 }
 
-function setTheme(dark: boolean): boolean {
-    if (dark === true) {
+function setTheme(theme: 'dark' | 'light'): void {
+    if (theme === 'dark') {
         document.body.classList.add('dark');
-        return true;
+        localStorage.setItem('math-definitions-theme', 'dark');
     }
-    if (dark === false) {
+    else {
         document.body.classList.remove('dark');
-        return false;
+        localStorage.setItem('math-definitions-theme', 'light');
     }
-    return setTheme(!document.body.classList.contains('dark'));
+}
+
+function toggleTheme(): void {
+    setTheme(document.body.classList.contains('dark') ? 'light' : 'dark');
 }
