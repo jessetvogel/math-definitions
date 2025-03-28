@@ -735,3 +735,8 @@
         Any free group $F_S$ is, by the \tref{AT:seifert-van-kampen-theorem}{Seifert--van Kampen theorem}, the \tref{AT:fundamental-group}{fundamental group} of a bouquet of circles $(X, x) = \coprod_{s \in S} (S^1, *)$. In particular, $(X, x)$ is a (pointed) connected $1$-dimensional \tref{AT:cw-complex}{CW-complex}. By the theory of \tref{TO:covering-space}{covering spaces}, the subgroups $H \subset \pi_1(X, x) = F_S$ are in bijection with isomorphism classes of connected covering spaces $p \colon (Y, y) \to (X, x)$ with $\pi_1(Y, y) \cong H$. Now, a covering space of a connected $1$-dimensional CW-complex is again a connected $1$-dimensional CW-complex, and hence \tref{AT:homotopy-equivalence}{homotopy equivalent} to a bouquet of circles, whose fundamental group is free. Therefore, $H$ is free.
     \end{proof}
 \end{example}
+
+\begin{topic}{central-product}{central product}
+    Let $H$ and $K$ be \tref{group}{groups}, let $H' \subseteq Z(H)$ and $K' \subseteq Z(K)$ be \tref{subgroup}{subgroups} of the \tref{group-center}{centers} of $H$ and $K$, respectively, and let $\varphi \colon H' \to K'$ be an \tref{CT:isomorphism}{isomorphism} between them. The \textbf{central product} of $H$ and $K$ is the \tref{quotient-group}{quotient}
+    \[ (H \times K) / N \quad \textup{ with } \quad N = \left\{ (h', k') \in H' \times K' \mid \varphi(h) = (k')^{-1} \right\} . \]
+\end{topic}
