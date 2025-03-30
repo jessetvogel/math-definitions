@@ -1,0 +1,20 @@
+\begin{topic}{linear-program}{linear program}
+    A \textbf{linear program (LP)} is a problem of the following form. Given some $m, n \ge 0$, matrix $A \in \RR^{m \times n}$ and vectors $b \in \RR^m$ and $c \in \RR^n$,
+    \[ \begin{gathered}
+        \textup{find a vector } x \in \RR^n \textup{ that maximizes } c \cdot x \\
+        \textup{ subject to } Ax \le b \textup{ and } x \ge 0 .
+    \end{gathered} \]
+\end{topic}
+
+\begin{topic}{dual-linear-program}{dual linear program}
+    The \textbf{dual} of a \tref{linear-program}{linear program} $(A \in \RR^{m \times n}, b \in \RR^m, c \in \RR^n)$ is the following problem:
+    \[ \begin{gathered}
+        \textup{find a vector } y \in \RR^m \textup{ that minimizes } b \cdot y \\
+        \textup{ subject to } A^T y \ge c \textup{ and } y \ge 0 .
+    \end{gathered} \]
+\end{topic}
+
+\begin{topic}{qubo}{QUBO problem}
+    A \textbf{quadratic unconstrained binary optimization (QUBO)} problem is a problem of the following form. Given some real-valued $n \times n$ matrix $Q$, find an $x \in \{ 0, 1 \}^n$ that minimizes
+    \[ x^T Q x = \sum_{i = 1}^{n} \sum_{j = 1}^{n} Q_{ij} x_i x_j . \]
+\end{topic}

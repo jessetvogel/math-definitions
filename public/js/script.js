@@ -198,6 +198,7 @@ const categories = {
     "LO": "Logic",
     "MT": "Measure Theory",
     "NT": "Number Theory",
+    "OR": "Operations Research",
     "PT": "Probability Theory",
     "RT": "Representation Theory",
     "ST": "Set Theory",
