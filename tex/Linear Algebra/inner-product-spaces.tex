@@ -15,6 +15,25 @@
 
 \begin{topic}{polarization-identity}{polarization identity}
     Let $(V, \langle \cdot, \cdot \rangle)$ be an \tref{inner-product}{inner product space}. The polarization identity states that
-    \[ \operatorname{Re} \langle x, y \rangle = \frac{1}{2} ( \norm{x + y} - \norm{x} - \norm{y} ) , \]
-    where $\norm{x} = \langle x, x \rangle$.
+    \[ \operatorname{Re} \langle x, y \rangle = \frac{1}{2} ( \norm{x + y}^2 - \norm{x}^2 - \norm{y}^2 ) , \]
+    where $\norm{x}^2 = \langle x, x \rangle$.
 \end{topic}
+
+\begin{topic}{johnson-lindenstrauss-lemma}{Johnson--Lindenstrauss lemma}
+    Consider a non-empty finite set $X \subset \RR^n$ for some $n \ge 0$. The \textbf{Johnson--Lindenstrauss lemma} states that for all $0 < \varepsilon < 1$ and integers $k \ge (8 \ln |X|) / \varepsilon^2$, there exists a \tref{linear-map}{linear map} $f \colon \RR^n \to \RR^k$ such that
+    \[ (1 - \varepsilon) \norm{x - y}^2 \le \norm{f(x) - f(y)}^2 \le (1 + \varepsilon) \norm{x - y}^2 \]
+    for all $x, y \in X$.
+\end{topic}
+
+\begin{example}{johnson-lindenstrauss-lemma}
+    Consider the question of how many vectors $v_1, \ldots, v_n \in \RR^k$ could exist that are `nearly orthogonal', that is, such that
+    \[ |\langle v_i, v_i \rangle - 1| \le \delta \quad \textup{ and } \quad |\langle v_i, v_j \rangle| \le \delta \]
+    for some $0 < \delta < 1$, for all $i \ne j$.
+    
+    If $n$ were to be small enough such that $k \ge 8 \ln (n + 1) / \varepsilon^2$, we could apply the Johnson--Lindenstrauss lemma to $X = \{ 0, e_1, e_2, \ldots, e_n \} \subset \RR^n$ with $\varepsilon = \delta / 2$ to obtain a linear map $f \colon \RR^n \to \RR^k$. Defining $v_i = f(e_i)$, we would find that
+    \[ (1 - \varepsilon) \le \norm{v_i}^2 \le (1 + \varepsilon) \quad \textup{ and hence } \quad |\langle v_i, v_i \rangle| \le \varepsilon < \delta \]
+    for all $i$, and also, using the \tref{polarization-identity}{polarization identity}, that
+    \[ |\langle v_i, v_j \rangle| = \left| \tfrac{1}{2} \left( \norm{v_i}^2 + \norm{v_j}^2 - \norm{v_i - v_j}^2 \right) \right| \le 2 \varepsilon = \delta \]
+    for all $i \ne j$, since $\norm{v_i}^2, \norm{v_j}^2 \in [1 - \varepsilon, 1 + \varepsilon]$ and $\norm{v_i - v_j}^2 \in [2 - 2 \varepsilon, 2 + 2 \varepsilon]$. Therefore, this is possible for
+    \[ n \le \exp(k \varepsilon^2 / 8) - 1 . \]
+\end{example}
