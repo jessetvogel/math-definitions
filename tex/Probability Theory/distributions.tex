@@ -191,3 +191,17 @@
     If the partition function $Z$ can be expressed in terms of $\beta$, then the \tref{expected-value}{expected value} $\EE(E)$ can be expressed as
     \[ - \frac{\partial \ln Z}{\partial \beta} = - \frac{1}{Z} \sum_{x \in X} \frac{\partial \exp(- \beta E(x))}{\partial \beta} = \frac{1}{Z} \sum_{x \in X} E(x) \exp(- \beta E(x)) = \sum_{x \in X} E(x) \PP(x) = \EE(E) . \]
 \end{example}
+
+\begin{topic}{laplace-distribution}{Laplace distribution}
+    The \textbf{Laplace distribution} with parameters $\mu \in \RR$ and $b > 0$ is the \tref{probability-distribution}{probability distribution} with \tref{probability-density-function}{PDF}
+    \[ f(x) = \frac{1}{2b} \exp \left( - \frac{|x - \mu|}{b} \right) \]
+    for $x \in \RR$.
+\end{topic}
+
+\begin{example}{laplace-distribution}
+    A \tref{random-variable}{random variable} $X$ with Laplace distribution has
+    \begin{itemize}
+        \item \tref{expected-value}{expected value} $\EE(X) = \mu$,
+        \item \tref{variance}{variance} $\operatorname{Var}(X) = 2 b^2$.
+    \end{itemize}
+\end{example}
