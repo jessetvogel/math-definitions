@@ -233,3 +233,20 @@
     \[ \Gamma(z) = \int_0^\infty t^{z - 1} e^{-t} dt \]
     for $z \in \CC$ with $\operatorname{Re}(z) > 0$. The function can be analytically extended to the whole complex plane.
 \end{topic}
+
+\begin{topic}{hermite-polynomial}{Hermite polynomial}
+    For $n \ge 0$, the $n$-th \textbf{Hermite polynomial} is the polynomial
+    \[ H_n = (-1)^{n} e^{x^2} \frac{d^n}{dx^n} e^{-x^2} \in \ZZ[x] . \]
+\end{topic}
+
+\begin{example}{hermite-polynomial}
+    The first Hermite polynomials are given by
+    \[ \begin{aligned}
+        H_0 &= 1 , \\
+        H_1 &= 2 x , \\
+        H_2 &= 4 x^2 - 2 , \\
+        H_3 &= 8 x^3 - 12 x , \\
+        H_4 &= 16 x^4 - 48 x^2 + 12 , \\
+        H_5 &= 32 x^5 - 160 x^3 + 120 x .
+    \end{aligned} \]
+\end{example}
