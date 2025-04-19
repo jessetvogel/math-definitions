@@ -85,6 +85,19 @@
     A \textbf{Heyting algebra} is a \tref{bounded-lattice}{bounded lattice} $(H, \le)$ together with a binary operation $\rightarrow$, called \textit{Heyting implication}, such that $x \wedge y \le z$ if and only if $x \le y \rightarrow z$ for all $x, y, z \in H$.
 \end{topic}
 
+\begin{example}{heyting-algebra}
+    Let $X$ be a set. The set $\operatorname{Sub}(X)$ of subsets of $X$ is a Heyting algebra with
+    \[ \begin{aligned}
+        \top &= X \\
+        \bot &= \varnothing \\
+        A \le B &= A \subseteq B \\
+        A \land B &= A \cap B \\
+        A \lor B &= A \cup B \\
+        A \to B &= (X \setminus A) \cup B \\
+    \end{aligned} \]
+    for all $A, B \subseteq X$.
+\end{example}
+
 \begin{topic}{binary-relation}{binary relation}
     A \textbf{binary relation} $R$ over two sets $X$ and $Y$ is a subset of the product $X \times Y$.
     

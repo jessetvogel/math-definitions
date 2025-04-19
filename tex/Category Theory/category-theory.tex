@@ -1116,3 +1116,23 @@
         \item The full subcategory of \tref{AG:affine-scheme}{affine schemes} in the category of \tref{AG:scheme}{schemes} is reflective, with reflector $X \mapsto \Spec \Gamma(X, \mathcal{O}_X)$.
     \end{itemize}
 \end{example}
+
+\begin{topic}{coherent-category}{coherent category}
+    A \textbf{coherent category} is a \tref{regular-category}{regular category} $\mathcal{C}$ such that, for all objects $X$ of $\mathcal{C}$, the \tref{ST:partial-order}{partially ordered sets} $\operatorname{Sub}(X)$ of \tref{subobject}{subobjects} of $X$ have finite unions that are preserved by the base change functors $f^* \colon \operatorname{Sub}(Y) \to \operatorname{Sub}(X)$ for morphisms $f \colon X \to Y$ in $\mathcal{C}$.
+\end{topic}
+
+\begin{topic}{heyting-category}{Heyting category}
+    A \textbf{Heyting category} is a \tref{coherent-category}{coherent category} $\mathcal{C}$ such that, for all morphisms $f \colon X \to Y$, the base change functor $f^* \colon \operatorname{Sub}(Y) \to \operatorname{Sub}(X)$ has a \tref{adjunction}{right adjoint} $\forall_f \colon \operatorname{Sub}(X) \to \operatorname{Sub}(Y)$.
+\end{topic}
+
+\begin{example}{heyting-category}
+    Given a Heyting category $\mathcal{C}$, the subobject posets $\operatorname{Sub}(X)$ are \tref{ST:heyting-algebra}{Heyting algebras}. In particular, the Heyting implication of $m_1 \colon A \hookrightarrow X$ and $m_2 \colon B \hookrightarrow X$ in $\operatorname{Sub}(X)$ is given by
+    \[ (A \to B) = \forall_{m_1} (A \land B \hookrightarrow A) \in \operatorname{Sub}(X) . \]
+\end{example}
+
+\begin{example}{heyting-category}
+    The category $\textbf{Set}$ is a Heyting category. For any map $f \colon X \to Y$ of sets, the base change functor $f^* \colon \operatorname{Sub}(Y) \to \operatorname{Sub}(X)$ maps a subset $B \subseteq Y$ to $f^{-1}(B) \subseteq X$. Its right adjoint is given by
+    \[ \forall_f \colon \operatorname{Sub}(X) \to \operatorname{Sub}(Y), \quad A \mapsto \{ y \in Y \mid f^{-1}(y) \subseteq A \} \]
+    while its left adjoint is given by
+    \[ \exists_f \colon \operatorname{Sub}(X) \to \operatorname{Sub}(Y), \quad A \mapsto f(A) . \]
+\end{example}
