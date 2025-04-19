@@ -6,6 +6,7 @@ const START_TEX_FILE: &str = r"
 \usepackage{amssymb}
 % \usepackage{tikz-cd} \usetikzlibrary{decorations.pathmorphing}
 % \usepackage{quantikz}
+\usepackage{stmaryrd}
 
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -144,6 +145,7 @@ impl TexSvg {
         {
             Ok(output) => {
                 if output.status.code() != Some(0) {
+                    println!("{}", String::from_utf8(output.stdout).unwrap());
                     return Err("Failed to run `pdflatex`".to_owned());
                 } else {
                     Ok(())

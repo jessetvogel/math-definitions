@@ -1,0 +1,165 @@
+\begin{topic}{signature}{signature}
+    A \textbf{signature} is a collection of
+    \begin{itemize}
+        \item \textit{sorts} $S, T, \ldots$, 
+        \item \textit{function symbols} $f \colon S_1 \times \ldots \times S_n \to T$ for sorts $S_1, \ldots, S_n$ and $T$, and some $n \ge 0$ called the \textit{arity} of $f$,
+        \item \textit{relation symbols} $R \subseteq S_1 \times \ldots \times S_n$ for sorts $S_1, \ldots, S_n$, and some $n \ge 0$ called the \textit{arity} of $R$.
+    \end{itemize}
+    Function symbols of arity zero are also called \textit{constants}.
+\end{topic}
+
+\begin{topic}{structure}{structure}
+    Let $\Sigma$ be a \tref{signature}{signature} and let $\mathcal{C}$ be a \tref{CT:category}{category} with finite products. A \textbf{$\Sigma$-structure} in $\mathcal{C}$ is an assignment of
+    \begin{itemize}
+        \item an object $\llbracket S \rrbracket$ of $\mathcal{C}$ to each sort $S$ of $\Sigma$,
+        \item a morphism $\llbracket f \rrbracket \colon \llbracket S_1 \rrbracket \times \cdots \times \llbracket S_n \rrbracket \to \llbracket T \rrbracket$ to each function symbol $f \colon S_1 \times \ldots \times S_n \to T$ of $\Sigma$,
+        \item a \tref{CT:subobject}{subobject} $\llbracket R \rrbracket$ of $\llbracket S_1 \rrbracket \times \cdots \times \llbracket S_n \rrbracket$ to each relation symbol $R \subseteq S_1 \times \ldots \times S_n$ of $\Sigma$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{term}{term}
+    Let $\Sigma$ be a \tref{signature}{signature}. For any sort $S$ of $\Sigma$, denote by $x_1^S, x_2^S, \ldots$ \textit{variables} of sort $S$. An \textbf{$S$-term} of $\Sigma$ is defined inductively as follows:
+    \begin{itemize}
+        \item All constants of sort $S$ are $S$-terms.
+        \item All variables of sort $S$ are $S$-terms.
+        \item If $t_1, \ldots, t_n$ are terms of sorts $T_1, \ldots, T_n$, and $f \colon T_1, \ldots, T_n \to S$ is a function symbol, then $f(t_1, \ldots, t_n)$ is a $T$-term.
+    \end{itemize}
+    A \textbf{closed $S$-term} of $\Sigma$ is an $S$-term that does not contain any variables.
+\end{topic}
+
+\begin{topic}{formula}{(atomic) formula}
+    Let $\Sigma$ be a \tref{signature}{signature}. A \textbf{$\Sigma$-atomic formula} is an expression of one of the forms:
+    \begin{itemize}
+        \item $t = s$, for $t$ and $s$ \tref{term}{terms} of the same sort,
+        \item $R(t_1, \ldots, t_n)$, for $R \subseteq S_1 \times \ldots \times S_n$ a relation symbol and $t_1, \ldots, t_n$ terms of sorts $S_1, \ldots, S_n$, respectively.
+    \end{itemize}
+    A \textbf{$\Sigma$-formula} is defined inductively as follows:
+    \begin{itemize}
+        \item $\top$ and $\bot$ are formulas,
+        \item a $\Sigma$-atomic formula is a $\Sigma$-formula,
+        \item if $\varphi$ is a $\Sigma$-formula, then $\neg \varphi$ is a $\Sigma$-formula,
+        \item if $\varphi$ and $\psi$ are $\Sigma$-formulas, then $\varphi \land \psi$ and $\varphi \lor \psi$ and $\varphi \to \psi$ and $\neg \varphi$ are $\Sigma$-formulas,
+        \item if $\varphi$ is a $\Sigma$-formula and $x$ is a variable of sort $S$, then $\exists x \varphi$ and $\forall x \varphi$ are formulas of $\Sigma$.
+    \end{itemize}
+\end{topic}
+
+\begin{topic}{interpretation}{interpretation}
+    Let $\Sigma$ be a \tref{signature}{signature} and let $\llbracket \cdot \rrbracket$ be a \tref{structure}{$\Sigma$-structure} in a \tref{CT:heyting-category}{Heyting category} $\mathcal{C}$.
+    For any \tref{term}{term} $t$, if $FV(t) = \{ x_1^{S_1}, \ldots, x_n^{S_n} \}$ are the free variables appearing in $t$, write $\llbracket FV(t) \rrbracket = \llbracket S_1 \rrbracket \times \cdots \times \llbracket S_n \rrbracket$.
+    The \textbf{interpretation} of a term $t$ of sort $S$ is a morphism $\llbracket t \rrbracket \colon \llbracket FV(t) \rrbracket \to \llbracket S \rrbracket$ inductively defined as follows:
+    \begin{itemize}
+        \item If $t$ is a variable $x^S$ of sort $S$, then $\llbracket x^S \rrbracket \colon \llbracket S \rrbracket \to \llbracket S \rrbracket$ is the identity morphism.
+        \item If $t$ is $f(t_1, \ldots, t_n)$ for some function symbol $f \colon S_1 \times \ldots \times S_n \to T$ and terms $t_1, \ldots, t_n$, then $\llbracket f(t_1, \ldots, t_n) \rrbracket$ is the composite
+        \[ \llbracket FV(f(t_1, \ldots, t_n)) \rrbracket \xrightarrow{(\alpha_i)_{i = 1}^{n}} \prod_{i = 1}^{n} \llbracket S_i \rrbracket \xrightarrow{\llbracket f \rrbracket} \llbracket T \rrbracket , \]
+        where $\alpha_i$ is the composite
+        \[ \llbracket FV(f(t_1, \ldots, t_n)) \rrbracket \xrightarrow{\pi_i} \llbracket FV(t_i) \rrbracket \xrightarrow{\llbracket t_i \rrbracket} \llbracket S_i \rrbracket \]
+        with $\pi_i$ the projections.
+    \end{itemize}
+    The \textbf{interpretation} of a \tref{formula}{formula} $\varphi$ is inductively defined as a subobject $\llbracket \varphi \rrbracket$ of $\llbracket FV(\varphi) \rrbracket$ as follows:
+    \begin{itemize}
+        \item If $\varphi$ is $\top$, then $\llbracket \top \rrbracket \to \llbracket FV(\top) \rrbracket = 1$ is the maximal subobject.
+        \item If $\varphi$ is $t = s$ for terms $t$ and $s$ of sort $S$, then $\llbracket \varphi \rrbracket \to \llbracket FV(\varphi) \rrbracket$ is the \tref{CT:equalizer}{equalizer} of
+        \[ \svg \begin{tikzcd}[column sep=4em]
+            \llbracket FV(\varphi) \rrbracket \arrow[shift left=0.5em]{r}{\llbracket t \rrbracket \circ \pi} \arrow[shift right=0.5em, swap]{r}{\llbracket s \rrbracket \circ \pi'} & \llbracket S \rrbracket
+        \end{tikzcd} \]
+        where $\pi \colon \llbracket FV(\varphi) \rrbracket \to \llbracket FV(t) \rrbracket$ and $\pi' \colon \llbracket FV(\varphi) \rrbracket \to \llbracket FV(s) \rrbracket$ are the projections.
+        \item If $\varphi$ is $R(t_1, \ldots, t_n)$ for some relation symbol $R \colon S_1 \times \ldots \times S_n \to T$ and terms $t_1, \ldots, t_n$, then $\llbracket \varphi \rrbracket \to \llbracket FV(\varphi) \rrbracket$ is the subobject $\alpha^* \llbracket R \rrbracket$ where $\alpha$ is the composite
+        \[ \llbracket FV(\varphi) \rrbracket \to \prod_{i = 1}^{n} \llbracket FV(t_i) \rrbracket \xrightarrow{\prod_{i = 1}^{n} \llbracket t_i \rrbracket} \prod_{i = 1}^{n} \llbracket S_i \rrbracket . \]
+        \item Given $\llbracket \varphi \rrbracket \to \llbracket FV(\varphi) \rrbracket$ and $\llbracket \psi \rrbracket \to \llbracket FV(\psi) \rrbracket$, define
+        \[ \begin{aligned}
+            \llbracket \varphi \land \psi \rrbracket &= \pi_1^* \llbracket \varphi \rrbracket \land \pi_2^* \llbracket \psi \rrbracket \textup{ in } \operatorname{Sub}(\llbracket FV(\varphi \land \psi) \rrbracket) \\
+            \llbracket \varphi \lor \psi \rrbracket &= \pi_1^* \llbracket \varphi \rrbracket \lor \pi_2^* \llbracket \psi \rrbracket \textup{ in } \operatorname{Sub}(\llbracket FV(\varphi \land \psi) \rrbracket) \\
+            \llbracket \neg \varphi \rrbracket &= \llbracket \varphi \rrbracket \to \bot \textup{ in } \operatorname{Sub}(\llbracket FV(\varphi) \rrbracket) ,
+        \end{aligned} \]
+        where $\llbracket FV(\varphi) \rrbracket \xleftarrow{\pi_1} FV(\varphi \land \psi) \rrbracket \xrightarrow{\pi_2} \llbracket FV(\psi) \rrbracket$ are the natural projections.
+        \item If $\varphi$ is $\exists x \; \psi$ for some variable $x$ and formula $\psi$, then $\llbracket \varphi \rrbracket \to \llbracket FV(\varphi) \rrbracket$ is the image of the composite
+        \[ (\pi')^* \llbracket \psi \rrbracket \to \llbracket FV(\psi) \cup \{ x \} \rrbracket \xrightarrow{\pi \pi'} \llbracket FV(\varphi) \rrbracket \]
+        where $\pi \colon \llbracket FV(\psi) \rrbracket \to \llbracket FV(\varphi) \rrbracket$ and $\pi' \colon \llbracket FV(\psi) \cup \{ x \} \rrbracket \to \llbracket FV(\psi) \rrbracket$ are the natural projections.
+        \item If $\varphi$ is $\forall x \; \psi$ for some variable $x$ and formula $\psi$, then $\llbracket \varphi \rrbracket \to \llbracket FV(\varphi) \rrbracket$ is the subobject $\forall_{\pi \pi'} ((\pi')^* \llbracket \psi \rrbracket)$ of $\llbracket FV(\varphi) \rrbracket$, where $\pi \colon \llbracket FV(\psi) \rrbracket \to \llbracket FV(\varphi) \rrbracket$ and $\pi' \colon \llbracket FV(\psi) \cup \{ x \} \rrbracket \to \llbracket FV(\psi) \rrbracket$ are the natural projections, and $\forall_{\pi \pi'}$ is the right-adjoint of the base change functor $(\pi \pi')^* \colon \operatorname{Sub}(\llbracket FV(\varphi) \rrbracket) \to \operatorname{Sub}(\llbracket FV(\psi) \cup \{ x \} \rrbracket)$.
+    \end{itemize}
+\end{topic}
+
+\begin{example}{interpretation}
+    Let $\mathcal{C} = \textbf{Set}$. A $\Sigma$-structure corresponds to a choice of
+    \begin{itemize}
+        \item set $\llbracket S \rrbracket$ for each sort $S$ (interpreted as the set of values a variable of sort $S$ can attain),
+        \item function $\llbracket f \rrbracket \colon \llbracket S_1 \rrbracket \times \cdots \times \llbracket S_n \rrbracket \to \llbracket T \rrbracket$ for each function symbol $f \colon S_1 \times \ldots \times S_n \to T$,
+        \item subset $\llbracket R \rrbracket \subseteq \llbracket S_1 \rrbracket \times \cdots \times \llbracket S_n \rrbracket$ for each relation symbol $R \subseteq S_1 \times \ldots \times S_n$ (interpreted as the subset of values for which the relation holds).
+    \end{itemize}
+    The interpretation $\llbracket t \rrbracket \colon \llbracket FV(t) \rrbracket \to \llbracket S \rrbracket$ of a term $t$ of sort $S$ is interpreted as follows: it assigns a value in $\llbracket S \rrbracket$ to all possible values of the free variables in $t$.
+
+    The interpretation $\llbracket \varphi \rrbracket \to \llbracket FV(\varphi) \rrbracket$ of a formula $\varphi$ is interpreted as follows: it corresponds to the subset of values of the free variables for which the formula holds.
+\end{example}
+
+\begin{topic}{validity}{validity}
+    Let $\Sigma$ be a \tref{signature}{signature} and let $\llbracket \cdot \rrbracket$ be a \tref{structure}{$\Sigma$-structure} in a \tref{CT:heyting-category}{Heyting category} $\mathcal{C}$.
+    A \tref{formula}{formula} $\varphi$ is said to be \textbf{valid} under $\llbracket \cdot \rrbracket$ if $\llbracket \varphi \rrbracket \to \llbracket FV(\varphi) \rrbracket$ is the maximal subobject.
+
+    A \tref{sequent}{sequent} $\psi \vdash \varphi$ is said to be \textbf{valid} under $\llbracket \cdot \rrbracket$ if $\pi_\psi^* \llbracket \psi \rrbracket \le \pi_\varphi^* \llbracket \varphi \rrbracket$ as subobjects of $\llbracket FV(\psi, \varphi) \rrbracket$, where
+    \[ \svg \begin{tikzcd} \llbracket FV(\psi) \rrbracket & \arrow[swap]{l}{\pi_\psi} \llbracket FV(\psi, \varphi) \rrbracket \arrow{r}{\pi_\varphi} & \llbracket FV(\varphi) \rrbracket \end{tikzcd} \]
+    are the natural projections.
+\end{topic}
+
+\begin{topic}{sequent}{sequent}
+    Let $\Sigma$ be a \tref{signature}{signature}. A \textbf{$\Sigma$-sequent} is an expression of the form
+    \[ \psi \vdash_\sigma \varphi \]
+    where $\psi$ and $\varphi$ are \tref{formula}{$\Sigma$-formulas} and $\sigma$ is a finite list of variables that contains all variables occuring freely in $\varphi$ and $\psi$.
+\end{topic}
+
+\begin{topic}{theory}{theory}
+    Let $\Sigma$ be a \tref{signature}{signature}. A \textbf{$\Sigma$-theory} is a set of \tref{sequent}{sequents} of $\Sigma$. These sequents are called the \textit{axioms} of the theory.
+\end{topic}
+
+\begin{topic}{model}{model}
+    Let $\Sigma$ be a \tref{signature}{signature}, $T$ a \tref{theory}{theory}, and $\mathcal{C}$ a \tref{CT:heyting-category}{Heyting category}.
+    A \textbf{model} of $T$ in $\mathcal{C}$ is a \tref{structure}{$\Sigma$-structure} in $\mathcal{C}$ for which all axioms in $T$ are \tref{validity}{valid}.
+\end{topic}
+
+\begin{example}{model}
+    Let $\Sigma = \{ S, e, \cdot \}$ be the signature with sort $S$, constant $e$ of sort $S$, and binary function symbol $\cdot \colon S \times S \to S$. Let $T_\textup{gr}$ be the theory consisting of the following sequents:
+    \[ \begin{aligned}
+        \top &\vdash \forall x \; \forall y \; \forall z \; (((x \cdot y) \cdot z) = (x \cdot (y \cdot z))) \\
+        \top &\vdash \forall x \; ((e \cdot x) = 1) \\
+        \top &\vdash \forall x \; \exists y \; ((x \cdot y) = e)
+    \end{aligned} \]
+    A model for $T_\textup{gr}$ in $\mathcal{C}$ corresponds precisely to a \tref{CT:group-object}{group object} in $\mathcal{C}$.
+\end{example}
+
+% \begin{topic}{internal-type-theory}{internal type theory}
+%     Let $\mathcal{C}$ be a \tref{CT:small-category}{small} \tref{CT:regular-category}{regular category}. The \textbf{internal type theory} of $\mathcal{C}$ is the \tref{theory}{theory} $\operatorname{Lang}(\mathcal{C})$ whose
+%     \begin{itemize}
+%         \item sorts are objects of $\mathcal{C}$,
+%         \item function symbols are the morphisms in $\mathcal{C}$,
+%         \item relation symbols are the subobjects in $\mathcal{C}$,
+%         \item \TODO{axioms} are the containments in $\mathcal{C}$.
+%     \end{itemize}
+%     \TODO{Split signature and theory part?}
+% \end{topic}
+
+\begin{topic}{syntactic-category}{syntactic category}
+    Let $T$ be a \tref{theory}{theory}. The \textbf{syntactic category} of $T$ is the \tref{CT:category}{category} $\operatorname{Syn}(T)$ defined as follows. Its objects are \tref{formula}{formulas}, up to the renaming of free variables.
+    A \textit{functional relation} from $\varphi(x_1, \ldots, x_n)$ to $\psi(y_1, \ldots, y_m)$ is a formula $\chi(x_1, \ldots, x_n, y_1, 
+    \ldots, y_m)$ such that the sequents
+    \[ \begin{aligned}
+        \chi(x_1, \ldots, x_n, y_1, \ldots, y_m) \vdash \varphi(x_1, \ldots, x_m) \land \psi(y_1, \ldots, y_m) \\
+        \chi(x_1, \ldots, x_n, y_1, \ldots, y_m) \land \chi(x_1, \ldots, x_n, y'_1, \ldots, y'_m) \vdash y_1 = y'_1 \land \cdots \land y_m = y'_m \\
+        \varphi(x_1, \ldots, x_m) \vdash \exists y_1 \cdots \exists y_m \chi(x_1, \ldots, x_m, y_1, \ldots, y_m)
+    \end{aligned} \]
+    are all in $T$. A morphism from $\varphi$ to $\psi$ is an equivalence class $[\chi]$ of functional relations from $\varphi$ to $\psi$, where $\chi$ and $\chi'$ are logically equivalent.
+\end{topic}
+
+\begin{topic}{tautology}{tautology}
+    Let $T$ be a \tref{theory}{theory}. A \textbf{tautology} is a \tref{formula}{formula} that is valid in all \tref{model}{models} of $T$.
+\end{topic}
+
+\begin{topic}{consistent-theory}{consistent theory}
+    A \tref{theory}{theory} $T$ is \textbf{consistent} or \textbf{satisfiable} if it has at least one \tref{model}{model}.
+\end{topic}
+
+\begin{topic}{complete-theory}{complete theory}
+    A \tref{theory}{theory} $T$ is \textbf{complete} if for every formula $\varphi$, either $\vdash \varphi$ or $\vdash \neg \varphi$ is in $T$.
+\end{topic}
+
+\begin{topic}{semantic-consequence}{semantic consequence}
+    Let $T$ be a \tref{theory}{theory}. A \tref{formula}{formula} $\varphi$ is a \textbf{semantic consequence} of $T$, denoted $T \models \varphi$, if $\varphi$ is \tref{validity}{valid} in every \tref{model}{model} of $T$.
+\end{topic}
