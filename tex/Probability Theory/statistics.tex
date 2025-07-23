@@ -122,6 +122,9 @@
     
     Then the \textbf{Cramér--Rao bound} states that any \tref{point-estimator}{estimator} $W(X_1, \ldots, X_n)$ where $\EE_\theta(W(X_1, \ldots, X_n))$ is a differentiable function of $\theta$ satisfies
     \[ \operatorname{Var}_\theta(W(X)) \ge \frac{\left( \frac{d}{d \theta} \EE_\theta(W(X)) \right)^2}{\EE_\theta\left(\left(\frac{\partial}{\partial \theta} \log f(X; \theta)\right)^2\right)} . \]
+    When $W(X)$ is \tref{unbiased-estimator}{unbiased}, the Cramér--Rao bound reduces to
+    \[ \operatorname{Var}_\theta(W(X)) \ge \frac{1}{I_X(\theta)} \]
+    where $I_X(\theta)$ denotes the \tref{fisher-information}{Fisher information} of $X$.
 \end{topic}
 
 \begin{topic}{rao-blackwell-theorem}{Rao--Blackwell theorem}
