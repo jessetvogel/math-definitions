@@ -136,3 +136,9 @@
     \[ \int_B \PP(A \mid \mathcal{B}) d \PP = \PP(A \cap B) \quad \textup{ for all } B \in \mathcal{B} . \]
     For any $A \in \mathcal{E}$, define $\mu_{X \mid \mathcal{B}}(A \mid \mathcal{B}) = \PP(X^{-1}(A) \mid \mathcal{B})$. For any outcome $\omega \in \Omega$, the function $\mu_{X \mid \mathcal{B}}(- \mid \mathcal{B})(\omega) \colon \mathcal{E} \to \RR$ is called the \textbf{conditional probability distribution} of $X$ given $\mathcal{B}$. If it is a probability measure on $\mathcal{E}$, it is called \textbf{regular}.
 \end{topic}
+
+\begin{topic}{markov-inequality}{Markov's inequality}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X \colon \Omega \to \RR_{\ge 0}$ a non-negative \tref{random-variable}{random variable}. \textbf{Markov's inequality} states that
+    \[ \mathbb{P}(X \ge a) \le \frac{\mathbb{E}(X)}{a} \]
+    for any $a > 0$, where $\mathbb{E}(X)$ denotes the \tref{expected-value}{expected value} of $X$.
+\end{topic}
