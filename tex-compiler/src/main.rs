@@ -156,7 +156,7 @@ fn find_tex_files() -> Vec<(&'static str, PathBuf)> {
                 && entry
                     .file_name()
                     .to_str()
-                    .map_or(false, |s| s.ends_with(".tex") && !s.starts_with("--"))
+                    .is_some_and(|s| s.ends_with(".tex") && !s.starts_with("--"))
             {
                 tex_files.push((prefix, entry.path()));
             }
@@ -167,20 +167,20 @@ fn find_tex_files() -> Vec<(&'static str, PathBuf)> {
 
 fn write_topics_js(parser: &Parser) -> Result<()> {
     let mut topics_js = File::create(TOPICS_JS)?;
-    topics_js.write(b"const topics = {\n")?;
+    topics_js.write_all(b"const topics = {\n")?;
     for (uid, name) in parser.topics() {
-        topics_js.write(format!("  \"{}\": \"{}\",\n", uid, name).as_bytes())?;
+        topics_js.write_all(format!("  \"{}\": \"{}\",\n", uid, name).as_bytes())?;
     }
-    topics_js.write(b"}")?;
+    topics_js.write_all(b"}")?;
     Ok(())
 }
 
 fn write_examples_js(parser: &Parser) -> Result<()> {
     let mut examples_js = File::create(EXAMPLES_JS)?;
-    examples_js.write(b"const examples = [\n")?;
+    examples_js.write_all(b"const examples = [\n")?;
     for uid in parser.examples() {
-        examples_js.write(format!("  \"{}\",\n", uid).as_bytes())?;
+        examples_js.write_all(format!("  \"{}\",\n", uid).as_bytes())?;
     }
-    examples_js.write(b"]")?;
+    examples_js.write_all(b"]")?;
     Ok(())
 }

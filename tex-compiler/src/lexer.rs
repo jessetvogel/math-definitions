@@ -59,10 +59,8 @@ impl Lexer {
 
     pub fn next_token(&mut self) -> Result<Option<Token>> {
         // when at end of line, read new line
-        if self.token_start + 1 >= self.char_indices.len() {
-            if !self.read_line()? {
-                return Ok(None);
-            }
+        if self.token_start + 1 >= self.char_indices.len() && !self.read_line()? {
+            return Ok(None);
         }
 
         // when encountering comment start, ignore rest of the line

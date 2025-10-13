@@ -59,10 +59,10 @@ impl TexSvg {
     pub fn new() -> Self {
         // Create temporary file for writing in temporary directory
         fs::create_dir_all(TMP_DIRECTORY).unwrap();
-        let mut file = File::create(&format!("{TMP_DIRECTORY}/tmp.tex")).unwrap();
+        let mut file = File::create(format!("{TMP_DIRECTORY}/tmp.tex")).unwrap();
 
         // Write start of tex document to file
-        file.write(START_TEX_FILE.as_bytes()).unwrap();
+        file.write_all(START_TEX_FILE.as_bytes()).unwrap();
 
         Self {
             file,
@@ -74,7 +74,7 @@ impl TexSvg {
 
     pub fn feed(&mut self, data: &str) -> std::io::Result<()> {
         // Write data to file
-        self.file.write(data.as_bytes())?;
+        self.file.write_all(data.as_bytes())?;
 
         // Feed trimmed data to hasher (so that changing whitespace does not change hash)
         self.hasher.write(data.trim().as_bytes());
@@ -90,7 +90,7 @@ impl TexSvg {
     pub fn compile(mut self, target_directory: &str) -> Result<String, String> {
         // Write end of tex document to file
         self.file
-            .write(END_TEX_FILE.as_bytes())
+            .write_all(END_TEX_FILE.as_bytes())
             .or(Err("Failed to write to file"))?;
 
         // Use packages if flags are set
@@ -98,13 +98,13 @@ impl TexSvg {
             self.file
                 .seek(SeekFrom::Start(POSITION_USEPACKAGE_TIKZCD))
                 .or(Err("Failed to seek"))?;
-            self.file.write(&[b' ']).or(Err("Failed to write"))?; // Overwrite '%' with ' '
+            self.file.write_all(b" ").or(Err("Failed to write"))?; // Overwrite '%' with ' '
         }
         if self.use_quantikz {
             self.file
                 .seek(SeekFrom::Start(POSITION_USEPACKAGE_QUANTIKZ))
                 .or(Err("Failed to seek"))?;
-            self.file.write(&[b' ']).or(Err("Failed to write"))?; // Overwrite '%' with ' '
+            self.file.write_all(b" ").or(Err("Failed to write"))?; // Overwrite '%' with ' '
         }
 
         // Compute svg path from hash
@@ -120,10 +120,8 @@ impl TexSvg {
         if !Path::new(&path_to_svg).exists() {
             if let Err(err) = TexSvg::pdflatex() {
                 println!("\n{}: {err}", "Warning".yellow());
-            } else {
-                if let Err(err) = TexSvg::pdf2svg(&path_to_svg) {
-                    println!("\n{}: {err}", "Warning".yellow());
-                }
+            } else if let Err(err) = TexSvg::pdf2svg(&path_to_svg) {
+                println!("\n{}: {err}", "Warning".yellow());
             }
         }
 
@@ -146,12 +144,12 @@ impl TexSvg {
             Ok(output) => {
                 if output.status.code() != Some(0) {
                     println!("{}", String::from_utf8(output.stdout).unwrap());
-                    return Err("Failed to run `pdflatex`".to_owned());
+                    Err("Failed to run `pdflatex`".to_owned())
                 } else {
                     Ok(())
                 }
             }
-            Err(err) => Err(format!("Failed to run `pdflatex` ({})", err.to_string())),
+            Err(err) => Err(format!("Failed to run `pdflatex` ({})", err)),
         }
     }
 
@@ -167,7 +165,7 @@ impl TexSvg {
                     Ok(())
                 }
             }
-            Err(err) => Err(format!("Failed to run `pdf2svg` ({})", err.to_string())),
+            Err(err) => Err(format!("Failed to run `pdf2svg` ({})", err)),
         }
     }
 }
