@@ -654,3 +654,34 @@
 \begin{topic}{normal-matrix}{normal matrix}
     An $n \times n$ complex \tref{matrix}{matrix} $A$ is \textbf{normal} if $A A^H = A^H A$, where $A^H$ denotes the conjugate \tref{matrix-transpose}{transpose} of $A$.
 \end{topic}
+
+\begin{topic}{permanent}{permanent}
+    The \textbf{permanent} of an $n \times n$ \tref{matrix}{matrix} $A$ is the scalar given by
+    \[ \operatorname{perm}(A) = \sum_{\sigma \in S_n} \prod_{i = 1}^{n} a_{i, \sigma(i)} \]
+    where $S_n$ denotes the \tref{GT:symmetric-group}{symmetric group}.
+\end{topic}
+
+\begin{example}{permanent}
+    The permanent of a $2 \times 2$ matrix is given by
+    \[ \operatorname{perm} \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad + bc . \]
+    The permanent of a $3 \times 3$ matrix is given by
+    \[ \operatorname{perm} \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} = aei + bfg + cdh + ceg + bdi + afh . \]
+\end{example}
+
+\begin{topic}{immanant}{immanant}
+    Let $A$ be an $n \times n$ \tref{matrix}{matrix} and $\chi$ the \tref{RT:character-representation}{character} of a \tref{RT:representation}{representation} of the \tref{GT:symmetric-group}{symmetric group} $S_n$. The \textbf{immanant} of $A$ associated with $\chi$ is the scalar given by
+    \[ \operatorname{imm}_\chi(A) = \sum_{\sigma \in S_n} \chi(\sigma) \prod_{i = 1}^{n} a_{i, \sigma(i)} . \]
+\end{topic}
+
+\begin{example}{immanant}
+    \begin{itemize}
+        \item When $\chi$ is the trivial character, the immanant associated with $\chi$ is the \tref{permanent}{permanent}.
+        \item When $\chi$ is the \tref{RT:alternating-representation}{alternating} character, the immanant associated with $\chi$ is the \tref{determinant}{determinant}.
+    \end{itemize}
+\end{example}
+
+\begin{topic}{hafnian}{hafnian}
+    The \textbf{hafnian} of a $2n \times 2n$ \tref{symmetric-matrix}{symmetric matrix} $A$ is the scalar given by
+    \[ \operatorname{haf}(A) = \sum_{\rho \in P} \prod_{\{ i, j\} \in \rho} a_{i, j} \]
+    where $P$ is the set of all \tref{ST:partition}{partitions} of $\{ 1, \ldots, 2n \}$ into subsets of size $2$.
+\end{topic}
