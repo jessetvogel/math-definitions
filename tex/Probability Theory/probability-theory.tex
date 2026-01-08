@@ -148,3 +148,9 @@
     \[ \{ X_t \colon \Omega \to E \}_{t \in T} \]
     for some indexing set $T$.
 \end{topic}
+
+\begin{topic}{kurtosis}{kurtosis}
+    Let $(\Omega, \mathcal{A}, \PP)$ be a \tref{probability-space}{probability space} and $X \colon \Omega \to \RR$ a \tref{random-variable}{random variable}. The \textbf{kurtosis} of $X$ is
+    \[ \operatorname{Kurt}(X) = \EE \left( \left( \frac{X - \EE(X)}{\sqrt{\operatorname{Var}(X)}} \right)^4 \right) = \frac{\EE \left( \left( X - \EE(X) \right)^4 \right)}{\operatorname{Var}(X)^2} , \]
+    where $\EE(X)$ denotes the \tref{expected-value}{expected value} of $X$ and $\operatorname{Var}(X)$ the \tref{variance}{variance} of $X$.
+\end{topic}
